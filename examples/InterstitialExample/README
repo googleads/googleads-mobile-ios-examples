@@ -1,0 +1,8 @@
+========== iOS Interstitial Example ==========
+
+This example does not come bundled with the iOS Google AdMob Ads SDK. You must
+add the SDK library and header files into your application.  The SDK files can
+be downloaded from https://developers.google.com/mobile-ads-sdk/.
+
+You must also include you publisher ID from AdMob in order to successfully
+receive ads.  The publisher ID is defined in the app delegate implementation.
