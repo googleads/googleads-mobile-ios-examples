@@ -21,17 +21,15 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  // Note that the GADBannerView checks its frame size to determine what size
-  // creative to request.
+  // Initialize the banner at the bottom of the screen.
+  CGPoint origin = CGPointMake(0.0,
+                               self.view.frame.size.height -
+                               CGSizeFromGADAdSize(kGADAdSizeBanner).height);
 
-  // Initialize the banner off the screen so that it animates up when
-  // displaying.
-  CGRect frame = CGRectMake(0.0,
-                            self.view.frame.size.height,
-                            GAD_SIZE_320x50.width,
-                            GAD_SIZE_320x50.height);
-
-  self.adBanner = [[[GADBannerView alloc] initWithFrame:frame] autorelease];
+  // Use predefined GADAdSize constants to define the GADBannerView.
+  self.adBanner = [[[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner
+                                                  origin:origin]
+                    autorelease];
 
   // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID
   // before compiling.
@@ -64,19 +62,9 @@
 
 #pragma mark GADBannerViewDelegate impl
 
-// Since we've received an ad, let's go ahead and add it to the view.
+// We've received an ad successfully.
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
-  NSLog(@"Received ad");
-
-  // This code slides the banner up onto the screen with an animation.
-  [UIView animateWithDuration:1.0 animations:^ {
-    adView.frame = CGRectMake(0.0,
-                              self.view.frame.size.height -
-                              adView.frame.size.height,
-                              adView.frame.size.width,
-                              adView.frame.size.height);
-
-  }];
+  NSLog(@"Received ad successfully");
 }
 
 - (void)adView:(GADBannerView *)view

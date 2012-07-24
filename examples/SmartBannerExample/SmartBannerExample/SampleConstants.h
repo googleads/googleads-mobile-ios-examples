@@ -1,9 +1,8 @@
 //
 //  SampleConstants.h
-//  BannerExample
+//  SmartBannerExample
 //
-//  Copyright 2011 Google Inc. All rights reserved.
-//
+//  Copyright 2012 Google Inc. All rights reserved.
 //
 
 // You should define this for your account before compiling.
