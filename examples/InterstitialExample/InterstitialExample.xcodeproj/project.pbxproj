@@ -256,12 +256,8 @@
 				GCC_PREFIX_HEADER = InterstitialExample_Prefix.pch;
 				INFOPLIST_FILE = "InterstitialExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../NextGen\"",
-					"\"$(SRCROOT)/../../GoogleAdMobAdsSDK\"",
-					"\"$(SRCROOT)/../../GoogleAdsSDK\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = InterstitialExample;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -276,12 +272,8 @@
 				GCC_PREFIX_HEADER = InterstitialExample_Prefix.pch;
 				INFOPLIST_FILE = "InterstitialExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../NextGen\"",
-					"\"$(SRCROOT)/../../GoogleAdMobAdsSDK\"",
-					"\"$(SRCROOT)/../../GoogleAdsSDK\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = InterstitialExample;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

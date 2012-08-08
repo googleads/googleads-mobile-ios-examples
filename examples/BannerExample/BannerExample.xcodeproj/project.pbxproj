@@ -234,10 +234,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BannerExample_Prefix.pch;
 				INFOPLIST_FILE = "BannerExample-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../GoogleAdMobAdsSDK\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = BannerExample;
 			};
 			name = Debug;
@@ -250,10 +248,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BannerExample_Prefix.pch;
 				INFOPLIST_FILE = "BannerExample-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../GoogleAdMobAdsSDK\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = BannerExample;
 				VALIDATE_PRODUCT = YES;
 			};

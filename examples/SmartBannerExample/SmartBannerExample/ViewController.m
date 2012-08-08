@@ -91,11 +91,11 @@
   if (UIInterfaceOrientationIsLandscape(toInt)) {
     self.adBanner.adSize = kGADAdSizeSmartBannerLandscape;
     yLocation = self.view.frame.size.width -
-                CGSizeFromGADAdSize(kGADAdSizeSmartBannerLandscape).height
+                CGSizeFromGADAdSize(kGADAdSizeSmartBannerLandscape).height;
   } else {
     self.adBanner.adSize = kGADAdSizeSmartBannerPortrait;
     yLocation = self.view.frame.size.height -
-                CGSizeFromGADAdSize(kGADAdSizeSmartBannerPortrait).height);
+                CGSizeFromGADAdSize(kGADAdSizeSmartBannerPortrait).height;
   }
 
   CGRect frame = self.adBanner.frame;
