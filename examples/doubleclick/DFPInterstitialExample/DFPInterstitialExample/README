@@ -1,0 +1,40 @@
+========================================================================
+Copyright 2012 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+========================================================================
+
+========== iOS DFP Interstitial Example ==========
+
+This example does not come bundled with the iOS Google AdMob Ads SDK. You must
+add the SDK library and header files into your application. Be sure to also
+include the DFP specific headers from the Add-ons/DoubleClick directory of the
+download. The SDK files can be downloaded from
+https://developers.google.com/mobile-ads-sdk/.
+
+This project comes with 2 types of interstitials:
+  1. A splash screen interstitial.
+
+    The splash screen interstitial is initialized in the app delegate and
+    loaded using loadAndDisplayRequest:usingWindow:initialImage:. The initial
+    image gets displayed at app startup until the interstitial is loaded, at
+    which point the interstitial is automatically shown.
+
+  2. A regular interstitial.
+
+    In the main view controller, an intersitial is loaded when pushing the
+    load button, and shown when pushing the show button once the interstitial
+    has been loaded.
+
+You can change the value of kSampleAdUnitID in SampleConstants.h to use your
+own ad unit that serves interstitials.
