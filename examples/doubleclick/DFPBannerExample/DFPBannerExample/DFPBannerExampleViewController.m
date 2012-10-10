@@ -129,7 +129,6 @@
   [dfpBannerView_ loadRequest:[GADRequest request]];
 }
 
-
 #pragma mark GADBannerViewDelegate impl
 
 - (void)adViewDidReceiveAd:(DFPBannerView *)adView {
@@ -149,19 +148,19 @@
 
 // This method gets invoked when a DFPBannerView is about to change size.
 // Only a multiple-sized DFPBannerView should implement this method.
-- (void)willChangeAdSizeTo:(GADAdSize)size {
-  if (!GADAdSizeEqualToSize(dfpBannerView_.adSize, size)) {
-    NSLog(@"Changing ad size from %@ to %@",
-          NSStringFromGADAdSize(dfpBannerView_.adSize),
-          NSStringFromGADAdSize(size));
-  }
+- (void)adView:(DFPBannerView *)view willChangeAdSizeTo:(GADAdSize)size {
+  NSLog(@"Changing ad size from %@ to %@",
+        NSStringFromGADAdSize(view.adSize),
+        NSStringFromGADAdSize(size));
 }
 
 #pragma mark GADAppEventDelegate impl
 
 // Called when a DFP creative invokes an app event. This method only
 // needs to be implemented if your creative makes use of app events.
-- (void)didReceiveAppEvent:(NSString *)name withInfo:(NSString *)info {
+- (void)adView:(DFPBannerView *)banner
+    didReceiveAppEvent:(NSString *)name
+    withInfo:(NSString *)info {
   NSLog(@"Received app event (%@, %@)", name, info);
   // Checking for a "color" event name with information being a color.
   if ([name isEqualToString:@"color"]) {
