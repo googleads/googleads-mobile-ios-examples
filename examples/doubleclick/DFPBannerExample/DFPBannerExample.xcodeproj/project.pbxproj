@@ -17,6 +17,7 @@
 		CF4C7F8015C72D4000FCEE7B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F7F15C72D4000FCEE7B /* AudioToolbox.framework */; };
 		CF4C7F8215C72D4A00FCEE7B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F8115C72D4A00FCEE7B /* MessageUI.framework */; };
 		CF4C7F8415C72D5200FCEE7B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F8315C72D5200FCEE7B /* SystemConfiguration.framework */; };
+		CFD0219D162F21E300A073C6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD0219C162F21E300A073C6 /* StoreKit.framework */; };
 		CFD97250161E1599008EDD3A /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F7815C72CF000FCEE7B /* libGoogleAdMobAds.a */; };
 		CFD97252161E159E008EDD3A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD97251161E159E008EDD3A /* AdSupport.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		CF4C7F8115C72D4A00FCEE7B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CF4C7F8315C72D5200FCEE7B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CF4C7F8515C7329800FCEE7B /* SampleConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleConstants.h; sourceTree = "<group>"; };
+		CFD0219C162F21E300A073C6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CFD97251161E159E008EDD3A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD0219D162F21E300A073C6 /* StoreKit.framework in Frameworks */,
 				CFD97252161E159E008EDD3A /* AdSupport.framework in Frameworks */,
 				CFD97250161E1599008EDD3A /* libGoogleAdMobAds.a in Frameworks */,
 				CF4C7F8415C72D5200FCEE7B /* SystemConfiguration.framework in Frameworks */,
@@ -79,6 +82,7 @@
 		CF4C7F4215C72BD600FCEE7B = {
 			isa = PBXGroup;
 			children = (
+				CFD0219C162F21E300A073C6 /* StoreKit.framework */,
 				CFD97251161E159E008EDD3A /* AdSupport.framework */,
 				CF4C7F8315C72D5200FCEE7B /* SystemConfiguration.framework */,
 				CF4C7F8115C72D4A00FCEE7B /* MessageUI.framework */,
