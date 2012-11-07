@@ -105,11 +105,6 @@
 		CF4C7F8A15CADFB400FCEE7B = {
 			isa = PBXGroup;
 			children = (
-				CF0AB386162F2380006355A4 /* StoreKit.framework */,
-				CF2786FA161E112400F738F9 /* AdSupport.framework */,
-				CF8157F615D0714F007A3707 /* SystemConfiguration.framework */,
-				CF8157F415D07147007A3707 /* MessageUI.framework */,
-				CF8157F215D07139007A3707 /* AudioToolbox.framework */,
 				CF4C7F9F15CADFB400FCEE7B /* DFPInterstitialExample */,
 				CF4C7FB615CAE15A00FCEE7B /* Google AdMob Ads SDK */,
 				CF4C7F9815CADFB400FCEE7B /* Frameworks */,
@@ -128,6 +123,11 @@
 		CF4C7F9815CADFB400FCEE7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF0AB386162F2380006355A4 /* StoreKit.framework */,
+				CF2786FA161E112400F738F9 /* AdSupport.framework */,
+				CF8157F615D0714F007A3707 /* SystemConfiguration.framework */,
+				CF8157F415D07147007A3707 /* MessageUI.framework */,
+				CF8157F215D07139007A3707 /* AudioToolbox.framework */,
 				CF4C7F9915CADFB400FCEE7B /* UIKit.framework */,
 				CF4C7F9B15CADFB400FCEE7B /* Foundation.framework */,
 				CF4C7F9D15CADFB400FCEE7B /* CoreGraphics.framework */,

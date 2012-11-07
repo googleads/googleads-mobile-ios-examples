@@ -418,7 +418,6 @@
 		900A29F8158BB96600527176 = {
 			isa = PBXGroup;
 			children = (
-				CF6D954D162F63470087D7B8 /* StoreKit.framework */,
 				900A2B78158BB98800527176 /* GoogleAdMobAdsSDK */,
 				900A2A17158BB96600527176 /* Cocos2dExample */,
 				900A2A06158BB96600527176 /* Frameworks */,
@@ -437,6 +436,7 @@
 		900A2A06158BB96600527176 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF6D954D162F63470087D7B8 /* StoreKit.framework */,
 				90A1B4C01613D03A008819C3 /* AdSupport.framework */,
 				900A2B8F158BB9C500527176 /* MessageUI.framework */,
 				900A2B8D158BB9BE00527176 /* SystemConfiguration.framework */,

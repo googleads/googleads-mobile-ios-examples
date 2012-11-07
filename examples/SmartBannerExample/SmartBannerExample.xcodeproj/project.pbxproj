@@ -84,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				CFC9049A162F4C2C005E4EE9 /* GoogleAdMobAdsSDK */,
-				CFC90496162F3726005E4EE9 /* StoreKit.framework */,
 				9037E913153E3ACA00141E45 /* SmartBannerExample */,
 				9037E90C153E3ACA00141E45 /* Frameworks */,
 				9037E90A153E3ACA00141E45 /* Products */,
@@ -102,6 +101,7 @@
 		9037E90C153E3ACA00141E45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFC90496162F3726005E4EE9 /* StoreKit.framework */,
 				90A1B4691613986D008819C3 /* AdSupport.framework */,
 				9037E945153E3E5100141E45 /* SystemConfiguration.framework */,
 				9037E943153E3E4A00141E45 /* MessageUI.framework */,

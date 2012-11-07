@@ -13,6 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#import <AdSupport/ASIdentifierManager.h>
+
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
@@ -25,6 +27,16 @@
 @synthesize window = window_;
 
 - (void)applicationDidFinishLaunching:(UIApplication*)application {
+  // Print IDFA (from AdSupport Framework) for iOS 6 and UDID for iOS < 6.
+  if (NSClassFromString(@"ASIdentifierManager")) {
+    NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
+              [[[ASIdentifierManager sharedManager]
+                  advertisingIdentifier] UUIDString]);
+  } else {
+    NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
+              [[UIDevice currentDevice] uniqueIdentifier]);
+  }
+
   // Init the window.
   window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   // Try to use CADisplayLink director.

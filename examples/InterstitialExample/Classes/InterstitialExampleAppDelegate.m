@@ -5,6 +5,8 @@
 //  Copyright 2011 Google Inc. All rights reserved.
 //
 
+#import <AdSupport/ASIdentifierManager.h>
+
 #import "InterstitialExampleAppDelegate.h"
 
 #define INTERSTITIAL_AD_UNIT_ID @"MY_INTERSTITIAL_AD_UNIT_ID"
@@ -16,7 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [self.window addSubview:mainController_.view];
+
+  // Print IDFA (from AdSupport Framework) for iOS 6 and UDID for iOS < 6.
+  if (NSClassFromString(@"ASIdentifierManager")) {
+    NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
+              [[[ASIdentifierManager sharedManager]
+                  advertisingIdentifier] UUIDString]);
+  } else {
+    NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
+              [[UIDevice currentDevice] uniqueIdentifier]);
+  }
+
+  [self.window setRootViewController:mainController_];
   [self.window makeKeyAndVisible];
 
   splashInterstitial_ = [[GADInterstitial alloc] init];
@@ -24,10 +37,7 @@
   splashInterstitial_.adUnitID = self.interstitialAdUnitID;
   splashInterstitial_.delegate = self;
 
-  GADRequest *request = [GADRequest request];
-  request.testing = YES;
-
-  [splashInterstitial_ loadAndDisplayRequest:request
+  [splashInterstitial_ loadAndDisplayRequest:[self createRequest]
                        usingWindow:self.window
                        initialImage:[UIImage imageNamed:@"InitialImage"]];
   return YES;
@@ -47,6 +57,24 @@
 // placement would have a distinct unit ID.
 - (NSString *)interstitialAdUnitID {
   return INTERSTITIAL_AD_UNIT_ID;
+}
+
+#pragma mark GADRequest generation
+
+// Here we're creating a simple GADRequest and whitelisting the application
+// for test ads. You should request test ads during development to avoid
+// generating invalid impressions and clicks.
+- (GADRequest *)createRequest {
+  GADRequest *request = [GADRequest request];
+
+  // Make the request for a test ad. Put in an identifier for the simulator as
+  // well as any devices you want to receive test ads.
+  request.testDevices =
+      [NSArray arrayWithObjects:
+          // TODO: Add your device/simulator test identifiers here. They are
+          // printed to the console when the app is launched.
+          nil];
+  return request;
 }
 
 @end

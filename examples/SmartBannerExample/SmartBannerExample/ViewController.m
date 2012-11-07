@@ -21,16 +21,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  // Initialize the banner docked to the bottom of the screen.
-  CGPoint origin = CGPointMake(0.0,
-                               self.view.frame.size.height -
-                               CGSizeFromGADAdSize(
-                                   kGADAdSizeSmartBannerPortrait).height);
-
   self.adBanner = [[[GADBannerView alloc]
-                    initWithAdSize:kGADAdSizeSmartBannerPortrait
-                            origin:origin] autorelease];
+                    initWithAdSize:kGADAdSizeSmartBannerPortrait] autorelease];
 
+  // Need to set this to no since we're creating this custom view.
+  self.adBanner.translatesAutoresizingMaskIntoConstraints = NO;
 
   // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID
   // before compiling.
@@ -39,6 +34,23 @@
   [self.adBanner setRootViewController:self];
   [self.view addSubview:self.adBanner];
   [self.adBanner loadRequest:[self createRequest]];
+
+  [self.view addConstraint:
+     [NSLayoutConstraint constraintWithItem:self.adBanner
+                                  attribute:NSLayoutAttributeBottom
+                                  relatedBy:NSLayoutRelationEqual
+                                     toItem:self.view
+                                  attribute:NSLayoutAttributeBottom
+                                 multiplier:1.0
+                                   constant:0]];
+  [self.view addConstraint:
+     [NSLayoutConstraint constraintWithItem:self.adBanner
+                                  attribute:NSLayoutAttributeCenterX
+                                  relatedBy:NSLayoutRelationEqual
+                                     toItem:self.view
+                                  attribute:NSLayoutAttributeCenterX
+                                 multiplier:1.0
+                                   constant:0]];
 }
 
 - (void)dealloc {
@@ -55,10 +67,13 @@
 - (GADRequest *)createRequest {
   GADRequest *request = [GADRequest request];
 
-  // Make the request for a test ad. Remember to turn this flag off when you
-  // want to receive real ads.
-  request.testing = YES;
-
+  // Make the request for a test ad. Put in an identifier for the simulator as
+  // well as any devices you want to receive test ads.
+  request.testDevices =
+      [NSArray arrayWithObjects:
+          // TODO: Add your device/simulator test identifiers here. They are
+          // printed to the console when the app is launched.
+          nil];
   return request;
 }
 
@@ -76,30 +91,16 @@
 
 #pragma mark Smart Banner implementation
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orient {
-  // Return YES for supported orientations
-  return YES;
+- (NSUInteger)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskAll;
 }
 
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInt
-                                        duration:(NSTimeInterval)duration {
-  // The updated y value for the origin
-  CGFloat yLocation;
-
-  // Set a new frame to update the origin on orientation change. Remember to set
-  // adSize first before you update the frame.
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInt
+                               duration:(NSTimeInterval)duration {
   if (UIInterfaceOrientationIsLandscape(toInt)) {
     self.adBanner.adSize = kGADAdSizeSmartBannerLandscape;
-    yLocation = self.view.frame.size.width -
-                CGSizeFromGADAdSize(kGADAdSizeSmartBannerLandscape).height;
   } else {
     self.adBanner.adSize = kGADAdSizeSmartBannerPortrait;
-    yLocation = self.view.frame.size.height -
-                CGSizeFromGADAdSize(kGADAdSizeSmartBannerPortrait).height;
   }
-
-  CGRect frame = self.adBanner.frame;
-  frame.origin = CGPointMake(0.0, yLocation);
-  self.adBanner.frame = frame;
 }
 @end
