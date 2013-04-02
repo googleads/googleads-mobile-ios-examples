@@ -5,8 +5,6 @@
 //  Copyright 2011 Google Inc. All rights reserved.
 //
 
-#import <AdSupport/ASIdentifierManager.h>
-
 #import "BannerExampleAppDelegate.h"
 #import "BannerExampleViewController.h"
 
@@ -23,15 +21,6 @@
 
   // Override point for customization after application launch.
 
-  // Print IDFA (from AdSupport Framework) for iOS 6 and UDID for iOS < 6.
-  if (NSClassFromString(@"ASIdentifierManager")) {
-    NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
-              [[[ASIdentifierManager sharedManager]
-                  advertisingIdentifier] UUIDString]);
-  } else {
-    NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
-              [[UIDevice currentDevice] uniqueIdentifier]);
-  }
   // Add the view controller's view to the window and display.
   [self.window setRootViewController:self.viewController];
   [self.window makeKeyAndVisible];
