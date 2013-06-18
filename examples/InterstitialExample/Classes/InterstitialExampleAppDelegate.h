@@ -25,4 +25,6 @@
 
 @property(nonatomic, readonly) NSString *interstitialAdUnitID;
 
+- (GADRequest *)createRequest;
+
 @end

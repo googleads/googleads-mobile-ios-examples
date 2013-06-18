@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0AB387162F2380006355A4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0AB386162F2380006355A4 /* StoreKit.framework */; };
 		CF2786F9161E10F900F738F9 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2786F7161E10E500F738F9 /* libGoogleAdMobAds.a */; };
 		CF2786FB161E112400F738F9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2786FA161E112400F738F9 /* AdSupport.framework */; };
 		CF4C7F9A15CADFB400FCEE7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F9915CADFB400FCEE7B /* UIKit.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF0AB386162F2380006355A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CF2786E9161E10E500F738F9 /* DFPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPBannerView.h; sourceTree = "<group>"; };
 		CF2786EA161E10E500F738F9 /* DFPExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPExtras.h; sourceTree = "<group>"; };
 		CF2786EB161E10E500F738F9 /* DFPInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPInterstitial.h; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0AB387162F2380006355A4 /* StoreKit.framework in Frameworks */,
 				CF2786FB161E112400F738F9 /* AdSupport.framework in Frameworks */,
 				CF2786F9161E10F900F738F9 /* libGoogleAdMobAds.a in Frameworks */,
 				CF8157F715D0714F007A3707 /* SystemConfiguration.framework in Frameworks */,
@@ -102,10 +105,6 @@
 		CF4C7F8A15CADFB400FCEE7B = {
 			isa = PBXGroup;
 			children = (
-				CF2786FA161E112400F738F9 /* AdSupport.framework */,
-				CF8157F615D0714F007A3707 /* SystemConfiguration.framework */,
-				CF8157F415D07147007A3707 /* MessageUI.framework */,
-				CF8157F215D07139007A3707 /* AudioToolbox.framework */,
 				CF4C7F9F15CADFB400FCEE7B /* DFPInterstitialExample */,
 				CF4C7FB615CAE15A00FCEE7B /* Google AdMob Ads SDK */,
 				CF4C7F9815CADFB400FCEE7B /* Frameworks */,
@@ -124,6 +123,11 @@
 		CF4C7F9815CADFB400FCEE7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF0AB386162F2380006355A4 /* StoreKit.framework */,
+				CF2786FA161E112400F738F9 /* AdSupport.framework */,
+				CF8157F615D0714F007A3707 /* SystemConfiguration.framework */,
+				CF8157F415D07147007A3707 /* MessageUI.framework */,
+				CF8157F215D07139007A3707 /* AudioToolbox.framework */,
 				CF4C7F9915CADFB400FCEE7B /* UIKit.framework */,
 				CF4C7F9B15CADFB400FCEE7B /* Foundation.framework */,
 				CF4C7F9D15CADFB400FCEE7B /* CoreGraphics.framework */,

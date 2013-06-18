@@ -1,6 +1,7 @@
-========== iOS Smart Banner Example ==========
+========== iOS AutoLayout Smart Banner Example ==========
 
-This example does not come bundled with the iOS Google AdMob Ads SDK. You must
+This example does not come bundled with the iOS Google AdMob Ads SDK. This
+example uses AutoLayout, a feature that works only with iOS 6. You must
 add the SDK library and header files into your application.  The SDK files can
 be downloaded from https://developers.google.com/mobile-ads-sdk/.
 

@@ -47,15 +47,12 @@
 
   // Note: Edit InterstitialExampleAppDelegate.m to update
   // INTERSTITIAL_AD_UNIT_ID with your interstitial ad unit id.
-  self.interstitial.adUnitID = ((InterstitialExampleAppDelegate *)
-                                [UIApplication sharedApplication].delegate).
-                                  interstitialAdUnitID;
+  InterstitialExampleAppDelegate *appDelegate =
+      (InterstitialExampleAppDelegate *)
+          [UIApplication sharedApplication].delegate;
+  self.interstitial.adUnitID = appDelegate.interstitialAdUnitID;
 
-  GADRequest *request = [GADRequest request];
-  // Here we're setting test mode for the simulator.
-  request.testing = YES;
-
-  [self.interstitial loadRequest: request];
+  [self.interstitial loadRequest: [appDelegate createRequest]];
   interstitialButton_.enabled = NO;
 }
 
