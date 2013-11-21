@@ -9,13 +9,9 @@
 
 @class BannerExampleViewController;
 
-@interface BannerExampleAppDelegate : NSObject <UIApplicationDelegate> {
-  UIWindow *window_;
-  BannerExampleViewController *viewController_;
-}
+@interface BannerExampleAppDelegate : NSObject<UIApplicationDelegate>
 
-@property(nonatomic, retain) IBOutlet UIWindow *window;
-@property(nonatomic, retain) IBOutlet BannerExampleViewController
-  *viewController;
+@property(nonatomic, weak) IBOutlet UIWindow *window;
+@property(nonatomic, weak) IBOutlet BannerExampleViewController *viewController;
 
 @end

@@ -5,18 +5,15 @@
 //  Copyright 2011 Google Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "GADBannerViewDelegate.h"
 
-@class GADBannerView, GADRequest;
+@class GADBannerView;
+@class GADRequest;
 
-@interface BannerExampleViewController : UIViewController
-    <GADBannerViewDelegate> {
-  GADBannerView *adBanner_;
-}
+@interface BannerExampleViewController : UIViewController<GADBannerViewDelegate>
 
-@property (nonatomic, retain) GADBannerView *adBanner;
+@property(nonatomic, strong) GADBannerView *adBanner;
 
-- (GADRequest *)createRequest;
+- (GADRequest *)request;
 
 @end

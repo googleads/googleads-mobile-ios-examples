@@ -24,6 +24,7 @@
 		90A1B48016139B7D008819C3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A1B47F16139B7D008819C3 /* Default-568h@2x.png */; };
 		CF4B68AF162F25E3009C3DEB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4B68AE162F25E3009C3DEB /* StoreKit.framework */; };
 		CF4B68B6162F2935009C3DEB /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A1B47B16139B56008819C3 /* libGoogleAdMobAds.a */; };
+		CFF4F568183D35D600C476FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF4F567183D35D600C476FC /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		90A1B47D16139B74008819C3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		90A1B47F16139B7D008819C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CF4B68AE162F25E3009C3DEB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CFF4F567183D35D600C476FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF4F568183D35D600C476FC /* AVFoundation.framework in Frameworks */,
 				CF4B68B6162F2935009C3DEB /* libGoogleAdMobAds.a in Frameworks */,
 				CF4B68AF162F25E3009C3DEB /* StoreKit.framework in Frameworks */,
 				90A1B47E16139B74008819C3 /* AdSupport.framework in Frameworks */,
@@ -157,6 +160,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFF4F567183D35D600C476FC /* AVFoundation.framework */,
 				CF4B68AE162F25E3009C3DEB /* StoreKit.framework */,
 				90A1B47D16139B74008819C3 /* AdSupport.framework */,
 				6B8B483E12E0FE2900EE85B8 /* AudioToolbox.framework */,
@@ -195,6 +199,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BannerExample" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -246,13 +252,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BannerExample_Prefix.pch;
 				INFOPLIST_FILE = "BannerExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
@@ -266,11 +273,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BannerExample_Prefix.pch;
 				INFOPLIST_FILE = "BannerExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
