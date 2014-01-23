@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF34CCE91889E4770038C782 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF34CCE81889E4770038C782 /* AVFoundation.framework */; };
 		CF4C7F5215C72BD600FCEE7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F5115C72BD600FCEE7B /* UIKit.framework */; };
 		CF4C7F5415C72BD600FCEE7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F5315C72BD600FCEE7B /* Foundation.framework */; };
 		CF4C7F5615C72BD600FCEE7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C7F5515C72BD600FCEE7B /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF34CCE81889E4770038C782 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CF4C7F4D15C72BD600FCEE7B /* DFPBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DFPBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF4C7F5115C72BD600FCEE7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CF4C7F5315C72BD600FCEE7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF34CCE91889E4770038C782 /* AVFoundation.framework in Frameworks */,
 				CFD0219D162F21E300A073C6 /* StoreKit.framework in Frameworks */,
 				CFD97252161E159E008EDD3A /* AdSupport.framework in Frameworks */,
 				CFD97250161E1599008EDD3A /* libGoogleAdMobAds.a in Frameworks */,
@@ -100,6 +103,7 @@
 		CF4C7F5015C72BD600FCEE7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF34CCE81889E4770038C782 /* AVFoundation.framework */,
 				CFD0219C162F21E300A073C6 /* StoreKit.framework */,
 				CFD97251161E159E008EDD3A /* AdSupport.framework */,
 				CF4C7F8315C72D5200FCEE7B /* SystemConfiguration.framework */,
