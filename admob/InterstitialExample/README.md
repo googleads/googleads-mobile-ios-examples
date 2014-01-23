@@ -1,4 +1,5 @@
-========== iOS Interstitial Example ==========
+iOS Interstitial Example
+=========================
 
 This example does not come bundled with the iOS Google AdMob Ads SDK. You must
 add the SDK library and header files into your application.  The SDK files can
