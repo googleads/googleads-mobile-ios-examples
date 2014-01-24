@@ -9,20 +9,20 @@ Samples
 =======
 Admob
 -----
-* [Banner Example](https://github.com/googleads/googleads-mobile-ios/tree/master/admob/BannerExample)
-* [Smart Banner Example](https://github.com/googleads/googleads-mobile-ios/tree/master/admob/SmartBannerExample)
-* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios/tree/master/admob/InterstitialExample)
-* [Cocos2d Example](https://github.com/googleads/googleads-mobile-ios/tree/master/admob/Cocos2dExample)
+* [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/BannerExample)
+* [Smart Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/SmartBannerExample)
+* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/InterstitialExample)
+* [Cocos2d Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/Cocos2dExample)
 
 Doubleclick
 -----------
-* [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios/tree/master/doubleclick)
-* [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios/tree/master/doubleclick/DFPInterstitialExample)
-* [DFP Manual Impressions Example](https://github.com/googleads/googleads-mobile-ios/tree/master/doubleclick/DFPManualImpressionsExample)
+* [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick)
+* [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick/DFPInterstitialExample)
+* [DFP Manual Impressions Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick/DFPManualImpressionsExample)
 
 Downloads
 =========
-Please check out our [releases](https://github.com/googleads/googleads-mobile-ios/releases) for the latest downloads for the different sample apps.
+Please check out our [releases](https://github.com/googleads/googleads-mobile-ios-examples/releases) for the latest downloads for the different sample apps.
 
 Documentation
 ==============
@@ -30,7 +30,7 @@ Check out our [developers site](https://developers.google.com/mobile-ads-sdk/) f
 
 Suggesting improvements
 =======================
-To file bugs, make feature requests, or to suggest other improvements, please use [github's issue tracker](https://github.com/googleads/googleads-mobile-ios/issues).
+To file bugs, make feature requests, or to suggest other improvements, please use [github's issue tracker](https://github.com/googleads/googleads-mobile-ios-examples/issues).
 
 License
 =======
