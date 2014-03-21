@@ -18,6 +18,7 @@
 		CF4C7FAA15CADFB800FCEE7B /* DFPInterstitialExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4C7FA915CADFB800FCEE7B /* DFPInterstitialExampleAppDelegate.m */; };
 		CF4C7FAD15CADFB800FCEE7B /* DFPInterstitialExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4C7FAC15CADFB800FCEE7B /* DFPInterstitialExampleViewController.m */; };
 		CF4C7FB015CADFB800FCEE7B /* DFPInterstitialExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4C7FAE15CADFB800FCEE7B /* DFPInterstitialExampleViewController.xib */; };
+		CF4E1AFB18B6817C00833E85 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4E1AFA18B6817C00833E85 /* CoreTelephony.framework */; };
 		CF8157F015D07021007A3707 /* InitialImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF8157EF15D07021007A3707 /* InitialImage.png */; };
 		CF8157F315D07139007A3707 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8157F215D07139007A3707 /* AudioToolbox.framework */; };
 		CF8157F515D07147007A3707 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8157F415D07147007A3707 /* MessageUI.framework */; };
@@ -59,6 +60,7 @@
 		CF4C7FAC15CADFB800FCEE7B /* DFPInterstitialExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFPInterstitialExampleViewController.m; sourceTree = "<group>"; };
 		CF4C7FAF15CADFB800FCEE7B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DFPInterstitialExampleViewController.xib; sourceTree = "<group>"; };
 		CF4C7FC715CAE4BB00FCEE7B /* SampleContants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleContants.h; sourceTree = "<group>"; };
+		CF4E1AFA18B6817C00833E85 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		CF8157EF15D07021007A3707 /* InitialImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InitialImage.png; sourceTree = "<group>"; };
 		CF8157F215D07139007A3707 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CF8157F415D07147007A3707 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF4E1AFB18B6817C00833E85 /* CoreTelephony.framework in Frameworks */,
 				CF34CDCC1889EC020038C782 /* libGoogleAdMobAds.a in Frameworks */,
 				CF34CDCB1889EBEC0038C782 /* AVFoundation.framework in Frameworks */,
 				CF0AB387162F2380006355A4 /* StoreKit.framework in Frameworks */,
@@ -130,6 +133,7 @@
 		CF4C7F9815CADFB400FCEE7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF4E1AFA18B6817C00833E85 /* CoreTelephony.framework */,
 				CF34CDCA1889EBEC0038C782 /* AVFoundation.framework */,
 				CF0AB386162F2380006355A4 /* StoreKit.framework */,
 				CF2786FA161E112400F738F9 /* AdSupport.framework */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF4E1AFD18B681D100833E85 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4E1AFC18B681D100833E85 /* CoreTelephony.framework */; };
 		CF7278A41766776D00CB4D73 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7278A31766776D00CB4D73 /* AdSupport.framework */; };
 		CF7278A61766777300CB4D73 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7278A51766777300CB4D73 /* StoreKit.framework */; };
 		CF7278A81766778300CB4D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7278A71766778300CB4D73 /* SystemConfiguration.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF4E1AFC18B681D100833E85 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		CF7278A31766776D00CB4D73 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CF7278A51766777300CB4D73 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CF7278A71766778300CB4D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF4E1AFD18B681D100833E85 /* CoreTelephony.framework in Frameworks */,
 				CFE7B36D188EFA5000462C21 /* AVFoundation.framework in Frameworks */,
 				CF7278AC1766778F00CB4D73 /* AudioToolbox.framework in Frameworks */,
 				CF7278AA1766778800CB4D73 /* MessageUI.framework in Frameworks */,
@@ -127,6 +130,7 @@
 		CF8339ED175FB10300B41105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF4E1AFC18B681D100833E85 /* CoreTelephony.framework */,
 				CFE7B36C188EFA5000462C21 /* AVFoundation.framework */,
 				CF7278A91766778800CB4D73 /* MessageUI.framework */,
 				CF7278A71766778300CB4D73 /* SystemConfiguration.framework */,

@@ -22,6 +22,7 @@
 		6B8B483F12E0FE2900EE85B8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8B483E12E0FE2900EE85B8 /* AudioToolbox.framework */; };
 		90A1B47E16139B74008819C3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A1B47D16139B74008819C3 /* AdSupport.framework */; };
 		90A1B48016139B7D008819C3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A1B47F16139B7D008819C3 /* Default-568h@2x.png */; };
+		CF3523F518A2F9C8002E66C0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3523F418A2F9C8002E66C0 /* CoreTelephony.framework */; };
 		CF4B68AF162F25E3009C3DEB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4B68AE162F25E3009C3DEB /* StoreKit.framework */; };
 		CF4B68B6162F2935009C3DEB /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A1B47B16139B56008819C3 /* libGoogleAdMobAds.a */; };
 		CFF4F568183D35D600C476FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF4F567183D35D600C476FC /* AVFoundation.framework */; };
@@ -59,6 +60,7 @@
 		90A1B47B16139B56008819C3 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = GoogleAdMobAdsSDK/libGoogleAdMobAds.a; sourceTree = SOURCE_ROOT; };
 		90A1B47D16139B74008819C3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		90A1B47F16139B7D008819C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CF3523F418A2F9C8002E66C0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		CF4B68AE162F25E3009C3DEB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CFF4F567183D35D600C476FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3523F518A2F9C8002E66C0 /* CoreTelephony.framework in Frameworks */,
 				CFF4F568183D35D600C476FC /* AVFoundation.framework in Frameworks */,
 				CF4B68B6162F2935009C3DEB /* libGoogleAdMobAds.a in Frameworks */,
 				CF4B68AF162F25E3009C3DEB /* StoreKit.framework in Frameworks */,
@@ -160,6 +163,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF3523F418A2F9C8002E66C0 /* CoreTelephony.framework */,
 				CFF4F567183D35D600C476FC /* AVFoundation.framework */,
 				CF4B68AE162F25E3009C3DEB /* StoreKit.framework */,
 				90A1B47D16139B74008819C3 /* AdSupport.framework */,
