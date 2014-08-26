@@ -1,0 +1,24 @@
+//  Copyright (c) 2014 Google. All rights reserved.
+
+#import "ViewController.h"
+
+#import "DFPBannerView.h"
+#import "GADRequest.h"
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
+  // Replace this ad unit ID with your own ad unit ID.
+  self.bannerView.adUnitID = @"/6499/example/banner";
+  self.bannerView.rootViewController = self;
+  [self.bannerView loadRequest:[GADRequest request]];
+}
+
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+@end
