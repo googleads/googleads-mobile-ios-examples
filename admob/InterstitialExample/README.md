@@ -1,9 +1,26 @@
 iOS Interstitial Example
-=========================
+========================
+This is a minimal example showing how to place an interstitial ad into an iOS
+application.
 
-This example does not come bundled with the iOS Google AdMob Ads SDK. You must
-add the SDK library and header files into your application.  The SDK files can
-be downloaded from https://developers.google.com/mobile-ads-sdk/.
+This example does not come bundled with the iOS Google Mobile Ads SDK, but is
+compatible with Cocoapods and includes a Podfile. We recommend using Cocoapods
+to reference the SDK. You can do this by running:
 
-You must also include you publisher ID from AdMob in order to successfully
-receive ads.  The publisher ID is defined in the app delegate implementation.
+`pod update`
+
+If you don't have Cocoapods installed, visit
+http://guides.cocoapods.org/using/getting-started.html#toc_3 to get started.
+
+After running pod update, Cocoapods creates a .xcworkspace that you can open
+and run.
+
+Replace Your Ad Unit ID
+-----------------------
+This example comes with a preconfigured ad unit ID. You should create an ad
+unit ID on http://apps.admob.com and use that ad unit ID in your own apps.
+
+Additional Resources
+--------------------
+* [Developer documentation](https://developers.google.com/mobile-ads-sdk)
+* [Developer forum](groups.google.com/group/google-admob-ads-sdk)
