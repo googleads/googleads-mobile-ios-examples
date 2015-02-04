@@ -12,25 +12,7 @@
 		CF12E28A19A6C783001EB38A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF12E28919A6C783001EB38A /* ViewController.m */; };
 		CF12E28D19A6C783001EB38A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF12E28B19A6C783001EB38A /* Main.storyboard */; };
 		CF12E28F19A6C783001EB38A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF12E28E19A6C783001EB38A /* Images.xcassets */; };
-		CFAC686719A6E33F009FA608 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC686619A6E33F009FA608 /* SystemConfiguration.framework */; };
-		CFAC686919A6E34C009FA608 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC686819A6E34C009FA608 /* StoreKit.framework */; };
-		CFAC686B19A6E351009FA608 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC686A19A6E351009FA608 /* MessageUI.framework */; };
-		CFAC686D19A6E35B009FA608 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC686C19A6E35B009FA608 /* CoreTelephony.framework */; };
-		CFAC686F19A6E360009FA608 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC686E19A6E360009FA608 /* CoreGraphics.framework */; };
-		CFAC687119A6E36B009FA608 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC687019A6E36B009FA608 /* AVFoundation.framework */; };
-		CFAC687319A6E375009FA608 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC687219A6E375009FA608 /* AudioToolbox.framework */; };
-		CFAC687519A6E37A009FA608 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC687419A6E37A009FA608 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CF12E29519A6C783001EB38A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CF12E27619A6C783001EB38A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CF12E27D19A6C783001EB38A;
-			remoteInfo = DFPBannerExample;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CF12E27E19A6C783001EB38A /* DFPBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DFPBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,34 +24,10 @@
 		CF12E28919A6C783001EB38A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF12E28C19A6C783001EB38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF12E28E19A6C783001EB38A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CF12E29419A6C783001EB38A /* DFPBannerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DFPBannerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFAC686619A6E33F009FA608 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CFAC686819A6E34C009FA608 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		CFAC686A19A6E351009FA608 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		CFAC686C19A6E35B009FA608 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		CFAC686E19A6E360009FA608 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CFAC687019A6E36B009FA608 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		CFAC687219A6E375009FA608 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		CFAC687419A6E37A009FA608 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CF12E27B19A6C783001EB38A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFAC687519A6E37A009FA608 /* AdSupport.framework in Frameworks */,
-				CFAC687319A6E375009FA608 /* AudioToolbox.framework in Frameworks */,
-				CFAC687119A6E36B009FA608 /* AVFoundation.framework in Frameworks */,
-				CFAC686F19A6E360009FA608 /* CoreGraphics.framework in Frameworks */,
-				CFAC686D19A6E35B009FA608 /* CoreTelephony.framework in Frameworks */,
-				CFAC686B19A6E351009FA608 /* MessageUI.framework in Frameworks */,
-				CFAC686919A6E34C009FA608 /* StoreKit.framework in Frameworks */,
-				CFAC686719A6E33F009FA608 /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF12E29119A6C783001EB38A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				CF12E28019A6C783001EB38A /* DFPBannerExample */,
-				CFAC686519A6E30D009FA608 /* Frameworks */,
 				CF12E27F19A6C783001EB38A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				CF12E27E19A6C783001EB38A /* DFPBannerExample.app */,
-				CF12E29419A6C783001EB38A /* DFPBannerExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,21 +76,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CFAC686519A6E30D009FA608 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CFAC687419A6E37A009FA608 /* AdSupport.framework */,
-				CFAC687219A6E375009FA608 /* AudioToolbox.framework */,
-				CFAC687019A6E36B009FA608 /* AVFoundation.framework */,
-				CFAC686E19A6E360009FA608 /* CoreGraphics.framework */,
-				CFAC686C19A6E35B009FA608 /* CoreTelephony.framework */,
-				CFAC686A19A6E351009FA608 /* MessageUI.framework */,
-				CFAC686819A6E34C009FA608 /* StoreKit.framework */,
-				CFAC686619A6E33F009FA608 /* SystemConfiguration.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,24 +96,6 @@
 			productReference = CF12E27E19A6C783001EB38A /* DFPBannerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CF12E29319A6C783001EB38A /* DFPBannerExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CF12E2A119A6C783001EB38A /* Build configuration list for PBXNativeTarget "DFPBannerExampleTests" */;
-			buildPhases = (
-				CF12E29019A6C783001EB38A /* Sources */,
-				CF12E29119A6C783001EB38A /* Frameworks */,
-				CF12E29219A6C783001EB38A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CF12E29619A6C783001EB38A /* PBXTargetDependency */,
-			);
-			name = DFPBannerExampleTests;
-			productName = DFPBannerExampleTests;
-			productReference = CF12E29419A6C783001EB38A /* DFPBannerExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,10 +107,6 @@
 				TargetAttributes = {
 					CF12E27D19A6C783001EB38A = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					CF12E29319A6C783001EB38A = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = CF12E27D19A6C783001EB38A;
 					};
 				};
 			};
@@ -205,7 +124,6 @@
 			projectRoot = "";
 			targets = (
 				CF12E27D19A6C783001EB38A /* DFPBannerExample */,
-				CF12E29319A6C783001EB38A /* DFPBannerExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -217,13 +135,6 @@
 			files = (
 				CF12E28D19A6C783001EB38A /* Main.storyboard in Resources */,
 				CF12E28F19A6C783001EB38A /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF12E29219A6C783001EB38A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,22 +151,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF12E29019A6C783001EB38A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CF12E29619A6C783001EB38A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CF12E27D19A6C783001EB38A /* DFPBannerExample */;
-			targetProxy = CF12E29519A6C783001EB38A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CF12E28B19A6C783001EB38A /* Main.storyboard */ = {
@@ -306,7 +202,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,7 +237,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -371,40 +265,6 @@
 			};
 			name = Release;
 		};
-		CF12E2A219A6C783001EB38A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DFPBannerExample.app/DFPBannerExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DFPBannerExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		CF12E2A319A6C783001EB38A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DFPBannerExample.app/DFPBannerExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DFPBannerExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,15 +282,6 @@
 			buildConfigurations = (
 				CF12E29F19A6C783001EB38A /* Debug */,
 				CF12E2A019A6C783001EB38A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF12E2A119A6C783001EB38A /* Build configuration list for PBXNativeTarget "DFPBannerExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF12E2A219A6C783001EB38A /* Debug */,
-				CF12E2A319A6C783001EB38A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

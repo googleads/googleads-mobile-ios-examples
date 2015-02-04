@@ -1,9 +1,8 @@
 //  Copyright (c) 2014 Google. All rights reserved.
 
-#import "ViewController.h"
+@import GoogleMobileAds;
 
-#import "DFPBannerView.h"
-#import "GADRequest.h"
+#import "ViewController.h"
 
 @implementation ViewController
 
@@ -13,7 +12,7 @@
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"/6499/example/banner";
   self.bannerView.rootViewController = self;
-  [self.bannerView loadRequest:[GADRequest request]];
+  [self.bannerView loadRequest:[DFPRequest request]];
 }
 
 - (void)didReceiveMemoryWarning {
