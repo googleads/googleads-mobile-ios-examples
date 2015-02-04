@@ -2,7 +2,7 @@ Google Mobile Ads SDK for iOS
 =============================
 The Google Mobile Ads SDK is the latest generation in Google mobile advertising featuring refined ad formats and streamlined APIs for access to mobile ad networks and advertising solutions. The SDK enables mobile app developers to maximize their monetization in native mobile apps.
 
-This repository contains the source code of samples and developer resources related to the iOS SDKs for AdMob and Doubleclick For Publishers.
+This repository contains the source code of samples and developer resources for both the for AdMob and Doubleclick For Publishers components of the Google Mobile Ads SDK .
 
 
 Samples
@@ -10,15 +10,12 @@ Samples
 Admob
 -----
 * [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/BannerExample)
-* [Smart Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/SmartBannerExample)
 * [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/InterstitialExample)
-* [Cocos2d Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/Cocos2dExample)
 
 Doubleclick
 -----------
 * [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick)
 * [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick/DFPInterstitialExample)
-* [DFP Manual Impressions Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick/DFPManualImpressionsExample)
 
 Downloads
 =========
