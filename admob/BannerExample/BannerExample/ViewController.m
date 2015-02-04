@@ -1,7 +1,6 @@
 // Copyright (c) 2014 Google. All rights reserved.
 
-#import "GADBannerView.h"
-#import "GADRequest.h"
+@import GoogleMobileAds;
 
 #import "ViewController.h"
 
@@ -16,8 +15,11 @@
 
   GADRequest *request = [GADRequest request];
   // Requests test ads on devices you specify. Your test device ID is printed to the console when
-  // an ad request is made.
-  request.testDevices = @[ GAD_SIMULATOR_ID, @"MY_TEST_DEVICE_ID" ];
+  // an ad request is made. GADBannerView automatically returns test ads when running on a
+  // simulator.
+  request.testDevices = @[
+    @"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
+  ];
   [self.bannerView loadRequest:request];
 }
 

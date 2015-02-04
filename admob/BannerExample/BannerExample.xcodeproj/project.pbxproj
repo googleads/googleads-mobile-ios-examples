@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF3D11501978993700BA357E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D114F1978993700BA357E /* CoreFoundation.framework */; };
-		CF3D11521978993C00BA357E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D11511978993C00BA357E /* AdSupport.framework */; };
-		CF3D11541978994200BA357E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D11531978994200BA357E /* AudioToolbox.framework */; };
-		CF3D11561978994800BA357E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D11551978994800BA357E /* AVFoundation.framework */; };
-		CF3D11581978994D00BA357E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D11571978994D00BA357E /* CoreTelephony.framework */; };
-		CF3D115A1978995200BA357E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D11591978995200BA357E /* MessageUI.framework */; };
-		CF3D115C1978995800BA357E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D115B1978995800BA357E /* StoreKit.framework */; };
-		CF3D115E1978995E00BA357E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3D115D1978995E00BA357E /* SystemConfiguration.framework */; };
 		CF86EE1D19787E6B00411520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE1C19787E6B00411520 /* main.m */; };
 		CF86EE2019787E6B00411520 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE1F19787E6B00411520 /* AppDelegate.m */; };
 		CF86EE2319787E6B00411520 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE2219787E6B00411520 /* ViewController.m */; };
@@ -22,25 +14,7 @@
 		CF86EE2819787E6B00411520 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF86EE2719787E6B00411520 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CF86EE2E19787E6B00411520 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CF86EE0F19787E6B00411520 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CF86EE1619787E6B00411520;
-			remoteInfo = BannerExample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		CF3D114F1978993700BA357E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		CF3D11511978993C00BA357E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		CF3D11531978994200BA357E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		CF3D11551978994800BA357E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		CF3D11571978994D00BA357E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		CF3D11591978995200BA357E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		CF3D115B1978995800BA357E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		CF3D115D1978995E00BA357E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CF86EE1719787E6B00411520 /* BannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF86EE1B19787E6B00411520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF86EE1C19787E6B00411520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,26 +24,10 @@
 		CF86EE2219787E6B00411520 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF86EE2519787E6B00411520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF86EE2719787E6B00411520 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CF86EE2D19787E6B00411520 /* BannerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BannerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CF86EE1419787E6B00411520 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CF3D115E1978995E00BA357E /* SystemConfiguration.framework in Frameworks */,
-				CF3D115C1978995800BA357E /* StoreKit.framework in Frameworks */,
-				CF3D115A1978995200BA357E /* MessageUI.framework in Frameworks */,
-				CF3D11581978994D00BA357E /* CoreTelephony.framework in Frameworks */,
-				CF3D11561978994800BA357E /* AVFoundation.framework in Frameworks */,
-				CF3D11541978994200BA357E /* AudioToolbox.framework in Frameworks */,
-				CF3D11521978993C00BA357E /* AdSupport.framework in Frameworks */,
-				CF3D11501978993700BA357E /* CoreFoundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF86EE2A19787E6B00411520 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,26 +37,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF3D115F19789B0600BA357E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CF3D115D1978995E00BA357E /* SystemConfiguration.framework */,
-				CF3D115B1978995800BA357E /* StoreKit.framework */,
-				CF3D11591978995200BA357E /* MessageUI.framework */,
-				CF3D11571978994D00BA357E /* CoreTelephony.framework */,
-				CF3D11551978994800BA357E /* AVFoundation.framework */,
-				CF3D11531978994200BA357E /* AudioToolbox.framework */,
-				CF3D11511978993C00BA357E /* AdSupport.framework */,
-				CF3D114F1978993700BA357E /* CoreFoundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CF86EE0E19787E6B00411520 = {
 			isa = PBXGroup;
 			children = (
 				CF86EE1919787E6B00411520 /* BannerExample */,
-				CF3D115F19789B0600BA357E /* Frameworks */,
 				CF86EE1819787E6B00411520 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				CF86EE1719787E6B00411520 /* BannerExample.app */,
-				CF86EE2D19787E6B00411520 /* BannerExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,24 +96,6 @@
 			productReference = CF86EE1719787E6B00411520 /* BannerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CF86EE2C19787E6B00411520 /* BannerExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CF86EE3A19787E6B00411520 /* Build configuration list for PBXNativeTarget "BannerExampleTests" */;
-			buildPhases = (
-				CF86EE2919787E6B00411520 /* Sources */,
-				CF86EE2A19787E6B00411520 /* Frameworks */,
-				CF86EE2B19787E6B00411520 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CF86EE2F19787E6B00411520 /* PBXTargetDependency */,
-			);
-			name = BannerExampleTests;
-			productName = BannerExampleTests;
-			productReference = CF86EE2D19787E6B00411520 /* BannerExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,10 +107,6 @@
 				TargetAttributes = {
 					CF86EE1619787E6B00411520 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					CF86EE2C19787E6B00411520 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = CF86EE1619787E6B00411520;
 					};
 				};
 			};
@@ -205,7 +124,6 @@
 			projectRoot = "";
 			targets = (
 				CF86EE1619787E6B00411520 /* BannerExample */,
-				CF86EE2C19787E6B00411520 /* BannerExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -217,13 +135,6 @@
 			files = (
 				CF86EE2619787E6B00411520 /* Main.storyboard in Resources */,
 				CF86EE2819787E6B00411520 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF86EE2B19787E6B00411520 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,22 +151,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF86EE2919787E6B00411520 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CF86EE2F19787E6B00411520 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CF86EE1619787E6B00411520 /* BannerExample */;
-			targetProxy = CF86EE2E19787E6B00411520 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CF86EE2419787E6B00411520 /* Main.storyboard */ = {
@@ -306,7 +202,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,7 +237,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -371,40 +265,6 @@
 			};
 			name = Release;
 		};
-		CF86EE3B19787E6B00411520 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BannerExample.app/BannerExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BannerExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		CF86EE3C19787E6B00411520 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BannerExample.app/BannerExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BannerExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,15 +282,6 @@
 			buildConfigurations = (
 				CF86EE3819787E6B00411520 /* Debug */,
 				CF86EE3919787E6B00411520 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF86EE3A19787E6B00411520 /* Build configuration list for PBXNativeTarget "BannerExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF86EE3B19787E6B00411520 /* Debug */,
-				CF86EE3C19787E6B00411520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
