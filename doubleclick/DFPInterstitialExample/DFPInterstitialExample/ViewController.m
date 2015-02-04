@@ -1,9 +1,8 @@
 //  Copyright (c) 2014 Google. All rights reserved.
 
-#import "ViewController.h"
+@import GoogleMobileAds;
 
-#import "DFPInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import "ViewController.h"
 
 typedef NS_ENUM(NSUInteger, GameState) {
   kGameStateNotStarted = 0,  ///< Game has not started.
@@ -123,7 +122,7 @@ typedef NS_ENUM(NSUInteger, GameState) {
   self.interstitial = [[DFPInterstitial alloc] init];
   self.interstitial.adUnitID = @"/6499/example/interstitial";
   self.interstitial.delegate = self;
-  [self.interstitial loadRequest:[GADRequest request]];
+  [self.interstitial loadRequest:[DFPRequest request]];
 }
 
 - (IBAction)playAgain:(id)sender {

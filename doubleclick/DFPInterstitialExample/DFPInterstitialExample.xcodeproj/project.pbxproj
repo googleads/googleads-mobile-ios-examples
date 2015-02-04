@@ -12,14 +12,6 @@
 		CF530A8B19B7793E00D75035 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF530A8A19B7793E00D75035 /* ViewController.m */; };
 		CF530A8E19B7793E00D75035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF530A8C19B7793E00D75035 /* Main.storyboard */; };
 		CF530A9019B7793E00D75035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF530A8F19B7793E00D75035 /* Images.xcassets */; };
-		CF530AA719B779C800D75035 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AA619B779C800D75035 /* SystemConfiguration.framework */; };
-		CF530AA919B779D000D75035 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AA819B779D000D75035 /* StoreKit.framework */; };
-		CF530AAB19B779D500D75035 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AAA19B779D500D75035 /* MessageUI.framework */; };
-		CF530AAD19B779DD00D75035 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AAC19B779DD00D75035 /* CoreTelephony.framework */; };
-		CF530AAF19B779E700D75035 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AAE19B779E700D75035 /* CoreGraphics.framework */; };
-		CF530AB119B779EC00D75035 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AB019B779EC00D75035 /* AVFoundation.framework */; };
-		CF530AB319B779F600D75035 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AB219B779F600D75035 /* AudioToolbox.framework */; };
-		CF530AB519B779FB00D75035 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF530AB419B779FB00D75035 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,14 +24,6 @@
 		CF530A8A19B7793E00D75035 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF530A8D19B7793E00D75035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF530A8F19B7793E00D75035 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CF530AA619B779C800D75035 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CF530AA819B779D000D75035 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		CF530AAA19B779D500D75035 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		CF530AAC19B779DD00D75035 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		CF530AAE19B779E700D75035 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CF530AB019B779EC00D75035 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		CF530AB219B779F600D75035 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		CF530AB419B779FB00D75035 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,14 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF530AB519B779FB00D75035 /* AdSupport.framework in Frameworks */,
-				CF530AB319B779F600D75035 /* AudioToolbox.framework in Frameworks */,
-				CF530AB119B779EC00D75035 /* AVFoundation.framework in Frameworks */,
-				CF530AAF19B779E700D75035 /* CoreGraphics.framework in Frameworks */,
-				CF530AAD19B779DD00D75035 /* CoreTelephony.framework in Frameworks */,
-				CF530AAB19B779D500D75035 /* MessageUI.framework in Frameworks */,
-				CF530AA919B779D000D75035 /* StoreKit.framework in Frameworks */,
-				CF530AA719B779C800D75035 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				CF530A8119B7793D00D75035 /* DFPInterstitialExample */,
-				CF530AA519B7798A00D75035 /* Frameworks */,
 				CF530A8019B7793D00D75035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,21 +74,6 @@
 				CF530A8419B7793D00D75035 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CF530AA519B7798A00D75035 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CF530AB419B779FB00D75035 /* AdSupport.framework */,
-				CF530AB219B779F600D75035 /* AudioToolbox.framework */,
-				CF530AB019B779EC00D75035 /* AVFoundation.framework */,
-				CF530AAE19B779E700D75035 /* CoreGraphics.framework */,
-				CF530AAC19B779DD00D75035 /* CoreTelephony.framework */,
-				CF530AAA19B779D500D75035 /* MessageUI.framework */,
-				CF530AA819B779D000D75035 /* StoreKit.framework */,
-				CF530AA619B779C800D75035 /* SystemConfiguration.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +202,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -278,7 +237,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
