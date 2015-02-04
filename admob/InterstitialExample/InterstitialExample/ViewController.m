@@ -1,9 +1,8 @@
 // Copyright (c) 2014 Google. All rights reserved.
 
-#import "ViewController.h"
+@import GoogleMobileAds;
 
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import "ViewController.h"
 
 typedef NS_ENUM(NSUInteger, GameState) {
   kGameStateNotStarted = 0,  ///< Game has not started.
@@ -140,8 +139,11 @@ typedef NS_ENUM(NSUInteger, GameState) {
 
   GADRequest *request = [GADRequest request];
   // Request test ads on devices you specify. Your test device ID is printed to the console when
-  // an ad request is made.
-  request.testDevices = @[ GAD_SIMULATOR_ID, @"MY_TEST_DEVICE_ID" ];
+  // an ad request is made. GADInterstitial automatically returns test ads when running on a
+  // simulator.
+  request.testDevices = @[
+    @"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
+  ];
   [self.interstitial loadRequest:request];
 }
 

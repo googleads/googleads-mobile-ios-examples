@@ -12,14 +12,6 @@
 		CF9F26251991396300F5C44E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F26241991396300F5C44E /* ViewController.m */; };
 		CF9F26281991396300F5C44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F26261991396300F5C44E /* Main.storyboard */; };
 		CF9F262A1991396400F5C44E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9F26291991396400F5C44E /* Images.xcassets */; };
-		CFF69E011993FC9A00F43DD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E001993FC9A00F43DD3 /* SystemConfiguration.framework */; };
-		CFF69E031993FCA000F43DD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E021993FCA000F43DD3 /* StoreKit.framework */; };
-		CFF69E051993FCA900F43DD3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E041993FCA900F43DD3 /* MessageUI.framework */; };
-		CFF69E071993FCAE00F43DD3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E061993FCAE00F43DD3 /* CoreTelephony.framework */; };
-		CFF69E091993FCB300F43DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E081993FCB300F43DD3 /* CoreGraphics.framework */; };
-		CFF69E0B1993FCB800F43DD3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E0A1993FCB800F43DD3 /* AVFoundation.framework */; };
-		CFF69E0D1993FCBC00F43DD3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E0C1993FCBC00F43DD3 /* AudioToolbox.framework */; };
-		CFF69E0F1993FCC100F43DD3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69E0E1993FCC100F43DD3 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,14 +24,6 @@
 		CF9F26241991396300F5C44E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF9F26271991396300F5C44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF9F26291991396400F5C44E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CFF69E001993FC9A00F43DD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CFF69E021993FCA000F43DD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		CFF69E041993FCA900F43DD3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		CFF69E061993FCAE00F43DD3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		CFF69E081993FCB300F43DD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CFF69E0A1993FCB800F43DD3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		CFF69E0C1993FCBC00F43DD3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		CFF69E0E1993FCC100F43DD3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,40 +31,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFF69E0F1993FCC100F43DD3 /* AdSupport.framework in Frameworks */,
-				CFF69E0D1993FCBC00F43DD3 /* AudioToolbox.framework in Frameworks */,
-				CFF69E0B1993FCB800F43DD3 /* AVFoundation.framework in Frameworks */,
-				CFF69E091993FCB300F43DD3 /* CoreGraphics.framework in Frameworks */,
-				CFF69E071993FCAE00F43DD3 /* CoreTelephony.framework in Frameworks */,
-				CFF69E051993FCA900F43DD3 /* MessageUI.framework in Frameworks */,
-				CFF69E031993FCA000F43DD3 /* StoreKit.framework in Frameworks */,
-				CFF69E011993FC9A00F43DD3 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF7552F11993FCE6008B83ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CFF69E0E1993FCC100F43DD3 /* AdSupport.framework */,
-				CFF69E0C1993FCBC00F43DD3 /* AudioToolbox.framework */,
-				CFF69E0A1993FCB800F43DD3 /* AVFoundation.framework */,
-				CFF69E081993FCB300F43DD3 /* CoreGraphics.framework */,
-				CFF69E061993FCAE00F43DD3 /* CoreTelephony.framework */,
-				CFF69E041993FCA900F43DD3 /* MessageUI.framework */,
-				CFF69E021993FCA000F43DD3 /* StoreKit.framework */,
-				CFF69E001993FC9A00F43DD3 /* SystemConfiguration.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CF9F26101991396300F5C44E = {
 			isa = PBXGroup;
 			children = (
 				CF9F261B1991396300F5C44E /* InterstitialExample */,
-				CF7552F11993FCE6008B83ED /* Frameworks */,
 				CF9F261A1991396300F5C44E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -242,7 +202,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -278,7 +237,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
