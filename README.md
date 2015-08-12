@@ -21,8 +21,8 @@ This repository contains the source code of samples and developer resources for 
 ## Swift
 
 ### Admob
-* [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/Swift/BannerExample)
-* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/Swift/InterstitialExample)
+* [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/BannerExample)
+* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/InterstitialExample)
 
 ### DoubleClick
 * [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPBannerExample)
