@@ -2,20 +2,32 @@ Google Mobile Ads SDK for iOS
 =============================
 The Google Mobile Ads SDK is the latest generation in Google mobile advertising featuring refined ad formats and streamlined APIs for access to mobile ad networks and advertising solutions. The SDK enables mobile app developers to maximize their monetization in native mobile apps.
 
-This repository contains the source code of samples and developer resources for both the for AdMob and Doubleclick For Publishers components of the Google Mobile Ads SDK .
+This repository contains the source code of samples and developer resources for both the for AdMob and DoubleClick For Publishers components of the Google Mobile Ads SDK .
 
 
-Samples
-=======
-Admob
------
-* [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/BannerExample)
-* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/InterstitialExample)
+# Samples
 
-Doubleclick
------------
-* [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick)
-* [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/doubleclick/DFPInterstitialExample)
+## Objective-C
+
+### Admob
+* [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/BannerExample)
+* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InterstitialExample)
+
+### DoubleClick
+* [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPBannerExample)
+* [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPInterstitialExample)
+* [DFP Native Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPNativeExample)
+
+## Swift
+
+### Admob
+* [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/Swift/BannerExample)
+* [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/admob/Swift/InterstitialExample)
+
+### DoubleClick
+* [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPBannerExample)
+* [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPInterstitialExample)
+
 
 Downloads
 =========
@@ -33,6 +45,3 @@ License
 =======
 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-Contributing
-============
-Pull requests are welcome! Please sign [this Google Code contributor agreement](https://developers.google.com/open-source/cla/individual?csw=1) before submitting.
