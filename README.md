@@ -8,7 +8,7 @@ This repository contains the source code of examples and developer resources for
 
 ## Objective-C
 
-### Admob
+### AdMob
 
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/BannerExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InterstitialExample)
@@ -26,7 +26,7 @@ This repository contains the source code of examples and developer resources for
 
 ## Swift
 
-### Admob
+### AdMob
 
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/BannerExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/InterstitialExample)
