@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  self.versionLabel.text = [GADRequest sdkVersion];
+
   [self refreshAd:nil];
 }
 
@@ -105,19 +107,22 @@
       ((GADNativeAdImage *)[nativeAppInstallAd.images firstObject]).image;
   ((UIImageView *)appInstallAdView.starRatingView).image =
       [self imageForStars:nativeAppInstallAd.starRating];
+
+  // In order for the SDK to process touch events properly, user interaction should be disabled.
+  appInstallAdView.callToActionView.userInteractionEnabled = NO;
 }
 
 /// Gets an image representing the number of stars. Returns nil if rating is less than 3.5 stars.
 - (UIImage *)imageForStars:(NSDecimalNumber *)numberOfStars {
   double starRating = [numberOfStars doubleValue];
   if (starRating >= 5) {
-    return [UIImage imageNamed:@"stars_5.png"];
+    return [UIImage imageNamed:@"stars_5"];
   } else if (starRating >= 4.5) {
-    return [UIImage imageNamed:@"stars_4_5.png"];
+    return [UIImage imageNamed:@"stars_4_5"];
   } else if (starRating >= 4) {
-    return [UIImage imageNamed:@"stars_4.png"];
+    return [UIImage imageNamed:@"stars_4"];
   } else if (starRating >= 3.5) {
-    return [UIImage imageNamed:@"stars_3_5.png"];
+    return [UIImage imageNamed:@"stars_3_5"];
   } else {
     return nil;
   }
@@ -151,6 +156,9 @@
   [((UIButton *)contentAdView.callToActionView)setTitle:nativeContentAd.callToAction
                                                forState:UIControlStateNormal];
   ((UILabel *)contentAdView.advertiserView).text = nativeContentAd.advertiser;
+
+  // In order for the SDK to process touch events properly, user interaction should be disabled.
+  contentAdView.callToActionView.userInteractionEnabled = NO;
 }
 
 #pragma mark GADNativeCustomTemplateAdLoaderDelegate implementation

@@ -30,13 +30,9 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   /// The last fire date before a pause.
   var previousFireDate: NSDate?
 
-  @IBOutlet var gameText: UILabel!
+  @IBOutlet weak var gameText: UILabel!
 
-  @IBOutlet var playAgainButton: UIButton!
-
-  required init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
+  @IBOutlet weak var playAgainButton: UIButton!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -80,7 +76,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     previousFireDate = timer!.fireDate
 
     // Prevent the timer from firing while app is in background.
-    timer!.fireDate = NSDate.distantFuture() as! NSDate
+    timer!.fireDate = NSDate.distantFuture()
   }
 
   private func resumeGame() {
@@ -90,7 +86,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     gameState = .Playing
 
     // Calculate amount of time the app was paused.
-    var pauseTime = pauseDate!.timeIntervalSinceNow * -1
+    let pauseTime = pauseDate!.timeIntervalSinceNow * -1
 
     // Set the timer to start firing again.
     timer!.fireDate = previousFireDate!.dateByAddingTimeInterval(pauseTime)
@@ -147,11 +143,11 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   func interstitialDidFailToReceiveAdWithError (
     interstitial: GADInterstitial,
     error: GADRequestError) {
-      println("interstitialDidFailToReceiveAdWithError: %@" + error.localizedDescription)
+      print("interstitialDidFailToReceiveAdWithError: %@" + error.localizedDescription)
   }
 
   func interstitialDidDismissScreen (interstitial: GADInterstitial) {
-    println("interstitialDidDismissScreen")
+    print("interstitialDidDismissScreen")
     startNewGame()
   }
 }

@@ -30,6 +30,9 @@ static NSString *const kCategoryExclusionCats = @"apidemo_exclude_cats";
 /// results.
 @interface DFPCategoryExclusionsViewController ()
 
+/// The no exclusions banner view.
+@property(nonatomic, weak) IBOutlet DFPBannerView *noExclusionsBannerView;
+
 /// The exclude dogs banner view.
 @property(nonatomic, weak) IBOutlet DFPBannerView *excludeDogsBannerView;
 
@@ -42,6 +45,12 @@ static NSString *const kCategoryExclusionCats = @"apidemo_exclude_cats";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  self.noExclusionsBannerView.adUnitID = kDFPCategoryExclusionsAdUnitID;
+  self.noExclusionsBannerView.rootViewController = self;
+
+  DFPRequest *noExclusionsRequest = [DFPRequest request];
+  [self.noExclusionsBannerView loadRequest:noExclusionsRequest];
 
   self.excludeDogsBannerView.adUnitID = kDFPCategoryExclusionsAdUnitID;
   self.excludeDogsBannerView.rootViewController = self;

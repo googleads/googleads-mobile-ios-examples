@@ -104,7 +104,7 @@
 
   // Populate the app install ad view with the app install ad assets.
   ((UILabel *)appInstallAdView.headlineView).text = nativeAppInstallAd.headline;
-    ((UIImageView *)appInstallAdView.iconView).image = nativeAppInstallAd.icon.image;
+  ((UIImageView *)appInstallAdView.iconView).image = nativeAppInstallAd.icon.image;
   ((UILabel *)appInstallAdView.bodyView).text = nativeAppInstallAd.body;
   ((UILabel *)appInstallAdView.storeView).text = nativeAppInstallAd.store;
   ((UILabel *)appInstallAdView.priceView).text = nativeAppInstallAd.price;
@@ -123,13 +123,13 @@
 - (UIImage *)imageForStars:(NSDecimalNumber *)numberOfStars {
   double starRating = [numberOfStars doubleValue];
   if (starRating >= 5) {
-    return [UIImage imageNamed:@"stars_5.png"];
+    return [UIImage imageNamed:@"stars_5"];
   } else if (starRating >= 4.5) {
-    return [UIImage imageNamed:@"stars_4_5.png"];
+    return [UIImage imageNamed:@"stars_4_5"];
   } else if (starRating >= 4) {
-    return [UIImage imageNamed:@"stars_4.png"];
+    return [UIImage imageNamed:@"stars_4"];
   } else if (starRating >= 3.5) {
-    return [UIImage imageNamed:@"stars_3_5.png"];
+    return [UIImage imageNamed:@"stars_3_5"];
   } else {
     return nil;
   }

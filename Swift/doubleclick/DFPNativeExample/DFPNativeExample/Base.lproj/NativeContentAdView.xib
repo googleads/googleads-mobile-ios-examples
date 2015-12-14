@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GADNativeContentAdView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body that is allowed to take up to 6 lines" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="136" translatesAutoresizingMaskIntoConstraints="NO" id="Xlg-pc-uQf" userLabel="Body View">
+                    <rect key="frame" x="176" y="37" width="136" height="120"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertiser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihC-fx-x98" userLabel="Advertiser View">
+                    <rect key="frame" x="206" y="169" width="73" height="25"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjP-1q-E6y" userLabel="Call to Action View">
+                    <rect key="frame" x="8" y="165" width="160" height="33"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="Call to Action"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OGW-ve-SAl">
+                    <rect key="frame" x="8" y="37" width="160" height="120"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="7Rr-4B-mBL"/>
+                        <constraint firstAttribute="width" constant="160" id="yVs-9v-nrC"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4zg-s7-Tok" userLabel="Logo View">
+                    <rect key="frame" x="287" y="169" width="25" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="fQ8-PE-KXB"/>
+                        <constraint firstAttribute="height" constant="25" id="k4V-gy-Ui1"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hp-IG-ydu" userLabel="Headline View">
+                    <rect key="frame" x="8" y="8" width="304" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.89867424240000005" green="0.89867424240000005" blue="0.89867424240000005" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="PjP-1q-E6y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="2CC-Gk-Bbb"/>
+                <constraint firstItem="ihC-fx-x98" firstAttribute="top" secondItem="Xlg-pc-uQf" secondAttribute="bottom" constant="12" id="7cN-HE-JXj"/>
+                <constraint firstItem="Xlg-pc-uQf" firstAttribute="top" secondItem="9Hp-IG-ydu" secondAttribute="bottom" constant="8" id="7m4-RM-bVZ"/>
+                <constraint firstItem="PjP-1q-E6y" firstAttribute="top" secondItem="OGW-ve-SAl" secondAttribute="bottom" constant="8" id="BhL-J5-lR1"/>
+                <constraint firstItem="ihC-fx-x98" firstAttribute="centerY" secondItem="4zg-s7-Tok" secondAttribute="centerY" id="CT6-pg-rgB"/>
+                <constraint firstItem="Xlg-pc-uQf" firstAttribute="centerY" secondItem="OGW-ve-SAl" secondAttribute="centerY" id="EIo-Lh-j1g"/>
+                <constraint firstAttribute="trailing" secondItem="Xlg-pc-uQf" secondAttribute="trailing" constant="8" id="H8d-9c-lXc"/>
+                <constraint firstAttribute="trailing" secondItem="9Hp-IG-ydu" secondAttribute="trailing" constant="8" id="IYE-jB-B68"/>
+                <constraint firstItem="OGW-ve-SAl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="NRw-cw-9Kn"/>
+                <constraint firstItem="OGW-ve-SAl" firstAttribute="top" secondItem="9Hp-IG-ydu" secondAttribute="bottom" constant="8" id="So1-fT-rQ6"/>
+                <constraint firstAttribute="trailing" secondItem="4zg-s7-Tok" secondAttribute="trailing" constant="8" id="VFe-8Z-fD0"/>
+                <constraint firstItem="9Hp-IG-ydu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="VHW-Jl-0bZ"/>
+                <constraint firstItem="9Hp-IG-ydu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bzf-j2-jRL"/>
+                <constraint firstItem="PjP-1q-E6y" firstAttribute="centerX" secondItem="OGW-ve-SAl" secondAttribute="centerX" id="dfO-OR-Hjw"/>
+                <constraint firstItem="ihC-fx-x98" firstAttribute="centerY" secondItem="PjP-1q-E6y" secondAttribute="centerY" id="rfp-LJ-lBK"/>
+                <constraint firstItem="Xlg-pc-uQf" firstAttribute="leading" secondItem="OGW-ve-SAl" secondAttribute="trailing" constant="8" id="sEk-2D-Lkq"/>
+                <constraint firstItem="9Hp-IG-ydu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sLA-ep-UlA"/>
+                <constraint firstItem="4zg-s7-Tok" firstAttribute="leading" secondItem="ihC-fx-x98" secondAttribute="trailing" constant="8" id="wxu-jp-H5t"/>
+            </constraints>
+            <connections>
+                <outlet property="advertiserView" destination="ihC-fx-x98" id="tCg-YE-ZFn"/>
+                <outlet property="bodyView" destination="Xlg-pc-uQf" id="g8v-FR-84C"/>
+                <outlet property="callToActionView" destination="PjP-1q-E6y" id="N6f-HU-ULq"/>
+                <outlet property="headlineView" destination="9Hp-IG-ydu" id="V93-pp-BS9"/>
+                <outlet property="imageView" destination="OGW-ve-SAl" id="3QU-3w-VUg"/>
+                <outlet property="logoView" destination="4zg-s7-Tok" id="G5L-3g-ceK"/>
+            </connections>
+            <point key="canvasLocation" x="500" y="568"/>
+        </view>
+    </objects>
+</document>

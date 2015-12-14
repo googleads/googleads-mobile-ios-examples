@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GADNativeAppInstallAdView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1w6-we-is8" userLabel="Icon View">
+                    <rect key="frame" x="8" y="8" width="40" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="lDy-ce-dSr"/>
+                        <constraint firstAttribute="height" constant="40" id="yIt-zP-CzH"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Xm-T9M" userLabel="Star Rating View">
+                    <rect key="frame" x="56" y="29" width="100" height="20"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Q07-bO-uZ2"/>
+                        <constraint firstAttribute="height" constant="20" id="vi6-xD-rjE"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body that is really really long and can take up to two lines" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="jZa-R6-ffb" userLabel="Body View">
+                    <rect key="frame" x="8" y="56" width="304" height="36"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ld-aq-sfg">
+                    <rect key="frame" x="35" y="100" width="250" height="80"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="J0B-W6-gaj"/>
+                        <constraint firstAttribute="height" constant="80" id="b8d-PW-Ftp"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-iv-iA2" userLabel="Price View">
+                    <rect key="frame" x="190" y="192" width="33" height="17"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-I8-I6W" userLabel="Store View">
+                    <rect key="frame" x="231" y="192" width="35" height="17"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-PR-x1i" userLabel="Call to Action View">
+                    <rect key="frame" x="274" y="186" width="38" height="29"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Install"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-x1-rk6" userLabel="Headline View">
+                    <rect key="frame" x="56" y="8" width="256" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="1" green="0.98303861469999998" blue="0.92887652860000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="jPq-I8-I6W" firstAttribute="leading" secondItem="bTd-iv-iA2" secondAttribute="trailing" constant="8" id="23V-0S-myA"/>
+                <constraint firstItem="fz9-PR-x1i" firstAttribute="centerY" secondItem="jPq-I8-I6W" secondAttribute="centerY" id="4O1-ui-hdB"/>
+                <constraint firstAttribute="trailing" secondItem="dZP-x1-rk6" secondAttribute="trailing" constant="8" id="5sY-fH-0dd"/>
+                <constraint firstAttribute="trailing" secondItem="fz9-PR-x1i" secondAttribute="trailing" constant="8" id="742-c2-yu3"/>
+                <constraint firstItem="bTd-iv-iA2" firstAttribute="top" secondItem="7ld-aq-sfg" secondAttribute="bottom" constant="12" id="7Fm-Q3-iRg"/>
+                <constraint firstItem="7ld-aq-sfg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="88l-Y0-a7w"/>
+                <constraint firstItem="jZa-R6-ffb" firstAttribute="top" secondItem="1w6-we-is8" secondAttribute="bottom" constant="8" id="Dtf-6m-uWr"/>
+                <constraint firstItem="jPq-I8-I6W" firstAttribute="top" secondItem="7ld-aq-sfg" secondAttribute="bottom" constant="12" id="LWE-Gc-N2v"/>
+                <constraint firstItem="dXO-Xm-T9M" firstAttribute="top" secondItem="dZP-x1-rk6" secondAttribute="bottom" id="UIt-Ta-Hcb"/>
+                <constraint firstItem="7ld-aq-sfg" firstAttribute="top" secondItem="jZa-R6-ffb" secondAttribute="bottom" constant="8" id="VPm-h1-0rq"/>
+                <constraint firstItem="dZP-x1-rk6" firstAttribute="leading" secondItem="1w6-we-is8" secondAttribute="trailing" constant="8" id="XxT-SD-Fw4"/>
+                <constraint firstItem="1w6-we-is8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bmH-57-d3r"/>
+                <constraint firstItem="1w6-we-is8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ele-TE-OTS"/>
+                <constraint firstItem="dZP-x1-rk6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="fN0-yC-YQX"/>
+                <constraint firstItem="fz9-PR-x1i" firstAttribute="leading" secondItem="jPq-I8-I6W" secondAttribute="trailing" constant="8" id="fOA-Ty-eCo"/>
+                <constraint firstItem="jZa-R6-ffb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="n1Q-51-xPm"/>
+                <constraint firstItem="jZa-R6-ffb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="que-gm-ofN"/>
+                <constraint firstAttribute="trailing" secondItem="jZa-R6-ffb" secondAttribute="trailing" constant="8" id="v0L-wZ-zlg"/>
+                <constraint firstItem="dXO-Xm-T9M" firstAttribute="leading" secondItem="1w6-we-is8" secondAttribute="trailing" constant="8" id="vKW-ai-Aen"/>
+            </constraints>
+            <connections>
+                <outlet property="bodyView" destination="jZa-R6-ffb" id="yp9-Ek-zXI"/>
+                <outlet property="callToActionView" destination="fz9-PR-x1i" id="1W3-yg-xKb"/>
+                <outlet property="headlineView" destination="dZP-x1-rk6" id="ehD-kM-D8a"/>
+                <outlet property="iconView" destination="1w6-we-is8" id="Ifk-6z-OAb"/>
+                <outlet property="imageView" destination="7ld-aq-sfg" id="doV-TK-mNg"/>
+                <outlet property="priceView" destination="bTd-iv-iA2" id="X2A-vt-EWY"/>
+                <outlet property="starRatingView" destination="dXO-Xm-T9M" id="3cb-qc-CFM"/>
+                <outlet property="storeView" destination="jPq-I8-I6W" id="7c5-m9-4Iv"/>
+            </connections>
+            <point key="canvasLocation" x="159" y="417"/>
+        </view>
+    </objects>
+</document>

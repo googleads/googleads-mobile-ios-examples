@@ -8,19 +8,22 @@
 @interface ViewController : UIViewController
 
 /// Container that holds the native ad.
-@property(weak, nonatomic) IBOutlet UIView *nativeAdPlaceholder;
+@property(nonatomic, weak) IBOutlet UIView *nativeAdPlaceholder;
 
 /// Switch to request app install ads.
-@property(weak, nonatomic) IBOutlet UISwitch *appInstallAdSwitch;
+@property(nonatomic, weak) IBOutlet UISwitch *appInstallAdSwitch;
 
 /// Switch to request content ads.
-@property(weak, nonatomic) IBOutlet UISwitch *contentAdSwitch;
+@property(nonatomic, weak) IBOutlet UISwitch *contentAdSwitch;
 
 /// Switch to custom native ads.
-@property(weak, nonatomic) IBOutlet UISwitch *customNativeAdSwitch;
+@property(nonatomic, weak) IBOutlet UISwitch *customNativeAdSwitch;
 
 /// Refresh the native ad.
-@property(weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property(nonatomic, weak) IBOutlet UIButton *refreshButton;
+
+/// The Google Mobile Ads SDK version number label.
+@property(nonatomic, weak) IBOutlet UILabel *versionLabel;
 
 /// Refreshes the ad.
 - (IBAction)refreshAd:(id)sender;

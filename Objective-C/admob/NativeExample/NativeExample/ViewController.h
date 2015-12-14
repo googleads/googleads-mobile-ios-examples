@@ -29,7 +29,7 @@
 /// Refresh the native ad.
 @property(nonatomic, weak) IBOutlet UIButton *refreshButton;
 
-/// Displays the Mobile Ads SDK version number.
+/// The Google Mobile Ads SDK version number label.
 @property(nonatomic, weak) IBOutlet UILabel *versionLabel;
 
 /// Refreshes the ad.
