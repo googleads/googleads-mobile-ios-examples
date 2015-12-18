@@ -66,11 +66,11 @@
       ];
       [self.bannerSizesPicker selectRow:2 inComponent:0 animated:NO];
       break;
-    case UIUserInterfaceIdiomTV:
-      break;
     case UIUserInterfaceIdiomUnspecified:
       self.bannerSizes = @[ @"Large Banner", @"Banner", @"Smart Banner" ];
       [self.bannerSizesPicker selectRow:1 inComponent:0 animated:NO];
+      break;
+    default:
       break;
   }
 
