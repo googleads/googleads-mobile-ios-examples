@@ -32,6 +32,10 @@ This repository contains the source code of examples and developer resources for
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/InterstitialExample)
 *   [Native Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/NativeExample)
 
+### Advanced
+
+*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
+
 ### DoubleClick
 
 *   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPBannerExample)

@@ -132,17 +132,39 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     appInstallAdView.nativeAppInstallAd = nativeAppInstallAd
 
     // Populate the app install ad view with the app install ad assets.
+    // Some assets are guaranteed to be present in every app install ad.
     (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
     (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
     (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
-    (appInstallAdView.storeView as! UILabel).text = nativeAppInstallAd.store
-    (appInstallAdView.priceView as! UILabel).text = nativeAppInstallAd.price
     (appInstallAdView.imageView as! UIImageView).image =
         (nativeAppInstallAd.images?.first as! GADNativeAdImage).image
-    (appInstallAdView.starRatingView as! UIImageView).image =
-        self.imageForStars(nativeAppInstallAd.starRating)
     (appInstallAdView.callToActionView as! UIButton).setTitle(
         nativeAppInstallAd.callToAction, forState: UIControlState.Normal)
+
+    // Other assets are not, however, and should be checked first.
+    let starRatingView = appInstallAdView.starRatingView
+    if let starRating = nativeAppInstallAd.starRating {
+      (starRatingView as! UIImageView).image = self.imageForStars(starRating)
+      starRatingView.hidden = false
+    } else {
+      starRatingView.hidden = true
+    }
+
+    let storeView = appInstallAdView.storeView
+    if let store = nativeAppInstallAd.store {
+      (storeView as! UILabel).text = store
+      storeView.hidden = false
+    } else {
+      storeView.hidden = true
+    }
+
+    let priceView = appInstallAdView.priceView
+    if let price = nativeAppInstallAd.price {
+      (priceView as! UILabel).text = price
+      priceView.hidden = false
+    } else {
+      priceView.hidden = true
+    }
 
     // In order for the SDK to process touch events properly, user interaction should be disabled.
     (appInstallAdView.callToActionView as! UIButton).userInteractionEnabled = false
@@ -181,14 +203,23 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     contentAdView.nativeContentAd = nativeContentAd;
 
     // Populate the content ad view with the content ad assets.
+    // Some assets are guaranteed to be present in every content ad.
     (contentAdView.headlineView as! UILabel).text = nativeContentAd.headline
     (contentAdView.bodyView as! UILabel).text = nativeContentAd.body
     (contentAdView.imageView as! UIImageView).image =
         (nativeContentAd.images?.first as! GADNativeAdImage).image
-    (contentAdView.logoView as! UIImageView).image = nativeContentAd.logo?.image
     (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
     (contentAdView.callToActionView as! UIButton).setTitle(
         nativeContentAd.callToAction, forState: UIControlState.Normal)
+
+    // Other assets are not, however, and should be checked first.
+    let logoView = contentAdView.logoView
+    if let logoImage = nativeContentAd.logo?.image {
+      (logoView as! UIImageView).image = logoImage
+      logoView.hidden = false
+    } else {
+      logoView.hidden = true
+    }
 
     // In order for the SDK to process touch events properly, user interaction should be disabled.
     (contentAdView.callToActionView as! UIButton).userInteractionEnabled = false
