@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2015 Google, Inc.
 //
-//  AppDelegate.swift
-//  DFPNativeExample
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -24,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
-      [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+  func application(application: UIApplication,
+      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     return true
   }
+
 }

@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  AdMobAdTargetingTableViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -74,36 +71,36 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.tableView.tableFooterView = UIView(frame: CGRectZero)
-    self.dateFormatter.dateStyle = .MediumStyle
+    tableView.tableFooterView = UIView(frame: CGRectZero)
+    dateFormatter.dateStyle = .MediumStyle
 
     // GADBannerView setup.
-    self.bannerView.adUnitID = Constants.AdMobAdUnitID
-    self.bannerView.rootViewController = self
+    bannerView.adUnitID = Constants.AdMobAdUnitID
+    bannerView.rootViewController = self
 
     // Gender setup.
-    self.genderOptions = ["Male", "Female", "Unknown"]
-    self.genderPicker.delegate = self
-    self.genderPicker.dataSource = self
-    let genderPickerMiddleRow = self.genderOptions.count / 2
-    self.genderPicker.selectRow(genderPickerMiddleRow, inComponent: 0, animated: false)
+    genderOptions = ["Male", "Female", "Unknown"]
+    genderPicker.delegate = self
+    genderPicker.dataSource = self
+    let genderPickerMiddleRow = genderOptions.count / 2
+    genderPicker.selectRow(genderPickerMiddleRow, inComponent: 0, animated: false)
 
     // Child-directed setup.
-    self.childDirectedOptions = ["Yes", "No", "Unspecified"]
-    self.childDirectedPicker.delegate = self
-    self.childDirectedPicker.dataSource = self
-    let childDirectedPickerMiddleRow = self.childDirectedOptions.count / 2
-    self.childDirectedPicker.selectRow(childDirectedPickerMiddleRow, inComponent: 0,
+    childDirectedOptions = ["Yes", "No", "Unspecified"]
+    childDirectedPicker.delegate = self
+    childDirectedPicker.dataSource = self
+    let childDirectedPickerMiddleRow = childDirectedOptions.count / 2
+    childDirectedPicker.selectRow(childDirectedPickerMiddleRow, inComponent: 0,
         animated: false)
 
     // CLLocationManager setup.
-    self.locationManager.delegate = self
-    self.locationManager.distanceFilter = kCLDistanceFilterNone
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.delegate = self
+    locationManager.distanceFilter = kCLDistanceFilterNone
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
     if #available(iOS 8.0, *) {
-      self.locationManager.requestWhenInUseAuthorization()
+      locationManager.requestWhenInUseAuthorization()
     }
-    self.locationManager.startUpdatingLocation()
+    locationManager.startUpdatingLocation()
   }
 
   // MARK: - UITableViewDelegate
@@ -114,17 +111,17 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
     if let cellIdentifier = cell?.reuseIdentifier {
       switch cellIdentifier {
       case AdMobAdTargetingTableCellIdentifiers.BirthdateCell:
-        currentPicker = self.birthdatePicker
+        currentPicker = birthdatePicker
       case AdMobAdTargetingTableCellIdentifiers.GenderCell:
-        currentPicker = self.genderPicker
+        currentPicker = genderPicker
       case AdMobAdTargetingTableCellIdentifiers.ChildDirectedCell:
-        currentPicker = self.childDirectedPicker
+        currentPicker = childDirectedPicker
       default:
         break
       }
     }
     if let isPickerHidden = currentPicker?.hidden {
-      self.hideAllPickers()
+      hideAllPickers()
       currentPicker?.hidden = !isPickerHidden
       tableView.reloadData()
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -143,13 +140,13 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
     let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
     if let cellIdentifier = cell.reuseIdentifier {
       if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.BirthdatePickerCell &&
-          self.birthdatePicker.hidden {
+          birthdatePicker.hidden {
         return 0
       } else if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.GenderPickerCell &&
-          self.genderPicker.hidden {
+          genderPicker.hidden {
         return 0
       } else if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell &&
-          self.childDirectedPicker.hidden {
+          childDirectedPicker.hidden {
         return 0
       }
     }
@@ -162,10 +159,10 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
       -> String? {
     var rowTitle = ""
     switch pickerView {
-    case self.genderPicker:
-      rowTitle = self.genderOptions[row]
-    case self.childDirectedPicker:
-      rowTitle = self.childDirectedOptions[row]
+    case genderPicker:
+      rowTitle = genderOptions[row]
+    case childDirectedPicker:
+      rowTitle = childDirectedOptions[row]
     default:
       rowTitle = ""
     }
@@ -174,10 +171,10 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
 
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     switch pickerView {
-    case self.genderPicker:
-      self.genderLabel.text = self.genderOptions[row]
-    case self.childDirectedPicker:
-      self.childDirectedLabel.text = self.childDirectedOptions[row]
+    case genderPicker:
+      genderLabel.text = genderOptions[row]
+    case childDirectedPicker:
+      childDirectedLabel.text = childDirectedOptions[row]
     default:
       break
     }
@@ -194,10 +191,10 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     var numOfRows = 0
     switch pickerView {
-    case self.genderPicker:
-      numOfRows = self.genderOptions.count
-    case self.childDirectedPicker:
-      numOfRows = self.childDirectedOptions.count
+    case genderPicker:
+      numOfRows = genderOptions.count
+    case childDirectedPicker:
+      numOfRows = childDirectedOptions.count
     default:
       numOfRows = 0
     }
@@ -210,12 +207,12 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
     if let currentLocation = locations.last {
       let latitude = CGFloat(round(1000 * currentLocation.coordinate.latitude) / 1000)
       let longitude = CGFloat(round(1000 * currentLocation.coordinate.longitude) / 1000)
-      self.locationLabel.text = "\(latitude), \(longitude)"
+      locationLabel.text = "\(latitude), \(longitude)"
     }
   }
 
   func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-    print(__FUNCTION__ + ": \(error.localizedDescription)")
+    print("\(#function): \(error.localizedDescription)")
   }
 
   // MARK: - Actions
@@ -223,21 +220,21 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
   // Loads an ad based on user's location, birthdate, gender and child-directed status.
   @IBAction func loadTargetedAd(sender: AnyObject) {
     let request = GADRequest()
-    if let currentLocation = self.locationManager.location {
+    if let currentLocation = locationManager.location {
       let latitude = CGFloat(currentLocation.coordinate.latitude)
       let longitude = CGFloat(currentLocation.coordinate.longitude)
       request.setLocationWithLatitude(latitude, longitude: longitude,
           accuracy: CGFloat(kCLLocationAccuracyBest))
     }
-    if self.birthdateLabel.text !=  "Birthdate" {
-      request.birthday = self.birthdatePicker.date
+    if birthdateLabel.text != "Birthdate" {
+      request.birthday = birthdatePicker.date
     }
-    if self.childDirectedLabel.text == "Yes" {
+    if childDirectedLabel.text == "Yes" {
       request.tagForChildDirectedTreatment(true)
-    } else if self.childDirectedLabel.text == "No" {
+    } else if childDirectedLabel.text == "No" {
       request.tagForChildDirectedTreatment(false)
     }
-    switch self.genderLabel.text! {
+    switch genderLabel.text! {
     case "Male":
       request.gender = .Male
     case "Female":
@@ -245,18 +242,18 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDe
     default:
       request.gender = .Unknown
     }
-    self.bannerView.loadRequest(request)
+    bannerView.loadRequest(request)
   }
 
   // Sets the birthdate label to birthdate selected in picker.
   @IBAction func chooseBirthdate(sender: AnyObject) {
-    self.birthdateLabel.text = self.dateFormatter.stringFromDate(self.birthdatePicker.date)
+    birthdateLabel.text = dateFormatter.stringFromDate(birthdatePicker.date)
   }
 
   private func hideAllPickers() {
-    self.birthdatePicker.hidden = true
-    self.genderPicker.hidden = true
-    self.childDirectedPicker.hidden = true
+    birthdatePicker.hidden = true
+    genderPicker.hidden = true
+    childDirectedPicker.hidden = true
   }
 
 }

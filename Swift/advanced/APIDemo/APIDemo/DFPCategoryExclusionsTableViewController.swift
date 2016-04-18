@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  DFPCategoryExclusionsTableViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -35,24 +32,24 @@ class DFPCategoryExclusionsTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.tableView.tableFooterView = UIView(frame: CGRectZero)
+    tableView.tableFooterView = UIView(frame: CGRectZero)
 
-    self.noExclusionsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
-    self.noExclusionsBannerView.rootViewController = self
+    noExclusionsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
+    noExclusionsBannerView.rootViewController = self
     let noExclusionsRequest = DFPRequest()
-    self.noExclusionsBannerView.loadRequest(noExclusionsRequest)
+    noExclusionsBannerView.loadRequest(noExclusionsRequest)
 
-    self.excludeDogsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
-    self.excludeDogsBannerView.rootViewController = self
+    excludeDogsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
+    excludeDogsBannerView.rootViewController = self
     let excludeDogsRequest = DFPRequest()
     excludeDogsRequest.categoryExclusions = [Constants.CategoryExclusionDogs]
-    self.excludeDogsBannerView.loadRequest(excludeDogsRequest)
+    excludeDogsBannerView.loadRequest(excludeDogsRequest)
 
-    self.excludeCatsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
-    self.excludeCatsBannerView.rootViewController = self
+    excludeCatsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
+    excludeCatsBannerView.rootViewController = self
     let excludeCatsRequest = DFPRequest()
     excludeCatsRequest.categoryExclusions = [Constants.CategoryExclusionCats]
-    self.excludeCatsBannerView.loadRequest(excludeCatsRequest)
+    excludeCatsBannerView.loadRequest(excludeCatsRequest)
   }
 
   // MARK: - Table View

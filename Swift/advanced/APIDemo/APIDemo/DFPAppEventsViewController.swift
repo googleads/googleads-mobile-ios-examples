@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  DFPAppEventsViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -29,10 +26,10 @@ class DFPAppEventsViewController: UIViewController, GADAppEventDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bannerView.adUnitID = Constants.DFPAppEventsAdUnitID
-    self.bannerView.rootViewController = self
-    self.bannerView.appEventDelegate = self
-    self.bannerView.loadRequest(DFPRequest())
+    bannerView.adUnitID = Constants.DFPAppEventsAdUnitID
+    bannerView.rootViewController = self
+    bannerView.appEventDelegate = self
+    bannerView.loadRequest(DFPRequest())
   }
 
   // MARK - GADAppEventDelegate
@@ -49,11 +46,11 @@ class DFPAppEventsViewController: UIViewController, GADAppEventDelegate {
     if name == "color" {
       switch info {
       case "blue":
-        self.view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor.blueColor()
       case "red":
-        self.view.backgroundColor = UIColor.redColor()
+        view.backgroundColor = UIColor.redColor()
       case "green":
-        self.view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.greenColor()
       default:
         break
       }

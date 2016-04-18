@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  DFPMultipleAdSizesViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -38,29 +35,30 @@ class DFPMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bannerView = DFPBannerView(adSize: kGADAdSizeBanner)
-    self.bannerView.adUnitID = Constants.DFPAdSizesAdUnitID
-    self.bannerView.rootViewController = self
-    self.bannerView.adSizeDelegate = self
+    bannerView = DFPBannerView(adSize: kGADAdSizeBanner)
+    bannerView.adUnitID = Constants.DFPAdSizesAdUnitID
+    bannerView.rootViewController = self
+    bannerView.adSizeDelegate = self
 
-    self.view.addSubview(self.bannerView)
-    self.bannerView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(bannerView)
+    bannerView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints that align the banner view to the bottom center of the screen.
-    self.view.addConstraint(NSLayoutConstraint(item: self.bannerView, attribute: .Bottom,
-        relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.bannerView, attribute: .CenterX,
-        relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0))
+    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .Bottom, relatedBy: .Equal,
+        toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
+    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .CenterX, relatedBy: .Equal,
+        toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
   }
 
   // MARK: - Actions
 
   /// Loads an ad.
   @IBAction func loadAd(sender: AnyObject) {
-    guard self.GADAdSizeCustomBannerSwitch.on || self.GADAdSizeBannerSwitch.on ||
-        self.GADAdSizeMediumRectangleSwitch.on else {
+    guard GADAdSizeCustomBannerSwitch.on || GADAdSizeBannerSwitch.on ||
+        GADAdSizeMediumRectangleSwitch.on else {
       let alert = UIAlertView(title: "Load Ad Error",
-          message: "Failed to load ad. Please select at least one ad size.", delegate: self,
+          message: "Failed to load ad. Please select at least one ad size.",
+          delegate: self,
           cancelButtonTitle: "OK")
       alert.alertViewStyle = .Default
       alert.show()
@@ -68,19 +66,19 @@ class DFPMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
     }
 
     var adSizes = [NSValue]()
-    if self.GADAdSizeCustomBannerSwitch.on {
+    if GADAdSizeCustomBannerSwitch.on {
       let customGADAdSize = GADAdSizeFromCGSize(CGSizeMake(120, 20))
       adSizes.append(NSValueFromGADAdSize(customGADAdSize))
     }
-    if self.GADAdSizeBannerSwitch.on {
+    if GADAdSizeBannerSwitch.on {
       adSizes.append(NSValueFromGADAdSize(kGADAdSizeBanner))
     }
-    if self.GADAdSizeMediumRectangleSwitch.on {
+    if GADAdSizeMediumRectangleSwitch.on {
       adSizes.append(NSValueFromGADAdSize(kGADAdSizeMediumRectangle))
     }
 
-    self.bannerView.validAdSizes = adSizes
-    self.bannerView.loadRequest(DFPRequest())
+    bannerView.validAdSizes = adSizes
+    bannerView.loadRequest(DFPRequest())
   }
 
   // MARK: - GADAdSizeDelegate

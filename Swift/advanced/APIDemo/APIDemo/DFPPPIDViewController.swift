@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  DFPPPIDViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -30,20 +27,21 @@ class DFPPPIDViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bannerView.rootViewController = self
-    self.bannerView.adUnitID = Constants.DFPPPIDAdUnitID
+    bannerView.rootViewController = self
+    bannerView.adUnitID = Constants.DFPPPIDAdUnitID
   }
 
   @IBAction func loadAd(sender: AnyObject) {
-    self.view.endEditing(true)
+    view.endEditing(true)
 
-    if let text = self.usernameTextField.text where !text.isEmpty {
+    if let username = usernameTextField.text where !username.isEmpty {
       let request = DFPRequest()
-      request.publisherProvidedID = self.publisherProvidedIdentifierWithString(text);
-      self.bannerView.loadRequest(request)
+      request.publisherProvidedID = generatePublisherProvidedIdentifierFromUsername(username)
+      bannerView.loadRequest(request)
     } else {
       let alert = UIAlertView(title: "Load Ad Error",
-          message: "Failed to load ad. Username is required", delegate: self,
+          message: "Failed to load ad. Username is required",
+          delegate: self,
           cancelButtonTitle: "OK")
       alert.alertViewStyle = .Default
       alert.show()
@@ -51,27 +49,31 @@ class DFPPPIDViewController: UIViewController {
   }
 
   @IBAction func screenTapped(sender: AnyObject) {
-    self.view.endEditing(true);
+    view.endEditing(true)
   }
 
-  /// This is a simple method that takes a sample username string and returns an MD5 hash of the
-  /// username to use as a PPID. It's being used here as a convenient stand-in for a true
-  /// Publisher-Provided Identifier. In your own apps, you can decide for yourself how to generate
-  /// the PPID value, though there are some restrictions on what the values can be. For details,
-  /// see: https://support.google.com/dfp_premium/answer/2880055
-  func publisherProvidedIdentifierWithString(string: String) -> String {
-    // Create pointer to the username string as UTF8 string.
-    let stringAsUTF8String = string.cStringUsingEncoding(NSUTF8StringEncoding)
-    // Create byte array of unsigned characters.
-    let MD5Buffer = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(CC_MD5_DIGEST_LENGTH))
-    /// Create 16 byte MD5 hash value.
-    CC_MD5(stringAsUTF8String!, CC_LONG(strlen(stringAsUTF8String!)), MD5Buffer)
-    // Convert MD5 value to NSString of hex values.
+  /// Returns an MD5 hash `String` generated from the provided username `String` to use as the
+  /// Publisher-Provided Identifier (PPID). The MD5 hash `String` is being used here as a convenient
+  /// stand-in for a true PPID. In your own apps, you can decide for yourself how to generate the
+  /// PPID value, though there are some restrictions on what the values can be. For details, see:
+  /// https://support.google.com/dfp_premium/answer/2880055
+  func generatePublisherProvidedIdentifierFromUsername(username: String) -> String {
+    // The UTF8 C string representation of the username `String`.
+    let utf8Username = username.cStringUsingEncoding(NSUTF8StringEncoding)
+    // Allocate memory for a byte array of unsigned characters with size equal to
+    // CC_MD5_DIGEST_LENGTH.
+    let md5Buffer = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(CC_MD5_DIGEST_LENGTH))
+    // Create the 16 byte MD5 hash value.
+    CC_MD5(utf8Username!, CC_LONG(strlen(utf8Username!)), md5Buffer)
+    // Convert the MD5 hash value to an NSString of hex values.
     let publisherProvidedIdentifier = NSMutableString()
-    for  i in 0..<Int(CC_MD5_DIGEST_LENGTH) {
-      publisherProvidedIdentifier.appendFormat("%02x", MD5Buffer[i]);
+    for index in 0..<Int(CC_MD5_DIGEST_LENGTH) {
+      publisherProvidedIdentifier.appendFormat("%02x", md5Buffer[index])
     }
-    return publisherProvidedIdentifier as String;
+    // Deallocate the memory for the byte array of unsigned characters with size equal to
+    // CC_MD5_DIGEST_LENGTH.
+    md5Buffer.dealloc(Int(CC_MD5_DIGEST_LENGTH))
+    return publisherProvidedIdentifier as String
   }
 
 }

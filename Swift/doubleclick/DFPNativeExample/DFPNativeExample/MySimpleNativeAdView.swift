@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2015 Google, Inc.
 //
-//  MySimpleNativeAdView.swift
-//  DFPNativeExample
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -48,9 +45,9 @@ class MySimpleNativeAdView: UIView {
     super.awakeFromNib()
 
     // Enable clicks on the main image.
-    self.mainImageView.addGestureRecognizer(UITapGestureRecognizer.init(
-        target: self, action: "performClickOnMainImage:"))
-    self.mainImageView.userInteractionEnabled = true
+    mainImageView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+        action: #selector(MySimpleNativeAdView.performClickOnMainImage(_:))))
+    mainImageView.userInteractionEnabled = true
   }
 
   func performClickOnMainImage(sender: UIImage!) {
@@ -61,7 +58,7 @@ class MySimpleNativeAdView: UIView {
       alertView.alertViewStyle = .Default
       alertView.show()
     }
-    self.customNativeAd.performClickOnAssetWithKey(
+    customNativeAd.performClickOnAssetWithKey(
         MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey,
         customClickHandler: customClickHandler)
   }
@@ -71,11 +68,12 @@ class MySimpleNativeAdView: UIView {
     self.customNativeAd = customNativeAd
 
     // Populate the custom native ad assets.
-    self.headlineView.text = self.customNativeAd.stringForKey(
+    headlineView.text = customNativeAd.stringForKey(
         MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewHeadlineKey)
-    self.mainImageView.image = self.customNativeAd.imageForKey(
+    mainImageView.image = customNativeAd.imageForKey(
         MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey)?.image
-    self.captionView.text = self.customNativeAd.stringForKey(
+    captionView.text = customNativeAd.stringForKey(
         MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewCaptionKey)
   }
+
 }

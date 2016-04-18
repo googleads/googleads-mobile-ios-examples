@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  DFPFluidAdSizeViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -30,10 +27,10 @@ class DFPFluidAdSizeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bannerView.adUnitID = Constants.DFPFluidAdSizeAdUnitID
-    self.bannerView.rootViewController = self
-    self.bannerView.adSize = kGADAdSizeFluid
-    self.bannerView.loadRequest(DFPRequest())
+    bannerView.adUnitID = Constants.DFPFluidAdSizeAdUnitID
+    bannerView.rootViewController = self
+    bannerView.adSize = kGADAdSizeFluid
+    bannerView.loadRequest(DFPRequest())
   }
 
 }

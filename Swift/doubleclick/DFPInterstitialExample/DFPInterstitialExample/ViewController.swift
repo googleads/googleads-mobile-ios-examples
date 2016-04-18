@@ -1,11 +1,25 @@
-//  Copyright (c) 2015 Google. All rights reserved.
+//
+//  Copyright (C) 2015 Google, Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
 
-import UIKit
 import GoogleMobileAds
+import UIKit
 
-class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, UIAlertViewDelegate, GADInterstitialDelegate {
 
-  enum GameState: NSInteger{
+  enum GameState: NSInteger {
     case NotStarted
     case Playing
     case Paused
@@ -13,7 +27,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   }
 
   /// The interstitial ad.
-  var interstitial: DFPInterstitial?
+  var interstitial: DFPInterstitial!
 
   /// The countdown timer.
   var timer: NSTimer?
@@ -30,14 +44,14 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   /// The last fire date before a pause.
   var previousFireDate: NSDate?
 
+  /// The countdown timer label.
   @IBOutlet weak var gameText: UILabel!
 
+  /// The play again button.
   @IBOutlet weak var playAgainButton: UIButton!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-
     startNewGame()
   }
 
@@ -51,7 +65,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     resumeGame()
   }
 
-  // MARK: Game logic
+  // MARK: - Game Logic
 
   private func startNewGame() {
     gameState = .Playing
@@ -60,14 +74,14 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     loadInterstitial()
     gameText.text = String(counter)
     timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-      target: self,
-      selector:Selector("decrementCounter:"),
-      userInfo: nil,
-      repeats: true)
+        target: self,
+        selector:#selector(ViewController.decrementCounter(_:)),
+        userInfo: nil,
+        repeats: true)
   }
 
   private func pauseGame() {
-    if (gameState != .Playing) {
+    if gameState != .Playing {
       return
     }
     gameState = .Paused
@@ -81,7 +95,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   }
 
   private func resumeGame() {
-    if (gameState != .Paused) {
+    if gameState != .Paused {
       return
     }
     gameState = .Playing
@@ -94,8 +108,8 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   }
 
   func decrementCounter(timer: NSTimer) {
-    counter--
-    if (counter > 0) {
+    counter -= 1
+    if counter > 0 {
       gameText.text = String(counter)
     } else {
       endGame()
@@ -110,44 +124,44 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     timer = nil
   }
 
-  // MARK: Interstitial button actions
+  // MARK: - Interstitial Button Actions
 
   @IBAction func playAgain(sender: AnyObject) {
-    if (interstitial!.isReady) {
-      interstitial!.presentFromRootViewController(self)
+    if interstitial.isReady {
+      interstitial.presentFromRootViewController(self)
     } else {
       UIAlertView(title: "Interstitial not ready",
-        message: "The interstitial didn't finish loading or failed to load",
-        delegate: self,
-        cancelButtonTitle: "Drat").show()
+          message: "The interstitial didn't finish loading or failed to load",
+          delegate: self,
+          cancelButtonTitle: "Drat").show()
     }
   }
 
   private func loadInterstitial() {
     interstitial = DFPInterstitial(adUnitID: "/6499/example/interstitial")
-    interstitial!.delegate = self
+    interstitial.delegate = self
 
     // Request test ads on devices you specify. Your test device ID is printed to the console when
     // an ad request is made.
-    interstitial!.loadRequest(DFPRequest())
+    interstitial.loadRequest(DFPRequest())
   }
 
-  // MARK: UIAlertViewDelegate implementation
+  // MARK: - UIAlertViewDelegate
 
   func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
     startNewGame()
   }
 
-  // MARK: GADInterstitialDelegate implementation
+  // MARK: - GADInterstitialDelegate
 
-  func interstitialDidFailToReceiveAdWithError (
-    interstitial: DFPInterstitial,
-    error: GADRequestError) {
-      print("interstitialDidFailToReceiveAdWithError: %@" + error.localizedDescription)
+  func interstitialDidFailToReceiveAdWithError(interstitial: DFPInterstitial,
+      error: GADRequestError) {
+    print("\(#function): \(error.localizedDescription)")
   }
 
   func interstitialDidDismissScreen (interstitial: GADInterstitial) {
-    print("interstitialDidDismissScreen")
+    print(#function)
     startNewGame()
   }
+
 }

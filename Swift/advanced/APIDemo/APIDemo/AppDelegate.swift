@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  AppDelegate.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -24,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(application: UIApplication, didFinishLaunchingWithOptions
-      launchOptions: [NSObject: AnyObject]?) -> Bool {
+  func application(application: UIApplication,
+      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     return true
   }
 

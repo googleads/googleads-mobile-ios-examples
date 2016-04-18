@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  AdMobAdDelegateViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -32,44 +29,44 @@ class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bannerView.delegate = self
-    self.bannerView.adUnitID = Constants.AdMobAdUnitID
-    self.bannerView.rootViewController = self
-    self.bannerView.loadRequest(GADRequest())
+    bannerView.delegate = self
+    bannerView.adUnitID = Constants.AdMobAdUnitID
+    bannerView.rootViewController = self
+    bannerView.loadRequest(GADRequest())
   }
 
   // MARK: - GADBannerViewDelegate
 
   // Called when an ad request loaded an ad.
   func adViewDidReceiveAd(bannerView: GADBannerView!) {
-    print(__FUNCTION__)
+    print(#function)
   }
 
   // Called when an ad request failed.
   func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-    print(__FUNCTION__ + ": \(error.localizedDescription)")
+    print("\(#function): \(error.localizedDescription)")
   }
 
   // Called just before presenting the user a full screen view, such as a browser, in response to
   // clicking on an ad.
   func adViewWillPresentScreen(bannerView: GADBannerView!) {
-    print(__FUNCTION__)
+    print(#function)
   }
 
   // Called just before dismissing a full screen view.
   func adViewWillDismissScreen(bannerView: GADBannerView!) {
-    print(__FUNCTION__)
+    print(#function)
   }
 
   // Called just after dismissing a full screen view.
   func adViewDidDismissScreen(bannerView: GADBannerView!) {
-    print(__FUNCTION__)
+    print(#function)
   }
 
   // Called just before the application will background or terminate because the user clicked on an
   // ad that will launch another application (such as the App Store).
   func adViewWillLeaveApplication(bannerView: GADBannerView!) {
-    print(__FUNCTION__)
+    print(#function)
   }
 
 }

@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  DFPCustomTargetingViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -26,7 +23,7 @@ class DFPCustomTargetingViewController: UIViewController, UIPickerViewDelegate,
     UIPickerViewDataSource {
 
   /// The constant for the customTargeting dictionary sport preference key.
-  let sportPreferenceKey = "sportpref";
+  let sportPreferenceKey = "sportpref"
 
   /// The DFP banner view.
   @IBOutlet weak var bannerView: DFPBannerView!
@@ -39,16 +36,16 @@ class DFPCustomTargetingViewController: UIViewController, UIPickerViewDelegate,
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bannerView.adUnitID = Constants.DFPCustomTargetingAdUnitID
-    self.bannerView.rootViewController = self
-    self.favoriteSportsPicker.delegate = self
-    self.favoriteSportsPicker.dataSource = self
-    self.favoriteSportsOptions = [
+    bannerView.adUnitID = Constants.DFPCustomTargetingAdUnitID
+    bannerView.rootViewController = self
+    favoriteSportsPicker.delegate = self
+    favoriteSportsPicker.dataSource = self
+    favoriteSportsOptions = [
         "Baseball", "Basketball", "Bobsled", "Football", "Ice Hockey",
         "Running", "Skiing", "Snowboarding", "Softball"
     ]
-    let favoriteSportsPickerMiddleRow = self.favoriteSportsOptions.count / 2
-    self.favoriteSportsPicker.selectRow(favoriteSportsPickerMiddleRow, inComponent: 0,
+    let favoriteSportsPickerMiddleRow = favoriteSportsOptions.count / 2
+    favoriteSportsPicker.selectRow(favoriteSportsPickerMiddleRow, inComponent: 0,
         animated: false)
   }
 
@@ -56,7 +53,7 @@ class DFPCustomTargetingViewController: UIViewController, UIPickerViewDelegate,
 
   func pickerView(pickerView: UIPickerView, titleForRow row: Int,
       forComponent component: Int) -> String? {
-    return self.favoriteSportsOptions[row]
+    return favoriteSportsOptions[row]
   }
 
   // MARK: - UIPickerViewDataSource
@@ -66,16 +63,16 @@ class DFPCustomTargetingViewController: UIViewController, UIPickerViewDelegate,
   }
 
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return self.favoriteSportsOptions.count
+    return favoriteSportsOptions.count
   }
 
   // MARK: - Actions
 
   @IBAction func loadAd(sender: AnyObject) {
-    let row = self.favoriteSportsPicker.selectedRowInComponent(0)
+    let row = favoriteSportsPicker.selectedRowInComponent(0)
     let request = DFPRequest()
-    request.customTargeting = [sportPreferenceKey: self.favoriteSportsOptions[row]]
-    self.bannerView.loadRequest(request)
+    request.customTargeting = [sportPreferenceKey: favoriteSportsOptions[row]]
+    bannerView.loadRequest(request)
   }
 
 }

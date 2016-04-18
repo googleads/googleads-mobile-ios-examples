@@ -1,9 +1,6 @@
 //
 //  Copyright (C) 2016 Google, Inc.
 //
-//  AdMobBannerSizesViewController.swift
-//  APIDemo
-//
 //  Licensed under the Apache License, Version 2.0 (the "License")
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
@@ -40,15 +37,15 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDelegate,
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.bannerSizesPicker.delegate = self
-    self.bannerSizesPicker.dataSource = self
+    bannerSizesPicker.delegate = self
+    bannerSizesPicker.dataSource = self
 
     switch UIDevice.currentDevice().userInterfaceIdiom {
     case .Phone, .Unspecified:
-      self.bannerSizes = ["Large Banner", "Banner", "Smart Banner"]
-      self.bannerSizesPicker.selectRow(1, inComponent: 0, animated: false)
+      bannerSizes = ["Large Banner", "Banner", "Smart Banner"]
+      bannerSizesPicker.selectRow(1, inComponent: 0, animated: false)
     case .Pad:
-      self.bannerSizes = [
+      bannerSizes = [
         "Smart Banner",
         "Large Banner",
         "Banner",
@@ -56,12 +53,12 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDelegate,
         "Medium Rectangle",
         "Leaderboard"
       ]
-      self.bannerSizesPicker.selectRow(2, inComponent: 0, animated: false)
+      bannerSizesPicker.selectRow(2, inComponent: 0, animated: false)
     default:
       break
     }
 
-    self.ads = [
+    ads = [
       "Banner": kGADAdSizeBanner,
       "Large Banner": kGADAdSizeLargeBanner,
       "Smart Banner Portrait": kGADAdSizeSmartBannerPortrait,
@@ -79,35 +76,35 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDelegate,
   }
 
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return self.bannerSizes.count
+    return bannerSizes.count
   }
 
   // MARK: - UIPickerViewDelegate
 
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
       -> String? {
-    return self.bannerSizes[row]
+    return bannerSizes[row]
   }
 
   // MARK: - Actions
 
   @IBAction func loadAd(sender: AnyObject) {
-    if self.bannerView == nil {
-      self.bannerView = GADBannerView()
-      self.bannerView.adUnitID = Constants.AdMobAdUnitID
-      self.bannerView.rootViewController = self
+    if bannerView == nil {
+      bannerView = GADBannerView()
+      bannerView.adUnitID = Constants.AdMobAdUnitID
+      bannerView.rootViewController = self
 
-      self.view.addSubview(self.bannerView)
-      self.bannerView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(bannerView)
+      bannerView.translatesAutoresizingMaskIntoConstraints = false
 
       // Layout constraints that align the banner view to the bottom center of the screen.
-      self.view.addConstraint(NSLayoutConstraint(item: self.bannerView, attribute: .Bottom,
-          relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0))
-      self.view.addConstraint(NSLayoutConstraint(item: self.bannerView, attribute: .CenterX,
-          relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0))
+      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .Bottom,
+          relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
+      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .CenterX,
+          relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
     }
 
-    var bannerSizeString = self.bannerSizes[self.bannerSizesPicker.selectedRowInComponent(0)]
+    var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRowInComponent(0)]
 
     if bannerSizeString == "Smart Banner" {
       if UIDevice.currentDevice().orientation == .Portrait {
@@ -117,8 +114,8 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDelegate,
       }
     }
 
-    self.bannerView.adSize = self.ads[bannerSizeString]!
-    self.bannerView.loadRequest(GADRequest())
+    bannerView.adSize = ads[bannerSizeString]!
+    bannerView.loadRequest(GADRequest())
   }
 
 }
