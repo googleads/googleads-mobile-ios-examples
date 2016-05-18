@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26D3AAA21CE93A510073BF04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26D3AAA11CE93A510073BF04 /* GoogleService-Info.plist */; };
 		849326E81B066C7900863759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849326E71B066C7900863759 /* AppDelegate.swift */; };
 		849326EA1B066C7900863759 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849326E91B066C7900863759 /* ViewController.swift */; };
 		849326ED1B066C7900863759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849326EB1B066C7900863759 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26D3AAA11CE93A510073BF04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849326E21B066C7900863759 /* BannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849326E61B066C7900863759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849326E71B066C7900863759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		849326E41B066C7900863759 /* BannerExample */ = {
 			isa = PBXGroup;
 			children = (
+				26D3AAA11CE93A510073BF04 /* GoogleService-Info.plist */,
 				849326E71B066C7900863759 /* AppDelegate.swift */,
 				849326E91B066C7900863759 /* ViewController.swift */,
 				849326EB1B066C7900863759 /* Main.storyboard */,
@@ -131,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				849326ED1B066C7900863759 /* Main.storyboard in Resources */,
+				26D3AAA21CE93A510073BF04 /* GoogleService-Info.plist in Resources */,
 				849326F21B066C7900863759 /* LaunchScreen.xib in Resources */,
 				849326EF1B066C7900863759 /* Images.xcassets in Resources */,
 			);

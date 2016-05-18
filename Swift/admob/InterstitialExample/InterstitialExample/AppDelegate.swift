@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 
+import Firebase
 import UIKit
 
 @UIApplicationMain
@@ -23,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication,
       didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    // Use Firebase library to configure APIs
+    FIRApp.configure()
+
     return true
   }
 

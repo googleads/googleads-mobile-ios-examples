@@ -26,6 +26,9 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     case Ended
   }
 
+  /// The starting time for game counter.
+  let gameLength = 10
+
   /// The interstitial ad.
   var interstitial: GADInterstitial!
 
@@ -33,7 +36,7 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   var timer: NSTimer?
 
   /// The game counter.
-  var counter = 3
+  var counter = 10
 
   /// The state of the game.
   var gameState = GameState.NotStarted
@@ -52,24 +55,25 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    // Pause game when application enters background.
+    NSNotificationCenter.defaultCenter().addObserver(self,
+        selector: #selector(ViewController.pauseGame),
+        name: UIApplicationDidEnterBackgroundNotification, object: nil)
+
+    // Resume game when application becomes active.
+    NSNotificationCenter.defaultCenter().addObserver(self,
+        selector: #selector(ViewController.resumeGame),
+        name: UIApplicationDidBecomeActiveNotification, object: nil)
+
     startNewGame()
-  }
-
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    pauseGame()
-  }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    resumeGame()
   }
 
   // MARK: - Game Logic
 
-  func startNewGame() {
+  private func startNewGame() {
     gameState = .Playing
-    counter = 3
+    counter = gameLength
     playAgainButton.hidden = true
     loadInterstitial()
     gameText.text = String(counter)
@@ -88,10 +92,10 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
 
     // Record the relevant pause times.
     pauseDate = NSDate()
-    previousFireDate = timer!.fireDate
+    previousFireDate = timer?.fireDate
 
     // Prevent the timer from firing while app is in background.
-    timer!.fireDate = NSDate.distantFuture()
+    timer?.fireDate = NSDate.distantFuture()
   }
 
   func resumeGame() {
@@ -101,10 +105,10 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     gameState = .Playing
 
     // Calculate amount of time the app was paused.
-    let pauseTime = pauseDate!.timeIntervalSinceNow * -1
+    let pauseTime = (pauseDate?.timeIntervalSinceNow)! * -1
 
     // Set the timer to start firing again.
-    timer!.fireDate = previousFireDate!.dateByAddingTimeInterval(pauseTime)
+    timer?.fireDate = (previousFireDate?.dateByAddingTimeInterval(pauseTime))!
   }
 
   func decrementCounter(timer: NSTimer) {
@@ -116,19 +120,19 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     }
   }
 
-  func endGame() {
+  private func endGame() {
     gameState = .Ended
     gameText.text = "Game over!"
     playAgainButton.hidden = false
-    timer!.invalidate()
+    timer?.invalidate()
     timer = nil
   }
 
   // MARK: - Interstitial Button Actions
 
   @IBAction func playAgain(sender: AnyObject) {
-    if interstitial.isReady {
-      interstitial.presentFromRootViewController(self)
+    if interstitial?.isReady == true {
+      interstitial?.presentFromRootViewController(self)
     } else {
       UIAlertView(title: "Interstitial not ready",
           message: "The interstitial didn't finish loading or failed to load",
@@ -139,12 +143,12 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
 
   func loadInterstitial() {
     interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-    interstitial.delegate = self
+    interstitial?.delegate = self
 
     // Request test ads on devices you specify. Your test device ID is printed to the console when
     // an ad request is made. GADInterstitial automatically returns test ads when running on a
     // simulator.
-    interstitial.loadRequest(GADRequest())
+    interstitial?.loadRequest(GADRequest())
   }
 
   // MARK: - UIAlertViewDelegate
@@ -163,6 +167,13 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   func interstitialDidDismissScreen(interstitial: GADInterstitial) {
     print(#function)
     startNewGame()
+  }
+
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self,
+        name: UIApplicationDidEnterBackgroundNotification, object: nil)
+    NSNotificationCenter.defaultCenter().removeObserver(self,
+        name: UIApplicationDidBecomeActiveNotification, object: nil)
   }
 
 }

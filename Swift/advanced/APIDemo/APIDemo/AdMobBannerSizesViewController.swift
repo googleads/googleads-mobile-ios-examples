@@ -19,8 +19,8 @@ import UIKit
 
 /// AdMob - Banner Sizes
 /// Demonstrates setting a desired banner size prior to loading an ad.
-class AdMobBannerSizesViewController: UIViewController, UIPickerViewDelegate,
-    UIPickerViewDataSource {
+class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
+    UIPickerViewDelegate {
 
   /// The banner sizes picker.
   @IBOutlet weak var bannerSizesPicker: UIPickerView!

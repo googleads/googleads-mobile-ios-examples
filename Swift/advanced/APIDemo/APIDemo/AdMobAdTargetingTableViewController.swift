@@ -30,8 +30,8 @@ struct AdMobAdTargetingTableCellIdentifiers {
 
 /// AdMob - Ad Targeting
 /// Demonstrates AdMob ad targeting.
-class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDelegate,
-    UIPickerViewDataSource, CLLocationManagerDelegate {
+class AdMobAdTargetingTableViewController: UITableViewController, CLLocationManagerDelegate,
+    UIPickerViewDataSource, UIPickerViewDelegate {
 
   /// The current location label.
   @IBOutlet weak var locationLabel: UILabel!

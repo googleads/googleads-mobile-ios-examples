@@ -1,8 +1,22 @@
-//  Copyright (c) 2014 Google. All rights reserved.
-
-@import GoogleMobileAds;
+//
+//  Copyright (C) 2014 Google, Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
 
 #import "ViewController.h"
+
+@import GoogleMobileAds;
 
 typedef NS_ENUM(NSUInteger, GameState) {
   kGameStateNotStarted = 0,  ///< Game has not started.
@@ -37,26 +51,20 @@ typedef NS_ENUM(NSUInteger, GameState) {
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
+
+  // Pause game when application is backgrounded.
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(pauseGame)
+                                               name:UIApplicationDidEnterBackgroundNotification
+                                             object:nil];
+
+  // Resume game when application becomes active.
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(resumeGame)
+                                               name:UIApplicationDidBecomeActiveNotification
+                                             object:nil];
 
   [self startNewGame];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-
-  [self resumeGame];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-  [super viewWillDisappear:animated];
-
-  [self pauseGame];
-}
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
 }
 
 #pragma mark Game logic
@@ -65,7 +73,7 @@ typedef NS_ENUM(NSUInteger, GameState) {
   self.gameState = kGameStatePlaying;
   self.playAgainButton.hidden = YES;
   [self createAndLoadInterstitial];
-  self.counter = 3;
+  self.counter = 10;
   self.gameText.text = [NSString stringWithFormat:@"%ld", (long)self.counter];
   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                                 target:self
@@ -146,12 +154,21 @@ typedef NS_ENUM(NSUInteger, GameState) {
 
 - (void)interstitial:(DFPInterstitial *)interstitial
     didFailToReceiveAdWithError:(GADRequestError *)error {
-  NSLog(@"interstitialDidFailToReceiveAdWithError: %@", [error localizedDescription]);
+  NSLog(@"%s: %@", __PRETTY_FUNCTION__, [error localizedDescription]);
 }
 
 - (void)interstitialDidDismissScreen:(DFPInterstitial *)interstitial {
-  NSLog(@"interstitialDidDismissScreen");
+  NSLog(@"%s", __PRETTY_FUNCTION__);
   [self startNewGame];
+}
+
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:UIApplicationDidEnterBackgroundNotification
+                                                object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:UIApplicationDidBecomeActiveNotification
+                                                object:nil];
 }
 
 @end

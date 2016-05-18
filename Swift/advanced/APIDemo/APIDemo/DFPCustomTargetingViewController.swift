@@ -19,8 +19,8 @@ import UIKit
 
 /// DFP - Custom Targeting
 /// Demonstrates adding custom targeting information to a DFPRequest.
-class DFPCustomTargetingViewController: UIViewController, UIPickerViewDelegate,
-    UIPickerViewDataSource {
+class DFPCustomTargetingViewController: UIViewController, UIPickerViewDataSource,
+    UIPickerViewDelegate {
 
   /// The constant for the customTargeting dictionary sport preference key.
   let sportPreferenceKey = "sportpref"
