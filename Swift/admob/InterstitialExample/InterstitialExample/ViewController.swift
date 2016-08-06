@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, UIAlertViewDelegate {
 
   enum GameState: NSInteger {
     case NotStarted
@@ -26,8 +26,8 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     case Ended
   }
 
-  /// The starting time for game counter.
-  let gameLength = 10
+  /// The game length.
+  static let gameLength = 5
 
   /// The interstitial ad.
   var interstitial: GADInterstitial!
@@ -35,8 +35,8 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   /// The countdown timer.
   var timer: NSTimer?
 
-  /// The game counter.
-  var counter = 10
+  /// The amount of time left in the game.
+  var timeLeft = gameLength
 
   /// The state of the game.
   var gameState = GameState.NotStarted
@@ -72,16 +72,38 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   // MARK: - Game Logic
 
   private func startNewGame() {
+    createAndLoadInterstitial()
+
     gameState = .Playing
-    counter = gameLength
+    timeLeft = ViewController.gameLength
     playAgainButton.hidden = true
-    loadInterstitial()
-    gameText.text = String(counter)
+    updateTimeLeft()
     timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
         target: self,
-        selector:#selector(ViewController.decrementCounter(_:)),
+        selector:#selector(ViewController.decrementTimeLeft(_:)),
         userInfo: nil,
         repeats: true)
+  }
+
+  private func createAndLoadInterstitial() {
+    interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+    let request = GADRequest()
+    // Request test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made.
+    request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9a" ]
+    interstitial.loadRequest(request)
+  }
+
+  private func updateTimeLeft() {
+    gameText.text = "\(timeLeft) seconds left!"
+  }
+
+  func decrementTimeLeft(timer: NSTimer) {
+    timeLeft -= 1
+    updateTimeLeft()
+    if timeLeft == 0 {
+      endGame()
+    }
   }
 
   func pauseGame() {
@@ -111,63 +133,35 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     timer?.fireDate = (previousFireDate?.dateByAddingTimeInterval(pauseTime))!
   }
 
-  func decrementCounter(timer: NSTimer) {
-    counter -= 1
-    if counter > 0 {
-      gameText.text = String(counter)
-    } else {
-      endGame()
-    }
-  }
-
   private func endGame() {
     gameState = .Ended
-    gameText.text = "Game over!"
-    playAgainButton.hidden = false
     timer?.invalidate()
     timer = nil
+
+    UIAlertView(title: "Game Over",
+                message: "You lasted \(ViewController.gameLength) seconds",
+                delegate: self,
+                cancelButtonTitle: "Ok").show()
   }
 
   // MARK: - Interstitial Button Actions
 
   @IBAction func playAgain(sender: AnyObject) {
-    if interstitial?.isReady == true {
-      interstitial?.presentFromRootViewController(self)
-    } else {
-      UIAlertView(title: "Interstitial not ready",
-          message: "The interstitial didn't finish loading or failed to load",
-          delegate: self,
-          cancelButtonTitle: "Drat").show()
-    }
-  }
-
-  func loadInterstitial() {
-    interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-    interstitial?.delegate = self
-
-    // Request test ads on devices you specify. Your test device ID is printed to the console when
-    // an ad request is made. GADInterstitial automatically returns test ads when running on a
-    // simulator.
-    interstitial?.loadRequest(GADRequest())
+    startNewGame()
   }
 
   // MARK: - UIAlertViewDelegate
 
   func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
-    startNewGame()
+    if interstitial.isReady {
+      interstitial.presentFromRootViewController(self)
+    } else {
+      print("Ad wasn't ready")
+    }
+    playAgainButton.hidden = false
   }
 
-  // MARK: - GADInterstitialDelegate
-
-  func interstitialDidFailToReceiveAdWithError(interstitial: GADInterstitial,
-      error: GADRequestError) {
-    print("\(#function): \(error.localizedDescription)")
-  }
-
-  func interstitialDidDismissScreen(interstitial: GADInterstitial) {
-    print(#function)
-    startNewGame()
-  }
+  // MARK: - deinit
 
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self,

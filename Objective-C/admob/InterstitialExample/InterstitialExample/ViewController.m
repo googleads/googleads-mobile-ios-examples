@@ -25,7 +25,10 @@ typedef NS_ENUM(NSUInteger, GameState) {
   kGameStateEnded = 3        ///< Game has ended.
 };
 
-@interface ViewController () <GADInterstitialDelegate, UIAlertViewDelegate>
+/// The game length.
+static const NSInteger kGameLength = 5;
+
+@interface ViewController () <UIAlertViewDelegate>
 
 /// The interstitial ad.
 @property(nonatomic, strong) GADInterstitial *interstitial;
@@ -33,8 +36,8 @@ typedef NS_ENUM(NSUInteger, GameState) {
 /// The countdown timer.
 @property(nonatomic, strong) NSTimer *timer;
 
-/// The game counter.
-@property(nonatomic, assign) NSInteger counter;
+/// The amount of time left in the game.
+@property(nonatomic, assign) NSInteger timeLeft;
 
 /// The state of the game.
 @property(nonatomic, assign) GameState gameState;
@@ -70,16 +73,40 @@ typedef NS_ENUM(NSUInteger, GameState) {
 #pragma mark Game logic
 
 - (void)startNewGame {
+  [self createAndLoadInterstitial];
+
   self.gameState = kGameStatePlaying;
   self.playAgainButton.hidden = YES;
-  [self createAndLoadInterstitial];
-  self.counter = 10;
-  self.gameText.text = [NSString stringWithFormat:@"%ld", (long)self.counter];
+  self.timeLeft = kGameLength;
+  [self updateTimeLeft];
   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                                 target:self
-                                              selector:@selector(decrementCounter:)
+                                              selector:@selector(decrementTimeLeft:)
                                               userInfo:nil
                                                repeats:YES];
+}
+
+- (void)createAndLoadInterstitial {
+  self.interstitial =
+      [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+
+  GADRequest *request = [GADRequest request];
+  // Request test ads on devices you specify. Your test device ID is printed to the console when
+  // an ad request is made.
+  request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
+  [self.interstitial loadRequest:request];
+}
+
+- (void)updateTimeLeft {
+  self.gameText.text = [NSString stringWithFormat:@"%ld seconds left!", (long)self.timeLeft];
+}
+
+- (void)decrementTimeLeft:(NSTimer *)timer {
+  self.timeLeft--;
+  [self updateTimeLeft];
+  if (self.timeLeft == 0) {
+    [self endGame];
+  }
 }
 
 - (void)pauseGame {
@@ -109,69 +136,36 @@ typedef NS_ENUM(NSUInteger, GameState) {
   [self.timer setFireDate:[NSDate dateWithTimeInterval:pauseTime sinceDate:self.previousFireDate]];
 }
 
-- (void)decrementCounter:(NSTimer *)timer {
-  self.counter--;
-  if (self.counter > 0) {
-    self.gameText.text = [NSString stringWithFormat:@"%ld", (long)self.counter];
-  } else {
-    [self endGame];
-  }
-}
-
 - (void)endGame {
   self.gameState = kGameStateEnded;
-  self.gameText.text = @"Game over!";
-  self.playAgainButton.hidden = NO;
   [self.timer invalidate];
   self.timer = nil;
+  [[[UIAlertView alloc]
+          initWithTitle:@"Game Over"
+                message:[NSString stringWithFormat:@"You lasted %ld seconds", (long)kGameLength]
+               delegate:self
+      cancelButtonTitle:@"Ok"
+      otherButtonTitles:nil] show];
 }
 
 #pragma Interstitial button actions
 
 - (IBAction)playAgain:(id)sender {
-  if (self.interstitial.isReady) {
-    [self.interstitial presentFromRootViewController:self];
-  } else {
-    [[[UIAlertView alloc] initWithTitle:@"Interstitial not ready"
-                                message:@"The interstitial didn't finish loading or failed to load"
-                               delegate:self
-                      cancelButtonTitle:@"Drat"
-                      otherButtonTitles:nil] show];
-  }
-}
-
-- (void)createAndLoadInterstitial {
-  self.interstitial =
-      [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
-  self.interstitial.delegate = self;
-
-  GADRequest *request = [GADRequest request];
-  // Request test ads on devices you specify. Your test device ID is printed to the console when
-  // an ad request is made. GADInterstitial automatically returns test ads when running on a
-  // simulator.
-  request.testDevices = @[
-    @"2077ef9a63d2b398840261c8221a0c9a"  // Eric's iPod Touch
-  ];
-  [self.interstitial loadRequest:request];
+  [self startNewGame];
 }
 
 #pragma mark UIAlertViewDelegate implementation
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-  [self startNewGame];
+  if (self.interstitial.isReady) {
+    [self.interstitial presentFromRootViewController:self];
+  } else {
+    NSLog(@"Ad wasn't ready");
+  }
+  self.playAgainButton.hidden = NO;
 }
 
-#pragma mark GADInterstitialDelegate implementation
-
-- (void)interstitial:(GADInterstitial *)interstitial
-    didFailToReceiveAdWithError:(GADRequestError *)error {
-  NSLog(@"%s: %@", __PRETTY_FUNCTION__, [error localizedDescription]);
-}
-
-- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  [self startNewGame];
-}
+#pragma mark dealloc
 
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self

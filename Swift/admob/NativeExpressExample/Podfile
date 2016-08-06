@@ -1,9 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-use_frameworks!
 platform :ios, '7.0'
 
 target 'NativeExpressExample' do
-  pod 'Firebase'
+  use_frameworks!
+  pod 'Firebase/Core'
   pod 'Firebase/AdMob'
 end

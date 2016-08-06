@@ -36,10 +36,6 @@ typedef NS_ENUM(NSInteger, GameState) {
 /// Number of coins the user has earned.
 @property(nonatomic, assign) NSInteger coinCount;
 
-/// Is an ad being loaded.
-@property(nonatomic, assign, getter=isRewardBasedVideoRequestLoading)
-    BOOL rewardBasedVideoRequestLoading;
-
 /// The countdown timer.
 @property(nonatomic, strong) NSTimer *timer;
 
@@ -86,8 +82,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 #pragma mark Game logic
 
 - (void)startNewGame {
-  if (![self isRewardBasedVideoRequestLoading] &&
-      ![[GADRewardBasedVideoAd sharedInstance] isReady]) {
+  if (![[GADRewardBasedVideoAd sharedInstance] isReady]) {
     [self requestRewardedVideo];
   }
   self.gameState = kGameStatePlaying;
@@ -104,7 +99,6 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (void)requestRewardedVideo {
-  self.rewardBasedVideoRequestLoading = YES;
   GADRequest *request = [GADRequest request];
   [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
                                          withAdUnitID:@"INSERT_AD_UNIT_HERE"];
@@ -196,7 +190,6 @@ typedef NS_ENUM(NSInteger, GameState) {
 #pragma mark GADRewardBasedVideoAdDelegate implementation
 
 - (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-  self.rewardBasedVideoRequestLoading = NO;
   NSLog(@"Reward based video ad is received.");
 }
 
@@ -230,7 +223,6 @@ typedef NS_ENUM(NSInteger, GameState) {
 
 - (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
     didFailToLoadWithError:(NSError *)error {
-  self.rewardBasedVideoRequestLoading = NO;
   NSLog(@"Reward based video ad failed to load.");
 }
 
