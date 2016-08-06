@@ -22,9 +22,9 @@ Each iOS example app includes a Podfile and a Podfile.lock. The Podfile.lock
 tracks the version of each Pod specified in the Podfile that was used to build
 the release of the iOS example apps.
 
-1) Run `pod install` in the same directory as the Podfile.
-2) [Optional] Run `pod update` to get the latest version of the SDK.
-3) Open the .xcworkspace file with Xcode and run the app.
+1. Run `pod install` in the same directory as the Podfile.
+1. [Optional] Run `pod update` to get the latest version of the SDK.
+1. Open the .xcworkspace file with Xcode and run the app.
 
 See the [CocoaPods Guides](https://guides.cocoapods.org/)
 for more information on installing and updating pods.
