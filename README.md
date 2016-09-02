@@ -29,26 +29,6 @@ the release of the iOS example apps.
 See the [CocoaPods Guides](https://guides.cocoapods.org/)
 for more information on installing and updating pods.
 
-## Objective-C
-
-### AdMob
-
-*   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/BannerExample)
-*   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InterstitialExample)
-*   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeAdvancedExample)
-*   [Native Express Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeExpressExample)
-*   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/RewardedVideoExample)
-
-### Advanced
-
-*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
-
-### DoubleClick
-
-*   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPBannerExample)
-*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPInterstitialExample)
-*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPCustomRenderingExample)
-
 ## Swift
 
 ### AdMob
@@ -68,6 +48,26 @@ for more information on installing and updating pods.
 *   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPBannerExample)
 *   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPInterstitialExample)
 *   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPCustomRenderingExample)
+
+## Objective-C
+
+### AdMob
+
+*   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/BannerExample)
+*   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InterstitialExample)
+*   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeAdvancedExample)
+*   [Native Express Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeExpressExample)
+*   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/RewardedVideoExample)
+
+### Advanced
+
+*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
+
+### DoubleClick
+
+*   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPBannerExample)
+*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPInterstitialExample)
+*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPCustomRenderingExample)
 
 # Downloads
 
