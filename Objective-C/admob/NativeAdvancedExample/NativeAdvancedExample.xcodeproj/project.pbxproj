@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		26B0F1961CE9377B00E202AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26B0F1951CE9377B00E202AF /* GoogleService-Info.plist */; };
-		753F7DD2E3DCE63FA1C21E13 /* libPods-NativeAdvancedExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E1956F45459F831586B0AC /* libPods-NativeAdvancedExample.a */; };
 		CF9335BD1B26706400DEF1B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9335BC1B26706400DEF1B4 /* main.m */; };
 		CF9335C01B26706400DEF1B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9335BF1B26706400DEF1B4 /* AppDelegate.m */; };
 		CF9335C31B26706400DEF1B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9335C21B26706400DEF1B4 /* ViewController.m */; };
@@ -20,9 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		059F0916116A82F8A07DB0E7 /* Pods-NativeAdvancedExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeAdvancedExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample.release.xcconfig"; sourceTree = "<group>"; };
 		26B0F1951CE9377B00E202AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		59E1956F45459F831586B0AC /* libPods-NativeAdvancedExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NativeAdvancedExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9335B71B26706400DEF1B4 /* NativeAdvancedExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeAdvancedExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9335BB1B26706400DEF1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9335BC1B26706400DEF1B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -35,7 +32,6 @@
 		CF9335CA1B26706400DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF9335E71B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
 		CF9335E91B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
-		E45A949245AB1C5F02CCDE5C /* Pods-NativeAdvancedExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeAdvancedExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,37 +39,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753F7DD2E3DCE63FA1C21E13 /* libPods-NativeAdvancedExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A3056CD064212B39C9BC778E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				59E1956F45459F831586B0AC /* libPods-NativeAdvancedExample.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BBE40ACEBC2C8934D63C422C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E45A949245AB1C5F02CCDE5C /* Pods-NativeAdvancedExample.debug.xcconfig */,
-				059F0916116A82F8A07DB0E7 /* Pods-NativeAdvancedExample.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		CF9335AE1B26706400DEF1B4 = {
 			isa = PBXGroup;
 			children = (
 				CF9335B91B26706400DEF1B4 /* NativeAdvancedExample */,
 				CF9335B81B26706400DEF1B4 /* Products */,
-				BBE40ACEBC2C8934D63C422C /* Pods */,
-				A3056CD064212B39C9BC778E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,12 +95,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF9335DA1B26706400DEF1B4 /* Build configuration list for PBXNativeTarget "NativeAdvancedExample" */;
 			buildPhases = (
-				004B7F85A45EAADB37CB58E6 /* 📦 Check Pods Manifest.lock */,
 				CF9335B31B26706400DEF1B4 /* Sources */,
 				CF9335B41B26706400DEF1B4 /* Frameworks */,
 				CF9335B51B26706400DEF1B4 /* Resources */,
-				5354E3787C176DF4824B2A45 /* 📦 Embed Pods Frameworks */,
-				02DD5AC74B3ED8C84A8B20FD /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,54 +155,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		004B7F85A45EAADB37CB58E6 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		02DD5AC74B3ED8C84A8B20FD /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5354E3787C176DF4824B2A45 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF9335B31B26706400DEF1B4 /* Sources */ = {
@@ -367,7 +292,6 @@
 		};
 		CF9335DB1B26706400DEF1B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E45A949245AB1C5F02CCDE5C /* Pods-NativeAdvancedExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
@@ -380,7 +304,6 @@
 		};
 		CF9335DC1B26706400DEF1B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 059F0916116A82F8A07DB0E7 /* Pods-NativeAdvancedExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;

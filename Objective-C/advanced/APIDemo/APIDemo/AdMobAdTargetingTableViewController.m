@@ -17,8 +17,6 @@
 //  limitations under the License.
 //
 
-@import CoreLocation;
-
 #import "AdMobAdTargetingTableViewController.h"
 
 #import "Constants.h"
@@ -33,11 +31,7 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
 
 /// AdMob - Ad Targeting
 /// Demonstrates AdMob ad targeting.
-@interface AdMobAdTargetingTableViewController () <UIPickerViewDelegate, UIPickerViewDataSource,
-                                                   CLLocationManagerDelegate>
-
-/// The current location label.
-@property(nonatomic, weak) IBOutlet UILabel *locationLabel;
+@interface AdMobAdTargetingTableViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
 /// The birthdate label.
 @property(nonatomic, weak) IBOutlet UILabel *birthdateLabel;
@@ -60,26 +54,20 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
 /// The banner view.
 @property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
 
-/// Loads an ad based on user's location, birthdate, gender and child-directed status.
+/// Loads an ad based on user's birthdate, gender, and child-directed status.
 - (IBAction)loadTargetedAd:(id)sender;
 
 /// Sets the birthdate label to birthdate selected in picker.
 - (IBAction)chooseBirthdate:(id)sender;
 
-/// The location manager.
-@property(nonatomic, strong) CLLocationManager *locationManager;
-
-/// The user's current location.
-@property(nonatomic, strong) CLLocation *currentLocation;
-
 /// The birthdate formatter, ex: Jan 31, 1980.
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
 
 /// The gender options.
-@property(nonatomic, copy) NSArray *genderOptions;
+@property(nonatomic, copy) NSArray<NSString *> *genderOptions;
 
 /// The child-directed options.
-@property(nonatomic, copy) NSArray *childDirectedOptions;
+@property(nonatomic, copy) NSArray<NSString *> *childDirectedOptions;
 
 @end
 
@@ -107,16 +95,6 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
   self.childDirectedPicker.delegate = self;
   self.childDirectedPicker.dataSource = self;
   [self.childDirectedPicker selectRow:1 inComponent:0 animated:NO];
-
-  // CLLocationManager setup.
-  self.locationManager = [[CLLocationManager alloc] init];
-  self.locationManager.delegate = self;
-  self.locationManager.distanceFilter = kCLDistanceFilterNone;
-  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-  if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-    [self.locationManager requestWhenInUseAuthorization];
-  }
-  [self.locationManager startUpdatingLocation];
 }
 
 #pragma mark - UITableViewDataSource
@@ -140,8 +118,8 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  UIView *currentPickerView = nil;
   NSString *cellIdentifier = cell.reuseIdentifier;
+  UIView *currentPickerView;
 
   if ([cellIdentifier isEqual:kBirthdateCellIdentifier]) {
     currentPickerView = self.birthdatePicker;
@@ -166,12 +144,10 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
 
 #pragma mark - UIPickerViewDataSource
 
-// Returns the number of columns to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
   return 1;
 }
 
-// Returns the number of rows in each component.
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
   NSInteger numberOfRows = 0;
   if (pickerView == self.genderPicker) {
@@ -206,19 +182,6 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
   }
 }
 
-#pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-  self.currentLocation = locations.lastObject;
-  self.locationLabel.text =
-      [NSString stringWithFormat:@"%.3f, %.3f", self.currentLocation.coordinate.latitude,
-                                 self.currentLocation.coordinate.longitude];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-  NSLog(@"%s: %@", __PRETTY_FUNCTION__, error.localizedDescription);
-}
-
 #pragma mark - Actions
 
 - (IBAction)loadTargetedAd:(id)sender {
@@ -226,12 +189,6 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
   self.bannerView.rootViewController = self;
 
   GADRequest *request = [GADRequest request];
-
-  if (self.currentLocation) {
-    [request setLocationWithLatitude:self.currentLocation.coordinate.latitude
-                           longitude:self.currentLocation.coordinate.longitude
-                            accuracy:kCLLocationAccuracyBest];
-  }
   if (![self.birthdateLabel.text isEqual:@"Birthdate"]) {
     request.birthday = self.birthdatePicker.date;
   }

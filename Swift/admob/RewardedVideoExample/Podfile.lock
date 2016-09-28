@@ -1,7 +1,7 @@
 PODS:
   - Firebase/AdMob (3.5.2):
     - Firebase/Analytics
-    - Google-Mobile-Ads-SDK (= 7.10.1)
+    - Google-Mobile-Ads-SDK (= 7.12.0)
   - Firebase/Analytics (3.5.2):
     - FirebaseAnalytics (~> 3.3)
   - Firebase/Core (3.5.2):

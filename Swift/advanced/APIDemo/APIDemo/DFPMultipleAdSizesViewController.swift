@@ -84,7 +84,7 @@ class DFPMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
   // MARK: - GADAdSizeDelegate
 
   /// Called before the ad view changes to the new size.
-  func adView(bannerView: GADBannerView!, willChangeAdSizeTo size: GADAdSize) {
+  func adView(bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
     // The bannerView calls this method on its adSizeDelegate object before the banner updates its
     // size, allowing the application to adjust any views that may be affected by the new ad size.
     print("Make your app layout changes here, if necessary. New banner ad size will be \(size).")

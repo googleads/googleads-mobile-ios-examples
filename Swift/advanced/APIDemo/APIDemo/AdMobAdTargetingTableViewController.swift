@@ -14,7 +14,6 @@
 //  limitations under the License.
 //
 
-import CoreLocation
 import GoogleMobileAds
 import UIKit
 
@@ -30,11 +29,8 @@ struct AdMobAdTargetingTableCellIdentifiers {
 
 /// AdMob - Ad Targeting
 /// Demonstrates AdMob ad targeting.
-class AdMobAdTargetingTableViewController: UITableViewController, CLLocationManagerDelegate,
-    UIPickerViewDataSource, UIPickerViewDelegate {
-
-  /// The current location label.
-  @IBOutlet weak var locationLabel: UILabel!
+class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDataSource,
+    UIPickerViewDelegate {
 
   /// The birthdate label.
   @IBOutlet weak var birthdateLabel: UILabel!
@@ -56,9 +52,6 @@ class AdMobAdTargetingTableViewController: UITableViewController, CLLocationMana
 
   /// The banner view.
   @IBOutlet weak var bannerView: GADBannerView!
-
-  /// The location manager.
-  let locationManager = CLLocationManager()
 
   /// The birthdate formatter, ex: Jan 31, 1980.
   let dateFormatter = NSDateFormatter()
@@ -92,15 +85,6 @@ class AdMobAdTargetingTableViewController: UITableViewController, CLLocationMana
     let childDirectedPickerMiddleRow = childDirectedOptions.count / 2
     childDirectedPicker.selectRow(childDirectedPickerMiddleRow, inComponent: 0,
         animated: false)
-
-    // CLLocationManager setup.
-    locationManager.delegate = self
-    locationManager.distanceFilter = kCLDistanceFilterNone
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    if #available(iOS 8.0, *) {
-      locationManager.requestWhenInUseAuthorization()
-    }
-    locationManager.startUpdatingLocation()
   }
 
   // MARK: - UITableViewDelegate
@@ -182,12 +166,10 @@ class AdMobAdTargetingTableViewController: UITableViewController, CLLocationMana
 
   // MARK: - UIPickerViewDataSource
 
-  // Returns the number of columns to display.
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
     return 1
   }
 
-  // Returns the number of rows in each component.
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     var numOfRows = 0
     switch pickerView {
@@ -201,31 +183,11 @@ class AdMobAdTargetingTableViewController: UITableViewController, CLLocationMana
     return numOfRows
   }
 
-  // MARK: - CLLocationManagerDelegate
-
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if let currentLocation = locations.last {
-      let latitude = CGFloat(round(1000 * currentLocation.coordinate.latitude) / 1000)
-      let longitude = CGFloat(round(1000 * currentLocation.coordinate.longitude) / 1000)
-      locationLabel.text = "\(latitude), \(longitude)"
-    }
-  }
-
-  func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-    print("\(#function): \(error.localizedDescription)")
-  }
-
   // MARK: - Actions
 
-  // Loads an ad based on user's location, birthdate, gender and child-directed status.
+  /// Loads an ad based on user's birthdate, gender, and child-directed status.
   @IBAction func loadTargetedAd(sender: AnyObject) {
     let request = GADRequest()
-    if let currentLocation = locationManager.location {
-      let latitude = CGFloat(currentLocation.coordinate.latitude)
-      let longitude = CGFloat(currentLocation.coordinate.longitude)
-      request.setLocationWithLatitude(latitude, longitude: longitude,
-          accuracy: CGFloat(kCLLocationAccuracyBest))
-    }
     if birthdateLabel.text != "Birthdate" {
       request.birthday = birthdatePicker.date
     }
@@ -245,7 +207,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, CLLocationMana
     bannerView.loadRequest(request)
   }
 
-  // Sets the birthdate label to birthdate selected in picker.
+  /// Sets the birthdate label to birthdate selected in picker.
   @IBAction func chooseBirthdate(sender: AnyObject) {
     birthdateLabel.text = dateFormatter.stringFromDate(birthdatePicker.date)
   }

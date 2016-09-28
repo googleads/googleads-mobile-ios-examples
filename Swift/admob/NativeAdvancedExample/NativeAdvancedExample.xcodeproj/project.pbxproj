@@ -15,12 +15,9 @@
 		4AEBD57A1BF0109B00874961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5781BF0109B00874961 /* LaunchScreen.storyboard */; };
 		4AEC64101BFAAB9600CF6A16 /* NativeAppInstallAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEC640C1BFAAB9600CF6A16 /* NativeAppInstallAdView.xib */; };
 		4AEC64111BFAAB9600CF6A16 /* NativeContentAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEC640E1BFAAB9600CF6A16 /* NativeContentAdView.xib */; };
-		601CC4F30256EDDCB2569676 /* Pods_NativeAdvancedExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E28887B82BB546BD0E835BF /* Pods_NativeAdvancedExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		084B02BEA9E77E57413ADC78 /* Pods-NativeAdvancedExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeAdvancedExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample.debug.xcconfig"; sourceTree = "<group>"; };
-		1E28887B82BB546BD0E835BF /* Pods_NativeAdvancedExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativeAdvancedExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		267F0AF31CE93AA300C90CE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AEBD56C1BF0109B00874961 /* NativeAdvancedExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeAdvancedExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEBD56F1BF0109B00874961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +28,6 @@
 		4AEBD57B1BF0109B00874961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AEC640D1BFAAB9600CF6A16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
 		4AEC640F1BFAAB9600CF6A16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
-		7CF517EED3198ECCF8100C4A /* Pods-NativeAdvancedExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeAdvancedExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				601CC4F30256EDDCB2569676 /* Pods_NativeAdvancedExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +46,6 @@
 			children = (
 				4AEBD56E1BF0109B00874961 /* NativeAdvancedExample */,
 				4AEBD56D1BF0109B00874961 /* Products */,
-				696E64C2690A801BFA95C02F /* Pods */,
 				77CAAFB1A66B6A865AE904A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -80,19 +74,9 @@
 			path = NativeAdvancedExample;
 			sourceTree = "<group>";
 		};
-		696E64C2690A801BFA95C02F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				084B02BEA9E77E57413ADC78 /* Pods-NativeAdvancedExample.debug.xcconfig */,
-				7CF517EED3198ECCF8100C4A /* Pods-NativeAdvancedExample.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		77CAAFB1A66B6A865AE904A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E28887B82BB546BD0E835BF /* Pods_NativeAdvancedExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -104,12 +88,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEBD57E1BF0109B00874961 /* Build configuration list for PBXNativeTarget "NativeAdvancedExample" */;
 			buildPhases = (
-				B7CDF84804B137A48DA4C9FD /* 📦 Check Pods Manifest.lock */,
 				4AEBD5681BF0109B00874961 /* Sources */,
 				4AEBD5691BF0109B00874961 /* Frameworks */,
 				4AEBD56A1BF0109B00874961 /* Resources */,
-				22EDEC3F1196D36E5DCB4691 /* 📦 Embed Pods Frameworks */,
-				F4C25262A076568CDFB6936F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,11 +108,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Google;
 				TargetAttributes = {
 					4AEBD56B1BF0109B00874961 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -168,54 +150,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		22EDEC3F1196D36E5DCB4691 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7CDF84804B137A48DA4C9FD /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F4C25262A076568CDFB6936F /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NativeAdvancedExample/Pods-NativeAdvancedExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AEBD5681BF0109B00874961 /* Sources */ = {
@@ -278,8 +212,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -323,8 +259,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -345,36 +283,37 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		4AEBD57F1BF0109B00874961 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 084B02BEA9E77E57413ADC78 /* Pods-NativeAdvancedExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.NativeAdvancedExample;
 				PRODUCT_NAME = NativeAdvancedExample;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		4AEBD5801BF0109B00874961 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CF517EED3198ECCF8100C4A /* Pods-NativeAdvancedExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.NativeAdvancedExample;
 				PRODUCT_NAME = NativeAdvancedExample;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
