@@ -51,28 +51,28 @@ class DFPCustomTargetingViewController: UIViewController, UIPickerViewDataSource
 
   // MARK: - UIPickerViewDelegate
 
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int,
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
       forComponent component: Int) -> String? {
     return favoriteSportsOptions[row]
   }
 
   // MARK: - UIPickerViewDataSource
 
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
 
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return favoriteSportsOptions.count
   }
 
   // MARK: - Actions
 
-  @IBAction func loadAd(sender: AnyObject) {
-    let row = favoriteSportsPicker.selectedRowInComponent(0)
+  @IBAction func loadAd(_ sender: AnyObject) {
+    let row = favoriteSportsPicker.selectedRow(inComponent: 0)
     let request = DFPRequest()
     request.customTargeting = [sportPreferenceKey: favoriteSportsOptions[row]]
-    bannerView.loadRequest(request)
+    bannerView.load(request)
   }
 
 }

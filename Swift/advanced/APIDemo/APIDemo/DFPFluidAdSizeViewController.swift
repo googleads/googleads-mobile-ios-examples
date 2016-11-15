@@ -30,7 +30,7 @@ class DFPFluidAdSizeViewController: UIViewController {
     bannerView.adUnitID = Constants.DFPFluidAdSizeAdUnitID
     bannerView.rootViewController = self
     bannerView.adSize = kGADAdSizeFluid
-    bannerView.loadRequest(DFPRequest())
+    bannerView.load(DFPRequest())
   }
 
 }

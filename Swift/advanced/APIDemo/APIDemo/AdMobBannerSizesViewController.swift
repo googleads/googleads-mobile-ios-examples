@@ -40,11 +40,11 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
     bannerSizesPicker.delegate = self
     bannerSizesPicker.dataSource = self
 
-    switch UIDevice.currentDevice().userInterfaceIdiom {
-    case .Phone, .Unspecified:
+    switch UIDevice.current.userInterfaceIdiom {
+    case .phone, .unspecified:
       bannerSizes = ["Large Banner", "Banner", "Smart Banner"]
       bannerSizesPicker.selectRow(1, inComponent: 0, animated: false)
-    case .Pad:
+    case .pad:
       bannerSizes = [
         "Smart Banner",
         "Large Banner",
@@ -71,24 +71,24 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
 
   // MARK: - UIPickerViewDataSource
 
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
 
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return bannerSizes.count
   }
 
   // MARK: - UIPickerViewDelegate
 
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
       -> String? {
     return bannerSizes[row]
   }
 
   // MARK: - Actions
 
-  @IBAction func loadAd(sender: AnyObject) {
+  @IBAction func loadAd(_ sender: AnyObject) {
     if bannerView == nil {
       bannerView = GADBannerView()
       bannerView.adUnitID = Constants.AdMobAdUnitID
@@ -98,16 +98,16 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
       bannerView.translatesAutoresizingMaskIntoConstraints = false
 
       // Layout constraints that align the banner view to the bottom center of the screen.
-      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .Bottom,
-          relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
-      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .CenterX,
-          relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom,
+          relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX,
+          relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
     }
 
-    var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRowInComponent(0)]
+    var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]
 
     if bannerSizeString == "Smart Banner" {
-      if UIDevice.currentDevice().orientation == .Portrait {
+      if UIDevice.current.orientation == .portrait {
         bannerSizeString = "Smart Banner Portrait"
       } else {
         bannerSizeString = "Smart Banner Landscape"
@@ -115,7 +115,7 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
     }
 
     bannerView.adSize = ads[bannerSizeString]!
-    bannerView.loadRequest(GADRequest())
+    bannerView.load(GADRequest())
   }
 
 }

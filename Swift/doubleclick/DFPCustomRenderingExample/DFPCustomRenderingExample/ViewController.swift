@@ -54,7 +54,7 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     refreshAd(nil)
   }
 
-  func setAdView(view: UIView) {
+  func setAdView(_ view: UIView) {
     // Remove the previous ad view.
     nativeAdView?.removeFromSuperview()
     nativeAdView = view
@@ -64,57 +64,56 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.
     let viewDictionary = ["_nativeAdView": nativeAdView!]
-    self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[_nativeAdView]|",
+    self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
         options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
-    self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[_nativeAdView]|",
+    self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
         options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
   }
 
   // MARK: - Actions
 
   /// Refreshes the native ad.
-  @IBAction func refreshAd(sender: AnyObject!) {
+  @IBAction func refreshAd(_ sender: AnyObject!) {
     var adTypes = [String]()
-    if appInstallAdSwitch.on {
+    if appInstallAdSwitch.isOn {
       adTypes.append(kGADAdLoaderAdTypeNativeAppInstall)
     }
-    if contentAdSwitch.on {
+    if contentAdSwitch.isOn {
       adTypes.append(kGADAdLoaderAdTypeNativeContent)
     }
-    if customNativeAdSwitch.on {
+    if customNativeAdSwitch.isOn {
       adTypes.append(kGADAdLoaderAdTypeNativeCustomTemplate)
     }
 
     if adTypes.isEmpty {
       let alertView = UIAlertView(title: "Alert", message: "At least one ad format must be " +
           "selected to refresh the ad.", delegate: self, cancelButtonTitle: "OK")
-      alertView.alertViewStyle = .Default
+      alertView.alertViewStyle = .default
       alertView.show()
     } else {
-      refreshAdButton.enabled = false
+      refreshAdButton.isEnabled = false
       adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
           adTypes: adTypes, options: nil)
       adLoader.delegate = self
-      adLoader.loadRequest(GADRequest())
+      adLoader.load(GADRequest())
     }
   }
 
   // MARK: - GADAdLoaderDelegate
 
-  func adLoader(adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
-    refreshAdButton.enabled = true
+    refreshAdButton.isEnabled = true
   }
 
   // MARK: - GADNativeAppInstallAdLoaderDelegate
 
-  func adLoader(adLoader: GADAdLoader,
-      didReceiveNativeAppInstallAd nativeAppInstallAd: GADNativeAppInstallAd) {
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAppInstallAd: GADNativeAppInstallAd) {
     print("Received native app install ad: \(nativeAppInstallAd)")
-    refreshAdButton.enabled = true
+    refreshAdButton.isEnabled = true
 
     // Create and place the ad in the view hierarchy.
-    let appInstallAdView = NSBundle.mainBundle().loadNibNamed("NativeAppInstallAdView", owner: nil,
+    let appInstallAdView = Bundle.main.loadNibNamed("NativeAppInstallAdView", owner: nil,
         options: nil)?.first as! GADNativeAppInstallAdView
     setAdView(appInstallAdView)
 
@@ -125,45 +124,45 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     // Populate the app install ad view with the app install ad assets.
     // Some assets are guaranteed to be present in every app install ad.
     (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
-    (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon.image
+    (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
     (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
     (appInstallAdView.imageView as! UIImageView).image =
         (nativeAppInstallAd.images?.first as! GADNativeAdImage).image
     (appInstallAdView.callToActionView as! UIButton).setTitle(
-        nativeAppInstallAd.callToAction, forState: UIControlState.Normal)
+        nativeAppInstallAd.callToAction, for: UIControlState.normal)
 
     // Other assets are not, however, and should be checked first.
     let starRatingView = appInstallAdView.starRatingView
     if let starRating = nativeAppInstallAd.starRating {
       (starRatingView as! UIImageView).image = imageOfStarsFromStarRating(starRating)
-      starRatingView?.hidden = false
+      starRatingView?.isHidden = false
     } else {
-      starRatingView?.hidden = true
+      starRatingView?.isHidden = true
     }
 
     let storeView = appInstallAdView.storeView
     if let store = nativeAppInstallAd.store {
       (storeView as! UILabel).text = store
-      storeView?.hidden = false
+      storeView?.isHidden = false
     } else {
-      storeView?.hidden = true
+      storeView?.isHidden = true
     }
 
     let priceView = appInstallAdView.priceView
     if let price = nativeAppInstallAd.price {
       (priceView as! UILabel).text = price
-      priceView?.hidden = false
+      priceView?.isHidden = false
     } else {
-      priceView?.hidden = true
+      priceView?.isHidden = true
     }
 
     // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (appInstallAdView.callToActionView as! UIButton).userInteractionEnabled = false
+    (appInstallAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
   }
 
   /// Returns a `UIImage` representing the number of stars from the given star rating; returns `nil`
   /// if the star rating is less than 3.5 stars.
-  func imageOfStarsFromStarRating(starRating: NSDecimalNumber) -> UIImage? {
+  func imageOfStarsFromStarRating(_ starRating: NSDecimalNumber) -> UIImage? {
     let rating = starRating.doubleValue
     if rating >= 5 {
       return UIImage(named: "stars_5")
@@ -180,13 +179,12 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
 
   // MARK: - GADNativeContentAdLoaderDelegate
 
-  func adLoader(adLoader: GADAdLoader,
-      didReceiveNativeContentAd nativeContentAd: GADNativeContentAd) {
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeContentAd: GADNativeContentAd) {
     print("Received native content ad: \(nativeContentAd)")
-    refreshAdButton.enabled = true
+    refreshAdButton.isEnabled = true
 
     // Create and place the ad in the view hierarchy.
-    let contentAdView = NSBundle.mainBundle().loadNibNamed(
+    let contentAdView = Bundle.main.loadNibNamed(
         "NativeContentAdView", owner: nil, options: nil)?.first as! GADNativeContentAdView
     setAdView(contentAdView)
 
@@ -202,30 +200,30 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
         (nativeContentAd.images?.first as! GADNativeAdImage).image
     (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
     (contentAdView.callToActionView as! UIButton).setTitle(
-        nativeContentAd.callToAction, forState: UIControlState.Normal)
+        nativeContentAd.callToAction, for: UIControlState.normal)
 
     // Other assets are not, however, and should be checked first.
     let logoView = contentAdView.logoView
     if let logoImage = nativeContentAd.logo?.image {
       (logoView as! UIImageView).image = logoImage
-      logoView?.hidden = false
+      logoView?.isHidden = false
     } else {
-      logoView?.hidden = true
+      logoView?.isHidden = true
     }
 
     // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (contentAdView.callToActionView as! UIButton).userInteractionEnabled = false
+    (contentAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
   }
 
   // MARK: - GADNativeCustomTemplateAdLoaderDelegate
 
-  func adLoader(adLoader: GADAdLoader!,
-      didReceiveNativeCustomTemplateAd nativeCustomTemplateAd: GADNativeCustomTemplateAd!) {
+  func adLoader(_ adLoader: GADAdLoader,
+      didReceive nativeCustomTemplateAd: GADNativeCustomTemplateAd) {
     print("Received custom native ad: \(nativeCustomTemplateAd)")
-    refreshAdButton.enabled = true
+    refreshAdButton.isEnabled = true
 
     // Create and place the ad in the view hierarchy.
-    let customNativeAdView = NSBundle.mainBundle().loadNibNamed(
+    let customNativeAdView = Bundle.main.loadNibNamed(
         "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
     setAdView(customNativeAdView)
 
@@ -233,7 +231,7 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     customNativeAdView.populateWithCustomNativeAd(nativeCustomTemplateAd)
   }
 
-  func nativeCustomTemplateIDsForAdLoader(adLoader: GADAdLoader!) -> [AnyObject]! {
+  func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [Any] {
     return [ "10063170" ]
   }
 

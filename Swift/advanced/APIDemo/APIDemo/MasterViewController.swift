@@ -35,31 +35,31 @@ class MasterViewController: UITableViewController {
                    "appEventsSegue", "fluidAdSizeSegue", "competitiveExclusionsSegue"]
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     if let indexPathSelected = tableView.indexPathForSelectedRow {
-      tableView.deselectRowAtIndexPath(indexPathSelected, animated: animated)
+      tableView.deselectRow(at: indexPathSelected, animated: animated)
     }
   }
 
   // MARK: - Table View
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return APIDemoNames.count
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
       UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("DemoCell")!
+    let cell = tableView.dequeueReusableCell(withIdentifier: "DemoCell")!
     cell.textLabel!.text = APIDemoNames[indexPath.row]
 
     return cell
   }
 
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let row = indexPath.row
     if row < identifiers.count {
-      performSegueWithIdentifier(identifiers[row], sender: self)
+      performSegue(withIdentifier: identifiers[row], sender: self)
     }
   }
 

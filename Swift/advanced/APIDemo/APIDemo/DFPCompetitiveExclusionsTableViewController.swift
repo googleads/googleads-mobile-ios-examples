@@ -24,9 +24,9 @@ class DFPCompetitiveExclusionsTableViewController: UITableViewController {
 
   // MARK: - Table View
 
-  override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView,
+  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
       forSection section: Int) {
-    view.tintColor = UIColor.clearColor()
+    view.tintColor = UIColor.clear
   }
 
 }

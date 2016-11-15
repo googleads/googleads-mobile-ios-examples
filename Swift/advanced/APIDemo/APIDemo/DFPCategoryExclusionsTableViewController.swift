@@ -32,31 +32,31 @@ class DFPCategoryExclusionsTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    tableView.tableFooterView = UIView(frame: CGRectZero)
+    tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     noExclusionsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
     noExclusionsBannerView.rootViewController = self
     let noExclusionsRequest = DFPRequest()
-    noExclusionsBannerView.loadRequest(noExclusionsRequest)
+    noExclusionsBannerView.load(noExclusionsRequest)
 
     excludeDogsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
     excludeDogsBannerView.rootViewController = self
     let excludeDogsRequest = DFPRequest()
     excludeDogsRequest.categoryExclusions = [Constants.CategoryExclusionDogs]
-    excludeDogsBannerView.loadRequest(excludeDogsRequest)
+    excludeDogsBannerView.load(excludeDogsRequest)
 
     excludeCatsBannerView.adUnitID = Constants.DFPCategoryExclusionsAdUnitID
     excludeCatsBannerView.rootViewController = self
     let excludeCatsRequest = DFPRequest()
     excludeCatsRequest.categoryExclusions = [Constants.CategoryExclusionCats]
-    excludeCatsBannerView.loadRequest(excludeCatsRequest)
+    excludeCatsBannerView.load(excludeCatsRequest)
   }
 
   // MARK: - Table View
 
-  override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView,
+  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
       forSection section: Int) {
-    view.tintColor = UIColor.clearColor()
+    view.tintColor = UIColor.clear
   }
 
 }

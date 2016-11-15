@@ -20,10 +20,10 @@ import UIKit
 class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDelegate {
 
   enum GameState: NSInteger {
-    case NotStarted
-    case Playing
-    case Paused
-    case Ended
+    case notStarted
+    case playing
+    case paused
+    case ended
   }
 
   /// The game length.
@@ -33,19 +33,19 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   var interstitial: DFPInterstitial!
 
   /// The countdown timer.
-  var timer: NSTimer?
+  var timer: Timer?
 
   /// The amount of time left in the game.
   var timeLeft = gameLength
 
   /// The state of the game.
-  var gameState = GameState.NotStarted
+  var gameState = GameState.notStarted
 
   /// The date that the timer was paused.
-  var pauseDate: NSDate?
+  var pauseDate: Date?
 
   /// The last fire date before a pause.
-  var previousFireDate: NSDate?
+  var previousFireDate: Date?
 
   /// The countdown timer label.
   @IBOutlet weak var gameText: UILabel!
@@ -57,44 +57,44 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     super.viewDidLoad()
 
     // Pause game when application enters background.
-    NSNotificationCenter.defaultCenter().addObserver(self,
+    NotificationCenter.default.addObserver(self,
         selector: #selector(ViewController.pauseGame),
-        name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
 
     // Resume game when application becomes active.
-    NSNotificationCenter.defaultCenter().addObserver(self,
+    NotificationCenter.default.addObserver(self,
         selector: #selector(ViewController.resumeGame),
-        name: UIApplicationDidBecomeActiveNotification, object: nil)
+        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
 
     startNewGame()
   }
 
   // MARK: - Game Logic
 
-  private func startNewGame() {
+  fileprivate func startNewGame() {
     createAndLoadInterstitial()
 
-    gameState = .Playing
+    gameState = .playing
     timeLeft = ViewController.gameLength
-    playAgainButton.hidden = true
+    playAgainButton.isHidden = true
     updateTimeLeft()
-    timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+    timer = Timer.scheduledTimer(timeInterval: 1.0,
         target: self,
         selector:#selector(ViewController.decrementTimeLeft(_:)),
         userInfo: nil,
         repeats: true)
   }
 
-  private func createAndLoadInterstitial() {
+  fileprivate func createAndLoadInterstitial() {
     interstitial = DFPInterstitial(adUnitID: "/6499/example/interstitial")
-    interstitial.loadRequest(DFPRequest())
+    interstitial.load(DFPRequest())
   }
 
-  private func updateTimeLeft() {
+  fileprivate func updateTimeLeft() {
     gameText.text = "\(timeLeft) seconds left!"
   }
 
-  func decrementTimeLeft(timer: NSTimer) {
+  func decrementTimeLeft(_ timer: Timer) {
     timeLeft -= 1
     updateTimeLeft()
     if timeLeft == 0 {
@@ -103,34 +103,34 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
   }
 
   func pauseGame() {
-    if gameState != .Playing {
+    if gameState != .playing {
       return
     }
-    gameState = .Paused
+    gameState = .paused
 
     // Record the relevant pause times.
-    pauseDate = NSDate()
+    pauseDate = Date()
     previousFireDate = timer?.fireDate
 
     // Prevent the timer from firing while app is in background.
-    timer?.fireDate = NSDate.distantFuture()
+    timer?.fireDate = Date.distantFuture
   }
 
   func resumeGame() {
-    if gameState != .Paused {
+    if gameState != .paused {
       return
     }
-    gameState = .Playing
+    gameState = .playing
 
     // Calculate amount of time the app was paused.
     let pauseTime = (pauseDate?.timeIntervalSinceNow)! * -1
 
     // Set the timer to start firing again.
-    timer?.fireDate = (previousFireDate?.dateByAddingTimeInterval(pauseTime))!
+    timer?.fireDate = (previousFireDate?.addingTimeInterval(pauseTime))!
   }
 
-  private func endGame() {
-    gameState = .Ended
+  fileprivate func endGame() {
+    gameState = .ended
     timer?.invalidate()
     timer = nil
 
@@ -142,28 +142,28 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
 
   // MARK: - Interstitial Button Actions
 
-  @IBAction func playAgain(sender: AnyObject) {
+  @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
   }
 
   // MARK: - UIAlertViewDelegate
 
-  func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+  func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
     if interstitial.isReady {
-      interstitial.presentFromRootViewController(self)
+      interstitial.present(fromRootViewController: self)
     } else {
       print("Ad wasn't ready")
     }
-    playAgainButton.hidden = false
+    playAgainButton.isHidden = false
   }
 
   // MARK: - deinit
 
   deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self,
-        name: UIApplicationDidEnterBackgroundNotification, object: nil)
-    NSNotificationCenter.defaultCenter().removeObserver(self,
-        name: UIApplicationDidBecomeActiveNotification, object: nil)
+    NotificationCenter.default.removeObserver(self,
+        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+    NotificationCenter.default.removeObserver(self,
+        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
   }
 
 }

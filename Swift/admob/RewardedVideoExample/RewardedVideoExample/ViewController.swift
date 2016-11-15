@@ -20,10 +20,10 @@ import UIKit
 class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertViewDelegate {
 
   enum GameState: NSInteger {
-    case NotStarted
-    case Playing
-    case Paused
-    case Ended
+    case notStarted
+    case playing
+    case paused
+    case ended
   }
 
   /// Constant for coin rewards.
@@ -42,19 +42,19 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
   var rewardBasedVideo: GADRewardBasedVideoAd?
 
   /// The countdown timer.
-  var timer: NSTimer?
+  var timer: Timer?
 
   /// The game counter.
   var counter = 10
 
   /// The state of the game.
-  var gameState = GameState.NotStarted
+  var gameState = GameState.notStarted
 
   /// The date that the timer was paused.
-  var pauseDate: NSDate?
+  var pauseDate: Date?
 
   /// The last fire date before a pause.
-  var previousFireDate: NSDate?
+  var previousFireDate: Date?
 
   /// In-game text that indicates current counter value or game over state.
   @IBOutlet weak var gameText: UILabel!
@@ -72,67 +72,69 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
     coinCountLabel.text = "Coins: \(self.coinCount)"
 
     // Pause game when application is backgrounded.
-    NSNotificationCenter.defaultCenter().addObserver(self,
-        selector: #selector(ViewController.pauseGame),
-        name: UIApplicationDidEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.addObserver(self,
+        selector: #selector(ViewController.applicationDidEnterBackground(_:)),
+        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
 
     // Resume game when application is returned to foreground.
-    NSNotificationCenter.defaultCenter().addObserver(self,
-        selector: #selector(ViewController.resumeGame),
-        name: UIApplicationDidBecomeActiveNotification, object: nil)
+    NotificationCenter.default.addObserver(self,
+        selector: #selector(ViewController.applicationDidBecomeActive(_:)),
+        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
 
     startNewGame()
   }
 
   // MARK: Game logic
 
-  private func startNewGame() {
-    gameState = .Playing
+  fileprivate func startNewGame() {
+    gameState = .playing
     counter = gameLength
-    playAgainButton.hidden = true
+    playAgainButton.isHidden = true
 
-    if !adRequestInProgress && rewardBasedVideo?.ready == false {
-      rewardBasedVideo?.loadRequest(GADRequest(),
+    if !adRequestInProgress && rewardBasedVideo?.isReady == false {
+      rewardBasedVideo?.load(GADRequest(),
           withAdUnitID: "INSERT_AD_UNIT_HERE")
       adRequestInProgress = true
     }
 
     gameText.text = String(counter)
-    timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+    timer = Timer.scheduledTimer(timeInterval: 1.0,
       target: self,
-      selector:#selector(ViewController.decrementCounter(_:)),
+      selector:#selector(ViewController.timerFireMethod(_:)),
       userInfo: nil,
       repeats: true)
   }
 
-  func pauseGame() {
-    if gameState != .Playing {
+  func applicationDidEnterBackground(_ notification: Notification) {
+    // Pause the game if it is currently playing.
+    if gameState != .playing {
       return
     }
-    gameState = .Paused
+    gameState = .paused
 
     // Record the relevant pause times.
-    pauseDate = NSDate()
+    pauseDate = Date()
     previousFireDate = timer?.fireDate
 
     // Prevent the timer from firing while app is in background.
-    timer?.fireDate = NSDate.distantFuture()
+    timer?.fireDate = Date.distantFuture
   }
 
-  func resumeGame() {
-    if gameState != .Paused {
+  func applicationDidBecomeActive(_ notification: Notification) {
+    // Resume the game if it is currently paused.
+    if gameState != .paused {
       return
     }
-    gameState = .Playing
+    gameState = .playing
 
     // Calculate amount of time the app was paused.
     let pauseTime = (pauseDate?.timeIntervalSinceNow)! * -1
 
     // Set the timer to start firing again.
-    timer?.fireDate = (previousFireDate?.dateByAddingTimeInterval(pauseTime))!
+    timer?.fireDate = (previousFireDate?.addingTimeInterval(pauseTime))!
   }
 
-  func decrementCounter(timer: NSTimer) {
+  func timerFireMethod(_ timer: Timer) {
     counter -= 1
     if counter > 0 {
       gameText.text = String(counter)
@@ -141,15 +143,15 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
     }
   }
 
-  private func earnCoins(coins: NSInteger) {
+  fileprivate func earnCoins(_ coins: NSInteger) {
     coinCount += coins
     coinCountLabel.text = "Coins: \(self.coinCount)"
   }
 
-  private func endGame() {
-    gameState = .Ended
+  fileprivate func endGame() {
+    gameState = .ended
     gameText.text = "Game over!"
-    playAgainButton.hidden = false
+    playAgainButton.isHidden = false
     timer?.invalidate()
     timer = nil
     earnCoins(gameOverReward)
@@ -157,9 +159,9 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
 
   // MARK: Button actions
 
-  @IBAction func playAgain(sender: AnyObject) {
-    if rewardBasedVideo?.ready == true {
-      rewardBasedVideo?.presentFromRootViewController(self)
+  @IBAction func playAgain(_ sender: AnyObject) {
+    if rewardBasedVideo?.isReady == true {
+      rewardBasedVideo?.present(fromRootViewController: self)
     } else {
       UIAlertView(title: "Reward based video not ready",
         message: "The reward based video didn't finish loading or failed to load",
@@ -170,49 +172,49 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
 
   // MARK: UIAlertViewDelegate implementation
 
-  func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+  func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
     startNewGame()
   }
 
   // MARK: GADRewardBasedVideoAdDelegate implementation
 
-  func rewardBasedVideoAd(rewardBasedVideoAd: GADRewardBasedVideoAd!,
-      didFailToLoadWithError error: NSError!) {
+  func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+      didFailToLoadWithError error: Error) {
     adRequestInProgress = false
     print("Reward based video ad failed to load: \(error.localizedDescription)")
   }
 
-  func rewardBasedVideoAdDidReceiveAd(rewardBasedVideoAd: GADRewardBasedVideoAd!) {
+  func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
     adRequestInProgress = false
     print("Reward based video ad is received.")
   }
 
-  func rewardBasedVideoAdDidOpen(rewardBasedVideoAd: GADRewardBasedVideoAd!) {
+  func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
     print("Opened reward based video ad.")
   }
 
-  func rewardBasedVideoAdDidStartPlaying(rewardBasedVideoAd: GADRewardBasedVideoAd!) {
+  func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
     print("Reward based video ad started playing.")
   }
 
-  func rewardBasedVideoAdDidClose(rewardBasedVideoAd: GADRewardBasedVideoAd!) {
+  func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
     print("Reward based video ad is closed.")
   }
 
-  func rewardBasedVideoAdWillLeaveApplication(rewardBasedVideoAd: GADRewardBasedVideoAd!) {
+  func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
     print("Reward based video ad will leave application.")
   }
 
-  func rewardBasedVideoAd(rewardBasedVideoAd: GADRewardBasedVideoAd!,
-      didRewardUserWithReward reward: GADAdReward!) {
+  func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+      didRewardUserWith reward: GADAdReward) {
     print("Reward received with currency: \(reward.type), amount \(reward.amount).")
     earnCoins(NSInteger(reward.amount))
   }
 
   deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self,
-        name: UIApplicationDidEnterBackgroundNotification, object: nil)
-    NSNotificationCenter.defaultCenter().removeObserver(self,
-        name: UIApplicationDidBecomeActiveNotification, object: nil)
+    NotificationCenter.default.removeObserver(self,
+        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+    NotificationCenter.default.removeObserver(self,
+        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
   }
 }

@@ -22,12 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(application: UIApplication,
-      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  func application(_ application: UIApplication,
+      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Use Firebase library to configure APIs
     FIRApp.configure()
     // Initialize Google Mobile Ads SDK
-    GADMobileAds.configureWithApplicationID("INSERT_APP_ID_HERE")
+    GADMobileAds.configure(withApplicationID: "INSERT_APP_ID_HERE")
 
     return true
   }

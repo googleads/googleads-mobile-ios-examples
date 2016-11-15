@@ -32,40 +32,40 @@ class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
     bannerView.delegate = self
     bannerView.adUnitID = Constants.AdMobAdUnitID
     bannerView.rootViewController = self
-    bannerView.loadRequest(GADRequest())
+    bannerView.load(GADRequest())
   }
 
   // MARK: - GADBannerViewDelegate
 
   // Called when an ad request loaded an ad.
-  func adViewDidReceiveAd(bannerView: GADBannerView!) {
+  func adViewDidReceiveAd(_ bannerView: GADBannerView) {
     print(#function)
   }
 
   // Called when an ad request failed.
-  func adView(bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
     print("\(#function): \(error.localizedDescription)")
   }
 
   // Called just before presenting the user a full screen view, such as a browser, in response to
   // clicking on an ad.
-  func adViewWillPresentScreen(bannerView: GADBannerView!) {
+  func adViewWillPresentScreen(_ bannerView: GADBannerView) {
     print(#function)
   }
 
   // Called just before dismissing a full screen view.
-  func adViewWillDismissScreen(bannerView: GADBannerView!) {
+  func adViewWillDismissScreen(_ bannerView: GADBannerView) {
     print(#function)
   }
 
   // Called just after dismissing a full screen view.
-  func adViewDidDismissScreen(bannerView: GADBannerView!) {
+  func adViewDidDismissScreen(_ bannerView: GADBannerView) {
     print(#function)
   }
 
   // Called just before the application will background or terminate because the user clicked on an
   // ad that will launch another application (such as the App Store).
-  func adViewWillLeaveApplication(bannerView: GADBannerView!) {
+  func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
     print(#function)
   }
 

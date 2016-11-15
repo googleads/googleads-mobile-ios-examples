@@ -47,33 +47,33 @@ class MySimpleNativeAdView: UIView {
     // Enable clicks on the main image.
     mainImageView.addGestureRecognizer(UITapGestureRecognizer(target: self,
         action: #selector(MySimpleNativeAdView.performClickOnMainImage(_:))))
-    mainImageView.userInteractionEnabled = true
+    mainImageView.isUserInteractionEnabled = true
   }
 
-  func performClickOnMainImage(sender: UIImage!) {
+  func performClickOnMainImage(_ sender: UIImage!) {
     // The custom click handler closure overrides the normal click action defined by the ad.
-    let customClickHandler: dispatch_block_t = {
+    let customClickHandler: ()->() = {
       let alertView = UIAlertView(title: "Custom Click", message: "You just clicked on the image!",
           delegate: self, cancelButtonTitle: "OK")
-      alertView.alertViewStyle = .Default
+      alertView.alertViewStyle = .default
       alertView.show()
     }
-    customNativeAd.performClickOnAssetWithKey(
-        MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey,
+    customNativeAd.performClickOnAsset(
+        withKey: MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey,
         customClickHandler: customClickHandler)
   }
 
   /// Populates the ad view with the custom native ad object.
-  func populateWithCustomNativeAd(customNativeAd: GADNativeCustomTemplateAd) {
+  func populateWithCustomNativeAd(_ customNativeAd: GADNativeCustomTemplateAd) {
     self.customNativeAd = customNativeAd
 
     // Populate the custom native ad assets.
-    headlineView.text = customNativeAd.stringForKey(
-        MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewHeadlineKey)
-    mainImageView.image = customNativeAd.imageForKey(
-        MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey)?.image
-    captionView.text = customNativeAd.stringForKey(
-        MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewCaptionKey)
+    headlineView.text = customNativeAd.string(
+        forKey: MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewHeadlineKey)
+    mainImageView.image = customNativeAd.image(
+        forKey: MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey)?.image
+    captionView.text = customNativeAd.string(
+        forKey: MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewCaptionKey)
   }
 
 }

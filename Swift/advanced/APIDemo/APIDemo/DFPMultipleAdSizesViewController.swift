@@ -44,47 +44,47 @@ class DFPMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
     bannerView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints that align the banner view to the bottom center of the screen.
-    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .Bottom, relatedBy: .Equal,
-        toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
-    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .CenterX, relatedBy: .Equal,
-        toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .equal,
+        toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX, relatedBy: .equal,
+        toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
   }
 
   // MARK: - Actions
 
   /// Loads an ad.
-  @IBAction func loadAd(sender: AnyObject) {
-    guard GADAdSizeCustomBannerSwitch.on || GADAdSizeBannerSwitch.on ||
-        GADAdSizeMediumRectangleSwitch.on else {
+  @IBAction func loadAd(_ sender: AnyObject) {
+    guard GADAdSizeCustomBannerSwitch.isOn || GADAdSizeBannerSwitch.isOn ||
+        GADAdSizeMediumRectangleSwitch.isOn else {
       let alert = UIAlertView(title: "Load Ad Error",
           message: "Failed to load ad. Please select at least one ad size.",
           delegate: self,
           cancelButtonTitle: "OK")
-      alert.alertViewStyle = .Default
+      alert.alertViewStyle = .default
       alert.show()
       return
     }
 
     var adSizes = [NSValue]()
-    if GADAdSizeCustomBannerSwitch.on {
-      let customGADAdSize = GADAdSizeFromCGSize(CGSizeMake(120, 20))
+    if GADAdSizeCustomBannerSwitch.isOn {
+      let customGADAdSize = GADAdSizeFromCGSize(CGSize(width: 120, height: 20))
       adSizes.append(NSValueFromGADAdSize(customGADAdSize))
     }
-    if GADAdSizeBannerSwitch.on {
+    if GADAdSizeBannerSwitch.isOn {
       adSizes.append(NSValueFromGADAdSize(kGADAdSizeBanner))
     }
-    if GADAdSizeMediumRectangleSwitch.on {
+    if GADAdSizeMediumRectangleSwitch.isOn {
       adSizes.append(NSValueFromGADAdSize(kGADAdSizeMediumRectangle))
     }
 
     bannerView.validAdSizes = adSizes
-    bannerView.loadRequest(DFPRequest())
+    bannerView.load(DFPRequest())
   }
 
   // MARK: - GADAdSizeDelegate
 
   /// Called before the ad view changes to the new size.
-  func adView(bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
+  func adView(_ bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
     // The bannerView calls this method on its adSizeDelegate object before the banner updates its
     // size, allowing the application to adjust any views that may be affected by the new ad size.
     print("Make your app layout changes here, if necessary. New banner ad size will be \(size).")

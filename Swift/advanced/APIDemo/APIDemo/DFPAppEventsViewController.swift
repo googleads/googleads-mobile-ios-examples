@@ -29,12 +29,12 @@ class DFPAppEventsViewController: UIViewController, GADAppEventDelegate {
     bannerView.adUnitID = Constants.DFPAppEventsAdUnitID
     bannerView.rootViewController = self
     bannerView.appEventDelegate = self
-    bannerView.loadRequest(DFPRequest())
+    bannerView.load(DFPRequest())
   }
 
   // MARK - GADAppEventDelegate
 
-  func adView(banner: GADBannerView!, didReceiveAppEvent name: String!, withInfo info: String!) {
+  func adView(_ banner: GADBannerView, didReceiveAppEvent name: String, withInfo info: String?) {
     // The DFP banner sends app event messages to its app event delegate, this view controller. The
     // GADAppEventDelegate will be notified when the SDK receives an app event message from the
     // banner. In this demo, the GADAppEventDelegate method sets the background of this view
@@ -44,13 +44,14 @@ class DFPAppEventsViewController: UIViewController, GADAppEventDelegate {
     // This is just a demonstration, of course. Your apps can do much more interesting things with
     // app events.
     if name == "color" {
-      switch info {
+      guard let infoString = info else { return }
+      switch infoString {
       case "blue":
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor.blue
       case "red":
-        view.backgroundColor = UIColor.redColor()
+        view.backgroundColor = UIColor.red
       case "green":
-        view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.green
       default:
         break
       }

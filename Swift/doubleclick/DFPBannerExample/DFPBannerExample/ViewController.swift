@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     print("Google Mobile Ads SDK version: \(DFPRequest.sdkVersion())")
     bannerView.adUnitID = "/6499/example/banner"
     bannerView.rootViewController = self
-    bannerView.loadRequest(DFPRequest())
+    bannerView.load(DFPRequest())
   }
 
 }

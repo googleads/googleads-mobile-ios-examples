@@ -54,7 +54,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   @IBOutlet weak var bannerView: GADBannerView!
 
   /// The birthdate formatter, ex: Jan 31, 1980.
-  let dateFormatter = NSDateFormatter()
+  let dateFormatter = DateFormatter()
 
   /// The gender options.
   var genderOptions: [String]!
@@ -64,8 +64,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.tableFooterView = UIView(frame: CGRectZero)
-    dateFormatter.dateStyle = .MediumStyle
+    tableView.tableFooterView = UIView(frame: CGRect.zero)
+    dateFormatter.dateStyle = .medium
 
     // GADBannerView setup.
     bannerView.adUnitID = Constants.AdMobAdUnitID
@@ -89,8 +89,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   // MARK: - UITableViewDelegate
 
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let cell = tableView.cellForRowAtIndexPath(indexPath)
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath)
     var currentPicker: UIView?
     if let cellIdentifier = cell?.reuseIdentifier {
       switch cellIdentifier {
@@ -104,42 +104,42 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
         break
       }
     }
-    if let isPickerHidden = currentPicker?.hidden {
+    if let isPickerHidden = currentPicker?.isHidden {
       hideAllPickers()
-      currentPicker?.hidden = !isPickerHidden
+      currentPicker?.isHidden = !isPickerHidden
       tableView.reloadData()
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      tableView.deselectRow(at: indexPath, animated: true)
     }
   }
 
-  override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView,
+  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
       forSection section: Int) {
-    view.tintColor = UIColor.clearColor()
+    view.tintColor = UIColor.clear
   }
 
   // MARK: - UITableViewDataSource
 
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath)
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
       -> CGFloat {
-    let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    let cell = self.tableView(tableView, cellForRowAt: indexPath)
     if let cellIdentifier = cell.reuseIdentifier {
       if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.BirthdatePickerCell &&
-          birthdatePicker.hidden {
+          birthdatePicker.isHidden {
         return 0
       } else if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.GenderPickerCell &&
-          genderPicker.hidden {
+          genderPicker.isHidden {
         return 0
       } else if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell &&
-          childDirectedPicker.hidden {
+          childDirectedPicker.isHidden {
         return 0
       }
     }
-    return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    return super.tableView(tableView, heightForRowAt: indexPath)
   }
 
   // MARK: - UIPickerViewDelegate
 
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
       -> String? {
     var rowTitle = ""
     switch pickerView {
@@ -153,7 +153,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     return rowTitle
   }
 
-  func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     switch pickerView {
     case genderPicker:
       genderLabel.text = genderOptions[row]
@@ -166,11 +166,11 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   // MARK: - UIPickerViewDataSource
 
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
 
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     var numOfRows = 0
     switch pickerView {
     case genderPicker:
@@ -186,36 +186,36 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   // MARK: - Actions
 
   /// Loads an ad based on user's birthdate, gender, and child-directed status.
-  @IBAction func loadTargetedAd(sender: AnyObject) {
+  @IBAction func loadTargetedAd(_ sender: AnyObject) {
     let request = GADRequest()
     if birthdateLabel.text != "Birthdate" {
       request.birthday = birthdatePicker.date
     }
     if childDirectedLabel.text == "Yes" {
-      request.tagForChildDirectedTreatment(true)
+      request.tag(forChildDirectedTreatment: true)
     } else if childDirectedLabel.text == "No" {
-      request.tagForChildDirectedTreatment(false)
+      request.tag(forChildDirectedTreatment: false)
     }
     switch genderLabel.text! {
     case "Male":
-      request.gender = .Male
+      request.gender = .male
     case "Female":
-      request.gender = .Female
+      request.gender = .female
     default:
-      request.gender = .Unknown
+      request.gender = .unknown
     }
-    bannerView.loadRequest(request)
+    bannerView.load(request)
   }
 
   /// Sets the birthdate label to birthdate selected in picker.
-  @IBAction func chooseBirthdate(sender: AnyObject) {
-    birthdateLabel.text = dateFormatter.stringFromDate(birthdatePicker.date)
+  @IBAction func chooseBirthdate(_ sender: AnyObject) {
+    birthdateLabel.text = dateFormatter.string(from: birthdatePicker.date)
   }
 
-  private func hideAllPickers() {
-    birthdatePicker.hidden = true
-    genderPicker.hidden = true
-    childDirectedPicker.hidden = true
+  fileprivate func hideAllPickers() {
+    birthdatePicker.isHidden = true
+    genderPicker.isHidden = true
+    childDirectedPicker.isHidden = true
   }
 
 }

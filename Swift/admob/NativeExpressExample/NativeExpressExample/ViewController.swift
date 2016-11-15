@@ -26,6 +26,6 @@ class ViewController: UIViewController {
 
     let request = GADRequest()
     request.testDevices = [kGADSimulatorID]
-    nativeExpressAdView.loadRequest(request)
+    nativeExpressAdView.load(request)
   }
 }
