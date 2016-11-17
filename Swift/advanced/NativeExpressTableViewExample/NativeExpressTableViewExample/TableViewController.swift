@@ -31,6 +31,8 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
   // The Native Express ad height.
   let adViewHeight = CGFloat(135)
 
+  // MARK: - UIViewController methods
+
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib(nibName: "MenuItem", bundle: nil),

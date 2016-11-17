@@ -42,6 +42,7 @@ for more information on installing and updating pods.
 ### Advanced
 
 *   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
+*   [Native Express UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/NativeExpressTableViewExample) - Provides an example for displaying ads from AdMob Native Ads Express in a UITableView.
 
 ### DoubleClick
 
@@ -62,6 +63,7 @@ for more information on installing and updating pods.
 ### Advanced
 
 *   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
+*   [Native Express UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/NativeExpressTableViewExample) - Provides an example for displaying ads from AdMob Native Ads Express in a UITableView.
 
 ### DoubleClick
 
