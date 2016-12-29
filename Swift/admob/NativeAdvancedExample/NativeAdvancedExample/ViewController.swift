@@ -18,7 +18,7 @@ import GoogleMobileAds
 import UIKit
 
 class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
-    GADNativeContentAdLoaderDelegate {
+    GADNativeContentAdLoaderDelegate, GADVideoControllerDelegate {
 
   /// The view that holds the native ad.
   @IBOutlet weak var nativeAdPlaceholder: UIView!
@@ -29,8 +29,14 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
   /// The content ad switch.
   @IBOutlet weak var contentAdSwitch: UISwitch!
 
+  /// Indicates whether videos should start muted.
+  @IBOutlet weak var startMutedSwitch: UISwitch!
+
   /// The refresh ad button.
   @IBOutlet weak var refreshAdButton: UIButton!
+
+  /// Displays the current status of video assets.
+  @IBOutlet weak var videoStatusLabel: UILabel!
 
   /// The SDK version label.
   @IBOutlet weak var versionLabel: UILabel!
@@ -86,6 +92,7 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
       alertView.show()
     } else {
       refreshAdButton.isEnabled = false
+      videoStatusLabel.text = ""
       adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
           adTypes: adTypes, options: nil)
       adLoader.delegate = self
@@ -120,12 +127,44 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
     (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
     (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
-    (appInstallAdView.imageView as! UIImageView).image =
-        (nativeAppInstallAd.images?.first as! GADNativeAdImage).image
     (appInstallAdView.callToActionView as! UIButton).setTitle(
         nativeAppInstallAd.callToAction, for: UIControlState.normal)
 
-    // Other assets are not, however, and should be checked first.
+    // Some app install ads will include a video asset, while others do not. Apps can use the
+    // GADVideoController's hasVideoContent property to determine if one is present, and adjust
+    // their UI accordingly.
+    if (nativeAppInstallAd.videoController.hasVideoContent()) {
+      // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+      // ratio of the video it displays.
+      let heightConstraint = NSLayoutConstraint(item: appInstallAdView.mediaView!,
+          attribute: .height,
+          relatedBy: .equal,
+          toItem: appInstallAdView.mediaView!,
+          attribute: .width,
+          multiplier: CGFloat(1.0 / nativeAppInstallAd.videoController.aspectRatio()),
+          constant: 0)
+      heightConstraint.isActive = true
+
+      // By acting as the delegate to the GADVideoController, this ViewController receives messages
+      // about events in the video lifecycle.
+      nativeAppInstallAd.videoController.delegate = self
+
+      self.videoStatusLabel.text = "Ad contains a video asset."
+    } else {
+      // If the ad doesn't contain a video asset, the GADMediaView will automatically display the
+      // first image asset instead, so a fixed value of 150 is used for the height constraint.
+      let heightConstraint = NSLayoutConstraint(item: appInstallAdView.mediaView!,
+          attribute: .height,
+          relatedBy: .equal,
+          toItem: nil,
+          attribute: .notAnAttribute,
+          multiplier: 0,
+          constant: 150)
+      heightConstraint.isActive = true
+      self.videoStatusLabel.text = "Ad does not contain a video asset."
+    }
+
+    // Other assets are not guaranteed to be present, and should be checked first.
     let starRatingView = appInstallAdView.starRatingView
     if let starRating = nativeAppInstallAd.starRating {
       (starRatingView as! UIImageView).image = imageOfStarsFromStarRating(starRating)
@@ -209,4 +248,9 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     (contentAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
   }
 
+  // Mark: - GADVideoControllerDelegate
+
+  func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+    videoStatusLabel.text = "Video playback has ended."
+  }
 }

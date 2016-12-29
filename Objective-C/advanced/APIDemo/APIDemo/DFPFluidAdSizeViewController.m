@@ -29,19 +29,39 @@
 /// The DFP banner view.
 @property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
 
+/// The banner view's width constraint.
+@property(nonatomic, weak) IBOutlet NSLayoutConstraint *bannerViewWidthConstraint;
+
+/// Current banner width.
+@property(nonatomic, weak) IBOutlet UILabel *bannerWidthLabel;
+
+/// An array of banner widths.
+@property(nonatomic, strong) NSArray<NSNumber *> *bannerWidths;
+
+/// Current array index.
+@property(nonatomic, assign) NSInteger currentIndex;
+
 @end
 
 @implementation DFPFluidAdSizeViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.bannerWidths = @[ @200, @250, @320 ];
+  self.currentIndex = 0;
 
   self.bannerView.adUnitID = kDFPFluidAdSizeAdUnitID;
   self.bannerView.rootViewController = self;
   self.bannerView.adSize = kGADAdSizeFluid;
+  [self.bannerView loadRequest:[DFPRequest request]];
+}
 
-  DFPRequest *request = [DFPRequest request];
-  [self.bannerView loadRequest:request];
+/// Handles the user tapping on the "Change Banner Width" button.
+- (IBAction)changeBannerWidth:(id)sender {
+  CGFloat newWidth = self.bannerWidths[self.currentIndex % self.bannerWidths.count].floatValue;
+  self.currentIndex += 1;
+  self.bannerViewWidthConstraint.constant = newWidth;
+  self.bannerWidthLabel.text = [[NSString alloc] initWithFormat:@"%.0f points", newWidth];
 }
 
 @end

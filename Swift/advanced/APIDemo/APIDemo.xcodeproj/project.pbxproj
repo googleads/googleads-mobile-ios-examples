@@ -14,7 +14,6 @@
 		4AA7D69B1C625A1200DFD2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA7D6991C625A1200DFD2EB /* LaunchScreen.storyboard */; };
 		4AA7D6A31C625A8400DFD2EB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A21C625A8400DFD2EB /* MasterViewController.swift */; };
 		4AA7D6A61C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A51C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift */; };
-		4AA7D6A81C626E1000DFD2EB /* DFPCompetitiveExclusionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A71C626E1000DFD2EB /* DFPCompetitiveExclusionsTableViewController.swift */; };
 		4AA7D6AA1C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */; };
 		4AA7D6AC1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */; };
 		4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */; };
@@ -36,7 +35,6 @@
 		4AA7D69C1C625A1200DFD2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA7D6A21C625A8400DFD2EB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		4AA7D6A51C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPCategoryExclusionsTableViewController.swift; sourceTree = "<group>"; };
-		4AA7D6A71C626E1000DFD2EB /* DFPCompetitiveExclusionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPCompetitiveExclusionsTableViewController.swift; sourceTree = "<group>"; };
 		4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobAdTargetingTableViewController.swift; sourceTree = "<group>"; };
 		4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobAdDelegateViewController.swift; sourceTree = "<group>"; };
 		4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobBannerSizesViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				4AA7D6B31C626FED00DFD2EB /* DFPMultipleAdSizesViewController.swift */,
 				4AA7D6B51C62702A00DFD2EB /* DFPAppEventsViewController.swift */,
 				4AA7D6B71C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift */,
-				4AA7D6A71C626E1000DFD2EB /* DFPCompetitiveExclusionsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 				4AA7D6B61C62702A00DFD2EB /* DFPAppEventsViewController.swift in Sources */,
 				4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */,
 				4AA7D6B81C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift in Sources */,
-				4AA7D6A81C626E1000DFD2EB /* DFPCompetitiveExclusionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

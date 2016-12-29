@@ -14,7 +14,11 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <GADNativeAppInstallAdLoaderDelegate, GADNativeContentAdLoaderDelegate>
+// Native Advanced ad unit ID for testing.
+static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
+
+@interface ViewController () <GADNativeAppInstallAdLoaderDelegate, GADNativeContentAdLoaderDelegate,
+                              GADVideoControllerDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading process.
 @property(nonatomic, strong) GADAdLoader *adLoader;
@@ -28,9 +32,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
   self.versionLabel.text = [GADRequest sdkVersion];
-
   [self refreshAd:nil];
 }
 
@@ -48,12 +50,17 @@
     NSLog(@"At least one ad format must be selected to refresh the ad.");
   } else {
     self.refreshButton.enabled = NO;
-    self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/3986624511"
+
+    GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
+    videoOptions.startMuted = self.startMutedSwitch.on;
+
+    self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:TestAdUnit
                                        rootViewController:self
                                                   adTypes:adTypes
-                                                  options:nil];
+                                                  options:@[ videoOptions ]];
     self.adLoader.delegate = self;
     [self.adLoader loadRequest:[GADRequest request]];
+    self.videoStatusLabel.text = @"";
   }
 }
 
@@ -80,7 +87,7 @@
 #pragma mark GADAdLoaderDelegate implementation
 
 - (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(GADRequestError *)error {
-  NSLog(@"%@ failed with error: %@", adLoader, [error localizedDescription]);
+  NSLog(@"%@ failed with error: %@", adLoader, error);
   self.refreshButton.enabled = YES;
 }
 
@@ -91,11 +98,9 @@
   NSLog(@"Received native app install ad: %@", nativeAppInstallAd);
   self.refreshButton.enabled = YES;
 
-  // Create and place ad in view hierarchy.
   GADNativeAppInstallAdView *appInstallAdView =
-      [[[NSBundle mainBundle] loadNibNamed:@"NativeAppInstallAdView"
-                                     owner:nil
-                                   options:nil] firstObject];
+      [[NSBundle mainBundle] loadNibNamed:@"NativeAppInstallAdView" owner:nil options:nil]
+          .firstObject;
   [self setAdView:appInstallAdView];
 
   // Associate the app install ad view with the app install ad object. This is required to make the
@@ -107,12 +112,47 @@
   ((UILabel *)appInstallAdView.headlineView).text = nativeAppInstallAd.headline;
   ((UIImageView *)appInstallAdView.iconView).image = nativeAppInstallAd.icon.image;
   ((UILabel *)appInstallAdView.bodyView).text = nativeAppInstallAd.body;
-  ((UIImageView *)appInstallAdView.imageView).image =
-      ((GADNativeAdImage *)[nativeAppInstallAd.images firstObject]).image;
   [((UIButton *)appInstallAdView.callToActionView)setTitle:nativeAppInstallAd.callToAction
                                                   forState:UIControlStateNormal];
 
-  // Other assets are not, however, and should be checked first.
+  // Some app install ads will include a video asset, while others do not. Apps can use the
+  // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
+  // UI accordingly.
+  if (nativeAppInstallAd.videoController.hasVideoContent) {
+    // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+    // ratio of the video it displays.
+    NSLayoutConstraint *heightConstraint =
+        [NSLayoutConstraint constraintWithItem:appInstallAdView.mediaView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:appInstallAdView.mediaView
+                                     attribute:NSLayoutAttributeWidth
+                                    multiplier:(1 / nativeAppInstallAd.videoController.aspectRatio)
+                                      constant:0];
+    heightConstraint.active = YES;
+
+    // By acting as the delegate to the GADVideoController, this ViewController receives messages
+    // about events in the video lifecycle.
+    nativeAppInstallAd.videoController.delegate = self;
+
+    self.videoStatusLabel.text = @"Ad contains a video asset.";
+  } else {
+    // If the ad doesn't contain a video asset, the GADMediaView will automatically display the
+    // first image asset instead, so a fixed value of 150 is used for the height constraint.
+    NSLayoutConstraint *heightConstraint =
+        [NSLayoutConstraint constraintWithItem:appInstallAdView.mediaView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                     attribute:NSLayoutAttributeNotAnAttribute
+                                    multiplier:0
+                                      constant:150];
+    heightConstraint.active = YES;
+
+    self.videoStatusLabel.text = @"Ad does not contain a video.";
+  }
+
+  // These assets are not guaranteed to be present, and should be checked first.
   if (nativeAppInstallAd.starRating) {
     ((UIImageView *)appInstallAdView.starRatingView).image =
         [self imageForStars:nativeAppInstallAd.starRating];
@@ -141,7 +181,7 @@
 
 /// Gets an image representing the number of stars. Returns nil if rating is less than 3.5 stars.
 - (UIImage *)imageForStars:(NSDecimalNumber *)numberOfStars {
-  double starRating = [numberOfStars doubleValue];
+  double starRating = numberOfStars.doubleValue;
   if (starRating >= 5) {
     return [UIImage imageNamed:@"stars_5"];
   } else if (starRating >= 4.5) {
@@ -160,13 +200,12 @@
 - (void)adLoader:(GADAdLoader *)adLoader
     didReceiveNativeContentAd:(GADNativeContentAd *)nativeContentAd {
   NSLog(@"Received native content ad: %@", nativeContentAd);
+  self.videoStatusLabel.text = @"Ad does not contain a video.";
   self.refreshButton.enabled = YES;
 
   // Create and place ad in view hierarchy.
   GADNativeContentAdView *contentAdView =
-      [[[NSBundle mainBundle] loadNibNamed:@"NativeContentAdView"
-                                     owner:nil
-                                   options:nil] firstObject];
+      [[NSBundle mainBundle] loadNibNamed:@"NativeContentAdView" owner:nil options:nil].firstObject;
   [self setAdView:contentAdView];
 
   // Associate the content ad view with the content ad object. This is required to make the ad
@@ -178,7 +217,7 @@
   ((UILabel *)contentAdView.headlineView).text = nativeContentAd.headline;
   ((UILabel *)contentAdView.bodyView).text = nativeContentAd.body;
   ((UIImageView *)contentAdView.imageView).image =
-      ((GADNativeAdImage *)[nativeContentAd.images firstObject]).image;
+      ((GADNativeAdImage *)nativeContentAd.images.firstObject).image;
   ((UILabel *)contentAdView.advertiserView).text = nativeContentAd.advertiser;
   [((UIButton *)contentAdView.callToActionView)setTitle:nativeContentAd.callToAction
                                                forState:UIControlStateNormal];
@@ -193,6 +232,12 @@
 
   // In order for the SDK to process touch events properly, user interaction should be disabled.
   contentAdView.callToActionView.userInteractionEnabled = NO;
+}
+
+#pragma mark GADVideoControllerDelegate implementation
+
+- (void)videoControllerDidEndVideoPlayback:(GADVideoController *)videoController {
+  self.videoStatusLabel.text = @"Video playback has ended.";
 }
 
 @end

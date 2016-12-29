@@ -28,11 +28,10 @@ class MasterViewController: UITableViewController {
     super.viewDidLoad()
     APIDemoNames = ["AdMob - Ad Delegate", "AdMob - Ad Targeting", "AdMob - Banner Sizes",
                     "DFP - PPID", "DFP - Custom Targeting", "DFP - Category Exclusions",
-                    "DFP - Multiple Ad Sizes", "DFP - App Events", "DFP - Fluid Ad Size",
-                    "DFP - Competitive Exclusions"]
+                    "DFP - Multiple Ad Sizes", "DFP - App Events", "DFP - Fluid Ad Size"]
     identifiers = ["adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "PPIDSegue",
                    "customTargetingSegue", "categoryExclusionsSegue", "multipleAdSizesSegue",
-                   "appEventsSegue", "fluidAdSizeSegue", "competitiveExclusionsSegue"]
+                   "appEventsSegue", "fluidAdSizeSegue"]
   }
 
   override func viewWillAppear(_ animated: Bool) {

@@ -34,7 +34,7 @@ class MenuItem {
     self.photo = photo
   }
 
-  convenience init?(dictionary: [String: AnyObject]) {
+  convenience init?(dictionary: [String: Any]) {
 
     guard let name = dictionary["name"] as? String,
         let description = dictionary["description"] as? String,

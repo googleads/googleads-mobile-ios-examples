@@ -26,6 +26,12 @@
 /// Switch to request content ads.
 @property(nonatomic, weak) IBOutlet UISwitch *contentAdSwitch;
 
+/// Indicates if video ads should start muted.
+@property(nonatomic, weak) IBOutlet UISwitch *startMutedSwitch;
+
+/// Displays status messages about video assets.
+@property(nonatomic, weak) IBOutlet UILabel *videoStatusLabel;
+
 /// Refresh the native ad.
 @property(nonatomic, weak) IBOutlet UIButton *refreshButton;
 

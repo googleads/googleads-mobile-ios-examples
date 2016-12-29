@@ -16,7 +16,10 @@
 
 @import GoogleMobileAds;
 
-@interface ViewController ()
+// This is a test ad unit, which serves test ads automatically.
+static NSString *const AdUnitId = @"ca-app-pub-3940256099942544/8897359316";
+
+@interface ViewController () <GADNativeExpressAdViewDelegate, GADVideoControllerDelegate>
 
 /// The native express ad view in which the ad is displayed.
 @property(nonatomic, weak) IBOutlet GADNativeExpressAdView *nativeExpressAdView;
@@ -28,12 +31,38 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  // This is a test ad unit, which serves test ads automatically.
-  self.nativeExpressAdView.adUnitID = @"ca-app-pub-3940256099942544/2562852117";
+  self.nativeExpressAdView.adUnitID = AdUnitId;
   self.nativeExpressAdView.rootViewController = self;
+  self.nativeExpressAdView.delegate = self;
+
+  // The video options object can be used to control the initial mute state of video assets.
+  // By default, they start muted.
+  GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
+  videoOptions.startMuted = true;
+  [self.nativeExpressAdView setAdOptions:@[ videoOptions ]];
+
+  // Set this UIViewController as the video controller delegate, so it will be notified of events
+  // in the video lifecycle.
+  self.nativeExpressAdView.videoController.delegate = self;
 
   GADRequest *request = [GADRequest request];
   [self.nativeExpressAdView loadRequest:request];
+}
+
+#pragma mark - GADNativeExpressAdViewDelegate
+
+- (void)nativeExpressAdViewDidReceiveAd:(GADNativeExpressAdView *)nativeExpressAdView {
+  if (nativeExpressAdView.videoController.hasVideoContent) {
+    NSLog(@"Received ad an with a video asset.");
+  } else {
+    NSLog(@"Received ad an without a video asset.");
+  }
+}
+
+#pragma mark - GADVideoControllerDelegate
+
+- (void)videoControllerDidEndVideoPlayback:(GADVideoController *)videoController {
+  NSLog(@"Playback has ended for this ad's video asset.");
 }
 
 @end

@@ -156,7 +156,7 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
 
   /// Adds MenuItems to the tableViewItems list.
   func addMenuItems() {
-    var JSONObject: Any!
+    var JSONObject: Any
 
     guard let path = Bundle.main.url(forResource: "menuItemsJSON",
         withExtension: "json") else {
@@ -173,13 +173,13 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
       return
     }
 
-    guard let JSONObjectArray = JSONObject as? [AnyObject] else {
+    guard let JSONObjectArray = JSONObject as? [Any] else {
       print("Failed to cast JSONObject to [AnyObject]")
       return
     }
 
     for object in JSONObjectArray {
-      guard let dict = object as? [String: AnyObject],
+      guard let dict = object as? [String: Any],
           let menuIem = MenuItem(dictionary: dict) else {
         print("Failed to load menu item JSON data.")
         return

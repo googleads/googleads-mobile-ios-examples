@@ -26,7 +26,6 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
   // Use Firebase library to configure APIs
   [FIRApp configure];
   // Initialize Google Mobile Ads SDK
