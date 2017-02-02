@@ -1,42 +1,43 @@
 PODS:
-  - Firebase/AdMob (3.11.0):
+  - Firebase/AdMob (3.12.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.16.0)
-  - Firebase/Core (3.11.0):
+    - Google-Mobile-Ads-SDK (= 7.17.0)
+  - Firebase/Core (3.12.0):
     - FirebaseAnalytics (= 3.6.0)
-    - FirebaseCore (= 3.4.6)
+    - FirebaseCore (= 3.4.7)
   - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.6):
+  - FirebaseCore (3.4.7):
     - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
-  - Google-Mobile-Ads-SDK (7.16.0)
+  - Google-Mobile-Ads-SDK (7.17.0)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
 
 DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
 
 SPEC CHECKSUMS:
-  Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
+  Firebase: 8e99eb1ff553ad5bcc6072cc3d925bb89c1244d6
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
-  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
+  Google-Mobile-Ads-SDK: a8bf4211624999b73e4184be516f94770b139525
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
 
 PODFILE CHECKSUM: 13f0a8b35152bf7428082e8ac4a9c23c8542c3a2
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
