@@ -93,7 +93,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
 
     if !adRequestInProgress && rewardBasedVideo?.isReady == false {
       rewardBasedVideo?.load(GADRequest(),
-          withAdUnitID: "INSERT_AD_UNIT_HERE")
+          withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
       adRequestInProgress = true
     }
 

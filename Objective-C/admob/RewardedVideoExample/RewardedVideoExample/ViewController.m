@@ -101,7 +101,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 - (void)requestRewardedVideo {
   GADRequest *request = [GADRequest request];
   [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
-                                         withAdUnitID:@"INSERT_AD_UNIT_HERE"];
+                                         withAdUnitID:@"ca-app-pub-3940256099942544/1712485313"];
 }
 
 - (void)pauseGame {
