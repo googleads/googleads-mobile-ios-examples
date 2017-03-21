@@ -7,9 +7,9 @@
 @interface MySimpleNativeAdView : UIView
 
 // Weak references to this ad's asset views.
-@property(weak, nonatomic) IBOutlet UILabel *headlineView;
-@property(weak, nonatomic) IBOutlet UIImageView *mainImageView;
-@property(weak, nonatomic) IBOutlet UILabel *captionView;
+@property(nonatomic, weak) IBOutlet UILabel *headlineView;
+@property(nonatomic, weak) IBOutlet UIView *mediaPlaceholder;
+@property(nonatomic, weak) IBOutlet UILabel *captionView;
 
 /// Populates the ad view with the custom native ad object.
 - (void)populateWithCustomNativeAd:(GADNativeCustomTemplateAd *)customNativeAd;

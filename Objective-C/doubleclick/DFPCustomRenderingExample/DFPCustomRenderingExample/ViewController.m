@@ -2,14 +2,17 @@
 
 #import "ViewController.h"
 
+static NSString *const TestAdUnit = @"/6499/example/native";
+static NSString *const TestNativeCustomTemplateID = @"10104090";
+
 @interface ViewController () <GADNativeAppInstallAdLoaderDelegate, GADNativeContentAdLoaderDelegate,
-                              GADNativeCustomTemplateAdLoaderDelegate>
+                              GADNativeCustomTemplateAdLoaderDelegate, GADVideoControllerDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading process.
-@property(strong, nonatomic) GADAdLoader *adLoader;
+@property(nonatomic, strong) GADAdLoader *adLoader;
 
 /// The native ad view that is being presented.
-@property(strong, nonatomic) UIView *nativeAdView;
+@property(nonatomic, strong) UIView *nativeAdView;
 
 @end
 
@@ -41,13 +44,17 @@
     return;
   }
 
+  GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
+  videoOptions.startMuted = self.startMutedSwitch.on;
+
   self.refreshButton.enabled = NO;
-  self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:@"/6499/example/native"
+  self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:TestAdUnit
                                      rootViewController:self
                                                 adTypes:adTypes
-                                                options:nil];
+                                                options:@[ videoOptions ]];
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GADRequest request]];
+  self.videoStatusLabel.text = @"";
 }
 
 - (void)setAdView:(UIView *)view {
@@ -60,14 +67,16 @@
   [self.nativeAdView setTranslatesAutoresizingMaskIntoConstraints:NO];
 
   NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_nativeAdView);
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_nativeAdView]|"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:viewDictionary]];
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_nativeAdView]|"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:viewDictionary]];
+  [self.nativeAdPlaceholder
+      addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_nativeAdView]|"
+                                                             options:0
+                                                             metrics:nil
+                                                               views:viewDictionary]];
+  [self.nativeAdPlaceholder
+      addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_nativeAdView]|"
+                                                             options:0
+                                                             metrics:nil
+                                                               views:viewDictionary]];
 }
 
 #pragma mark GADAdLoaderDelegate implementation
@@ -86,9 +95,8 @@
 
   // Create and place ad in view hierarchy.
   GADNativeAppInstallAdView *appInstallAdView =
-      [[[NSBundle mainBundle] loadNibNamed:@"NativeAppInstallAdView"
-                                     owner:nil
-                                   options:nil] firstObject];
+      [[NSBundle mainBundle] loadNibNamed:@"NativeAppInstallAdView" owner:nil options:nil]
+          .firstObject;
   [self setAdView:appInstallAdView];
 
   // Associate the app install ad view with the app install ad object. This is required to make the
@@ -100,12 +108,23 @@
   ((UILabel *)appInstallAdView.headlineView).text = nativeAppInstallAd.headline;
   ((UIImageView *)appInstallAdView.iconView).image = nativeAppInstallAd.icon.image;
   ((UILabel *)appInstallAdView.bodyView).text = nativeAppInstallAd.body;
-  ((UIImageView *)appInstallAdView.imageView).image =
-      ((GADNativeAdImage *)[nativeAppInstallAd.images firstObject]).image;
   [((UIButton *)appInstallAdView.callToActionView)setTitle:nativeAppInstallAd.callToAction
                                                   forState:UIControlStateNormal];
 
-  // Other assets are not, however, and should be checked first.
+  // Some app install ads will include a video asset, while others do not. Apps can use the
+  // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
+  // UI accordingly.
+  if (nativeAppInstallAd.videoController.hasVideoContent) {
+    // By acting as the delegate to the GADVideoController, this ViewController receives messages
+    // about events in the video lifecycle.
+    nativeAppInstallAd.videoController.delegate = self;
+
+    self.videoStatusLabel.text = @"Ad contains a video asset.";
+  } else {
+    self.videoStatusLabel.text = @"Ad does not contain a video.";
+  }
+
+  // These assets are not guaranteed to be present, and should be checked first.
   if (nativeAppInstallAd.starRating) {
     ((UIImageView *)appInstallAdView.starRatingView).image =
         [self imageForStars:nativeAppInstallAd.starRating];
@@ -134,7 +153,7 @@
 
 /// Gets an image representing the number of stars. Returns nil if rating is less than 3.5 stars.
 - (UIImage *)imageForStars:(NSDecimalNumber *)numberOfStars {
-  double starRating = [numberOfStars doubleValue];
+  double starRating = numberOfStars.doubleValue;
   if (starRating >= 5) {
     return [UIImage imageNamed:@"stars_5"];
   } else if (starRating >= 4.5) {
@@ -160,6 +179,8 @@
       [[[NSBundle mainBundle] loadNibNamed:@"NativeContentAdView"
                                      owner:nil
                                    options:nil] firstObject];
+
+  contentAdView.translatesAutoresizingMaskIntoConstraints = NO;
   [self setAdView:contentAdView];
 
   // Associate the content ad view with the content ad object. This is required to make the ad
@@ -170,13 +191,24 @@
   // Some assets are guaranteed to be present in every content ad.
   ((UILabel *)contentAdView.headlineView).text = nativeContentAd.headline;
   ((UILabel *)contentAdView.bodyView).text = nativeContentAd.body;
-  ((UIImageView *)contentAdView.imageView).image =
-      ((GADNativeAdImage *)[nativeContentAd.images firstObject]).image;
   ((UILabel *)contentAdView.advertiserView).text = nativeContentAd.advertiser;
   [((UIButton *)contentAdView.callToActionView)setTitle:nativeContentAd.callToAction
                                                forState:UIControlStateNormal];
 
-  // Other assets are not, however, and should be checked first.
+  // Some content ads will include a video asset, while others do not. Apps can use the
+  // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
+  // UI accordingly.
+  if (nativeContentAd.videoController.hasVideoContent) {
+    // By acting as the delegate to the GADVideoController, this ViewController receives messages
+    // about events in the video lifecycle.
+    nativeContentAd.videoController.delegate = self;
+
+    self.videoStatusLabel.text = @"Ad contains a video asset.";
+  } else {
+    self.videoStatusLabel.text = @"Ad does not contain a video.";
+  }
+
+  // These assets are not guaranteed to be present, and should be checked first.
   if (nativeContentAd.logo && nativeContentAd.logo.image) {
     ((UIImageView *)contentAdView.logoView).image = nativeContentAd.logo.image;
     contentAdView.logoView.hidden = NO;
@@ -197,17 +229,32 @@
 
   // Create and place ad in view hierarchy.
   MySimpleNativeAdView *mySimpleNativeAdView =
-      [[[NSBundle mainBundle] loadNibNamed:@"SimpleCustomNativeAdView"
-                                     owner:nil
-                                   options:nil] firstObject];
+      [[NSBundle mainBundle] loadNibNamed:@"SimpleCustomNativeAdView" owner:nil options:nil]
+          .firstObject;
   [self setAdView:mySimpleNativeAdView];
 
   // Populate the custom native ad view with its assets.
   [mySimpleNativeAdView populateWithCustomNativeAd:nativeCustomTemplateAd];
+
+  if (nativeCustomTemplateAd.videoController.hasVideoContent) {
+    // By acting as the delegate to the GADVideoController, this ViewController receives messages
+    // about events in the video lifecycle.
+    nativeCustomTemplateAd.videoController.delegate = self;
+
+    self.videoStatusLabel.text = @"Ad contains a video asset.";
+  } else {
+    self.videoStatusLabel.text = @"Ad does not contain a video.";
+  }
 }
 
 - (NSArray *)nativeCustomTemplateIDsForAdLoader:(GADAdLoader *)adLoader {
-  return @[ @"10063170" ];
+  return @[ TestNativeCustomTemplateID ];
+}
+
+#pragma mark GADVideoControllerDelegate implementation
+
+- (void)videoControllerDidEndVideoPlayback:(GADVideoController *)videoController {
+  self.videoStatusLabel.text = @"Video playback has ended.";
 }
 
 @end
