@@ -1,19 +1,19 @@
 PODS:
-  - Firebase/AdMob (3.17.0):
+  - Firebase/AdMob (4.0.2):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.19.1)
-  - Firebase/Core (3.17.0):
-    - FirebaseAnalytics (= 3.9.0)
-    - FirebaseCore (= 3.6.0)
-  - FirebaseAnalytics (3.9.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
+    - Google-Mobile-Ads-SDK (= 7.20.0)
+  - Firebase/Core (4.0.2):
+    - FirebaseAnalytics (= 4.0.1)
+    - FirebaseCore (= 4.0.2)
+  - FirebaseAnalytics (4.0.1):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.6.0):
+  - FirebaseCore (4.0.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
-  - Google-Mobile-Ads-SDK (7.19.1)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - Google-Mobile-Ads-SDK (7.20.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -23,11 +23,11 @@ DEPENDENCIES:
   - Firebase/Core
 
 SPEC CHECKSUMS:
-  Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
-  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
-  Google-Mobile-Ads-SDK: 43ac87810e4961f5093024d3525bfe022f956da3
+  Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
+  FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
+  FirebaseCore: 1a8bf6c795ad07d2918278657954ffd2552e9c17
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
 
 PODFILE CHECKSUM: 7c9dc38bd6ba0ac766d33b14b344adb6d25a19e9
