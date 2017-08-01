@@ -14,7 +14,7 @@
 //  limitations under the License.
 //
 
-import Firebase
+import GoogleMobileAds
 import UIKit
 
 @UIApplicationMain
@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication,
       didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Use Firebase library to configure APIs.
-    FirebaseApp.configure()
+
     // Initialize Google Mobile Ads SDK.
     GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511")
 

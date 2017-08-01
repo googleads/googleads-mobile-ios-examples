@@ -18,15 +18,13 @@
 
 #import "ViewController.h"
 
-@import Firebase;
+@import GoogleMobileAds;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-  // Use Firebase library to configure APIs
-  [FIRApp configure];
   // Initialize Google Mobile Ads SDK
   [GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"];
 

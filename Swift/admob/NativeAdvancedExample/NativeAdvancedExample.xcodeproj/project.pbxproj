@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		267F0AF41CE93AA300C90CE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267F0AF31CE93AA300C90CE5 /* GoogleService-Info.plist */; };
 		4AEBD5701BF0109B00874961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBD56F1BF0109B00874961 /* AppDelegate.swift */; };
 		4AEBD5721BF0109B00874961 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBD5711BF0109B00874961 /* ViewController.swift */; };
 		4AEBD5751BF0109B00874961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5731BF0109B00874961 /* Main.storyboard */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		267F0AF31CE93AA300C90CE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AEBD56C1BF0109B00874961 /* NativeAdvancedExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeAdvancedExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEBD56F1BF0109B00874961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEBD5711BF0109B00874961 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +44,6 @@
 			children = (
 				4AEBD56E1BF0109B00874961 /* NativeAdvancedExample */,
 				4AEBD56D1BF0109B00874961 /* Products */,
-				77CAAFB1A66B6A865AE904A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,7 +58,6 @@
 		4AEBD56E1BF0109B00874961 /* NativeAdvancedExample */ = {
 			isa = PBXGroup;
 			children = (
-				267F0AF31CE93AA300C90CE5 /* GoogleService-Info.plist */,
 				4AEBD56F1BF0109B00874961 /* AppDelegate.swift */,
 				4AEBD5711BF0109B00874961 /* ViewController.swift */,
 				4AEBD5731BF0109B00874961 /* Main.storyboard */,
@@ -72,13 +68,6 @@
 				4AEBD57B1BF0109B00874961 /* Info.plist */,
 			);
 			path = NativeAdvancedExample;
-			sourceTree = "<group>";
-		};
-		77CAAFB1A66B6A865AE904A3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +134,6 @@
 				4AEC64101BFAAB9600CF6A16 /* NativeAppInstallAdView.xib in Resources */,
 				4AEC64111BFAAB9600CF6A16 /* NativeContentAdView.xib in Resources */,
 				4AEBD5751BF0109B00874961 /* Main.storyboard in Resources */,
-				267F0AF41CE93AA300C90CE5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,13 +15,13 @@
 //
 
 #import "AppDelegate.h"
+@import GoogleMobileAds;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Configure Firebase.
-  [FIRApp configure];
+
   // Initialize the Google Mobile Ads SDK with the AdMob application ID.
   [GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"];
 

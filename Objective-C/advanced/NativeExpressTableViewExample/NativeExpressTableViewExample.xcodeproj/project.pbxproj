@@ -13,7 +13,6 @@
 		840C3FF21DA1D82A00400493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840C3FF01DA1D82A00400493 /* Main.storyboard */; };
 		840C3FF41DA1D82A00400493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840C3FF31DA1D82A00400493 /* Assets.xcassets */; };
 		840C3FF71DA1D82A00400493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840C3FF51DA1D82A00400493 /* LaunchScreen.storyboard */; };
-		84143A061DAEA19000E132B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84143A051DAEA19000E132B3 /* GoogleService-Info.plist */; };
 		843022031DADB8EC00614B4A /* menu_item_image-web.png in Resources */ = {isa = PBXBuildFile; fileRef = 843022011DADB8EC00614B4A /* menu_item_image-web.png */; };
 		843022041DADB8EC00614B4A /* menuItemsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 843022021DADB8EC00614B4A /* menuItemsJSON.json */; };
 		8453A8DE1DA1D8D400A3EB72 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8453A8DD1DA1D8D400A3EB72 /* MenuItem.m */; };
@@ -33,7 +32,6 @@
 		840C3FF31DA1D82A00400493 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840C3FF61DA1D82A00400493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		840C3FF81DA1D82A00400493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84143A051DAEA19000E132B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		843022011DADB8EC00614B4A /* menu_item_image-web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_image-web.png"; sourceTree = "<group>"; };
 		843022021DADB8EC00614B4A /* menuItemsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
 		8453A8DC1DA1D8D400A3EB72 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 		840C3FE61DA1D82A00400493 /* NativeExpressTableViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				84143A051DAEA19000E132B3 /* GoogleService-Info.plist */,
 				843022011DADB8EC00614B4A /* menu_item_image-web.png */,
 				843022021DADB8EC00614B4A /* menuItemsJSON.json */,
 				8453A8E31DA1DCC200A3EB72 /* MenuItemTableViewCell.h */,
@@ -162,7 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				843022031DADB8EC00614B4A /* menu_item_image-web.png in Resources */,
-				84143A061DAEA19000E132B3 /* GoogleService-Info.plist in Resources */,
 				840C3FF71DA1D82A00400493 /* LaunchScreen.storyboard in Resources */,
 				8453A8E11DA1D8FC00A3EB72 /* MenuItem.xib in Resources */,
 				840C3FF41DA1D82A00400493 /* Assets.xcassets in Resources */,

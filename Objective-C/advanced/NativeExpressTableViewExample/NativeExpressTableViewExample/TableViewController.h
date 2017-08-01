@@ -14,7 +14,7 @@
 //  limitations under the License.
 //
 
-@import Firebase;
+@import GoogleMobileAds;
 @import UIKit;
 
 @interface TableViewController : UITableViewController

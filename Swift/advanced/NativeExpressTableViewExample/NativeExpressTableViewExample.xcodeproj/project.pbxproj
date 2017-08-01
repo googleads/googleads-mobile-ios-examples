@@ -17,7 +17,6 @@
 		846A6C781D73972000270B27 /* menu_item_image-web.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A6C771D73972000270B27 /* menu_item_image-web.png */; };
 		846A6C821D760EC000270B27 /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A6C811D760EC000270B27 /* MenuItem.xib */; };
 		84B326D71D876FCB00517F8F /* NativeExpressAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B326D61D876FCB00517F8F /* NativeExpressAd.xib */; };
-		84B6D3661D99A5D5007D12D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D3651D99A5D5007D12D2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		846A6C771D73972000270B27 /* menu_item_image-web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_image-web.png"; sourceTree = "<group>"; };
 		846A6C811D760EC000270B27 /* MenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
 		84B326D61D876FCB00517F8F /* NativeExpressAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAd.xib; sourceTree = "<group>"; };
-		84B6D3651D99A5D5007D12D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				843021FF1DADB82F00614B4A /* menuItemsJSON.json */,
-				84B6D3651D99A5D5007D12D2 /* GoogleService-Info.plist */,
 				846A6C771D73972000270B27 /* menu_item_image-web.png */,
 				846A6C431D6E35FD00270B27 /* AppDelegate.swift */,
 				846A6C751D73854200270B27 /* TableViewController.swift */,
@@ -147,7 +144,6 @@
 				846A6C491D6E35FD00270B27 /* Main.storyboard in Resources */,
 				84B326D71D876FCB00517F8F /* NativeExpressAd.xib in Resources */,
 				843022001DADB82F00614B4A /* menuItemsJSON.json in Resources */,
-				84B6D3661D99A5D5007D12D2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

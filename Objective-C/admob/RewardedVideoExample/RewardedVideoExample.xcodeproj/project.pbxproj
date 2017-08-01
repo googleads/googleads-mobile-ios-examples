@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26B0F1981CE9388B00E202AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26B0F1971CE9388B00E202AF /* GoogleService-Info.plist */; };
 		84E184631B30D695002ADFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E184621B30D695002ADFFB /* main.m */; };
 		84E184661B30D695002ADFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E184651B30D695002ADFFB /* AppDelegate.m */; };
 		84E184691B30D695002ADFFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E184681B30D695002ADFFB /* ViewController.m */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26B0F1971CE9388B00E202AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E1845D1B30D695002ADFFB /* RewardedVideoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardedVideoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E184611B30D695002ADFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E184621B30D695002ADFFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 		84E1845F1B30D695002ADFFB /* RewardedVideoExample */ = {
 			isa = PBXGroup;
 			children = (
-				26B0F1971CE9388B00E202AF /* GoogleService-Info.plist */,
 				84E184641B30D695002ADFFB /* AppDelegate.h */,
 				84E184651B30D695002ADFFB /* AppDelegate.m */,
 				84E184671B30D695002ADFFB /* ViewController.h */,
@@ -140,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E1846C1B30D695002ADFFB /* Main.storyboard in Resources */,
-				26B0F1981CE9388B00E202AF /* GoogleService-Info.plist in Resources */,
 				84E184711B30D695002ADFFB /* LaunchScreen.xib in Resources */,
 				84E1846E1B30D695002ADFFB /* Images.xcassets in Resources */,
 			);

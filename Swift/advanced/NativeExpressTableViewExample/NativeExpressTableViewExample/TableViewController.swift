@@ -14,7 +14,7 @@
 //  limitations under the License.
 //
 
-import Firebase
+import GoogleMobileAds
 import UIKit
 
 class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate {

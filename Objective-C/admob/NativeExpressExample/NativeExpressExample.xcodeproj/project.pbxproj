@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26A008CF1CE0ECBB00EEFC56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26A008CE1CE0ECBB00EEFC56 /* GoogleService-Info.plist */; };
 		26FD8D891C7CE2260089F0B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD8D881C7CE2260089F0B5 /* main.m */; };
 		26FD8D8C1C7CE2260089F0B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD8D8B1C7CE2260089F0B5 /* AppDelegate.m */; };
 		26FD8D8F1C7CE2260089F0B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FD8D8E1C7CE2260089F0B5 /* ViewController.m */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26A008CE1CE0ECBB00EEFC56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26FD8D841C7CE2260089F0B5 /* NativeExpressExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeExpressExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FD8D881C7CE2260089F0B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		26FD8D8A1C7CE2260089F0B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 		26FD8D861C7CE2260089F0B5 /* NativeExpressExample */ = {
 			isa = PBXGroup;
 			children = (
-				26A008CE1CE0ECBB00EEFC56 /* GoogleService-Info.plist */,
 				26FD8D8A1C7CE2260089F0B5 /* AppDelegate.h */,
 				26FD8D8B1C7CE2260089F0B5 /* AppDelegate.m */,
 				26FD8D8D1C7CE2260089F0B5 /* ViewController.h */,
@@ -140,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				26FD8D971C7CE2260089F0B5 /* LaunchScreen.storyboard in Resources */,
-				26A008CF1CE0ECBB00EEFC56 /* GoogleService-Info.plist in Resources */,
 				26FD8D941C7CE2260089F0B5 /* Assets.xcassets in Resources */,
 				26FD8D921C7CE2260089F0B5 /* Main.storyboard in Resources */,
 			);
