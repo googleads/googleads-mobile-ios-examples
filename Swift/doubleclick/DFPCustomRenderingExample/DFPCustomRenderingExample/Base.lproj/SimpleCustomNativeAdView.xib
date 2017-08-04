@@ -1,57 +1,63 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MySimpleNativeAdView" customModule="DFPNativeAdvancedExample" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MySimpleNativeAdView" customModule="DFPCustomRenderingExample">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mW-0n-1G8" userLabel="Headline View">
-                    <rect key="frame" x="8" y="8" width="304" height="24"/>
-                    <animations/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="24" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ7-Y2-nrO">
+                    <rect key="frame" x="5" y="5" width="365" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McT-9g-tse" userLabel="Caption View">
-                    <rect key="frame" x="135" y="168" width="51" height="17"/>
-                    <animations/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoj-tc-K51">
+                    <rect key="frame" x="67" y="39" width="240" height="140"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="O68-fC-xRK"/>
+                        <constraint firstAttribute="height" constant="140" id="Z4E-2z-qz3"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-BT-xiP">
+                    <rect key="frame" x="5" y="189" width="365" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3cF-x6-QGv" userLabel="Main Image View">
-                    <rect key="frame" x="80" y="40" width="160" height="120"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="120" id="0N5-q3-k1d"/>
-                        <constraint firstAttribute="width" constant="160" id="iYj-ok-bVg"/>
-                    </constraints>
-                </imageView>
             </subviews>
-            <animations/>
-            <color key="backgroundColor" red="0.00053514761442008396" green="1" blue="0.97553510145192446" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="7mW-0n-1G8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Fl-Fg-N1z"/>
-                <constraint firstItem="McT-9g-tse" firstAttribute="top" secondItem="3cF-x6-QGv" secondAttribute="bottom" constant="8" id="6Tx-l5-fIQ"/>
-                <constraint firstItem="3cF-x6-QGv" firstAttribute="top" secondItem="7mW-0n-1G8" secondAttribute="bottom" constant="8" id="9Dn-w9-nDq"/>
-                <constraint firstItem="McT-9g-tse" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NdJ-HI-kiS"/>
-                <constraint firstItem="3cF-x6-QGv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="QqW-CK-2rW"/>
-                <constraint firstItem="7mW-0n-1G8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Yh2-Z1-COs"/>
-                <constraint firstAttribute="trailing" secondItem="7mW-0n-1G8" secondAttribute="trailing" constant="8" id="Zs8-uq-ilp"/>
-                <constraint firstItem="7mW-0n-1G8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="u5y-T7-2P7"/>
+                <constraint firstItem="Opb-BT-xiP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="1CU-Pe-kBU"/>
+                <constraint firstItem="hoj-tc-K51" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3uf-GC-Yeu"/>
+                <constraint firstItem="hoj-tc-K51" firstAttribute="top" secondItem="EJ7-Y2-nrO" secondAttribute="bottom" constant="10" id="5jE-i2-2GZ"/>
+                <constraint firstAttribute="trailing" secondItem="EJ7-Y2-nrO" secondAttribute="trailing" constant="5" id="B60-mb-6NP"/>
+                <constraint firstItem="EJ7-Y2-nrO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="HYz-iO-1sm"/>
+                <constraint firstItem="EJ7-Y2-nrO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Ig4-Aj-mWl"/>
+                <constraint firstItem="Opb-BT-xiP" firstAttribute="top" secondItem="hoj-tc-K51" secondAttribute="bottom" constant="10" id="VYt-oI-EN1"/>
+                <constraint firstAttribute="trailing" secondItem="Opb-BT-xiP" secondAttribute="trailing" constant="5" id="WYZ-v6-Hph"/>
             </constraints>
             <connections>
-                <outlet property="captionView" destination="McT-9g-tse" id="L12-bu-7No"/>
-                <outlet property="headlineView" destination="7mW-0n-1G8" id="snx-Hf-3Kb"/>
-                <outlet property="mainImageView" destination="3cF-x6-QGv" id="2Il-z9-iVf"/>
+                <outlet property="captionView" destination="Opb-BT-xiP" id="HdX-mv-amk"/>
+                <outlet property="headlineView" destination="EJ7-Y2-nrO" id="JLY-1X-hqV"/>
+                <outlet property="mainPlaceholder" destination="hoj-tc-K51" id="9Sv-RO-bpk"/>
             </connections>
-            <point key="canvasLocation" x="500" y="568"/>
+            <point key="canvasLocation" x="13" y="27"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

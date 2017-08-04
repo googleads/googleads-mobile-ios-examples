@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,9 +50,9 @@
             <connections>
                 <outlet property="captionView" destination="Opb-BT-xiP" id="hSg-rU-Z7U"/>
                 <outlet property="headlineView" destination="EJ7-Y2-nrO" id="BKi-kL-8EA"/>
-                <outlet property="mediaPlaceholder" destination="hoj-tc-K51" id="pmf-nl-x4R"/>
+                <outlet property="mainPlaceholder" destination="hoj-tc-K51" id="pmf-nl-x4R"/>
             </connections>
-            <point key="canvasLocation" x="305" y="242"/>
+            <point key="canvasLocation" x="13" y="27"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -17,11 +17,13 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
-    GADNativeContentAdLoaderDelegate, GADNativeCustomTemplateAdLoaderDelegate {
+class ViewController: UIViewController {
 
   // The view that holds the native ad.
   @IBOutlet weak var nativeAdPlaceholder: UIView!
+
+  // Displays status messages about presence of video assets.
+  @IBOutlet weak var videoStatusLabel: UILabel!
 
   // The app install ad switch.
   @IBOutlet weak var appInstallAdSwitch: UISwitch!
@@ -38,6 +40,9 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
   // The SDK version label.
   @IBOutlet weak var versionLabel: UILabel!
 
+  // Switch to indicate if video ads should start muted.
+  @IBOutlet weak var startMutedSwitch: UISwitch!
+
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
   var adLoader: GADAdLoader!
@@ -47,6 +52,9 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
 
   /// The ad unit ID.
   let adUnitID = "/6499/example/native"
+
+  /// The native custom template id
+  let nativeCustomTemplateId = "10104090"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -92,77 +100,19 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
       alertView.show()
     } else {
       refreshAdButton.isEnabled = false
+      let videoOptions = GADVideoOptions()
+      videoOptions.startMuted = startMutedSwitch.isOn
       adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
-          adTypes: adTypes, options: nil)
+          adTypes: adTypes, options: [videoOptions])
       adLoader.delegate = self
       adLoader.load(GADRequest())
+      videoStatusLabel.text = ""
     }
-  }
-
-  // MARK: - GADAdLoaderDelegate
-
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
-    print("\(adLoader) failed with error: \(error.localizedDescription)")
-    refreshAdButton.isEnabled = true
-  }
-
-  // MARK: - GADNativeAppInstallAdLoaderDelegate
-
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAppInstallAd: GADNativeAppInstallAd) {
-    print("Received native app install ad: \(nativeAppInstallAd)")
-    refreshAdButton.isEnabled = true
-
-    // Create and place the ad in the view hierarchy.
-    let appInstallAdView = Bundle.main.loadNibNamed("NativeAppInstallAdView", owner: nil,
-        options: nil)?.first as! GADNativeAppInstallAdView
-    setAdView(appInstallAdView)
-
-    // Associate the app install ad view with the app install ad object. This is required to make
-    // the ad clickable.
-    appInstallAdView.nativeAppInstallAd = nativeAppInstallAd
-
-    // Populate the app install ad view with the app install ad assets.
-    // Some assets are guaranteed to be present in every app install ad.
-    (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
-    (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
-    (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
-    (appInstallAdView.imageView as! UIImageView).image =
-        (nativeAppInstallAd.images?.first as! GADNativeAdImage).image
-    (appInstallAdView.callToActionView as! UIButton).setTitle(
-        nativeAppInstallAd.callToAction, for: UIControlState.normal)
-
-    // Other assets are not, however, and should be checked first.
-    let starRatingView = appInstallAdView.starRatingView
-    if let starRating = nativeAppInstallAd.starRating {
-      (starRatingView as! UIImageView).image = imageOfStarsFromStarRating(starRating)
-      starRatingView?.isHidden = false
-    } else {
-      starRatingView?.isHidden = true
-    }
-
-    let storeView = appInstallAdView.storeView
-    if let store = nativeAppInstallAd.store {
-      (storeView as! UILabel).text = store
-      storeView?.isHidden = false
-    } else {
-      storeView?.isHidden = true
-    }
-
-    let priceView = appInstallAdView.priceView
-    if let price = nativeAppInstallAd.price {
-      (priceView as! UILabel).text = price
-      priceView?.isHidden = false
-    } else {
-      priceView?.isHidden = true
-    }
-
-    // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (appInstallAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
   }
 
   /// Returns a `UIImage` representing the number of stars from the given star rating; returns `nil`
   /// if the star rating is less than 3.5 stars.
-  func imageOfStarsFromStarRating(_ starRating: NSDecimalNumber) -> UIImage? {
+  func imageOfStars(fromStarRating starRating: NSDecimalNumber) -> UIImage? {
     let rating = starRating.doubleValue
     if rating >= 5 {
       return UIImage(named: "stars_5")
@@ -177,62 +127,150 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     }
   }
 
-  // MARK: - GADNativeContentAdLoaderDelegate
+  /// Updates the videoController's delegate and viewController's UI according to videoController 'hasVideoContent()' value.
+  /// Some content ads will include a video asset, while others do not. Apps can use the
+  /// GADVideoController's hasVideoContent property to determine if one is present, and adjust their
+  /// UI accordingly.
+  func updateVideoStatusLabel(forAdsVideoController videoController: GADVideoController) {
+    if videoController.hasVideoContent() {
+      // By acting as the delegate to the GADVideoController, this ViewController receives messages
+      // about events in the video lifecycle.
+      videoStatusLabel.text = "Ad contains a video asset."
+    }
+    else {
+      videoStatusLabel.text = "Ad does not contain a video."
+    }
+  }
+
+}
+
+// MARK: - GADAdLoaderDelegate
+extension ViewController : GADAdLoaderDelegate {
+  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+    print("\(adLoader) failed with error: \(error.localizedDescription)")
+    refreshAdButton.isEnabled = true
+  }
+}
+
+// MARK: - GADNativeAppInstallAdLoaderDelegate
+extension ViewController : GADNativeAppInstallAdLoaderDelegate {
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAppInstallAd: GADNativeAppInstallAd) {
+    print("Received native app install ad: \(nativeAppInstallAd)")
+    refreshAdButton.isEnabled = true
+    // Create and place ad in view hierarchy.
+    guard let appInstallAdView: GADNativeAppInstallAdView = Bundle.main.loadNibNamed("NativeAppInstallAdView", owner: nil, options: nil)?.first as? GADNativeAppInstallAdView else {
+      return
+    }
+    setAdView(appInstallAdView)
+    // Associate the app install ad view with the app install ad object. This is required to make the
+    // ad clickable.
+    appInstallAdView.nativeAppInstallAd = nativeAppInstallAd
+    // Populate the app install ad view with the app install ad assets.
+    // Some assets are guaranteed to be present in every app install ad.
+    (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
+    (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
+    (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
+    (appInstallAdView.callToActionView as! UIButton).setTitle(nativeAppInstallAd.callToAction, for: .normal)
+
+    // Update the ViewController for video content.
+    updateVideoStatusLabel(forAdsVideoController: nativeAppInstallAd.videoController)
+    if (nativeAppInstallAd.videoController.hasVideoContent()) {
+      nativeAppInstallAd.videoController.delegate = self
+    }
+    // These assets are not guaranteed to be present, and should be checked first.
+    if let starRating = nativeAppInstallAd.starRating {
+      (appInstallAdView.starRatingView as? UIImageView)?.image = imageOfStars(fromStarRating:starRating)
+      appInstallAdView.starRatingView?.isHidden = false
+    }
+    else {
+      appInstallAdView.starRatingView?.isHidden = true
+    }
+    if let store = nativeAppInstallAd.store {
+      (appInstallAdView.storeView as? UILabel)?.text = store
+      appInstallAdView.storeView?.isHidden = false
+    }
+    else {
+      appInstallAdView.storeView?.isHidden = true
+    }
+    if let price = nativeAppInstallAd.price {
+      (appInstallAdView.priceView as? UILabel)?.text = price
+      appInstallAdView.priceView?.isHidden = false
+    }
+    else {
+      appInstallAdView.priceView?.isHidden = true
+    }
+    // In order for the SDK to process touch events properly, user interaction should be disabled.
+    appInstallAdView.callToActionView?.isUserInteractionEnabled = false
+  }
+}
+
+// MARK: - GADNativeContentAdLoaderDelegate implementation
+extension ViewController : GADNativeContentAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeContentAd: GADNativeContentAd) {
     print("Received native content ad: \(nativeContentAd)")
     refreshAdButton.isEnabled = true
-
-    // Create and place the ad in the view hierarchy.
-    let contentAdView = Bundle.main.loadNibNamed(
-        "NativeContentAdView", owner: nil, options: nil)?.first as! GADNativeContentAdView
+    // Create and place ad in view hierarchy.
+    guard let contentAdView: GADNativeContentAdView = Bundle.main.loadNibNamed("NativeContentAdView", owner: nil, options: nil)?.first as? GADNativeContentAdView else {
+      return
+    }
     setAdView(contentAdView)
-
     // Associate the content ad view with the content ad object. This is required to make the ad
     // clickable.
     contentAdView.nativeContentAd = nativeContentAd
-
     // Populate the content ad view with the content ad assets.
     // Some assets are guaranteed to be present in every content ad.
-    (contentAdView.headlineView as! UILabel).text = nativeContentAd.headline
-    (contentAdView.bodyView as! UILabel).text = nativeContentAd.body
-    (contentAdView.imageView as! UIImageView).image =
-        (nativeContentAd.images?.first as! GADNativeAdImage).image
-    (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
-    (contentAdView.callToActionView as! UIButton).setTitle(
-        nativeContentAd.callToAction, for: UIControlState.normal)
+    (contentAdView.headlineView as? UILabel)?.text = nativeContentAd.headline
+    (contentAdView.bodyView as? UILabel)?.text = nativeContentAd.body
+    (contentAdView.advertiserView as? UILabel)?.text = nativeContentAd.advertiser
+    (contentAdView.callToActionView as? UIButton)?.setTitle(nativeContentAd.callToAction, for: .normal)
 
-    // Other assets are not, however, and should be checked first.
-    let logoView = contentAdView.logoView
-    if let logoImage = nativeContentAd.logo?.image {
-      (logoView as! UIImageView).image = logoImage
-      logoView?.isHidden = false
-    } else {
-      logoView?.isHidden = true
+    // Update the ViewController for video content.
+    updateVideoStatusLabel(forAdsVideoController: nativeContentAd.videoController)
+    if (nativeContentAd.videoController.hasVideoContent()) {
+      nativeContentAd.videoController.delegate = self
     }
-
+    // These assets are not guaranteed to be present, and should be checked first.
+    if let image = nativeContentAd.logo?.image {
+      (contentAdView.logoView as? UIImageView)?.image = image
+      contentAdView.logoView?.isHidden = false
+    }
+    else {
+      contentAdView.logoView?.isHidden = true
+    }
     // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (contentAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
+    contentAdView.callToActionView?.isUserInteractionEnabled = false
   }
+}
 
-  // MARK: - GADNativeCustomTemplateAdLoaderDelegate
+// MARK: - GADNativeCustomTemplateAdLoaderDelegate
+extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {
+  func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [Any] {
+    return [ nativeCustomTemplateId ]
+  }
 
   func adLoader(_ adLoader: GADAdLoader,
-      didReceive nativeCustomTemplateAd: GADNativeCustomTemplateAd) {
+                didReceive nativeCustomTemplateAd: GADNativeCustomTemplateAd) {
     print("Received custom native ad: \(nativeCustomTemplateAd)")
     refreshAdButton.isEnabled = true
-
     // Create and place the ad in the view hierarchy.
     let customNativeAdView = Bundle.main.loadNibNamed(
-        "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
+      "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
     setAdView(customNativeAdView)
-
+    // Update the ViewController for video content.
+    updateVideoStatusLabel(forAdsVideoController: nativeCustomTemplateAd.videoController)
+    if (nativeCustomTemplateAd.videoController.hasVideoContent()) {
+      nativeCustomTemplateAd.videoController.delegate = self
+    }
     // Populate the custom native ad view with the custom native ad assets.
-    customNativeAdView.populateWithCustomNativeAd(nativeCustomTemplateAd)
+    customNativeAdView.populate(withCustomNativeAd:nativeCustomTemplateAd)
   }
+}
 
-  func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [Any] {
-    return [ "10063170" ]
+// MARK: - GADVideoControllerDelegate implementation
+extension ViewController : GADVideoControllerDelegate {
+
+  func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+    videoStatusLabel.text = "Video playback has ended."
   }
-
 }

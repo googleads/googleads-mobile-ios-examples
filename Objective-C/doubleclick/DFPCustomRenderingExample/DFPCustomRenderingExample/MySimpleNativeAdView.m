@@ -31,29 +31,29 @@ static NSString *const MySimpleNativeAdViewCaptionKey = @"Caption";
 }
 
 - (void)performClickOnHeadline {
-  // The custom click handler is an optional block which will override the normal click action
-  // defined by the ad. Pass nil for the click handler to let the SDK process the default click
-  // action.
-  dispatch_block_t customClickHandler = ^{
-    [[[UIAlertView alloc] initWithTitle:@"Custom Click"
-                                message:@"You just clicked on the headline!"
-                               delegate:self
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
-  };
-  [self.customNativeAd performClickOnAssetWithKey:MySimpleNativeAdViewHeadlineKey
-                               customClickHandler:customClickHandler];
+  [self.customNativeAd performClickOnAssetWithKey:MySimpleNativeAdViewHeadlineKey];
 }
 
 - (void)populateWithCustomNativeAd:(GADNativeCustomTemplateAd *)customNativeAd {
   self.customNativeAd = customNativeAd;
+  // The custom click handler is an optional block which will override the normal click action
+  // defined by the ad. Pass nil for the click handler to let the SDK process the default click
+  // action.
+  __weak typeof(self) weakSelf = self;
+  [self.customNativeAd setCustomClickHandler:^(NSString *assetID){
+    [[[UIAlertView alloc] initWithTitle:@"Custom Click"
+                                message:@"You just clicked on the headline!"
+                               delegate:weakSelf
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+  }];
 
   // Populate the custom native ad assets.
   self.headlineView.text = [customNativeAd stringForKey:MySimpleNativeAdViewHeadlineKey];
   self.captionView.text = [customNativeAd stringForKey:MySimpleNativeAdViewCaptionKey];
 
   // Remove all the media placeholder's subviews.
-  for (UIView *subview in self.mediaPlaceholder.subviews) {
+  for (UIView *subview in self.mainPlaceholder.subviews) {
     [subview removeFromSuperview];
   }
 
@@ -66,17 +66,17 @@ static NSString *const MySimpleNativeAdViewCaptionKey = @"Caption";
     UIImage *image = [customNativeAd imageForKey:MySimpleNativeAdViewMainImageKey].image;
     mainView = [[UIImageView alloc] initWithImage:image];
   }
-  [self.mediaPlaceholder addSubview:mainView];
+  [self.mainPlaceholder addSubview:mainView];
 
   // Size the media view to fill our container size.
   [mainView setTranslatesAutoresizingMaskIntoConstraints:NO];
   NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(mainView);
-  [self.mediaPlaceholder
+  [self.mainPlaceholder
       addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mainView]|"
                                                              options:0
                                                              metrics:nil
                                                                views:viewDictionary]];
-  [self.mediaPlaceholder
+  [self.mainPlaceholder
       addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mainView]|"
                                                              options:0
                                                              metrics:nil

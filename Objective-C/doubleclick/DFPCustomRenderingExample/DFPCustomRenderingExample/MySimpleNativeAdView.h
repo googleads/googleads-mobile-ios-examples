@@ -8,7 +8,7 @@
 
 // Weak references to this ad's asset views.
 @property(nonatomic, weak) IBOutlet UILabel *headlineView;
-@property(nonatomic, weak) IBOutlet UIView *mediaPlaceholder;
+@property(nonatomic, weak) IBOutlet UIView *mainPlaceholder;
 @property(nonatomic, weak) IBOutlet UILabel *captionView;
 
 /// Populates the ad view with the custom native ad object.
