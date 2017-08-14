@@ -77,12 +77,12 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
 
   /// Refreshes the native ad.
   @IBAction func refreshAd(_ sender: AnyObject!) {
-    var adTypes = [String]()
+    var adTypes = [GADAdLoaderAdType]()
     if appInstallAdSwitch.isOn {
-      adTypes.append(kGADAdLoaderAdTypeNativeAppInstall)
+      adTypes.append(GADAdLoaderAdType.nativeAppInstall)
     }
     if contentAdSwitch.isOn {
-      adTypes.append(kGADAdLoaderAdTypeNativeContent)
+      adTypes.append(GADAdLoaderAdType.nativeContent)
     }
 
     if adTypes.isEmpty {

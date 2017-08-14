@@ -82,15 +82,15 @@ class ViewController: UIViewController {
 
   /// Refreshes the native ad.
   @IBAction func refreshAd(_ sender: AnyObject!) {
-    var adTypes = [String]()
+    var adTypes = [GADAdLoaderAdType]()
     if appInstallAdSwitch.isOn {
-      adTypes.append(kGADAdLoaderAdTypeNativeAppInstall)
+      adTypes.append(GADAdLoaderAdType.nativeAppInstall)
     }
     if contentAdSwitch.isOn {
-      adTypes.append(kGADAdLoaderAdTypeNativeContent)
+      adTypes.append(GADAdLoaderAdType.nativeContent)
     }
     if customNativeAdSwitch.isOn {
-      adTypes.append(kGADAdLoaderAdTypeNativeCustomTemplate)
+      adTypes.append(GADAdLoaderAdType.nativeCustomTemplate)
     }
 
     if adTypes.isEmpty {
@@ -245,7 +245,7 @@ extension ViewController : GADNativeContentAdLoaderDelegate {
 
 // MARK: - GADNativeCustomTemplateAdLoaderDelegate
 extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {
-  func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [Any] {
+  func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [String] {
     return [ nativeCustomTemplateId ]
   }
 
