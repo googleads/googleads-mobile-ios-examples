@@ -1,11 +1,11 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.22.0)
+  - Google-Mobile-Ads-SDK (7.23.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 1bdf1a4244d0553b1840239874c209c01aef055f
+  Google-Mobile-Ads-SDK: a43dc8efdb566c74d00ac6934c781de969348d80
 
 PODFILE CHECKSUM: b2abbc4cbad4d73be30624fd45c74926fd85e233
 
