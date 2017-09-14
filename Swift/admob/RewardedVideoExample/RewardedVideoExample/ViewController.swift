@@ -105,7 +105,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
       repeats: true)
   }
 
-  func applicationDidEnterBackground(_ notification: Notification) {
+  @objc func applicationDidEnterBackground(_ notification: Notification) {
     // Pause the game if it is currently playing.
     if gameState != .playing {
       return
@@ -120,7 +120,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
     timer?.fireDate = Date.distantFuture
   }
 
-  func applicationDidBecomeActive(_ notification: Notification) {
+  @objc func applicationDidBecomeActive(_ notification: Notification) {
     // Resume the game if it is currently paused.
     if gameState != .paused {
       return
@@ -134,7 +134,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
     timer?.fireDate = (previousFireDate?.addingTimeInterval(pauseTime))!
   }
 
-  func timerFireMethod(_ timer: Timer) {
+  @objc func timerFireMethod(_ timer: Timer) {
     counter -= 1
     if counter > 0 {
       gameText.text = String(counter)
@@ -208,7 +208,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
   func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
       didRewardUserWith reward: GADAdReward) {
     print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-    earnCoins(NSInteger(reward.amount))
+    earnCoins(NSInteger(truncating: reward.amount))
   }
 
   deinit {

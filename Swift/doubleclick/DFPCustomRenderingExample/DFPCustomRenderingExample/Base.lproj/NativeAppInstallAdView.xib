@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +23,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Of-AP-0h9">
-                    <rect key="frame" x="60" y="31" width="100" height="17"/>
+                    <rect key="frame" x="60" y="30.5" width="100" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="oog-z3-j9R"/>
                         <constraint firstAttribute="width" constant="100" id="sXk-zk-NI0"/>
@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-eV-DX1">
-                    <rect key="frame" x="60" y="10" width="315" height="21"/>
+                    <rect key="frame" x="60" y="10" width="315" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -60,30 +60,40 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jK3-ui-VWZ" customClass="GADMediaView">
-                    <rect key="frame" x="75" y="88.5" width="225" height="125"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-yu-K4i" customClass="GADMediaView">
+                    <rect key="frame" x="74.5" y="88.5" width="225" height="125"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="125" id="Q6R-FK-Hw6"/>
-                        <constraint firstAttribute="width" constant="225" id="S5M-24-oTS"/>
+                        <constraint firstAttribute="width" constant="225" id="e3T-fD-di4"/>
+                        <constraint firstAttribute="height" priority="999" constant="125" id="f4C-60-tvt"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dS7-on-pE1">
+                    <rect key="frame" x="74.5" y="88.5" width="225" height="125"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="225" id="J5e-Eo-hnx"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.98303861469999998" blue="0.92887652860000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="jK3-ui-VWZ" firstAttribute="top" secondItem="PEQ-D9-2Vv" secondAttribute="bottom" constant="5" id="5HY-FI-uJt"/>
-                <constraint firstItem="jK3-ui-VWZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7If-I6-egH"/>
                 <constraint firstAttribute="trailing" secondItem="PEQ-D9-2Vv" secondAttribute="trailing" constant="10" id="8U0-Fb-3R7"/>
                 <constraint firstItem="iNa-bH-h1m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="9WK-zC-xET"/>
                 <constraint firstAttribute="trailing" secondItem="beR-eV-DX1" secondAttribute="trailing" id="BcE-do-dNl"/>
-                <constraint firstItem="E5w-YA-UY8" firstAttribute="top" secondItem="jK3-ui-VWZ" secondAttribute="bottom" constant="5" id="CXz-tu-ZRj"/>
                 <constraint firstItem="2Of-AP-0h9" firstAttribute="top" secondItem="beR-eV-DX1" secondAttribute="bottom" id="ESC-Pe-TXR"/>
                 <constraint firstItem="beR-eV-DX1" firstAttribute="leading" secondItem="iNa-bH-h1m" secondAttribute="trailing" constant="10" id="MRN-dd-Oip"/>
+                <constraint firstItem="dS7-on-pE1" firstAttribute="centerY" secondItem="fNp-yu-K4i" secondAttribute="centerY" id="Okc-PU-NPy"/>
                 <constraint firstItem="Ysb-of-cat" firstAttribute="centerY" secondItem="hwF-UL-Q8H" secondAttribute="centerY" id="Rud-i8-Myz"/>
+                <constraint firstItem="fNp-yu-K4i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TYN-lq-3DK"/>
+                <constraint firstItem="fNp-yu-K4i" firstAttribute="top" secondItem="PEQ-D9-2Vv" secondAttribute="bottom" constant="5" id="V0m-hf-6NS"/>
                 <constraint firstItem="iNa-bH-h1m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="WFt-7D-2rj"/>
                 <constraint firstItem="2Of-AP-0h9" firstAttribute="leading" secondItem="beR-eV-DX1" secondAttribute="leading" id="ZKz-0G-v8W"/>
                 <constraint firstItem="hwF-UL-Q8H" firstAttribute="leading" secondItem="Ysb-of-cat" secondAttribute="trailing" constant="10" id="aLb-sm-wAb"/>
+                <constraint firstItem="Ysb-of-cat" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="aQA-0T-U92"/>
+                <constraint firstItem="dS7-on-pE1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aqR-aQ-IYr"/>
+                <constraint firstItem="E5w-YA-UY8" firstAttribute="top" secondItem="fNp-yu-K4i" secondAttribute="bottom" constant="5" id="cil-4X-QPH"/>
                 <constraint firstAttribute="trailing" secondItem="E5w-YA-UY8" secondAttribute="trailing" constant="10" id="eNM-dN-tvx"/>
+                <constraint firstItem="dS7-on-pE1" firstAttribute="top" secondItem="fNp-yu-K4i" secondAttribute="top" id="ecc-1b-gmO"/>
                 <constraint firstItem="E5w-YA-UY8" firstAttribute="leading" secondItem="hwF-UL-Q8H" secondAttribute="trailing" constant="10" id="f39-vH-KWq"/>
                 <constraint firstItem="iNa-bH-h1m" firstAttribute="leading" secondItem="PEQ-D9-2Vv" secondAttribute="leading" id="mof-5F-8vM"/>
                 <constraint firstItem="PEQ-D9-2Vv" firstAttribute="top" secondItem="iNa-bH-h1m" secondAttribute="bottom" id="oCA-mD-nff"/>
@@ -95,17 +105,13 @@
                 <outlet property="callToActionView" destination="E5w-YA-UY8" id="RCf-yK-s1x"/>
                 <outlet property="headlineView" destination="beR-eV-DX1" id="d1E-ed-yel"/>
                 <outlet property="iconView" destination="iNa-bH-h1m" id="xpZ-Nz-l9f"/>
-                <outlet property="mediaView" destination="jK3-ui-VWZ" id="Fra-XQ-Tan"/>
+                <outlet property="imageView" destination="dS7-on-pE1" id="E10-Mn-LqD"/>
+                <outlet property="mediaView" destination="fNp-yu-K4i" id="624-ZP-L04"/>
                 <outlet property="priceView" destination="Ysb-of-cat" id="L6Q-hd-uaJ"/>
                 <outlet property="starRatingView" destination="2Of-AP-0h9" id="zCO-9D-S0V"/>
                 <outlet property="storeView" destination="hwF-UL-Q8H" id="hRl-23-ce1"/>
             </connections>
-            <point key="canvasLocation" x="304.5" y="241.5"/>
+            <point key="canvasLocation" x="10" y="-8"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

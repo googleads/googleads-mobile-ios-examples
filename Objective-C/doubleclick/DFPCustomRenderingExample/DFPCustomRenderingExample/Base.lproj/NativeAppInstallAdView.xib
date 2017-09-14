@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -64,27 +64,37 @@
                     <rect key="frame" x="75" y="88.5" width="225" height="125"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="125" id="Q6R-FK-Hw6"/>
+                        <constraint firstAttribute="height" priority="999" constant="125" placeholder="YES" id="Q6R-FK-Hw6"/>
                         <constraint firstAttribute="width" constant="225" id="S5M-24-oTS"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ult-53-Gzz">
+                    <rect key="frame" x="75" y="88.5" width="225" height="125"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="225" id="kFE-hj-XGj"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.98303861469999998" blue="0.92887652860000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="jK3-ui-VWZ" firstAttribute="top" secondItem="PEQ-D9-2Vv" secondAttribute="bottom" constant="5" id="5HY-FI-uJt"/>
+                <constraint firstItem="Ysb-of-cat" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="6eZ-Hn-wGF"/>
                 <constraint firstItem="jK3-ui-VWZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7If-I6-egH"/>
                 <constraint firstAttribute="trailing" secondItem="PEQ-D9-2Vv" secondAttribute="trailing" constant="10" id="8U0-Fb-3R7"/>
                 <constraint firstItem="iNa-bH-h1m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="9WK-zC-xET"/>
                 <constraint firstAttribute="trailing" secondItem="beR-eV-DX1" secondAttribute="trailing" id="BcE-do-dNl"/>
                 <constraint firstItem="E5w-YA-UY8" firstAttribute="top" secondItem="jK3-ui-VWZ" secondAttribute="bottom" constant="5" id="CXz-tu-ZRj"/>
                 <constraint firstItem="2Of-AP-0h9" firstAttribute="top" secondItem="beR-eV-DX1" secondAttribute="bottom" id="ESC-Pe-TXR"/>
+                <constraint firstItem="E5w-YA-UY8" firstAttribute="top" secondItem="ult-53-Gzz" secondAttribute="bottom" constant="5" id="Hy5-eo-ucA"/>
                 <constraint firstItem="beR-eV-DX1" firstAttribute="leading" secondItem="iNa-bH-h1m" secondAttribute="trailing" constant="10" id="MRN-dd-Oip"/>
                 <constraint firstItem="Ysb-of-cat" firstAttribute="centerY" secondItem="hwF-UL-Q8H" secondAttribute="centerY" id="Rud-i8-Myz"/>
                 <constraint firstItem="iNa-bH-h1m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="WFt-7D-2rj"/>
                 <constraint firstItem="2Of-AP-0h9" firstAttribute="leading" secondItem="beR-eV-DX1" secondAttribute="leading" id="ZKz-0G-v8W"/>
                 <constraint firstItem="hwF-UL-Q8H" firstAttribute="leading" secondItem="Ysb-of-cat" secondAttribute="trailing" constant="10" id="aLb-sm-wAb"/>
+                <constraint firstItem="ult-53-Gzz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eHG-BA-d4U"/>
                 <constraint firstAttribute="trailing" secondItem="E5w-YA-UY8" secondAttribute="trailing" constant="10" id="eNM-dN-tvx"/>
                 <constraint firstItem="E5w-YA-UY8" firstAttribute="leading" secondItem="hwF-UL-Q8H" secondAttribute="trailing" constant="10" id="f39-vH-KWq"/>
+                <constraint firstItem="ult-53-Gzz" firstAttribute="top" secondItem="PEQ-D9-2Vv" secondAttribute="bottom" constant="5" id="jDb-Rp-3aa"/>
                 <constraint firstItem="iNa-bH-h1m" firstAttribute="leading" secondItem="PEQ-D9-2Vv" secondAttribute="leading" id="mof-5F-8vM"/>
                 <constraint firstItem="PEQ-D9-2Vv" firstAttribute="top" secondItem="iNa-bH-h1m" secondAttribute="bottom" id="oCA-mD-nff"/>
                 <constraint firstItem="E5w-YA-UY8" firstAttribute="centerY" secondItem="hwF-UL-Q8H" secondAttribute="centerY" id="rNj-VY-YrO"/>
@@ -95,6 +105,7 @@
                 <outlet property="callToActionView" destination="E5w-YA-UY8" id="RCf-yK-s1x"/>
                 <outlet property="headlineView" destination="beR-eV-DX1" id="d1E-ed-yel"/>
                 <outlet property="iconView" destination="iNa-bH-h1m" id="xpZ-Nz-l9f"/>
+                <outlet property="imageView" destination="ult-53-Gzz" id="Mri-D4-yed"/>
                 <outlet property="mediaView" destination="jK3-ui-VWZ" id="Fra-XQ-Tan"/>
                 <outlet property="priceView" destination="Ysb-of-cat" id="L6Q-hd-uaJ"/>
                 <outlet property="starRatingView" destination="2Of-AP-0h9" id="zCO-9D-S0V"/>
@@ -103,9 +114,4 @@
             <point key="canvasLocation" x="304.5" y="241.5"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

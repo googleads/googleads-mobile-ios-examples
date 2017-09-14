@@ -118,17 +118,24 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   // Some app install ads will include a video asset, while others do not. Apps can use the
   // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
   // UI accordingly.
+
+  // The UI for this controller constrains the image view's height to match the media view's
+  // height, so by changing the one here, the height of both views are being adjusted.
   if (nativeAppInstallAd.videoController.hasVideoContent) {
+    // The video controller has content. Show the media view.
+    appInstallAdView.mediaView.hidden = NO;
+    appInstallAdView.imageView.hidden = YES;
+
     // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
     // ratio of the video it displays.
     NSLayoutConstraint *heightConstraint =
-        [NSLayoutConstraint constraintWithItem:appInstallAdView.mediaView
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:appInstallAdView.mediaView
-                                     attribute:NSLayoutAttributeWidth
-                                    multiplier:(1 / nativeAppInstallAd.videoController.aspectRatio)
-                                      constant:0];
+    [NSLayoutConstraint constraintWithItem:appInstallAdView.mediaView
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:appInstallAdView.mediaView
+                                 attribute:NSLayoutAttributeWidth
+                                multiplier:(1 / nativeAppInstallAd.videoController.aspectRatio)
+                                  constant:0];
     heightConstraint.active = YES;
 
     // By acting as the delegate to the GADVideoController, this ViewController receives messages
@@ -137,17 +144,13 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
     self.videoStatusLabel.text = @"Ad contains a video asset.";
   } else {
-    // If the ad doesn't contain a video asset, the GADMediaView will automatically display the
-    // first image asset instead, so a fixed value of 150 is used for the height constraint.
-    NSLayoutConstraint *heightConstraint =
-        [NSLayoutConstraint constraintWithItem:appInstallAdView.mediaView
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:0
-                                      constant:150];
-    heightConstraint.active = YES;
+    // If the ad doesn't contain a video asset, the first image asset is shown in the
+    // image view. The existing lower priority height constraint is used.
+    appInstallAdView.mediaView.hidden = YES;
+    appInstallAdView.imageView.hidden = NO;
+
+    GADNativeAdImage *firstImage = nativeAppInstallAd.images.firstObject;
+    ((UIImageView *)appInstallAdView.imageView).image = firstImage.image;
 
     self.videoStatusLabel.text = @"Ad does not contain a video.";
   }

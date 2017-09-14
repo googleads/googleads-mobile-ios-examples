@@ -50,7 +50,7 @@ class MySimpleNativeAdView: UIView {
     mainPlaceholder.isUserInteractionEnabled = true
   }
 
-  func performClickOnMainImage(_ sender: UIImage!) {
+  @objc func performClickOnMainImage(_ sender: UIImage!) {
     customNativeAd.performClickOnAsset(
         withKey: MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey)
   }

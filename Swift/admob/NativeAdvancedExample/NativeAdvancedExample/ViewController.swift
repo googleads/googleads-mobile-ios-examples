@@ -133,16 +133,25 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     // Some app install ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust
     // their UI accordingly.
+
+    // The UI for this controller constrains the image view's height to match the media view's
+    // height, so by changing the one here, the height of both views are being adjusted.
     if (nativeAppInstallAd.videoController.hasVideoContent()) {
+
+      // The video controller has content. Show the media view.
+      appInstallAdView.mediaView?.isHidden = false
+      appInstallAdView.imageView?.isHidden = true
+
       // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
       // ratio of the video it displays.
-      let heightConstraint = NSLayoutConstraint(item: appInstallAdView.mediaView!,
-          attribute: .height,
-          relatedBy: .equal,
-          toItem: appInstallAdView.mediaView!,
-          attribute: .width,
-          multiplier: CGFloat(1.0 / nativeAppInstallAd.videoController.aspectRatio()),
-          constant: 0)
+      let heightConstraint = NSLayoutConstraint(
+            item: appInstallAdView.mediaView!,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: appInstallAdView.mediaView!,
+            attribute: .width,
+            multiplier: CGFloat(1.0 / nativeAppInstallAd.videoController.aspectRatio()),
+            constant: 0)
       heightConstraint.isActive = true
 
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
@@ -151,16 +160,14 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
 
       self.videoStatusLabel.text = "Ad contains a video asset."
     } else {
-      // If the ad doesn't contain a video asset, the GADMediaView will automatically display the
-      // first image asset instead, so a fixed value of 150 is used for the height constraint.
-      let heightConstraint = NSLayoutConstraint(item: appInstallAdView.mediaView!,
-          attribute: .height,
-          relatedBy: .equal,
-          toItem: nil,
-          attribute: .notAnAttribute,
-          multiplier: 0,
-          constant: 150)
-      heightConstraint.isActive = true
+      // If the ad doesn't contain a video asset, the first image asset is shown in the
+      // image view. The existing lower priority height constraint is used.
+      appInstallAdView.mediaView?.isHidden = true
+      appInstallAdView.imageView?.isHidden = false
+
+      let firstImage: GADNativeAdImage? = nativeAppInstallAd.images?.first as? GADNativeAdImage
+      (appInstallAdView.imageView as? UIImageView)?.image = firstImage?.image
+
       self.videoStatusLabel.text = "Ad does not contain a video asset."
     }
 

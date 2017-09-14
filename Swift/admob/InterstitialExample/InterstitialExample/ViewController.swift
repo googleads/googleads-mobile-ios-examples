@@ -98,7 +98,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     gameText.text = "\(timeLeft) seconds left!"
   }
 
-  func decrementTimeLeft(_ timer: Timer) {
+  @objc func decrementTimeLeft(_ timer: Timer) {
     timeLeft -= 1
     updateTimeLeft()
     if timeLeft == 0 {
@@ -106,7 +106,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     }
   }
 
-  func pauseGame() {
+  @objc func pauseGame() {
     if gameState != .playing {
       return
     }
@@ -120,7 +120,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     timer?.fireDate = Date.distantFuture
   }
 
-  func resumeGame() {
+  @objc func resumeGame() {
     if gameState != .paused {
       return
     }
