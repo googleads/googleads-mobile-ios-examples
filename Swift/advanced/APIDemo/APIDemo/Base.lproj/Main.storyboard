@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <deployment version="2048" identifier="iOS"/>
+        
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +25,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CCw-bs-1sf" id="yJz-Sy-EY4">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RIa-gZ-eJX">
-                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,8 +66,8 @@
             <objects>
                 <viewController id="6F3-xa-PzT" customClass="DFPPPIDViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="raS-Tn-vQe"/>
-                        <viewControllerLayoutGuide type="bottom" id="7QF-tp-Lmt"/>
+                        <viewControllerLayoutGuide type="top" id="izv-It-ILG"/>
+                        <viewControllerLayoutGuide type="bottom" id="dpe-nd-D6g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ep7-xL-pHQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -104,8 +106,8 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="9Wj-4O-Ekg" secondAttribute="trailing" id="2Ij-U1-rEK"/>
                             <constraint firstItem="dSQ-lL-gJU" firstAttribute="leading" secondItem="ep7-xL-pHQ" secondAttribute="leadingMargin" id="7uW-aK-OaO"/>
-                            <constraint firstItem="Df6-Jn-PUN" firstAttribute="top" secondItem="raS-Tn-vQe" secondAttribute="bottom" constant="8" id="9Ci-JY-bmz"/>
-                            <constraint firstItem="7QF-tp-Lmt" firstAttribute="top" secondItem="UYL-zo-7SA" secondAttribute="bottom" id="AbJ-6t-Def"/>
+                            <constraint firstItem="Df6-Jn-PUN" firstAttribute="top" secondItem="izv-It-ILG" secondAttribute="bottom" constant="8" id="9Ci-JY-bmz"/>
+                            <constraint firstItem="dpe-nd-D6g" firstAttribute="top" secondItem="UYL-zo-7SA" secondAttribute="bottom" id="AbJ-6t-Def"/>
                             <constraint firstItem="UYL-zo-7SA" firstAttribute="centerX" secondItem="ep7-xL-pHQ" secondAttribute="centerX" id="Ee8-hX-hWq"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9Wj-4O-Ekg" secondAttribute="leading" id="KwL-LK-kMT"/>
                             <constraint firstItem="dSQ-lL-gJU" firstAttribute="centerY" secondItem="ep7-xL-pHQ" secondAttribute="centerY" id="gZJ-jg-sKf"/>
@@ -131,8 +133,8 @@
             <objects>
                 <viewController id="By3-6Y-GeB" customClass="DFPAppEventsViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bzS-jw-rGl"/>
-                        <viewControllerLayoutGuide type="bottom" id="rjD-eo-vHf"/>
+                        <viewControllerLayoutGuide type="top" id="KUQ-3f-7EA"/>
+                        <viewControllerLayoutGuide type="bottom" id="rX5-I1-aoX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XY5-5Q-MCq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -155,10 +157,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rjD-eo-vHf" firstAttribute="top" secondItem="hlz-4m-SAm" secondAttribute="bottom" id="0EW-tw-4Jg"/>
+                            <constraint firstItem="rX5-I1-aoX" firstAttribute="top" secondItem="hlz-4m-SAm" secondAttribute="bottom" id="0EW-tw-4Jg"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hOP-1h-DTr" secondAttribute="leading" id="Q1r-o1-4kn"/>
                             <constraint firstItem="hlz-4m-SAm" firstAttribute="centerX" secondItem="XY5-5Q-MCq" secondAttribute="centerX" id="T2a-RD-THB"/>
-                            <constraint firstItem="hOP-1h-DTr" firstAttribute="top" secondItem="bzS-jw-rGl" secondAttribute="bottom" constant="8" id="U7U-F3-Jok"/>
+                            <constraint firstItem="hOP-1h-DTr" firstAttribute="top" secondItem="KUQ-3f-7EA" secondAttribute="bottom" constant="8" id="U7U-F3-Jok"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hOP-1h-DTr" secondAttribute="trailing" id="bNt-BE-E7w"/>
                         </constraints>
                     </view>
@@ -176,15 +178,15 @@
             <objects>
                 <viewController id="NoA-UU-YlB" customClass="DFPFluidAdSizeViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="z0P-gS-BA5"/>
-                        <viewControllerLayoutGuide type="bottom" id="UyS-hu-RdN"/>
+                        <viewControllerLayoutGuide type="top" id="LWk-Ig-ZWG"/>
+                        <viewControllerLayoutGuide type="bottom" id="QNZ-Vy-BQ8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EVi-ae-KHa" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCm-Jw-DCN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfu-AV-fcG" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
@@ -205,7 +207,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="(this UITextView is above the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQx-Ry-yPY">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="(this UITextView is above the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQx-Ry-yPY">
                                                 <rect key="frame" x="27" y="216" width="320" height="35"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -215,14 +217,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-pM-eu5" customClass="DFPBannerView">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-pM-eu5" customClass="DFPBannerView">
                                                 <rect key="frame" x="27" y="259" width="320" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="nFO-WR-cuj"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="(this UITextView is below the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvN-xK-iQn">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="(this UITextView is below the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvN-xK-iQn">
                                                 <rect key="frame" x="27" y="317" width="320" height="35"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -261,9 +263,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tCm-Jw-DCN" secondAttribute="trailing" id="DqU-cW-plR"/>
-                            <constraint firstItem="UyS-hu-RdN" firstAttribute="top" secondItem="tCm-Jw-DCN" secondAttribute="bottom" id="PNY-QE-Ndp" userLabel="Scroll View.bottom = bottom"/>
+                            <constraint firstItem="QNZ-Vy-BQ8" firstAttribute="top" secondItem="tCm-Jw-DCN" secondAttribute="bottom" id="PNY-QE-Ndp" userLabel="Scroll View.bottom = bottom"/>
                             <constraint firstItem="Dfu-AV-fcG" firstAttribute="width" secondItem="EVi-ae-KHa" secondAttribute="width" id="Qak-gj-NpB"/>
-                            <constraint firstItem="tCm-Jw-DCN" firstAttribute="top" secondItem="EVi-ae-KHa" secondAttribute="top" id="iae-Mb-Bor"/>
+                            <constraint firstItem="tCm-Jw-DCN" firstAttribute="top" secondItem="LWk-Ig-ZWG" secondAttribute="bottom" id="iae-Mb-Bor"/>
                             <constraint firstItem="tCm-Jw-DCN" firstAttribute="leading" secondItem="EVi-ae-KHa" secondAttribute="leading" id="llD-k7-Y0I"/>
                         </constraints>
                     </view>
@@ -283,8 +285,8 @@
             <objects>
                 <viewController id="YxH-V9-hQ8" customClass="DFPMultipleAdSizesViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vcs-QL-bos"/>
-                        <viewControllerLayoutGuide type="bottom" id="UTd-Eb-tvj"/>
+                        <viewControllerLayoutGuide type="top" id="nhw-UZ-5T9"/>
+                        <viewControllerLayoutGuide type="bottom" id="gJB-JN-d95"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gbQ-Wi-U2O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -349,7 +351,7 @@
                             <constraint firstItem="r8r-eW-Fgv" firstAttribute="centerY" secondItem="XRz-D2-xZk" secondAttribute="centerY" id="Vqx-DT-rvI"/>
                             <constraint firstItem="LF2-d6-yfx" firstAttribute="leading" secondItem="gbQ-Wi-U2O" secondAttribute="leadingMargin" constant="-4" id="bCZ-eT-u1s"/>
                             <constraint firstAttribute="leadingMargin" secondItem="e6i-Kz-9zf" secondAttribute="leading" id="cot-jn-7PA"/>
-                            <constraint firstItem="e6i-Kz-9zf" firstAttribute="top" secondItem="Vcs-QL-bos" secondAttribute="bottom" constant="8" id="jPF-CS-uCj"/>
+                            <constraint firstItem="e6i-Kz-9zf" firstAttribute="top" secondItem="nhw-UZ-5T9" secondAttribute="bottom" constant="8" id="jPF-CS-uCj"/>
                             <constraint firstItem="LF2-d6-yfx" firstAttribute="top" secondItem="e6i-Kz-9zf" secondAttribute="bottom" constant="8" id="tt7-gQ-8ah"/>
                             <constraint firstItem="qjY-Ni-ycC" firstAttribute="centerY" secondItem="vHo-8j-0w6" secondAttribute="centerY" id="une-lD-Ruf"/>
                             <constraint firstItem="wRu-Pz-dNN" firstAttribute="centerY" secondItem="e6i-Kz-9zf" secondAttribute="centerY" id="yJ3-8k-ZJz"/>
@@ -476,8 +478,8 @@
             <objects>
                 <viewController id="1ne-ZH-RRA" customClass="DFPCustomTargetingViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="izF-nu-USd"/>
-                        <viewControllerLayoutGuide type="bottom" id="3x0-av-0pE"/>
+                        <viewControllerLayoutGuide type="top" id="t3S-an-hQl"/>
+                        <viewControllerLayoutGuide type="bottom" id="FWs-W2-I05"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gmT-vo-1mj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -514,9 +516,9 @@
                         <constraints>
                             <constraint firstItem="58T-a2-Djh" firstAttribute="leading" secondItem="6RB-Gb-lFB" secondAttribute="trailing" constant="8" id="GgK-iu-ajd"/>
                             <constraint firstItem="ab7-Mr-GPa" firstAttribute="centerX" secondItem="gmT-vo-1mj" secondAttribute="centerX" id="KCu-yk-fYo"/>
-                            <constraint firstItem="lLV-94-pWs" firstAttribute="top" secondItem="izF-nu-USd" secondAttribute="bottom" constant="8" id="RK1-FH-6YA"/>
+                            <constraint firstItem="lLV-94-pWs" firstAttribute="top" secondItem="t3S-an-hQl" secondAttribute="bottom" constant="8" id="RK1-FH-6YA"/>
                             <constraint firstItem="58T-a2-Djh" firstAttribute="width" secondItem="6RB-Gb-lFB" secondAttribute="width" constant="-40" id="SYT-0a-KZE"/>
-                            <constraint firstItem="3x0-av-0pE" firstAttribute="top" secondItem="ab7-Mr-GPa" secondAttribute="bottom" id="T0A-b1-x94"/>
+                            <constraint firstItem="FWs-W2-I05" firstAttribute="top" secondItem="ab7-Mr-GPa" secondAttribute="bottom" id="T0A-b1-x94"/>
                             <constraint firstItem="58T-a2-Djh" firstAttribute="centerY" secondItem="6RB-Gb-lFB" secondAttribute="centerY" id="UUT-HQ-ZPq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="58T-a2-Djh" secondAttribute="trailing" id="XKZ-DA-ldF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lLV-94-pWs" secondAttribute="trailing" id="aSE-qe-SGS"/>
@@ -540,8 +542,8 @@
             <objects>
                 <viewController id="OUt-Fy-VN6" customClass="AdMobAdDelegateViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kpM-Br-0Ir"/>
-                        <viewControllerLayoutGuide type="bottom" id="0qC-pG-fkb"/>
+                        <viewControllerLayoutGuide type="top" id="qms-A6-VKC"/>
+                        <viewControllerLayoutGuide type="bottom" id="RUY-fv-TIb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YXJ-N3-thS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -564,10 +566,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QYk-8U-nPh" firstAttribute="top" secondItem="kpM-Br-0Ir" secondAttribute="bottom" constant="8" id="1gW-em-Fqb"/>
+                            <constraint firstItem="QYk-8U-nPh" firstAttribute="top" secondItem="qms-A6-VKC" secondAttribute="bottom" constant="8" id="1gW-em-Fqb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QYk-8U-nPh" secondAttribute="trailing" id="I1c-8W-GHT"/>
                             <constraint firstItem="cMi-C1-p4c" firstAttribute="centerX" secondItem="YXJ-N3-thS" secondAttribute="centerX" id="bAd-9V-mkS"/>
-                            <constraint firstItem="0qC-pG-fkb" firstAttribute="top" secondItem="cMi-C1-p4c" secondAttribute="bottom" id="mwU-YO-pEX"/>
+                            <constraint firstItem="RUY-fv-TIb" firstAttribute="top" secondItem="cMi-C1-p4c" secondAttribute="bottom" id="mwU-YO-pEX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="QYk-8U-nPh" secondAttribute="leading" id="xRR-2a-eSo"/>
                         </constraints>
                     </view>
@@ -595,11 +597,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w7b-2Y-Lkl" id="fZw-TC-edx">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Birthdate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e4s-Xy-Gse">
-                                                    <rect key="frame" x="15" y="12" width="67.5" height="19.5"/>
+                                                    <rect key="frame" x="16" y="12" width="67.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -619,7 +621,7 @@
                                         <rect key="frame" x="0.0" y="72" width="320" height="167"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tc1-V2-iY3" id="Lo5-jT-PDN">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="166.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker hidden="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMx-ZV-saj" userLabel="Birthdate Picker">
@@ -644,11 +646,11 @@
                                         <rect key="frame" x="0.0" y="239" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gzb-Hb-Ws1" id="vmz-1n-4cp">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mv9-UT-sMp">
-                                                    <rect key="frame" x="15" y="12" width="54" height="19.5"/>
+                                                    <rect key="frame" x="16" y="12" width="54" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -668,7 +670,7 @@
                                         <rect key="frame" x="0.0" y="283" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ne8-0P-iMB" id="8LK-gm-h5f">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDy-YG-ahG" userLabel="Gender Picker View">
@@ -687,11 +689,11 @@
                                         <rect key="frame" x="0.0" y="433" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tvQ-oj-Ypv" id="pWW-Uv-tDO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Child-Directed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3a7-hJ-Sa3">
-                                                    <rect key="frame" x="15" y="12" width="106.5" height="19.5"/>
+                                                    <rect key="frame" x="16" y="12" width="106.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -711,7 +713,7 @@
                                         <rect key="frame" x="0.0" y="477" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQc-3G-Znc" id="fAs-ir-swQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-yp-EgL" userLabel="Child-Directed Picker View">
@@ -734,7 +736,7 @@
                                         <rect key="frame" x="0.0" y="655" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vt8-eQ-UhB" id="kUj-D2-FiA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5c-DN-6ml">
@@ -763,7 +765,7 @@
                                         <rect key="frame" x="0.0" y="727" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tzF-UY-aA2" id="G14-4u-4zZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-NT-Wd4" customClass="GADBannerView">
@@ -815,8 +817,8 @@
             <objects>
                 <viewController id="Vjb-a8-UWs" customClass="AdMobBannerSizesViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WSb-a3-cvT"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nvn-7i-M1h"/>
+                        <viewControllerLayoutGuide type="top" id="o2I-6m-u71"/>
+                        <viewControllerLayoutGuide type="bottom" id="OgG-r9-k4x"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zv9-da-ea5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -850,7 +852,7 @@
                             <constraint firstItem="O9z-ni-Cud" firstAttribute="centerY" secondItem="05C-Fi-pfW" secondAttribute="centerY" id="cPt-bO-ZCM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="05C-Fi-pfW" secondAttribute="trailing" id="g6l-cc-ld1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vgo-Hd-78r" secondAttribute="trailing" id="ib8-TA-nDM"/>
-                            <constraint firstItem="vgo-Hd-78r" firstAttribute="top" secondItem="WSb-a3-cvT" secondAttribute="bottom" constant="8" id="pe2-gh-akR"/>
+                            <constraint firstItem="vgo-Hd-78r" firstAttribute="top" secondItem="o2I-6m-u71" secondAttribute="bottom" constant="8" id="pe2-gh-akR"/>
                             <constraint firstItem="05C-Fi-pfW" firstAttribute="leading" secondItem="O9z-ni-Cud" secondAttribute="trailing" constant="8" id="q7J-Oe-Vel"/>
                         </constraints>
                     </view>
@@ -869,7 +871,7 @@
                 <navigationController id="BMJ-97-6JR" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="72D-5g-O03">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -881,10 +883,5 @@
             <point key="canvasLocation" x="-267" y="830"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

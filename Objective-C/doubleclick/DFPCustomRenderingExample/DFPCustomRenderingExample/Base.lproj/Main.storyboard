@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="m1l-bW-rbg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="m1l-bW-rbg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,8 +15,8 @@
             <objects>
                 <viewController id="m1l-bW-rbg" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a7P-Kq-8EB"/>
-                        <viewControllerLayoutGuide type="bottom" id="6wq-aK-TkT"/>
+                        <viewControllerLayoutGuide type="top" id="mn5-N2-nn2"/>
+                        <viewControllerLayoutGuide type="bottom" id="02X-aI-eUA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y6d-Wt-L0u" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -167,9 +168,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xmB-u3-lYJ" firstAttribute="top" secondItem="a7P-Kq-8EB" secondAttribute="bottom" id="0Zc-4R-NtP"/>
+                            <constraint firstItem="xmB-u3-lYJ" firstAttribute="top" secondItem="mn5-N2-nn2" secondAttribute="bottom" id="0Zc-4R-NtP"/>
                             <constraint firstItem="xmB-u3-lYJ" firstAttribute="leading" secondItem="y6d-Wt-L0u" secondAttribute="leading" id="0tj-G4-Qdz"/>
-                            <constraint firstItem="6wq-aK-TkT" firstAttribute="top" secondItem="xmB-u3-lYJ" secondAttribute="bottom" id="9aB-9y-nzw"/>
+                            <constraint firstItem="02X-aI-eUA" firstAttribute="top" secondItem="xmB-u3-lYJ" secondAttribute="bottom" id="9aB-9y-nzw"/>
                             <constraint firstAttribute="trailing" secondItem="xmB-u3-lYJ" secondAttribute="trailing" id="NMi-Er-jr2"/>
                             <constraint firstItem="aoz-Ty-tIG" firstAttribute="width" secondItem="y6d-Wt-L0u" secondAttribute="width" id="bqs-we-gFo"/>
                         </constraints>
@@ -190,9 +191,4 @@
             <point key="canvasLocation" x="295" y="261"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

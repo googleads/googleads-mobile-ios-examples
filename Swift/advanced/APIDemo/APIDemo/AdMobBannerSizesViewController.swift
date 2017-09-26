@@ -98,10 +98,10 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
       bannerView.translatesAutoresizingMaskIntoConstraints = false
 
       // Layout constraints that align the banner view to the bottom center of the screen.
-      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom,
-          relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
-      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX,
-          relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .equal,
+                                            toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
+      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX, relatedBy: .equal,
+                                            toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
     }
 
     var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]

@@ -59,8 +59,8 @@
   [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerView
                                                         attribute:NSLayoutAttributeBottom
                                                         relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.view
-                                                        attribute:NSLayoutAttributeBottom
+                                                           toItem:self.bottomLayoutGuide
+                                                        attribute:NSLayoutAttributeTop
                                                        multiplier:1
                                                          constant:0]];
   [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerView

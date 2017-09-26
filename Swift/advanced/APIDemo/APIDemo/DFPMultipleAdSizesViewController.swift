@@ -45,9 +45,9 @@ class DFPMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
 
     // Layout constraints that align the banner view to the bottom center of the screen.
     view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .equal,
-        toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+                                          toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
     view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX, relatedBy: .equal,
-        toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+                                          toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
   }
 
   // MARK: - Actions
