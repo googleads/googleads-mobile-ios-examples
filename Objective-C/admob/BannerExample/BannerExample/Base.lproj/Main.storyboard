@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RR7-aG-40S"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y0p-qn-ebc"/>
+                        <viewControllerLayoutGuide type="top" id="tbf-Mn-K5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="VPC-wN-zKU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -27,32 +27,28 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERm-s1-MsA" customClass="GADBannerView">
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="b5b-Tm-bLe" customClass="GADBannerView">
                                 <rect key="frame" x="27.666666666666657" y="728" width="320" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="70b-Fl-Qa6"/>
-                                    <constraint firstAttribute="width" constant="320" id="Rwe-EB-far"/>
-                                </constraints>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="ERm-s1-MsA" secondAttribute="centerX" id="JGS-LE-fD3"/>
                             <constraint firstAttribute="centerX" secondItem="ChV-Lb-5si" secondAttribute="centerX" id="NIs-CX-Ldp"/>
-                            <constraint firstItem="ChV-Lb-5si" firstAttribute="top" secondItem="RR7-aG-40S" secondAttribute="bottom" constant="50" id="cAO-jl-Cb8"/>
-                            <constraint firstItem="Y0p-qn-ebc" firstAttribute="top" secondItem="ERm-s1-MsA" secondAttribute="bottom" id="mQV-d2-Hbr"/>
+                            <constraint firstItem="b5b-Tm-bLe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WeT-da-GCk"/>
+                            <constraint firstItem="ChV-Lb-5si" firstAttribute="top" secondItem="tbf-Mn-K5I" secondAttribute="bottom" constant="50" id="cAO-jl-Cb8"/>
+                            <constraint firstItem="VPC-wN-zKU" firstAttribute="top" secondItem="b5b-Tm-bLe" secondAttribute="bottom" id="gEX-fN-fGB"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bannerView" destination="ERm-s1-MsA" id="g0V-rM-EBM"/>
+                        <outlet property="bannerView" destination="b5b-Tm-bLe" id="uyc-7n-h89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="166"/>
+            <point key="canvasLocation" x="-119" y="-1511"/>
         </scene>
     </scenes>
 </document>

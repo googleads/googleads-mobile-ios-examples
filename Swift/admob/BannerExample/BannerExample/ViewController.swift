@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
     bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+    bannerView.adSize = kGADAdSizeBanner
     bannerView.rootViewController = self
     bannerView.load(GADRequest())
   }
