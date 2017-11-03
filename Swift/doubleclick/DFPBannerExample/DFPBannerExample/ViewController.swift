@@ -25,7 +25,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("Google Mobile Ads SDK version: \(DFPRequest.sdkVersion())")
-    bannerView.adSize = kGADAdSizeBanner
     bannerView.adUnitID = "/6499/example/banner"
     bannerView.rootViewController = self
     bannerView.load(DFPRequest())

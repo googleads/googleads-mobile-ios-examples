@@ -26,7 +26,6 @@
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
   self.bannerView.rootViewController = self;
-  self.bannerView.adSize = kGADAdSizeBanner;
   GADRequest *request = [GADRequest request];
   // Requests test ads on devices you specify. Your test device ID is printed to the console when
   // an ad request is made. GADBannerView automatically returns test ads when running on a

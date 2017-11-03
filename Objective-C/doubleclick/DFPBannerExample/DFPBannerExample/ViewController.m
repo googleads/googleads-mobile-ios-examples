@@ -9,7 +9,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.bannerView.adSize = kGADAdSizeBanner;
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"/6499/example/banner";
   self.bannerView.rootViewController = self;
