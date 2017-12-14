@@ -19,17 +19,17 @@
 #import "MenuItem.h"
 #import "MenuItemTableViewCell.h"
 
-static NSString *const GADAdUnitID = @"ca-app-pub-3940256099942544/2562852117";
-static const CGFloat GADAdViewHeight = 135;
+static NSString *const GADAdUnitID = @"ca-app-pub-3940256099942544/2934735716";
+static const CGFloat GADAdViewHeight = 100;
 
-@interface TableViewController () <GADNativeExpressAdViewDelegate> {
+@interface TableViewController () <GADBannerViewDelegate> {
   /// UITableView source items.
   NSMutableArray *_tableViewItems;
   /// List of ads remaining to be preloaded.
-  NSMutableArray<GADNativeExpressAdView *> *_adsToLoad;
-  /// Mapping of GADNativeExpressAdView ads to their load state.
+  NSMutableArray<GADBannerView *> *_adsToLoad;
+  /// Mapping of GADBannerView ads to their load state.
   NSMutableDictionary<NSString *, NSNumber *> *_loadStateForAds;
-  /// A Native Express ad is placed in the UITableView once per adInterval.
+  /// A banner ad is placed in the UITableView once per adInterval.
   NSInteger _adInterval;
 }
 @end
@@ -43,14 +43,14 @@ static const CGFloat GADAdViewHeight = 135;
   _adsToLoad = [[NSMutableArray alloc] init];
   _loadStateForAds = [[NSMutableDictionary alloc] init];
 
-  // A Native Express ad is placed in the UITableView once per adInterval. iPads will have a
+  // A banner ad is placed in the UITableView once per adInterval. iPads will have a
   // larger ad interval to avoid mutliple ads being on screen at the same time.
   _adInterval = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 16 : 8;
 
   [self.tableView registerNib:[UINib nibWithNibName:@"MenuItem" bundle:nil]
        forCellReuseIdentifier:@"MenuItemViewCell"];
-  [self.tableView registerNib:[UINib nibWithNibName:@"NativeExpressAd" bundle:nil]
-       forCellReuseIdentifier:@"NativeExpressAdViewCell"];
+  [self.tableView registerNib:[UINib nibWithNibName:@"BannerAd" bundle:nil]
+       forCellReuseIdentifier:@"GADBannerViewCell"];
 
   // Allow row height to be determined dynamically while optimizing with an estimated row height.
   self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -58,13 +58,13 @@ static const CGFloat GADAdViewHeight = 135;
 
   // Load the sample data.
   [self addMenuItems];
-  [self addNativeExpressAds];
+  [self addBannerAds];
   [self preloadNextAd];
 }
 
-// Return string containting memory address location of a GADNativeExpressAdView to be used to
-// uniquely identify the the object.
-- (NSString *)referenceKeyForAdView:(GADNativeExpressAdView *)adView {
+// Return string containing memory address location of a GADBannerView to be used to
+// uniquely identify the object.
+- (NSString *)referenceKeyForAdView:(GADBannerView *)adView {
   return [[NSString alloc] initWithFormat:@"%p", adView];
 }
 
@@ -79,8 +79,8 @@ static const CGFloat GADAdViewHeight = 135;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if ([_tableViewItems[indexPath.row] isKindOfClass:[GADNativeExpressAdView class]]) {
-    GADNativeExpressAdView *adView = _tableViewItems[indexPath.row];
+  if ([_tableViewItems[indexPath.row] isKindOfClass:[GADBannerView class]]) {
+    GADBannerView *adView = _tableViewItems[indexPath.row];
     bool isLoaded = _loadStateForAds[[self referenceKeyForAdView:adView]];
     return isLoaded ? GADAdViewHeight : 0;
   }
@@ -90,19 +90,19 @@ static const CGFloat GADAdViewHeight = 135;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if ([_tableViewItems[indexPath.row] isKindOfClass:[GADNativeExpressAdView class]]) {
+  if ([_tableViewItems[indexPath.row] isKindOfClass:[GADBannerView class]]) {
     UITableViewCell *reusableAdCell =
-        [self.tableView dequeueReusableCellWithIdentifier:@"NativeExpressAdViewCell"
+        [self.tableView dequeueReusableCellWithIdentifier:@"GADBannerViewCell"
                                              forIndexPath:indexPath];
 
-    // Remove previous GADNativeExpressAdView from the content view before adding a new one.
+    // Remove previous GADBannerView from the content view before adding a new one.
     for (UIView *subview in reusableAdCell.contentView.subviews) {
       [subview removeFromSuperview];
     }
 
-    GADNativeExpressAdView *adView = _tableViewItems[indexPath.row];
+    GADBannerView *adView = _tableViewItems[indexPath.row];
     [reusableAdCell.contentView addSubview:adView];
-    // Center GADNativeExpressAdView in the table cell's content view.
+    // Center GADBannerView in the table cell's content view.
     adView.center = reusableAdCell.contentView.center;
 
     return reusableAdCell;
@@ -122,17 +122,17 @@ static const CGFloat GADAdViewHeight = 135;
   }
 }
 
-// MARK: - GADNativeExpressAdView delegate methods
+// MARK: - GADBannerView delegate methods
 
-- (void)nativeExpressAdViewDidReceiveAd:(GADNativeExpressAdView *)nativeExpressAdView {
-  // Mark native express ad as succesfully loaded.
-  _loadStateForAds[[self referenceKeyForAdView:nativeExpressAdView]] = @YES;
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+  // Mark banner ad as succesfully loaded.
+  _loadStateForAds[[self referenceKeyForAdView:bannerView]] = @YES;
   // Load the next ad in the adsToLoad list.
   [self preloadNextAd];
 }
 
-- (void)nativeExpressAdView:(GADNativeExpressAdView *)nativeExpressAdView
-    didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)bannerView
+didFailToReceiveAdWithError:(GADRequestError *)error {
   NSLog(@"Failed to receive ad: %@", error.localizedDescription);
   // Load the next ad in the adsToLoad list.
   [self preloadNextAd];
@@ -140,16 +140,17 @@ static const CGFloat GADAdViewHeight = 135;
 
 // MARK: - UITableView source data generation
 
-/// Adds native express ads to the tableViewItems list.
-- (void)addNativeExpressAds {
+/// Adds banner ads to the tableViewItems list.
+- (void)addBannerAds {
   NSInteger index = _adInterval;
   // Ensure subview layout has been performed before accessing subview sizes.
   [self.tableView layoutIfNeeded];
 
   while (index < _tableViewItems.count) {
-    GADNativeExpressAdView *adView = [[GADNativeExpressAdView alloc]
-        initWithAdSize:GADAdSizeFromCGSize(
-                           CGSizeMake(self.tableView.contentSize.width, GADAdViewHeight))];
+
+    GADBannerView *adView = [[GADBannerView alloc]
+        initWithAdSize:GADAdSizeFromCGSize(CGSizeMake(self.tableView.contentSize.width,
+                                                      GADAdViewHeight))];
     adView.adUnitID = GADAdUnitID;
     adView.rootViewController = self;
     adView.delegate = self;
@@ -162,14 +163,16 @@ static const CGFloat GADAdViewHeight = 135;
   }
 }
 
-/// Preloads native express ads sequentially. Dequeues and loads next ad from adsToLoad list.
+/// Preloads banner ads sequentially. Dequeues and loads next ad from adsToLoad list.
 - (void)preloadNextAd {
   if (!_adsToLoad.count) {
     return;
   }
-  GADNativeExpressAdView *adView = _adsToLoad.firstObject;
+  GADBannerView *adView = _adsToLoad.firstObject;
   [_adsToLoad removeObjectAtIndex:0];
-  [adView loadRequest:[GADRequest request]];
+  GADRequest *request = [GADRequest request];
+  request.testDevices = @[ kGADSimulatorID ];
+  [adView loadRequest:request];
 }
 
 /// Parse menuItemsJSON.json file and populate MenuItems in the tableViewItems list.

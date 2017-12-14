@@ -16,12 +16,12 @@
 		846A6C761D73854200270B27 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A6C751D73854200270B27 /* TableViewController.swift */; };
 		846A6C781D73972000270B27 /* menu_item_image-web.png in Resources */ = {isa = PBXBuildFile; fileRef = 846A6C771D73972000270B27 /* menu_item_image-web.png */; };
 		846A6C821D760EC000270B27 /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A6C811D760EC000270B27 /* MenuItem.xib */; };
-		84B326D71D876FCB00517F8F /* NativeExpressAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B326D61D876FCB00517F8F /* NativeExpressAd.xib */; };
+		84B326D71D876FCB00517F8F /* BannerAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B326D61D876FCB00517F8F /* BannerAd.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		843021FF1DADB82F00614B4A /* menuItemsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
-		846A6C401D6E35FC00270B27 /* NativeExpressTableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeExpressTableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		846A6C401D6E35FC00270B27 /* BannerTableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BannerTableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846A6C431D6E35FD00270B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846A6C481D6E35FD00270B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		846A6C4D1D6E35FD00270B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,7 +31,7 @@
 		846A6C751D73854200270B27 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		846A6C771D73972000270B27 /* menu_item_image-web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_image-web.png"; sourceTree = "<group>"; };
 		846A6C811D760EC000270B27 /* MenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
-		84B326D61D876FCB00517F8F /* NativeExpressAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAd.xib; sourceTree = "<group>"; };
+		84B326D61D876FCB00517F8F /* BannerAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerAd.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 		846A6C371D6E35FC00270B27 = {
 			isa = PBXGroup;
 			children = (
-				846A6C421D6E35FC00270B27 /* NativeExpressTableViewExample */,
+				846A6C421D6E35FC00270B27 /* BannerTableViewExample */,
 				846A6C411D6E35FC00270B27 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +56,12 @@
 		846A6C411D6E35FC00270B27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				846A6C401D6E35FC00270B27 /* NativeExpressTableViewExample.app */,
+				846A6C401D6E35FC00270B27 /* BannerTableViewExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		846A6C421D6E35FC00270B27 /* NativeExpressTableViewExample */ = {
+		846A6C421D6E35FC00270B27 /* BannerTableViewExample */ = {
 			isa = PBXGroup;
 			children = (
 				843021FF1DADB82F00614B4A /* menuItemsJSON.json */,
@@ -74,17 +74,17 @@
 				846A6C4F1D6E35FD00270B27 /* Info.plist */,
 				846A6C711D6E3A0A00270B27 /* MenuItemViewCell.swift */,
 				846A6C811D760EC000270B27 /* MenuItem.xib */,
-				84B326D61D876FCB00517F8F /* NativeExpressAd.xib */,
+				84B326D61D876FCB00517F8F /* BannerAd.xib */,
 			);
-			path = NativeExpressTableViewExample;
+			path = BannerTableViewExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		846A6C3F1D6E35FC00270B27 /* NativeExpressTableViewExample */ = {
+		846A6C3F1D6E35FC00270B27 /* BannerTableViewExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 846A6C681D6E35FD00270B27 /* Build configuration list for PBXNativeTarget "NativeExpressTableViewExample" */;
+			buildConfigurationList = 846A6C681D6E35FD00270B27 /* Build configuration list for PBXNativeTarget "BannerTableViewExample" */;
 			buildPhases = (
 				846A6C3C1D6E35FC00270B27 /* Sources */,
 				846A6C3D1D6E35FC00270B27 /* Frameworks */,
@@ -94,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = NativeExpressTableViewExample;
-			productName = NativeExpressTableViewExample;
-			productReference = 846A6C401D6E35FC00270B27 /* NativeExpressTableViewExample.app */;
+			name = BannerTableViewExample;
+			productName = BannerTableViewExample;
+			productReference = 846A6C401D6E35FC00270B27 /* BannerTableViewExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -116,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 846A6C3B1D6E35FC00270B27 /* Build configuration list for PBXProject "NativeExpressTableViewExample" */;
+			buildConfigurationList = 846A6C3B1D6E35FC00270B27 /* Build configuration list for PBXProject "BannerTableViewExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -129,7 +129,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				846A6C3F1D6E35FC00270B27 /* NativeExpressTableViewExample */,
+				846A6C3F1D6E35FC00270B27 /* BannerTableViewExample */,
 			);
 		};
 /* End PBXProject section */
@@ -143,7 +143,7 @@
 				846A6C821D760EC000270B27 /* MenuItem.xib in Resources */,
 				846A6C4E1D6E35FD00270B27 /* LaunchScreen.storyboard in Resources */,
 				846A6C491D6E35FD00270B27 /* Main.storyboard in Resources */,
-				84B326D71D876FCB00517F8F /* NativeExpressAd.xib in Resources */,
+				84B326D71D876FCB00517F8F /* BannerAd.xib in Resources */,
 				843022001DADB82F00614B4A /* menuItemsJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +284,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = NativeExpressTableViewExample/Info.plist;
+				INFOPLIST_FILE = BannerTableViewExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.admob.mediation.NativeExpressTableViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.admob.mediation.BannerTableViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -306,10 +306,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = NativeExpressTableViewExample/Info.plist;
+				INFOPLIST_FILE = BannerTableViewExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.admob.mediation.NativeExpressTableViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.admob.mediation.BannerTableViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -322,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		846A6C3B1D6E35FC00270B27 /* Build configuration list for PBXProject "NativeExpressTableViewExample" */ = {
+		846A6C3B1D6E35FC00270B27 /* Build configuration list for PBXProject "BannerTableViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				846A6C661D6E35FD00270B27 /* Debug */,
@@ -331,7 +331,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		846A6C681D6E35FD00270B27 /* Build configuration list for PBXNativeTarget "NativeExpressTableViewExample" */ = {
+		846A6C681D6E35FD00270B27 /* Build configuration list for PBXNativeTarget "BannerTableViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				846A6C691D6E35FD00270B27 /* Debug */,

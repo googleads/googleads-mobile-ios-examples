@@ -2,6 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
 
-target 'NativeExpressTableViewExample' do
+target 'BannerTableViewExample' do
   pod 'Google-Mobile-Ads-SDK'
 end

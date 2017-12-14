@@ -17,19 +17,19 @@
 import GoogleMobileAds
 import UIKit
 
-class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate {
+class TableViewController: UITableViewController, GADBannerViewDelegate {
 
   // MARK: - Properties
 
   var tableViewItems = [AnyObject]()
-  var adsToLoad = [GADNativeExpressAdView]()
-  var loadStateForAds = [GADNativeExpressAdView: Bool]()
-  let adUnitID = "ca-app-pub-3940256099942544/2562852117"
-  // A Native Express ad is placed in the UITableView once per `adInterval`. iPads will have a
+  var adsToLoad = [GADBannerView]()
+  var loadStateForAds = [GADBannerView: Bool]()
+  let adUnitID = "ca-app-pub-3940256099942544/2934735716"
+  // A banner ad is placed in the UITableView once per `adInterval`. iPads will have a
   // larger ad interval to avoid mutliple ads being on screen at the same time.
   let adInterval = UIDevice.current.userInterfaceIdiom == .pad ? 16 : 8
-  // The Native Express ad height.
-  let adViewHeight = CGFloat(135)
+  // The banner ad height.
+  let adViewHeight = CGFloat(100)
 
   // MARK: - UIViewController methods
 
@@ -37,8 +37,8 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
     super.viewDidLoad()
     tableView.register(UINib(nibName: "MenuItem", bundle: nil),
         forCellReuseIdentifier: "MenuItemViewCell")
-    tableView.register(UINib(nibName: "NativeExpressAd", bundle: nil),
-        forCellReuseIdentifier: "NativeExpressAdViewCell")
+    tableView.register(UINib(nibName: "BannerAd", bundle: nil),
+        forCellReuseIdentifier: "BannerViewCell")
 
     // Allow row height to be determined dynamically while optimizing with an estimated row height.
     tableView.rowHeight = UITableViewAutomaticDimension
@@ -46,7 +46,7 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
 
     // Load the sample data.
     addMenuItems()
-    addNativeExpressAds()
+    addBannerAds()
     preloadNextAd()
   }
 
@@ -58,7 +58,7 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
 
   override func tableView(_ tableView: UITableView,
       heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if let tableItem = tableViewItems[indexPath.row] as? GADNativeExpressAdView {
+    if let tableItem = tableViewItems[indexPath.row] as? GADBannerView {
       let isAdLoaded = loadStateForAds[tableItem]
       return isAdLoaded == true ? adViewHeight : 0
     }
@@ -72,18 +72,18 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
   override func tableView(_ tableView: UITableView,
       cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    if let nativeExpressAdView = tableViewItems[indexPath.row] as? GADNativeExpressAdView {
-      let reusableAdCell = tableView.dequeueReusableCell(withIdentifier: "NativeExpressAdViewCell",
+    if let BannerView = tableViewItems[indexPath.row] as? GADBannerView {
+      let reusableAdCell = tableView.dequeueReusableCell(withIdentifier: "BannerViewCell",
           for: indexPath)
 
-      // Remove previous GADNativeExpressAdView from the content view before adding a new one.
+      // Remove previous GADBannerView from the content view before adding a new one.
       for subview in reusableAdCell.contentView.subviews {
         subview.removeFromSuperview()
       }
 
-      reusableAdCell.contentView.addSubview(nativeExpressAdView)
-      // Center GADNativeExpressAdView in the table cell's content view.
-      nativeExpressAdView.center = reusableAdCell.contentView.center
+      reusableAdCell.contentView.addSubview(BannerView)
+      // Center GADBannerView in the table cell's content view.
+      BannerView.center = reusableAdCell.contentView.center
 
       return reusableAdCell
 
@@ -104,16 +104,16 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
     }
   }
 
-  // MARK: - GADNativeExpressAdView delegate methods
+  // MARK: - GADBannerView delegate methods
 
-  func nativeExpressAdViewDidReceiveAd(_ nativeExpressAdView: GADNativeExpressAdView) {
-    // Mark native express ad as succesfully loaded.
-    loadStateForAds[nativeExpressAdView] = true
+  func adViewDidReceiveAd(_ adView: GADBannerView) {
+    // Mark banner ad as succesfully loaded.
+    loadStateForAds[adView] = true
     // Load the next ad in the adsToLoad list.
     preloadNextAd()
   }
 
-  func nativeExpressAdView(_ nativeExpressAdView: GADNativeExpressAdView,
+  func adView(_ adView: GADBannerView,
       didFailToReceiveAdWithError error: GADRequestError) {
     print("Failed to receive ad: \(error.localizedDescription)")
     // Load the next ad in the adsToLoad list.
@@ -122,18 +122,15 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
 
   // MARK: - UITableView source data generation
 
-  /// Adds native express ads to the tableViewItems list.
-  func addNativeExpressAds() {
+  /// Adds banner ads to the tableViewItems list.
+  func addBannerAds() {
     var index = adInterval
     // Ensure subview layout has been performed before accessing subview sizes.
     tableView.layoutIfNeeded()
     while index < tableViewItems.count {
       let adSize = GADAdSizeFromCGSize(
           CGSize(width: tableView.contentSize.width, height: adViewHeight))
-      guard let adView = GADNativeExpressAdView(adSize: adSize) else {
-        print("GADNativeExpressAdView failed to initialize at index \(index)")
-        return
-      }
+      let adView = GADBannerView(adSize: adSize)
       adView.adUnitID = adUnitID
       adView.rootViewController = self
       adView.delegate = self
@@ -146,11 +143,13 @@ class TableViewController: UITableViewController, GADNativeExpressAdViewDelegate
     }
   }
 
-  /// Preload native express ads sequentially. Dequeue and load next ad from `adsToLoad` list.
+  /// Preload banner ads sequentially. Dequeue and load next ad from `adsToLoad` list.
   func preloadNextAd() {
     if !adsToLoad.isEmpty {
       let ad = adsToLoad.removeFirst()
-      ad.load(GADRequest())
+      let adRequest = GADRequest()
+      adRequest.testDevices = [ kGADSimulatorID ]
+      ad.load(adRequest)
     }
   }
 
