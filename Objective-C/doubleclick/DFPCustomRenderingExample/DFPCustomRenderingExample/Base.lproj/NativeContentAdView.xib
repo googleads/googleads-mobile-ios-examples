@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75x-26-Ckt">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75x-26-Ckt">
                     <rect key="frame" x="10" y="161" width="160" height="33"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="Call to Action">
@@ -35,8 +35,8 @@
                         <constraint firstAttribute="width" constant="25" id="tJd-4k-7nL"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertiser" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-DW-6Jc">
-                    <rect key="frame" x="178" y="169" width="161" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertiser" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-DW-6Jc">
+                    <rect key="frame" x="266" y="169" width="73" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -47,12 +47,22 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7S-ca-Sl2" customClass="GADMediaView">
-                    <rect key="frame" x="10" y="41" width="160" height="120"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laU-5H-pFG">
+                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                    <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="7xl-9Q-eSf"/>
-                        <constraint firstAttribute="width" constant="160" id="qIS-dQ-Leh"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="er2-0i-VDC"/>
+                        <constraint firstAttribute="height" constant="15" id="nG6-7k-ANv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNs-su-Qou" customClass="GADMediaView">
+                    <rect key="frame" x="10" y="41" width="160" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="DpP-ZN-cE8"/>
+                        <constraint firstAttribute="width" constant="160" id="PcT-Ao-fyM"/>
                     </constraints>
                 </view>
             </subviews>
@@ -60,20 +70,24 @@
             <constraints>
                 <constraint firstItem="FVF-DW-6Jc" firstAttribute="centerY" secondItem="b7l-GF-JB9" secondAttribute="centerY" id="0WO-uO-YFW"/>
                 <constraint firstItem="75x-26-Ckt" firstAttribute="centerY" secondItem="b7l-GF-JB9" secondAttribute="centerY" id="0dn-j0-erm"/>
-                <constraint firstItem="Z7S-ca-Sl2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="C7E-jS-XpB"/>
+                <constraint firstItem="tNs-su-Qou" firstAttribute="width" secondItem="75x-26-Ckt" secondAttribute="width" id="686-g7-nrz"/>
+                <constraint firstItem="75x-26-Ckt" firstAttribute="top" secondItem="tNs-su-Qou" secondAttribute="bottom" id="8Wn-vu-N7t"/>
                 <constraint firstItem="9KN-iI-uIn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="C7E-uL-smZ"/>
-                <constraint firstItem="75x-26-Ckt" firstAttribute="top" secondItem="Z7S-ca-Sl2" secondAttribute="bottom" id="HiI-wB-Wy5"/>
+                <constraint firstItem="tNs-su-Qou" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Dvv-t3-Rvw"/>
                 <constraint firstAttribute="trailing" secondItem="4Tj-27-v66" secondAttribute="trailing" id="I44-3N-RtS"/>
                 <constraint firstAttribute="trailing" secondItem="9KN-iI-uIn" secondAttribute="trailing" id="IEK-sR-Ato"/>
-                <constraint firstItem="Z7S-ca-Sl2" firstAttribute="top" secondItem="9KN-iI-uIn" secondAttribute="bottom" constant="10" id="Jm8-En-Yde"/>
-                <constraint firstItem="4Tj-27-v66" firstAttribute="leading" secondItem="Z7S-ca-Sl2" secondAttribute="trailing" constant="10" id="Q65-Mq-LeS"/>
-                <constraint firstItem="75x-26-Ckt" firstAttribute="trailing" secondItem="Z7S-ca-Sl2" secondAttribute="trailing" id="Rfp-Ln-axb"/>
+                <constraint firstItem="tNs-su-Qou" firstAttribute="leading" secondItem="75x-26-Ckt" secondAttribute="leading" id="NC0-RQ-mMy"/>
+                <constraint firstItem="tNs-su-Qou" firstAttribute="top" secondItem="9KN-iI-uIn" secondAttribute="bottom" constant="10" id="S3m-Eh-794"/>
+                <constraint firstItem="4Tj-27-v66" firstAttribute="leading" secondItem="tNs-su-Qou" secondAttribute="trailing" constant="10" id="SZP-nW-MXP"/>
+                <constraint firstItem="FVF-DW-6Jc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="XQn-K1-DZI"/>
                 <constraint firstAttribute="trailing" secondItem="b7l-GF-JB9" secondAttribute="trailing" constant="3" id="YTH-cd-8qN"/>
                 <constraint firstItem="9KN-iI-uIn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dKK-BF-uq7"/>
-                <constraint firstItem="75x-26-Ckt" firstAttribute="leading" secondItem="Z7S-ca-Sl2" secondAttribute="leading" id="eGs-7b-vKS"/>
+                <constraint firstItem="laU-5H-pFG" firstAttribute="left" secondItem="iN0-l3-epB" secondAttribute="left" id="fd5-yJ-uvG"/>
+                <constraint firstItem="tNs-su-Qou" firstAttribute="centerY" secondItem="4Tj-27-v66" secondAttribute="centerY" id="lIs-TN-AJ7"/>
                 <constraint firstItem="b7l-GF-JB9" firstAttribute="leading" secondItem="FVF-DW-6Jc" secondAttribute="trailing" constant="8" id="sLw-D9-mKZ"/>
-                <constraint firstItem="FVF-DW-6Jc" firstAttribute="leading" secondItem="75x-26-Ckt" secondAttribute="trailing" constant="8" id="wAR-hn-Q8b"/>
-                <constraint firstItem="Z7S-ca-Sl2" firstAttribute="centerY" secondItem="4Tj-27-v66" secondAttribute="centerY" id="zSI-vH-Olw"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="75x-26-Ckt" secondAttribute="trailing" constant="20" symbolic="YES" id="uEs-c1-ZlB"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="laU-5H-pFG" secondAttribute="trailing" constant="20" symbolic="YES" id="utr-WN-Jc4"/>
+                <constraint firstItem="laU-5H-pFG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x6J-NQ-E6n"/>
             </constraints>
             <connections>
                 <outlet property="advertiserView" destination="FVF-DW-6Jc" id="FS6-SR-p5H"/>
@@ -81,14 +95,9 @@
                 <outlet property="callToActionView" destination="75x-26-Ckt" id="lRk-fS-llC"/>
                 <outlet property="headlineView" destination="9KN-iI-uIn" id="1qH-78-1qW"/>
                 <outlet property="logoView" destination="b7l-GF-JB9" id="ul3-RO-ekr"/>
-                <outlet property="mediaView" destination="Z7S-ca-Sl2" id="IJp-AT-KTu"/>
+                <outlet property="mediaView" destination="tNs-su-Qou" id="jBg-UG-HpZ"/>
             </connections>
-            <point key="canvasLocation" x="305" y="242"/>
+            <point key="canvasLocation" x="-1.5" y="-34.5"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>
