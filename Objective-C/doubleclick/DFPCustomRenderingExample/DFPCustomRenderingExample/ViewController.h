@@ -14,10 +14,7 @@
 @property(nonatomic, weak) IBOutlet UILabel *videoStatusLabel;
 
 /// Switch to request app install ads.
-@property(nonatomic, weak) IBOutlet UISwitch *appInstallAdSwitch;
-
-/// Switch to request content ads.
-@property(nonatomic, weak) IBOutlet UISwitch *contentAdSwitch;
+@property(nonatomic, weak) IBOutlet UISwitch *unifiedNativeAdSwitch;
 
 /// Switch to custom native ads.
 @property(nonatomic, weak) IBOutlet UISwitch *customNativeAdSwitch;

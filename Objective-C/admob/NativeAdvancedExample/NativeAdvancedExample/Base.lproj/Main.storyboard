@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="Ij1-YH-UFk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="Ij1-YH-UFk">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Native Ads Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dem-T2-XjZ">
-                                                <rect key="frame" x="8" y="8" width="359" height="20.666666666666671"/>
+                                                <rect key="frame" x="8" y="8.0000000000000018" width="359" height="20.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-rn-obM">
-                                                <rect key="frame" x="10" y="358.66666666666674" width="355" height="20.333333333333314"/>
+                                                <rect key="frame" x="10" y="358.66666666666669" width="355" height="20.333333333333314"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="8j4-XF-Qbf"/>
                                                 </constraints>
@@ -50,66 +50,39 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6D-p2-RuP" userLabel="Inner Content View">
-                                                <rect key="frame" x="8" y="389" width="359" height="120"/>
+                                                <rect key="frame" x="8" y="389" width="359" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PC4-5n-8Mc" userLabel="Divider View">
-                                                        <rect key="frame" x="179" y="0.0" width="1" height="120"/>
+                                                        <rect key="frame" x="179" y="0.0" width="1" height="40"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="eeh-Si-H5G"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="App Install Ads" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-MH-xyC">
-                                                        <rect key="frame" x="50.666666666666671" y="10" width="120.33333333333333" height="23"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKS-K0-gXZ">
-                                                        <rect key="frame" x="195" y="5" width="51" height="31"/>
-                                                    </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content Ads" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nW0-I3-m0l">
-                                                        <rect key="frame" x="70.666666666666686" y="45" width="100.33333333333331" height="21.666666666666686"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEL-yp-Ubi">
-                                                        <rect key="frame" x="195" y="40" width="51" height="31"/>
-                                                    </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Start Videos Muted" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sv-GY-hRf">
-                                                        <rect key="frame" x="14.666666666666671" y="78.666666666666686" width="156.33333333333331" height="21.333333333333314"/>
+                                                        <rect key="frame" x="14.666666666666671" y="9.9999999999999982" width="156.33333333333331" height="21.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWh-l9-I1W" userLabel="Start Videos Muted Switch">
-                                                        <rect key="frame" x="195" y="75" width="51" height="31"/>
+                                                        <rect key="frame" x="195" y="5.3333333333333144" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="MWh-l9-I1W" firstAttribute="leading" secondItem="PC4-5n-8Mc" secondAttribute="trailing" constant="15" id="BC1-Mx-rBz"/>
-                                                    <constraint firstItem="MWh-l9-I1W" firstAttribute="top" secondItem="dEL-yp-Ubi" secondAttribute="bottom" constant="4" id="CTG-Wm-JGR"/>
-                                                    <constraint firstItem="PC4-5n-8Mc" firstAttribute="leading" secondItem="DG2-MH-xyC" secondAttribute="trailing" constant="8" id="CVm-Im-BBI"/>
-                                                    <constraint firstItem="dEL-yp-Ubi" firstAttribute="leading" secondItem="PC4-5n-8Mc" secondAttribute="trailing" constant="15" id="DyE-ta-2po"/>
-                                                    <constraint firstItem="cKS-K0-gXZ" firstAttribute="top" secondItem="Q6D-p2-RuP" secondAttribute="top" constant="5" id="JWM-hK-Aia"/>
+                                                    <constraint firstItem="MWh-l9-I1W" firstAttribute="centerY" secondItem="4sv-GY-hRf" secondAttribute="centerY" id="LHJ-L9-Xu5"/>
                                                     <constraint firstItem="PC4-5n-8Mc" firstAttribute="top" secondItem="Q6D-p2-RuP" secondAttribute="top" id="QZy-gX-hcP"/>
                                                     <constraint firstAttribute="bottom" secondItem="PC4-5n-8Mc" secondAttribute="bottom" id="SL7-iT-3cE"/>
-                                                    <constraint firstItem="nW0-I3-m0l" firstAttribute="top" secondItem="DG2-MH-xyC" secondAttribute="bottom" constant="12" id="U0y-vG-p3Z"/>
                                                     <constraint firstItem="PC4-5n-8Mc" firstAttribute="centerX" secondItem="Q6D-p2-RuP" secondAttribute="centerX" id="bYa-Lf-2o1"/>
-                                                    <constraint firstAttribute="height" constant="120" id="hG5-7Q-bBI"/>
-                                                    <constraint firstItem="4sv-GY-hRf" firstAttribute="top" secondItem="nW0-I3-m0l" secondAttribute="bottom" constant="12" id="hWF-mL-ZTE"/>
-                                                    <constraint firstItem="cKS-K0-gXZ" firstAttribute="leading" secondItem="PC4-5n-8Mc" secondAttribute="trailing" constant="15" id="kfn-oT-cyy"/>
-                                                    <constraint firstItem="PC4-5n-8Mc" firstAttribute="leading" secondItem="nW0-I3-m0l" secondAttribute="trailing" constant="8" id="lH5-Wk-jSP"/>
-                                                    <constraint firstItem="dEL-yp-Ubi" firstAttribute="centerY" secondItem="nW0-I3-m0l" secondAttribute="centerY" id="p4U-B7-d7s"/>
-                                                    <constraint firstItem="DG2-MH-xyC" firstAttribute="top" secondItem="Q6D-p2-RuP" secondAttribute="top" constant="10" id="pb9-H8-ZOB"/>
-                                                    <constraint firstItem="dEL-yp-Ubi" firstAttribute="top" secondItem="cKS-K0-gXZ" secondAttribute="bottom" constant="4" id="ui9-pz-BPP"/>
+                                                    <constraint firstAttribute="height" constant="40" id="hG5-7Q-bBI"/>
+                                                    <constraint firstItem="4sv-GY-hRf" firstAttribute="top" secondItem="Q6D-p2-RuP" secondAttribute="top" constant="10" id="xMI-dn-Wos"/>
                                                     <constraint firstItem="PC4-5n-8Mc" firstAttribute="leading" secondItem="4sv-GY-hRf" secondAttribute="trailing" constant="8" id="xXA-uA-nsr"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bL-Cx-hSz">
-                                                <rect key="frame" x="8" y="519" width="359" height="33"/>
+                                                <rect key="frame" x="8" y="439" width="359" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Refresh Ad"/>
                                                 <connections>
@@ -117,7 +90,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-7I-IVd">
-                                                <rect key="frame" x="8" y="562" width="359" height="20.666666666666629"/>
+                                                <rect key="frame" x="8" y="482" width="359" height="20.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -167,8 +140,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appInstallAdSwitch" destination="cKS-K0-gXZ" id="BoA-fq-Bxb"/>
-                        <outlet property="contentAdSwitch" destination="dEL-yp-Ubi" id="tqx-vB-DXl"/>
                         <outlet property="nativeAdPlaceholder" destination="b8z-h7-dB1" id="pmf-HK-aoz"/>
                         <outlet property="refreshButton" destination="2bL-Cx-hSz" id="yez-FS-gIq"/>
                         <outlet property="startMutedSwitch" destination="MWh-l9-I1W" id="ArL-a7-hLG"/>

@@ -40,7 +40,7 @@ static NSString *const MySimpleNativeAdViewCaptionKey = @"Caption";
   // defined by the ad. Pass nil for the click handler to let the SDK process the default click
   // action.
   __weak typeof(self) weakSelf = self;
-  [self.customNativeAd setCustomClickHandler:^(NSString *assetID){
+  [self.customNativeAd setCustomClickHandler:^(NSString *assetID) {
     [[[UIAlertView alloc] initWithTitle:@"Custom Click"
                                 message:@"You just clicked on the headline!"
                                delegate:weakSelf

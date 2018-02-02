@@ -20,12 +20,6 @@
 /// Container that holds the native ad.
 @property(nonatomic, weak) IBOutlet UIView *nativeAdPlaceholder;
 
-/// Switch to request app install ads.
-@property(nonatomic, weak) IBOutlet UISwitch *appInstallAdSwitch;
-
-/// Switch to request content ads.
-@property(nonatomic, weak) IBOutlet UISwitch *contentAdSwitch;
-
 /// Indicates if video ads should start muted.
 @property(nonatomic, weak) IBOutlet UISwitch *startMutedSwitch;
 

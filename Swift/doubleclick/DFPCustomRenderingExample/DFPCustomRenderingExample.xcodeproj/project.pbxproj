@@ -12,10 +12,9 @@
 		4AEBD8BB1BF01CF200874961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD8BA1BF01CF200874961 /* Assets.xcassets */; };
 		4AEBD8BE1BF01CF200874961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD8BC1BF01CF200874961 /* LaunchScreen.storyboard */; };
 		4AEBD8CC1BF01E7300874961 /* MySimpleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBD8CB1BF01E7300874961 /* MySimpleNativeAdView.swift */; };
+		AE5E34671FBCFF5900E2EDE1 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5E34651FBCFF5800E2EDE1 /* UnifiedNativeAdView.xib */; };
 		AEB485B61F31462D0030B852 /* SimpleCustomNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB485B51F31462D0030B852 /* SimpleCustomNativeAdView.xib */; };
 		AEB485B81F314BA90030B852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB485B71F314BA90030B852 /* Main.storyboard */; };
-		AEB485BB1F314D6E0030B852 /* NativeAppInstallAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB485B91F314D6E0030B852 /* NativeAppInstallAdView.xib */; };
-		AEB485BC1F314D6E0030B852 /* NativeContentAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB485BA1F314D6E0030B852 /* NativeContentAdView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +25,9 @@
 		4AEBD8BD1BF01CF200874961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AEBD8BF1BF01CF200874961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AEBD8CB1BF01E7300874961 /* MySimpleNativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySimpleNativeAdView.swift; sourceTree = "<group>"; };
+		AE5E34661FBCFF5800E2EDE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UnifiedNativeAdView.xib; sourceTree = "<group>"; };
 		AEB485B51F31462D0030B852 /* SimpleCustomNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SimpleCustomNativeAdView.xib; path = Base.lproj/SimpleCustomNativeAdView.xib; sourceTree = "<group>"; };
 		AEB485B71F314BA90030B852 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AEB485B91F314D6E0030B852 /* NativeAppInstallAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NativeAppInstallAdView.xib; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
-		AEB485BA1F314D6E0030B852 /* NativeContentAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NativeContentAdView.xib; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +65,7 @@
 				4AEBD8CB1BF01E7300874961 /* MySimpleNativeAdView.swift */,
 				AEB485B71F314BA90030B852 /* Main.storyboard */,
 				4AEBD8BC1BF01CF200874961 /* LaunchScreen.storyboard */,
-				AEB485B91F314D6E0030B852 /* NativeAppInstallAdView.xib */,
-				AEB485BA1F314D6E0030B852 /* NativeContentAdView.xib */,
+				AE5E34651FBCFF5800E2EDE1 /* UnifiedNativeAdView.xib */,
 				AEB485B51F31462D0030B852 /* SimpleCustomNativeAdView.xib */,
 				4AEBD8BA1BF01CF200874961 /* Assets.xcassets */,
 				4AEBD8BF1BF01CF200874961 /* Info.plist */,
@@ -138,8 +135,7 @@
 				4AEBD8BE1BF01CF200874961 /* LaunchScreen.storyboard in Resources */,
 				AEB485B61F31462D0030B852 /* SimpleCustomNativeAdView.xib in Resources */,
 				4AEBD8BB1BF01CF200874961 /* Assets.xcassets in Resources */,
-				AEB485BB1F314D6E0030B852 /* NativeAppInstallAdView.xib in Resources */,
-				AEB485BC1F314D6E0030B852 /* NativeContentAdView.xib in Resources */,
+				AE5E34671FBCFF5900E2EDE1 /* UnifiedNativeAdView.xib in Resources */,
 				AEB485B81F314BA90030B852 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +162,14 @@
 				4AEBD8BD1BF01CF200874961 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AE5E34651FBCFF5800E2EDE1 /* UnifiedNativeAdView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE5E34661FBCFF5800E2EDE1 /* Base */,
+			);
+			name = UnifiedNativeAdView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -269,7 +273,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DFPCustomRenderingExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -285,7 +288,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DFPCustomRenderingExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

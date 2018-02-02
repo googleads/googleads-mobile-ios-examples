@@ -26,10 +26,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var videoStatusLabel: UILabel!
 
   // The app install ad switch.
-  @IBOutlet weak var appInstallAdSwitch: UISwitch!
-
-  // The content ad switch.
-  @IBOutlet weak var contentAdSwitch: UISwitch!
+  @IBOutlet weak var nativeAdSwitch: UISwitch!
 
   // The custom native ad switch.
   @IBOutlet weak var customNativeAdSwitch: UISwitch!
@@ -83,11 +80,8 @@ class ViewController: UIViewController {
   /// Refreshes the native ad.
   @IBAction func refreshAd(_ sender: AnyObject!) {
     var adTypes = [GADAdLoaderAdType]()
-    if appInstallAdSwitch.isOn {
-      adTypes.append(GADAdLoaderAdType.nativeAppInstall)
-    }
-    if contentAdSwitch.isOn {
-      adTypes.append(GADAdLoaderAdType.nativeContent)
+    if nativeAdSwitch.isOn {
+      adTypes.append(GADAdLoaderAdType.unifiedNative)
     }
     if customNativeAdSwitch.isOn {
       adTypes.append(GADAdLoaderAdType.nativeCustomTemplate)
@@ -112,8 +106,10 @@ class ViewController: UIViewController {
 
   /// Returns a `UIImage` representing the number of stars from the given star rating; returns `nil`
   /// if the star rating is less than 3.5 stars.
-  func imageOfStars(fromStarRating starRating: NSDecimalNumber) -> UIImage? {
-    let rating = starRating.doubleValue
+  func imageOfStars(fromStarRating starRating: NSDecimalNumber?) -> UIImage? {
+    guard let rating = starRating?.doubleValue else {
+      return nil
+    }
     if rating >= 5 {
       return UIImage(named: "stars_5")
     } else if rating >= 4.5 {
@@ -153,135 +149,101 @@ extension ViewController : GADAdLoaderDelegate {
   }
 }
 
-// MARK: - GADNativeAppInstallAdLoaderDelegate
-extension ViewController : GADNativeAppInstallAdLoaderDelegate {
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAppInstallAd: GADNativeAppInstallAd) {
-    print("Received native app install ad: \(nativeAppInstallAd)")
+// MARK: - GADUnifiedNativeAdLoaderDelegate
+extension ViewController : GADUnifiedNativeAdLoaderDelegate {
+
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
+    print("Received unified native ad: \(nativeAd)")
     refreshAdButton.isEnabled = true
     // Create and place ad in view hierarchy.
-    let nibView = Bundle.main.loadNibNamed("NativeAppInstallAdView", owner: nil, options: nil)?.first
-    guard let appInstallAdView: GADNativeAppInstallAdView = nibView as? GADNativeAppInstallAdView else {
+    let nibView = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil)?.first
+    guard let nativeAdView = nibView as? GADUnifiedNativeAdView else {
       return
     }
-    setAdView(appInstallAdView)
-    // Associate the app install ad view with the app install ad object. This is required to make
-    // the ad clickable.
-    appInstallAdView.nativeAppInstallAd = nativeAppInstallAd
-    // Populate the app install ad view with the app install ad assets.
-    // Some assets are guaranteed to be present in every app install ad.
-    (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
-    (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
-    (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
-    (appInstallAdView.callToActionView as! UIButton).setTitle(nativeAppInstallAd.callToAction, for: .normal)
+    setAdView(nativeAdView)
 
-    // Update the ViewController for video content.
-    updateVideoStatusLabel(forAdsVideoController: nativeAppInstallAd.videoController)
+    nativeAdView.nativeAd = nativeAd
+    // Populate the native ad view with the native ad assets.
+    // Some assets are guaranteed to be present in every native ad.
+    (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+    (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
+    (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
 
-    // Some app install ads will include a video asset, while others do not. Apps can use the
-    // GADVideoController's hasVideoContent property to determine if one is present, and adjust
-    // their UI accordingly.
-
+    // Some native ads will include a video asset, while others do not. Apps can use the
+    // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
+    // UI accordingly.
     // The UI for this controller constrains the image view's height to match the media view's
     // height, so by changing the one here, the height of both views are being adjusted.
-    if (nativeAppInstallAd.videoController.hasVideoContent()) {
-
+    if let controller = nativeAd.videoController, controller.hasVideoContent() {
       // The video controller has content. Show the media view.
-      appInstallAdView.mediaView?.isHidden = false
-      appInstallAdView.imageView?.isHidden = true
-
-      // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
-      // ratio of the video it displays.
-      let heightConstraint = NSLayoutConstraint(
-            item: appInstallAdView.mediaView!,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: appInstallAdView.mediaView!,
-            attribute: .width,
-            multiplier: CGFloat(1.0 / nativeAppInstallAd.videoController.aspectRatio()),
-            constant: 0)
-      heightConstraint.isActive = true
-
+      if let mediaView = nativeAdView.mediaView {
+        mediaView.isHidden = false
+        nativeAdView.imageView?.isHidden = true
+        // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+        // ratio of the video it displays.
+        let heightConstraint = NSLayoutConstraint(item: mediaView,
+                                                  attribute: .height,
+                                                  relatedBy: .equal,
+                                                  toItem: mediaView,
+                                                  attribute: .width,
+                                                  multiplier: CGFloat(1 / controller.aspectRatio()),
+                                                  constant: 0)
+        heightConstraint.isActive = true
+      }
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
-      nativeAppInstallAd.videoController.delegate = self
-
-    } else {
+      controller.delegate = self
+      videoStatusLabel.text = "Ad contains a video asset."
+    }
+    else {
       // If the ad doesn't contain a video asset, the first image asset is shown in the
       // image view. The existing lower priority height constraint is used.
-      appInstallAdView.mediaView?.isHidden = true
-      appInstallAdView.imageView?.isHidden = false
-
-      let firstImage: GADNativeAdImage? = nativeAppInstallAd.images?.first as? GADNativeAdImage
-      (appInstallAdView.imageView as? UIImageView)?.image = firstImage?.image
-
+      nativeAdView.mediaView?.isHidden = true
+      nativeAdView.imageView?.isHidden = false
+      let firstImage: GADNativeAdImage? = nativeAd.images?.first
+      (nativeAdView.imageView as? UIImageView)?.image = firstImage?.image
+      videoStatusLabel.text = "Ad does not contain a video."
     }
-
     // These assets are not guaranteed to be present, and should be checked first.
-    if let starRating = nativeAppInstallAd.starRating {
-      (appInstallAdView.starRatingView as? UIImageView)?.image = imageOfStars(fromStarRating:starRating)
-      appInstallAdView.starRatingView?.isHidden = false
+    (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+    if let _ = nativeAd.icon {
+      nativeAdView.iconView?.isHidden = false
+    } else {
+      nativeAdView.iconView?.isHidden = true
+    }
+    (nativeAdView.starRatingView as? UIImageView)?.image = imageOfStars(fromStarRating:nativeAd.starRating)
+    if let _ = nativeAd.starRating {
+      nativeAdView.starRatingView?.isHidden = false
     }
     else {
-      appInstallAdView.starRatingView?.isHidden = true
+      nativeAdView.starRatingView?.isHidden = true
     }
-    if let store = nativeAppInstallAd.store {
-      (appInstallAdView.storeView as? UILabel)?.text = store
-      appInstallAdView.storeView?.isHidden = false
-    }
-    else {
-      appInstallAdView.storeView?.isHidden = true
-    }
-    if let price = nativeAppInstallAd.price {
-      (appInstallAdView.priceView as? UILabel)?.text = price
-      appInstallAdView.priceView?.isHidden = false
+    (nativeAdView.storeView as? UILabel)?.text = nativeAd.store
+    if let _ = nativeAd.store {
+      nativeAdView.storeView?.isHidden = false
     }
     else {
-      appInstallAdView.priceView?.isHidden = true
+      nativeAdView.storeView?.isHidden = true
+    }
+    (nativeAdView.priceView as? UILabel)?.text = nativeAd.price
+    if let _ = nativeAd.price {
+      nativeAdView.priceView?.isHidden = false
+    }
+    else {
+      nativeAdView.priceView?.isHidden = true
+    }
+    (nativeAdView.advertiserView as? UILabel)?.text = nativeAd.advertiser
+    if let _ = nativeAd.advertiser {
+      nativeAdView.advertiserView?.isHidden = false
+    }
+    else {
+      nativeAdView.advertiserView?.isHidden = true
     }
     // In order for the SDK to process touch events properly, user interaction should be disabled.
-    appInstallAdView.callToActionView?.isUserInteractionEnabled = false
+    nativeAdView.callToActionView?.isUserInteractionEnabled = false
   }
 }
 
-// MARK: - GADNativeContentAdLoaderDelegate implementation
-extension ViewController : GADNativeContentAdLoaderDelegate {
-
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeContentAd: GADNativeContentAd) {
-    print("Received native content ad: \(nativeContentAd)")
-    refreshAdButton.isEnabled = true
-    // Create and place ad in view hierarchy.
-    let nibView = Bundle.main.loadNibNamed("NativeContentAdView", owner: nil, options: nil)?.first
-    guard let contentAdView: GADNativeContentAdView = nibView as? GADNativeContentAdView else {
-      return
-    }
-    setAdView(contentAdView)
-    // Associate the content ad view with the content ad object. This is required to make the ad
-    // clickable.
-    contentAdView.nativeContentAd = nativeContentAd
-    // Populate the content ad view with the content ad assets.
-    // Some assets are guaranteed to be present in every content ad.
-    (contentAdView.headlineView as? UILabel)?.text = nativeContentAd.headline
-    (contentAdView.bodyView as? UILabel)?.text = nativeContentAd.body
-    (contentAdView.advertiserView as? UILabel)?.text = nativeContentAd.advertiser
-    (contentAdView.callToActionView as? UIButton)?.setTitle(nativeContentAd.callToAction, for: .normal)
-
-    // Update the ViewController for video content.
-    updateVideoStatusLabel(forAdsVideoController: nativeContentAd.videoController)
-    if (nativeContentAd.videoController.hasVideoContent()) {
-      nativeContentAd.videoController.delegate = self
-    }
-    // These assets are not guaranteed to be present, and should be checked first.
-    if let image = nativeContentAd.logo?.image {
-      (contentAdView.logoView as? UIImageView)?.image = image
-      contentAdView.logoView?.isHidden = false
-    }
-    else {
-      contentAdView.logoView?.isHidden = true
-    }
-    // In order for the SDK to process touch events properly, user interaction should be disabled.
-    contentAdView.callToActionView?.isUserInteractionEnabled = false
-  }
-}
 
 // MARK: - GADNativeCustomTemplateAdLoaderDelegate
 extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {

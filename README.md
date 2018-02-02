@@ -48,6 +48,7 @@ for more information on installing and updating pods.
 
 *   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPBannerExample)
 *   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPInterstitialExample)
+*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPRewardedVideoExample)
 *   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPCustomRenderingExample)
 
 ## Objective-C
@@ -69,6 +70,7 @@ for more information on installing and updating pods.
 
 *   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPBannerExample)
 *   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPInterstitialExample)
+*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPRewardedVideoExample)
 *   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPCustomRenderingExample)
 
 # Downloads

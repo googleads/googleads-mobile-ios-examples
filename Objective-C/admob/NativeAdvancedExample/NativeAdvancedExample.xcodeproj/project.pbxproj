@@ -13,8 +13,7 @@
 		CF9335C61B26706400DEF1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C41B26706400DEF1B4 /* Main.storyboard */; };
 		CF9335C81B26706400DEF1B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C71B26706400DEF1B4 /* Images.xcassets */; };
 		CF9335CB1B26706400DEF1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C91B26706400DEF1B4 /* LaunchScreen.xib */; };
-		CF9335EC1B26715A00DEF1B4 /* NativeAppInstallAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335E61B26715A00DEF1B4 /* NativeAppInstallAdView.xib */; };
-		CF9335ED1B26715A00DEF1B4 /* NativeContentAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335E81B26715A00DEF1B4 /* NativeContentAdView.xib */; };
+		CF9335EC1B26715A00DEF1B4 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335E61B26715A00DEF1B4 /* UnifiedNativeAdView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +27,7 @@
 		CF9335C51B26706400DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF9335C71B26706400DEF1B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF9335CA1B26706400DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CF9335E71B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
-		CF9335E91B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
+		CF9335E71B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UnifiedNativeAdView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +66,7 @@
 				CF9335C21B26706400DEF1B4 /* ViewController.m */,
 				CF9335C41B26706400DEF1B4 /* Main.storyboard */,
 				CF9335C71B26706400DEF1B4 /* Images.xcassets */,
-				CF9335E61B26715A00DEF1B4 /* NativeAppInstallAdView.xib */,
-				CF9335E81B26715A00DEF1B4 /* NativeContentAdView.xib */,
+				CF9335E61B26715A00DEF1B4 /* UnifiedNativeAdView.xib */,
 				CF9335C91B26706400DEF1B4 /* LaunchScreen.xib */,
 				CF9335BA1B26706400DEF1B4 /* Supporting Files */,
 			);
@@ -144,8 +141,7 @@
 			files = (
 				CF9335C61B26706400DEF1B4 /* Main.storyboard in Resources */,
 				CF9335CB1B26706400DEF1B4 /* LaunchScreen.xib in Resources */,
-				CF9335ED1B26715A00DEF1B4 /* NativeContentAdView.xib in Resources */,
-				CF9335EC1B26715A00DEF1B4 /* NativeAppInstallAdView.xib in Resources */,
+				CF9335EC1B26715A00DEF1B4 /* UnifiedNativeAdView.xib in Resources */,
 				CF9335C81B26706400DEF1B4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,20 +178,12 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		CF9335E61B26715A00DEF1B4 /* NativeAppInstallAdView.xib */ = {
+		CF9335E61B26715A00DEF1B4 /* UnifiedNativeAdView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CF9335E71B26715A00DEF1B4 /* Base */,
 			);
-			name = NativeAppInstallAdView.xib;
-			sourceTree = "<group>";
-		};
-		CF9335E81B26715A00DEF1B4 /* NativeContentAdView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF9335E91B26715A00DEF1B4 /* Base */,
-			);
-			name = NativeContentAdView.xib;
+			name = UnifiedNativeAdView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

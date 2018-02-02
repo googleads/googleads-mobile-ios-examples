@@ -17,17 +17,10 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
-    GADNativeContentAdLoaderDelegate, GADVideoControllerDelegate {
+class ViewController: UIViewController {
 
   /// The view that holds the native ad.
   @IBOutlet weak var nativeAdPlaceholder: UIView!
-
-  /// The app install ad switch.
-  @IBOutlet weak var appInstallAdSwitch: UISwitch!
-
-  /// The content ad switch.
-  @IBOutlet weak var contentAdSwitch: UISwitch!
 
   /// Indicates whether videos should start muted.
   @IBOutlet weak var startMutedSwitch: UISwitch!
@@ -46,7 +39,7 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
   var adLoader: GADAdLoader!
 
   /// The native ad view that is being presented.
-  var nativeAdView: UIView?
+  var nativeAdView: GADUnifiedNativeAdView!
 
   /// The ad unit ID.
   let adUnitID = "ca-app-pub-3940256099942544/3986624511"
@@ -54,156 +47,48 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
   override func viewDidLoad() {
     super.viewDidLoad()
     versionLabel.text = GADRequest.sdkVersion()
+    guard let nibObjects = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil),
+      let adView = nibObjects.first as? GADUnifiedNativeAdView else {
+        assert(false, "Could not load nib file for adView")
+    }
+    setAdView(adView)
     refreshAd(nil)
   }
 
-  func setAdView(_ view: UIView) {
+
+  func setAdView(_ view: GADUnifiedNativeAdView) {
     // Remove the previous ad view.
-    nativeAdView?.removeFromSuperview()
     nativeAdView = view
-    nativeAdPlaceholder.addSubview(nativeAdView!)
-    nativeAdView!.translatesAutoresizingMaskIntoConstraints = false
+    nativeAdPlaceholder.addSubview(nativeAdView)
+    nativeAdView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.
     let viewDictionary = ["_nativeAdView": nativeAdView!]
     self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
-        options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+                                                            options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
     self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
-        options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+                                                            options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
   }
 
   // MARK: - Actions
 
   /// Refreshes the native ad.
   @IBAction func refreshAd(_ sender: AnyObject!) {
-    var adTypes = [GADAdLoaderAdType]()
-    if appInstallAdSwitch.isOn {
-      adTypes.append(GADAdLoaderAdType.nativeAppInstall)
-    }
-    if contentAdSwitch.isOn {
-      adTypes.append(GADAdLoaderAdType.nativeContent)
-    }
-
-    if adTypes.isEmpty {
-      let alertView = UIAlertView(title: "Alert", message: "At least one ad format must be " +
-          "selected to refresh the ad.", delegate: self, cancelButtonTitle: "OK")
-      alertView.alertViewStyle = .default
-      alertView.show()
-    } else {
-      refreshAdButton.isEnabled = false
-      videoStatusLabel.text = ""
-      adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
-          adTypes: adTypes, options: nil)
-      adLoader.delegate = self
-      adLoader.load(GADRequest())
-    }
-  }
-
-  // MARK: - GADAdLoaderDelegate
-
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
-    print("\(adLoader) failed with error: \(error.localizedDescription)")
-    refreshAdButton.isEnabled = true
-  }
-
-  // Mark: - GADNativeAppInstallAdLoaderDelegate
-
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAppInstallAd: GADNativeAppInstallAd) {
-    print("Received native app install ad: \(nativeAppInstallAd)")
-    refreshAdButton.isEnabled = true
-
-    // Create and place the ad in the view hierarchy.
-    let appInstallAdView = Bundle.main.loadNibNamed("NativeAppInstallAdView", owner: nil,
-        options: nil)?.first as! GADNativeAppInstallAdView
-    setAdView(appInstallAdView)
-
-    // Associate the app install ad view with the app install ad object. This is required to make
-    // the ad clickable.
-    appInstallAdView.nativeAppInstallAd = nativeAppInstallAd
-
-    // Populate the app install ad view with the app install ad assets.
-    // Some assets are guaranteed to be present in every app install ad.
-    (appInstallAdView.headlineView as! UILabel).text = nativeAppInstallAd.headline
-    (appInstallAdView.iconView as! UIImageView).image = nativeAppInstallAd.icon?.image
-    (appInstallAdView.bodyView as! UILabel).text = nativeAppInstallAd.body
-    (appInstallAdView.callToActionView as! UIButton).setTitle(
-        nativeAppInstallAd.callToAction, for: UIControlState.normal)
-
-    // Some app install ads will include a video asset, while others do not. Apps can use the
-    // GADVideoController's hasVideoContent property to determine if one is present, and adjust
-    // their UI accordingly.
-
-    // The UI for this controller constrains the image view's height to match the media view's
-    // height, so by changing the one here, the height of both views are being adjusted.
-    if (nativeAppInstallAd.videoController.hasVideoContent()) {
-
-      // The video controller has content. Show the media view.
-      appInstallAdView.mediaView?.isHidden = false
-      appInstallAdView.imageView?.isHidden = true
-
-      // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
-      // ratio of the video it displays.
-      let heightConstraint = NSLayoutConstraint(
-            item: appInstallAdView.mediaView!,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: appInstallAdView.mediaView!,
-            attribute: .width,
-            multiplier: CGFloat(1.0 / nativeAppInstallAd.videoController.aspectRatio()),
-            constant: 0)
-      heightConstraint.isActive = true
-
-      // By acting as the delegate to the GADVideoController, this ViewController receives messages
-      // about events in the video lifecycle.
-      nativeAppInstallAd.videoController.delegate = self
-
-      self.videoStatusLabel.text = "Ad contains a video asset."
-    } else {
-      // If the ad doesn't contain a video asset, the first image asset is shown in the
-      // image view. The existing lower priority height constraint is used.
-      appInstallAdView.mediaView?.isHidden = true
-      appInstallAdView.imageView?.isHidden = false
-
-      let firstImage: GADNativeAdImage? = nativeAppInstallAd.images?.first as? GADNativeAdImage
-      (appInstallAdView.imageView as? UIImageView)?.image = firstImage?.image
-
-      self.videoStatusLabel.text = "Ad does not contain a video asset."
-    }
-
-    // Other assets are not guaranteed to be present, and should be checked first.
-    let starRatingView = appInstallAdView.starRatingView
-    if let starRating = nativeAppInstallAd.starRating {
-      (starRatingView as! UIImageView).image = imageOfStarsFromStarRating(starRating)
-      starRatingView?.isHidden = false
-    } else {
-      starRatingView?.isHidden = true
-    }
-
-    let storeView = appInstallAdView.storeView
-    if let store = nativeAppInstallAd.store {
-      (storeView as! UILabel).text = store
-      storeView?.isHidden = false
-    } else {
-      storeView?.isHidden = true
-    }
-
-    let priceView = appInstallAdView.priceView
-    if let price = nativeAppInstallAd.price {
-      (priceView as! UILabel).text = price
-      priceView?.isHidden = false
-    } else {
-      priceView?.isHidden = true
-    }
-
-    // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (appInstallAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
+    refreshAdButton.isEnabled = false
+    videoStatusLabel.text = ""
+    adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
+                           adTypes: [ .unifiedNative ], options: nil)
+    adLoader.delegate = self
+    adLoader.load(GADRequest())
   }
 
   /// Returns a `UIImage` representing the number of stars from the given star rating; returns `nil`
   /// if the star rating is less than 3.5 stars.
-  func imageOfStarsFromStarRating(_ starRating: NSDecimalNumber) -> UIImage? {
-    let rating = starRating.doubleValue
+  func imageOfStars(from starRating: NSDecimalNumber?) -> UIImage? {
+    guard let rating = starRating?.doubleValue else {
+      return nil
+    }
     if rating >= 5 {
       return UIImage(named: "stars_5")
     } else if rating >= 4.5 {
@@ -216,48 +101,104 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
       return nil
     }
   }
+}
 
-  // Mark: - GADNativeContentAdLoaderDelegate
-
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeContentAd: GADNativeContentAd) {
-    print("Received native content ad: \(nativeContentAd)")
-    refreshAdButton.isEnabled = true
-
-    // Create and place the ad in the view hierarchy.
-    let contentAdView = Bundle.main.loadNibNamed("NativeContentAdView", owner: nil,
-        options: nil)?.first as! GADNativeContentAdView
-    setAdView(contentAdView)
-
-    // Associate the content ad view with the content ad object. This is required to make the ad
-    // clickable.
-    contentAdView.nativeContentAd = nativeContentAd
-
-    // Populate the content ad view with the content ad assets.
-    // Some assets are guaranteed to be present in every content ad.
-    (contentAdView.headlineView as! UILabel).text = nativeContentAd.headline
-    (contentAdView.bodyView as! UILabel).text = nativeContentAd.body
-    (contentAdView.imageView as! UIImageView).image =
-        (nativeContentAd.images?.first as! GADNativeAdImage).image
-    (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
-    (contentAdView.callToActionView as! UIButton).setTitle(
-      nativeContentAd.callToAction, for: UIControlState.normal)
-
-    // Other assets are not, however, and should be checked first.
-    let logoView = contentAdView.logoView
-    if let logoImage = nativeContentAd.logo?.image {
-      (logoView as! UIImageView).image = logoImage
-      logoView?.isHidden = false
-    } else {
-      logoView?.isHidden = true
-    }
-
-    // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (contentAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
-  }
-
-  // Mark: - GADVideoControllerDelegate
+extension ViewController : GADVideoControllerDelegate {
 
   func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     videoStatusLabel.text = "Video playback has ended."
+  }
+}
+
+extension ViewController : GADAdLoaderDelegate {
+
+  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+    print("\(adLoader) failed with error: \(error.localizedDescription)")
+    refreshAdButton.isEnabled = true
+  }
+}
+
+extension ViewController : GADUnifiedNativeAdLoaderDelegate {
+
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
+    refreshAdButton.isEnabled = true
+    nativeAdView.nativeAd = nativeAd
+    // Populate the native ad view with the native ad assets.
+    // Some assets are guaranteed to be present in every native ad.
+    (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+    (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
+    (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
+    // Some native ads will include a video asset, while others do not. Apps can use the
+    // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
+    // UI accordingly.
+    // The UI for this controller constrains the image view's height to match the media view's
+    // height, so by changing the one here, the height of both views are being adjusted.
+    if let controller = nativeAd.videoController, controller.hasVideoContent() {
+      // The video controller has content. Show the media view.
+      if let mediaView = nativeAdView.mediaView {
+        mediaView.isHidden = false
+        nativeAdView.imageView?.isHidden = true
+        // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+        // ratio of the video it displays.
+        let heightConstraint = NSLayoutConstraint(item: mediaView,
+                                                  attribute: .height,
+                                                  relatedBy: .equal,
+                                                  toItem: mediaView,
+                                                  attribute: .width,
+                                                  multiplier: CGFloat(1 / controller.aspectRatio()),
+                                                  constant: 0)
+        heightConstraint.isActive = true
+      }
+      // By acting as the delegate to the GADVideoController, this ViewController receives messages
+      // about events in the video lifecycle.
+      controller.delegate = self
+      videoStatusLabel.text = "Ad contains a video asset."
+    }
+    else {
+      // If the ad doesn't contain a video asset, the first image asset is shown in the
+      // image view. The existing lower priority height constraint is used.
+      nativeAdView.mediaView?.isHidden = true
+      nativeAdView.imageView?.isHidden = false
+      let firstImage: GADNativeAdImage? = nativeAd.images?.first
+      (nativeAdView.imageView as? UIImageView)?.image = firstImage?.image
+      videoStatusLabel.text = "Ad does not contain a video."
+    }
+    // These assets are not guaranteed to be present, and should be checked first.
+    (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+    if let _ = nativeAd.icon {
+      nativeAdView.iconView?.isHidden = false
+    } else {
+      nativeAdView.iconView?.isHidden = true
+    }
+    (nativeAdView?.starRatingView as? UIImageView)?.image = imageOfStars(from:nativeAd.starRating)
+    if let _ = nativeAd.starRating {
+      nativeAdView.starRatingView?.isHidden = false
+    }
+    else {
+      nativeAdView.starRatingView?.isHidden = true
+    }
+    (nativeAdView?.storeView as? UILabel)?.text = nativeAd.store
+    if let _ = nativeAd.store {
+      nativeAdView.storeView?.isHidden = false
+    }
+    else {
+      nativeAdView.storeView?.isHidden = true
+    }
+    (nativeAdView?.priceView as? UILabel)?.text = nativeAd.price
+    if let _ = nativeAd.price {
+      nativeAdView.priceView?.isHidden = false
+    }
+    else {
+      nativeAdView.priceView?.isHidden = true
+    }
+    (nativeAdView?.advertiserView as? UILabel)?.text = nativeAd.advertiser
+    if let _ = nativeAd.advertiser {
+      nativeAdView.advertiserView?.isHidden = false
+    }
+    else {
+      nativeAdView.advertiserView?.isHidden = true
+    }
+    // In order for the SDK to process touch events properly, user interaction should be disabled.
+    nativeAdView.callToActionView?.isUserInteractionEnabled = false
   }
 }
