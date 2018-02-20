@@ -34,6 +34,9 @@ class ViewController: UIViewController {
   /// The SDK version label.
   @IBOutlet weak var versionLabel: UILabel!
 
+  /// The height constraint applied to the ad view, where necessary.
+  var heightConstraint : NSLayoutConstraint?
+
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
   var adLoader: GADAdLoader!
@@ -123,6 +126,10 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
     refreshAdButton.isEnabled = true
     nativeAdView.nativeAd = nativeAd
+
+    // Deactivate the height constraint that was set when the previous video ad loaded.
+    heightConstraint?.isActive = false
+
     // Populate the native ad view with the native ad assets.
     // Some assets are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
@@ -140,14 +147,14 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
         nativeAdView.imageView?.isHidden = true
         // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
         // ratio of the video it displays.
-        let heightConstraint = NSLayoutConstraint(item: mediaView,
+        heightConstraint = NSLayoutConstraint(item: mediaView,
                                                   attribute: .height,
                                                   relatedBy: .equal,
                                                   toItem: mediaView,
                                                   attribute: .width,
                                                   multiplier: CGFloat(1 / controller.aspectRatio()),
                                                   constant: 0)
-        heightConstraint.isActive = true
+        heightConstraint?.isActive = true
       }
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.

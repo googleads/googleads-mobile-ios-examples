@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 
   // Switch to indicate if video ads should start muted.
   @IBOutlet weak var startMutedSwitch: UISwitch!
-
+  
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
   var adLoader: GADAdLoader!

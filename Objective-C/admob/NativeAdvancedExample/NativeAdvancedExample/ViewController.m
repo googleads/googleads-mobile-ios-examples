@@ -26,6 +26,9 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 /// The native ad view that is being presented.
 @property(nonatomic, strong) GADUnifiedNativeAdView *nativeAdView;
 
+/// The height constraint applied to the ad view, where necessary.
+@property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
+
 @end
 
 @implementation ViewController
@@ -56,7 +59,7 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   self.videoStatusLabel.text = @"";
 }
 
-- (void)setAdView:(UIView *)view {
+- (void)setAdView:(GADUnifiedNativeAdView *)view {
   // Remove previous ad view.
   [self.nativeAdView removeFromSuperview];
   self.nativeAdView = view;
@@ -106,6 +109,10 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   self.refreshButton.enabled = YES;
 
   GADUnifiedNativeAdView *nativeAdView = self.nativeAdView;
+
+  // Deactivate the height constraint that was set when the previous video ad loaded.
+  self.heightConstraint.active = NO;
+
   nativeAdView.nativeAd = nativeAd;
 
   // Populate the native ad view with the native ad assets.
@@ -129,7 +136,7 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
     // This app uses a fixed width for the GADMediaView and changes its height
     // to match the aspect ratio of the video it displays.
-    NSLayoutConstraint *heightConstraint =
+    self.heightConstraint =
         [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
                                      attribute:NSLayoutAttributeHeight
                                      relatedBy:NSLayoutRelationEqual
@@ -137,7 +144,7 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
                                      attribute:NSLayoutAttributeWidth
                                     multiplier:(1 / nativeAd.videoController.aspectRatio)
                                       constant:0];
-    heightConstraint.active = YES;
+    self.heightConstraint.active = YES;
 
     // By acting as the delegate to the GADVideoController, this ViewController
     // receives messages about events in the video lifecycle.

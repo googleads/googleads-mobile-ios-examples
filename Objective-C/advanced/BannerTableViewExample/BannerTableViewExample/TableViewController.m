@@ -131,8 +131,7 @@ static const CGFloat GADAdViewHeight = 100;
   [self preloadNextAd];
 }
 
-- (void)adView:(GADBannerView *)bannerView
-didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
   NSLog(@"Failed to receive ad: %@", error.localizedDescription);
   // Load the next ad in the adsToLoad list.
   [self preloadNextAd];
@@ -147,10 +146,9 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
   [self.tableView layoutIfNeeded];
 
   while (index < _tableViewItems.count) {
-
     GADBannerView *adView = [[GADBannerView alloc]
-        initWithAdSize:GADAdSizeFromCGSize(CGSizeMake(self.tableView.contentSize.width,
-                                                      GADAdViewHeight))];
+        initWithAdSize:GADAdSizeFromCGSize(
+                           CGSizeMake(self.tableView.contentSize.width, GADAdViewHeight))];
     adView.adUnitID = GADAdUnitID;
     adView.rootViewController = self;
     adView.delegate = self;
