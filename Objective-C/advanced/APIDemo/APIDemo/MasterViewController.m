@@ -57,7 +57,8 @@
     @"DFP - Category Exclusions",
     @"DFP - Multiple Ad Sizes",
     @"DFP - App Events",
-    @"DFP - Fluid Ad Size"
+    @"DFP - Fluid Ad Size",
+    @"DFP - Custom Video Controls"
   ];
 
   self.identifiers = @[
@@ -69,7 +70,8 @@
     @"categoryExclusionsSegue",
     @"multipleAdSizesSegue",
     @"appEventsSegue",
-    @"fluidAdSizeSegue"
+    @"fluidAdSizeSegue",
+    @"customControlsSegue"
   ];
 }
 

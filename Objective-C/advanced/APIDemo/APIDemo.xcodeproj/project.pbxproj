@@ -22,6 +22,11 @@
 		4A96E7651B85797F00031470 /* DFPAppEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7641B85797F00031470 /* DFPAppEventsViewController.m */; };
 		4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */; };
 		4AC444E91BCDC0DE00FF9639 /* DFPFluidAdSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC444E81BCDC0DE00FF9639 /* DFPFluidAdSizeViewController.m */; };
+		AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */; };
+		AED1111020320CA900EA4BEE /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110F20320CA800EA4BEE /* UnifiedNativeAdView.xib */; };
+		AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */; };
+		AEE8DAA2201BD7B2008792E6 /* DFPCustomVideoControlsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DAA1201BD7B2008792E6 /* DFPCustomVideoControlsController.m */; };
+		AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +59,14 @@
 		4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobAdTargetingTableViewController.m; sourceTree = "<group>"; };
 		4AC444E71BCDC0DE00FF9639 /* DFPFluidAdSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPFluidAdSizeViewController.h; sourceTree = "<group>"; };
 		4AC444E81BCDC0DE00FF9639 /* DFPFluidAdSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFPFluidAdSizeViewController.m; sourceTree = "<group>"; };
+		AED1110D20320ABB00EA4BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimpleNativeAdView.xib; sourceTree = "<group>"; };
+		AED1110F20320CA800EA4BEE /* UnifiedNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UnifiedNativeAdView.xib; path = Base.lproj/UnifiedNativeAdView.xib; sourceTree = "<group>"; };
+		AEE8DA9C201BD7A5008792E6 /* SimpleNativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNativeAdView.h; sourceTree = "<group>"; };
+		AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNativeAdView.m; sourceTree = "<group>"; };
+		AEE8DAA0201BD7B1008792E6 /* DFPCustomVideoControlsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPCustomVideoControlsController.h; sourceTree = "<group>"; };
+		AEE8DAA1201BD7B2008792E6 /* DFPCustomVideoControlsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFPCustomVideoControlsController.m; sourceTree = "<group>"; };
+		AEE8DAA3201BDCA9008792E6 /* CustomControlsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomControlsView.h; sourceTree = "<group>"; };
+		AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomControlsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +143,24 @@
 				4A96E7641B85797F00031470 /* DFPAppEventsViewController.m */,
 				4AC444E71BCDC0DE00FF9639 /* DFPFluidAdSizeViewController.h */,
 				4AC444E81BCDC0DE00FF9639 /* DFPFluidAdSizeViewController.m */,
+				AEE8DA9A201BD788008792E6 /* DFPCustomVideoControls */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AEE8DA9A201BD788008792E6 /* DFPCustomVideoControls */ = {
+			isa = PBXGroup;
+			children = (
+				AEE8DAA0201BD7B1008792E6 /* DFPCustomVideoControlsController.h */,
+				AEE8DAA1201BD7B2008792E6 /* DFPCustomVideoControlsController.m */,
+				AEE8DA9C201BD7A5008792E6 /* SimpleNativeAdView.h */,
+				AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */,
+				AEE8DAA3201BDCA9008792E6 /* CustomControlsView.h */,
+				AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */,
+				AED1110F20320CA800EA4BEE /* UnifiedNativeAdView.xib */,
+				AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */,
+			);
+			name = DFPCustomVideoControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +220,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */,
 				4A96E72D1B856D5000031470 /* Main.storyboard in Resources */,
 				4A96E7321B856D5000031470 /* LaunchScreen.xib in Resources */,
 				4A96E72F1B856D5000031470 /* Images.xcassets in Resources */,
+				AED1111020320CA900EA4BEE /* UnifiedNativeAdView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEE8DAA2201BD7B2008792E6 /* DFPCustomVideoControlsController.m in Sources */,
 				4A96E7241B856D5000031470 /* AppDelegate.m in Sources */,
 				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
 				4A96E75F1B85794500031470 /* DFPCategoryExclusionsViewController.m in Sources */,
@@ -216,6 +248,8 @@
 				4A96E75C1B85792B00031470 /* DFPCustomTargetingViewController.m in Sources */,
 				4A96E74C1B8572A800031470 /* AdMobAdDelegateViewController.m in Sources */,
 				4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */,
+				AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */,
+				AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +270,14 @@
 				4A96E7311B856D5000031470 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AED1110D20320ABB00EA4BEE /* Base */,
+			);
+			name = SimpleNativeAdView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
