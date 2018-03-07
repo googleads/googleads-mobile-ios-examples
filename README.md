@@ -36,13 +36,17 @@ for more information on installing and updating pods.
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/BannerExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/InterstitialExample)
 *   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/NativeAdvancedExample)
-*   [Native Express Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/NativeExpressExample)
 *   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/RewardedVideoExample)
 
 ### Advanced
 
-*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
-*   [Native Express UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/NativeExpressTableViewExample) - Provides an example for displaying ads from AdMob Native Ads Express in a UITableView.
+*   [API
+    Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/APIDemo) -
+    Provides additional examples for both AdMob and DoubleClick to help improve
+    your mobile app integration of the Google Mobile Ads SDK.
+*   [Banner UITableView
+    Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/BannerTableViewExample) -
+    Provides an example for displaying ads from AdMob Banners in a UITableView.
 
 ### DoubleClick
 
@@ -58,13 +62,18 @@ for more information on installing and updating pods.
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/BannerExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InterstitialExample)
 *   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeAdvancedExample)
-*   [Native Express Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeExpressExample)
 *   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/RewardedVideoExample)
 
 ### Advanced
 
-*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo) - Provides additional examples for both AdMob and DoubleClick to help improve your mobile app integration of the Google Mobile Ads SDK.
-*   [Native Express UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/NativeExpressTableViewExample) - Provides an example for displaying ads from AdMob Native Ads Express in a UITableView.
+*   [API
+    Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo)
+    -   Provides additional examples for both AdMob and DoubleClick to help
+        improve your mobile app integration of the Google Mobile Ads SDK.
+*   [Banner UITableView
+    Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/BannerTableViewExample)
+    -   Provides an example for displaying ads from AdMob Banners in a
+        UITableView.
 
 ### DoubleClick
 
