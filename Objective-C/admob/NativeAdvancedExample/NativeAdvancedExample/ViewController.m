@@ -136,15 +136,17 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
     // This app uses a fixed width for the GADMediaView and changes its height
     // to match the aspect ratio of the video it displays.
-    self.heightConstraint =
-        [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nativeAdView.mediaView
-                                     attribute:NSLayoutAttributeWidth
-                                    multiplier:(1 / nativeAd.videoController.aspectRatio)
-                                      constant:0];
-    self.heightConstraint.active = YES;
+    if (nativeAd.videoController.aspectRatio > 0) {
+      self.heightConstraint =
+          [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
+                                       attribute:NSLayoutAttributeHeight
+                                       relatedBy:NSLayoutRelationEqual
+                                          toItem:nativeAdView.mediaView
+                                       attribute:NSLayoutAttributeWidth
+                                      multiplier:(1 / nativeAd.videoController.aspectRatio)
+                                        constant:0];
+      self.heightConstraint.active = YES;
+    }
 
     // By acting as the delegate to the GADVideoController, this ViewController
     // receives messages about events in the video lifecycle.

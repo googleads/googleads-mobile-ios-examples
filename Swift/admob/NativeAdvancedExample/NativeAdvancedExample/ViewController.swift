@@ -147,14 +147,16 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
         nativeAdView.imageView?.isHidden = true
         // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
         // ratio of the video it displays.
-        heightConstraint = NSLayoutConstraint(item: mediaView,
-                                                  attribute: .height,
-                                                  relatedBy: .equal,
-                                                  toItem: mediaView,
-                                                  attribute: .width,
-                                                  multiplier: CGFloat(1 / controller.aspectRatio()),
-                                                  constant: 0)
-        heightConstraint?.isActive = true
+        if controller.aspectRatio() > 0 {
+          heightConstraint = NSLayoutConstraint(item: mediaView,
+                                                    attribute: .height,
+                                                    relatedBy: .equal,
+                                                    toItem: mediaView,
+                                                    attribute: .width,
+                                                    multiplier: CGFloat(1 / controller.aspectRatio()),
+                                                    constant: 0)
+          heightConstraint?.isActive = true
+        }
       }
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.

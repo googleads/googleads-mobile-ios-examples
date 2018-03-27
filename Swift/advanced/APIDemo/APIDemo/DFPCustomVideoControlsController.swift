@@ -139,8 +139,16 @@ extension DFPCustomVideoControlsController : GADUnifiedNativeAdLoaderDelegate {
       nativeAdView.imageView?.isHidden = true
       // This app uses a fixed width for the GADMediaView and changes its height
       // to match the aspect ratio of the video it displays.
-      let heightConstraint = NSLayoutConstraint(item: (nativeAdView.mediaView)!, attribute: .height, relatedBy: .equal, toItem: nativeAdView.mediaView, attribute: .width, multiplier: (CGFloat(1 / controller.aspectRatio())), constant: 0)
-      heightConstraint.isActive = true
+      if controller.aspectRatio() > 0 {
+        let heightConstraint = NSLayoutConstraint(item: nativeAdView.mediaView!,
+                                                attribute: .height,
+                                                relatedBy: .equal,
+                                                toItem: nativeAdView.mediaView!,
+                                                attribute: .width,
+                                                multiplier: CGFloat(1 / controller.aspectRatio()),
+                                                constant: 0)
+        heightConstraint.isActive = true
+      }
     }
     else {
       // If the ad doesn't contain a video asset, the first image asset is shown
