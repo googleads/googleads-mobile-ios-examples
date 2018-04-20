@@ -127,6 +127,9 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     refreshAdButton.isEnabled = true
     nativeAdView.nativeAd = nativeAd
 
+    // Set ourselves as the native ad delegate to be notified of native ad events.
+    nativeAd.delegate = self
+
     // Deactivate the height constraint that was set when the previous video ad loaded.
     heightConstraint?.isActive = false
 
@@ -209,5 +212,33 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     }
     // In order for the SDK to process touch events properly, user interaction should be disabled.
     nativeAdView.callToActionView?.isUserInteractionEnabled = false
+  }
+}
+
+// MARK: - GADUnifiedNativeAdDelegate implementation
+extension ViewController : GADUnifiedNativeAdDelegate {
+
+  func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
   }
 }

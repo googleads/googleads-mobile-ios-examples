@@ -23,4 +23,4 @@ unit ID on http://apps.admob.com and use that ad unit ID in your own apps.
 Additional Resources
 --------------------
 * [Developer documentation](https://developers.google.com/mobile-ads-sdk)
-* [Developer forum](groups.google.com/group/google-admob-ads-sdk)
+* [Developer forum](https://groups.google.com/group/google-admob-ads-sdk)

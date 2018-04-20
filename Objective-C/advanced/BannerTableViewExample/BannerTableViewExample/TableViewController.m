@@ -81,7 +81,7 @@ static const CGFloat GADAdViewHeight = 100;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   if ([_tableViewItems[indexPath.row] isKindOfClass:[GADBannerView class]]) {
     GADBannerView *adView = _tableViewItems[indexPath.row];
-    bool isLoaded = _loadStateForAds[[self referenceKeyForAdView:adView]];
+    BOOL isLoaded = [_loadStateForAds[[self referenceKeyForAdView:adView]] boolValue];
     return isLoaded ? GADAdViewHeight : 0;
   }
 

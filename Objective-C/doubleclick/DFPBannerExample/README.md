@@ -23,4 +23,4 @@ own inventory in DFP and reference your own ad unit ID.
 Additional Resources
 --------------------
 * [Developer documentation](https://developers.google.com/mobile-ads-sdk)
-* [Developer forum](groups.google.com/group/google-admob-ads-sdk)
+* [Developer forum](https://groups.google.com/group/google-admob-ads-sdk)

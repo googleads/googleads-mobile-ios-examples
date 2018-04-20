@@ -6,7 +6,9 @@ static NSString *const TestAdUnit = @"/6499/example/native";
 static NSString *const TestNativeCustomTemplateID = @"10104090";
 
 @interface ViewController () <GADUnifiedNativeAdLoaderDelegate,
-                              GADNativeCustomTemplateAdLoaderDelegate, GADVideoControllerDelegate>
+                              GADNativeCustomTemplateAdLoaderDelegate,
+                              GADUnifiedNativeAdDelegate,
+                              GADVideoControllerDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading process.
 @property(nonatomic, strong) GADAdLoader *adLoader;
@@ -112,6 +114,9 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   [self setAdView:nativeAdView];
 
   nativeAdView.nativeAd = nativeAd;
+
+  // Set ourselves as the ad delegate to be notified of native ad events.
+  nativeAd.delegate = self;
 
   // Populate the native ad view with the native ad assets.
   // Some assets are guaranteed to be present in every native ad.
@@ -238,6 +243,32 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
 
 - (void)videoControllerDidEndVideoPlayback:(GADVideoController *)videoController {
   self.videoStatusLabel.text = @"Video playback has ended.";
+}
+
+#pragma mark GADUnifiedNativeAdDelegate
+
+- (void)nativeAdDidRecordClick:(GADUnifiedNativeAd *)nativeAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)nativeAdDidRecordImpression:(GADUnifiedNativeAd *)nativeAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)nativeAdWillPresentScreen:(GADUnifiedNativeAd *)nativeAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)nativeAdWillDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)nativeAdDidDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)nativeAdWillLeaveApplication:(GADUnifiedNativeAd *)nativeAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 @end

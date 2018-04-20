@@ -162,6 +162,9 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     }
     setAdView(nativeAdView)
 
+    // Set ourselves as the native ad delegate to be notified of native ad events.
+    nativeAd.delegate = self
+
     nativeAdView.nativeAd = nativeAd
     // Populate the native ad view with the native ad assets.
     // Some assets are guaranteed to be present in every native ad.
@@ -276,5 +279,33 @@ extension ViewController : GADVideoControllerDelegate {
 
   func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     videoStatusLabel.text = "Video playback has ended."
+  }
+}
+
+// MARK: - GADUnifiedNativeAdDelegate implementation
+extension ViewController : GADUnifiedNativeAdDelegate {
+
+  func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
+  }
+
+  func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
+    print("\(#function) called")
   }
 }
