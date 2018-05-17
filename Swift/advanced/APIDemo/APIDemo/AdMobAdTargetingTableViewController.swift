@@ -19,10 +19,6 @@ import UIKit
 
 /// The constants for AdMobAdTargeting table cell identifiers.
 struct AdMobAdTargetingTableCellIdentifiers {
-  static let BirthdateCell = "birthdateCell"
-  static let BirthdatePickerCell = "birthdatePickerCell"
-  static let GenderCell = "genderCell"
-  static let GenderPickerCell = "genderPickerCell"
   static let ChildDirectedCell = "childDirectedCell"
   static let ChildDirectedPickerCell = "childDirectedPickerCell"
 }
@@ -32,20 +28,8 @@ struct AdMobAdTargetingTableCellIdentifiers {
 class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDataSource,
     UIPickerViewDelegate {
 
-  /// The birthdate label.
-  @IBOutlet weak var birthdateLabel: UILabel!
-
-  /// The gender label.
-  @IBOutlet weak var genderLabel: UILabel!
-
   /// The child-directed label.
   @IBOutlet weak var childDirectedLabel: UILabel!
-
-  /// The birthdate picker.
-  @IBOutlet weak var birthdatePicker: UIDatePicker!
-
-  /// The gender picker.
-  @IBOutlet weak var genderPicker: UIPickerView!
 
   /// The child-directed picker.
   @IBOutlet weak var childDirectedPicker: UIPickerView!
@@ -53,30 +37,17 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   /// The banner view.
   @IBOutlet weak var bannerView: GADBannerView!
 
-  /// The birthdate formatter, ex: Jan 31, 1980.
-  let dateFormatter = DateFormatter()
-
-  /// The gender options.
-  var genderOptions: [String]!
-
   /// The child-directed options.
   var childDirectedOptions: [String]!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.tableFooterView = UIView(frame: CGRect.zero)
-    dateFormatter.dateStyle = .medium
 
     // GADBannerView setup.
     bannerView.adUnitID = Constants.AdMobAdUnitID
     bannerView.rootViewController = self
-
-    // Gender setup.
-    genderOptions = ["Male", "Female", "Unknown"]
-    genderPicker.delegate = self
-    genderPicker.dataSource = self
-    let genderPickerMiddleRow = genderOptions.count / 2
-    genderPicker.selectRow(genderPickerMiddleRow, inComponent: 0, animated: false)
+    bannerView.delegate = self
 
     // Child-directed setup.
     childDirectedOptions = ["Yes", "No", "Unspecified"]
@@ -94,10 +65,6 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     var currentPicker: UIView?
     if let cellIdentifier = cell?.reuseIdentifier {
       switch cellIdentifier {
-      case AdMobAdTargetingTableCellIdentifiers.BirthdateCell:
-        currentPicker = birthdatePicker
-      case AdMobAdTargetingTableCellIdentifiers.GenderCell:
-        currentPicker = genderPicker
       case AdMobAdTargetingTableCellIdentifiers.ChildDirectedCell:
         currentPicker = childDirectedPicker
       default:
@@ -123,13 +90,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
       -> CGFloat {
     let cell = self.tableView(tableView, cellForRowAt: indexPath)
     if let cellIdentifier = cell.reuseIdentifier {
-      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.BirthdatePickerCell &&
-          birthdatePicker.isHidden {
-        return 0
-      } else if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.GenderPickerCell &&
-          genderPicker.isHidden {
-        return 0
-      } else if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell &&
+      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell &&
           childDirectedPicker.isHidden {
         return 0
       }
@@ -143,8 +104,6 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
       -> String? {
     var rowTitle = ""
     switch pickerView {
-    case genderPicker:
-      rowTitle = genderOptions[row]
     case childDirectedPicker:
       rowTitle = childDirectedOptions[row]
     default:
@@ -155,8 +114,6 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     switch pickerView {
-    case genderPicker:
-      genderLabel.text = genderOptions[row]
     case childDirectedPicker:
       childDirectedLabel.text = childDirectedOptions[row]
     default:
@@ -173,8 +130,6 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     var numOfRows = 0
     switch pickerView {
-    case genderPicker:
-      numOfRows = genderOptions.count
     case childDirectedPicker:
       numOfRows = childDirectedOptions.count
     default:
@@ -188,34 +143,27 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   /// Loads an ad based on user's birthdate, gender, and child-directed status.
   @IBAction func loadTargetedAd(_ sender: AnyObject) {
     let request = GADRequest()
-    if birthdateLabel.text != "Birthdate" {
-      request.birthday = birthdatePicker.date
-    }
     if childDirectedLabel.text == "Yes" {
       request.tag(forChildDirectedTreatment: true)
     } else if childDirectedLabel.text == "No" {
       request.tag(forChildDirectedTreatment: false)
     }
-    switch genderLabel.text! {
-    case "Male":
-      request.gender = .male
-    case "Female":
-      request.gender = .female
-    default:
-      request.gender = .unknown
-    }
     bannerView.load(request)
   }
 
-  /// Sets the birthdate label to birthdate selected in picker.
-  @IBAction func chooseBirthdate(_ sender: AnyObject) {
-    birthdateLabel.text = dateFormatter.string(from: birthdatePicker.date)
-  }
-
   fileprivate func hideAllPickers() {
-    birthdatePicker.isHidden = true
-    genderPicker.isHidden = true
     childDirectedPicker.isHidden = true
   }
 
+}
+
+extension AdMobAdTargetingTableViewController : GADBannerViewDelegate {
+
+  func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+    print("\(#function)")
+  }
+
+  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+    print("\(#function): \(error.localizedDescription)")
+  }
 }
