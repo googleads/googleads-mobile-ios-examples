@@ -16,6 +16,11 @@ discusssions, please use our [Google Mobile Ads SDK Developers forum](https://gr
 The forum provides the latest SDK announcements and updates as well as
 technical SDK support for our [iOS developers](https://groups.google.com/forum/#!categories/google-admob-ads-sdk/ios).
 
+# Documentation
+
+Check out our [developers site](https://developers.google.com/mobile-ads-sdk/)
+for documentation on using the Mobile Ads SDK.
+
 # Examples
 
 Each iOS example app includes a Podfile and a Podfile.lock. The Podfile.lock
@@ -86,11 +91,6 @@ for more information on installing and updating pods.
 
 Please check out our [releases](https://github.com/googleads/googleads-mobile-ios-examples/releases)
 for the latest downloads of our example apps.
-
-# Documentation
-
-Check out our [developers site](https://developers.google.com/mobile-ads-sdk/)
-for documentation on using the Mobile Ads SDK.
 
 # GitHub issue tracker
 
