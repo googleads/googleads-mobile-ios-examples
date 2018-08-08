@@ -1,0 +1,74 @@
+language: objective-c
+osx_image:
+- xcode8
+- xcode9.4
+xcode_sdk:
+- iphonesimulator8.0
+- iphonesimulator9.0
+- iphonesimulator10.0
+- iphonesimulator11.4
+matrix:
+  include:
+  - name: "BannerTableViewExample"
+    project: Swift/Advanced/BannerTableViewExample/BannerTableViewExample.xcodeproj
+    xcodescheme: BannerTableViewExample
+  - name: "APIDemo"
+    project: Swift/Advanced/APIDemo/APIDemo.xcodeproj
+    xcodescheme: APIDemo
+  - name: "NativeExpressExample"
+    project: Swift/AdMob/NativeExpressExample/NativeExpressExample.xcodeproj
+    xcodescheme: NativeExpressExample
+  - name: "BannerExample"
+    project: Swift/AdMob/BannerExample/BannerExample.xcodeproj
+    xcodescheme: BannerExample
+  - name: "RewardedVideoExample"
+    project: Swift/AdMob/RewardedVideoExample/RewardedVideoExample.xcodeproj
+    xcodescheme: RewardedVideoExample
+  - name: "NativeAdvancedExample"
+    project: Swift/AdMob/NativeAdvancedExample/NativeAdvancedExample.xcodeproj
+    xcodescheme: NativeAdvancedExample
+  - name: "InterstitialExample"
+    project: Swift/AdMob/InterstitialExample/InterstitialExample.xcodeproj
+    xcodescheme: InterstitialExample
+  - name: "DFPInterstitialExample"
+    project: Swift/DoubleClick/DFPInterstitialExample/DFPInterstitialExample.xcodeproj
+    xcodescheme: DFPInterstitialExample
+  - name: "DFPBannerExample"
+    project: Swift/DoubleClick/DFPBannerExample/DFPBannerExample.xcodeproj
+    xcodescheme: DFPBannerExample
+  - name: "DFPRewardedVideoExample"
+    project: Swift/DoubleClick/DFPRewardedVideoExample/DFPRewardedVideoExample.xcodeproj
+    xcodescheme: DFPRewardedVideoExample
+  - name: "DFPCustomRenderingExample"
+    project: Swift/DoubleClick/DFPCustomRenderingExample/DFPCustomRenderingExample.xcodeproj
+    xcodescheme: DFPCustomRenderingExample
+  - name: "BannerTableViewExample"
+    project: Objective-C/Advanced/BannerTableViewExample/BannerTableViewExample.xcodeproj
+    xcodescheme: BannerTableViewExample
+  - name: "APIDemo"
+    project: Objective-C/Advanced/APIDemo/APIDemo.xcodeproj
+    xcodescheme: APIDemo
+  - name: "BannerExample"
+    project: Objective-C/AdMob/BannerExample/BannerExample.xcodeproj
+    xcodescheme: BannerExample
+  - name: "RewardedVideoExample"
+    project: Objective-C/AdMob/RewardedVideoExample/RewardedVideoExample.xcodeproj
+    xcodescheme: RewardedVideoExample
+  - name: "NativeAdvancedExample"
+    project: Objective-C/AdMob/NativeAdvancedExample/NativeAdvancedExample.xcodeproj
+    xcodescheme: NativeAdvancedExample
+  - name: "InterstitialExample"
+    project: Objective-C/AdMob/InterstitialExample/InterstitialExample.xcodeproj
+    xcodescheme: InterstitialExample
+  - name: "DFPInterstitialExample"
+    project: Objective-C/DoubleClick/DFPInterstitialExample/DFPInterstitialExample.xcodeproj
+    xcodescheme: DFPInterstitialExample
+  - name: "DFPBannerExample"
+    project: Objective-C/DoubleClick/DFPBannerExample/DFPBannerExample.xcodeproj
+    xcodescheme: DFPBannerExample
+  - name: "DFPRewardedVideoExample"
+    project: Objective-C/DoubleClick/DFPRewardedVideoExample/DFPRewardedVideoExample.xcodeproj
+    xcodescheme: DFPRewardedVideoExample
+  - name: "DFPCustomRenderingExample"
+    project: Objective-C/DoubleClick/DFPCustomRenderingExample/DFPCustomRenderingExample.xcodeproj
+    xcodescheme: DFPCustomRenderingExample
