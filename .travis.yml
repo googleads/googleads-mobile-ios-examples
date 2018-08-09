@@ -1,0 +1,86 @@
+language: objective-c
+osx_image: xcode9.4
+xcode_sdk: iphonesimulator
+script: pushd "$PROJ_DIR"; pod install; popd; xcodebuild -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$TRAVIS_XCODE_SCHEME" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+matrix:
+  include:
+  - name: "BannerTableViewExample"
+    xcode_workspace: Swift/Advanced/BannerTableViewExample/BannerTableViewExample.xcworkspace
+    env: PROJ_DIR="Swift/Advanced/BannerTableViewExample"
+    xcode_scheme: BannerTableViewExample
+  - name: "APIDemo"
+    xcode_workspace: Swift/Advanced/APIDemo/APIDemo.xcworkspace
+    xcode_scheme: APIDemo
+    env: PROJ_DIR="Swift/Advanced/APIDemo"
+  - name: "BannerExample"
+    xcode_workspace: Swift/AdMob/BannerExample/BannerExample.xcworkspace
+    xcode_scheme: BannerExample
+    env: PROJ_DIR="Swift/AdMob/BannerExample"
+  - name: "RewardedVideoExample"
+    xcode_workspace: Swift/AdMob/RewardedVideoExample/RewardedVideoExample.xcworkspace
+    xcode_scheme: RewardedVideoExample
+    env: PROJ_DIR="Swift/AdMob/RewardedVideoExample"
+  - name: "NativeAdvancedExample"
+    xcode_workspace: Swift/AdMob/NativeAdvancedExample/NativeAdvancedExample.xcworkspace
+    xcode_scheme: NativeAdvancedExample
+    env: PROJ_DIR="Swift/AdMob/NativeAdvancedExample"
+  - name: "InterstitialExample"
+    xcode_workspace: Swift/AdMob/InterstitialExample/InterstitialExample.xcworkspace
+    xcode_scheme: InterstitialExample
+    env: PROJ_DIR="Swift/AdMob/InterstitialExample"
+  - name: "DFPInterstitialExample"
+    xcode_workspace: Swift/DoubleClick/DFPInterstitialExample/DFPInterstitialExample.xcworkspace
+    xcode_scheme: DFPInterstitialExample
+    env: PROJ_DIR="Swift/DoubleClick/DFPInterstitialExample"
+  - name: "DFPBannerExample"
+    xcode_workspace: Swift/DoubleClick/DFPBannerExample/DFPBannerExample.xcworkspace
+    xcode_scheme: DFPBannerExample
+    env: PROJ_DIR="Swift/DoubleClick/DFPBannerExample"
+  - name: "DFPRewardedVideoExample"
+    xcode_workspace: Swift/DoubleClick/DFPRewardedVideoExample/DFPRewardedVideoExample.xcworkspace
+    xcode_scheme: DFPRewardedVideoExample
+    env: PROJ_DIR="Swift/DoubleClick/DFPRewardedVideoExample"
+  - name: "DFPCustomRenderingExample"
+    xcode_workspace: Swift/DoubleClick/DFPCustomRenderingExample/DFPCustomRenderingExample.xcworkspace
+    xcode_scheme: DFPCustomRenderingExample
+    env: PROJ_DIR="Swift/DoubleClick/DFPCustomRenderingExample"
+  - name: "BannerTableViewExample"
+    xcode_workspace: Objective-C/Advanced/BannerTableViewExample/BannerTableViewExample.xcworkspace
+    xcode_scheme: BannerTableViewExample
+    env: PROJ_DIR="Objective-C/Advanced/BannerTableViewExample"
+  - name: "APIDemo"
+    xcode_workspace: Objective-C/Advanced/APIDemo/APIDemo.xcworkspace
+    xcode_scheme: APIDemo
+    env: PROJ_DIR="Objective-C/Advanced/APIDemo"
+  - name: "BannerExample"
+    xcode_workspace: Objective-C/AdMob/BannerExample/BannerExample.xcworkspace
+    xcode_scheme: BannerExample
+    env: PROJ_DIR="Objective-C/AdMob/BannerExample"
+  - name: "RewardedVideoExample"
+    xcode_workspace: Objective-C/AdMob/RewardedVideoExample/RewardedVideoExample.xcworkspace
+    xcode_scheme: RewardedVideoExample
+    env: PROJ_DIR="Objective-C/AdMob/RewardedVideoExample"
+  - name: "NativeAdvancedExample"
+    xcode_workspace: Objective-C/AdMob/NativeAdvancedExample/NativeAdvancedExample.xcworkspace
+    xcode_scheme: NativeAdvancedExample
+    env: PROJ_DIR="Objective-C/AdMob/NativeAdvancedExample"
+  - name: "InterstitialExample"
+    xcode_workspace: Objective-C/AdMob/InterstitialExample/InterstitialExample.xcworkspace
+    xcode_scheme: InterstitialExample
+    env: PROJ_DIR="Objective-C/AdMob/InterstitialExample"
+  - name: "DFPInterstitialExample"
+    xcode_workspace: Objective-C/DoubleClick/DFPInterstitialExample/DFPInterstitialExample.xcworkspace
+    xcode_scheme: DFPInterstitialExample
+    env: PROJ_DIR="Objective-C/DoubleClick/DFPInterstitialExample"
+  - name: "DFPBannerExample"
+    xcode_workspace: Objective-C/DoubleClick/DFPBannerExample/DFPBannerExample.xcworkspace
+    xcode_scheme: DFPBannerExample
+    env: PROJ_DIR="Objective-C/DoubleClick/DFPBannerExample"
+  - name: "DFPRewardedVideoExample"
+    xcode_workspace: Objective-C/DoubleClick/DFPRewardedVideoExample/DFPRewardedVideoExample.xcworkspace
+    xcode_scheme: DFPRewardedVideoExample
+    env: PROJ_DIR="Objective-C/DoubleClick/DFPRewardedVideoExample"
+  - name: "DFPCustomRenderingExample"
+    xcode_workspace: Objective-C/DoubleClick/DFPCustomRenderingExample/DFPCustomRenderingExample.xcworkspace
+    xcode_scheme: DFPCustomRenderingExample
+    env: PROJ_DIR="Objective-C/DoubleClick/DFPCustomRenderingExample"
