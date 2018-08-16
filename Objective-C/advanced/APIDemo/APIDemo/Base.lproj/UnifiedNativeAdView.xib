@@ -71,7 +71,6 @@
                 </label>
                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-yu-K4i" customClass="GADMediaView">
                     <rect key="frame" x="87" y="102" width="200" height="120"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="999" constant="200" id="e3T-fD-di4"/>
                         <constraint firstAttribute="height" priority="999" constant="120" placeholder="YES" id="f4C-60-tvt"/>
