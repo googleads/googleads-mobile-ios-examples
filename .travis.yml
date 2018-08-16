@@ -1,6 +1,8 @@
 language: objective-c
 osx_image: xcode9.4
 xcode_sdk: iphonesimulator
+install:
+  - pod repo update
 script: pushd "$PROJ_DIR"; pod install; popd; xcodebuild -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$TRAVIS_XCODE_SCHEME" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 matrix:
   include:
