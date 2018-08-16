@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		840C3FE91DA1D82A00400493 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C3FE81DA1D82A00400493 /* main.m */; };
+		840C3FEC1DA1D82A00400493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C3FEB1DA1D82A00400493 /* AppDelegate.m */; };
+		840C3FEF1DA1D82A00400493 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C3FEE1DA1D82A00400493 /* TableViewController.m */; };
+		840C3FF21DA1D82A00400493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840C3FF01DA1D82A00400493 /* Main.storyboard */; };
+		840C3FF41DA1D82A00400493 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840C3FF31DA1D82A00400493 /* Assets.xcassets */; };
+		840C3FF71DA1D82A00400493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840C3FF51DA1D82A00400493 /* LaunchScreen.storyboard */; };
+		843022031DADB8EC00614B4A /* menu_item_image-web.png in Resources */ = {isa = PBXBuildFile; fileRef = 843022011DADB8EC00614B4A /* menu_item_image-web.png */; };
+		843022041DADB8EC00614B4A /* menuItemsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 843022021DADB8EC00614B4A /* menuItemsJSON.json */; };
+		8453A8DE1DA1D8D400A3EB72 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8453A8DD1DA1D8D400A3EB72 /* MenuItem.m */; };
+		8453A8E11DA1D8FC00A3EB72 /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453A8DF1DA1D8FC00A3EB72 /* MenuItem.xib */; };
+		8453A8E21DA1D8FC00A3EB72 /* BannerAd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453A8E01DA1D8FC00A3EB72 /* BannerAd.xib */; };
+		8453A8E51DA1DCC200A3EB72 /* MenuItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8453A8E41DA1DCC200A3EB72 /* MenuItemTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		840C3FE41DA1D82A00400493 /* BannerTableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BannerTableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		840C3FE81DA1D82A00400493 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		840C3FEA1DA1D82A00400493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		840C3FEB1DA1D82A00400493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		840C3FED1DA1D82A00400493 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		840C3FEE1DA1D82A00400493 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		840C3FF11DA1D82A00400493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		840C3FF31DA1D82A00400493 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		840C3FF61DA1D82A00400493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		840C3FF81DA1D82A00400493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		843022011DADB8EC00614B4A /* menu_item_image-web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_image-web.png"; sourceTree = "<group>"; };
+		843022021DADB8EC00614B4A /* menuItemsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
+		8453A8DC1DA1D8D400A3EB72 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		8453A8DD1DA1D8D400A3EB72 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		8453A8DF1DA1D8FC00A3EB72 /* MenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
+		8453A8E01DA1D8FC00A3EB72 /* BannerAd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerAd.xib; sourceTree = "<group>"; };
+		8453A8E31DA1DCC200A3EB72 /* MenuItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemTableViewCell.h; sourceTree = "<group>"; };
+		8453A8E41DA1DCC200A3EB72 /* MenuItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		840C3FE11DA1D82A00400493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		840C3FDB1DA1D82A00400493 = {
+			isa = PBXGroup;
+			children = (
+				840C3FE61DA1D82A00400493 /* BannerTableViewExample */,
+				840C3FE51DA1D82A00400493 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		840C3FE51DA1D82A00400493 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				840C3FE41DA1D82A00400493 /* BannerTableViewExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		840C3FE61DA1D82A00400493 /* BannerTableViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				843022011DADB8EC00614B4A /* menu_item_image-web.png */,
+				843022021DADB8EC00614B4A /* menuItemsJSON.json */,
+				8453A8E31DA1DCC200A3EB72 /* MenuItemTableViewCell.h */,
+				8453A8E41DA1DCC200A3EB72 /* MenuItemTableViewCell.m */,
+				8453A8DF1DA1D8FC00A3EB72 /* MenuItem.xib */,
+				8453A8E01DA1D8FC00A3EB72 /* BannerAd.xib */,
+				8453A8DC1DA1D8D400A3EB72 /* MenuItem.h */,
+				8453A8DD1DA1D8D400A3EB72 /* MenuItem.m */,
+				840C3FEA1DA1D82A00400493 /* AppDelegate.h */,
+				840C3FEB1DA1D82A00400493 /* AppDelegate.m */,
+				840C3FED1DA1D82A00400493 /* TableViewController.h */,
+				840C3FEE1DA1D82A00400493 /* TableViewController.m */,
+				840C3FF01DA1D82A00400493 /* Main.storyboard */,
+				840C3FF31DA1D82A00400493 /* Assets.xcassets */,
+				840C3FF51DA1D82A00400493 /* LaunchScreen.storyboard */,
+				840C3FF81DA1D82A00400493 /* Info.plist */,
+				840C3FE71DA1D82A00400493 /* Supporting Files */,
+			);
+			path = BannerTableViewExample;
+			sourceTree = "<group>";
+		};
+		840C3FE71DA1D82A00400493 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				840C3FE81DA1D82A00400493 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		840C3FE31DA1D82A00400493 /* BannerTableViewExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 840C3FFB1DA1D82A00400493 /* Build configuration list for PBXNativeTarget "BannerTableViewExample" */;
+			buildPhases = (
+				840C3FE01DA1D82A00400493 /* Sources */,
+				840C3FE11DA1D82A00400493 /* Frameworks */,
+				840C3FE21DA1D82A00400493 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BannerTableViewExample;
+			productName = BannerTableViewExample;
+			productReference = 840C3FE41DA1D82A00400493 /* BannerTableViewExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		840C3FDC1DA1D82A00400493 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Google;
+				TargetAttributes = {
+					840C3FE31DA1D82A00400493 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 840C3FDF1DA1D82A00400493 /* Build configuration list for PBXProject "BannerTableViewExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 840C3FDB1DA1D82A00400493;
+			productRefGroup = 840C3FE51DA1D82A00400493 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				840C3FE31DA1D82A00400493 /* BannerTableViewExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		840C3FE21DA1D82A00400493 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				843022031DADB8EC00614B4A /* menu_item_image-web.png in Resources */,
+				840C3FF71DA1D82A00400493 /* LaunchScreen.storyboard in Resources */,
+				8453A8E11DA1D8FC00A3EB72 /* MenuItem.xib in Resources */,
+				840C3FF41DA1D82A00400493 /* Assets.xcassets in Resources */,
+				840C3FF21DA1D82A00400493 /* Main.storyboard in Resources */,
+				843022041DADB8EC00614B4A /* menuItemsJSON.json in Resources */,
+				8453A8E21DA1D8FC00A3EB72 /* BannerAd.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		840C3FE01DA1D82A00400493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840C3FEF1DA1D82A00400493 /* TableViewController.m in Sources */,
+				8453A8DE1DA1D8D400A3EB72 /* MenuItem.m in Sources */,
+				8453A8E51DA1DCC200A3EB72 /* MenuItemTableViewCell.m in Sources */,
+				840C3FEC1DA1D82A00400493 /* AppDelegate.m in Sources */,
+				840C3FE91DA1D82A00400493 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		840C3FF01DA1D82A00400493 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				840C3FF11DA1D82A00400493 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		840C3FF51DA1D82A00400493 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				840C3FF61DA1D82A00400493 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		840C3FF91DA1D82A00400493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		840C3FFA1DA1D82A00400493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		840C3FFC1DA1D82A00400493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/BannerTableViewExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.BannerTableViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		840C3FFD1DA1D82A00400493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/BannerTableViewExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.BannerTableViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		840C3FDF1DA1D82A00400493 /* Build configuration list for PBXProject "BannerTableViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840C3FF91DA1D82A00400493 /* Debug */,
+				840C3FFA1DA1D82A00400493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		840C3FFB1DA1D82A00400493 /* Build configuration list for PBXNativeTarget "BannerTableViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840C3FFC1DA1D82A00400493 /* Debug */,
+				840C3FFD1DA1D82A00400493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 840C3FDC1DA1D82A00400493 /* Project object */;
+}
