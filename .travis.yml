@@ -30,22 +30,22 @@ matrix:
     xcode_workspace: Swift/AdMob/InterstitialExample/InterstitialExample.xcworkspace
     xcode_scheme: InterstitialExample
     env: PROJ_DIR="Swift/AdMob/InterstitialExample"
-  - name: "DFPInterstitialExample"
-    xcode_workspace: Swift/DoubleClick/DFPInterstitialExample/DFPInterstitialExample.xcworkspace
-    xcode_scheme: DFPInterstitialExample
-    env: PROJ_DIR="Swift/DoubleClick/DFPInterstitialExample"
-  - name: "DFPBannerExample"
-    xcode_workspace: Swift/DoubleClick/DFPBannerExample/DFPBannerExample.xcworkspace
-    xcode_scheme: DFPBannerExample
-    env: PROJ_DIR="Swift/DoubleClick/DFPBannerExample"
-  - name: "DFPRewardedVideoExample"
-    xcode_workspace: Swift/DoubleClick/DFPRewardedVideoExample/DFPRewardedVideoExample.xcworkspace
-    xcode_scheme: DFPRewardedVideoExample
-    env: PROJ_DIR="Swift/DoubleClick/DFPRewardedVideoExample"
-  - name: "DFPCustomRenderingExample"
-    xcode_workspace: Swift/DoubleClick/DFPCustomRenderingExample/DFPCustomRenderingExample.xcworkspace
-    xcode_scheme: DFPCustomRenderingExample
-    env: PROJ_DIR="Swift/DoubleClick/DFPCustomRenderingExample"
+  - name: "AdManagerInterstitialExample"
+    xcode_workspace: Swift/AdManager/AdManagerInterstitialExample/AdManagerInterstitialExample.xcworkspace
+    xcode_scheme: AdManagerInterstitialExample
+    env: PROJ_DIR="Swift/AdManager/AdManagerInterstitialExample"
+  - name: "AdManagerBannerExample"
+    xcode_workspace: Swift/AdManager/AdManagerBannerExample/AdManagerBannerExample.xcworkspace
+    xcode_scheme: AdManagerBannerExample
+    env: PROJ_DIR="Swift/AdManager/AdManagerBannerExample"
+  - name: "AdManagerRewardedVideoExample"
+    xcode_workspace: Swift/AdManager/AdManagerRewardedVideoExample/AdManagerRewardedVideoExample.xcworkspace
+    xcode_scheme: AdManagerRewardedVideoExample
+    env: PROJ_DIR="Swift/AdManager/AdManagerRewardedVideoExample"
+  - name: "AdManagerCustomRenderingExample"
+    xcode_workspace: Swift/AdManager/AdManagerCustomRenderingExample/AdManagerCustomRenderingExample.xcworkspace
+    xcode_scheme: AdManagerCustomRenderingExample
+    env: PROJ_DIR="Swift/AdManager/AdManagerCustomRenderingExample"
   - name: "BannerTableViewExample"
     xcode_workspace: Objective-C/Advanced/BannerTableViewExample/BannerTableViewExample.xcworkspace
     xcode_scheme: BannerTableViewExample
@@ -70,19 +70,19 @@ matrix:
     xcode_workspace: Objective-C/AdMob/InterstitialExample/InterstitialExample.xcworkspace
     xcode_scheme: InterstitialExample
     env: PROJ_DIR="Objective-C/AdMob/InterstitialExample"
-  - name: "DFPInterstitialExample"
-    xcode_workspace: Objective-C/DoubleClick/DFPInterstitialExample/DFPInterstitialExample.xcworkspace
-    xcode_scheme: DFPInterstitialExample
-    env: PROJ_DIR="Objective-C/DoubleClick/DFPInterstitialExample"
-  - name: "DFPBannerExample"
-    xcode_workspace: Objective-C/DoubleClick/DFPBannerExample/DFPBannerExample.xcworkspace
-    xcode_scheme: DFPBannerExample
-    env: PROJ_DIR="Objective-C/DoubleClick/DFPBannerExample"
-  - name: "DFPRewardedVideoExample"
-    xcode_workspace: Objective-C/DoubleClick/DFPRewardedVideoExample/DFPRewardedVideoExample.xcworkspace
-    xcode_scheme: DFPRewardedVideoExample
-    env: PROJ_DIR="Objective-C/DoubleClick/DFPRewardedVideoExample"
-  - name: "DFPCustomRenderingExample"
-    xcode_workspace: Objective-C/DoubleClick/DFPCustomRenderingExample/DFPCustomRenderingExample.xcworkspace
-    xcode_scheme: DFPCustomRenderingExample
-    env: PROJ_DIR="Objective-C/DoubleClick/DFPCustomRenderingExample"
+  - name: "AdManagerInterstitialExample"
+    xcode_workspace: Objective-C/AdManager/AdManagerInterstitialExample/AdManagerInterstitialExample.xcworkspace
+    xcode_scheme: AdManagerInterstitialExample
+    env: PROJ_DIR="Objective-C/AdManager/AdManagerInterstitialExample"
+  - name: "AdManagerBannerExample"
+    xcode_workspace: Objective-C/AdManager/AdManagerBannerExample/AdManagerBannerExample.xcworkspace
+    xcode_scheme: AdManagerBannerExample
+    env: PROJ_DIR="Objective-C/AdManager/AdManagerBannerExample"
+  - name: "AdManagerRewardedVideoExample"
+    xcode_workspace: Objective-C/AdManager/AdManagerRewardedVideoExample/AdManagerRewardedVideoExample.xcworkspace
+    xcode_scheme: AdManagerRewardedVideoExample
+    env: PROJ_DIR="Objective-C/AdManager/AdManagerRewardedVideoExample"
+  - name: "AdManagerCustomRenderingExample"
+    xcode_workspace: Objective-C/AdManager/AdManagerCustomRenderingExample/AdManagerCustomRenderingExample.xcworkspace
+    xcode_scheme: AdManagerCustomRenderingExample
+    env: PROJ_DIR="Objective-C/AdManager/AdManagerCustomRenderingExample"
