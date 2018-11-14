@@ -121,11 +121,8 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   nativeAd.delegate = self;
 
   // Populate the native ad view with the native ad assets.
-  // Some assets are guaranteed to be present in every native ad.
+  // The headline is guaranteed to be present in every native ad.
   ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
-  ((UILabel *)nativeAdView.bodyView).text = nativeAd.body;
-  [((UIButton *)nativeAdView.callToActionView)setTitle:nativeAd.callToAction
-                                              forState:UIControlStateNormal];
 
   // Some native ads will include a video asset, while others do not. Apps can
   // use the GADVideoController's hasVideoContent property to determine if one
@@ -154,41 +151,29 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
     self.videoStatusLabel.text = @"Ad does not contain a video.";
   }
 
-  // These assets are not guaranteed to be present, and should be checked first.
+  // These assets are not guaranteed to be present. Check that they are before
+  // showing or hiding them.
+  ((UILabel *)nativeAdView.bodyView).text = nativeAd.body;
+  nativeAdView.bodyView.hidden = nativeAd.body ? NO : YES;
+
+  [((UIButton *)nativeAdView.callToActionView) setTitle:nativeAd.callToAction
+                                               forState:UIControlStateNormal];
+  nativeAdView.callToActionView.hidden = nativeAd.callToAction ? NO : YES;
+
   ((UIImageView *)nativeAdView.iconView).image = nativeAd.icon.image;
-  if (nativeAd.icon != nil) {
-    nativeAdView.iconView.hidden = NO;
-  } else {
-    nativeAdView.iconView.hidden = YES;
-  }
+  nativeAdView.iconView.hidden = nativeAd.icon ? NO : YES;
 
   ((UIImageView *)nativeAdView.starRatingView).image = [self imageForStars:nativeAd.starRating];
-  if (nativeAd.starRating) {
-    nativeAdView.starRatingView.hidden = NO;
-  } else {
-    nativeAdView.starRatingView.hidden = YES;
-  }
+  nativeAdView.starRatingView.hidden = nativeAd.starRating ? NO : YES;
 
   ((UILabel *)nativeAdView.storeView).text = nativeAd.store;
-  if (nativeAd.store) {
-    nativeAdView.storeView.hidden = NO;
-  } else {
-    nativeAdView.storeView.hidden = YES;
-  }
+  nativeAdView.storeView.hidden = nativeAd.store ? NO : YES;
 
   ((UILabel *)nativeAdView.priceView).text = nativeAd.price;
-  if (nativeAd.price) {
-    nativeAdView.priceView.hidden = NO;
-  } else {
-    nativeAdView.priceView.hidden = YES;
-  }
+  nativeAdView.priceView.hidden = nativeAd.price ? NO : YES;
 
   ((UILabel *)nativeAdView.advertiserView).text = nativeAd.advertiser;
-  if (nativeAd.advertiser) {
-    nativeAdView.advertiserView.hidden = NO;
-  } else {
-    nativeAdView.advertiserView.hidden = YES;
-  }
+  nativeAdView.advertiserView.hidden = nativeAd.advertiser ? NO : YES;
 
   // In order for the SDK to process touch events properly, user interaction
   // should be disabled.

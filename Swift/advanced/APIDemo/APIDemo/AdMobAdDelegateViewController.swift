@@ -21,7 +21,7 @@ import UIKit
 /// Demonstrates handling GADBannerViewDelegate ad request status and ad click lifecycle messages.
 /// This is an AdMob example, so it uses a GADBannerView to show an AdMob ad. GADBannerViewDelegate
 /// also works with DFPBannerView objects, so publishers displaying ads from
-/// DoubleClick For Publishers (DFP) can also use it with their banners. To see this in action,
+/// AdManager can also use it with their banners. To see this in action,
 /// use the DFPBannerView class instead of GADBannerView.
 class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
 

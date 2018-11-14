@@ -8,7 +8,7 @@ networks and advertising solutions. The SDK enables mobile app developers to
 maximize their monetization in native mobile apps.
 
 This repository contains open source examples and developer resources for both
-the AdMob and DoubleClick For Publishers components of the Google Mobile Ads
+the Google AdMob and Google AdManager components of the Google Mobile Ads
 SDK.
 
 # Google Mobile Ads SDK Developers forum
@@ -55,12 +55,12 @@ for more information on installing and updating pods.
     Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/BannerTableViewExample) -
     Provides an example for displaying ads from AdMob Banners in a UITableView.
 
-### DoubleClick
+### AdManager
 
-*   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPBannerExample)
-*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPInterstitialExample)
-*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPRewardedVideoExample)
-*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/doubleclick/DFPCustomRenderingExample)
+*   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerBannerExample)
+*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerInterstitialExample)
+*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerRewardedVideoExample)
+*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerCustomRenderingExample)
 
 ## Objective-C
 
@@ -82,12 +82,12 @@ for more information on installing and updating pods.
     -   Provides an example for displaying ads from AdMob Banners in a
         UITableView.
 
-### DoubleClick
+### AdManager
 
-*   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPBannerExample)
-*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPInterstitialExample)
-*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPRewardedVideoExample)
-*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/doubleclick/DFPCustomRenderingExample)
+*   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerBannerExample)
+*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerInterstitialExample)
+*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerRewardedVideoExample)
+*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerCustomRenderingExample)
 
 # Downloads
 

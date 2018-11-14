@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,6 +15,7 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lX3-6S-GKB"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -73,6 +74,7 @@
                         <segue destination="ACN-Io-i2Z" kind="push" identifier="appEventsSegue" id="2R6-lJ-c5n"/>
                         <segue destination="hZP-P9-1wH" kind="push" identifier="fluidAdSizeSegue" id="UQn-Bs-pNU"/>
                         <segue destination="FgD-4P-bPV" kind="push" identifier="customControlsSegue" id="ZhH-lF-0He"/>
+                        <segue destination="85K-uZ-lc0" kind="push" identifier="customMuteSegue" id="wZD-GP-O3D"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -82,7 +84,7 @@
         <!--Fluid Ad Size-->
         <scene sceneID="ePw-mV-wXI">
             <objects>
-                <viewController id="hZP-P9-1wH" customClass="DFPFluidAdSizeViewController" sceneMemberID="viewController">
+                <viewController id="hZP-P9-1wH" customClass="GAMFluidAdSizeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qv5-BQ-OFS"/>
                         <viewControllerLayoutGuide type="bottom" id="weC-1w-zk0"/>
@@ -185,7 +187,7 @@
         <!--App Events-->
         <scene sceneID="oW2-Dk-iY7">
             <objects>
-                <viewController id="ACN-Io-i2Z" customClass="DFPAppEventsViewController" sceneMemberID="viewController">
+                <viewController id="ACN-Io-i2Z" customClass="GAMAppEventsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DWc-vz-EaM"/>
                         <viewControllerLayoutGuide type="bottom" id="Vwe-Q6-psF"/>
@@ -194,7 +196,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DFP - App Events Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUZ-zD-2qA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAM - App Events Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUZ-zD-2qA">
                                 <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -231,7 +233,7 @@
         <!--Multiple Ad Sizes-->
         <scene sceneID="7LE-f5-MhX">
             <objects>
-                <viewController id="BTh-KS-kUZ" customClass="DFPMultipleAdSizesViewController" sceneMemberID="viewController">
+                <viewController id="BTh-KS-kUZ" customClass="GAMMultipleAdSizesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rZc-oT-Hxf"/>
                         <viewControllerLayoutGuide type="bottom" id="af7-eQ-crm"/>
@@ -321,7 +323,7 @@
         <!--Category Exclusions-->
         <scene sceneID="i4M-Vb-7p4">
             <objects>
-                <viewController id="HhA-l7-bao" customClass="DFPCategoryExclusionsViewController" sceneMemberID="viewController">
+                <viewController id="HhA-l7-bao" customClass="GAMCategoryExclusionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rg8-Vu-1YP"/>
                         <viewControllerLayoutGuide type="bottom" id="aHP-gz-Mek"/>
@@ -417,7 +419,7 @@
         <!--Custom Targeting-->
         <scene sceneID="KYy-6U-A48">
             <objects>
-                <viewController id="o2B-iV-CFU" customClass="DFPCustomTargetingViewController" sceneMemberID="viewController">
+                <viewController id="o2B-iV-CFU" customClass="GAMCustomTargetingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JCW-uJ-GdV"/>
                         <viewControllerLayoutGuide type="bottom" id="l2z-gC-3Df"/>
@@ -483,7 +485,7 @@
         <!--PPID-->
         <scene sceneID="YjN-75-aGf">
             <objects>
-                <viewController id="A89-me-KdG" customClass="DFPPPIDViewController" sceneMemberID="viewController">
+                <viewController id="A89-me-KdG" customClass="GAMPPIDViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZJ0-Lp-Jr1"/>
                         <viewControllerLayoutGuide type="bottom" id="pym-Ng-LjP"/>
@@ -624,7 +626,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdMob - Ad Delegate Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XE-lI-LEL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google AdMob - Ad Delegate Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XE-lI-LEL">
                                 <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -770,7 +772,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ho-BD-J7F" customClass="GADBannerView">
-                                                    <rect key="frame" x="27.5" y="-0.5" width="320" height="50"/>
+                                                    <rect key="frame" x="27.5" y="-3" width="320" height="50"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="cN8-Do-zlO"/>
@@ -811,7 +813,7 @@
         <!--Custom Video Controls Controller-->
         <scene sceneID="w1u-GC-c7x">
             <objects>
-                <viewController id="FgD-4P-bPV" customClass="DFPCustomVideoControlsController" sceneMemberID="viewController">
+                <viewController id="FgD-4P-bPV" customClass="GAMCustomVideoControlsController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="icX-vh-OJ2"/>
                         <viewControllerLayoutGuide type="bottom" id="wkD-Eq-pKQ"/>
@@ -1042,6 +1044,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTk-F3-aEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896.5" y="4592.5"/>
+        </scene>
+        <!--Custom Mute Demo-->
+        <scene sceneID="Wbv-64-Y8t">
+            <objects>
+                <viewController title="Custom Mute Demo" id="85K-uZ-lc0" customClass="AdMobNativeCustomMuteThisAdViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="amW-te-ZTd"/>
+                        <viewControllerLayoutGuide type="bottom" id="V7E-u0-nck"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JaW-QI-Q7M" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbL-u9-aNW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hg4-Ye-z42" userLabel="Outer Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLG-fU-i2h" userLabel="Placeholder View">
+                                                <rect key="frame" x="8" y="10" width="359" height="300"/>
+                                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="999" constant="300" id="pal-Lq-45n"/>
+                                                </constraints>
+                                            </view>
+                                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqs-RW-Qej">
+                                                <rect key="frame" x="8" y="10.5" width="359" height="300"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-6R-tfe">
+                                                <rect key="frame" x="8" y="363.5" width="359" height="33"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Refresh Ad"/>
+                                                <connections>
+                                                    <action selector="refreshAd:" destination="85K-uZ-lc0" eventType="touchUpInside" id="umH-A4-TSY"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2H-mG-Lmm">
+                                                <rect key="frame" x="8" y="406.5" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaM-zm-0ER">
+                                                <rect key="frame" x="8" y="320.5" width="359" height="33"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Mute Ad"/>
+                                                <connections>
+                                                    <action selector="muteAd:" destination="85K-uZ-lc0" eventType="touchUpInside" id="dC2-d2-Guh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Nqs-RW-Qej" firstAttribute="centerY" secondItem="DLG-fU-i2h" secondAttribute="centerY" id="0Ud-SP-cdh"/>
+                                            <constraint firstItem="s2H-mG-Lmm" firstAttribute="top" secondItem="q4r-6R-tfe" secondAttribute="bottom" constant="10" id="0h3-8x-e6B"/>
+                                            <constraint firstItem="WaM-zm-0ER" firstAttribute="width" secondItem="q4r-6R-tfe" secondAttribute="width" id="0mq-66-toH"/>
+                                            <constraint firstItem="DLG-fU-i2h" firstAttribute="centerX" secondItem="Hg4-Ye-z42" secondAttribute="centerX" id="8ys-r8-54Q"/>
+                                            <constraint firstItem="WaM-zm-0ER" firstAttribute="centerX" secondItem="Hg4-Ye-z42" secondAttribute="centerX" id="FeK-Kh-egr"/>
+                                            <constraint firstItem="Nqs-RW-Qej" firstAttribute="centerX" secondItem="DLG-fU-i2h" secondAttribute="centerX" id="HIb-33-YIG"/>
+                                            <constraint firstItem="WaM-zm-0ER" firstAttribute="top" secondItem="Nqs-RW-Qej" secondAttribute="bottom" constant="10" id="NAG-RS-RgD"/>
+                                            <constraint firstAttribute="height" constant="600" id="PCp-eC-hey"/>
+                                            <constraint firstItem="Nqs-RW-Qej" firstAttribute="height" secondItem="DLG-fU-i2h" secondAttribute="height" id="Sj5-YA-xFE"/>
+                                            <constraint firstItem="s2H-mG-Lmm" firstAttribute="leading" secondItem="Hg4-Ye-z42" secondAttribute="leading" constant="8" id="Xlk-kV-Q3e"/>
+                                            <constraint firstAttribute="trailing" secondItem="s2H-mG-Lmm" secondAttribute="trailing" constant="8" id="b1F-PF-CSK"/>
+                                            <constraint firstItem="Nqs-RW-Qej" firstAttribute="width" secondItem="DLG-fU-i2h" secondAttribute="width" id="daV-KH-qoq"/>
+                                            <constraint firstItem="q4r-6R-tfe" firstAttribute="top" secondItem="WaM-zm-0ER" secondAttribute="bottom" constant="10" id="eqQ-RS-tvi"/>
+                                            <constraint firstItem="q4r-6R-tfe" firstAttribute="leading" secondItem="Hg4-Ye-z42" secondAttribute="leading" constant="8" id="f2A-am-5vN"/>
+                                            <constraint firstAttribute="trailing" secondItem="DLG-fU-i2h" secondAttribute="trailing" constant="8" id="h9a-VT-iG2"/>
+                                            <constraint firstAttribute="trailing" secondItem="q4r-6R-tfe" secondAttribute="trailing" constant="8" id="iyp-aq-gQB"/>
+                                            <constraint firstItem="DLG-fU-i2h" firstAttribute="leading" secondItem="Hg4-Ye-z42" secondAttribute="leading" constant="8" id="wih-VD-vQ2"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Hg4-Ye-z42" secondAttribute="bottom" id="MO6-Ek-a2p"/>
+                                    <constraint firstItem="DLG-fU-i2h" firstAttribute="top" secondItem="rbL-u9-aNW" secondAttribute="top" constant="10" id="a9z-GW-N9t"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hg4-Ye-z42" secondAttribute="trailing" id="b3r-Jn-ASK"/>
+                                    <constraint firstItem="Hg4-Ye-z42" firstAttribute="leading" secondItem="rbL-u9-aNW" secondAttribute="leading" id="idw-Rn-SKu"/>
+                                    <constraint firstItem="Hg4-Ye-z42" firstAttribute="top" secondItem="rbL-u9-aNW" secondAttribute="top" id="ode-Mo-ASt"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rbL-u9-aNW" firstAttribute="leading" secondItem="JaW-QI-Q7M" secondAttribute="leading" id="79C-Qn-NQI"/>
+                            <constraint firstItem="Hg4-Ye-z42" firstAttribute="width" secondItem="JaW-QI-Q7M" secondAttribute="width" id="KZp-bw-fpG"/>
+                            <constraint firstItem="V7E-u0-nck" firstAttribute="top" secondItem="rbL-u9-aNW" secondAttribute="bottom" id="exv-uf-Mpa"/>
+                            <constraint firstItem="rbL-u9-aNW" firstAttribute="top" secondItem="amW-te-ZTd" secondAttribute="bottom" id="gat-02-QSM"/>
+                            <constraint firstAttribute="trailing" secondItem="rbL-u9-aNW" secondAttribute="trailing" id="mwp-JK-fzh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Custom Mute This Native Ad" id="Ox9-uV-Mcr"/>
+                    <connections>
+                        <outlet property="muteAdButton" destination="WaM-zm-0ER" id="0BP-oF-rMm"/>
+                        <outlet property="nativeAdPlaceholder" destination="DLG-fU-i2h" id="Lmp-n1-ifR"/>
+                        <outlet property="pickerView" destination="Nqs-RW-Qej" id="rZN-VK-t03"/>
+                        <outlet property="refreshButton" destination="q4r-6R-tfe" id="YoR-Pb-5FX"/>
+                        <outlet property="versionLabel" destination="s2H-mG-Lmm" id="YzC-m6-3Tf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="267-3n-oPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="897" y="5358"/>
         </scene>
     </scenes>
 </document>

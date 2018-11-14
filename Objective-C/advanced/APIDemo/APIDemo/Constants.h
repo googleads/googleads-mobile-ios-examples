@@ -22,20 +22,20 @@
 /// Banner ad unit ID.
 static NSString *const kAdMobAdUnitID = @"ca-app-pub-3940256099942544/2934735716";
 
-/// DFP PPID ad unit ID.
-static NSString *const kDFPPPIDAdUnitID = @"/6499/example/APIDemo/PPID";
+/// GAM PPID ad unit ID.
+static NSString *const kAdManagerPPIDAdUnitID = @"/6499/example/APIDemo/PPID";
 
-/// DFP custom targeting ad unit ID.
-static NSString *const kDFPCustomTargetingAdUnitID = @"/6499/example/APIDemo/CustomTargeting";
+/// GAM custom targeting ad unit ID.
+static NSString *const kAdManagerCustomTargetingAdUnitID = @"/6499/example/APIDemo/CustomTargeting";
 
-/// DFP category exclusions ad unit ID.
-static NSString *const kDFPCategoryExclusionsAdUnitID = @"/6499/example/APIDemo/CategoryExclusion";
+/// GAM category exclusions ad unit ID.
+static NSString *const kAdManagerCategoryExclusionsAdUnitID = @"/6499/example/APIDemo/CategoryExclusion";
 
-/// DFP ad sizes ad unit ID.
-static NSString *const kDFPAdSizesAdUnitID = @"/6499/example/APIDemo/AdSizes";
+/// GAM ad sizes ad unit ID.
+static NSString *const kAdManagerAdSizesAdUnitID = @"/6499/example/APIDemo/AdSizes";
 
-/// DFP app events ad unit ID.
-static NSString *const kDFPAppEventsAdUnitID = @"/6499/example/APIDemo/AppEvents";
+/// GAM app events ad unit ID.
+static NSString *const kAdManagerAppEventsAdUnitID = @"/6499/example/APIDemo/AppEvents";
 
-/// DFP Fluid ad size ad unit ID.
-static NSString *const kDFPFluidAdSizeAdUnitID = @"/6499/example/APIDemo/Fluid";
+/// GAM Fluid ad size ad unit ID.
+static NSString *const kAdManagerFluidAdSizeAdUnitID = @"/6499/example/APIDemo/Fluid";

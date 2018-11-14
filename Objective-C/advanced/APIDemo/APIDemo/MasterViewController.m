@@ -22,12 +22,12 @@
 #import "AdMobAdDelegateViewController.h"
 #import "AdMobAdTargetingTableViewController.h"
 #import "AdMobBannerSizesViewController.h"
-#import "DFPAppEventsViewController.h"
-#import "DFPCategoryExclusionsViewController.h"
-#import "DFPCustomTargetingViewController.h"
-#import "DFPFluidAdSizeViewController.h"
-#import "DFPMultipleAdSizesViewController.h"
-#import "DFPPPIDViewController.h"
+#import "GAMAppEventsViewController.h"
+#import "GAMCategoryExclusionsViewController.h"
+#import "GAMCustomTargetingViewController.h"
+#import "GAMFluidAdSizeViewController.h"
+#import "GAMMultipleAdSizesViewController.h"
+#import "GAMPPIDViewController.h"
 
 @interface MasterViewController ()
 
@@ -41,37 +41,21 @@
 
 @implementation MasterViewController
 
-- (void)awakeFromNib {
-  [super awakeFromNib];
-}
-
 - (void)viewDidLoad {
   [super viewDidLoad];
 
   self.APIDemoNames = @[
-    @"AdMob - Ad Delegate",
-    @"AdMob - Ad Targeting",
-    @"AdMob - Banner Sizes",
-    @"DFP - PPID",
-    @"DFP - Custom Targeting",
-    @"DFP - Category Exclusions",
-    @"DFP - Multiple Ad Sizes",
-    @"DFP - App Events",
-    @"DFP - Fluid Ad Size",
-    @"DFP - Custom Video Controls"
+    @"Google AdMob - Ad Delegate", @"Google AdMob - Ad Targeting", @"Google AdMob - Banner Sizes",
+    @"Google AdMob - Native Custom Mute This Ad", @"Google Ad Manager - PPID",
+    @"Google Ad Manager - Custom Targeting", @"Google Ad Manager - Category Exclusions",
+    @"Google Ad Manager - Multiple Ad Sizes", @"Google Ad Manager - App Events",
+    @"Google Ad Manager - Fluid Ad Size", @"Google Ad Manager - Custom Video Controls"
   ];
 
   self.identifiers = @[
-    @"adDelegateSegue",
-    @"adTargetingSegue",
-    @"bannerSizesSegue",
-    @"PPIDSegue",
-    @"customTargetingSegue",
-    @"categoryExclusionsSegue",
-    @"multipleAdSizesSegue",
-    @"appEventsSegue",
-    @"fluidAdSizeSegue",
-    @"customControlsSegue"
+    @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue", @"PPIDSegue",
+    @"customTargetingSegue", @"categoryExclusionsSegue", @"multipleAdSizesSegue", @"appEventsSegue",
+    @"fluidAdSizeSegue", @"customControlsSegue"
   ];
 }
 
@@ -93,8 +77,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell =
-      [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"
+                                                          forIndexPath:indexPath];
 
   cell.textLabel.text = self.APIDemoNames[indexPath.row];
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,7 +43,9 @@
                             <outlet property="delegate" destination="rgG-Vb-s3h" id="PcD-Br-1HA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mobile Ads API Demos" id="txe-sf-HQp"/>
+                    <navigationItem key="navigationItem" title="Mobile Ads API Demos" id="txe-sf-HQp">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Z8T-DA-hBI"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="OUt-Fy-VN6" kind="push" identifier="adDelegateSegue" id="hbU-0z-qka"/>
                         <segue destination="bHS-2y-q3I" kind="push" identifier="adTargetingSegue" id="xSs-po-TZ6"/>
@@ -55,6 +57,7 @@
                         <segue destination="NoA-UU-YlB" kind="push" identifier="fluidAdSizeSegue" id="2O2-UN-D6v"/>
                         <segue destination="5OW-Tt-Lkb" kind="push" identifier="categoryExclusionsSegue" id="I8g-sQ-met"/>
                         <segue destination="0pF-XL-2Gg" kind="push" identifier="customControlsSegue" id="Mm9-Ps-uWQ"/>
+                        <segue destination="vXG-c1-boa" kind="push" identifier="customMuteSegue" id="qmv-Nm-RUB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXI-ZH-ukg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,7 +67,7 @@
         <!--PPID-->
         <scene sceneID="Yvt-5i-VLn">
             <objects>
-                <viewController id="6F3-xa-PzT" customClass="DFPPPIDViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6F3-xa-PzT" customClass="AdManagerPPIDViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="izv-It-ILG"/>
                         <viewControllerLayoutGuide type="bottom" id="dpe-nd-D6g"/>
@@ -131,7 +134,7 @@
         <!--App Events-->
         <scene sceneID="4AD-Qh-phh">
             <objects>
-                <viewController id="By3-6Y-GeB" customClass="DFPAppEventsViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="By3-6Y-GeB" customClass="AdManagerAppEventsViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KUQ-3f-7EA"/>
                         <viewControllerLayoutGuide type="bottom" id="rX5-I1-aoX"/>
@@ -140,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DFP - App Events Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOP-1h-DTr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdManager - App Events Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOP-1h-DTr">
                                 <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -176,7 +179,7 @@
         <!--Fluid Ad Size-->
         <scene sceneID="tm9-GI-tt3">
             <objects>
-                <viewController id="NoA-UU-YlB" customClass="DFPFluidAdSizeViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NoA-UU-YlB" customClass="AdManagerFluidAdSizeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LWk-Ig-ZWG"/>
                         <viewControllerLayoutGuide type="bottom" id="QNZ-Vy-BQ8"/>
@@ -283,7 +286,7 @@
         <!--Multiple Ad Sizes-->
         <scene sceneID="cCY-Lh-36J">
             <objects>
-                <viewController id="YxH-V9-hQ8" customClass="DFPMultipleAdSizesViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YxH-V9-hQ8" customClass="AdManagerMultipleAdSizesViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nhw-UZ-5T9"/>
                         <viewControllerLayoutGuide type="bottom" id="gJB-JN-d95"/>
@@ -372,7 +375,7 @@
         <!--Category Exclusions-->
         <scene sceneID="tKv-sr-fAO">
             <objects>
-                <tableViewController id="5OW-Tt-Lkb" customClass="DFPCategoryExclusionsTableViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="5OW-Tt-Lkb" customClass="AdManagerCategoryExclusionsTableViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ptx-LA-TTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -476,7 +479,7 @@
         <!--Custom Targeting-->
         <scene sceneID="6bT-wh-TYM">
             <objects>
-                <viewController id="1ne-ZH-RRA" customClass="DFPCustomTargetingViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1ne-ZH-RRA" customClass="AdManagerCustomTargetingViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t3S-an-hQl"/>
                         <viewControllerLayoutGuide type="bottom" id="FWs-W2-I05"/>
@@ -786,10 +789,10 @@
             </objects>
             <point key="canvasLocation" x="-267" y="830"/>
         </scene>
-        <!--Custom Video Controls Controller-->
+        <!--Ad Manager Custom Video Controls Controller-->
         <scene sceneID="rJK-P2-dBL">
             <objects>
-                <viewController id="0pF-XL-2Gg" customClass="DFPCustomVideoControlsController" customModule="APIDemo" sceneMemberID="viewController">
+                <viewController id="0pF-XL-2Gg" customClass="AdManagerCustomVideoControlsController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EB3-St-lTY"/>
                         <viewControllerLayoutGuide type="bottom" id="QL0-Sx-E6j"/>
@@ -1021,6 +1024,127 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQ8-9s-J1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="794" y="4682"/>
+        </scene>
+        <!--Custom Mute Demo-->
+        <scene sceneID="QXy-Kh-CTF">
+            <objects>
+                <viewController title="Custom Mute Demo" id="vXG-c1-boa" customClass="AdMobNativeCustomMuteThisAdViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qN0-ak-NJO"/>
+                        <viewControllerLayoutGuide type="bottom" id="mcX-5M-HLw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kFq-Zr-3iH" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQi-oA-Ond">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDH-2H-0C1" userLabel="Outer Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qe-Rt-zWT" userLabel="Placeholder View">
+                                                <rect key="frame" x="8" y="10" width="359" height="300"/>
+                                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="999" constant="300" id="Tnm-aU-gTf"/>
+                                                </constraints>
+                                            </view>
+                                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZI-ry-wpg">
+                                                <rect key="frame" x="8" y="10.5" width="359" height="300"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-49-7Yq">
+                                                <rect key="frame" x="10" y="320" width="355" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20.5" id="TWf-rb-92N"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbc-aS-qI6">
+                                                <rect key="frame" x="8" y="393.5" width="359" height="33"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Refresh Ad"/>
+                                                <connections>
+                                                    <action selector="refreshAd:" destination="vXG-c1-boa" eventType="touchUpInside" id="K8H-ga-STO"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-Ut-Fpv">
+                                                <rect key="frame" x="8" y="436.5" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-tl-8Vd">
+                                                <rect key="frame" x="8" y="350.5" width="359" height="33"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Mute Ad"/>
+                                                <connections>
+                                                    <action selector="muteAd:" destination="vXG-c1-boa" eventType="touchUpInside" id="T1F-NA-Pea"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="cFS-49-7Yq" firstAttribute="leading" secondItem="mDH-2H-0C1" secondAttribute="leading" constant="10" id="3QK-q4-yNO"/>
+                                            <constraint firstItem="cFS-49-7Yq" firstAttribute="centerX" secondItem="mDH-2H-0C1" secondAttribute="centerX" id="3vx-Lm-4LF"/>
+                                            <constraint firstItem="b1O-tl-8Vd" firstAttribute="width" secondItem="Gbc-aS-qI6" secondAttribute="width" id="4gl-lw-TQ8"/>
+                                            <constraint firstAttribute="trailing" secondItem="2qe-Rt-zWT" secondAttribute="trailing" constant="8" id="7t7-fL-dnG"/>
+                                            <constraint firstItem="tLx-Ut-Fpv" firstAttribute="top" secondItem="Gbc-aS-qI6" secondAttribute="bottom" constant="10" id="9hP-PW-zHa"/>
+                                            <constraint firstItem="2ZI-ry-wpg" firstAttribute="height" secondItem="2qe-Rt-zWT" secondAttribute="height" id="D57-0e-FZN"/>
+                                            <constraint firstItem="cFS-49-7Yq" firstAttribute="top" secondItem="2qe-Rt-zWT" secondAttribute="bottom" constant="10" id="EyN-Nh-5BM"/>
+                                            <constraint firstItem="2qe-Rt-zWT" firstAttribute="leading" secondItem="mDH-2H-0C1" secondAttribute="leading" constant="8" id="FSh-eG-CwR"/>
+                                            <constraint firstItem="Gbc-aS-qI6" firstAttribute="leading" secondItem="mDH-2H-0C1" secondAttribute="leading" constant="8" id="Iaa-3C-bG5"/>
+                                            <constraint firstItem="2ZI-ry-wpg" firstAttribute="centerY" secondItem="2qe-Rt-zWT" secondAttribute="centerY" id="KFs-Qm-Mlm"/>
+                                            <constraint firstItem="tLx-Ut-Fpv" firstAttribute="leading" secondItem="mDH-2H-0C1" secondAttribute="leading" constant="8" id="N2t-Pl-nkQ"/>
+                                            <constraint firstItem="Gbc-aS-qI6" firstAttribute="top" secondItem="b1O-tl-8Vd" secondAttribute="bottom" constant="10" id="NNN-uU-Fm1"/>
+                                            <constraint firstAttribute="trailing" secondItem="tLx-Ut-Fpv" secondAttribute="trailing" constant="8" id="Pg0-TJ-pq8"/>
+                                            <constraint firstItem="2qe-Rt-zWT" firstAttribute="centerX" secondItem="mDH-2H-0C1" secondAttribute="centerX" id="QSb-vE-MJI"/>
+                                            <constraint firstItem="2ZI-ry-wpg" firstAttribute="width" secondItem="2qe-Rt-zWT" secondAttribute="width" id="Qdz-24-pp7"/>
+                                            <constraint firstAttribute="trailing" secondItem="cFS-49-7Yq" secondAttribute="trailing" constant="10" id="VNm-G7-2cJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gbc-aS-qI6" secondAttribute="trailing" constant="8" id="YB1-8e-gyZ"/>
+                                            <constraint firstAttribute="height" constant="600" id="js4-BA-rY9"/>
+                                            <constraint firstItem="2ZI-ry-wpg" firstAttribute="centerX" secondItem="2qe-Rt-zWT" secondAttribute="centerX" id="lF8-Ue-Agc"/>
+                                            <constraint firstItem="b1O-tl-8Vd" firstAttribute="centerX" secondItem="mDH-2H-0C1" secondAttribute="centerX" id="w0d-f9-xAx"/>
+                                            <constraint firstItem="b1O-tl-8Vd" firstAttribute="top" secondItem="cFS-49-7Yq" secondAttribute="bottom" constant="10" id="wPA-b1-49e"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mDH-2H-0C1" secondAttribute="bottom" id="5LB-MF-Uo7"/>
+                                    <constraint firstItem="2qe-Rt-zWT" firstAttribute="top" secondItem="AQi-oA-Ond" secondAttribute="top" constant="10" id="NUV-Fx-JIX"/>
+                                    <constraint firstAttribute="trailing" secondItem="mDH-2H-0C1" secondAttribute="trailing" id="euH-pN-bgI"/>
+                                    <constraint firstItem="mDH-2H-0C1" firstAttribute="top" secondItem="AQi-oA-Ond" secondAttribute="top" id="qw4-YZ-OfA"/>
+                                    <constraint firstItem="mDH-2H-0C1" firstAttribute="leading" secondItem="AQi-oA-Ond" secondAttribute="leading" id="sra-KF-XGY"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AQi-oA-Ond" firstAttribute="top" secondItem="qN0-ak-NJO" secondAttribute="bottom" id="5Yl-WH-y81"/>
+                            <constraint firstItem="AQi-oA-Ond" firstAttribute="leading" secondItem="kFq-Zr-3iH" secondAttribute="leading" id="M0H-ua-fko"/>
+                            <constraint firstAttribute="trailing" secondItem="AQi-oA-Ond" secondAttribute="trailing" id="VQa-OM-cEb"/>
+                            <constraint firstItem="mcX-5M-HLw" firstAttribute="top" secondItem="AQi-oA-Ond" secondAttribute="bottom" id="g9Z-Nj-R9B"/>
+                            <constraint firstItem="mDH-2H-0C1" firstAttribute="width" secondItem="kFq-Zr-3iH" secondAttribute="width" id="rbl-Kp-I71"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Custom Mute This Native Ad" id="Ubf-6u-9nk"/>
+                    <connections>
+                        <outlet property="muteAdButton" destination="b1O-tl-8Vd" id="uPC-ti-ac3"/>
+                        <outlet property="nativeAdPlaceholder" destination="2qe-Rt-zWT" id="qsC-cL-VZO"/>
+                        <outlet property="pickerView" destination="2ZI-ry-wpg" id="Hid-IC-jXl"/>
+                        <outlet property="refreshAdButton" destination="Gbc-aS-qI6" id="JNH-7k-Ypl"/>
+                        <outlet property="versionLabel" destination="tLx-Ut-Fpv" id="fJh-Gu-rrV"/>
+                        <outlet property="videoStatusLabel" destination="cFS-49-7Yq" id="hTg-Tt-7ih"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ske-Tk-qwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="5444"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

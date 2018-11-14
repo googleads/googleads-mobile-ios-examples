@@ -13,20 +13,21 @@
 		4AA7D6981C625A1200DFD2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA7D6971C625A1200DFD2EB /* Assets.xcassets */; };
 		4AA7D69B1C625A1200DFD2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA7D6991C625A1200DFD2EB /* LaunchScreen.storyboard */; };
 		4AA7D6A31C625A8400DFD2EB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A21C625A8400DFD2EB /* MasterViewController.swift */; };
-		4AA7D6A61C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A51C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift */; };
 		4AA7D6AA1C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */; };
 		4AA7D6AC1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */; };
 		4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */; };
-		4AA7D6B01C626F6F00DFD2EB /* DFPPPIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6AF1C626F6F00DFD2EB /* DFPPPIDViewController.swift */; };
-		4AA7D6B21C626FAB00DFD2EB /* DFPCustomTargetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6B11C626FAB00DFD2EB /* DFPCustomTargetingViewController.swift */; };
-		4AA7D6B41C626FED00DFD2EB /* DFPMultipleAdSizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6B31C626FED00DFD2EB /* DFPMultipleAdSizesViewController.swift */; };
-		4AA7D6B61C62702A00DFD2EB /* DFPAppEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6B51C62702A00DFD2EB /* DFPAppEventsViewController.swift */; };
-		4AA7D6B81C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6B71C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift */; };
+		507818F4219A418100E5A44A /* AdManagerMultipleAdSizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818ED219A417E00E5A44A /* AdManagerMultipleAdSizesViewController.swift */; };
+		507818F5219A418100E5A44A /* AdManagerCategoryExclusionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818EE219A417E00E5A44A /* AdManagerCategoryExclusionsTableViewController.swift */; };
+		507818F6219A418100E5A44A /* AdManagerPPIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818EF219A417F00E5A44A /* AdManagerPPIDViewController.swift */; };
+		507818F7219A418100E5A44A /* AdManagerCustomTargetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F0219A417F00E5A44A /* AdManagerCustomTargetingViewController.swift */; };
+		507818F8219A418100E5A44A /* AdManagerCustomVideoControlsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F1219A417F00E5A44A /* AdManagerCustomVideoControlsController.swift */; };
+		507818F9219A418100E5A44A /* AdManagerAppEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F2219A418000E5A44A /* AdManagerAppEventsViewController.swift */; };
+		507818FA219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F3219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift */; };
+		AE3068CA21221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3068C921221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift */; };
 		AED1111F203213FC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED11117203213F300EA4BEE /* SimpleNativeAdView.xib */; };
 		AED11120203213FC00EA4BEE /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED11118203213F500EA4BEE /* UnifiedNativeAdView.xib */; };
 		AED111262032151200EA4BEE /* SimpleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED111252032151200EA4BEE /* SimpleNativeAdView.swift */; };
 		AED111282032174100EA4BEE /* CustomControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED111272032174100EA4BEE /* CustomControlsView.swift */; };
-		AED1112A2032190F00EA4BEE /* DFPCustomVideoControlsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED111292032190F00EA4BEE /* DFPCustomVideoControlsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,20 +40,21 @@
 		4AA7D69A1C625A1200DFD2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AA7D69C1C625A1200DFD2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA7D6A21C625A8400DFD2EB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		4AA7D6A51C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPCategoryExclusionsTableViewController.swift; sourceTree = "<group>"; };
 		4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobAdTargetingTableViewController.swift; sourceTree = "<group>"; };
 		4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobAdDelegateViewController.swift; sourceTree = "<group>"; };
 		4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobBannerSizesViewController.swift; sourceTree = "<group>"; };
-		4AA7D6AF1C626F6F00DFD2EB /* DFPPPIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPPPIDViewController.swift; sourceTree = "<group>"; };
-		4AA7D6B11C626FAB00DFD2EB /* DFPCustomTargetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPCustomTargetingViewController.swift; sourceTree = "<group>"; };
-		4AA7D6B31C626FED00DFD2EB /* DFPMultipleAdSizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPMultipleAdSizesViewController.swift; sourceTree = "<group>"; };
-		4AA7D6B51C62702A00DFD2EB /* DFPAppEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPAppEventsViewController.swift; sourceTree = "<group>"; };
-		4AA7D6B71C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFPFluidAdSizeViewController.swift; sourceTree = "<group>"; };
+		507818ED219A417E00E5A44A /* AdManagerMultipleAdSizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerMultipleAdSizesViewController.swift; sourceTree = "<group>"; };
+		507818EE219A417E00E5A44A /* AdManagerCategoryExclusionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerCategoryExclusionsTableViewController.swift; sourceTree = "<group>"; };
+		507818EF219A417F00E5A44A /* AdManagerPPIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerPPIDViewController.swift; sourceTree = "<group>"; };
+		507818F0219A417F00E5A44A /* AdManagerCustomTargetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerCustomTargetingViewController.swift; sourceTree = "<group>"; };
+		507818F1219A417F00E5A44A /* AdManagerCustomVideoControlsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerCustomVideoControlsController.swift; sourceTree = "<group>"; };
+		507818F2219A418000E5A44A /* AdManagerAppEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerAppEventsViewController.swift; sourceTree = "<group>"; };
+		507818F3219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerFluidAdSizeViewController.swift; sourceTree = "<group>"; };
+		AE3068C921221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobNativeCustomMuteThisAdViewController.swift; sourceTree = "<group>"; };
 		AED11117203213F300EA4BEE /* SimpleNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleNativeAdView.xib; sourceTree = "<group>"; };
 		AED11118203213F500EA4BEE /* UnifiedNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeAdView.xib; sourceTree = "<group>"; };
 		AED111252032151200EA4BEE /* SimpleNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNativeAdView.swift; sourceTree = "<group>"; };
 		AED111272032174100EA4BEE /* CustomControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlsView.swift; sourceTree = "<group>"; };
-		AED111292032190F00EA4BEE /* DFPCustomVideoControlsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFPCustomVideoControlsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,16 +102,17 @@
 		4AA7D6A41C625ABD00DFD2EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				507818F2219A418000E5A44A /* AdManagerAppEventsViewController.swift */,
+				507818EE219A417E00E5A44A /* AdManagerCategoryExclusionsTableViewController.swift */,
+				507818F0219A417F00E5A44A /* AdManagerCustomTargetingViewController.swift */,
+				507818F3219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift */,
+				507818ED219A417E00E5A44A /* AdManagerMultipleAdSizesViewController.swift */,
+				507818EF219A417F00E5A44A /* AdManagerPPIDViewController.swift */,
 				4AA7D6A21C625A8400DFD2EB /* MasterViewController.swift */,
 				4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */,
 				4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */,
 				4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */,
-				4AA7D6AF1C626F6F00DFD2EB /* DFPPPIDViewController.swift */,
-				4AA7D6B11C626FAB00DFD2EB /* DFPCustomTargetingViewController.swift */,
-				4AA7D6A51C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift */,
-				4AA7D6B31C626FED00DFD2EB /* DFPMultipleAdSizesViewController.swift */,
-				4AA7D6B51C62702A00DFD2EB /* DFPAppEventsViewController.swift */,
-				4AA7D6B71C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift */,
+				AE3068C921221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift */,
 				AED11115203213DF00EA4BEE /* DFPCustomVideoControls */,
 			);
 			name = Controllers;
@@ -118,7 +121,7 @@
 		AED11115203213DF00EA4BEE /* DFPCustomVideoControls */ = {
 			isa = PBXGroup;
 			children = (
-				AED111292032190F00EA4BEE /* DFPCustomVideoControlsController.swift */,
+				507818F1219A417F00E5A44A /* AdManagerCustomVideoControlsController.swift */,
 				AED11117203213F300EA4BEE /* SimpleNativeAdView.xib */,
 				AED11118203213F500EA4BEE /* UnifiedNativeAdView.xib */,
 				AED111252032151200EA4BEE /* SimpleNativeAdView.swift */,
@@ -202,20 +205,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA7D6AA1C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift in Sources */,
+				507818F5219A418100E5A44A /* AdManagerCategoryExclusionsTableViewController.swift in Sources */,
 				4AA7D6911C625A1200DFD2EB /* AppDelegate.swift in Sources */,
 				4AA7D6AC1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift in Sources */,
+				507818F7219A418100E5A44A /* AdManagerCustomTargetingViewController.swift in Sources */,
 				AED111262032151200EA4BEE /* SimpleNativeAdView.swift in Sources */,
+				507818F9219A418100E5A44A /* AdManagerAppEventsViewController.swift in Sources */,
+				507818F8219A418100E5A44A /* AdManagerCustomVideoControlsController.swift in Sources */,
+				507818FA219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift in Sources */,
 				4AA7D6A31C625A8400DFD2EB /* MasterViewController.swift in Sources */,
-				AED1112A2032190F00EA4BEE /* DFPCustomVideoControlsController.swift in Sources */,
-				4AA7D6B01C626F6F00DFD2EB /* DFPPPIDViewController.swift in Sources */,
-				4AA7D6B41C626FED00DFD2EB /* DFPMultipleAdSizesViewController.swift in Sources */,
-				4AA7D6A61C626C0600DFD2EB /* DFPCategoryExclusionsTableViewController.swift in Sources */,
 				4A7A6CD71C76237500FB1A32 /* Constants.swift in Sources */,
-				4AA7D6B21C626FAB00DFD2EB /* DFPCustomTargetingViewController.swift in Sources */,
-				4AA7D6B61C62702A00DFD2EB /* DFPAppEventsViewController.swift in Sources */,
+				507818F6219A418100E5A44A /* AdManagerPPIDViewController.swift in Sources */,
 				AED111282032174100EA4BEE /* CustomControlsView.swift in Sources */,
 				4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */,
-				4AA7D6B81C62705D00DFD2EB /* DFPFluidAdSizeViewController.swift in Sources */,
+				AE3068CA21221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift in Sources */,
+				507818F4219A418100E5A44A /* AdManagerMultipleAdSizesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
