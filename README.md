@@ -57,10 +57,10 @@ for more information on installing and updating pods.
 
 ### AdManager
 
-*   [DFP Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerBannerExample)
-*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerInterstitialExample)
-*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerRewardedVideoExample)
-*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerCustomRenderingExample)
+*   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerBannerExample)
+*   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerInterstitialExample)
+*   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerRewardedVideoExample)
+*   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerCustomRenderingExample)
 
 ## Objective-C
 
@@ -85,9 +85,9 @@ for more information on installing and updating pods.
 ### AdManager
 
 *   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerBannerExample)
-*   [DFP Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerInterstitialExample)
-*   [DFP Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerRewardedVideoExample)
-*   [DFP Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerCustomRenderingExample)
+*   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerInterstitialExample)
+*   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerRewardedVideoExample)
+*   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerCustomRenderingExample)
 
 # Downloads
 
