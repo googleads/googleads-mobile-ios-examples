@@ -123,25 +123,21 @@ extension AdManagerCustomVideoControlsController : GADUnifiedNativeAdLoaderDeleg
     setAdView(nativeAdView)
     nativeAdView.nativeAd = nativeAd
     // Populate the native ad view with the native ad assets.
-    // The headline is guaranteed to be present in every native ad.
+    // The headline and mediaContent are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+    nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
 
-    // Some native ads will include a video asset, while others do not. Apps can
-    // use the GADVideoController's hasVideoContent property to determine if one
-    // is present, and adjust their UI accordingly.
-    if let controller = nativeAd.videoController, controller.hasVideoContent() {
-      // This app uses a fixed width for the GADMediaView and changes its height
-      // to match the aspect ratio of the video it displays.
-      if controller.aspectRatio() > 0 {
-        let heightConstraint = NSLayoutConstraint(item: nativeAdView.mediaView!,
-                                                attribute: .height,
-                                                relatedBy: .equal,
-                                                toItem: nativeAdView.mediaView!,
-                                                attribute: .width,
-                                                multiplier: CGFloat(1 / controller.aspectRatio()),
-                                                constant: 0)
-        heightConstraint.isActive = true
-      }
+    // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+    // ratio of the media it displays.
+    if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
+      let heightConstraint = NSLayoutConstraint(item: mediaView,
+                                            attribute: .height,
+                                            relatedBy: .equal,
+                                            toItem: mediaView,
+                                            attribute: .width,
+                                            multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+                                            constant: 0)
+      heightConstraint.isActive = true
     }
 
     customControlsView.controller = nativeAd.videoController

@@ -121,27 +121,25 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   nativeAd.delegate = self;
 
   // Populate the native ad view with the native ad assets.
-  // The headline is guaranteed to be present in every native ad.
+  // The headline and mediaContent are guaranteed to be present in every native ad.
   ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
+  nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
 
-  // Some native ads will include a video asset, while others do not. Apps can
-  // use the GADVideoController's hasVideoContent property to determine if one
-  // is present, and adjust their UI accordingly.
+  // This app uses a fixed width for the GADMediaView and changes its height
+  // to match the aspect ratio of the media content it displays.
+  if (nativeAd.mediaContent.aspectRatio > 0) {
+    self.heightConstraint =
+        [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nativeAdView.mediaView
+                                     attribute:NSLayoutAttributeWidth
+                                    multiplier:(1 / nativeAd.mediaContent.aspectRatio)
+                                      constant:0];
+    self.heightConstraint.active = YES;
+  }
+
   if (nativeAd.videoController.hasVideoContent) {
-    // This app uses a fixed width for the GADMediaView and changes its height
-    // to match the aspect ratio of the video it displays.
-    if (nativeAd.videoController.aspectRatio > 0) {
-      self.heightConstraint =
-          [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
-                                       attribute:NSLayoutAttributeHeight
-                                       relatedBy:NSLayoutRelationEqual
-                                          toItem:nativeAdView.mediaView
-                                       attribute:NSLayoutAttributeWidth
-                                      multiplier:(1 / nativeAd.videoController.aspectRatio)
-                                        constant:0];
-      self.heightConstraint.active = YES;
-    }
-
     // By acting as the delegate to the GADVideoController, this ViewController
     // receives messages about events in the video lifecycle.
     nativeAd.videoController.delegate = self;

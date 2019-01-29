@@ -167,28 +167,14 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
 
     nativeAdView.nativeAd = nativeAd
     // Populate the native ad view with the native ad assets.
-    // The headline is guaranteed to be present in every native ad.
+    // The headline and mediaContent are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+    nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
 
     // Some native ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
     // UI accordingly.
     if let controller = nativeAd.videoController, controller.hasVideoContent() {
-      // The video controller has content. Show the media view.
-      if let mediaView = nativeAdView.mediaView {
-        // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
-        // ratio of the video it displays.
-        if controller.aspectRatio() > 0 {
-          let heightConstraint = NSLayoutConstraint(item: mediaView,
-                                                    attribute: .height,
-                                                    relatedBy: .equal,
-                                                    toItem: mediaView,
-                                                    attribute: .width,
-                                                    multiplier: CGFloat(1 / controller.aspectRatio()),
-                                                    constant: 0)
-          heightConstraint.isActive = true
-        }
-      }
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
       controller.delegate = self
@@ -197,6 +183,20 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     else {
       videoStatusLabel.text = "Ad does not contain a video."
     }
+
+    // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+    // ratio of the media it displays.
+    if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
+      let heightConstraint = NSLayoutConstraint(item: mediaView,
+                                            attribute: .height,
+                                            relatedBy: .equal,
+                                            toItem: mediaView,
+                                            attribute: .width,
+                                            multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+                                            constant: 0)
+      heightConstraint.isActive = true
+    }
+
     // These assets are not guaranteed to be present. Check that they are before
     // showing or hiding them.
     (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body

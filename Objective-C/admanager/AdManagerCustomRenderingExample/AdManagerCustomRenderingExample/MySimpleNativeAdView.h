@@ -1,7 +1,7 @@
 //  Copyright (c) 2015 Google. All rights reserved.
 
-@import UIKit;
-@import GoogleMobileAds;
+#import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 /// View representing a custom native ad format with template ID 10063170.
 @interface MySimpleNativeAdView : UIView

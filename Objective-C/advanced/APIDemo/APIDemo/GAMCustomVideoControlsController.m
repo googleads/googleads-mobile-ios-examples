@@ -137,25 +137,22 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   // Populate the native ad view with the native ad assets.
   // Some assets are guaranteed to be present in every native ad.
   ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
+  nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
 
-  // Some native ads will include a video asset, while others do not. Apps can
-  // use the GADVideoController's hasVideoContent property to determine if one
-  // is present, and adjust their UI accordingly.
-  if (nativeAd.videoController.hasVideoContent) {
-    // This app uses a fixed width for the GADMediaView and changes its height
-    // to match the aspect ratio of the video it displays.
-    if (nativeAd.videoController.aspectRatio > 0) {
-      NSLayoutConstraint *heightConstraint =
-          [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
-                                       attribute:NSLayoutAttributeHeight
-                                       relatedBy:NSLayoutRelationEqual
-                                          toItem:nativeAdView.mediaView
-                                       attribute:NSLayoutAttributeWidth
-                                      multiplier:(1 / nativeAd.videoController.aspectRatio)
-                                        constant:0];
-      heightConstraint.active = YES;
-    }
+  // This app uses a fixed width for the GADMediaView and changes its height
+  // to match the aspect ratio of the media content it displays.
+  if (nativeAd.mediaContent.aspectRatio > 0) {
+    NSLayoutConstraint *heightConstraint =
+        [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nativeAdView.mediaView
+                                     attribute:NSLayoutAttributeWidth
+                                    multiplier:(1 / nativeAd.mediaContent.aspectRatio)
+                                      constant:0];
+    heightConstraint.active = YES;
   }
+
   self.customControlsView.controller = nativeAd.videoController;
 
   // These assets are not guaranteed to be present. Check that they are before

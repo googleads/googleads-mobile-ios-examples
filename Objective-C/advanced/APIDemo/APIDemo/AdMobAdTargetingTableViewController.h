@@ -17,8 +17,8 @@
 //  limitations under the License.
 //
 
-@import GoogleMobileAds;
-@import UIKit;
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <UIKit/UIKit.h>
 
 @interface AdMobAdTargetingTableViewController : UITableViewController
 

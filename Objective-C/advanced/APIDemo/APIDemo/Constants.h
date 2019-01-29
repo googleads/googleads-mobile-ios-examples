@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 /// Banner ad unit ID.
 static NSString *const kAdMobAdUnitID = @"ca-app-pub-3940256099942544/2934735716";

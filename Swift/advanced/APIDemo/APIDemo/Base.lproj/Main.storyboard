@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -62,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXI-ZH-ukg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="830"/>
+            <point key="canvasLocation" x="212.80000000000001" y="746.62668665667172"/>
         </scene>
         <!--PPID-->
         <scene sceneID="Yvt-5i-VLn">
@@ -129,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXK-9j-8yQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="313"/>
+            <point key="canvasLocation" x="1212.8" y="281.55922038980509"/>
         </scene>
         <!--App Events-->
         <scene sceneID="4AD-Qh-phh">
@@ -174,12 +172,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubI-XH-esJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="3222"/>
+            <point key="canvasLocation" x="1212.8" y="2898.3508245877065"/>
         </scene>
         <!--Fluid Ad Size-->
         <scene sceneID="tm9-GI-tt3">
             <objects>
-                <viewController id="NoA-UU-YlB" customClass="AdManagerFluidAdSizeViewController" sceneMemberID="viewController">
+                <viewController id="NoA-UU-YlB" customClass="AdManagerFluidAdSizeViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LWk-Ig-ZWG"/>
                         <viewControllerLayoutGuide type="bottom" id="QNZ-Vy-BQ8"/>
@@ -210,8 +208,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="(this UITextView is above the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQx-Ry-yPY">
-                                                <rect key="frame" x="27" y="216" width="320" height="35"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="(this UITextView is above the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQx-Ry-yPY">
+                                                <rect key="frame" x="27.5" y="216" width="320" height="35"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="SZz-8U-RfD"/>
@@ -220,15 +218,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-pM-eu5" customClass="DFPBannerView">
-                                                <rect key="frame" x="27" y="259" width="320" height="50"/>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-pM-eu5" customClass="DFPBannerView">
+                                                <rect key="frame" x="27.5" y="259" width="320" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="nFO-WR-cuj"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="(this UITextView is below the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvN-xK-iQn">
-                                                <rect key="frame" x="27" y="317" width="320" height="35"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="(this UITextView is below the ad)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvN-xK-iQn">
+                                                <rect key="frame" x="27.5" y="317" width="320" height="35"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Hrj-WU-QVk"/>
@@ -245,6 +243,7 @@
                                             <constraint firstAttribute="height" constant="568" id="GQp-JS-sxc"/>
                                             <constraint firstItem="2NP-pK-127" firstAttribute="top" secondItem="Dfu-AV-fcG" secondAttribute="top" constant="8" id="XfT-e7-UZV"/>
                                             <constraint firstItem="w9o-YX-zQh" firstAttribute="top" secondItem="Dfu-AV-fcG" secondAttribute="top" constant="8" id="Y0m-j1-6Sp"/>
+                                            <constraint firstItem="w9o-YX-zQh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2NP-pK-127" secondAttribute="trailing" id="dJH-ma-bPc"/>
                                             <constraint firstItem="tvN-xK-iQn" firstAttribute="centerX" secondItem="Dfu-AV-fcG" secondAttribute="centerX" id="fCR-0n-luu"/>
                                             <constraint firstItem="w9o-YX-zQh" firstAttribute="height" secondItem="2NP-pK-127" secondAttribute="height" id="mFw-zI-fAg"/>
                                             <constraint firstItem="2NP-pK-127" firstAttribute="leading" secondItem="Dfu-AV-fcG" secondAttribute="leading" constant="8" id="oGK-Gf-AWF"/>
@@ -281,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6X5-Wk-3BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757.5" y="3942.5"/>
+            <point key="canvasLocation" x="1212" y="3546.4767616191907"/>
         </scene>
         <!--Multiple Ad Sizes-->
         <scene sceneID="cCY-Lh-36J">
@@ -329,7 +328,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRu-Pz-dNN">
-                                <rect key="frame" x="295" y="68" width="64" height="30"/>
+                                <rect key="frame" x="295" y="67.5" width="64" height="30"/>
                                 <state key="normal" title="LOAD AD">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -370,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8k-Pi-agc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="2500"/>
+            <point key="canvasLocation" x="1212.8" y="2248.8755622188905"/>
         </scene>
         <!--Category Exclusions-->
         <scene sceneID="tKv-sr-fAO">
@@ -474,7 +473,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8R-ZW-wsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="1776"/>
+            <point key="canvasLocation" x="1212.8" y="1597.6011994002999"/>
         </scene>
         <!--Custom Targeting-->
         <scene sceneID="6bT-wh-TYM">
@@ -538,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stS-Ug-eHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="1048"/>
+            <point key="canvasLocation" x="1212.8" y="942.72863568215894"/>
         </scene>
         <!--Ad Delegate-->
         <scene sceneID="FPc-sE-5Kp">
@@ -583,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWQ-ac-GEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="-1700"/>
+            <point key="canvasLocation" x="1212.8" y="-1529.2353823088456"/>
         </scene>
         <!--Ad Targeting-->
         <scene sceneID="eA2-Py-MDi">
@@ -628,7 +627,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-yp-EgL" userLabel="Child-Directed Picker View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                                                 </pickerView>
                                             </subviews>
                                             <constraints>
@@ -717,7 +716,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIK-5P-mym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1154" y="-1118"/>
+            <point key="canvasLocation" x="1846.4000000000001" y="-1005.6971514242879"/>
         </scene>
         <!--Banner Sizes-->
         <scene sceneID="UrH-1B-AhJ">
@@ -770,7 +769,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUb-3N-qIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="-433"/>
+            <point key="canvasLocation" x="1212.8" y="-389.5052473763119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7bv-qg-o2O">
@@ -787,7 +786,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqm-mB-0dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="830"/>
+            <point key="canvasLocation" x="-427.19999999999999" y="746.62668665667172"/>
         </scene>
         <!--Ad Manager Custom Video Controls Controller-->
         <scene sceneID="rJK-P2-dBL">
@@ -822,14 +821,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cQ-y9-3C6">
-                                                                <rect key="frame" x="79" y="4.5" width="30" height="30"/>
+                                                                <rect key="frame" x="79" y="5" width="30" height="30"/>
                                                                 <state key="normal" title="Play"/>
                                                                 <connections>
                                                                     <action selector="playPause:" destination="H2B-ng-BcX" eventType="touchUpInside" id="wMN-Na-Dj3"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5e-lc-Vov">
-                                                                <rect key="frame" x="264" y="4.5" width="35" height="30"/>
+                                                                <rect key="frame" x="264" y="5" width="35" height="30"/>
                                                                 <state key="normal" title="Mute"/>
                                                                 <connections>
                                                                     <action selector="muteUnmute:" destination="H2B-ng-BcX" eventType="touchUpInside" id="0pm-2x-pTS"/>
@@ -902,7 +901,7 @@
                                                         <rect key="frame" x="235" y="50" width="51" height="31"/>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unified Native Ads" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oss-jr-Pb8">
-                                                        <rect key="frame" x="69.5" y="97" width="141.5" height="21"/>
+                                                        <rect key="frame" x="70" y="97" width="141" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1023,7 +1022,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQ8-9s-J1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="4682"/>
+            <point key="canvasLocation" x="1270.4000000000001" y="4211.6941529235382"/>
         </scene>
         <!--Custom Mute Demo-->
         <scene sceneID="QXy-Kh-CTF">
@@ -1051,7 +1050,7 @@
                                                 </constraints>
                                             </view>
                                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZI-ry-wpg">
-                                                <rect key="frame" x="8" y="10.5" width="359" height="300"/>
+                                                <rect key="frame" x="8" y="10" width="359" height="300"/>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-49-7Yq">
@@ -1144,7 +1143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ske-Tk-qwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="5444"/>
+            <point key="canvasLocation" x="1270.4000000000001" y="4897.1514242878566"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

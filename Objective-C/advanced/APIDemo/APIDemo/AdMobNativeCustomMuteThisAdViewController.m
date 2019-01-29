@@ -201,28 +201,21 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
   // Populate the native ad view with the native ad assets.
   // Some assets are guaranteed to be present in every native ad.
   ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
-
-  // Some native ads will include a video asset, while others do not. Apps can
-  // use the GADVideoController's hasVideoContent property to determine if one
-  // is present, and adjust their UI accordingly.
+  nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
 
   // The UI for this controller constrains the image view's height to match the
   // media view's height, so by changing the one here, the height of both views
   // are being adjusted.
-  if (nativeAd.videoController.hasVideoContent) {
-    // This app uses a fixed width for the GADMediaView and changes its height
-    // to match the aspect ratio of the video it displays.
-    if (nativeAd.videoController.aspectRatio > 0) {
-      self.heightConstraint =
-          [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
-                                       attribute:NSLayoutAttributeHeight
-                                       relatedBy:NSLayoutRelationEqual
-                                          toItem:nativeAdView.mediaView
-                                       attribute:NSLayoutAttributeWidth
-                                      multiplier:(1 / nativeAd.videoController.aspectRatio)
-                                        constant:0];
-      self.heightConstraint.active = YES;
-    }
+  if (nativeAd.mediaContent.aspectRatio > 0) {
+    self.heightConstraint =
+        [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nativeAdView.mediaView
+                                     attribute:NSLayoutAttributeWidth
+                                    multiplier:(1 / nativeAd.mediaContent.aspectRatio)
+                                      constant:0];
+    self.heightConstraint.active = YES;
   }
 
   // These assets are not guaranteed to be present. Check that they are before

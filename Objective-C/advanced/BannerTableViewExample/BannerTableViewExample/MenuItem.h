@@ -14,8 +14,8 @@
 //  limitations under the License.
 //
 
-@import Foundation;
-@import UIKit;
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface MenuItem : NSObject
 

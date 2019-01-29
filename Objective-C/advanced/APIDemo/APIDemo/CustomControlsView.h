@@ -18,7 +18,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@import GoogleMobileAds;
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 /// A custom view which encapsulates the display of video controller related information and also
 /// custom video controls. Set the video options when requesting an ad, then set the video

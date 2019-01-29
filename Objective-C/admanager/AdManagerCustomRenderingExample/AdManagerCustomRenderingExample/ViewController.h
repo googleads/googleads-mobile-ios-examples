@@ -1,7 +1,7 @@
 //  Copyright (c) 2015 Google. All rights reserved.
 
-@import UIKit;
-@import GoogleMobileAds;
+#import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "MySimpleNativeAdView.h"
 

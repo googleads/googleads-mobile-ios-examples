@@ -16,7 +16,7 @@
 
 #import "AppDelegate.h"
 
-@import GoogleMobileAds;
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 

@@ -16,8 +16,8 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-@import UIKit;
-@import GoogleMobileAds;
+#import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 /// View representing a custom native ad format with template ID 10063170.
 @interface SimpleNativeAdView : UIView

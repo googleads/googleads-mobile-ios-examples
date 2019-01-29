@@ -1,6 +1,6 @@
 //  Copyright (c) 2014 Google. All rights reserved.
 
-@import GoogleMobileAds;
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "ViewController.h"
 

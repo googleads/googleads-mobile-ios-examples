@@ -17,8 +17,8 @@
 //  limitations under the License.
 //
 
-@import UIKit;
-@import GoogleMobileAds;
+#import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "SimpleNativeAdView.h"
 #import "CustomControlsView.h"
