@@ -4,12 +4,13 @@ osx_image: xcode9.4
 xcode_sdk: iphonesimulator
 install:
   - CHANGES=$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)
-  - if [[ -n "$(grep -E "(${PROJ_DIR}|\.travis\.yml)" <<< "$CHANGES")" ]]; then
+  - if [[ -n "$(grep -Ei "(${PROJ_DIR}|\.travis\.yml)" <<< "$CHANGES")" ]]; then
       pod repo update;
     fi
 script:
   - CHANGES=$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)
-  - if [[ -n "$(grep -E "(${PROJ_DIR}|\.travis\.yml)" <<< "$CHANGES")" ]]; then
+  - echo $CHANGES;
+  - if [[ -n "$(grep -Ei "(${PROJ_DIR}|\.travis\.yml)" <<< "$CHANGES")" ]]; then
       pushd "$PROJ_DIR"; pod install; popd;
       xcodebuild -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$TRAVIS_XCODE_SCHEME" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO;
     fi
