@@ -33,5 +33,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
+  <key>GADIsAdManagerApp</key>
+  <true/>
 </dict>
 </plist>
