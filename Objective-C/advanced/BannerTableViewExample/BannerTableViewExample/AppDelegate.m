@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Initialize the Google Mobile Ads SDK with the Google AdMob application ID.
-  [GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"];
+  [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
 
   return YES;
 }

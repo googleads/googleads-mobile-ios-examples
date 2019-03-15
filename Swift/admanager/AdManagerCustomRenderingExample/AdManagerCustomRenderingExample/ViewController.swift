@@ -81,7 +81,7 @@ class ViewController: UIViewController {
   @IBAction func refreshAd(_ sender: AnyObject!) {
     var adTypes = [GADAdLoaderAdType]()
     if nativeAdSwitch.isOn {
-      adTypes.append(GADAdLoaderAdType.unifiedNative)
+      adTypes.append(.unifiedNative)
     }
     if customNativeAdSwitch.isOn {
       adTypes.append(GADAdLoaderAdType.nativeCustomTemplate)

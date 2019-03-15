@@ -54,7 +54,7 @@ class AdManagerCustomVideoControlsController: UIViewController {
       // Loads an ad for any of unified native or custom native ads.
       var adTypes = [GADAdLoaderAdType]()
       if unifiedNativeAdSwitch.isOn {
-        adTypes.append(GADAdLoaderAdType.unifiedNative)
+        adTypes.append(.unifiedNative)
       }
       if customNativeAdSwitch.isOn {
         adTypes.append(GADAdLoaderAdType.nativeCustomTemplate)

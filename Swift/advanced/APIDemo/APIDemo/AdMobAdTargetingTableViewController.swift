@@ -144,9 +144,9 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   @IBAction func loadTargetedAd(_ sender: AnyObject) {
     let request = GADRequest()
     if childDirectedLabel.text == "Yes" {
-      request.tag(forChildDirectedTreatment: true)
+      GADMobileAds.sharedInstance().requestConfiguration.tag(forChildDirectedTreatment: true)
     } else if childDirectedLabel.text == "No" {
-      request.tag(forChildDirectedTreatment: false)
+      GADMobileAds.sharedInstance().requestConfiguration.tag(forChildDirectedTreatment: false)
     }
     bannerView.load(request)
   }
