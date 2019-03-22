@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="c8i-t0-2Ua">
             <objects>
-                <viewController id="m1l-bW-rbg" customClass="ViewController" customModule="DFPCustomRenderingExample" sceneMemberID="viewController">
+                <viewController id="m1l-bW-rbg" customClass="ViewController" customModule="AdManagerCustomRenderingExample" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iBc-u5-iBA"/>
                         <viewControllerLayoutGuide type="bottom" id="YY2-2J-60U"/>

@@ -113,12 +113,12 @@
 				4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */,
 				4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */,
 				AE3068C921221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift */,
-				AED11115203213DF00EA4BEE /* DFPCustomVideoControls */,
+				AED11115203213DF00EA4BEE /* AdManagerCustomVideoControls */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		AED11115203213DF00EA4BEE /* DFPCustomVideoControls */ = {
+		AED11115203213DF00EA4BEE /* AdManagerCustomVideoControls */ = {
 			isa = PBXGroup;
 			children = (
 				507818F1219A417F00E5A44A /* AdManagerCustomVideoControlsController.swift */,
@@ -127,7 +127,7 @@
 				AED111252032151200EA4BEE /* SimpleNativeAdView.swift */,
 				AED111272032174100EA4BEE /* CustomControlsView.swift */,
 			);
-			name = DFPCustomVideoControls;
+			name = AdManagerCustomVideoControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

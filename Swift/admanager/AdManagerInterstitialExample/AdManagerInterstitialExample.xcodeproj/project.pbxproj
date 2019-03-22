@@ -80,7 +80,7 @@
 			dependencies = (
 			);
 			name = AdManagerInterstitialExample;
-			productName = DFPInterstitialExample;
+			productName = AdManagerInterstitialExample;
 			productReference = 84FEE90F1B0D65A8006C8148 /* AdManagerInterstitialExample.app */;
 			productType = "com.apple.product-type.application";
 		};

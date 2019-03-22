@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84E1845C1B30D695002ADFFB"
-               BuildableName = "DFPRewardedVideoExample.app"
-               BlueprintName = "DFPRewardedVideoExample"
-               ReferencedContainer = "container:DFPRewardedVideoExample.xcodeproj">
+               BuildableName = "AdManagerRewardedVideoExample.app"
+               BlueprintName = "AdManagerRewardedVideoExample"
+               ReferencedContainer = "container:AdManagerRewardedVideoExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E1845C1B30D695002ADFFB"
-            BuildableName = "DFPRewardedVideoExample.app"
-            BlueprintName = "DFPRewardedVideoExample"
-            ReferencedContainer = "container:DFPRewardedVideoExample.xcodeproj">
+            BuildableName = "AdManagerRewardedVideoExample.app"
+            BlueprintName = "AdManagerRewardedVideoExample"
+            ReferencedContainer = "container:AdManagerRewardedVideoExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

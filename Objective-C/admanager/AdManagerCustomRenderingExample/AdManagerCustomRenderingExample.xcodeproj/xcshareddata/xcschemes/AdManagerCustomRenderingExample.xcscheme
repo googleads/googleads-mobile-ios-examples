@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CF9335B61B26706400DEF1B4"
-               BuildableName = "DFPCustomRenderingExample.app"
-               BlueprintName = "DFPCustomRenderingExample"
-               ReferencedContainer = "container:DFPCustomRenderingExample.xcodeproj">
+               BuildableName = "AdManagerCustomRenderingExample.app"
+               BlueprintName = "AdManagerCustomRenderingExample"
+               ReferencedContainer = "container:AdManagerCustomRenderingExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF9335B61B26706400DEF1B4"
-            BuildableName = "DFPCustomRenderingExample.app"
-            BlueprintName = "DFPCustomRenderingExample"
-            ReferencedContainer = "container:DFPCustomRenderingExample.xcodeproj">
+            BuildableName = "AdManagerCustomRenderingExample.app"
+            BlueprintName = "AdManagerCustomRenderingExample"
+            ReferencedContainer = "container:AdManagerCustomRenderingExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

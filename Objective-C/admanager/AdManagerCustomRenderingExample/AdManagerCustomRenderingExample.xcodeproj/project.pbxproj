@@ -98,7 +98,7 @@
 			dependencies = (
 			);
 			name = AdManagerCustomRenderingExample;
-			productName = DFPNativeAdvancedExample;
+			productName = AdManagerNativeAdvancedExample;
 			productReference = CF9335B71B26706400DEF1B4 /* AdManagerCustomRenderingExample.app */;
 			productType = "com.apple.product-type.application";
 		};

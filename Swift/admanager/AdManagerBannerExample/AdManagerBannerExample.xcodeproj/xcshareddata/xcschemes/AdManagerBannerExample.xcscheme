@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84FEE8DC1B0D4D47006C8148"
-               BuildableName = "DFPBannerExample.app"
-               BlueprintName = "DFPBannerExample"
-               ReferencedContainer = "container:DFPBannerExample.xcodeproj">
+               BuildableName = "AdManagerBannerExample.app"
+               BlueprintName = "AdManagerBannerExample"
+               ReferencedContainer = "container:AdManagerBannerExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84FEE8DC1B0D4D47006C8148"
-            BuildableName = "DFPBannerExample.app"
-            BlueprintName = "DFPBannerExample"
-            ReferencedContainer = "container:DFPBannerExample.xcodeproj">
+            BuildableName = "AdManagerBannerExample.app"
+            BlueprintName = "AdManagerBannerExample"
+            ReferencedContainer = "container:AdManagerBannerExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

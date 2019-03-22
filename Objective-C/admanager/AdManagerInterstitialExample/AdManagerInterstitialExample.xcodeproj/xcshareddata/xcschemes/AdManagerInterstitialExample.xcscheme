@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CF530A7E19B7793D00D75035"
-               BuildableName = "DFPInterstitialExample.app"
-               BlueprintName = "DFPInterstitialExample"
-               ReferencedContainer = "container:DFPInterstitialExample.xcodeproj">
+               BuildableName = "AdManagerInterstitialExample.app"
+               BlueprintName = "AdManagerInterstitialExample"
+               ReferencedContainer = "container:AdManagerInterstitialExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF530A7E19B7793D00D75035"
-            BuildableName = "DFPInterstitialExample.app"
-            BlueprintName = "DFPInterstitialExample"
-            ReferencedContainer = "container:DFPInterstitialExample.xcodeproj">
+            BuildableName = "AdManagerInterstitialExample.app"
+            BlueprintName = "AdManagerInterstitialExample"
+            ReferencedContainer = "container:AdManagerInterstitialExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

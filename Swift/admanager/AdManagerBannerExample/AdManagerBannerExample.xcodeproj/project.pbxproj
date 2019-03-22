@@ -80,7 +80,7 @@
 			dependencies = (
 			);
 			name = AdManagerBannerExample;
-			productName = DFPBannerExample;
+			productName = AdManagerBannerExample;
 			productReference = 84FEE8DD1B0D4D47006C8148 /* AdManagerBannerExample.app */;
 			productType = "com.apple.product-type.application";
 		};

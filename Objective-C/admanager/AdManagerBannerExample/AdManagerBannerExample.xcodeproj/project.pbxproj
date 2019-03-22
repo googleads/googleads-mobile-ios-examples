@@ -84,7 +84,7 @@
 			dependencies = (
 			);
 			name = AdManagerBannerExample;
-			productName = DFPBannerExample;
+			productName = AdManagerBannerExample;
 			productReference = CF12E27E19A6C783001EB38A /* AdManagerBannerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -99,7 +99,7 @@
 				TargetAttributes = {
 					CF12E27D19A6C783001EB38A = {
 						CreatedOnToolsVersion = 6.0;
-						
+
 					};
 				};
 			};
