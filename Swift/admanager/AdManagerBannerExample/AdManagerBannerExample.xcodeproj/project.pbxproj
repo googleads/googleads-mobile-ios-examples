@@ -12,9 +12,11 @@
 		507818B4219653FF00E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818AD219653FF00E5A44A /* Main.storyboard */; };
 		507818B5219653FF00E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818AF219653FF00E5A44A /* Images.xcassets */; };
 		507818B7219653FF00E5A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818B1219653FF00E5A44A /* ViewController.swift */; };
+		FD2A5C6BDFF2FDD81EA96959 /* Pods_AdManagerBannerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2EAB675086D3BD122B199A /* Pods_AdManagerBannerExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F371A1DCAD15A10266D759A /* Pods-AdManagerBannerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdManagerBannerExample.debug.xcconfig"; path = "Target Support Files/Pods-AdManagerBannerExample/Pods-AdManagerBannerExample.debug.xcconfig"; sourceTree = "<group>"; };
 		507818AA219653FF00E5A44A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		507818AC219653FF00E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		507818AE219653FF00E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		507818B0219653FF00E5A44A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507818B1219653FF00E5A44A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84FEE8DD1B0D4D47006C8148 /* AdManagerBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E2EAB675086D3BD122B199A /* Pods_AdManagerBannerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdManagerBannerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6D28A509AA098EDD176F575 /* Pods-AdManagerBannerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdManagerBannerExample.release.xcconfig"; path = "Target Support Files/Pods-AdManagerBannerExample/Pods-AdManagerBannerExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,12 +33,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2A5C6BDFF2FDD81EA96959 /* Pods_AdManagerBannerExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AB21373A7895236E8F177B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F371A1DCAD15A10266D759A /* Pods-AdManagerBannerExample.debug.xcconfig */,
+				E6D28A509AA098EDD176F575 /* Pods-AdManagerBannerExample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		507818A9219653FF00E5A44A /* AdManagerBannerExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -48,11 +62,21 @@
 			path = AdManagerBannerExample;
 			sourceTree = "<group>";
 		};
+		79FC38DABE16D2DACC12FF7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E2EAB675086D3BD122B199A /* Pods_AdManagerBannerExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84FEE8D41B0D4D47006C8148 = {
 			isa = PBXGroup;
 			children = (
 				507818A9219653FF00E5A44A /* AdManagerBannerExample */,
 				84FEE8DE1B0D4D47006C8148 /* Products */,
+				0AB21373A7895236E8F177B9 /* Pods */,
+				79FC38DABE16D2DACC12FF7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84FEE8FC1B0D4D47006C8148 /* Build configuration list for PBXNativeTarget "AdManagerBannerExample" */;
 			buildPhases = (
+				962BBC5CD0A1000F8CF4EC06 /* [CP] Check Pods Manifest.lock */,
 				84FEE8D91B0D4D47006C8148 /* Sources */,
 				84FEE8DA1B0D4D47006C8148 /* Frameworks */,
 				84FEE8DB1B0D4D47006C8148 /* Resources */,
+				90F6A16AB11810601A3ABC61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -97,8 +123,7 @@
 				TargetAttributes = {
 					84FEE8DC1B0D4D47006C8148 = {
 						CreatedOnToolsVersion = 6.2;
-						
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = "";
 					};
 				};
 			};
@@ -132,6 +157,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90F6A16AB11810601A3ABC61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdManagerBannerExample/Pods-AdManagerBannerExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdManagerBannerExample/Pods-AdManagerBannerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		962BBC5CD0A1000F8CF4EC06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdManagerBannerExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84FEE8D91B0D4D47006C8148 /* Sources */ = {
@@ -258,6 +324,7 @@
 		};
 		84FEE8FD1B0D4D47006C8148 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F371A1DCAD15A10266D759A /* Pods-AdManagerBannerExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
@@ -268,13 +335,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ads.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		84FEE8FE1B0D4D47006C8148 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6D28A509AA098EDD176F575 /* Pods-AdManagerBannerExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
@@ -285,8 +353,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ads.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

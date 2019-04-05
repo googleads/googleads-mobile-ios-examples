@@ -12,9 +12,12 @@
 		849326BB1B066A7F00863759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849326B91B066A7F00863759 /* Main.storyboard */; };
 		849326BD1B066A7F00863759 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849326BC1B066A7F00863759 /* Images.xcassets */; };
 		849326C01B066A7F00863759 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849326BE1B066A7F00863759 /* LaunchScreen.xib */; };
+		A87F9A80E568690B2F4F7314 /* Pods_InterstitialExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610F2D0C6CEC1FC2B8186EE3 /* Pods_InterstitialExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BD64CD41758112596CED398 /* Pods-InterstitialExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterstitialExample.debug.xcconfig"; path = "Target Support Files/Pods-InterstitialExample/Pods-InterstitialExample.debug.xcconfig"; sourceTree = "<group>"; };
+		610F2D0C6CEC1FC2B8186EE3 /* Pods_InterstitialExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterstitialExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		849326B01B066A7F00863759 /* InterstitialExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterstitialExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849326B41B066A7F00863759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849326B51B066A7F00863759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		849326BA1B066A7F00863759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		849326BC1B066A7F00863759 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		849326BF1B066A7F00863759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D2125D6042624804FAA19155 /* Pods-InterstitialExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterstitialExample.release.xcconfig"; path = "Target Support Files/Pods-InterstitialExample/Pods-InterstitialExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87F9A80E568690B2F4F7314 /* Pods_InterstitialExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EF0F8245476BBCDBB96D0FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BD64CD41758112596CED398 /* Pods-InterstitialExample.debug.xcconfig */,
+				D2125D6042624804FAA19155 /* Pods-InterstitialExample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		849326A71B066A7E00863759 = {
 			isa = PBXGroup;
 			children = (
 				849326B21B066A7F00863759 /* InterstitialExample */,
 				849326B11B066A7F00863759 /* Products */,
+				6EF0F8245476BBCDBB96D0FC /* Pods */,
+				C8A43E79981318CE6546C1E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +88,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C8A43E79981318CE6546C1E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				610F2D0C6CEC1FC2B8186EE3 /* Pods_InterstitialExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849326CF1B066A7F00863759 /* Build configuration list for PBXNativeTarget "InterstitialExample" */;
 			buildPhases = (
+				FC4E51B6A0196EAA4EDBAA09 /* [CP] Check Pods Manifest.lock */,
 				849326AC1B066A7E00863759 /* Sources */,
 				849326AD1B066A7E00863759 /* Frameworks */,
 				849326AE1B066A7E00863759 /* Resources */,
+				6293FCCD6FACF00AEE81752F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -105,7 +131,7 @@
 				TargetAttributes = {
 					849326AF1B066A7E00863759 = {
 						CreatedOnToolsVersion = 6.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = "";
 					};
 				};
 			};
@@ -139,6 +165,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6293FCCD6FACF00AEE81752F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InterstitialExample/Pods-InterstitialExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InterstitialExample/Pods-InterstitialExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC4E51B6A0196EAA4EDBAA09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InterstitialExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		849326AC1B066A7E00863759 /* Sources */ = {
@@ -265,6 +332,7 @@
 		};
 		849326D01B066A7F00863759 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BD64CD41758112596CED398 /* Pods-InterstitialExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
@@ -274,13 +342,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ads.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		849326D11B066A7F00863759 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2125D6042624804FAA19155 /* Pods-InterstitialExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImages;
@@ -290,8 +359,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ads.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

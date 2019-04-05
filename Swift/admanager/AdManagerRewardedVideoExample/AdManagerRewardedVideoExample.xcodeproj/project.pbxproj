@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CDF644548064BF6F61374E0 /* Pods_AdManagerRewardedVideoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A08A6EE72905E2EF2640E8 /* Pods_AdManagerRewardedVideoExample.framework */; };
 		507818E72199E6C200E5A44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818DF2199E6C100E5A44A /* AppDelegate.swift */; };
 		507818E82199E6C200E5A44A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507818E02199E6C100E5A44A /* LaunchScreen.xib */; };
 		507818E92199E6C200E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818E22199E6C100E5A44A /* Main.storyboard */; };
@@ -15,12 +16,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14B4E69A50BADC3D6F8BB9E7 /* Pods-AdManagerRewardedVideoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdManagerRewardedVideoExample.release.xcconfig"; path = "Target Support Files/Pods-AdManagerRewardedVideoExample/Pods-AdManagerRewardedVideoExample.release.xcconfig"; sourceTree = "<group>"; };
 		507818DF2199E6C100E5A44A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		507818E12199E6C100E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		507818E32199E6C100E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		507818E42199E6C100E5A44A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		507818E52199E6C100E5A44A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507818E62199E6C100E5A44A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		51A08A6EE72905E2EF2640E8 /* Pods_AdManagerRewardedVideoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdManagerRewardedVideoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B091D4690DDB4DE046C7082 /* Pods-AdManagerRewardedVideoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdManagerRewardedVideoExample.debug.xcconfig"; path = "Target Support Files/Pods-AdManagerRewardedVideoExample/Pods-AdManagerRewardedVideoExample.debug.xcconfig"; sourceTree = "<group>"; };
 		849326B01B066A7F00863759 /* AdManagerRewardedVideoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerRewardedVideoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDF644548064BF6F61374E0 /* Pods_AdManagerRewardedVideoExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,11 +53,21 @@
 			path = AdManagerRewardedVideoExample;
 			sourceTree = "<group>";
 		};
+		56D8A1B407E1BE9768053337 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51A08A6EE72905E2EF2640E8 /* Pods_AdManagerRewardedVideoExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		849326A71B066A7E00863759 = {
 			isa = PBXGroup;
 			children = (
 				507818DE2199E6C100E5A44A /* AdManagerRewardedVideoExample */,
 				849326B11B066A7F00863759 /* Products */,
+				F4D4FEBFE2B3AB476CAFA0F0 /* Pods */,
+				56D8A1B407E1BE9768053337 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F4D4FEBFE2B3AB476CAFA0F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B091D4690DDB4DE046C7082 /* Pods-AdManagerRewardedVideoExample.debug.xcconfig */,
+				14B4E69A50BADC3D6F8BB9E7 /* Pods-AdManagerRewardedVideoExample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849326CF1B066A7F00863759 /* Build configuration list for PBXNativeTarget "AdManagerRewardedVideoExample" */;
 			buildPhases = (
+				9EA213BCD0228F350CE1C6FE /* [CP] Check Pods Manifest.lock */,
 				849326AC1B066A7E00863759 /* Sources */,
 				849326AD1B066A7E00863759 /* Frameworks */,
 				849326AE1B066A7E00863759 /* Resources */,
+				AA695E26B4665C9E2C998823 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -97,8 +123,7 @@
 				TargetAttributes = {
 					849326AF1B066A7E00863759 = {
 						CreatedOnToolsVersion = 6.2;
-						
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = "";
 					};
 				};
 			};
@@ -132,6 +157,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9EA213BCD0228F350CE1C6FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdManagerRewardedVideoExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA695E26B4665C9E2C998823 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdManagerRewardedVideoExample/Pods-AdManagerRewardedVideoExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdManagerRewardedVideoExample/Pods-AdManagerRewardedVideoExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		849326AC1B066A7E00863759 /* Sources */ = {
@@ -258,6 +324,7 @@
 		};
 		849326D01B066A7F00863759 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B091D4690DDB4DE046C7082 /* Pods-AdManagerRewardedVideoExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -266,13 +333,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = AdManagerRewardedVideoExample;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		849326D11B066A7F00863759 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B4E69A50BADC3D6F8BB9E7 /* Pods-AdManagerRewardedVideoExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -281,8 +349,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = AdManagerRewardedVideoExample;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
