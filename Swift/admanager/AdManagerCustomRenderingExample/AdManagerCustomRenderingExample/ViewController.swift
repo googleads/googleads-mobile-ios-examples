@@ -247,6 +247,9 @@ extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {
     }
     // Populate the custom native ad view with the custom native ad assets.
     customNativeAdView.populate(withCustomNativeAd:nativeCustomTemplateAd)
+    // Impressions for custom template format must be manually tracked. If this is not called,
+    // videos will also not be played.
+    nativeCustomTemplateAd.recordImpression()
   }
 }
 
