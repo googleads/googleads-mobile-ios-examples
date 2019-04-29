@@ -137,10 +137,10 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
     heightConstraint.active = YES;
   }
 
-  if (nativeAd.videoController.hasVideoContent) {
+  if (nativeAd.mediaContent.hasVideoContent) {
     // By acting as the delegate to the GADVideoController, this ViewController
     // receives messages about events in the video lifecycle.
-    nativeAd.videoController.delegate = self;
+    nativeAd.mediaContent.videoController.delegate = self;
 
     self.videoStatusLabel.text = @"Ad contains a video asset.";
   } else {

@@ -128,8 +128,8 @@ class ViewController: UIViewController {
   /// Some content ads will include a video asset, while others do not. Apps can use the
   /// GADVideoController's hasVideoContent property to determine if one is present, and adjust their
   /// UI accordingly.
-  func updateVideoStatusLabel(forAdsVideoController videoController: GADVideoController) {
-    if videoController.hasVideoContent() {
+  func updateVideoStatusLabel(hasVideoContent: Bool) {
+    if hasVideoContent {
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
       videoStatusLabel.text = "Ad contains a video asset."
@@ -174,14 +174,13 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     // Some native ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
     // UI accordingly.
-    if let controller = nativeAd.videoController, controller.hasVideoContent() {
+    let hasVideoContent = nativeAd.mediaContent.hasVideoContent()
+    // Update the ViewController for video content.
+    updateVideoStatusLabel(hasVideoContent: hasVideoContent)
+    if (hasVideoContent) {
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
-      controller.delegate = self
-      videoStatusLabel.text = "Ad contains a video asset."
-    }
-    else {
-      videoStatusLabel.text = "Ad does not contain a video."
+      nativeAd.mediaContent.videoController.delegate = self
     }
 
     // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
@@ -240,9 +239,11 @@ extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {
     let customNativeAdView = Bundle.main.loadNibNamed(
       "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
     setAdView(customNativeAdView)
+
+    let hasVideoContent = nativeCustomTemplateAd.videoController.hasVideoContent()
     // Update the ViewController for video content.
-    updateVideoStatusLabel(forAdsVideoController: nativeCustomTemplateAd.videoController)
-    if (nativeCustomTemplateAd.videoController.hasVideoContent()) {
+    updateVideoStatusLabel(hasVideoContent: hasVideoContent)
+    if (hasVideoContent) {
       nativeCustomTemplateAd.videoController.delegate = self
     }
     // Populate the custom native ad view with the custom native ad assets.
