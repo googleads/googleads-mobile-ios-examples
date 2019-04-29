@@ -89,7 +89,7 @@ class AdManagerCustomVideoControlsController: UIViewController {
     guard let numberOfStars = numberOfStars  else {
       return nil
     }
-    let starRating = Double(numberOfStars)
+    let starRating = Double(truncating: numberOfStars)
     var image: UIImage?
       if starRating >= 5 {
           image = UIImage(named: "stars_5")

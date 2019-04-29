@@ -141,7 +141,8 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     // Some native ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
     // UI accordingly.
-    if let mediaContent = nativeAd.mediaContent, mediaContent.hasVideoContent() {
+    let mediaContent = nativeAd.mediaContent
+    if mediaContent.hasVideoContent {
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
       mediaContent.videoController.delegate = self

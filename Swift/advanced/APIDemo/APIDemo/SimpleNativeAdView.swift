@@ -42,7 +42,7 @@ class SimpleNativeAdView: UIView {
         headlineView.isUserInteractionEnabled = true
     }
 
-    func performClickOnHeadline() {
+    @objc func performClickOnHeadline() {
         customNativeAd?.performClickOnAsset(withKey: SimpleNativeAdViewHeadlineKey)
     }
 

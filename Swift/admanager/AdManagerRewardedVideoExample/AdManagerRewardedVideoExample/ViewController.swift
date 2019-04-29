@@ -208,7 +208,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
   func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
       didRewardUserWith reward: GADAdReward) {
     print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-    earnCoins(NSInteger(reward.amount))
+    earnCoins(NSInteger(truncating: reward.amount))
   }
 
   deinit {
