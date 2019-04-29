@@ -274,7 +274,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = RewardedVideoExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -289,7 +289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = RewardedVideoExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

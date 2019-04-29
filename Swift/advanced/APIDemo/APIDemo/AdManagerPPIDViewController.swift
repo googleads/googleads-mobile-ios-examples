@@ -70,9 +70,8 @@ class AdManagerPPIDViewController: UIViewController {
     for index in 0..<Int(CC_MD5_DIGEST_LENGTH) {
       publisherProvidedIdentifier.appendFormat("%02x", md5Buffer[index])
     }
-    // Deallocate the memory for the byte array of unsigned characters with size equal to
-    // CC_MD5_DIGEST_LENGTH.
-    md5Buffer.deallocate(capacity: Int(CC_MD5_DIGEST_LENGTH))
+    // Deallocate the memory for the byte array of unsigned characters.
+    md5Buffer.deallocate()
     return publisherProvidedIdentifier as String
   }
 
