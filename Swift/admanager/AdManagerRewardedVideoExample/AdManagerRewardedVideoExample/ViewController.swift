@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -39,7 +39,7 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
   var adRequestInProgress = false
 
   /// The reward-based video ad.
-  var rewardBasedVideo: GADRewardBasedVideoAd?
+  var rewardedAd: GADRewardedAd?
 
   /// The countdown timer.
   var timer: Timer?
@@ -67,8 +67,6 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
-    rewardBasedVideo?.delegate = self
     coinCountLabel.text = "Coins: \(self.coinCount)"
 
     // Pause game when application is backgrounded.
@@ -91,10 +89,17 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
     counter = gameLength
     playAgainButton.isHidden = true
 
-    if !adRequestInProgress && rewardBasedVideo?.isReady == false {
-      rewardBasedVideo?.load(DFPRequest(),
-                             withAdUnitID: "/6499/example/rewarded-video")
+    if !adRequestInProgress && rewardedAd?.isReady == false {
+      rewardedAd = GADRewardedAd(adUnitID: "/6499/example/rewarded-video")
       adRequestInProgress = true
+      rewardedAd?.load(DFPRequest()) { error in
+        self.adRequestInProgress = false
+        if let error = error {
+          print("Loading failed: \(error)")
+        } else {
+          print("Loading Succeeded")
+        }
+      }
     }
 
     gameText.text = String(counter)
@@ -160,13 +165,13 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
   // MARK: Button actions
 
   @IBAction func playAgain(_ sender: AnyObject) {
-    if rewardBasedVideo?.isReady == true {
-      rewardBasedVideo?.present(fromRootViewController: self)
+    if rewardedAd?.isReady == true {
+      rewardedAd?.present(fromRootViewController: self, delegate:self)
     } else {
-      UIAlertView(title: "Reward based video not ready",
-        message: "The reward based video didn't finish loading or failed to load",
-        delegate: self,
-        cancelButtonTitle: "Drat").show()
+      UIAlertView(title: "Rewarded video not ready",
+                  message: "The rewarded video didn't finish loading or failed to load",
+                  delegate: self,
+                  cancelButtonTitle: "Drat").show()
     }
   }
 
@@ -176,39 +181,26 @@ class ViewController: UIViewController, GADRewardBasedVideoAdDelegate, UIAlertVi
     startNewGame()
   }
 
-  // MARK: GADRewardBasedVideoAdDelegate implementation
-
-  func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-      didFailToLoadWithError error: Error) {
-    adRequestInProgress = false
-    print("Reward based video ad failed to load: \(error.localizedDescription)")
-  }
-
-  func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-    adRequestInProgress = false
-    print("Reward based video ad is received.")
-  }
-
-  func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-    print("Opened reward based video ad.")
-  }
-
-  func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-    print("Reward based video ad started playing.")
-  }
-
-  func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-    print("Reward based video ad is closed.")
-  }
-
-  func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-    print("Reward based video ad will leave application.")
-  }
-
-  func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-      didRewardUserWith reward: GADAdReward) {
+  // MARK: GADRewardedAdDelegate
+  func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
     print("Reward received with currency: \(reward.type), amount \(reward.amount).")
     earnCoins(NSInteger(truncating: reward.amount))
+  }
+
+  func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+    print("Rewarded ad presented.")
+  }
+
+  func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+    print("Rewarded ad dismissed.")
+
+  }
+
+  func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
+    UIAlertView(title: "Rewarded ad failed to present",
+                message: "The rewarded ad could not be presented.",
+                delegate: self,
+                cancelButtonTitle: "Drat").show()
   }
 
   deinit {
