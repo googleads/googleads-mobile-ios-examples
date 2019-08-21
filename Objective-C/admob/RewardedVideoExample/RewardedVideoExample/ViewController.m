@@ -14,9 +14,8 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
-
 #import "ViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 /// Constant for coin rewards.
 static const NSInteger GameOverReward = 1;
@@ -31,7 +30,7 @@ typedef NS_ENUM(NSInteger, GameState) {
   kGameStateEnded = 3        ///< Game has ended.
 };
 
-@interface ViewController () <GADRewardBasedVideoAdDelegate>
+@interface ViewController () <GADRewardedAdDelegate>
 
 /// Number of coins the user has earned.
 @property(nonatomic, assign) NSInteger coinCount;
@@ -51,15 +50,16 @@ typedef NS_ENUM(NSInteger, GameState) {
 /// The last fire date before a pause.
 @property(nonatomic, strong) NSDate *previousFireDate;
 
+/// A pre-loaded rewarded ad.
+@property(nonatomic, strong) GADRewardedAd *rewardedAd;
 @end
 
-@implementation ViewController
+@implementation ViewController {
+  BOOL _isLoading;
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
-
-  [GADRewardBasedVideoAd sharedInstance].delegate = self;
   self.coinCount = 0;
   [self startNewGame];
 }
@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 #pragma mark Game logic
 
 - (void)startNewGame {
-  if (![[GADRewardBasedVideoAd sharedInstance] isReady]) {
+  if (!self.rewardedAd.isReady && !_isLoading) {
     [self requestRewardedVideo];
   }
   self.gameState = kGameStatePlaying;
@@ -99,9 +99,21 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (void)requestRewardedVideo {
+  _isLoading = true;
+  self.rewardedAd =
+      [[GADRewardedAd alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/1712485313"];
   GADRequest *request = [GADRequest request];
-  [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
-                                         withAdUnitID:@"ca-app-pub-3940256099942544/1712485313"];
+  [self.rewardedAd loadRequest:request
+             completionHandler:^(GADRequestError *_Nullable error) {
+               _isLoading = false;
+               if (error) {
+                 // Handle ad failed to load case.
+                 NSLog(@"Loading Failed");
+               } else {
+                 // Ad successfully loaded.
+                 NSLog(@"Loading Succeeded");
+               }
+             }];
 }
 
 - (void)pauseGame {
@@ -154,7 +166,7 @@ typedef NS_ENUM(NSInteger, GameState) {
   self.timer = nil;
   self.gameState = kGameStateEnded;
   self.gameLabel.text = @"Game over!";
-  if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+  if (self.rewardedAd.isReady) {
     self.showVideoButton.hidden = NO;
   }
   self.playAgainButton.hidden = NO;
@@ -169,15 +181,15 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (IBAction)showVideo:(id)sender {
-  if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-    [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+  if (self.rewardedAd.isReady) {
+    [self.rewardedAd presentFromRootViewController:self delegate:self];
   } else {
-    [[[UIAlertView alloc]
-            initWithTitle:@"Interstitial not ready"
-                  message:@"The interstitial didn't finish " @"loading or failed to load"
-                 delegate:self
-        cancelButtonTitle:@"Drat"
-        otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Rewarded Ad not ready"
+                                message:@"The rewarded didn't finish "
+                                        @"loading or failed to load"
+                               delegate:self
+                      cancelButtonTitle:@"Drat"
+                      otherButtonTitles:nil] show];
   }
 }
 
@@ -187,27 +199,11 @@ typedef NS_ENUM(NSInteger, GameState) {
   [self startNewGame];
 }
 
-#pragma mark GADRewardBasedVideoAdDelegate implementation
+#pragma mark GADRewardedAdDelegate implementation
 
-- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-  NSLog(@"Reward based video ad is received.");
-}
-
-- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-  NSLog(@"Opened reward based video ad.");
-}
-
-- (void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-  NSLog(@"Reward based video ad started playing.");
-}
-
-- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-  NSLog(@"Reward based video ad is closed.");
-  self.showVideoButton.hidden = YES;
-}
-
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-    didRewardUserWithReward:(GADAdReward *)reward {
+/// Tells the delegate that the user earned a reward.
+- (void)rewardedAd:(GADRewardedAd *)rewardedAd userDidEarnReward:(GADAdReward *)reward {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
   NSString *rewardMessage =
       [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf", reward.type,
                                  [reward.amount doubleValue]];
@@ -217,13 +213,25 @@ typedef NS_ENUM(NSInteger, GameState) {
   self.showVideoButton.hidden = YES;
 }
 
-- (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-  NSLog(@"Reward based video ad will leave application.");
+/// Tells the delegate that the rewarded ad was presented.
+- (void)rewardedAdDidPresent:(GADRewardedAd *)rewardedAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-    didFailToLoadWithError:(NSError *)error {
-  NSLog(@"Reward based video ad failed to load.");
+/// Tells the delegate that the rewarded ad failed to present.
+- (void)rewardedAd:(GADRewardedAd *)rewardedAd didFailToPresentWithError:(NSError *)error {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+  [[[UIAlertView alloc] initWithTitle:@"Rewarded Ad Failed To Present"
+                              message:@"The rewarded ad didn't present "
+                             delegate:self
+                    cancelButtonTitle:@"Drat"
+                    otherButtonTitles:nil] show];
 }
 
+/// Tells the delegate that the rewarded ad was dismissed.
+- (void)rewardedAdDidDismiss:(GADRewardedAd *)rewardedAd {
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+  [self requestRewardedVideo];
+  self.showVideoButton.hidden = YES;
+}
 @end
