@@ -1,27 +1,27 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.48.0):
+  - Google-Mobile-Ads-SDK (7.50.0):
     - GoogleAppMeasurement (~> 6.0)
-  - GoogleAppMeasurement (6.1.0):
+  - GoogleAppMeasurement (6.1.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (6.2.4):
+  - GoogleUtilities/AppDelegateSwizzler (6.3.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.2.4)
-  - GoogleUtilities/Logger (6.2.4):
+  - GoogleUtilities/Environment (6.3.0)
+  - GoogleUtilities/Logger (6.3.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.2.4):
+  - GoogleUtilities/MethodSwizzler (6.3.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.2.4):
+  - GoogleUtilities/Network (6.3.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.2.4)"
-  - GoogleUtilities/Reachability (6.2.4):
+  - "GoogleUtilities/NSData+zlib (6.3.0)"
+  - GoogleUtilities/Reachability (6.3.0):
     - GoogleUtilities/Logger
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -40,11 +40,11 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 709fa768c3ba8e8b260d8cb085c607097fd3f79d
-  GoogleAppMeasurement: 47285fa897e5a125df56b9ef8750a1d81e4598a8
-  GoogleUtilities: 64b5e3982b1b01bda26712affd5c523ef32563cf
+  Google-Mobile-Ads-SDK: d48dbaf5bae1ab7a94a9786f493c26c454bc6f16
+  GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
+  GoogleUtilities: 9c2c544202301110b29f7974a82e77fdcf12bf51
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
 PODFILE CHECKSUM: ddb4c96a2408bec7c8bc4953efbab9cec082cffb
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5
