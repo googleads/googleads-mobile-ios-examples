@@ -148,7 +148,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     if !adsToLoad.isEmpty {
       let ad = adsToLoad.removeFirst()
       let adRequest = GADRequest()
-      adRequest.testDevices = [ kGADSimulatorID ]
+      adRequest.testDevices = [ kGADSimulatorID as! String ]
       ad.load(adRequest)
     }
   }

@@ -22,6 +22,10 @@ matrix:
     xcode_workspace: Swift/Advanced/APIDemo/APIDemo.xcworkspace
     xcode_scheme: APIDemo
     env: PROJ_DIR="Swift/Advanced/APIDemo"
+  - name: "AdaptiveBannerExample"
+    xcode_workspace: Swift/AdMob/AdaptiveBannerExample/AdaptiveBannerExample.xcworkspace
+    xcode_scheme: AdaptiveBannerExample
+    env: PROJ_DIR="Swift/AdMob/AdaptiveBannerExample"
   - name: "BannerExample"
     xcode_workspace: Swift/AdMob/BannerExample/BannerExample.xcworkspace
     xcode_scheme: BannerExample
@@ -42,6 +46,10 @@ matrix:
     xcode_workspace: Swift/AdManager/AdManagerInterstitialExample/AdManagerInterstitialExample.xcworkspace
     xcode_scheme: AdManagerInterstitialExample
     env: PROJ_DIR="Swift/AdManager/AdManagerInterstitialExample"
+  - name: "AdManagerAdaptiveBannerExample"
+    xcode_workspace: Swift/AdManager/AdaptiveBannerExample/AdaptiveBannerExample.xcworkspace
+    xcode_scheme: AdaptiveBannerExample
+    env: PROJ_DIR="Swift/AdManager/AdaptiveBannerExample"
   - name: "AdManagerBannerExample"
     xcode_workspace: Swift/AdManager/AdManagerBannerExample/AdManagerBannerExample.xcworkspace
     xcode_scheme: AdManagerBannerExample
@@ -62,6 +70,10 @@ matrix:
     xcode_workspace: Objective-C/Advanced/APIDemo/APIDemo.xcworkspace
     xcode_scheme: APIDemo
     env: PROJ_DIR="Objective-C/Advanced/APIDemo"
+  - name: "AdaptiveBannerExample"
+    xcode_workspace: Objective-C/AdMob/AdaptiveBannerExample/AdaptiveBannerExample.xcworkspace
+    xcode_scheme: AdaptiveBannerExample
+    env: PROJ_DIR="Objective-C/AdMob/AdaptiveBannerExample"
   - name: "BannerExample"
     xcode_workspace: Objective-C/AdMob/BannerExample/BannerExample.xcworkspace
     xcode_scheme: BannerExample
@@ -82,6 +94,10 @@ matrix:
     xcode_workspace: Objective-C/AdManager/AdManagerInterstitialExample/AdManagerInterstitialExample.xcworkspace
     xcode_scheme: AdManagerInterstitialExample
     env: PROJ_DIR="Objective-C/AdManager/AdManagerInterstitialExample"
+  - name: "AdManagerAdaptiveBannerExample"
+    xcode_workspace: Objective-C/AdManager/AdaptiveBannerExample/AdaptiveBannerExample.xcworkspace
+    xcode_scheme: AdaptiveBannerExample
+    env: PROJ_DIR="Objective-C/AdManager/AdaptiveBannerExample"
   - name: "AdManagerBannerExample"
     xcode_workspace: Objective-C/AdManager/AdManagerBannerExample/AdManagerBannerExample.xcworkspace
     xcode_scheme: AdManagerBannerExample

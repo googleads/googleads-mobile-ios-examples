@@ -90,7 +90,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     let request = GADRequest()
     // Request test ads on devices you specify. Your test device ID is printed to the console when
     // an ad request is made.
-    request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9a" ]
+    request.testDevices = [ kGADSimulatorID as! String, "2077ef9a63d2b398840261c8221a0c9a" ]
     interstitial.load(request)
   }
 
