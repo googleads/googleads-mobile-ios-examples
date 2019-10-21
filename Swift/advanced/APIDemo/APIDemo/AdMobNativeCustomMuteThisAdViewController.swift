@@ -78,9 +78,9 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     // of the nativeAdPlaceholder.
     let viewDictionary = ["_nativeAdView": nativeAdView!]
     self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
-                                                            options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+                                                            options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
     self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
-                                                            options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+                                                            options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
   }
 
   // MARK: - Actions

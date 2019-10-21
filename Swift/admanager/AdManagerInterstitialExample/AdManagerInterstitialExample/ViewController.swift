@@ -59,12 +59,12 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     // Pause game when application enters background.
     NotificationCenter.default.addObserver(self,
         selector: #selector(ViewController.pauseGame),
-        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        name: UIApplication.didEnterBackgroundNotification, object: nil)
 
     // Resume game when application becomes active.
     NotificationCenter.default.addObserver(self,
         selector: #selector(ViewController.resumeGame),
-        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        name: UIApplication.didBecomeActiveNotification, object: nil)
 
     startNewGame()
   }
@@ -161,9 +161,9 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
 
   deinit {
     NotificationCenter.default.removeObserver(self,
-        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        name: UIApplication.didEnterBackgroundNotification, object: nil)
     NotificationCenter.default.removeObserver(self,
-        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        name: UIApplication.didBecomeActiveNotification, object: nil)
   }
 
 }

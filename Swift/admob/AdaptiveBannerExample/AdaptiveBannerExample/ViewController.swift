@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     // view has been laid out.
     let frame = { () -> CGRect in
       if #available(iOS 11.0, *) {
-        return UIEdgeInsetsInsetRect(view.frame, view.safeAreaInsets)
+        return view.frame.inset(by: view.safeAreaInsets)
       } else {
         return view.frame
       }

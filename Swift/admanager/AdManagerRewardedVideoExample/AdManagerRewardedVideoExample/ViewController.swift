@@ -72,12 +72,12 @@ class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelega
     // Pause game when application is backgrounded.
     NotificationCenter.default.addObserver(self,
         selector: #selector(ViewController.applicationDidEnterBackground(_:)),
-        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        name: UIApplication.didEnterBackgroundNotification, object: nil)
 
     // Resume game when application is returned to foreground.
     NotificationCenter.default.addObserver(self,
         selector: #selector(ViewController.applicationDidBecomeActive(_:)),
-        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        name: UIApplication.didBecomeActiveNotification, object: nil)
 
     startNewGame()
   }
@@ -205,8 +205,8 @@ class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelega
 
   deinit {
     NotificationCenter.default.removeObserver(self,
-        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        name: UIApplication.didEnterBackgroundNotification, object: nil)
     NotificationCenter.default.removeObserver(self,
-        name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        name: UIApplication.didBecomeActiveNotification, object: nil)
   }
 }
