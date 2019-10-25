@@ -153,7 +153,7 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
     heightConstraint.active = YES;
   }
 
-  self.customControlsView.controller = nativeAd.videoController;
+  self.customControlsView.controller = nativeAd.mediaContent.videoController;
 
   // These assets are not guaranteed to be present. Check that they are before
   // showing or hiding them.
