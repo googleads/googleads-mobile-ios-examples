@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIAlertViewDelegate, GADInterstitialDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -94,6 +94,7 @@ class ViewController: UIViewController {
     // Request test ads on devices you specify. Your test device ID is printed to the console when
     // an ad request is made.
     request.testDevices = [kGADSimulatorID as! String, "2077ef9a63d2b398840261c8221a0c9a"]
+    interstitial.delegate = self
     interstitial.load(request)
   }
 
@@ -167,6 +168,37 @@ class ViewController: UIViewController {
 
   @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
+  }
+
+  // MARK: - UIAlertViewDelegate
+
+  func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+    if interstitial.isReady {
+      interstitial.present(fromRootViewController: self)
+    } else {
+      print("Ad wasn't ready")
+    }
+    playAgainButton.isHidden = false
+  }
+  
+  // MARK: - GADInterstitialDelegate
+  
+  func getAdResponseIdentifier(_ interstitial: GADInterstitial) -> String {
+    return interstitial.responseInfo!.responseIdentifier ?? "null"
+  }
+
+  /// Tells the delegate an ad request succeeded.
+  func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+    let adResponseId = getAdResponseIdentifier(interstitial)
+    print("interstitialDidReceiveAd: Ad response Id='\(adResponseId)'")
+  }
+  
+  /// Tells the delegate an ad request failed.
+  func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+    print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    
+    let adResponseId = getAdResponseIdentifier(interstitial)
+    print("Ad response Id='\(adResponseId)'")
   }
 
   // MARK: - deinit
