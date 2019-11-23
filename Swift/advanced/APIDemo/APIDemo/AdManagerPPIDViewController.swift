@@ -12,10 +12,6 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-//
-
-import GoogleMobileAds
-import UIKit
 
 class AdManagerPPIDViewController: UIViewController {
 
@@ -39,12 +35,16 @@ class AdManagerPPIDViewController: UIViewController {
       request.publisherProvidedID = generatePublisherProvidedIdentifierFromUsername(username)
       bannerView.load(request)
     } else {
-      let alert = UIAlertView(title: "Load Ad Error",
-          message: "Failed to load ad. Username is required",
-          delegate: self,
-          cancelButtonTitle: "OK")
-      alert.alertViewStyle = .default
-      alert.show()
+      let alert = UIAlertController(
+        title: "Load Ad Error",
+        message: "Failed to load ad. Username is required",
+        preferredStyle: .alert)
+      let alertAction = UIAlertAction(
+        title: "OK",
+        style: .cancel,
+        handler: nil)
+      alert.addAction(alertAction)
+      self.present(alert, animated: true, completion: nil)
     }
   }
 
@@ -62,7 +62,8 @@ class AdManagerPPIDViewController: UIViewController {
     let utf8Username = username.cString(using: String.Encoding.utf8)
     // Allocate memory for a byte array of unsigned characters with size equal to
     // CC_MD5_DIGEST_LENGTH.
-    let md5Buffer = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: Int(CC_MD5_DIGEST_LENGTH))
+    let md5Buffer = UnsafeMutablePointer<CUnsignedChar>.allocate(
+      capacity: Int(CC_MD5_DIGEST_LENGTH))
     // Create the 16 byte MD5 hash value.
     CC_MD5(utf8Username!, CC_LONG(strlen(utf8Username!)), md5Buffer)
     // Convert the MD5 hash value to an NSString of hex values.

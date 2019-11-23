@@ -44,24 +44,34 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
     bannerView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints that align the banner view to the bottom center of the screen.
-    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .equal,
-                                          toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
-    view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX, relatedBy: .equal,
-                                          toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+    view.addConstraint(
+      NSLayoutConstraint(
+        item: bannerView, attribute: .bottom, relatedBy: .equal,
+        toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
+    view.addConstraint(
+      NSLayoutConstraint(
+        item: bannerView, attribute: .centerX, relatedBy: .equal,
+        toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
   }
 
   // MARK: - Actions
 
   /// Loads an ad.
   @IBAction func loadAd(_ sender: AnyObject) {
-    guard GADAdSizeCustomBannerSwitch.isOn || GADAdSizeBannerSwitch.isOn ||
-        GADAdSizeMediumRectangleSwitch.isOn else {
-      let alert = UIAlertView(title: "Load Ad Error",
-          message: "Failed to load ad. Please select at least one ad size.",
-          delegate: self,
-          cancelButtonTitle: "OK")
-      alert.alertViewStyle = .default
-      alert.show()
+    guard
+      GADAdSizeCustomBannerSwitch.isOn || GADAdSizeBannerSwitch.isOn
+        || GADAdSizeMediumRectangleSwitch.isOn
+    else {
+      let alert = UIAlertController(
+        title: "Load Ad Error",
+        message: "Failed to load ad. Please select at least one ad size.",
+        preferredStyle: .alert)
+      let alertAction = UIAlertAction(
+        title: "OK",
+        style: .cancel,
+        handler: nil)
+      alert.addAction(alertAction)
+      self.present(alert, animated: true, completion: nil)
       return
     }
 

@@ -69,10 +69,16 @@ class ViewController: UIViewController {
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.
     let viewDictionary = ["_nativeAdView": nativeAdView!]
-    self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
-    self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+    self.view.addConstraints(
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "H:|[_nativeAdView]|",
+        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
+    )
+    self.view.addConstraints(
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "V:|[_nativeAdView]|",
+        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
+    )
   }
 
   // MARK: - Actions
@@ -88,16 +94,23 @@ class ViewController: UIViewController {
     }
 
     if adTypes.isEmpty {
-      let alertView = UIAlertView(title: "Alert", message: "At least one ad format must be " +
-          "selected to refresh the ad.", delegate: self, cancelButtonTitle: "OK")
-      alertView.alertViewStyle = .default
-      alertView.show()
+      let alert = UIAlertController(
+        title: "Alert",
+        message: "At least one ad format must be selected to refresh the ad.",
+        preferredStyle: .alert)
+      let alertAction = UIAlertAction(
+        title: "OK",
+        style: .cancel,
+        handler: nil)
+      alert.addAction(alertAction)
+      self.present(alert, animated: true, completion: nil)
     } else {
       refreshAdButton.isEnabled = false
       let videoOptions = GADVideoOptions()
       videoOptions.startMuted = startMutedSwitch.isOn
-      adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
-          adTypes: adTypes, options: [videoOptions])
+      adLoader = GADAdLoader(
+        adUnitID: adUnitID, rootViewController: self,
+        adTypes: adTypes, options: [videoOptions])
       adLoader.delegate = self
       adLoader.load(GADRequest())
       videoStatusLabel.text = ""
@@ -133,8 +146,7 @@ class ViewController: UIViewController {
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
       videoStatusLabel.text = "Ad contains a video asset."
-    }
-    else {
+    } else {
       videoStatusLabel.text = "Ad does not contain a video."
     }
   }
@@ -142,7 +154,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - GADAdLoaderDelegate
-extension ViewController : GADAdLoaderDelegate {
+extension ViewController: GADAdLoaderDelegate {
   func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
     refreshAdButton.isEnabled = true
@@ -150,7 +162,7 @@ extension ViewController : GADAdLoaderDelegate {
 }
 
 // MARK: - GADUnifiedNativeAdLoaderDelegate
-extension ViewController : GADUnifiedNativeAdLoaderDelegate {
+extension ViewController: GADUnifiedNativeAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
     print("Received unified native ad: \(nativeAd)")
@@ -174,9 +186,9 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     // Some native ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
     // UI accordingly.
-    let hasVideoContent = nativeAd.mediaContent.hasVideoContent    // Update the ViewController for video content.
+    let hasVideoContent = nativeAd.mediaContent.hasVideoContent  // Update the ViewController for video content.
     updateVideoStatusLabel(hasVideoContent: hasVideoContent)
-    if (hasVideoContent) {
+    if hasVideoContent {
       // By acting as the delegate to the GADVideoController, this ViewController receives messages
       // about events in the video lifecycle.
       nativeAd.mediaContent.videoController.delegate = self
@@ -185,13 +197,14 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
     // ratio of the media it displays.
     if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
-      let heightConstraint = NSLayoutConstraint(item: mediaView,
-                                            attribute: .height,
-                                            relatedBy: .equal,
-                                            toItem: mediaView,
-                                            attribute: .width,
-                                            multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
-                                            constant: 0)
+      let heightConstraint = NSLayoutConstraint(
+        item: mediaView,
+        attribute: .height,
+        relatedBy: .equal,
+        toItem: mediaView,
+        attribute: .width,
+        multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+        constant: 0)
       heightConstraint.isActive = true
     }
 
@@ -206,7 +219,8 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
     (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
     nativeAdView.iconView?.isHidden = nativeAd.icon == nil
 
-    (nativeAdView.starRatingView as? UIImageView)?.image = imageOfStars(fromStarRating:nativeAd.starRating)
+    (nativeAdView.starRatingView as? UIImageView)?.image = imageOfStars(
+      fromStarRating: nativeAd.starRating)
     nativeAdView.starRatingView?.isHidden = nativeAd.starRating == nil
 
     (nativeAdView.storeView as? UILabel)?.text = nativeAd.store
@@ -223,30 +237,32 @@ extension ViewController : GADUnifiedNativeAdLoaderDelegate {
   }
 }
 
-
 // MARK: - GADNativeCustomTemplateAdLoaderDelegate
-extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {
+extension ViewController: GADNativeCustomTemplateAdLoaderDelegate {
   func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [String] {
-    return [ nativeCustomTemplateId ]
+    return [nativeCustomTemplateId]
   }
 
-  func adLoader(_ adLoader: GADAdLoader,
-                didReceive nativeCustomTemplateAd: GADNativeCustomTemplateAd) {
+  func adLoader(
+    _ adLoader: GADAdLoader,
+    didReceive nativeCustomTemplateAd: GADNativeCustomTemplateAd
+  ) {
     print("Received custom native ad: \(nativeCustomTemplateAd)")
     refreshAdButton.isEnabled = true
     // Create and place the ad in the view hierarchy.
-    let customNativeAdView = Bundle.main.loadNibNamed(
-      "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
+    let customNativeAdView =
+      Bundle.main.loadNibNamed(
+        "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
     setAdView(customNativeAdView)
 
     let hasVideoContent = nativeCustomTemplateAd.videoController.hasVideoContent()
     // Update the ViewController for video content.
     updateVideoStatusLabel(hasVideoContent: hasVideoContent)
-    if (hasVideoContent) {
+    if hasVideoContent {
       nativeCustomTemplateAd.videoController.delegate = self
     }
     // Populate the custom native ad view with the custom native ad assets.
-    customNativeAdView.populate(withCustomNativeAd:nativeCustomTemplateAd)
+    customNativeAdView.populate(withCustomNativeAd: nativeCustomTemplateAd)
     // Impressions for custom template format must be manually tracked. If this is not called,
     // videos will also not be played.
     nativeCustomTemplateAd.recordImpression()
@@ -254,7 +270,7 @@ extension ViewController : GADNativeCustomTemplateAdLoaderDelegate {
 }
 
 // MARK: - GADVideoControllerDelegate implementation
-extension ViewController : GADVideoControllerDelegate {
+extension ViewController: GADVideoControllerDelegate {
 
   func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     videoStatusLabel.text = "Video playback has ended."
@@ -262,7 +278,7 @@ extension ViewController : GADVideoControllerDelegate {
 }
 
 // MARK: - GADUnifiedNativeAdDelegate implementation
-extension ViewController : GADUnifiedNativeAdDelegate {
+extension ViewController: GADUnifiedNativeAdDelegate {
 
   func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
     print("\(#function) called")

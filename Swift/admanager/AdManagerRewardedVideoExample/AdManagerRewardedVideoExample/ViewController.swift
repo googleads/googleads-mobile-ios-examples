@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, GADRewardedAdDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -70,14 +70,16 @@ class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelega
     coinCountLabel.text = "Coins: \(self.coinCount)"
 
     // Pause game when application is backgrounded.
-    NotificationCenter.default.addObserver(self,
-        selector: #selector(ViewController.applicationDidEnterBackground(_:)),
-        name: UIApplication.didEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.applicationDidEnterBackground(_:)),
+      name: UIApplication.didEnterBackgroundNotification, object: nil)
 
     // Resume game when application is returned to foreground.
-    NotificationCenter.default.addObserver(self,
-        selector: #selector(ViewController.applicationDidBecomeActive(_:)),
-        name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.applicationDidBecomeActive(_:)),
+      name: UIApplication.didBecomeActiveNotification, object: nil)
 
     startNewGame()
   }
@@ -103,9 +105,10 @@ class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelega
     }
 
     gameText.text = String(counter)
-    timer = Timer.scheduledTimer(timeInterval: 1.0,
+    timer = Timer.scheduledTimer(
+      timeInterval: 1.0,
       target: self,
-      selector:#selector(ViewController.timerFireMethod(_:)),
+      selector: #selector(ViewController.timerFireMethod(_:)),
       userInfo: nil,
       repeats: true)
   }
@@ -166,19 +169,21 @@ class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelega
 
   @IBAction func playAgain(_ sender: AnyObject) {
     if rewardedAd?.isReady == true {
-      rewardedAd?.present(fromRootViewController: self, delegate:self)
+      rewardedAd?.present(fromRootViewController: self, delegate: self)
     } else {
-      UIAlertView(title: "Rewarded video not ready",
-                  message: "The rewarded video didn't finish loading or failed to load",
-                  delegate: self,
-                  cancelButtonTitle: "Drat").show()
+      let alert = UIAlertController(
+        title: "Rewarded video not ready",
+        message: "The rewarded video didn't finish loading or failed to load",
+        preferredStyle: .alert)
+      let alertAction = UIAlertAction(
+        title: "OK",
+        style: .cancel,
+        handler: { [weak self] action in
+          self?.startNewGame()
+        })
+      alert.addAction(alertAction)
+      self.present(alert, animated: true, completion: nil)
     }
-  }
-
-  // MARK: UIAlertViewDelegate implementation
-
-  func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
-    startNewGame()
   }
 
   // MARK: GADRewardedAdDelegate
@@ -197,16 +202,26 @@ class ViewController: UIViewController, GADRewardedAdDelegate, UIAlertViewDelega
   }
 
   func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
-    UIAlertView(title: "Rewarded ad failed to present",
-                message: "The rewarded ad could not be presented.",
-                delegate: self,
-                cancelButtonTitle: "Drat").show()
+    let alert = UIAlertController(
+      title: "Rewarded ad failed to present",
+      message: "The reward ad could not be presented.",
+      preferredStyle: .alert)
+    let alertAction = UIAlertAction(
+      title: "Drat",
+      style: .cancel,
+      handler: { [weak self] action in
+        self?.startNewGame()
+      })
+    alert.addAction(alertAction)
+    self.present(alert, animated: true, completion: nil)
   }
 
   deinit {
-    NotificationCenter.default.removeObserver(self,
-        name: UIApplication.didEnterBackgroundNotification, object: nil)
-    NotificationCenter.default.removeObserver(self,
-        name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UIApplication.didEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UIApplication.didBecomeActiveNotification, object: nil)
   }
 }

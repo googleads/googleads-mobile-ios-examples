@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, GADInterstitialDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -57,14 +57,16 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     super.viewDidLoad()
 
     // Pause game when application enters background.
-    NotificationCenter.default.addObserver(self,
-        selector: #selector(ViewController.pauseGame),
-        name: UIApplication.didEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.pauseGame),
+      name: UIApplication.didEnterBackgroundNotification, object: nil)
 
     // Resume game when application becomes active.
-    NotificationCenter.default.addObserver(self,
-        selector: #selector(ViewController.resumeGame),
-        name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.resumeGame),
+      name: UIApplication.didBecomeActiveNotification, object: nil)
 
     startNewGame()
   }
@@ -78,11 +80,12 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     timeLeft = ViewController.gameLength
     playAgainButton.isHidden = true
     updateTimeLeft()
-    timer = Timer.scheduledTimer(timeInterval: 1.0,
-        target: self,
-        selector:#selector(ViewController.decrementTimeLeft(_:)),
-        userInfo: nil,
-        repeats: true)
+    timer = Timer.scheduledTimer(
+      timeInterval: 1.0,
+      target: self,
+      selector: #selector(ViewController.decrementTimeLeft(_:)),
+      userInfo: nil,
+      repeats: true)
   }
 
   fileprivate func createAndLoadInterstitial() {
@@ -134,10 +137,26 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     timer?.invalidate()
     timer = nil
 
-    UIAlertView(title: "Game Over",
-                message: "You lasted \(ViewController.gameLength) seconds",
-                delegate: self,
-                cancelButtonTitle: "Ok").show()
+    let alert = UIAlertController(
+      title: "Game Over",
+      message: "You lasted \(ViewController.gameLength) seconds",
+      preferredStyle: .alert)
+    let alertAction = UIAlertAction(
+      title: "OK",
+      style: .cancel,
+      handler: { [weak self] action in
+        guard let self = self else {
+          return
+        }
+        if self.interstitial.isReady {
+          self.interstitial.present(fromRootViewController: self)
+        } else {
+          print("Ad wasn't ready")
+        }
+        self.playAgainButton.isHidden = false
+      })
+    alert.addAction(alertAction)
+    self.present(alert, animated: true, completion: nil)
   }
 
   // MARK: - Interstitial Button Actions
@@ -146,24 +165,15 @@ class ViewController: UIViewController, GADInterstitialDelegate, UIAlertViewDele
     startNewGame()
   }
 
-  // MARK: - UIAlertViewDelegate
-
-  func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
-    if interstitial.isReady {
-      interstitial.present(fromRootViewController: self)
-    } else {
-      print("Ad wasn't ready")
-    }
-    playAgainButton.isHidden = false
-  }
-
   // MARK: - deinit
 
   deinit {
-    NotificationCenter.default.removeObserver(self,
-        name: UIApplication.didEnterBackgroundNotification, object: nil)
-    NotificationCenter.default.removeObserver(self,
-        name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UIApplication.didEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UIApplication.didBecomeActiveNotification, object: nil)
   }
 
 }
