@@ -27,56 +27,71 @@ private let SimpleNativeAdViewCaptionKey = "Caption"
 
 /// View representing a custom native ad format with template ID 10063170.
 class SimpleNativeAdView: UIView {
-    // Weak references to this ad's asset views.
-    @IBOutlet weak var headlineView: UILabel!
-    @IBOutlet weak var mainPlaceholder: UIView!
-    @IBOutlet weak var captionView: UILabel!
+  // Weak references to this ad's asset views.
+  @IBOutlet weak var headlineView: UILabel!
 
-    /// The custom native ad that populated this view.
-    var customNativeAd: GADNativeCustomTemplateAd?
+  @IBOutlet weak var mainPlaceholder: UIView!
+  @IBOutlet weak var captionView: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Enable clicks on the headline.
-        headlineView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.performClickOnHeadline)))
-        headlineView.isUserInteractionEnabled = true
+  /// The custom native ad that populated this view.
+  var customNativeAd: GADNativeCustomTemplateAd?
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Enable clicks on the headline.
+    headlineView.addGestureRecognizer(
+      UITapGestureRecognizer(target: self, action: #selector(self.performClickOnHeadline)))
+    headlineView.isUserInteractionEnabled = true
+  }
+
+  @objc func performClickOnHeadline() {
+    customNativeAd?.performClickOnAsset(withKey: SimpleNativeAdViewHeadlineKey)
+  }
+
+  /// Populates the ad view with the custom native ad object.
+  func populate(withCustomNativeAd customNativeAd: GADNativeCustomTemplateAd) {
+    self.customNativeAd = customNativeAd
+    // The custom click handler is an optional block which will override the normal click action
+    // defined by the ad. Pass nil for the click handler to let the SDK process the default click
+    // action.
+    customNativeAd.customClickHandler = { (_ assetID: String) -> Void in
+      let alert = UIAlertController(
+        title: "Custom Click",
+        message: "You just clicked on the headline!",
+        preferredStyle: .alert)
+      let alertAction = UIAlertAction(
+        title: "OK",
+        style: .cancel,
+        handler: nil)
+      alert.addAction(alertAction)
+      UIApplication.shared.keyWindow?.rootViewController?.present(
+        alert, animated: true, completion: nil)
     }
-
-    @objc func performClickOnHeadline() {
-        customNativeAd?.performClickOnAsset(withKey: SimpleNativeAdViewHeadlineKey)
+    // Populate the custom native ad assets.
+    headlineView.text = customNativeAd.string(forKey: SimpleNativeAdViewHeadlineKey)
+    captionView.text = customNativeAd.string(forKey: SimpleNativeAdViewCaptionKey)
+    // Remove all the media placeholder's subviews.
+    for subview:UIView in mainPlaceholder.subviews {
+      subview.removeFromSuperview()
     }
-
-    /// Populates the ad view with the custom native ad object.
-    func populate(withCustomNativeAd customNativeAd: GADNativeCustomTemplateAd) {
-        self.customNativeAd = customNativeAd
-        // The custom click handler is an optional block which will override the normal click action
-        // defined by the ad. Pass nil for the click handler to let the SDK process the default click
-        // action.
-        customNativeAd.customClickHandler = { (_ assetID: String) -> Void in
-            UIAlertView(title: "Custom Click", message: "You just clicked on the headline!", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: "").show()
-        }
-        // Populate the custom native ad assets.
-        headlineView.text = customNativeAd.string(forKey: SimpleNativeAdViewHeadlineKey)
-        captionView.text = customNativeAd.string(forKey: SimpleNativeAdViewCaptionKey)
-        // Remove all the media placeholder's subviews.
-        for subview: UIView in mainPlaceholder.subviews {
-            subview.removeFromSuperview()
-        }
-            // This custom native ad has both a video and an image associated with it. We'll use the video
-            // asset if available, and otherwise fallback to the image asset.
-        var mainView: UIView!
-        if customNativeAd.videoController.hasVideoContent() {
-            mainView = customNativeAd.mediaView
-        }
-        else {
-            let image: UIImage? = customNativeAd.image(forKey: SimpleNativeAdViewMainImageKey)?.image
-            mainView = UIImageView(image: image)
-        }
-        mainPlaceholder.addSubview(mainView!)
-        // Size the media view to fill our container size.
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-      let viewDictionary: [String:Any] = ["mainView":mainView]
-      mainPlaceholder.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[mainView]|", options: [], metrics: nil, views: viewDictionary))
-        mainPlaceholder.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[mainView]|", options: [], metrics: nil, views: viewDictionary))
+    // This custom native ad has both a video and an image associated with it. We'll use the video
+    // asset if available, and otherwise fallback to the image asset.
+    var mainView: UIView!
+    if customNativeAd.videoController.hasVideoContent() {
+      mainView = customNativeAd.mediaView
+    } else {
+      let image: UIImage? = customNativeAd.image(forKey: SimpleNativeAdViewMainImageKey)?.image
+      mainView = UIImageView(image: image)
     }
+    mainPlaceholder.addSubview(mainView!)
+    // Size the media view to fill our container size.
+    mainView.translatesAutoresizingMaskIntoConstraints = false
+    let viewDictionary: [String: Any] = ["mainView": mainView]
+    mainPlaceholder.addConstraints(
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "H:|[mainView]|", options: [], metrics: nil, views: viewDictionary))
+    mainPlaceholder.addConstraints(
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "V:|[mainView]|", options: [], metrics: nil, views: viewDictionary))
+  }
 }

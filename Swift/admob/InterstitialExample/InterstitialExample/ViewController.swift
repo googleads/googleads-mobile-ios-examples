@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, UIAlertViewDelegate {
+class ViewController: UIViewController {
 
   enum GameState: NSInteger {
     case notStarted
@@ -57,14 +57,16 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     super.viewDidLoad()
 
     // Pause game when application enters background.
-    NotificationCenter.default.addObserver(self,
-        selector: #selector(ViewController.pauseGame),
-        name: UIApplication.didEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.pauseGame),
+      name: UIApplication.didEnterBackgroundNotification, object: nil)
 
     // Resume game when application becomes active.
-    NotificationCenter.default.addObserver(self,
-        selector: #selector(ViewController.resumeGame),
-        name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(ViewController.resumeGame),
+      name: UIApplication.didBecomeActiveNotification, object: nil)
 
     startNewGame()
   }
@@ -78,11 +80,12 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     timeLeft = ViewController.gameLength
     playAgainButton.isHidden = true
     updateTimeLeft()
-    timer = Timer.scheduledTimer(timeInterval: 1.0,
-        target: self,
-        selector:#selector(ViewController.decrementTimeLeft(_:)),
-        userInfo: nil,
-        repeats: true)
+    timer = Timer.scheduledTimer(
+      timeInterval: 1.0,
+      target: self,
+      selector: #selector(ViewController.decrementTimeLeft(_:)),
+      userInfo: nil,
+      repeats: true)
   }
 
   fileprivate func createAndLoadInterstitial() {
@@ -90,7 +93,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     let request = GADRequest()
     // Request test ads on devices you specify. Your test device ID is printed to the console when
     // an ad request is made.
-    request.testDevices = [ kGADSimulatorID as! String, "2077ef9a63d2b398840261c8221a0c9a" ]
+    request.testDevices = [kGADSimulatorID as! String, "2077ef9a63d2b398840261c8221a0c9a"]
     interstitial.load(request)
   }
 
@@ -138,10 +141,26 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     timer?.invalidate()
     timer = nil
 
-    UIAlertView(title: "Game Over",
-                message: "You lasted \(ViewController.gameLength) seconds",
-                delegate: self,
-                cancelButtonTitle: "Ok").show()
+    let alert = UIAlertController(
+      title: "Game Over",
+      message: "You lasted \(ViewController.gameLength) seconds",
+      preferredStyle: .alert)
+    let alertAction = UIAlertAction(
+      title: "OK",
+      style: .cancel,
+      handler: { [weak self] action in
+        guard let self = self else {
+          return
+        }
+        if self.interstitial.isReady {
+          self.interstitial.present(fromRootViewController: self)
+        } else {
+          print("Ad wasn't ready")
+        }
+        self.playAgainButton.isHidden = false
+      })
+    alert.addAction(alertAction)
+    self.present(alert, animated: true, completion: nil)
   }
 
   // MARK: - Interstitial Button Actions
@@ -150,24 +169,15 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     startNewGame()
   }
 
-  // MARK: - UIAlertViewDelegate
-
-  func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
-    if interstitial.isReady {
-      interstitial.present(fromRootViewController: self)
-    } else {
-      print("Ad wasn't ready")
-    }
-    playAgainButton.isHidden = false
-  }
-
   // MARK: - deinit
 
   deinit {
-    NotificationCenter.default.removeObserver(self,
-        name: UIApplication.didEnterBackgroundNotification, object: nil)
-    NotificationCenter.default.removeObserver(self,
-        name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UIApplication.didEnterBackgroundNotification, object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UIApplication.didBecomeActiveNotification, object: nil)
   }
 
 }
