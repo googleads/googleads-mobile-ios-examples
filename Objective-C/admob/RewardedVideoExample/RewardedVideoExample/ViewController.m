@@ -184,19 +184,19 @@ typedef NS_ENUM(NSInteger, GameState) {
   if (self.rewardedAd.isReady) {
     [self.rewardedAd presentFromRootViewController:self delegate:self];
   } else {
-    [[[UIAlertView alloc] initWithTitle:@"Rewarded Ad not ready"
-                                message:@"The rewarded didn't finish "
-                                        @"loading or failed to load"
-                               delegate:self
-                      cancelButtonTitle:@"Drat"
-                      otherButtonTitles:nil] show];
+    __weak ViewController *weakSelf = self;
+    UIAlertController *alert = [UIAlertController
+        alertControllerWithTitle:@"Rewarded Ad not ready"
+                         message:@"The rewarded didn't finish loading or failed to load"
+                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Drat"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction *action) {
+                                                          [weakSelf startNewGame];
+                                                        }];
+    [alert addAction:alertAction];
+    [self presentViewController:alert animated:YES completion:nil];
   }
-}
-
-#pragma mark UIAlertViewDelegate implementation
-
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-  [self startNewGame];
 }
 
 #pragma mark GADRewardedAdDelegate implementation
@@ -220,12 +220,18 @@ typedef NS_ENUM(NSInteger, GameState) {
 
 /// Tells the delegate that the rewarded ad failed to present.
 - (void)rewardedAd:(GADRewardedAd *)rewardedAd didFailToPresentWithError:(NSError *)error {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  [[[UIAlertView alloc] initWithTitle:@"Rewarded Ad Failed To Present"
-                              message:@"The rewarded ad didn't present "
-                             delegate:self
-                    cancelButtonTitle:@"Drat"
-                    otherButtonTitles:nil] show];
+  __weak ViewController *weakSelf = self;
+  UIAlertController *alert =
+      [UIAlertController alertControllerWithTitle:@"Rewarded Ad Failed To Present"
+                                          message:@"The rewarded ad didn't present"
+                                   preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Drat"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction *action) {
+                                                        [weakSelf startNewGame];
+                                                      }];
+  [alert addAction:alertAction];
+  [self presentViewController:alert animated:YES completion:nil];
 }
 
 /// Tells the delegate that the rewarded ad was dismissed.

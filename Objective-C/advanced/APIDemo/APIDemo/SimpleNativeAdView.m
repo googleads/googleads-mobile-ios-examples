@@ -55,13 +55,18 @@ static NSString *const SimpleNativeAdViewCaptionKey = @"Caption";
   // The custom click handler is an optional block which will override the normal click action
   // defined by the ad. Pass nil for the click handler to let the SDK process the default click
   // action.
-  __weak typeof(self) weakSelf = self;
   [self.customNativeAd setCustomClickHandler:^(NSString *assetID) {
-    [[[UIAlertView alloc] initWithTitle:@"Custom Click"
-                                message:@"You just clicked on the headline!"
-                               delegate:weakSelf
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
+    UIAlertController *alert =
+        [UIAlertController alertControllerWithTitle:@"Custom Click"
+                                            message:@"You just clicked on the headline!"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:nil];
+    [alert addAction:alertAction];
+    [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alert
+                                                                               animated:YES
+                                                                             completion:nil];
   }];
 
   // Populate the custom native ad assets.

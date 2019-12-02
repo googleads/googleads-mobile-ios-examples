@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, GameState) {
 /// The game length.
 static const NSInteger kGameLength = 5;
 
-@interface ViewController () <GADInterstitialDelegate, UIAlertViewDelegate>
+@interface ViewController () <GADInterstitialDelegate>
 
 /// The AdManager interstitial ad.
 @property(nonatomic, strong) DFPInterstitial *interstitial;
@@ -134,28 +134,33 @@ static const NSInteger kGameLength = 5;
   self.gameState = kGameStateEnded;
   [self.timer invalidate];
   self.timer = nil;
-
-  [[[UIAlertView alloc]
-          initWithTitle:@"Game Over"
-                message:[NSString stringWithFormat:@"You lasted %ld seconds", (long)kGameLength]
-               delegate:self
-      cancelButtonTitle:@"Ok"
-      otherButtonTitles:nil] show];
+  __weak ViewController *weakSelf = self;
+  UIAlertController *alert = [UIAlertController
+      alertControllerWithTitle:@"Game Over"
+                       message:[NSString
+                                   stringWithFormat:@"You lasted %ld seconds", (long)kGameLength]
+                preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *alertAction =
+      [UIAlertAction actionWithTitle:@"OK"
+                               style:UIAlertActionStyleCancel
+                             handler:^(UIAlertAction *action) {
+                               ViewController *strongSelf = weakSelf;
+                               if (!strongSelf) {
+                                 return;
+                               }
+                               if (strongSelf.interstitial.isReady) {
+                                 [strongSelf.interstitial presentFromRootViewController:strongSelf];
+                               } else {
+                                 NSLog(@"Ad wasn't ready");
+                               }
+                               strongSelf.playAgainButton.hidden = NO;
+                             }];
+  [alert addAction:alertAction];
+  [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)playAgain:(id)sender {
   [self startNewGame];
-}
-
-#pragma mark UIAlertViewDelegate implementation
-
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-  if (self.interstitial.isReady) {
-    [self.interstitial presentFromRootViewController:self];
-  } else {
-    NSLog(@"Ad wasn't ready");
-  }
-  self.playAgainButton.hidden = NO;
 }
 
 #pragma mark dealloc

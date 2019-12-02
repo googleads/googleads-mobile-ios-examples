@@ -80,13 +80,17 @@
                                   self.GADAdSizeMediumRectangleSwitch.isOn;
 
   if (!atLeastOneAdSizeSelected) {
-    UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:@"Load Ad Error"
-                                   message:@"Failed to load ad. Please select at least one ad size."
-                                  delegate:nil
-                         cancelButtonTitle:@"OK"
-                         otherButtonTitles:nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController
+        alertControllerWithTitle:@"Load Ad Error"
+                         message:@"Failed to load ad. Please select at least one ad size."
+                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:nil];
+    [alert addAction:alertAction];
+    [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alert
+                                                                               animated:YES
+                                                                             completion:nil];
     return;
   }
 

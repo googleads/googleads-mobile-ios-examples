@@ -60,13 +60,15 @@
         [self publisherProvidedIdentifierWithString:self.usernameTextField.text];
     [self.bannerView loadRequest:request];
   } else {
-    UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:@"Load Ad Error"
-                                   message:@"Failed to load ad. Username is required."
-                                  delegate:nil
-                         cancelButtonTitle:@"OK"
-                         otherButtonTitles:nil];
-    [alert show];
+    UIAlertController *alert =
+        [UIAlertController alertControllerWithTitle:@"Load Ad Error"
+                                            message:@"Failed to load ad. Username is required."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:nil];
+    [alert addAction:alertAction];
+    [self presentViewController:alert animated:YES completion:nil];
   }
 }
 
