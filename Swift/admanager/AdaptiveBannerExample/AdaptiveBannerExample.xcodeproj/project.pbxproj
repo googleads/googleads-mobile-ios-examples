@@ -102,7 +102,7 @@
 				TargetAttributes = {
 					CF86EE1619787E6B00411520 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = CSTR6SUWN9;
+						
 						LastSwiftMigration = 1020;
 					};
 				};
