@@ -1,27 +1,27 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.53.1):
+  - Google-Mobile-Ads-SDK (7.54.0):
     - GoogleAppMeasurement (~> 6.0)
-  - GoogleAppMeasurement (6.1.7):
+  - GoogleAppMeasurement (6.2.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (= 0.3.9011)
-  - GoogleUtilities/AppDelegateSwizzler (6.4.0):
+  - GoogleUtilities/AppDelegateSwizzler (6.5.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.4.0)
-  - GoogleUtilities/Logger (6.4.0):
+  - GoogleUtilities/Environment (6.5.1)
+  - GoogleUtilities/Logger (6.5.1):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.4.0):
+  - GoogleUtilities/MethodSwizzler (6.5.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.4.0):
+  - GoogleUtilities/Network (6.5.1):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.4.0)"
-  - GoogleUtilities/Reachability (6.4.0):
+  - "GoogleUtilities/NSData+zlib (6.5.1)"
+  - GoogleUtilities/Reachability (6.5.1):
     - GoogleUtilities/Logger
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -33,16 +33,16 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs:
+  https://github.com/CocoaPods/Specs.git:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: fac081606dbd438d8db57198b83ba8b5f875a601
-  GoogleAppMeasurement: db118eb61a97dd8c4f7014e368d3c335cbbcf80a
-  GoogleUtilities: 29bd0d8f850efbd28cff6d99e8b7da1f8d236bcf
+  Google-Mobile-Ads-SDK: 8241b4bd0f11b4f03f5dcd4affccb04ca938f050
+  GoogleAppMeasurement: d0560d915abf15e692e8538ba1d58442217b6aff
+  GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
 PODFILE CHECKSUM: 60728c8441b80fc96a93bb32e7a903edf53cb25f
