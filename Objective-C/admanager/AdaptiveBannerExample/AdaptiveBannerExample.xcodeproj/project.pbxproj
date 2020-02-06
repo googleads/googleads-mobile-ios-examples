@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1913AF6320C5EAB28A5180 /* libPods-AdaptiveBannerExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD6B6632463F34261CD7A3F /* libPods-AdaptiveBannerExample.a */; };
 		CF86EE1D19787E6B00411520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE1C19787E6B00411520 /* main.m */; };
 		CF86EE2019787E6B00411520 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE1F19787E6B00411520 /* AppDelegate.m */; };
 		CF86EE2319787E6B00411520 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE2219787E6B00411520 /* ViewController.m */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E835745A81EDA45C2562384 /* Pods-AdaptiveBannerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveBannerExample.debug.xcconfig"; path = "Target Support Files/Pods-AdaptiveBannerExample/Pods-AdaptiveBannerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7AD6B6632463F34261CD7A3F /* libPods-AdaptiveBannerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveBannerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF86EE1719787E6B00411520 /* AdaptiveBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF86EE1B19787E6B00411520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF86EE1C19787E6B00411520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		CF86EE2219787E6B00411520 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF86EE2519787E6B00411520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF86EE2719787E6B00411520 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DAB6BAED5FDA298F382C0558 /* Pods-AdaptiveBannerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveBannerExample.release.xcconfig"; path = "Target Support Files/Pods-AdaptiveBannerExample/Pods-AdaptiveBannerExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1913AF6320C5EAB28A5180 /* libPods-AdaptiveBannerExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		396ADA419289E63B31912EFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AD6B6632463F34261CD7A3F /* libPods-AdaptiveBannerExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB62C246BB5968107A051FDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E835745A81EDA45C2562384 /* Pods-AdaptiveBannerExample.debug.xcconfig */,
+				DAB6BAED5FDA298F382C0558 /* Pods-AdaptiveBannerExample.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CF86EE0E19787E6B00411520 = {
 			isa = PBXGroup;
 			children = (
 				CF86EE1919787E6B00411520 /* AdaptiveBannerExample */,
 				CF86EE1819787E6B00411520 /* Products */,
+				AB62C246BB5968107A051FDD /* Pods */,
+				396ADA419289E63B31912EFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +108,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF86EE3719787E6B00411520 /* Build configuration list for PBXNativeTarget "AdaptiveBannerExample" */;
 			buildPhases = (
+				EC73ED0D1F3716E298E3FFBA /* [CP] Check Pods Manifest.lock */,
 				CF86EE1319787E6B00411520 /* Sources */,
 				CF86EE1419787E6B00411520 /* Frameworks */,
 				CF86EE1519787E6B00411520 /* Resources */,
@@ -107,7 +133,6 @@
 				TargetAttributes = {
 					CF86EE1619787E6B00411520 = {
 						CreatedOnToolsVersion = 6.0;
-						
 					};
 				};
 			};
@@ -140,6 +165,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC73ED0D1F3716E298E3FFBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdaptiveBannerExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF86EE1319787E6B00411520 /* Sources */ = {
@@ -255,6 +305,7 @@
 		};
 		CF86EE3819787E6B00411520 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E835745A81EDA45C2562384 /* Pods-AdaptiveBannerExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -268,6 +319,7 @@
 		};
 		CF86EE3919787E6B00411520 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB6BAED5FDA298F382C0558 /* Pods-AdaptiveBannerExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
