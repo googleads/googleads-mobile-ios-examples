@@ -1,7 +1,7 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.55.0):
+  - Google-Mobile-Ads-SDK (7.56.0):
     - GoogleAppMeasurement (~> 6.0)
-  - GoogleAppMeasurement (6.2.2):
+  - GoogleAppMeasurement (6.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
@@ -40,11 +40,11 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 09d1c182f144b456fce626f9234ab4d35397ea10
-  GoogleAppMeasurement: d0560d915abf15e692e8538ba1d58442217b6aff
+  Google-Mobile-Ads-SDK: 65e335fadc97c5a91a9d4546214bfd3a2fb11047
+  GoogleAppMeasurement: 39ecba10918b21c83877d392246157f65db351cf
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
 PODFILE CHECKSUM: 8685b5614c579b95074c4b1ce419ee0aef8dc06b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0
