@@ -2,14 +2,12 @@ if: branch = master
 language: objective-c
 osx_image: xcode11
 xcode_sdk: iphonesimulator
-install:
-  - sudo gem install cocoapods;
-  - pod repo update;
+install: true
 script:
   - CHANGES=$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)
   - echo $CHANGES;
   - if [[ -n "$(grep -Ei "(${PROJ_DIR}|\.travis\.yml)" <<< "$CHANGES")" ]]; then
-      pushd "$PROJ_DIR"; pod install; popd;
+      pushd "$PROJ_DIR"; travis_wait pod install; popd;
       xcodebuild -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "$TRAVIS_XCODE_SCHEME" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO;
     fi
 matrix:
