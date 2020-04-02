@@ -102,7 +102,7 @@ class MySimpleNativeAdView: UIView {
 
   private func updateMainView(_ mainView: UIView) {
     // Remove all the media placeholder's subviews.
-    for subview:UIView in mainPlaceholder.subviews {
+    for subview: UIView in mainPlaceholder.subviews {
       subview.removeFromSuperview()
     }
     mainPlaceholder.addSubview(mainView)

@@ -37,12 +37,13 @@ class MenuItem {
   convenience init?(dictionary: [String: Any]) {
 
     guard let name = dictionary["name"] as? String,
-        let description = dictionary["description"] as? String,
-        let price = dictionary["price"] as? String,
-        let category = dictionary["category"] as? String,
-        let photoFileName = dictionary["photo"] as? String,
-        let photo = UIImage(named: photoFileName) else {
-      return nil;
+      let description = dictionary["description"] as? String,
+      let price = dictionary["price"] as? String,
+      let category = dictionary["category"] as? String,
+      let photoFileName = dictionary["photo"] as? String,
+      let photo = UIImage(named: photoFileName)
+    else {
+      return nil
     }
 
     self.init(name: name, description: description, price: price, category: category, photo: photo)

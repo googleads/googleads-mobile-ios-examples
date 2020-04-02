@@ -1,3 +1,4 @@
+import GoogleMobileAds
 //
 //  Copyright (C) 2019 Google, Inc.
 //
@@ -14,22 +15,25 @@
 //  limitations under the License.
 //
 import UIKit
-import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+  ) -> Bool {
 
     // Add the iOS simulator as a test device (this is default behavior but included for
     // demonstration purposes).
-    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ kGADSimulatorID as! String ]
+    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
+      kGADSimulatorID as! String
+    ]
 
     // Initialize Google Mobile Ads SDK
     GADMobileAds.sharedInstance().start()
     return true
   }
-
 
 }

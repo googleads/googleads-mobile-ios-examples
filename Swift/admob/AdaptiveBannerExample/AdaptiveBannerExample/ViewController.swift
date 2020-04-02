@@ -14,8 +14,8 @@
 //  limitations under the License.
 //
 
-import UIKit
 import GoogleMobileAds
+import UIKit
 
 class ViewController: UIViewController {
 
@@ -37,7 +37,9 @@ class ViewController: UIViewController {
     loadBannerAd()
   }
 
-  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+  override func viewWillTransition(
+    to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
+  ) {
     coordinator.animate(alongsideTransition: { _ in
       self.loadBannerAd()
     })
@@ -63,6 +65,5 @@ class ViewController: UIViewController {
 
     bannerView.load(GADRequest())
   }
-
 
 }

@@ -35,10 +35,12 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(UINib(nibName: "MenuItem", bundle: nil),
-        forCellReuseIdentifier: "MenuItemViewCell")
-    tableView.register(UINib(nibName: "BannerAd", bundle: nil),
-        forCellReuseIdentifier: "BannerViewCell")
+    tableView.register(
+      UINib(nibName: "MenuItem", bundle: nil),
+      forCellReuseIdentifier: "MenuItemViewCell")
+    tableView.register(
+      UINib(nibName: "BannerAd", bundle: nil),
+      forCellReuseIdentifier: "BannerViewCell")
 
     // Allow row height to be determined dynamically while optimizing with an estimated row height.
     tableView.rowHeight = UITableView.automaticDimension
@@ -56,8 +58,10 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     return 1
   }
 
-  override func tableView(_ tableView: UITableView,
-      heightForRowAt indexPath: IndexPath) -> CGFloat {
+  override func tableView(
+    _ tableView: UITableView,
+    heightForRowAt indexPath: IndexPath
+  ) -> CGFloat {
     if let tableItem = tableViewItems[indexPath.row] as? GADBannerView {
       let isAdLoaded = loadStateForAds[tableItem]
       return isAdLoaded == true ? adViewHeight : 0
@@ -69,12 +73,15 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     return tableViewItems.count
   }
 
-  override func tableView(_ tableView: UITableView,
-      cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  override func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
 
     if let BannerView = tableViewItems[indexPath.row] as? GADBannerView {
-      let reusableAdCell = tableView.dequeueReusableCell(withIdentifier: "BannerViewCell",
-          for: indexPath)
+      let reusableAdCell = tableView.dequeueReusableCell(
+        withIdentifier: "BannerViewCell",
+        for: indexPath)
 
       // Remove previous GADBannerView from the content view before adding a new one.
       for subview in reusableAdCell.contentView.subviews {
@@ -91,7 +98,9 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
 
       let menuItem = tableViewItems[indexPath.row] as? MenuItem
 
-      let reusableMenuItemCell = tableView.dequeueReusableCell(withIdentifier: "MenuItemViewCell",
+      let reusableMenuItemCell =
+        tableView.dequeueReusableCell(
+          withIdentifier: "MenuItemViewCell",
           for: indexPath) as! MenuItemViewCell
 
       reusableMenuItemCell.nameLabel.text = menuItem?.name
@@ -113,8 +122,10 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     preloadNextAd()
   }
 
-  func adView(_ adView: GADBannerView,
-      didFailToReceiveAdWithError error: GADRequestError) {
+  func adView(
+    _ adView: GADBannerView,
+    didFailToReceiveAdWithError error: GADRequestError
+  ) {
     print("Failed to receive ad: \(error.localizedDescription)")
     // Load the next ad in the adsToLoad list.
     preloadNextAd()
@@ -129,7 +140,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     tableView.layoutIfNeeded()
     while index < tableViewItems.count {
       let adSize = GADAdSizeFromCGSize(
-          CGSize(width: tableView.contentSize.width, height: adViewHeight))
+        CGSize(width: tableView.contentSize.width, height: adViewHeight))
       let adView = GADBannerView(adSize: adSize)
       adView.adUnitID = adUnitID
       adView.rootViewController = self
@@ -148,7 +159,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     if !adsToLoad.isEmpty {
       let ad = adsToLoad.removeFirst()
       let adRequest = GADRequest()
-      adRequest.testDevices = [ kGADSimulatorID as! String ]
+      adRequest.testDevices = [kGADSimulatorID as! String]
       ad.load(adRequest)
     }
   }
@@ -157,16 +168,20 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
   func addMenuItems() {
     var JSONObject: Any
 
-    guard let path = Bundle.main.url(forResource: "menuItemsJSON",
-        withExtension: "json") else {
+    guard
+      let path = Bundle.main.url(
+        forResource: "menuItemsJSON",
+        withExtension: "json")
+    else {
       print("Invalid filename for JSON menu item data.")
       return
     }
 
     do {
       let data = try Data(contentsOf: path)
-      JSONObject = try JSONSerialization.jsonObject(with: data,
-          options: JSONSerialization.ReadingOptions())
+      JSONObject = try JSONSerialization.jsonObject(
+        with: data,
+        options: JSONSerialization.ReadingOptions())
     } catch {
       print("Failed to load menu item JSON data: %s", error)
       return
@@ -179,7 +194,8 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
 
     for object in JSONObjectArray {
       guard let dict = object as? [String: Any],
-          let menuIem = MenuItem(dictionary: dict) else {
+        let menuIem = MenuItem(dictionary: dict)
+      else {
         print("Failed to load menu item JSON data.")
         return
       }
