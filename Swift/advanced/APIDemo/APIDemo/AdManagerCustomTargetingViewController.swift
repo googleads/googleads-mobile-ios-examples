@@ -20,7 +20,8 @@ import UIKit
 /// AdManager - Custom Targeting
 /// Demonstrates adding custom targeting information to a DFPRequest.
 class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewDataSource,
-    UIPickerViewDelegate {
+  UIPickerViewDelegate
+{
 
   /// The constant for the customTargeting dictionary sport preference key.
   let sportPreferenceKey = "sportpref"
@@ -41,18 +42,21 @@ class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewData
     favoriteSportsPicker.delegate = self
     favoriteSportsPicker.dataSource = self
     favoriteSportsOptions = [
-        "Baseball", "Basketball", "Bobsled", "Football", "Ice Hockey",
-        "Running", "Skiing", "Snowboarding", "Softball"
+      "Baseball", "Basketball", "Bobsled", "Football", "Ice Hockey",
+      "Running", "Skiing", "Snowboarding", "Softball",
     ]
     let favoriteSportsPickerMiddleRow = favoriteSportsOptions.count / 2
-    favoriteSportsPicker.selectRow(favoriteSportsPickerMiddleRow, inComponent: 0,
-        animated: false)
+    favoriteSportsPicker.selectRow(
+      favoriteSportsPickerMiddleRow, inComponent: 0,
+      animated: false)
   }
 
   // MARK: - UIPickerViewDelegate
 
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
-      forComponent component: Int) -> String? {
+  func pickerView(
+    _ pickerView: UIPickerView, titleForRow row: Int,
+    forComponent component: Int
+  ) -> String? {
     return favoriteSportsOptions[row]
   }
 

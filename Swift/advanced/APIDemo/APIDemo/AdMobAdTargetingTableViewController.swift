@@ -26,7 +26,8 @@ struct AdMobAdTargetingTableCellIdentifiers {
 /// AdMob - Ad Targeting
 /// Demonstrates AdMob ad targeting.
 class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDataSource,
-    UIPickerViewDelegate {
+  UIPickerViewDelegate
+{
 
   /// The child-directed label.
   @IBOutlet weak var childDirectedLabel: UILabel!
@@ -54,8 +55,9 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     childDirectedPicker.delegate = self
     childDirectedPicker.dataSource = self
     let childDirectedPickerMiddleRow = childDirectedOptions.count / 2
-    childDirectedPicker.selectRow(childDirectedPickerMiddleRow, inComponent: 0,
-        animated: false)
+    childDirectedPicker.selectRow(
+      childDirectedPickerMiddleRow, inComponent: 0,
+      animated: false)
   }
 
   // MARK: - UITableViewDelegate
@@ -79,19 +81,23 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     }
   }
 
-  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
-      forSection section: Int) {
+  override func tableView(
+    _ tableView: UITableView, willDisplayHeaderView view: UIView,
+    forSection section: Int
+  ) {
     view.tintColor = UIColor.clear
   }
 
   // MARK: - UITableViewDataSource
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
-      -> CGFloat {
+    -> CGFloat
+  {
     let cell = self.tableView(tableView, cellForRowAt: indexPath)
     if let cellIdentifier = cell.reuseIdentifier {
-      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell &&
-          childDirectedPicker.isHidden {
+      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell
+        && childDirectedPicker.isHidden
+      {
         return 0
       }
     }
@@ -101,7 +107,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   // MARK: - UIPickerViewDelegate
 
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
-      -> String? {
+    -> String?
+  {
     var rowTitle = ""
     switch pickerView {
     case childDirectedPicker:
@@ -157,7 +164,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
 }
 
-extension AdMobAdTargetingTableViewController : GADBannerViewDelegate {
+extension AdMobAdTargetingTableViewController: GADBannerViewDelegate {
 
   func adViewDidReceiveAd(_ bannerView: GADBannerView) {
     print("\(#function)")

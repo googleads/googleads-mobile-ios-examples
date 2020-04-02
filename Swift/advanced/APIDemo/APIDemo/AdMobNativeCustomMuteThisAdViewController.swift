@@ -39,7 +39,7 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
   @IBOutlet var pickerView: UIPickerView!
 
   /// The height constraint applied to the ad view, where necessary.
-  var heightConstraint : NSLayoutConstraint?
+  var heightConstraint: NSLayoutConstraint?
 
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
@@ -49,8 +49,7 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
   var nativeAdView: GADUnifiedNativeAdView!
 
   /// The mute reasons being displayed, if applicable.
-  var muteReasons : [GADMuteThisAdReason]?
-
+  var muteReasons: [GADMuteThisAdReason]?
 
   /// The ad unit ID.
   let adUnitID = "ca-app-pub-3940256099942544/3986624511"
@@ -58,10 +57,12 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     versionLabel.text = GADRequest.sdkVersion()
-    guard let nibObjects =
-      Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil),
-      let adView = nibObjects.first as? GADUnifiedNativeAdView else {
-        assert(false, "Could not load nib file for adView")
+    guard
+      let nibObjects =
+        Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil),
+      let adView = nibObjects.first as? GADUnifiedNativeAdView
+    else {
+      assert(false, "Could not load nib file for adView")
     }
     setAdView(adView)
     nativeAdView.isHidden = true
@@ -77,10 +78,16 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.
     let viewDictionary = ["_nativeAdView": nativeAdView!]
-    self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
-                                                            options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
-    self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
-                                                            options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+    self.view.addConstraints(
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "H:|[_nativeAdView]|",
+        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
+    )
+    self.view.addConstraints(
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "V:|[_nativeAdView]|",
+        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
+    )
   }
 
   // MARK: - Actions
@@ -92,9 +99,10 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     resetMuteAdDialog()
 
     // Provide the custom mute this ad loader options to request custom mute feature.
-    adLoader = GADAdLoader(adUnitID: adUnitID, rootViewController: self,
-                           adTypes: [ .unifiedNative ],
-                           options: [GADNativeMuteThisAdLoaderOptions()])
+    adLoader = GADAdLoader(
+      adUnitID: adUnitID, rootViewController: self,
+      adTypes: [.unifiedNative],
+      options: [GADNativeMuteThisAdLoaderOptions()])
     adLoader.delegate = self
     adLoader.load(GADRequest())
   }
@@ -135,8 +143,9 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
   func showMuteAdDialog() {
     guard let nativeAd = nativeAdView.nativeAd,
       let reasons = nativeAd.muteThisAdReasons,
-      pickerView.isHidden else {
-        return
+      pickerView.isHidden
+    else {
+      return
     }
 
     muteAdButton.isEnabled = false
@@ -168,7 +177,9 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     return 1
   }
 
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
+    -> String?
+  {
     return muteReasons?[row].reasonDescription ?? ""
   }
 
@@ -179,14 +190,14 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
   }
 }
 
-extension AdMobNativeCustomMuteThisAdViewController : GADVideoControllerDelegate {
+extension AdMobNativeCustomMuteThisAdViewController: GADVideoControllerDelegate {
 
   func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     videoStatusLabel.text = "Video playback has ended."
   }
 }
 
-extension AdMobNativeCustomMuteThisAdViewController : GADAdLoaderDelegate {
+extension AdMobNativeCustomMuteThisAdViewController: GADAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
@@ -194,7 +205,7 @@ extension AdMobNativeCustomMuteThisAdViewController : GADAdLoaderDelegate {
   }
 }
 
-extension AdMobNativeCustomMuteThisAdViewController : GADUnifiedNativeAdLoaderDelegate {
+extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
     refreshAdButton.isEnabled = true
@@ -211,13 +222,14 @@ extension AdMobNativeCustomMuteThisAdViewController : GADUnifiedNativeAdLoaderDe
     // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
     // ratio of the media it displays.
     if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
-      let heightConstraint = NSLayoutConstraint(item: mediaView,
-                                            attribute: .height,
-                                            relatedBy: .equal,
-                                            toItem: mediaView,
-                                            attribute: .width,
-                                            multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
-                                            constant: 0)
+      let heightConstraint = NSLayoutConstraint(
+        item: mediaView,
+        attribute: .height,
+        relatedBy: .equal,
+        toItem: mediaView,
+        attribute: .width,
+        multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+        constant: 0)
       heightConstraint.isActive = true
     }
 
@@ -232,7 +244,8 @@ extension AdMobNativeCustomMuteThisAdViewController : GADUnifiedNativeAdLoaderDe
     (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
     nativeAdView.iconView?.isHidden = nativeAd.icon == nil
 
-    (nativeAdView.starRatingView as? UIImageView)?.image = self.imageOfStars(from: nativeAd.starRating)
+    (nativeAdView.starRatingView as? UIImageView)?.image = self.imageOfStars(
+      from: nativeAd.starRating)
     nativeAdView.starRatingView?.isHidden = nativeAd.starRating == nil
 
     (nativeAdView.storeView as? UILabel)?.text = nativeAd.store
@@ -253,7 +266,7 @@ extension AdMobNativeCustomMuteThisAdViewController : GADUnifiedNativeAdLoaderDe
 }
 
 // MARK: - GADUnifiedNativeAdDelegate implementation
-extension AdMobNativeCustomMuteThisAdViewController : GADUnifiedNativeAdDelegate {
+extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdDelegate {
 
   func nativeAdIsMuted(_ nativeAd: GADUnifiedNativeAd) {
     print("\(#function) called")

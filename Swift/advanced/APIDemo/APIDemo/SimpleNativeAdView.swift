@@ -71,7 +71,7 @@ class SimpleNativeAdView: UIView {
     headlineView.text = customNativeAd.string(forKey: SimpleNativeAdViewHeadlineKey)
     captionView.text = customNativeAd.string(forKey: SimpleNativeAdViewCaptionKey)
     // Remove all the media placeholder's subviews.
-    for subview:UIView in mainPlaceholder.subviews {
+    for subview: UIView in mainPlaceholder.subviews {
       subview.removeFromSuperview()
     }
     // This custom native ad has both a video and an image associated with it. We'll use the video

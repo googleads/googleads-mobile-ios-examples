@@ -28,7 +28,6 @@ class AdManagerCategoryExclusionsTableViewController: UITableViewController {
   /// The exclude cats banner view.
   @IBOutlet weak var excludeCatsBannerView: DFPBannerView!
 
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -54,8 +53,10 @@ class AdManagerCategoryExclusionsTableViewController: UITableViewController {
 
   // MARK: - Table View
 
-  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView,
-      forSection section: Int) {
+  override func tableView(
+    _ tableView: UITableView, willDisplayHeaderView view: UIView,
+    forSection section: Int
+  ) {
     view.tintColor = UIColor.clear
   }
 

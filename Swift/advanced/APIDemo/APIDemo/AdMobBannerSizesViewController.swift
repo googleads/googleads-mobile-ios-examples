@@ -20,7 +20,8 @@ import UIKit
 /// AdMob - Banner Sizes
 /// Demonstrates setting a desired banner size prior to loading an ad.
 class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
-    UIPickerViewDelegate {
+  UIPickerViewDelegate
+{
 
   /// The banner sizes picker.
   @IBOutlet weak var bannerSizesPicker: UIPickerView!
@@ -51,7 +52,7 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
         "Banner",
         "Full Banner",
         "Medium Rectangle",
-        "Leaderboard"
+        "Leaderboard",
       ]
       bannerSizesPicker.selectRow(2, inComponent: 0, animated: false)
     default:
@@ -65,7 +66,7 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
       "Smart Banner Landscape": kGADAdSizeSmartBannerLandscape,
       "Full Banner": kGADAdSizeFullBanner,
       "Medium Rectangle": kGADAdSizeMediumRectangle,
-      "Leaderboard": kGADAdSizeLeaderboard
+      "Leaderboard": kGADAdSizeLeaderboard,
     ]
   }
 
@@ -82,7 +83,8 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
   // MARK: - UIPickerViewDelegate
 
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
-      -> String? {
+    -> String?
+  {
     return bannerSizes[row]
   }
 
@@ -98,10 +100,14 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
       bannerView.translatesAutoresizingMaskIntoConstraints = false
 
       // Layout constraints that align the banner view to the bottom center of the screen.
-      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .equal,
-                                            toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
-      view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .centerX, relatedBy: .equal,
-                                            toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+      view.addConstraint(
+        NSLayoutConstraint(
+          item: bannerView, attribute: .bottom, relatedBy: .equal,
+          toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
+      view.addConstraint(
+        NSLayoutConstraint(
+          item: bannerView, attribute: .centerX, relatedBy: .equal,
+          toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
     }
 
     var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]
