@@ -171,15 +171,4 @@ static const NSInteger kGameLength = 5;
   [self startNewGame];
 }
 
-#pragma mark dealloc
-
-- (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                  name:UIApplicationDidEnterBackgroundNotification
-                                                object:nil];
-  [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                  name:UIApplicationDidBecomeActiveNotification
-                                                object:nil];
-}
-
 @end
