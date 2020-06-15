@@ -132,8 +132,6 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
       [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil].firstObject;
   [self setAdView:nativeAdView];
 
-  nativeAdView.nativeAd = nativeAd;
-
   // Populate the native ad view with the native ad assets.
   // Some assets are guaranteed to be present in every native ad.
   ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
@@ -182,6 +180,11 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   // In order for the SDK to process touch events properly, user interaction
   // should be disabled.
   nativeAdView.callToActionView.userInteractionEnabled = NO;
+
+  // Associate the native ad view with the native ad object. This is
+  // required to make the ad clickable.
+  // Note: this should always be done after populating the ad views.
+  nativeAdView.nativeAd = nativeAd;
 }
 
 /// Gets an image representing the number of stars. Returns nil if rating is less than 3.5 stars.

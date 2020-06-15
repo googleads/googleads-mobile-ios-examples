@@ -115,8 +115,6 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   // Deactivate the height constraint that was set when the previous video ad loaded.
   self.heightConstraint.active = NO;
 
-  nativeAdView.nativeAd = nativeAd;
-
   // Set ourselves as the ad delegate to be notified of native ad events.
   nativeAd.delegate = self;
 
@@ -176,6 +174,11 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   // In order for the SDK to process touch events properly, user interaction
   // should be disabled.
   nativeAdView.callToActionView.userInteractionEnabled = NO;
+
+  // Associate the native ad view with the native ad object. This is
+  // required to make the ad clickable.
+  // Note: this should always be done after populating the ad views.
+  nativeAdView.nativeAd = nativeAd;
 }
 
 #pragma mark GADVideoControllerDelegate implementation

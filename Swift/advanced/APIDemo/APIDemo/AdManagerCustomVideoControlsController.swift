@@ -125,7 +125,7 @@ extension AdManagerCustomVideoControlsController: GADUnifiedNativeAdLoaderDelega
       Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil)?.first
       as! GADUnifiedNativeAdView
     setAdView(nativeAdView)
-    nativeAdView.nativeAd = nativeAd
+
     // Populate the native ad view with the native ad assets.
     // The headline and mediaContent are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
@@ -173,6 +173,11 @@ extension AdManagerCustomVideoControlsController: GADUnifiedNativeAdLoaderDelega
     // In order for the SDK to process touch events properly, user interaction
     // should be disabled.
     nativeAdView.callToActionView?.isUserInteractionEnabled = false
+
+    // Associate the native ad view with the native ad object. This is
+    // required to make the ad clickable.
+    // Note: this should always be done after populating the ad views.
+    nativeAdView.nativeAd = nativeAd
   }
 }
 

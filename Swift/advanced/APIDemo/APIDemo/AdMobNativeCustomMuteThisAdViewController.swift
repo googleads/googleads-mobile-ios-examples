@@ -209,7 +209,6 @@ extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdLoaderDel
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
     refreshAdButton.isEnabled = true
-    nativeAdView.nativeAd = nativeAd
 
     /// Enable the mute button if custom mute is available.
     muteAdButton.isEnabled = nativeAd.isCustomMuteThisAdAvailable
@@ -260,6 +259,11 @@ extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdLoaderDel
     // In order for the SDK to process touch events properly, user interaction
     // should be disabled.
     nativeAdView.callToActionView?.isUserInteractionEnabled = false
+
+    // Associate the native ad view with the native ad object. This is
+    // required to make the ad clickable.
+    // Note: this should always be done after populating the ad views.
+    nativeAdView.nativeAd = nativeAd
 
     nativeAdView.isHidden = false
   }

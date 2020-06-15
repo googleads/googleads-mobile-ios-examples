@@ -113,8 +113,6 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
       [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil].firstObject;
   [self setAdView:nativeAdView];
 
-  nativeAdView.nativeAd = nativeAd;
-
   // Set ourselves as the ad delegate to be notified of native ad events.
   nativeAd.delegate = self;
 
@@ -174,6 +172,12 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   // In order for the SDK to process touch events properly, user interaction
   // should be disabled.
   nativeAdView.callToActionView.userInteractionEnabled = NO;
+
+  // Associate the native ad view with the native ad object. This is
+  // required to make the ad clickable.
+  // Note: this should always be done after populating the ad views.
+  nativeAdView.nativeAd = nativeAd;
+
 }
 #pragma mark GADNativeCustomTemplateAdLoaderDelegate implementation
 

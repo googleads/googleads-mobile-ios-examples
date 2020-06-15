@@ -133,7 +133,6 @@ extension ViewController: GADUnifiedNativeAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
     refreshAdButton.isEnabled = true
-    nativeAdView.nativeAd = nativeAd
 
     // Set ourselves as the native ad delegate to be notified of native ad events.
     nativeAd.delegate = self
@@ -198,6 +197,12 @@ extension ViewController: GADUnifiedNativeAdLoaderDelegate {
 
     // In order for the SDK to process touch events properly, user interaction should be disabled.
     nativeAdView.callToActionView?.isUserInteractionEnabled = false
+
+    // Associate the native ad view with the native ad object. This is
+    // required to make the ad clickable.
+    // Note: this should always be done after populating the ad views.
+    nativeAdView.nativeAd = nativeAd
+
   }
 }
 
