@@ -99,7 +99,6 @@
 				TargetAttributes = {
 					4AEBD56B1BF0109B00874961 = {
 						CreatedOnToolsVersion = 7.1;
-						
 						LastSwiftMigration = 0900;
 					};
 				};
