@@ -1,7 +1,7 @@
 //
 //  Copyright (C) 2015 Google, Inc.
 //
-//  MasterViewController.m
+//  MainViewController.m
 //  APIDemo
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 
-#import "MasterViewController.h"
+#import "MainViewController.h"
 
 #import "AdMobAdDelegateViewController.h"
 #import "AdMobAdTargetingTableViewController.h"
@@ -29,7 +29,7 @@
 #import "GAMMultipleAdSizesViewController.h"
 #import "GAMPPIDViewController.h"
 
-@interface MasterViewController ()
+@interface MainViewController ()
 
 /// API demo names.
 @property(nonatomic, copy) NSArray *APIDemoNames;
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation MasterViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];

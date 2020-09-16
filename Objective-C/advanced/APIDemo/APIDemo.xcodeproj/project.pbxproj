@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		4A96E7211B856D5000031470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7201B856D5000031470 /* main.m */; };
 		4A96E7241B856D5000031470 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7231B856D5000031470 /* AppDelegate.m */; };
-		4A96E7271B856D5000031470 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7261B856D5000031470 /* MasterViewController.m */; };
 		4A96E72D1B856D5000031470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72B1B856D5000031470 /* Main.storyboard */; };
 		4A96E72F1B856D5000031470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72E1B856D5000031470 /* Images.xcassets */; };
 		4A96E7321B856D5000031470 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E7301B856D5000031470 /* LaunchScreen.xib */; };
 		4A96E74C1B8572A800031470 /* AdMobAdDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E74B1B8572A800031470 /* AdMobAdDelegateViewController.m */; };
 		4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7521B8578D600031470 /* AdMobBannerSizesViewController.m */; };
 		4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */; };
+		5038FC6D2511428A00750F9C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038FC6C2511428A00750F9C /* MainViewController.m */; };
 		50DC0CEC212F1C2E00424CC7 /* GAMCustomVideoControlsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CEB212F1C2D00424CC7 /* GAMCustomVideoControlsController.m */; };
 		50DC0CF9212F1C4000424CC7 /* GAMCategoryExclusionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CEE212F1C3D00424CC7 /* GAMCategoryExclusionsViewController.m */; };
 		50DC0CFA212F1C4000424CC7 /* GAMFluidAdSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF2212F1C3E00424CC7 /* GAMFluidAdSizeViewController.m */; };
@@ -36,8 +36,6 @@
 		4A96E7201B856D5000031470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A96E7221B856D5000031470 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A96E7231B856D5000031470 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4A96E7251B856D5000031470 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		4A96E7261B856D5000031470 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		4A96E72C1B856D5000031470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A96E72E1B856D5000031470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4A96E7311B856D5000031470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,6 +46,8 @@
 		4A96E7521B8578D600031470 /* AdMobBannerSizesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobBannerSizesViewController.m; sourceTree = "<group>"; };
 		4A96E79B1B862E0200031470 /* AdMobAdTargetingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobAdTargetingTableViewController.h; sourceTree = "<group>"; };
 		4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobAdTargetingTableViewController.m; sourceTree = "<group>"; };
+		5038FC6B2511428A00750F9C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5038FC6C2511428A00750F9C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		50DC0CEA212F1C2D00424CC7 /* GAMCustomVideoControlsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMCustomVideoControlsController.h; sourceTree = "<group>"; };
 		50DC0CEB212F1C2D00424CC7 /* GAMCustomVideoControlsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCustomVideoControlsController.m; sourceTree = "<group>"; };
 		50DC0CED212F1C3C00424CC7 /* GAMCategoryExclusionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMCategoryExclusionsViewController.h; sourceTree = "<group>"; };
@@ -83,11 +83,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36C1AC19EDAA11E3B19FE7DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4A96E7121B856D5000031470 = {
 			isa = PBXGroup;
 			children = (
 				4A96E71D1B856D5000031470 /* APIDemo */,
 				4A96E71C1B856D5000031470 /* Products */,
+				36C1AC19EDAA11E3B19FE7DF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +134,8 @@
 		4A96E7471B856E0D00031470 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5038FC6B2511428A00750F9C /* MainViewController.h */,
+				5038FC6C2511428A00750F9C /* MainViewController.m */,
 				50DC0CF0212F1C3D00424CC7 /* GAMAppEventsViewController.h */,
 				50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */,
 				50DC0CED212F1C3C00424CC7 /* GAMCategoryExclusionsViewController.h */,
@@ -138,8 +148,6 @@
 				50DC0CF3212F1C3E00424CC7 /* GAMMultipleAdSizesViewController.m */,
 				50DC0CF1212F1C3D00424CC7 /* GAMPPIDViewController.h */,
 				50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */,
-				4A96E7251B856D5000031470 /* MasterViewController.h */,
-				4A96E7261B856D5000031470 /* MasterViewController.m */,
 				4A96E74A1B8572A800031470 /* AdMobAdDelegateViewController.h */,
 				4A96E74B1B8572A800031470 /* AdMobAdDelegateViewController.m */,
 				4A96E79B1B862E0200031470 /* AdMobAdTargetingTableViewController.h */,
@@ -199,7 +207,6 @@
 				TargetAttributes = {
 					4A96E71A1B856D5000031470 = {
 						CreatedOnToolsVersion = 6.4;
-						
 					};
 				};
 			};
@@ -208,6 +215,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -244,7 +252,7 @@
 				4A96E7241B856D5000031470 /* AppDelegate.m in Sources */,
 				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
 				AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */,
-				4A96E7271B856D5000031470 /* MasterViewController.m in Sources */,
+				5038FC6D2511428A00750F9C /* MainViewController.m in Sources */,
 				50DC0CF9212F1C4000424CC7 /* GAMCategoryExclusionsViewController.m in Sources */,
 				4A96E7211B856D5000031470 /* main.m in Sources */,
 				50DC0CFD212F1C4000424CC7 /* GAMCustomTargetingViewController.m in Sources */,

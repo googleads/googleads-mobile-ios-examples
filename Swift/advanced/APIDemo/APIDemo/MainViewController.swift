@@ -16,7 +16,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MainViewController: UITableViewController {
 
   /// API Demo names.
   var APIDemoNames: [String]!
