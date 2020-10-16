@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADRequest.sdkVersion()
+    versionLabel.text = GADMobileAds.sharedInstance().sdkVersion
     refreshAd(nil)
   }
 
@@ -259,11 +259,11 @@ extension ViewController: GADNativeCustomTemplateAdLoaderDelegate {
         "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
     setAdView(customNativeAdView)
 
-    let hasVideoContent = nativeCustomTemplateAd.videoController.hasVideoContent()
+    let hasVideoContent = nativeCustomTemplateAd.mediaContent.hasVideoContent
     // Update the ViewController for video content.
     updateVideoStatusLabel(hasVideoContent: hasVideoContent)
     if hasVideoContent {
-      nativeCustomTemplateAd.videoController.delegate = self
+      nativeCustomTemplateAd.mediaContent.videoController.delegate = self
     }
     // Populate the custom native ad view with the custom native ad assets.
     customNativeAdView.populate(withCustomNativeAd: nativeCustomTemplateAd)
