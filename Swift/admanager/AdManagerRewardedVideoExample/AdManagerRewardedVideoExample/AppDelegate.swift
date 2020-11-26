@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
 
+    // Initialize Google Mobile Ads SDK
+    GADMobileAds.sharedInstance().start()
     return true
   }
 

@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 
+import GoogleMobileAds
 import UIKit
 
 @UIApplicationMain
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+
+    // Initialize Google Mobile Ads SDK
+    GADMobileAds.sharedInstance().start()
     return true
   }
 

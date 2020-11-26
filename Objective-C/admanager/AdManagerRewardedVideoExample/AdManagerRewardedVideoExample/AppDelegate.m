@@ -15,15 +15,16 @@
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
-
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+  // Initialize Google Mobile Ads SDK
+  [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
   return YES;
 }
 
