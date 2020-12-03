@@ -15,6 +15,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 
@@ -25,6 +26,9 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
+
+  // Initialize Google Mobile Ads SDK
+  [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
   return YES;
 }
 

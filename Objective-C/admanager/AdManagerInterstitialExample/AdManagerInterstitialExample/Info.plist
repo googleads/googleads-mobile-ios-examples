@@ -33,7 +33,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
-  <key>GADIsAdManagerApp</key>
-  <true/>
+  <key>GADApplicationIdentifier</key>
+  <string>ca-app-pub-8696113672523618~5460744190</string>
 </dict>
 </plist>

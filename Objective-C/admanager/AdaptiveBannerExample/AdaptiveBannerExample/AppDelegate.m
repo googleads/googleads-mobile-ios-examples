@@ -30,7 +30,7 @@
   GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ kGADSimulatorID ];
 
   // Initialize Google Mobile Ads SDK
-  [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
+  [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
   return YES;
 }
 
