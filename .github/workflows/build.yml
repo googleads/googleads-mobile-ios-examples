@@ -1,0 +1,56 @@
+name: Build Status
+
+# Step 1: Build on pull-requests or pushes to master
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  # Step 2: Build the samples
+  build:
+    name: Build
+    runs-on: macOS-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        regex:
+        - "Objective-C/advanced"
+        - "Swift/advanced"
+        - "Objective-C/admob"
+        - "Swift/admob"
+        - "Objective-C/admanager"
+        - "Swift/admanager"
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v1
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
+
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Pod repo update
+        run: pod repo update
+
+      - name: Install xcpretty
+        run: sudo gem install xcpretty
+
+      - name: Set commit range (push to the master branch, e.g. merge)
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: echo "COMMIT_RANGE="${{ github.event.before }}.."" >> $GITHUB_ENV
+
+      - name: Set commit range (pull request)
+        if: github.event_name == 'pull_request'
+        run: echo "COMMIT_RANGE="HEAD~.."" >> $GITHUB_ENV
+
+      - name: Build
+        run: .github/workflows/build/build.sh
+        shell: bash
+        env:
+          COMMIT_RANGE: ${{ env.COMMIT_RANGE }}
+          REGEX: ${{ matrix.regex }}
