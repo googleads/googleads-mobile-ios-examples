@@ -28,9 +28,6 @@ jobs:
       - name: Clone Repo
         uses: actions/checkout@v1
 
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
-
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
 

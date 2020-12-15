@@ -99,7 +99,6 @@
 				TargetAttributes = {
 					CF12E27D19A6C783001EB38A = {
 						CreatedOnToolsVersion = 6.0;
-						
 					};
 				};
 			};

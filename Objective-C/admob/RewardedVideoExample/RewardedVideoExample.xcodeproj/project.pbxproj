@@ -39,11 +39,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60CDAD0F9778498876AB6809 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		84E184541B30D695002ADFFB = {
 			isa = PBXGroup;
 			children = (
 				84E1845F1B30D695002ADFFB /* RewardedVideoExample */,
 				84E1845E1B30D695002ADFFB /* Products */,
+				60CDAD0F9778498876AB6809 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,7 +118,6 @@
 				TargetAttributes = {
 					84E1845C1B30D695002ADFFB = {
 						CreatedOnToolsVersion = 6.3.1;
-						
 					};
 				};
 			};
@@ -119,6 +126,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
