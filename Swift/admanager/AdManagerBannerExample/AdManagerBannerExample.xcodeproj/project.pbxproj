@@ -97,7 +97,6 @@
 				TargetAttributes = {
 					84FEE8DC1B0D4D47006C8148 = {
 						CreatedOnToolsVersion = 6.2;
-						
 						LastSwiftMigration = 0900;
 					};
 				};

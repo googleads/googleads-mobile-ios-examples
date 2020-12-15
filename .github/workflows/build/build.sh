@@ -23,7 +23,7 @@ do
     pushd "${example_app_path}";
     pod install --no-repo-update;
     echo "::set-output name=building_app::Building App (${example_name})";
-    eval "xcodebuild -workspace ${example_name}.xcworkspace -scheme ${example_name} -sdk iphonesimulator | xcpretty";
+    eval "xcodebuild -workspace ${example_name}.xcworkspace -scheme ${example_name} -sdk iphonesimulator -arch x86_64 | xcpretty";
     popd;
   fi
 done
