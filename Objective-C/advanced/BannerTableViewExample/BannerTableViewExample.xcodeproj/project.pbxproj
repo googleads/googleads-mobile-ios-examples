@@ -132,7 +132,6 @@
 				TargetAttributes = {
 					840C3FE31DA1D82A00400493 = {
 						CreatedOnToolsVersion = 7.3.1;
-						
 					};
 				};
 			};
