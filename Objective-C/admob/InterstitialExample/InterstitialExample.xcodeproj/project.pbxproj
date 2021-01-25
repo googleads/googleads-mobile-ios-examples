@@ -83,6 +83,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF9F26391991396400F5C44E /* Build configuration list for PBXNativeTarget "InterstitialExample" */;
 			buildPhases = (
+				C9809C88F99ABF9FDD66B450 /* [CP] Prepare Artifacts */,
 				CF9F26151991396300F5C44E /* Sources */,
 				CF9F26161991396300F5C44E /* Frameworks */,
 				CF9F26171991396300F5C44E /* Resources */,
@@ -139,6 +140,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9809C88F99ABF9FDD66B450 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InterstitialExample/Pods-InterstitialExample-artifacts.sh",
+				"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework",
+				"${PODS_ROOT}/GoogleUserMessagingPlatform/Frameworks/Release/UserMessagingPlatform.xcframework",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InterstitialExample/Pods-InterstitialExample-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF9F26151991396300F5C44E /* Sources */ = {

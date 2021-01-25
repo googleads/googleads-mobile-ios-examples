@@ -28,10 +28,10 @@ typedef NS_ENUM(NSUInteger, GameState) {
 /// The game length.
 static const NSInteger kGameLength = 5;
 
-@interface ViewController () <GADInterstitialDelegate>
+@interface ViewController () <GADFullScreenContentDelegate>
 
 /// The AdManager interstitial ad.
-@property(nonatomic, strong) DFPInterstitial *interstitial;
+@property(nonatomic, strong) GAMInterstitialAdBeta *interstitial;
 
 /// The countdown timer.
 @property(nonatomic, strong) NSTimer *timer;
@@ -87,8 +87,18 @@ static const NSInteger kGameLength = 5;
 }
 
 - (void)createAndLoadInterstitial {
-  self.interstitial = [[DFPInterstitial alloc] initWithAdUnitID:@"/6499/example/interstitial"];
-  [self.interstitial loadRequest:[DFPRequest request]];
+  DFPRequest *request = [DFPRequest request];
+  [GAMInterstitialAdBeta loadWithAdManagerAdUnitID:@"/6499/example/interstitial"
+                                           request:request
+                                 completionHandler:^(GAMInterstitialAdBeta *ad, NSError *error) {
+                                   if (error) {
+                                     NSLog(@"Failed to load interstitial ad with error: %@",
+                                           [error localizedDescription]);
+                                     return;
+                                   }
+                                   self.interstitial = ad;
+                                   self.interstitial.fullScreenContentDelegate = self;
+                                 }];
 }
 
 - (void)updateTimeLeft {
@@ -148,7 +158,10 @@ static const NSInteger kGameLength = 5;
                                if (!strongSelf) {
                                  return;
                                }
-                               if (strongSelf.interstitial.isReady) {
+                               if (strongSelf.interstitial &&
+                                   [strongSelf.interstitial
+                                       canPresentFromRootViewController:strongSelf
+                                                                  error:nil]) {
                                  [strongSelf.interstitial presentFromRootViewController:strongSelf];
                                } else {
                                  NSLog(@"Ad wasn't ready");
@@ -161,6 +174,19 @@ static const NSInteger kGameLength = 5;
 
 - (IBAction)playAgain:(id)sender {
   [self startNewGame];
+}
+
+#pragma GADFullScreenContentdelegate implementation
+- (void)adDidPresentFullScreenContent:(id)ad {
+  NSLog(@"Ad did present full screen content.");
+}
+
+- (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
+  NSLog(@"Ad failed to present full screen content with error %@.", [error localizedDescription]);
+}
+
+- (void)adDidDismissFullScreenContent:(id)ad {
+  NSLog(@"Ad did dismiss full screen content.");
 }
 
 @end

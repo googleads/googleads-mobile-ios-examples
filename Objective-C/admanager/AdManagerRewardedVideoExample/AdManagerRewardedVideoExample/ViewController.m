@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, GameState) {
   kGameStateEnded = 3        ///< Game has ended.
 };
 
-@interface ViewController () <GADRewardedAdDelegate>
+@interface ViewController () <GADFullScreenContentDelegate>
 
 /// Number of coins the user has earned.
 @property(nonatomic, assign) NSInteger coinCount;
@@ -50,18 +50,14 @@ typedef NS_ENUM(NSInteger, GameState) {
 /// The last fire date before a pause.
 @property(nonatomic, strong) NSDate *previousFireDate;
 
-/// The rewarded ad.
-@property(nonatomic, strong) GADRewardedAd *rewardedAd;
-
+/// A pre-loaded rewarded ad.
+@property(nonatomic, strong) GADRewardedAdBeta *rewardedAd;
 @end
 
-@implementation ViewController {
-  BOOL _isLoading;
-}
+@implementation ViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
   self.coinCount = 0;
   [self startNewGame];
 }
@@ -84,8 +80,8 @@ typedef NS_ENUM(NSInteger, GameState) {
 #pragma mark Game logic
 
 - (void)startNewGame {
-  if (!self.rewardedAd.isReady && !_isLoading) {
-    [self requestRewardedVideo];
+  if (!self.rewardedAd) {
+    [self loadRewardedAd];
   }
   self.gameState = kGameStatePlaying;
   self.playAgainButton.hidden = YES;
@@ -100,22 +96,20 @@ typedef NS_ENUM(NSInteger, GameState) {
   self.timer.tolerance = GameLength * 0.1;
 }
 
-- (void)requestRewardedVideo {
-  _isLoading = true;
-  self.rewardedAd = [[GADRewardedAd alloc] initWithAdUnitID:@"/6499/example/rewarded-video"];
-
+- (void)loadRewardedAd {
   DFPRequest *request = [DFPRequest request];
-  [self.rewardedAd loadRequest:request
-             completionHandler:^(GADRequestError *_Nullable error) {
-               _isLoading = false;
-               if (error) {
-                 // Handle ad failed to load case.
-                 NSLog(@"Loading Failed");
-               } else {
-                 // Ad successfully loaded.
-                 NSLog(@"Loading Succeeded");
-               }
-             }];
+  [GADRewardedAdBeta
+       loadWithAdUnitID:@"/6499/example/rewarded-video"
+                request:request
+      completionHandler:^(GADRewardedAdBeta *ad, NSError *error) {
+        if (error) {
+          NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
+          return;
+        }
+        self.rewardedAd = ad;
+        NSLog(@"Rewarded ad loaded.");
+        self.rewardedAd.fullScreenContentDelegate = self;
+      }];
 }
 
 - (void)pauseGame {
@@ -168,7 +162,7 @@ typedef NS_ENUM(NSInteger, GameState) {
   self.timer = nil;
   self.gameState = kGameStateEnded;
   self.gameLabel.text = @"Game over!";
-  if (self.rewardedAd.isReady) {
+  if (self.rewardedAd && [self.rewardedAd canPresentFromRootViewController:self error:nil]) {
     self.showVideoButton.hidden = NO;
   }
   self.playAgainButton.hidden = NO;
@@ -183,51 +177,39 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (IBAction)showVideo:(id)sender {
-  if (self.rewardedAd.isReady) {
-    [self.rewardedAd presentFromRootViewController:self delegate:self];
-  } else {
-    __weak ViewController *weakSelf = self;
-    UIAlertController *alert = [UIAlertController
-        alertControllerWithTitle:@"Rewarded Ad not ready"
-                         message:@"The rewarded didn't finish loading or failed to load"
-                  preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Drat"
-                                                          style:UIAlertActionStyleCancel
-                                                        handler:^(UIAlertAction *action) {
-                                                          [weakSelf startNewGame];
-                                                        }];
-    [alert addAction:alertAction];
-    [self presentViewController:alert animated:YES completion:nil];
+  if (self.rewardedAd && [self.rewardedAd canPresentFromRootViewController:self error:nil]) {
+    [self.rewardedAd presentFromRootViewController:self
+                          userDidEarnRewardHandler:^{
+                            GADAdReward *reward = self.rewardedAd.adReward;
+
+                            NSString *rewardMessage = [NSString
+                                stringWithFormat:@"Reward received with currency %@ , amount %lf",
+                                                 reward.type, [reward.amount doubleValue]];
+                            NSLog(@"%@", rewardMessage);
+                            // Reward the user for watching the video.
+                            [self earnCoins:[reward.amount integerValue]];
+                            self.showVideoButton.hidden = YES;
+                          }];
   }
 }
 
-#pragma mark GADRewardedAdDelegate methods.
-
-/// Tells the delegate that the user earned a reward.
-- (void)rewardedAd:(GADRewardedAd *)rewardedAd userDidEarnReward:(GADAdReward *)reward {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  NSString *rewardMessage =
-      [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf", reward.type,
-                                 [reward.amount doubleValue]];
-  NSLog(@"%@", rewardMessage);
-  // Reward the user for watching the video.
-  [self earnCoins:[reward.amount integerValue]];
-  self.showVideoButton.hidden = YES;
-}
+#pragma mark GADFullScreenContent implementation
 
 /// Tells the delegate that the rewarded ad was presented.
-- (void)rewardedAdDidPresent:(GADRewardedAd *)rewardedAd {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
+- (void)adDidPresentFullScreenContent:(id)ad {
+  NSLog(@"Rewarded ad presented.");
 }
 
 /// Tells the delegate that the rewarded ad failed to present.
-- (void)rewardedAd:(GADRewardedAd *)rewardedAd didFailToPresentWithError:(NSError *)error {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
+- (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
+  NSLog(@"Rewarded ad failed to present with error: %@", [error localizedDescription]);
   __weak ViewController *weakSelf = self;
-  UIAlertController *alert =
-      [UIAlertController alertControllerWithTitle:@"Rewarded Ad Failed To Present"
-                                          message:@"The rewarded ad didn't present"
-                                   preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertController *alert = [UIAlertController
+      alertControllerWithTitle:@"Rewarded Ad not ready"
+                       message:[NSString
+                                   stringWithFormat:@"Rewarded ad failed to present with error: %@",
+                                                    [error localizedDescription]]
+                preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Drat"
                                                         style:UIAlertActionStyleCancel
                                                       handler:^(UIAlertAction *action) {
@@ -238,9 +220,9 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 /// Tells the delegate that the rewarded ad was dismissed.
-- (void)rewardedAdDidDismiss:(GADRewardedAd *)rewardedAd {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
+- (void)adDidDismissFullScreenContent:(id)ad {
+  [self loadRewardedAd];
   self.showVideoButton.hidden = YES;
-  [self requestRewardedVideo];
+  NSLog(@"Rewarded ad dismissed.");
 }
 @end

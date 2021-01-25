@@ -28,10 +28,10 @@ typedef NS_ENUM(NSUInteger, GameState) {
 /// The game length.
 static const NSInteger kGameLength = 5;
 
-@interface ViewController ()
+@interface ViewController () <GADFullScreenContentDelegate>
 
 /// The interstitial ad.
-@property(nonatomic, strong) GADInterstitial *interstitial;
+@property(nonatomic, strong) GADInterstitialAdBeta *interstitial;
 
 /// The countdown timer.
 @property(nonatomic, strong) NSTimer *timer;
@@ -73,7 +73,7 @@ static const NSInteger kGameLength = 5;
 #pragma mark Game logic
 
 - (void)startNewGame {
-  [self createAndLoadInterstitial];
+  [self loadInterstitial];
 
   self.gameState = kGameStatePlaying;
   self.playAgainButton.hidden = YES;
@@ -86,15 +86,19 @@ static const NSInteger kGameLength = 5;
                                                repeats:YES];
 }
 
-- (void)createAndLoadInterstitial {
-  self.interstitial =
-      [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
-
+- (void)loadInterstitial {
   GADRequest *request = [GADRequest request];
-  // Request test ads on devices you specify. Your test device ID is printed to the console when
-  // an ad request is made.
-  request.testDevices = @[ kGADSimulatorID, @"2077ef9a63d2b398840261c8221a0c9a" ];
-  [self.interstitial loadRequest:request];
+  [GADInterstitialAdBeta
+       loadWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"
+                request:request
+      completionHandler:^(GADInterstitialAdBeta *ad, NSError *error) {
+        if (error) {
+          NSLog(@"Failed to load interstitial ad with error: %@", [error localizedDescription]);
+          return;
+        }
+        self.interstitial = ad;
+        self.interstitial.fullScreenContentDelegate = self;
+      }];
 }
 
 - (void)updateTimeLeft {
@@ -154,7 +158,10 @@ static const NSInteger kGameLength = 5;
                                if (!strongSelf) {
                                  return;
                                }
-                               if (strongSelf.interstitial.isReady) {
+                               if (strongSelf.interstitial &&
+                                   [strongSelf.interstitial
+                                       canPresentFromRootViewController:strongSelf
+                                                                  error:nil]) {
                                  [strongSelf.interstitial presentFromRootViewController:strongSelf];
                                } else {
                                  NSLog(@"Ad wasn't ready");
@@ -163,6 +170,20 @@ static const NSInteger kGameLength = 5;
                              }];
   [alert addAction:alertAction];
   [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma GADFullScreeContentDelegate implementation
+
+- (void)adDidPresentFullScreenContent:(id)ad {
+  NSLog(@"Ad did present full screen content.");
+}
+
+- (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
+  NSLog(@"Ad failed to present full screen content with error %@.", [error localizedDescription]);
+}
+
+- (void)adDidDismissFullScreenContent:(id)ad {
+  NSLog(@"Ad did dismiss full screen content.");
 }
 
 #pragma Interstitial button actions

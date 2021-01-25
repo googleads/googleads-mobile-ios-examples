@@ -94,6 +94,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E184801B30D695002ADFFB /* Build configuration list for PBXNativeTarget "RewardedVideoExample" */;
 			buildPhases = (
+				6DA4843FDED7CDA7F72C80CF /* [CP] Prepare Artifacts */,
 				84E184591B30D695002ADFFB /* Sources */,
 				84E1845A1B30D695002ADFFB /* Frameworks */,
 				84E1845B1B30D695002ADFFB /* Resources */,
@@ -152,6 +153,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6DA4843FDED7CDA7F72C80CF /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RewardedVideoExample/Pods-RewardedVideoExample-artifacts.sh",
+				"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework",
+				"${PODS_ROOT}/GoogleUserMessagingPlatform/Frameworks/Release/UserMessagingPlatform.xcframework",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RewardedVideoExample/Pods-RewardedVideoExample-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84E184591B30D695002ADFFB /* Sources */ = {
