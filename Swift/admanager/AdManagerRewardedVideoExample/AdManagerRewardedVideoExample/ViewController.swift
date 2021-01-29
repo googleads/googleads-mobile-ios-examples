@@ -91,7 +91,7 @@ class ViewController: UIViewController, GADRewardedAdDelegate {
     counter = gameLength
     playAgainButton.isHidden = true
 
-    if !adRequestInProgress && rewardedAd?.isReady == false {
+    if !adRequestInProgress && (rewardedAd == nil || rewardedAd?.isReady == false) {
       rewardedAd = GADRewardedAd(adUnitID: "/6499/example/rewarded-video")
       adRequestInProgress = true
       rewardedAd?.load(DFPRequest()) { error in
