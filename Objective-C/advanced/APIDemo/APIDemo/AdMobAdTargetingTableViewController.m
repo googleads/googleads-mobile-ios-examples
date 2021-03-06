@@ -164,7 +164,7 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"%s: %@", __PRETTY_FUNCTION__, error.localizedDescription);
 }
 

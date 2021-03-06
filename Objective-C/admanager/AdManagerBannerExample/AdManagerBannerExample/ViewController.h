@@ -2,11 +2,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class DFPBannerView;
+@class GAMBannerView;
 
 @interface ViewController : UIViewController
 
-/// The DFP banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
+/// The Google Ad Manager banner view.
+@property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 
 @end

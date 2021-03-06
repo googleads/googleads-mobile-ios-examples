@@ -131,7 +131,7 @@ static const CGFloat GADAdViewHeight = 100;
   [self preloadNextAd];
 }
 
-- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"Failed to receive ad: %@", error.localizedDescription);
   // Load the next ad in the adsToLoad list.
   [self preloadNextAd];
@@ -169,7 +169,8 @@ static const CGFloat GADAdViewHeight = 100;
   GADBannerView *adView = _adsToLoad.firstObject;
   [_adsToLoad removeObjectAtIndex:0];
   GADRequest *request = [GADRequest request];
-  request.testDevices = @[ kGADSimulatorID ];
+  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers =
+      @[ kGADSimulatorID ];  // Sample device ID
   [adView loadRequest:request];
 }
 

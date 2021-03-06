@@ -25,11 +25,11 @@
 static NSString *const kSportPreferenceKey = @"sportpref";
 
 /// GAM - Custom Targeting
-/// Demonstrates adding custom targeting information to a DFPRequest.
+/// Demonstrates adding custom targeting information to a GAMRequest.
 @interface GAMCustomTargetingViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
-/// The DFP banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
+/// The banner view.
+@property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 
 /// The favorite sports view picker.
 @property(nonatomic, weak) IBOutlet UIPickerView *favoriteSportsPicker;
@@ -88,7 +88,7 @@ static NSString *const kSportPreferenceKey = @"sportpref";
   self.bannerView.rootViewController = self;
 
   NSInteger row = [self.favoriteSportsPicker selectedRowInComponent:0];
-  DFPRequest *request = [DFPRequest request];
+  GAMRequest *request = [GAMRequest request];
   request.customTargeting = @{kSportPreferenceKey : self.favoriteSportsOptions[row]};
   [self.bannerView loadRequest:request];
 }

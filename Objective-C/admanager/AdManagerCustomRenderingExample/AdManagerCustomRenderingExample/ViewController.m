@@ -5,9 +5,10 @@
 static NSString *const TestAdUnit = @"/6499/example/native";
 static NSString *const TestNativeCustomTemplateID = @"10104090";
 
-@interface ViewController () <GADUnifiedNativeAdLoaderDelegate,
-                              GADNativeCustomTemplateAdLoaderDelegate,
-                              GADUnifiedNativeAdDelegate,
+@interface ViewController () <GADAdLoaderDelegate,
+                              GADCustomNativeAdLoaderDelegate,
+                              GADNativeAdLoaderDelegate,
+                              GADNativeAdDelegate,
                               GADVideoControllerDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading process.
@@ -23,19 +24,19 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.versionLabel.text = [GADRequest sdkVersion];
+  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
 
   [self refreshAd:nil];
 }
 
 - (IBAction)refreshAd:(id)sender {
-  // Loads an ad for any of app install, content, or custom native ads.
+  // Loads an ad for native ads or custom native ads.
   NSMutableArray *adTypes = [[NSMutableArray alloc] init];
-  if (self.unifiedNativeAdSwitch.on) {
-    [adTypes addObject:kGADAdLoaderAdTypeUnifiedNative];
+  if (self.nativeAdSwitch.on) {
+    [adTypes addObject:kGADAdLoaderAdTypeNative];
   }
   if (self.customNativeAdSwitch.on) {
-    [adTypes addObject:kGADAdLoaderAdTypeNativeCustomTemplate];
+    [adTypes addObject:kGADAdLoaderAdTypeCustomNative];
   }
 
   if (!adTypes.count) {
@@ -97,20 +98,20 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
 
 #pragma mark GADAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"%@ failed with error: %@", adLoader, [error localizedDescription]);
   self.refreshButton.enabled = YES;
 }
 
-#pragma mark GADUnifiedNativeAdLoaderDelegate implementation
+#pragma mark GADNativeAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didReceiveUnifiedNativeAd:(GADUnifiedNativeAd *)nativeAd {
-  NSLog(@"Received unified native ad: %@", nativeAd);
+- (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
+  NSLog(@"Received native ad: %@", nativeAd);
   self.refreshButton.enabled = YES;
 
   // Create and place ad in view hierarchy.
-  GADUnifiedNativeAdView *nativeAdView =
-      [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil].firstObject;
+  GADNativeAdView *nativeAdView =
+      [[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil].firstObject;
   [self setAdView:nativeAdView];
 
   // Set ourselves as the ad delegate to be notified of native ad events.
@@ -177,13 +178,13 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   // required to make the ad clickable.
   // Note: this should always be done after populating the ad views.
   nativeAdView.nativeAd = nativeAd;
-
 }
-#pragma mark GADNativeCustomTemplateAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader
-    didReceiveNativeCustomTemplateAd:(GADNativeCustomTemplateAd *)nativeCustomTemplateAd {
-  NSLog(@"Received custom native ad: %@", nativeCustomTemplateAd);
+#pragma mark GADCustomNativeAdLoaderDelegate implementation
+
+- (void)adLoader:(nonnull GADAdLoader *)adLoader
+    didReceiveCustomNativeAd:(nonnull GADCustomNativeAd *)customNativeAd {
+  NSLog(@"Received custom native ad: %@", customNativeAd);
   self.refreshButton.enabled = YES;
 
   // Create and place ad in view hierarchy.
@@ -193,12 +194,12 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   [self setAdView:mySimpleNativeAdView];
 
   // Populate the custom native ad view with its assets.
-  [mySimpleNativeAdView populateWithCustomNativeAd:nativeCustomTemplateAd];
+  [mySimpleNativeAdView populateWithCustomNativeAd:customNativeAd];
 
-  if (nativeCustomTemplateAd.videoController.hasVideoContent) {
+  if (customNativeAd.mediaContent.hasVideoContent) {
     // By acting as the delegate to the GADVideoController, this ViewController receives messages
     // about events in the video lifecycle.
-    nativeCustomTemplateAd.videoController.delegate = self;
+    customNativeAd.mediaContent.videoController.delegate = self;
 
     self.videoStatusLabel.text = @"Ad contains a video asset.";
   } else {
@@ -206,10 +207,11 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   }
   // Impressions for custom template format must be manually tracked. If this is not called, videos
   // will also not be played.
-  [nativeCustomTemplateAd recordImpression];
+  [customNativeAd recordImpression];
 }
 
-- (NSArray *)nativeCustomTemplateIDsForAdLoader:(GADAdLoader *)adLoader {
+- (nonnull NSArray<NSString *> *)customNativeAdFormatIDsForAdLoader:
+    (nonnull GADAdLoader *)adLoader {
   return @[ TestNativeCustomTemplateID ];
 }
 
@@ -219,29 +221,29 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   self.videoStatusLabel.text = @"Video playback has ended.";
 }
 
-#pragma mark GADUnifiedNativeAdDelegate
+#pragma mark GADNativeAdDelegate
 
-- (void)nativeAdDidRecordClick:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidRecordClick:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdDidRecordImpression:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidRecordImpression:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdWillPresentScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillPresentScreen:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdWillDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillDismissScreen:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdDidDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidDismissScreen:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdWillLeaveApplication:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillLeaveApplication:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 

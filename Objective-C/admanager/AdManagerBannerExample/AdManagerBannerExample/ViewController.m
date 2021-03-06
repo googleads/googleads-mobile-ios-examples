@@ -4,6 +4,9 @@
 
 #import "ViewController.h"
 
+@interface ViewController () <GADBannerViewDelegate>
+@end
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -12,7 +15,34 @@
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"/6499/example/banner";
   self.bannerView.rootViewController = self;
-  [self.bannerView loadRequest:[DFPRequest request]];
+  self.bannerView.delegate = self;
+  [self.bannerView loadRequest:[GAMRequest request]];
+}
+
+#pragma mark GADBannerViewDelegate implementation
+
+- (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewDidReceiveAd");
+}
+
+- (void)bannerView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
+  NSLog(@"bannerView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+- (void)bannerViewDidRecordImpression:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewDidRecordImpression");
+}
+
+- (void)bannerViewWillPresentScreen:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewWillPresentScreen");
+}
+
+- (void)bannerViewWillDismissScreen:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewWillDismissScreen");
+}
+
+- (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewDidDismissScreen");
 }
 
 - (void)didReceiveMemoryWarning {

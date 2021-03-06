@@ -20,9 +20,9 @@ import UIKit
 /// AdMob - Ad Delegate
 /// Demonstrates handling GADBannerViewDelegate ad request status and ad click lifecycle messages.
 /// This is an AdMob example, so it uses a GADBannerView to show an AdMob ad. GADBannerViewDelegate
-/// also works with DFPBannerView objects, so publishers displaying ads from
+/// also works with GAMBannerView objects, so publishers displaying ads from
 /// AdManager can also use it with their banners. To see this in action,
-/// use the DFPBannerView class instead of GADBannerView.
+/// use the GAMBannerView class instead of GADBannerView.
 class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
 
   @IBOutlet weak var bannerView: GADBannerView!
@@ -43,7 +43,7 @@ class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
   }
 
   // Called when an ad request failed.
-  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: NSError) {
     print("\(#function): \(error.localizedDescription)")
   }
 
@@ -63,7 +63,7 @@ class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
     print(#function)
   }
 
-  // Called just before the application will background or terminate because the user clicked on an
+  // Called just before the application will background or exit because the user clicked on an
   // ad that will launch another application (such as the App Store).
   func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
     print(#function)

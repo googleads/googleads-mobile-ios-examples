@@ -34,7 +34,7 @@ class SimpleNativeAdView: UIView {
   @IBOutlet weak var captionView: UILabel!
 
   /// The custom native ad that populated this view.
-  var customNativeAd: GADNativeCustomTemplateAd?
+  var customNativeAd: GADCustomNativeAd?
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -49,7 +49,7 @@ class SimpleNativeAdView: UIView {
   }
 
   /// Populates the ad view with the custom native ad object.
-  func populate(withCustomNativeAd customNativeAd: GADNativeCustomTemplateAd) {
+  func populate(withCustomNativeAd customNativeAd: GADCustomNativeAd) {
     self.customNativeAd = customNativeAd
     // The custom click handler is an optional block which will override the normal click action
     // defined by the ad. Pass nil for the click handler to let the SDK process the default click
@@ -77,7 +77,7 @@ class SimpleNativeAdView: UIView {
     // This custom native ad has both a video and an image associated with it. We'll use the video
     // asset if available, and otherwise fallback to the image asset.
     var mainView: UIView!
-    if customNativeAd.videoController.hasVideoContent() {
+    if customNativeAd.mediaContent.hasVideoContent {
       mainView = customNativeAd.mediaView
     } else {
       let image: UIImage? = customNativeAd.image(forKey: SimpleNativeAdViewMainImageKey)?.image

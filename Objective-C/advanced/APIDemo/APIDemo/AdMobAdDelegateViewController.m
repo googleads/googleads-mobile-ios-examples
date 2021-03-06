@@ -24,9 +24,9 @@
 /// Google AdMob - Ad Delegate
 /// Demonstrates handling GADBannerViewDelegate ad request status and ad click lifecycle messages.
 /// This is an AdMob example, so it uses a GADBannerView to show an AdMob ad. GADBannerViewDelegate
-/// also works with DFPBannerView objects, so publishers displaying ads from
+/// also works with GAMBannerView objects, so publishers displaying ads from
 /// Google Ad Manager (GAM) can also use it with their banners.
-/// To see this in action, use the DFPBannerView class instead of GADBannerView.
+/// To see this in action, use the GAMBannerView class instead of GADBannerView.
 @interface AdMobAdDelegateViewController () <GADBannerViewDelegate>
 
 /// The banner view.
@@ -55,7 +55,7 @@
 }
 
 // Called when an ad request failed.
-- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"%s: %@", __PRETTY_FUNCTION__, error.localizedDescription);
 }
 
@@ -75,7 +75,7 @@
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-// Called just before the application will background or terminate because the user clicked on an ad
+// Called just before the application will background or exit because the user clicked on an ad
 // that will launch another application (such as the App Store).
 - (void)adViewWillLeaveApplication:(GADBannerView *)bannerView {
   NSLog(@"%s", __PRETTY_FUNCTION__);

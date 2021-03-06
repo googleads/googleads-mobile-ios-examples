@@ -22,8 +22,8 @@ import UIKit
 /// with a height dynamically determined by the ad.
 class AdManagerFluidAdSizeViewController: UIViewController {
 
-  /// The DFP banner view.
-  @IBOutlet weak var bannerView: DFPBannerView!
+  /// The banner view.
+  @IBOutlet weak var bannerView: GAMBannerView!
 
   /// The banner view's width constraint.
   @IBOutlet weak var bannerViewWidthConstraint: NSLayoutConstraint!
@@ -42,7 +42,7 @@ class AdManagerFluidAdSizeViewController: UIViewController {
     bannerView.adUnitID = Constants.AdManagerFluidAdSizeAdUnitID
     bannerView.rootViewController = self
     bannerView.adSize = kGADAdSizeFluid
-    bannerView.load(DFPRequest())
+    bannerView.load(GAMRequest())
   }
 
   /// Handles the user tapping on the "Change Banner Width" button.

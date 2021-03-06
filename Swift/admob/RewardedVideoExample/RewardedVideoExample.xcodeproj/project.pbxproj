@@ -40,6 +40,7 @@
 			children = (
 				849326B21B066A7F00863759 /* RewardedVideoExample */,
 				849326B11B066A7F00863759 /* Products */,
+				E666AA070CC1C8D345292DF4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +71,13 @@
 				849326B41B066A7F00863759 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E666AA070CC1C8D345292DF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,6 +122,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -271,6 +280,10 @@
 				INFOPLIST_FILE = RewardedVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = RewardedVideoExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -286,6 +299,10 @@
 				INFOPLIST_FILE = RewardedVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = RewardedVideoExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

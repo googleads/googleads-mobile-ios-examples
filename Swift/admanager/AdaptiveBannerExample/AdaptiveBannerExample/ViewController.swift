@@ -21,7 +21,7 @@ let reservationAdUnitID = "/30497360/adaptive_banner_test_iu/reservation"
 let backfillAdUnitID = "/30497360/adaptive_banner_test_iu/backfill"
 
 class ViewController: UIViewController {
-  @IBOutlet weak var bannerView: DFPBannerView!
+  @IBOutlet weak var bannerView: GAMBannerView!
   @IBOutlet weak var iuSwitch: UISwitch!
   @IBOutlet weak var iuLabel: UILabel!
 
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
     // the adaptive size as outlined here - https://support.google.com/admanager/answer/9464128.
     // The returned ad will be centered in the ad view.
     bannerView.adSize = adaptiveSize
-    bannerView.load(DFPRequest())
+    bannerView.load(GAMRequest())
   }
 
 }

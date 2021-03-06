@@ -49,25 +49,26 @@
   self.videoStatusLabel.text = @"";
 }
 
-- (void)setController:(GADVideoController *)controller {
-  _controller = controller;
-  self.controlsView.hidden = !controller.customControlsEnabled;
-  controller.delegate = self;
-  self.videoStatusLabel.text = controller.hasVideoContent ? @"Ad contains video content."
-                                                          : @"Ad does not contain video content.";
+- (void)setMediaContent:(GADMediaContent *)mediaContent {
+  _mediaContent = mediaContent;
+  self.controlsView.hidden = !_mediaContent.videoController.customControlsEnabled;
+  _mediaContent.videoController.delegate = self;
+  self.videoStatusLabel.text = _mediaContent.hasVideoContent
+                                   ? @"Ad contains video content."
+                                   : @"Ad does not contain video content.";
 }
 
 - (IBAction)playPause:(id)sender {
   if (self.playing) {
-    [self.controller pause];
+    [self.mediaContent.videoController pause];
   } else {
-    [self.controller play];
+    [self.mediaContent.videoController play];
   }
 }
 
 - (IBAction)muteUnmute:(id)sender {
   self.muted = !self.muted;
-  [self.controller setMute:self.muted];
+  [self.mediaContent.videoController setMute:self.muted];
 }
 
 - (void)setPlaying:(BOOL)playing {

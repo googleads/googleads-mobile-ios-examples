@@ -18,7 +18,7 @@ import GoogleMobileAds
 import UIKit
 
 /// AdManager - Multiple Ad Sizes
-/// Demonstrates setting valid ad sizes for a DFPRequest.
+/// Demonstrates setting valid ad sizes for a GAMRequest.
 class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
 
   /// The custom banner size (120x20) switch.
@@ -30,12 +30,12 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
   /// The medium rectangle size (300x250) switch.
   @IBOutlet weak var GADAdSizeMediumRectangleSwitch: UISwitch!
 
-  /// The DFP banner view.
-  var bannerView: DFPBannerView!
+  /// The banner view.
+  var bannerView: GAMBannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView = DFPBannerView(adSize: kGADAdSizeBanner)
+    bannerView = GAMBannerView(adSize: kGADAdSizeBanner)
     bannerView.adUnitID = Constants.AdManagerAdSizesAdUnitID
     bannerView.rootViewController = self
     bannerView.adSizeDelegate = self
@@ -88,7 +88,7 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
     }
 
     bannerView.validAdSizes = adSizes
-    bannerView.load(DFPRequest())
+    bannerView.load(GAMRequest())
   }
 
   // MARK: - GADAdSizeDelegate

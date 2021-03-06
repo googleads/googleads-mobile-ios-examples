@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADInterstitialDelegate {
+class ViewController: UIViewController, GADFullScreenContentDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -30,7 +30,7 @@ class ViewController: UIViewController, GADInterstitialDelegate {
   static let gameLength = 5
 
   /// The interstitial ad.
-  var interstitial: DFPInterstitial!
+  var interstitial: GAMInterstitialAd?
 
   /// The countdown timer.
   var timer: Timer?
@@ -74,7 +74,7 @@ class ViewController: UIViewController, GADInterstitialDelegate {
   // MARK: - Game Logic
 
   fileprivate func startNewGame() {
-    createAndLoadInterstitial()
+    loadInterstitial()
 
     gameState = .playing
     timeLeft = ViewController.gameLength
@@ -88,9 +88,18 @@ class ViewController: UIViewController, GADInterstitialDelegate {
       repeats: true)
   }
 
-  fileprivate func createAndLoadInterstitial() {
-    interstitial = DFPInterstitial(adUnitID: "/6499/example/interstitial")
-    interstitial.load(DFPRequest())
+  fileprivate func loadInterstitial() {
+    GAMInterstitialAd.load(
+      withAdManagerAdUnitID: "/6499/example/interstitial",
+      request: GAMRequest()
+    ) { (ad, error) in
+      if let error = error {
+        print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+        return
+      }
+      self.interstitial = ad
+      self.interstitial?.fullScreenContentDelegate = self
+    }
   }
 
   fileprivate func updateTimeLeft() {
@@ -145,15 +154,12 @@ class ViewController: UIViewController, GADInterstitialDelegate {
       title: "OK",
       style: .cancel,
       handler: { [weak self] action in
-        guard let self = self else {
-          return
-        }
-        if self.interstitial.isReady {
-          self.interstitial.present(fromRootViewController: self)
+        if let ad = self?.interstitial {
+          ad.present(fromRootViewController: self!)
         } else {
           print("Ad wasn't ready")
         }
-        self.playAgainButton.isHidden = false
+        self?.playAgainButton.isHidden = false
       })
     alert.addAction(alertAction)
     self.present(alert, animated: true, completion: nil)
@@ -163,6 +169,20 @@ class ViewController: UIViewController, GADInterstitialDelegate {
 
   @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
+  }
+
+  // MARK: - GADFullScreenContentDelegate
+  func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("Ad did present full screen content.")
+  }
+
+  func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error)
+  {
+    print("Ad failed to present full screen content with error \(error.localizedDescription).")
+  }
+
+  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("Ad did dismiss full screen content.")
   }
 
   // MARK: - deinit

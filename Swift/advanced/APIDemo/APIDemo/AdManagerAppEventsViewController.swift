@@ -18,18 +18,18 @@ import GoogleMobileAds
 import UIKit
 
 /// AdManager - App Events
-/// Demonstrates handling GADAppEventDelegate app event messages sent by the DFP banner.
+/// Demonstrates handling GADAppEventDelegate app event messages sent by the banner.
 class AdManagerAppEventsViewController: UIViewController, GADAppEventDelegate {
 
   /// The AdManager banner view.
-  @IBOutlet weak var bannerView: DFPBannerView!
+  @IBOutlet weak var bannerView: GAMBannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     bannerView.adUnitID = Constants.AdManagerAppEventsAdUnitID
     bannerView.rootViewController = self
     bannerView.appEventDelegate = self
-    bannerView.load(DFPRequest())
+    bannerView.load(GAMRequest())
   }
 
   // MARK - GADAppEventDelegate

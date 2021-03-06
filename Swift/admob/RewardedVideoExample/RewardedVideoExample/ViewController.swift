@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADRewardedAdDelegate {
+class ViewController: UIViewController, GADFullScreenContentDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -34,9 +34,6 @@ class ViewController: UIViewController, GADRewardedAdDelegate {
 
   /// Number of coins the user has earned.
   var coinCount = 0
-
-  /// Is an ad being loaded.
-  var adRequestInProgress = false
 
   /// The rewarded video ad.
   var rewardedAd: GADRewardedAd?
@@ -90,17 +87,17 @@ class ViewController: UIViewController, GADRewardedAdDelegate {
     gameState = .playing
     counter = gameLength
     playAgainButton.isHidden = true
-    if !adRequestInProgress && !(rewardedAd?.isReady ?? false) {
-      rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
-      adRequestInProgress = true
-      rewardedAd?.load(GADRequest()) { error in
-        self.adRequestInProgress = false
-        if let error = error {
-          print("Loading failed: \(error)")
-        } else {
-          print("Loading Succeeded")
-        }
+
+    GADRewardedAd.load(
+      withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: GADRequest()
+    ) { (ad, error) in
+      if let error = error {
+        print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+        return
       }
+      print("Loading Succeeded")
+      self.rewardedAd = ad
+      self.rewardedAd?.fullScreenContentDelegate = self
     }
 
     gameText.text = String(counter)
@@ -167,12 +164,17 @@ class ViewController: UIViewController, GADRewardedAdDelegate {
   // MARK: Button actions
 
   @IBAction func playAgain(_ sender: AnyObject) {
-    if rewardedAd?.isReady == true {
-      rewardedAd?.present(fromRootViewController: self, delegate: self)
+    if let ad = rewardedAd {
+      ad.present(fromRootViewController: self) {
+        let reward = ad.adReward
+        print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
+        self.earnCoins(NSInteger(truncating: reward.amount))
+        // TODO: Reward the user.
+      }
     } else {
       let alert = UIAlertController(
-        title: "Rewarded video not ready",
-        message: "The rewarded video didn't finish loading or failed to load",
+        title: "Rewarded ad isn't available yet.",
+        message: "The rewarded ad cannot be shown at this time",
         preferredStyle: .alert)
       let alertAction = UIAlertAction(
         title: "OK",
@@ -185,21 +187,21 @@ class ViewController: UIViewController, GADRewardedAdDelegate {
     }
   }
 
-  // MARK: GADRewardedAdDelegate
-  func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
-    print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-    earnCoins(NSInteger(truncating: reward.amount))
-  }
+  // MARK: GADFullScreenContentDelegate
 
-  func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+  func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
     print("Rewarded ad presented.")
   }
 
-  func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
     print("Rewarded ad dismissed.")
   }
 
-  func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
+  func ad(
+    _ ad: GADFullScreenPresentingAd,
+    didFailToPresentFullScreenContentWithError error: Error
+  ) {
+    print("Rewarded ad failed to present with error: \(error.localizedDescription).")
     let alert = UIAlertController(
       title: "Rewarded ad failed to present",
       message: "The reward ad could not be presented.",

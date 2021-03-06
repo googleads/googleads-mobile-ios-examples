@@ -17,9 +17,9 @@
 // Native Advanced ad unit ID for testing.
 static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
-@interface AdMobNativeCustomMuteThisAdViewController () <GADUnifiedNativeAdLoaderDelegate,
+@interface AdMobNativeCustomMuteThisAdViewController () <GADNativeAdLoaderDelegate,
                                                          GADVideoControllerDelegate,
-                                                         GADUnifiedNativeAdDelegate,
+                                                         GADNativeAdDelegate,
                                                          UIPickerViewDelegate,
                                                          UIPickerViewDataSource>
 
@@ -27,7 +27,7 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
 @property(nonatomic, strong) GADAdLoader *adLoader;
 
 /// The native ad view that is being presented.
-@property(nonatomic, strong) GADUnifiedNativeAdView *nativeAdView;
+@property(nonatomic, strong) GADNativeAdView *nativeAdView;
 
 /// The height constraint applied to the ad view, where necessary.
 @property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
@@ -44,11 +44,11 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.versionLabel.text = [GADRequest sdkVersion];
+  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
 
-  NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView"
-                                                      owner:nil
-                                                    options:nil];
+  NSArray<GADNativeAdView *> *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"NativeAdView"
+                                                                         owner:nil
+                                                                       options:nil];
   [self setAdView:nibObjects.firstObject];
   self.nativeAdView.hidden = YES;
 
@@ -65,13 +65,13 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
   GADNativeMuteThisAdLoaderOptions *muteOptions = [GADNativeMuteThisAdLoaderOptions new];
   self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:GADAPIDemoNativeTestAdUnit
                                      rootViewController:self
-                                                adTypes:@[ kGADAdLoaderAdTypeUnifiedNative ]
+                                                adTypes:@[ kGADAdLoaderAdTypeNative ]
                                                 options:@[ muteOptions ]];
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GADRequest request]];
 }
 
-- (void)setAdView:(GADUnifiedNativeAdView *)view {
+- (void)setAdView:(GADNativeAdView *)view {
   // Remove previous ad view.
   [self.nativeAdView removeFromSuperview];
   self.nativeAdView = view;
@@ -122,7 +122,7 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
 }
 
 - (void)showMuteAdDialog {
-  GADUnifiedNativeAd *nativeAd = self.nativeAdView.nativeAd;
+  GADNativeAd *nativeAd = self.nativeAdView.nativeAd;
   NSArray *reasons = nativeAd.muteThisAdReasons;
   if (!self.pickerView.isHidden || nativeAd == nil || reasons == nil) {
     return;
@@ -174,17 +174,17 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
 
 #pragma mark GADAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"%@ failed with error: %@", adLoader, error);
   self.refreshButton.enabled = YES;
 }
 
-#pragma mark GADUnifiedNativeAdLoaderDelegate implementation
+#pragma mark GADNativeAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didReceiveUnifiedNativeAd:(GADUnifiedNativeAd *)nativeAd {
+- (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
   self.refreshButton.enabled = YES;
 
-  GADUnifiedNativeAdView *nativeAdView = self.nativeAdView;
+  GADNativeAdView *nativeAdView = self.nativeAdView;
   self.nativeAdView.hidden = NO;
 
   /// Enable the mute button if custom mute is available.
@@ -249,12 +249,11 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
   // required to make the ad clickable.
   // Note: this should always be done after populating the ad views.
   nativeAdView.nativeAd = nativeAd;
-
 }
 
-#pragma mark GADUnifiedNativeAdDelegate
+#pragma mark GADNativeAdDelegate
 
-- (void)nativeAdIsMuted:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdIsMuted:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 

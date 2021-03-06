@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 @property(nonatomic, strong) NSDate *previousFireDate;
 
 /// A pre-loaded rewarded ad.
-@property(nonatomic, strong) GADRewardedAdBeta *rewardedAd;
+@property(nonatomic, strong) GADRewardedAd *rewardedAd;
 @end
 
 @implementation ViewController
@@ -97,11 +97,11 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (void)loadRewardedAd {
-  DFPRequest *request = [DFPRequest request];
-  [GADRewardedAdBeta
+  GAMRequest *request = [GAMRequest request];
+  [GADRewardedAd
        loadWithAdUnitID:@"/6499/example/rewarded-video"
                 request:request
-      completionHandler:^(GADRewardedAdBeta *ad, NSError *error) {
+      completionHandler:^(GADRewardedAd *ad, NSError *error) {
         if (error) {
           NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
           return;

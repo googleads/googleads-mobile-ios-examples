@@ -26,18 +26,18 @@ static NSString *const kCategoryExclusionDogs = @"apidemo_exclude_dogs";
 static NSString *const kCategoryExclusionCats = @"apidemo_exclude_cats";
 
 /// GAM - Category Exclusions
-/// Demonstrates using category exclusions with DFPRequests to exclude specified categories in ad
+/// Demonstrates using category exclusions with GAMRequests to exclude specified categories in ad
 /// results.
 @interface GAMCategoryExclusionsViewController ()
 
 /// The no exclusions banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *noExclusionsBannerView;
+@property(nonatomic, weak) IBOutlet GAMBannerView *noExclusionsBannerView;
 
 /// The exclude dogs banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *excludeDogsBannerView;
+@property(nonatomic, weak) IBOutlet GAMBannerView *excludeDogsBannerView;
 
 /// The exclude cats banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *excludeCatsBannerView;
+@property(nonatomic, weak) IBOutlet GAMBannerView *excludeCatsBannerView;
 
 @end
 
@@ -49,20 +49,20 @@ static NSString *const kCategoryExclusionCats = @"apidemo_exclude_cats";
   self.noExclusionsBannerView.adUnitID = kAdManagerCategoryExclusionsAdUnitID;
   self.noExclusionsBannerView.rootViewController = self;
 
-  DFPRequest *noExclusionsRequest = [DFPRequest request];
+  GAMRequest *noExclusionsRequest = [GAMRequest request];
   [self.noExclusionsBannerView loadRequest:noExclusionsRequest];
 
   self.excludeDogsBannerView.adUnitID = kAdManagerCategoryExclusionsAdUnitID;
   self.excludeDogsBannerView.rootViewController = self;
 
-  DFPRequest *excludeDogsRequest = [DFPRequest request];
+  GAMRequest *excludeDogsRequest = [GAMRequest request];
   excludeDogsRequest.categoryExclusions = @[ kCategoryExclusionDogs ];
   [self.excludeDogsBannerView loadRequest:excludeDogsRequest];
 
   self.excludeCatsBannerView.adUnitID = kAdManagerCategoryExclusionsAdUnitID;
   self.excludeCatsBannerView.rootViewController = self;
 
-  DFPRequest *excludeCatsRequest = [DFPRequest request];
+  GAMRequest *excludeCatsRequest = [GAMRequest request];
   excludeCatsRequest.categoryExclusions = @[ kCategoryExclusionCats ];
   [self.excludeCatsBannerView loadRequest:excludeCatsRequest];
 }

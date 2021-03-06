@@ -50,12 +50,12 @@ class ViewController: UIViewController {
   /// The ad unit ID.
   let adUnitID = "/6499/example/native"
 
-  /// The native custom template id
-  let nativeCustomTemplateId = "10104090"
+  /// The native custom format id
+  let nativeCustomFormatId = "10104090"
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADRequest.sdkVersion()
+    versionLabel.text = GADMobileAds.sharedInstance().sdkVersion
     refreshAd(nil)
   }
 
@@ -87,10 +87,10 @@ class ViewController: UIViewController {
   @IBAction func refreshAd(_ sender: AnyObject!) {
     var adTypes = [GADAdLoaderAdType]()
     if nativeAdSwitch.isOn {
-      adTypes.append(.unifiedNative)
+      adTypes.append(.native)
     }
     if customNativeAdSwitch.isOn {
-      adTypes.append(GADAdLoaderAdType.nativeCustomTemplate)
+      adTypes.append(.customNative)
     }
 
     if adTypes.isEmpty {
@@ -154,22 +154,25 @@ class ViewController: UIViewController {
 }
 
 // MARK: - GADAdLoaderDelegate
+
 extension ViewController: GADAdLoaderDelegate {
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+
+  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
     refreshAdButton.isEnabled = true
   }
 }
 
-// MARK: - GADUnifiedNativeAdLoaderDelegate
-extension ViewController: GADUnifiedNativeAdLoaderDelegate {
+// MARK: - GADNativeAdLoaderDelegate
 
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
+extension ViewController: GADNativeAdLoaderDelegate {
+
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
     print("Received unified native ad: \(nativeAd)")
     refreshAdButton.isEnabled = true
     // Create and place ad in view hierarchy.
-    let nibView = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil)?.first
-    guard let nativeAdView = nibView as? GADUnifiedNativeAdView else {
+    let nibView = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil)?.first
+    guard let nativeAdView = nibView as? GADNativeAdView else {
       return
     }
     setAdView(nativeAdView)
@@ -241,17 +244,18 @@ extension ViewController: GADUnifiedNativeAdLoaderDelegate {
   }
 }
 
-// MARK: - GADNativeCustomTemplateAdLoaderDelegate
-extension ViewController: GADNativeCustomTemplateAdLoaderDelegate {
-  func nativeCustomTemplateIDs(for adLoader: GADAdLoader) -> [String] {
-    return [nativeCustomTemplateId]
+// MARK: - GADCustomNativeAdLoaderDelegate
+
+extension ViewController: GADCustomNativeAdLoaderDelegate {
+  func customNativeAdFormatIDs(for adLoader: GADAdLoader) -> [String] {
+    return [nativeCustomFormatId]
   }
 
   func adLoader(
     _ adLoader: GADAdLoader,
-    didReceive nativeCustomTemplateAd: GADNativeCustomTemplateAd
+    didReceive customNativeAd: GADCustomNativeAd
   ) {
-    print("Received custom native ad: \(nativeCustomTemplateAd)")
+    print("Received custom native ad: \(customNativeAd)")
     refreshAdButton.isEnabled = true
     // Create and place the ad in the view hierarchy.
     let customNativeAdView =
@@ -259,17 +263,17 @@ extension ViewController: GADNativeCustomTemplateAdLoaderDelegate {
         "SimpleCustomNativeAdView", owner: nil, options: nil)!.first as! MySimpleNativeAdView
     setAdView(customNativeAdView)
 
-    let hasVideoContent = nativeCustomTemplateAd.videoController.hasVideoContent()
+    let hasVideoContent = customNativeAd.mediaContent.hasVideoContent
     // Update the ViewController for video content.
     updateVideoStatusLabel(hasVideoContent: hasVideoContent)
     if hasVideoContent {
-      nativeCustomTemplateAd.videoController.delegate = self
+      customNativeAd.mediaContent.videoController.delegate = self
     }
     // Populate the custom native ad view with the custom native ad assets.
-    customNativeAdView.populate(withCustomNativeAd: nativeCustomTemplateAd)
-    // Impressions for custom template format must be manually tracked. If this is not called,
+    customNativeAdView.populate(withCustomNativeAd: customNativeAd)
+    // Impressions for custom native ads must be manually tracked. If this is not called,
     // videos will also not be played.
-    nativeCustomTemplateAd.recordImpression()
+    customNativeAd.recordImpression()
   }
 }
 
@@ -281,30 +285,30 @@ extension ViewController: GADVideoControllerDelegate {
   }
 }
 
-// MARK: - GADUnifiedNativeAdDelegate implementation
-extension ViewController: GADUnifiedNativeAdDelegate {
+// MARK: - GADNativeAdDelegate implementation
+extension ViewController: GADNativeAdDelegate {
 
-  func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
+  func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
+  func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
+  func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+  func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+  func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
+  func nativeAdWillLeaveApplication(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 }

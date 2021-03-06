@@ -21,8 +21,8 @@
 static NSString *const TestAdUnit = @"/6499/example/native-video";
 static NSString *const TestNativeCustomTemplateID = @"10104090";
 
-@interface GAMCustomVideoControlsController () <GADUnifiedNativeAdLoaderDelegate,
-                                                GADNativeCustomTemplateAdLoaderDelegate>
+@interface GAMCustomVideoControlsController () <GADNativeAdLoaderDelegate,
+                                                GADCustomNativeAdLoaderDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading process.
 @property(nonatomic, strong) GADAdLoader *adLoader;
@@ -37,7 +37,7 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.versionLabel.text = [GADRequest sdkVersion];
+  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
   [self refreshAd:nil];
 }
 
@@ -45,10 +45,10 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   // Loads an ad for any of unified native or custom native ads.
   NSMutableArray *adTypes = [[NSMutableArray alloc] init];
   if (self.unifiedNativeAdSwitch.on) {
-    [adTypes addObject:kGADAdLoaderAdTypeUnifiedNative];
+    [adTypes addObject:kGADAdLoaderAdTypeNative];
   }
   if (self.customNativeAdSwitch.on) {
-    [adTypes addObject:kGADAdLoaderAdTypeNativeCustomTemplate];
+    [adTypes addObject:kGADAdLoaderAdTypeCustomNative];
   }
 
   if (!adTypes.count) {
@@ -67,7 +67,7 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
                                                 options:@[ videoOptions ]];
   [self.customControlsView resetWithStartMuted:videoOptions.startMuted];
   self.adLoader.delegate = self;
-  [self.adLoader loadRequest:[DFPRequest request]];
+  [self.adLoader loadRequest:[GAMRequest request]];
 }
 
 - (void)setAdView:(UIView *)view {
@@ -94,16 +94,16 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
 
 #pragma mark GADAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"%@ failed with error: %@", adLoader, [error localizedDescription]);
   self.refreshButton.enabled = YES;
 }
 
-#pragma mark GADNativeCustomTemplateAdLoaderDelegate implementation
+#pragma mark GADCustomNativeAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader
-    didReceiveNativeCustomTemplateAd:(GADNativeCustomTemplateAd *)nativeCustomTemplateAd {
-  NSLog(@"Received custom native ad: %@", nativeCustomTemplateAd);
+- (void)adLoader:(nonnull GADAdLoader *)adLoader
+    didReceiveCustomNativeAd:(nonnull GADCustomNativeAd *)customNativeAd {
+  NSLog(@"Received custom native ad: %@", customNativeAd);
   self.refreshButton.enabled = YES;
 
   // Create and place ad in view hierarchy.
@@ -112,24 +112,25 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   [self setAdView:simpleNativeAdView];
 
   // Populate the custom native ad view with its assets.
-  [simpleNativeAdView populateWithCustomNativeAd:nativeCustomTemplateAd];
+  [simpleNativeAdView populateWithCustomNativeAd:customNativeAd];
 
-  self.customControlsView.controller = nativeCustomTemplateAd.videoController;
+  self.customControlsView.mediaContent = customNativeAd.mediaContent;
 }
 
-- (NSArray *)nativeCustomTemplateIDsForAdLoader:(GADAdLoader *)adLoader {
+- (nonnull NSArray<NSString *> *)customNativeAdFormatIDsForAdLoader:
+    (nonnull GADAdLoader *)adLoader {
   return @[ TestNativeCustomTemplateID ];
 }
 
-#pragma mark GADUnifiedNativeAdLoaderDelegate implementation
+#pragma mark GADNativeAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didReceiveUnifiedNativeAd:(GADUnifiedNativeAd *)nativeAd {
+- (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
   NSLog(@"Received unified native ad: %@", nativeAd);
   self.refreshButton.enabled = YES;
 
   // Create and place ad in view hierarchy.
-  GADUnifiedNativeAdView *nativeAdView =
-      [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil].firstObject;
+  GADNativeAdView *nativeAdView =
+      [[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil].firstObject;
   [self setAdView:nativeAdView];
 
   // Populate the native ad view with the native ad assets.
@@ -151,7 +152,7 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
     heightConstraint.active = YES;
   }
 
-  self.customControlsView.controller = nativeAd.mediaContent.videoController;
+  self.customControlsView.mediaContent = nativeAd.mediaContent;
 
   // These assets are not guaranteed to be present. Check that they are before
   // showing or hiding them.

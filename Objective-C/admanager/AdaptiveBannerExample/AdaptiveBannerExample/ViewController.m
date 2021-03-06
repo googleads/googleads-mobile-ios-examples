@@ -82,7 +82,7 @@ static NSString *_Nonnull const backfillAdUnitID = @"/30497360/adaptive_banner_t
   // The returned ad will be centered in the ad view.
   self.bannerView.adSize = adaptiveSize;
 
-  [self.bannerView loadRequest:[DFPRequest request]];
+  [self.bannerView loadRequest:[GAMRequest request]];
 }
 
 @end

@@ -28,8 +28,7 @@
 /// Resets the controls status, and lets the controls view know the initial mute state.
 - (void)resetWithStartMuted:(BOOL)startMuted;
 
-/// The controller for the ad currently being displayed. Setting this sets up the view according to
-/// the video controller state.
-@property(nonatomic, weak) GADVideoController *controller;
+/// The media content for the ad currently being displayed.
+@property(nonatomic, weak) GADMediaContent *mediaContent;
 
 @end

@@ -31,7 +31,7 @@ static const NSInteger kGameLength = 5;
 @interface ViewController () <GADFullScreenContentDelegate>
 
 /// The AdManager interstitial ad.
-@property(nonatomic, strong) GAMInterstitialAdBeta *interstitial;
+@property(nonatomic, strong) GAMInterstitialAd *interstitial;
 
 /// The countdown timer.
 @property(nonatomic, strong) NSTimer *timer;
@@ -87,18 +87,18 @@ static const NSInteger kGameLength = 5;
 }
 
 - (void)createAndLoadInterstitial {
-  DFPRequest *request = [DFPRequest request];
-  [GAMInterstitialAdBeta loadWithAdManagerAdUnitID:@"/6499/example/interstitial"
-                                           request:request
-                                 completionHandler:^(GAMInterstitialAdBeta *ad, NSError *error) {
-                                   if (error) {
-                                     NSLog(@"Failed to load interstitial ad with error: %@",
-                                           [error localizedDescription]);
-                                     return;
-                                   }
-                                   self.interstitial = ad;
-                                   self.interstitial.fullScreenContentDelegate = self;
-                                 }];
+  GAMRequest *request = [GAMRequest request];
+  [GAMInterstitialAd loadWithAdManagerAdUnitID:@"/6499/example/interstitial"
+                                       request:request
+                             completionHandler:^(GAMInterstitialAd *ad, NSError *error) {
+                               if (error) {
+                                 NSLog(@"Failed to load interstitial ad with error: %@",
+                                       [error localizedDescription]);
+                                 return;
+                               }
+                               self.interstitial = ad;
+                               self.interstitial.fullScreenContentDelegate = self;
+                             }];
 }
 
 - (void)updateTimeLeft {

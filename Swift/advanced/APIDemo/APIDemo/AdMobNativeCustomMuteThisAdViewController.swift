@@ -46,7 +46,7 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
   var adLoader: GADAdLoader!
 
   /// The native ad view that is being presented.
-  var nativeAdView: GADUnifiedNativeAdView!
+  var nativeAdView: GADNativeAdView!
 
   /// The mute reasons being displayed, if applicable.
   var muteReasons: [GADMuteThisAdReason]?
@@ -56,11 +56,11 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADRequest.sdkVersion()
+    versionLabel.text = GADMobileAds.sharedInstance().sdkVersion
     guard
       let nibObjects =
         Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil),
-      let adView = nibObjects.first as? GADUnifiedNativeAdView
+      let adView = nibObjects.first as? GADNativeAdView
     else {
       assert(false, "Could not load nib file for adView")
     }
@@ -69,7 +69,7 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     refreshAd(nil)
   }
 
-  func setAdView(_ view: GADUnifiedNativeAdView) {
+  func setAdView(_ view: GADNativeAdView) {
     // Remove the previous ad view.
     nativeAdView = view
     nativeAdPlaceholder.addSubview(nativeAdView)
@@ -101,7 +101,7 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     // Provide the custom mute this ad loader options to request custom mute feature.
     adLoader = GADAdLoader(
       adUnitID: adUnitID, rootViewController: self,
-      adTypes: [.unifiedNative],
+      adTypes: [.native],
       options: [GADNativeMuteThisAdLoaderOptions()])
     adLoader.delegate = self
     adLoader.load(GADRequest())
@@ -199,15 +199,15 @@ extension AdMobNativeCustomMuteThisAdViewController: GADVideoControllerDelegate 
 
 extension AdMobNativeCustomMuteThisAdViewController: GADAdLoaderDelegate {
 
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
     refreshAdButton.isEnabled = true
   }
 }
 
-extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdLoaderDelegate {
+extension AdMobNativeCustomMuteThisAdViewController: GADNativeAdLoaderDelegate {
 
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
+  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
     refreshAdButton.isEnabled = true
 
     /// Enable the mute button if custom mute is available.
@@ -269,10 +269,11 @@ extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdLoaderDel
   }
 }
 
-// MARK: - GADUnifiedNativeAdDelegate implementation
-extension AdMobNativeCustomMuteThisAdViewController: GADUnifiedNativeAdDelegate {
+// MARK: - GADNativeAdDelegate implementation
 
-  func nativeAdIsMuted(_ nativeAd: GADUnifiedNativeAd) {
+extension AdMobNativeCustomMuteThisAdViewController: GADNativeAdDelegate {
+
+  func nativeAdIsMuted(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 }

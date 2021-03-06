@@ -12,6 +12,6 @@
 @property(nonatomic, weak) IBOutlet UILabel *captionView;
 
 /// Populates the ad view with the custom native ad object.
-- (void)populateWithCustomNativeAd:(GADNativeCustomTemplateAd *)customNativeAd;
+- (void)populateWithCustomNativeAd:(GADCustomNativeAd *)customNativeAd;
 
 @end

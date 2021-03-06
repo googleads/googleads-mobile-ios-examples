@@ -20,7 +20,7 @@ import UIKit
 class AdManagerPPIDViewController: UIViewController {
 
   /// The AdManager banner view.
-  @IBOutlet weak var bannerView: DFPBannerView!
+  @IBOutlet weak var bannerView: GAMBannerView!
 
   /// The user name text field.
   @IBOutlet weak var usernameTextField: UITextField!
@@ -35,7 +35,7 @@ class AdManagerPPIDViewController: UIViewController {
     view.endEditing(true)
 
     if let username = usernameTextField.text, !username.isEmpty {
-      let request = DFPRequest()
+      let request = GAMRequest()
       request.publisherProvidedID = generatePublisherProvidedIdentifierFromUsername(username)
       bannerView.load(request)
     } else {

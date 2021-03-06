@@ -170,7 +170,7 @@ extension AdMobAdTargetingTableViewController: GADBannerViewDelegate {
     print("\(#function)")
   }
 
-  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: NSError) {
     print("\(#function): \(error.localizedDescription)")
   }
 }

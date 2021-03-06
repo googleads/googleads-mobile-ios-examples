@@ -22,7 +22,7 @@
 #import "Constants.h"
 
 /// GAM - Multiple Ad Sizes
-/// Demonstrates setting valid ad sizes for a DFPRequest.
+/// Demonstrates setting valid ad sizes for a GAMRequest.
 @interface GAMMultipleAdSizesViewController () <GADAdSizeDelegate>
 
 /// The custom banner size (120x20) switch.
@@ -37,8 +37,8 @@
 /// Loads an ad.
 - (IBAction)loadAd:(id)sender;
 
-/// The DFP banner view.
-@property(nonatomic, strong) DFPBannerView *bannerView;
+/// The GAM banner view.
+@property(nonatomic, strong) GAMBannerView *bannerView;
 
 @end
 
@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.bannerView = [[DFPBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+  self.bannerView = [[GAMBannerView alloc] initWithAdSize:kGADAdSizeBanner];
   self.bannerView.adUnitID = kAdManagerAdSizesAdUnitID;
   self.bannerView.rootViewController = self;
   self.bannerView.adSizeDelegate = self;
@@ -108,7 +108,7 @@
   }
 
   self.bannerView.validAdSizes = adSizes;
-  DFPRequest *request = [DFPRequest request];
+  GAMRequest *request = [GAMRequest request];
   [self.bannerView loadRequest:request];
 }
 

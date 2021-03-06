@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		50931E662151A9C60031BE3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50931E5F2151A9C60031BE3E /* Images.xcassets */; };
 		50931E682151A9C60031BE3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50931E622151A9C60031BE3E /* ViewController.m */; };
 		50931E692151A9C60031BE3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50931E632151A9C60031BE3E /* main.m */; };
+		EFE9E28025DF3988002F7C5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE9E27F25DF3988002F7C5A /* StoreKit.framework */; };
+		EFE9E28225DF3DD1002F7C5A /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE9E27C25DF3876002F7C5A /* GoogleAppMeasurement.xcframework */; };
+		EFE9E28325DF3DD6002F7C5A /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE9E27A25DF3860002F7C5A /* GoogleMobileAds.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		50931E622151A9C60031BE3E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		50931E632151A9C60031BE3E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF12E27E19A6C783001EB38A /* AdManagerBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE9E27A25DF3860002F7C5A /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		EFE9E27C25DF3876002F7C5A /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		EFE9E27F25DF3988002F7C5A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE9E28325DF3DD6002F7C5A /* GoogleMobileAds.xcframework in Frameworks */,
+				EFE9E28225DF3DD1002F7C5A /* GoogleAppMeasurement.xcframework in Frameworks */,
+				EFE9E28025DF3988002F7C5A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +61,30 @@
 			path = AdManagerBannerExample;
 			sourceTree = "<group>";
 		};
+		6FED335BDAF094A316971E1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9E27F25DF3988002F7C5A /* StoreKit.framework */,
+				EFE9E27C25DF3876002F7C5A /* GoogleAppMeasurement.xcframework */,
+				EFE9E27A25DF3860002F7C5A /* GoogleMobileAds.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83A5442721E23BEBCE90B89C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CF12E27519A6C783001EB38A = {
 			isa = PBXGroup;
 			children = (
 				50931E5A2151A9C60031BE3E /* AdManagerBannerExample */,
 				CF12E27F19A6C783001EB38A /* Products */,
+				83A5442721E23BEBCE90B89C /* Pods */,
+				6FED335BDAF094A316971E1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +135,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -252,7 +281,11 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/AdManagerBannerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LD_VERIFY_BITCODE = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.example.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -266,7 +299,11 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/AdManagerBannerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LD_VERIFY_BITCODE = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.example.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

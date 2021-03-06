@@ -12,7 +12,7 @@
 		4AEBD5751BF0109B00874961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5731BF0109B00874961 /* Main.storyboard */; };
 		4AEBD5771BF0109B00874961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5761BF0109B00874961 /* Assets.xcassets */; };
 		4AEBD57A1BF0109B00874961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5781BF0109B00874961 /* LaunchScreen.storyboard */; };
-		AEA59A4A1FBCD0DE00E6D57D /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA59A481FBCD0DE00E6D57D /* UnifiedNativeAdView.xib */; };
+		AEA59A4A1FBCD0DE00E6D57D /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA59A481FBCD0DE00E6D57D /* NativeAdView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		4AEBD5761BF0109B00874961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AEBD5791BF0109B00874961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AEBD57B1BF0109B00874961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEA59A491FBCD0DE00E6D57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UnifiedNativeAdView.xib; sourceTree = "<group>"; };
+		AEA59A491FBCD0DE00E6D57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAdView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +42,7 @@
 			children = (
 				4AEBD56E1BF0109B00874961 /* NativeAdvancedExample */,
 				4AEBD56D1BF0109B00874961 /* Products */,
+				B9854CF718212D985BB3842D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +61,18 @@
 				4AEBD5711BF0109B00874961 /* ViewController.swift */,
 				4AEBD5731BF0109B00874961 /* Main.storyboard */,
 				4AEBD5781BF0109B00874961 /* LaunchScreen.storyboard */,
-				AEA59A481FBCD0DE00E6D57D /* UnifiedNativeAdView.xib */,
+				AEA59A481FBCD0DE00E6D57D /* NativeAdView.xib */,
 				4AEBD5761BF0109B00874961 /* Assets.xcassets */,
 				4AEBD57B1BF0109B00874961 /* Info.plist */,
 			);
 			path = NativeAdvancedExample;
+			sourceTree = "<group>";
+		};
+		B9854CF718212D985BB3842D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +116,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -129,7 +138,7 @@
 				4AEBD57A1BF0109B00874961 /* LaunchScreen.storyboard in Resources */,
 				4AEBD5771BF0109B00874961 /* Assets.xcassets in Resources */,
 				4AEBD5751BF0109B00874961 /* Main.storyboard in Resources */,
-				AEA59A4A1FBCD0DE00E6D57D /* UnifiedNativeAdView.xib in Resources */,
+				AEA59A4A1FBCD0DE00E6D57D /* NativeAdView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,12 +173,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		AEA59A481FBCD0DE00E6D57D /* UnifiedNativeAdView.xib */ = {
+		AEA59A481FBCD0DE00E6D57D /* NativeAdView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AEA59A491FBCD0DE00E6D57D /* Base */,
 			);
-			name = UnifiedNativeAdView.xib;
+			name = NativeAdView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -274,6 +283,10 @@
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.NativeAdvancedExample;
 				PRODUCT_NAME = NativeAdvancedExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -290,6 +303,10 @@
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.NativeAdvancedExample;
 				PRODUCT_NAME = NativeAdvancedExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

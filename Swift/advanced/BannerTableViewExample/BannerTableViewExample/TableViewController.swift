@@ -124,7 +124,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
 
   func adView(
     _ adView: GADBannerView,
-    didFailToReceiveAdWithError error: GADRequestError
+    didFailToReceiveAdWithError error: NSError
   ) {
     print("Failed to receive ad: \(error.localizedDescription)")
     // Load the next ad in the adsToLoad list.
@@ -159,7 +159,6 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     if !adsToLoad.isEmpty {
       let ad = adsToLoad.removeFirst()
       let adRequest = GADRequest()
-      adRequest.testDevices = [kGADSimulatorID as! String]
       ad.load(adRequest)
     }
   }

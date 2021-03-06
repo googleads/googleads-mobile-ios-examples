@@ -18,7 +18,7 @@ import GoogleMobileAds
 import UIKit
 
 /// AdManager - Custom Targeting
-/// Demonstrates adding custom targeting information to a DFPRequest.
+/// Demonstrates adding custom targeting information to a GAMRequest.
 class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewDataSource,
   UIPickerViewDelegate
 {
@@ -27,7 +27,7 @@ class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewData
   let sportPreferenceKey = "sportpref"
 
   /// The AdManager banner view.
-  @IBOutlet weak var bannerView: DFPBannerView!
+  @IBOutlet weak var bannerView: GAMBannerView!
 
   /// The favorite sports view picker.
   @IBOutlet weak var favoriteSportsPicker: UIPickerView!
@@ -74,7 +74,7 @@ class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewData
 
   @IBAction func loadAd(_ sender: AnyObject) {
     let row = favoriteSportsPicker.selectedRow(inComponent: 0)
-    let request = DFPRequest()
+    let request = GAMRequest()
     request.customTargeting = [sportPreferenceKey: favoriteSportsOptions[row]]
     bannerView.load(request)
   }

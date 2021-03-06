@@ -48,11 +48,19 @@
 			path = AdManagerBannerExample;
 			sourceTree = "<group>";
 		};
+		5BA690C20B8D85C05B68D9B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		84FEE8D41B0D4D47006C8148 = {
 			isa = PBXGroup;
 			children = (
 				507818A9219653FF00E5A44A /* AdManagerBannerExample */,
 				84FEE8DE1B0D4D47006C8148 /* Products */,
+				5BA690C20B8D85C05B68D9B0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +114,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -265,6 +274,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/AdManagerBannerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ads.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -282,6 +295,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/AdManagerBannerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ads.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

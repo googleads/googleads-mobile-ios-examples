@@ -35,6 +35,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34039192518B2E889F6AEEF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		507818DE2199E6C100E5A44A /* AdManagerRewardedVideoExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +60,7 @@
 			children = (
 				507818DE2199E6C100E5A44A /* AdManagerRewardedVideoExample */,
 				849326B11B066A7F00863759 /* Products */,
+				34039192518B2E889F6AEEF1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +272,10 @@
 				INFOPLIST_FILE = AdManagerRewardedVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = AdManagerRewardedVideoExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -279,6 +291,10 @@
 				INFOPLIST_FILE = AdManagerRewardedVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.RewardedVideoExample;
 				PRODUCT_NAME = AdManagerRewardedVideoExample;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

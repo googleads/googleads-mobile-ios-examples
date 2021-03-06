@@ -24,11 +24,11 @@
 #import "Constants.h"
 
 /// GAM - PPID
-/// Demonstrates adding a Publisher-Provided Identifier (PPID) value to a DFPRequest.
+/// Demonstrates adding a Publisher-Provided Identifier (PPID) value to a GAMRequest.
 @interface GAMPPIDViewController ()
 
-/// The DFP banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
+/// The banner view.
+@property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 
 /// The user name text field.
 @property(nonatomic, weak) IBOutlet UITextField *usernameTextField;
@@ -55,7 +55,7 @@
     self.bannerView.adUnitID = kAdManagerPPIDAdUnitID;
     self.bannerView.rootViewController = self;
 
-    DFPRequest *request = [DFPRequest request];
+    GAMRequest *request = [GAMRequest request];
     request.publisherProvidedID =
         [self publisherProvidedIdentifierWithString:self.usernameTextField.text];
     [self.bannerView loadRequest:request];

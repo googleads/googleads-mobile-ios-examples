@@ -26,8 +26,8 @@
 /// with a height dynamically determined by the ad.
 @interface GAMFluidAdSizeViewController ()
 
-/// The DFP banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
+/// The banner view.
+@property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 
 /// The banner view's width constraint.
 @property(nonatomic, weak) IBOutlet NSLayoutConstraint *bannerViewWidthConstraint;
@@ -53,7 +53,7 @@
   self.bannerView.adUnitID = kAdManagerFluidAdSizeAdUnitID;
   self.bannerView.rootViewController = self;
   self.bannerView.adSize = kGADAdSizeFluid;
-  [self.bannerView loadRequest:[DFPRequest request]];
+  [self.bannerView loadRequest:[GAMRequest request]];
 }
 
 /// Handles the user tapping on the "Change Banner Width" button.

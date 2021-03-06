@@ -26,13 +26,13 @@ class CustomControlsView: UIView {
   /// Resets the controls status, and lets the controls view know the initial mute state.
   /// The controller for the ad currently being displayed. Setting this sets up the view according to
   /// the video controller state.
-  weak var controller: GADVideoController? {
+  weak var mediaContent: GADMediaContent? {
     didSet {
-      if let controller = controller {
-        controlsView.isHidden = !controller.customControlsEnabled()
-        controller.delegate = self
+      if let mediaContent = mediaContent {
+        controlsView.isHidden = !mediaContent.videoController.customControlsEnabled()
+        mediaContent.videoController.delegate = self
         videoStatusLabel.text =
-          controller.hasVideoContent()
+          mediaContent.hasVideoContent
           ? "Ad contains video content." : "Ad does not contain video content."
       } else {
         controlsView.isHidden = true
@@ -86,15 +86,20 @@ class CustomControlsView: UIView {
   }
 
   @IBAction func playPause(_ sender: Any) {
+    guard let mediaContent = mediaContent else {
+      return
+    }
     if isPlaying {
-      controller?.pause()
+      mediaContent.videoController.pause()
     } else {
-      controller?.play()
+      mediaContent.videoController.play()
     }
   }
   @IBAction func muteUnmute(_ sender: Any) {
     isMuted = !isMuted
-    controller?.setMute(isMuted)
+    if let mediaContent = mediaContent {
+      mediaContent.videoController.setMute(isMuted)
+    }
   }
 }
 

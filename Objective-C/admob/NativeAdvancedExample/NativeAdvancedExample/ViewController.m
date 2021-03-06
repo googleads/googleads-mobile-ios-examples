@@ -17,16 +17,16 @@
 // Native Advanced ad unit ID for testing.
 static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
-@interface ViewController () <GADUnifiedNativeAdLoaderDelegate,
+@interface ViewController () <GADNativeAdLoaderDelegate,
                               GADVideoControllerDelegate,
-                              GADUnifiedNativeAdDelegate>
+                              GADNativeAdDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading
 /// process.
 @property(nonatomic, strong) GADAdLoader *adLoader;
 
 /// The native ad view that is being presented.
-@property(nonatomic, strong) GADUnifiedNativeAdView *nativeAdView;
+@property(nonatomic, strong) GADNativeAdView *nativeAdView;
 
 /// The height constraint applied to the ad view, where necessary.
 @property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
@@ -37,16 +37,15 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.versionLabel.text = [GADRequest sdkVersion];
+  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
 
-  NSArray *nibObjects =
-      [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil];
-  [self setAdView:[nibObjects firstObject]];
+  [self setAdView:[[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil]
+                      .firstObject];
   [self refreshAd:nil];
 }
 
 - (IBAction)refreshAd:(id)sender {
-  // Loads an ad for unified native ad.
+  // Loads a native ad.
   self.refreshButton.enabled = NO;
 
   GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
@@ -54,14 +53,14 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
   self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:TestAdUnit
                                      rootViewController:self
-                                                adTypes:@[ kGADAdLoaderAdTypeUnifiedNative ]
+                                                adTypes:@[ kGADAdLoaderAdTypeNative ]
                                                 options:@[ videoOptions ]];
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GADRequest request]];
   self.videoStatusLabel.text = @"";
 }
 
-- (void)setAdView:(GADUnifiedNativeAdView *)view {
+- (void)setAdView:(GADNativeAdView *)view {
   // Remove previous ad view.
   [self.nativeAdView removeFromSuperview];
   self.nativeAdView = view;
@@ -100,17 +99,17 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
 #pragma mark GADAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"%@ failed with error: %@", adLoader, error);
   self.refreshButton.enabled = YES;
 }
 
-#pragma mark GADUnifiedNativeAdLoaderDelegate implementation
+#pragma mark GADNativeAdLoaderDelegate implementation
 
-- (void)adLoader:(GADAdLoader *)adLoader didReceiveUnifiedNativeAd:(GADUnifiedNativeAd *)nativeAd {
+- (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
   self.refreshButton.enabled = YES;
 
-  GADUnifiedNativeAdView *nativeAdView = self.nativeAdView;
+  GADNativeAdView *nativeAdView = self.nativeAdView;
 
   // Deactivate the height constraint that was set when the previous video ad loaded.
   self.heightConstraint.active = NO;
@@ -187,29 +186,29 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   self.videoStatusLabel.text = @"Video playback has ended.";
 }
 
-#pragma mark GADUnifiedNativeAdDelegate
+#pragma mark GADNativeAdDelegate
 
-- (void)nativeAdDidRecordClick:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidRecordClick:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdDidRecordImpression:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidRecordImpression:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdWillPresentScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillPresentScreen:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdWillDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillDismissScreen:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdDidDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidDismissScreen:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)nativeAdWillLeaveApplication:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillLeaveApplication:(GADNativeAd *)nativeAd {
   NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 

@@ -30,7 +30,7 @@ enum MySimpleNativeAdViewTypeProperties {
   static let MySimpleNativeAdViewCaptionKey = "Caption"
 }
 
-/// Custom native ad view class with template ID 10063170.
+/// Custom native ad view class with format ID 10063170.
 class MySimpleNativeAdView: UIView {
 
   /// Weak references to this ad's asset views.
@@ -40,7 +40,7 @@ class MySimpleNativeAdView: UIView {
   @IBOutlet weak var captionView: UILabel!
 
   /// The custom native ad that populated this view.
-  var customNativeAd: GADNativeCustomTemplateAd!
+  var customNativeAd: GADCustomNativeAd!
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -59,7 +59,7 @@ class MySimpleNativeAdView: UIView {
   }
 
   /// Populates the ad view with the custom native ad object.
-  func populate(withCustomNativeAd customNativeAd: GADNativeCustomTemplateAd) {
+  func populate(withCustomNativeAd customNativeAd: GADCustomNativeAd) {
     self.customNativeAd = customNativeAd
     // The custom click handler closure overrides the normal click action defined by the ad.
     customNativeAd.customClickHandler = { assetID in
@@ -88,8 +88,8 @@ class MySimpleNativeAdView: UIView {
 
   /// This custom native ad also has a both a video and image associated with it. We'll use the
   /// video asset if available, and otherwise fallback to the image asset.
-  private func mainView(forCustomNativeAd customNativeAd: GADNativeCustomTemplateAd) -> UIView {
-    if customNativeAd.videoController.hasVideoContent(),
+  private func mainView(forCustomNativeAd customNativeAd: GADCustomNativeAd) -> UIView {
+    if customNativeAd.mediaContent.hasVideoContent,
       let mediaView = customNativeAd.mediaView
     {
       return mediaView

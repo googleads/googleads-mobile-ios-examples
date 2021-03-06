@@ -13,8 +13,8 @@
 /// Displays status messages about presence of video assets.
 @property(nonatomic, weak) IBOutlet UILabel *videoStatusLabel;
 
-/// Switch to request app install ads.
-@property(nonatomic, weak) IBOutlet UISwitch *unifiedNativeAdSwitch;
+/// Switch to request native ads.
+@property(nonatomic, weak) IBOutlet UISwitch *nativeAdSwitch;
 
 /// Switch to custom native ads.
 @property(nonatomic, weak) IBOutlet UISwitch *customNativeAdSwitch;

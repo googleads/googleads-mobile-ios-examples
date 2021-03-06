@@ -16,11 +16,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class DFPBannerView;
+@class GAMBannerView;
 
 @interface ViewController : UIViewController
 
-@property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
+@property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 @property(weak, nonatomic) IBOutlet UISwitch *iuSwitch;
 @property(weak, nonatomic) IBOutlet UILabel *iuLabel;
 

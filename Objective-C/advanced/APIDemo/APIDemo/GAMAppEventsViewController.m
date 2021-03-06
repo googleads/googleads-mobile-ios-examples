@@ -22,11 +22,11 @@
 #import "Constants.h"
 
 /// GAM - App Events
-/// Demonstrates handling GADAppEventDelegate app event messages sent by the DFP banner.
+/// Demonstrates handling GADAppEventDelegate app event messages sent by the banner.
 @interface GAMAppEventsViewController () <GADAppEventDelegate>
 
 /// The AdManager banner view.
-@property(nonatomic, weak) IBOutlet DFPBannerView *bannerView;
+@property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 
 @end
 
@@ -39,7 +39,7 @@
   self.bannerView.rootViewController = self;
   self.bannerView.appEventDelegate = self;
 
-  DFPRequest *request = [DFPRequest request];
+  GAMRequest *request = [GAMRequest request];
   [self.bannerView loadRequest:request];
 }
 
@@ -49,7 +49,7 @@
 - (void)adView:(GADBannerView *)banner
     didReceiveAppEvent:(NSString *)name
               withInfo:(NSString *)info {
-  // The DFP banner sends app event messages to its app event delegate, this view controller. The
+  // The banner sends app event messages to its app event delegate, this view controller. The
   // GADAppEventDelegate will be notified when the SDK receives an app event message from the
   // banner. In this demo, the GADAppEventDelegate method sets the background of this view
   // controller to match the data that comes in. The banner will send "red" when it loads, "blue"

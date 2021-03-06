@@ -30,7 +30,7 @@ static NSString *const SimpleNativeAdViewCaptionKey = @"Caption";
 @interface SimpleNativeAdView ()
 
 /// The custom native ad that populated this view.
-@property(nonatomic, strong) GADNativeCustomTemplateAd *customNativeAd;
+@property(nonatomic, strong) GADCustomNativeAd *customNativeAd;
 
 @end
 
@@ -50,7 +50,7 @@ static NSString *const SimpleNativeAdViewCaptionKey = @"Caption";
   [self.customNativeAd performClickOnAssetWithKey:SimpleNativeAdViewHeadlineKey];
 }
 
-- (void)populateWithCustomNativeAd:(GADNativeCustomTemplateAd *)customNativeAd {
+- (void)populateWithCustomNativeAd:(GADCustomNativeAd *)customNativeAd {
   self.customNativeAd = customNativeAd;
   // The custom click handler is an optional block which will override the normal click action
   // defined by the ad. Pass nil for the click handler to let the SDK process the default click
@@ -81,7 +81,7 @@ static NSString *const SimpleNativeAdViewCaptionKey = @"Caption";
   // This custom native ad has both a video and an image associated with it. We'll use the video
   // asset if available, and otherwise fallback to the image asset.
   UIView *mainView = nil;
-  if (customNativeAd.videoController.hasVideoContent) {
+  if (customNativeAd.mediaContent.hasVideoContent) {
     mainView = customNativeAd.mediaView;
   } else {
     UIImage *image = [customNativeAd imageForKey:SimpleNativeAdViewMainImageKey].image;
