@@ -49,7 +49,7 @@ for more information on installing and updating pods.
 
 *   [API
     Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/APIDemo) -
-    Provides additional examples for both AdMob and DoubleClick to help improve
+    Provides additional examples for both AdMob and Ad Manager to help improve
     your mobile app integration of the Google Mobile Ads SDK.
 *   [Banner UITableView
     Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/BannerTableViewExample) -
@@ -76,7 +76,7 @@ for more information on installing and updating pods.
 
 *   [API
     Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo)
-    -   Provides additional examples for both AdMob and DoubleClick to help
+    -   Provides additional examples for both AdMob and Ad Manager to help
         improve your mobile app integration of the Google Mobile Ads SDK.
 *   [Banner UITableView
     Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/BannerTableViewExample)
