@@ -168,7 +168,7 @@ extension ViewController: GADAdLoaderDelegate {
 extension ViewController: GADNativeAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
-    print("Received unified native ad: \(nativeAd)")
+    print("Received native ad: \(nativeAd)")
     refreshAdButton.isEnabled = true
     // Create and place ad in view hierarchy.
     let nibView = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil)?.first
