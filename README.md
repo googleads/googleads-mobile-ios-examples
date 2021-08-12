@@ -40,6 +40,7 @@ for more information on installing and updating pods.
 
 ### AdMob
 
+*   [App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/AppOpenExample)
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/BannerExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/InterstitialExample)
 *   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/NativeAdvancedExample)
