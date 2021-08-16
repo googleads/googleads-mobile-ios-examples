@@ -1,5 +1,5 @@
 PODS:
-  - Google-Mobile-Ads-SDK (8.8.0):
+  - Google-Mobile-Ads-SDK (8.9.0):
     - GoogleAppMeasurement (< 9.0, >= 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleAppMeasurement (8.5.0):
@@ -53,7 +53,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 1fccd8fd76aca1cef9bfe0711124c9731dad9307
+  Google-Mobile-Ads-SDK: 8494046b4d339275a381f6bcfafbff7adb2f515f
   GoogleAppMeasurement: 8d10c1c470fcb0e5143ed74fddd164f0a0384800
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
@@ -62,4 +62,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e03f2c56345cf676077c83a52482cb3b71b6dbe9
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2
