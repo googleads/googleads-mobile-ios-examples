@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B169D6926F1F41E00AB7B77 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B169D6726F1F41E00AB7B77 /* MainViewController.m */; };
+		2BA7163326F073B700D9382D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7163226F073B700D9382D /* SplashViewController.m */; };
+		2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7163526F122A500D9382D /* AppOpenAdManager.m */; };
 		50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72B022FE190400C450A7 /* AppDelegate.m */; };
-		50CF72B422FE190400C450A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72B322FE190400C450A7 /* ViewController.m */; };
 		50CF72B722FE190400C450A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B522FE190400C450A7 /* Main.storyboard */; };
 		50CF72B922FE190500C450A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B822FE190500C450A7 /* Assets.xcassets */; };
 		50CF72BC22FE190600C450A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */; };
@@ -16,11 +18,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B169D6726F1F41E00AB7B77 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2B169D6826F1F41E00AB7B77 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2BA7163026F0732900D9382D /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		2BA7163226F073B700D9382D /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		2BA7163526F122A500D9382D /* AppOpenAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppOpenAdManager.m; sourceTree = "<group>"; };
+		2BA7163726F122C600D9382D /* AppOpenAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppOpenAdManager.h; sourceTree = "<group>"; };
 		50CF72AC22FE190400C450A7 /* AppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF72AF22FE190400C450A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50CF72B022FE190400C450A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		50CF72B222FE190400C450A7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		50CF72B322FE190400C450A7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		50CF72B622FE190400C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50CF72B822FE190500C450A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50CF72BB22FE190600C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,8 +67,12 @@
 			children = (
 				50CF72AF22FE190400C450A7 /* AppDelegate.h */,
 				50CF72B022FE190400C450A7 /* AppDelegate.m */,
-				50CF72B222FE190400C450A7 /* ViewController.h */,
-				50CF72B322FE190400C450A7 /* ViewController.m */,
+				2BA7163526F122A500D9382D /* AppOpenAdManager.m */,
+				2BA7163726F122C600D9382D /* AppOpenAdManager.h */,
+				2BA7163026F0732900D9382D /* SplashViewController.h */,
+				2BA7163226F073B700D9382D /* SplashViewController.m */,
+				2B169D6826F1F41E00AB7B77 /* MainViewController.h */,
+				2B169D6726F1F41E00AB7B77 /* MainViewController.m */,
 				50CF72B522FE190400C450A7 /* Main.storyboard */,
 				50CF72B822FE190500C450A7 /* Assets.xcassets */,
 				50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */,
@@ -149,9 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CF72B422FE190400C450A7 /* ViewController.m in Sources */,
 				50CF72BF22FE190600C450A7 /* main.m in Sources */,
+				2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */,
 				50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */,
+				2B169D6926F1F41E00AB7B77 /* MainViewController.m in Sources */,
+				2BA7163326F073B700D9382D /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppOpenExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppOpenExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

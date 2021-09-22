@@ -14,8 +14,12 @@
 //  limitations under the License.
 //
 
+#import "AppOpenAdManager.h"
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface SplashViewController : UIViewController <AppOpenAdManagerDelegate>
+
+/// The text indicating number of seconds left to show app open ad.
+@property (weak, nonatomic) IBOutlet UILabel *splashScreenLabel;
 
 @end

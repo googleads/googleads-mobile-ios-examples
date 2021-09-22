@@ -16,114 +16,29 @@
 
 #import "AppDelegate.h"
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
-
-
-@implementation AppDelegate {
-  /// The app open ad.
-  GADAppOpenAd *_appOpenAd;
-  /// Keeps track of is an app open ad loading.
-  BOOL _isLoadingAd;
-  /// Keeps track of is an app open ad showing.
-  BOOL _isShowingAd;
-  /// Keeps track of the time an app open ad is loaded to ensure you don't show an expired ad.
-  NSDate *_loadTime;
-}
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<NSString *, __kindof NSObject *> *)launchOptions {
-  // Initialize Google Mobile Ads SDK
+  // Initialize Google Mobile Ads SDK.
   [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
-
+  // Although the Google Mobile Ads SDK might not be fully initialized at this point,
+  // we should still load the app open ad so it becomes ready to show when the splash
+  // screen dismisses.
+  [AppOpenAdManager.sharedInstance loadAd];
   return YES;
 }
 
 - (void) applicationDidBecomeActive:(UIApplication *)application {
-  UIWindow *keyWindow = application.keyWindow;
-  if (keyWindow) {
-    [self showAdIfAvailable:keyWindow.rootViewController];
-  }
-}
-
-- (void)loadAd {
-  // Do not load ad if there is an unused ad or one is already loading.
-  if (_isLoadingAd || [self isAdAvailable]) {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.isKeyWindow == YES"];
+  UIWindow *keyWindow = [[application.windows filteredArrayUsingPredicate:predicate] firstObject];
+  UIViewController *rootViewController = keyWindow.rootViewController;
+  // Do not show app open ad if the current view controller is SplashViewController.
+  if (!rootViewController ||
+      [rootViewController isKindOfClass:[SplashViewController class]]) {
     return;
   }
-  _isLoadingAd = YES;
-  NSLog(@"Start loading ad.");
-  [GADAppOpenAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/5662855259"
-                         request:[GADRequest request]
-                     orientation:UIInterfaceOrientationPortrait
-               completionHandler:^(GADAppOpenAd * _Nullable appOpenAd, NSError * _Nullable error) {
-    self->_isLoadingAd = NO;
-    if (error) {
-      NSLog(@"App open ad failed to load with error: %@.", error);
-      return;
-    }
-    self->_appOpenAd = appOpenAd;
-    self->_appOpenAd.fullScreenContentDelegate = self;
-    self->_loadTime = [NSDate date];
-    NSLog(@"Loading Succeeded.");
-  }];
-}
-
-- (BOOL)wasLoadTimeLessThanNHoursAgo:(int)n {
-  // Check if ad was loaded more than n hours ago.
-  NSDate *now = [NSDate date];
-  NSTimeInterval timeIntervalBetweenNowAndLoadTime = [now timeIntervalSinceDate:_loadTime];
-  double secondsPerHour = 3600.0;
-  double intervalInHours = timeIntervalBetweenNowAndLoadTime / secondsPerHour;
-  return intervalInHours < n;
-}
-
-- (BOOL)isAdAvailable {
-  // Check if ad exists and can be shown.
-  // Ad references in the app open beta will time out after four hours, but this time limit
-  // may change in future beta versions. For details, see:
-  // https://support.google.com/admob/answer/9341964?hl=en
-  return _appOpenAd && [self wasLoadTimeLessThanNHoursAgo:4];
-}
-
-- (void)showAdIfAvailable:(nonnull UIViewController*)viewController {
-  // If the app open ad is already showing, do not show the ad again.
-  if (_isShowingAd) {
-    NSLog(@"The app open ad is already showing.");
-    return;
-  }
-  // If the app open ad is not available yet, invoke the callback then load the ad.
-  if (![self isAdAvailable]) {
-    NSLog(@"The app open ad is not ready yet.");
-    [self loadAd];
-    return;
-  }
-  NSLog(@"Will show ad.");
-  _isShowingAd = YES;
-  [_appOpenAd presentFromRootViewController:viewController];
-}
-
-#pragma mark - GADFullScreenContentDelegate
-
-/// Tells the delegate that the ad presented full screen content.
-- (void)adDidPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
-  NSLog(@"App open ad presented.");
-}
-
-/// Tells the delegate that the ad dismissed full screen content.
-- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
-  _appOpenAd = nil;
-  _isShowingAd = NO;
-  NSLog(@"App open ad dismissed.");
-  [self loadAd];
-}
-
-/// Tells the delegate that the ad failed to present full screen content.
-- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
-    didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
-  _appOpenAd = nil;
-  _isShowingAd = NO;
-  NSLog(@"App open ad failed to present with error: %@.", error.localizedDescription);
-  [self loadAd];
+  [AppOpenAdManager.sharedInstance showAdIfAvailable:rootViewController];
 }
 
 @end

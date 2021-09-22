@@ -14,13 +14,8 @@
 //  limitations under the License.
 //
 
-#import "AppOpenAdManager.h"
-#import "SplashViewController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, GADFullScreenContentDelegate>
-
-@property(nonatomic) UIWindow* window;
+@interface MainViewController : UIViewController
 
 @end
