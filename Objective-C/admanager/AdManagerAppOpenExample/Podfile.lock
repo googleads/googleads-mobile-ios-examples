@@ -2,14 +2,21 @@ PODS:
   - Google-Mobile-Ads-SDK (8.11.0):
     - GoogleAppMeasurement (< 9.0, >= 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAppMeasurement (8.7.0):
-    - GoogleAppMeasurement/AdIdSupport (= 8.7.0)
+  - GoogleAppMeasurement (8.8.0):
+    - GoogleAppMeasurement/AdIdSupport (= 8.8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/MethodSwizzler (~> 7.4)
     - GoogleUtilities/Network (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
     - nanopb (~> 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (8.7.0):
+  - GoogleAppMeasurement/AdIdSupport (8.8.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 8.8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (8.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/MethodSwizzler (~> 7.4)
     - GoogleUtilities/Network (~> 7.4)
@@ -54,12 +61,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: be2192b51b74d74a6ed70590c2e8275412f1b71e
-  GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
+  GoogleAppMeasurement: 5ba1164e3c844ba84272555e916d0a6d3d977e91
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 38d586464692ff2a083c041ae5ce471285192757
+PODFILE CHECKSUM: df7161acc427b583bd71f71d471dfb18ffeb27c7
 
 COCOAPODS: 1.11.2

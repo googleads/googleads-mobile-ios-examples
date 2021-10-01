@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B169D6926F1F41E00AB7B77 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B169D6726F1F41E00AB7B77 /* MainViewController.m */; };
-		2BA7163326F073B700D9382D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7163226F073B700D9382D /* SplashViewController.m */; };
-		2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7163526F122A500D9382D /* AppOpenAdManager.m */; };
-		50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72B022FE190400C450A7 /* AppDelegate.m */; };
-		50CF72B722FE190400C450A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B522FE190400C450A7 /* Main.storyboard */; };
-		50CF72B922FE190500C450A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B822FE190500C450A7 /* Assets.xcassets */; };
-		50CF72BC22FE190600C450A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */; };
-		50CF72BF22FE190600C450A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72BE22FE190600C450A7 /* main.m */; };
+		2B15BE4D2707A49600B39A12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE3F2707A49600B39A12 /* AppDelegate.m */; };
+		2B15BE4E2707A49600B39A12 /* AppOpenAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE412707A49600B39A12 /* AppOpenAdManager.m */; };
+		2B15BE4F2707A49600B39A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B15BE422707A49600B39A12 /* Assets.xcassets */; };
+		2B15BE502707A49600B39A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B15BE432707A49600B39A12 /* LaunchScreen.storyboard */; };
+		2B15BE512707A49600B39A12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B15BE452707A49600B39A12 /* Main.storyboard */; };
+		2B15BE532707A49600B39A12 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE492707A49600B39A12 /* MainViewController.m */; };
+		2B15BE542707A49600B39A12 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE4B2707A49600B39A12 /* SplashViewController.m */; };
+		2B15BE552707A49600B39A12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE4C2707A49600B39A12 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B169D6726F1F41E00AB7B77 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		2B169D6826F1F41E00AB7B77 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		2BA7163026F0732900D9382D /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
-		2BA7163226F073B700D9382D /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
-		2BA7163526F122A500D9382D /* AppOpenAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppOpenAdManager.m; sourceTree = "<group>"; };
-		2BA7163726F122C600D9382D /* AppOpenAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppOpenAdManager.h; sourceTree = "<group>"; };
-		50CF72AC22FE190400C450A7 /* AppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		50CF72AF22FE190400C450A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		50CF72B022FE190400C450A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		50CF72B622FE190400C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		50CF72B822FE190500C450A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50CF72BB22FE190600C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		50CF72BD22FE190600C450A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50CF72BE22FE190600C450A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2B15BE3E2707A49600B39A12 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2B15BE3F2707A49600B39A12 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2B15BE402707A49600B39A12 /* AppOpenAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppOpenAdManager.h; sourceTree = "<group>"; };
+		2B15BE412707A49600B39A12 /* AppOpenAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppOpenAdManager.m; sourceTree = "<group>"; };
+		2B15BE422707A49600B39A12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B15BE442707A49600B39A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2B15BE462707A49600B39A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2B15BE472707A49600B39A12 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B15BE482707A49600B39A12 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2B15BE492707A49600B39A12 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2B15BE4A2707A49600B39A12 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		2B15BE4B2707A49600B39A12 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		2B15BE4C2707A49600B39A12 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50CF72AC22FE190400C450A7 /* AdManagerAppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerAppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,10 +45,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B15BE3D2707A49600B39A12 /* AdManagerAppOpenExample */ = {
+			isa = PBXGroup;
+			children = (
+				2B15BE3E2707A49600B39A12 /* AppDelegate.h */,
+				2B15BE3F2707A49600B39A12 /* AppDelegate.m */,
+				2B15BE402707A49600B39A12 /* AppOpenAdManager.h */,
+				2B15BE412707A49600B39A12 /* AppOpenAdManager.m */,
+				2B15BE422707A49600B39A12 /* Assets.xcassets */,
+				2B15BE432707A49600B39A12 /* LaunchScreen.storyboard */,
+				2B15BE452707A49600B39A12 /* Main.storyboard */,
+				2B15BE472707A49600B39A12 /* Info.plist */,
+				2B15BE482707A49600B39A12 /* MainViewController.h */,
+				2B15BE492707A49600B39A12 /* MainViewController.m */,
+				2B15BE4A2707A49600B39A12 /* SplashViewController.h */,
+				2B15BE4B2707A49600B39A12 /* SplashViewController.m */,
+				2B15BE4C2707A49600B39A12 /* main.m */,
+			);
+			path = AdManagerAppOpenExample;
+			sourceTree = "<group>";
+		};
 		50CF72A322FE190300C450A7 = {
 			isa = PBXGroup;
 			children = (
-				50CF72AE22FE190400C450A7 /* AppOpenExample */,
+				2B15BE3D2707A49600B39A12 /* AdManagerAppOpenExample */,
 				50CF72AD22FE190400C450A7 /* Products */,
 				EEC2A82DEF99A19EEBB0CBF2 /* Pods */,
 			);
@@ -57,29 +77,9 @@
 		50CF72AD22FE190400C450A7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50CF72AC22FE190400C450A7 /* AppOpenExample.app */,
+				50CF72AC22FE190400C450A7 /* AdManagerAppOpenExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		50CF72AE22FE190400C450A7 /* AppOpenExample */ = {
-			isa = PBXGroup;
-			children = (
-				50CF72AF22FE190400C450A7 /* AppDelegate.h */,
-				50CF72B022FE190400C450A7 /* AppDelegate.m */,
-				2BA7163526F122A500D9382D /* AppOpenAdManager.m */,
-				2BA7163726F122C600D9382D /* AppOpenAdManager.h */,
-				2BA7163026F0732900D9382D /* SplashViewController.h */,
-				2BA7163226F073B700D9382D /* SplashViewController.m */,
-				2B169D6826F1F41E00AB7B77 /* MainViewController.h */,
-				2B169D6726F1F41E00AB7B77 /* MainViewController.m */,
-				50CF72B522FE190400C450A7 /* Main.storyboard */,
-				50CF72B822FE190500C450A7 /* Assets.xcassets */,
-				50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */,
-				50CF72BD22FE190600C450A7 /* Info.plist */,
-				50CF72BE22FE190600C450A7 /* main.m */,
-			);
-			path = AppOpenExample;
 			sourceTree = "<group>";
 		};
 		EEC2A82DEF99A19EEBB0CBF2 /* Pods */ = {
@@ -92,9 +92,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		50CF72AB22FE190400C450A7 /* AppOpenExample */ = {
+		50CF72AB22FE190400C450A7 /* AdManagerAppOpenExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50CF72C222FE190600C450A7 /* Build configuration list for PBXNativeTarget "AppOpenExample" */;
+			buildConfigurationList = 50CF72C222FE190600C450A7 /* Build configuration list for PBXNativeTarget "AdManagerAppOpenExample" */;
 			buildPhases = (
 				50CF72A822FE190400C450A7 /* Sources */,
 				50CF72A922FE190400C450A7 /* Frameworks */,
@@ -104,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = AppOpenExample;
+			name = AdManagerAppOpenExample;
 			productName = AppOpenExample;
-			productReference = 50CF72AC22FE190400C450A7 /* AppOpenExample.app */;
+			productReference = 50CF72AC22FE190400C450A7 /* AdManagerAppOpenExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,7 +123,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 50CF72A722FE190300C450A7 /* Build configuration list for PBXProject "AppOpenExample" */;
+			buildConfigurationList = 50CF72A722FE190300C450A7 /* Build configuration list for PBXProject "AdManagerAppOpenExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,7 +136,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				50CF72AB22FE190400C450A7 /* AppOpenExample */,
+				50CF72AB22FE190400C450A7 /* AdManagerAppOpenExample */,
 			);
 		};
 /* End PBXProject section */
@@ -146,9 +146,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CF72BC22FE190600C450A7 /* LaunchScreen.storyboard in Resources */,
-				50CF72B922FE190500C450A7 /* Assets.xcassets in Resources */,
-				50CF72B722FE190400C450A7 /* Main.storyboard in Resources */,
+				2B15BE512707A49600B39A12 /* Main.storyboard in Resources */,
+				2B15BE4F2707A49600B39A12 /* Assets.xcassets in Resources */,
+				2B15BE502707A49600B39A12 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,31 +159,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CF72BF22FE190600C450A7 /* main.m in Sources */,
-				2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */,
-				50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */,
-				2B169D6926F1F41E00AB7B77 /* MainViewController.m in Sources */,
-				2BA7163326F073B700D9382D /* SplashViewController.m in Sources */,
+				2B15BE552707A49600B39A12 /* main.m in Sources */,
+				2B15BE4E2707A49600B39A12 /* AppOpenAdManager.m in Sources */,
+				2B15BE532707A49600B39A12 /* MainViewController.m in Sources */,
+				2B15BE4D2707A49600B39A12 /* AppDelegate.m in Sources */,
+				2B15BE542707A49600B39A12 /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		50CF72B522FE190400C450A7 /* Main.storyboard */ = {
+		2B15BE432707A49600B39A12 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				50CF72B622FE190400C450A7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50CF72BB22FE190600C450A7 /* Base */,
+				2B15BE442707A49600B39A12 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2B15BE452707A49600B39A12 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B15BE462707A49600B39A12 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -306,13 +306,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AppOpenExample/Info.plist;
+				INFOPLIST_FILE = AdManagerAppOpenExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.AppOpenExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.AdManagerAppOpenExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -323,13 +323,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AppOpenExample/Info.plist;
+				INFOPLIST_FILE = AdManagerAppOpenExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.AppOpenExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.AdManagerAppOpenExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -338,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		50CF72A722FE190300C450A7 /* Build configuration list for PBXProject "AppOpenExample" */ = {
+		50CF72A722FE190300C450A7 /* Build configuration list for PBXProject "AdManagerAppOpenExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50CF72C022FE190600C450A7 /* Debug */,
@@ -347,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50CF72C222FE190600C450A7 /* Build configuration list for PBXNativeTarget "AppOpenExample" */ = {
+		50CF72C222FE190600C450A7 /* Build configuration list for PBXNativeTarget "AdManagerAppOpenExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50CF72C322FE190600C450A7 /* Debug */,

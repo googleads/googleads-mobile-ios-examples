@@ -1,7 +1,7 @@
-# iOS App Open Ad Example
+# iOS Ad Manager App Open Ad Example
 
-This is a minimal example showing how to place an app open ad into an iOS
-application.
+This is a minimal example showing how to place an Ad Manager app open ad into an
+iOS application.
 
 This example does not come bundled with the iOS Google Mobile Ads SDK, but is
 compatible with Cocoapods and includes a Podfile. We recommend using Cocoapods
