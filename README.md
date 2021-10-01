@@ -87,6 +87,7 @@ for more information on installing and updating pods.
 
 ### AdManager
 
+*   [AdManager App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerAppOpenExample)
 *   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerBannerExample)
 *   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerInterstitialExample)
 *   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerRewardedVideoExample)
