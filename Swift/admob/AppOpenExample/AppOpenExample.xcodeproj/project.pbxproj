@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B350AC826F58F4E0050B15E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B350AC726F58F4E0050B15E /* MainViewController.swift */; };
+		2B350ACA26F5900C0050B15E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B350AC926F5900C0050B15E /* SplashViewController.swift */; };
+		2B350ACC26F5902B0050B15E /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B350ACB26F5902B0050B15E /* AppOpenAdManager.swift */; };
 		2BED246726958D2200E96170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED246626958D2200E96170 /* AppDelegate.swift */; };
-		2BED246B26958D2200E96170 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BED246A26958D2200E96170 /* ViewController.swift */; };
 		2BED246E26958D2200E96170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED246C26958D2200E96170 /* Main.storyboard */; };
 		2BED247026958D2400E96170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BED246F26958D2400E96170 /* Assets.xcassets */; };
 		2BED247326958D2400E96170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BED247126958D2400E96170 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B350AC726F58F4E0050B15E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2B350AC926F5900C0050B15E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		2B350ACB26F5902B0050B15E /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
 		2BED246326958D2200E96170 /* AppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BED246626958D2200E96170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BED246A26958D2200E96170 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2BED246D26958D2200E96170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BED246F26958D2400E96170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BED247226958D2400E96170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,11 +60,13 @@
 			isa = PBXGroup;
 			children = (
 				2BED246626958D2200E96170 /* AppDelegate.swift */,
-				2BED246A26958D2200E96170 /* ViewController.swift */,
 				2BED246C26958D2200E96170 /* Main.storyboard */,
+				2B350AC726F58F4E0050B15E /* MainViewController.swift */,
 				2BED246F26958D2400E96170 /* Assets.xcassets */,
 				2BED247126958D2400E96170 /* LaunchScreen.storyboard */,
 				2BED247426958D2400E96170 /* Info.plist */,
+				2B350AC926F5900C0050B15E /* SplashViewController.swift */,
+				2B350ACB26F5902B0050B15E /* AppOpenAdManager.swift */,
 			);
 			path = AppOpenExample;
 			sourceTree = "<group>";
@@ -144,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BED246B26958D2200E96170 /* ViewController.swift in Sources */,
+				2B350ACC26F5902B0050B15E /* AppOpenAdManager.swift in Sources */,
+				2B350ACA26F5900C0050B15E /* SplashViewController.swift in Sources */,
 				2BED246726958D2200E96170 /* AppDelegate.swift in Sources */,
+				2B350AC826F58F4E0050B15E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -277,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -305,6 +313,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +345,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

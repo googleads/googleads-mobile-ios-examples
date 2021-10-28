@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VTY-iM-chx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,10 +8,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--SplashScreen-->
+        <scene sceneID="F7j-xK-S4E">
+            <objects>
+                <viewController storyboardIdentifier="SplashStoryBoard" title="SplashScreen" id="VTY-iM-chx" customClass="SplashViewController" customModule="AppOpenExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="knS-ZF-eJu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2021 Google. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6Mc-lZ-UkN">
+                                <rect key="frame" x="20" y="821" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppOpenExample" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Vf1-mq-RpJ">
+                                <rect key="frame" x="20" y="278" width="374" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App is done loading in: 5 seconds." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-cP-vCE">
+                                <rect key="frame" x="76.5" y="442.5" width="261" height="21"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I7P-Vd-Le9"/>
+                        <color key="backgroundColor" red="0.83137254900000002" green="0.92156862750000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vf1-mq-RpJ" firstAttribute="centerY" secondItem="knS-ZF-eJu" secondAttribute="bottom" multiplier="1/3" constant="1" id="EhP-VS-nmn"/>
+                            <constraint firstItem="Q8x-cP-vCE" firstAttribute="centerX" secondItem="I7P-Vd-Le9" secondAttribute="centerX" id="Ll4-eW-Mv6"/>
+                            <constraint firstAttribute="centerX" secondItem="Vf1-mq-RpJ" secondAttribute="centerX" id="NIr-E7-QFD"/>
+                            <constraint firstAttribute="centerX" secondItem="6Mc-lZ-UkN" secondAttribute="centerX" id="Rao-Xw-sSf"/>
+                            <constraint firstItem="6Mc-lZ-UkN" firstAttribute="leading" secondItem="knS-ZF-eJu" secondAttribute="leadingMargin" id="YGt-5q-dIH"/>
+                            <constraint firstItem="Vf1-mq-RpJ" firstAttribute="leading" secondItem="knS-ZF-eJu" secondAttribute="leadingMargin" id="dk0-uI-HeM"/>
+                            <constraint firstItem="Q8x-cP-vCE" firstAttribute="centerY" secondItem="I7P-Vd-Le9" secondAttribute="centerY" id="eKT-71-gpJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="6Mc-lZ-UkN" secondAttribute="bottom" constant="20" id="fQH-sg-qNy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="splashScreenLabel" destination="Q8x-cP-vCE" id="dQb-gl-Wcw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDP-nf-Xs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-599" y="104"/>
+        </scene>
+        <!--Main Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppOpenExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryBoard" title="Main Screen" id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hf7-bD-DxT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
+            <point key="canvasLocation" x="125" y="104"/>
         </scene>
     </scenes>
 </document>
