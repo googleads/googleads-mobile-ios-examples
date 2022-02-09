@@ -30,7 +30,7 @@
   // Requests test ads on devices you specify. Your test device ID is printed to the console when
   // an ad request is made. GADBannerView automatically returns test ads when running on a
   // simulator.
-  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ kGADSimulatorID ];
+  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ GADSimulatorID ];
   [self.bannerView loadRequest:request];
 }
 

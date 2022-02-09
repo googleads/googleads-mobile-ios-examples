@@ -53,7 +53,7 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
   self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:TestAdUnit
                                      rootViewController:self
-                                                adTypes:@[ kGADAdLoaderAdTypeNative ]
+                                                adTypes:@[ GADAdLoaderAdTypeNative ]
                                                 options:@[ videoOptions ]];
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GADRequest request]];

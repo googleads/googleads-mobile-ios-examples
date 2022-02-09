@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Add the iOS simulator as a test device (this is default behavior but included for
     // demonstration purposes).
     GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
-      kGADSimulatorID as! String
+      GADSimulatorID as String
     ]
 
     // Initialize Google Mobile Ads SDK

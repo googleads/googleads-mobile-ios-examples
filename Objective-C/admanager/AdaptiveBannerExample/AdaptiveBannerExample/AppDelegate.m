@@ -27,7 +27,7 @@
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Add the iOS simulator as a test device (this is default behavior but included for
   // demonstration purposes).
-  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ kGADSimulatorID ];
+  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ GADSimulatorID ];
 
   // Initialize Google Mobile Ads SDK
   [GADMobileAds.sharedInstance startWithCompletionHandler:nil];

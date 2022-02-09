@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.bannerView = [[GAMBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+  self.bannerView = [[GAMBannerView alloc] initWithAdSize:GADAdSizeBanner];
   self.bannerView.adUnitID = kAdManagerAdSizesAdUnitID;
   self.bannerView.rootViewController = self;
   self.bannerView.adSizeDelegate = self;
@@ -101,10 +101,10 @@
     [adSizes addObject:NSValueFromGADAdSize(customGADAdSize)];
   }
   if (self.GADAdSizeBannerSwitch.isOn) {
-    [adSizes addObject:NSValueFromGADAdSize(kGADAdSizeBanner)];
+    [adSizes addObject:NSValueFromGADAdSize(GADAdSizeBanner)];
   }
   if (self.GADAdSizeMediumRectangleSwitch.isOn) {
-    [adSizes addObject:NSValueFromGADAdSize(kGADAdSizeMediumRectangle)];
+    [adSizes addObject:NSValueFromGADAdSize(GADAdSizeMediumRectangle)];
   }
 
   self.bannerView.validAdSizes = adSizes;

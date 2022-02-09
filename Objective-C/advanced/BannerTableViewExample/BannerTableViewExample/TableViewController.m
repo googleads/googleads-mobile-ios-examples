@@ -170,7 +170,7 @@ static const CGFloat GADAdViewHeight = 100;
   [_adsToLoad removeObjectAtIndex:0];
   GADRequest *request = [GADRequest request];
   GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers =
-      @[ kGADSimulatorID ];  // Sample device ID
+      @[ GADSimulatorID ];  // Sample device ID
   [adView loadRequest:request];
 }
 

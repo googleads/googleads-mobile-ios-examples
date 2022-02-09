@@ -76,14 +76,16 @@ class SimpleNativeAdView: UIView {
     }
     // This custom native ad has both a video and an image associated with it. We'll use the video
     // asset if available, and otherwise fallback to the image asset.
-    var mainView: UIView!
+    let mainView: UIView
     if customNativeAd.mediaContent.hasVideoContent {
-      mainView = customNativeAd.mediaView
+      let mediaView = GADMediaView()
+      mediaView.mediaContent = customNativeAd.mediaContent
+      mainView = mediaView
     } else {
       let image: UIImage? = customNativeAd.image(forKey: SimpleNativeAdViewMainImageKey)?.image
       mainView = UIImageView(image: image)
     }
-    mainPlaceholder.addSubview(mainView!)
+    mainPlaceholder.addSubview(mainView)
     // Size the media view to fill our container size.
     mainView.translatesAutoresizingMaskIntoConstraints = false
     let viewDictionary: [String: Any] = ["mainView": mainView]

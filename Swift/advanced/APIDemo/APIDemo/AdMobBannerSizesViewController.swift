@@ -43,11 +43,10 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
 
     switch UIDevice.current.userInterfaceIdiom {
     case .phone, .unspecified:
-      bannerSizes = ["Large Banner", "Banner", "Smart Banner"]
+      bannerSizes = ["Large Banner", "Banner"]
       bannerSizesPicker.selectRow(1, inComponent: 0, animated: false)
     case .pad:
       bannerSizes = [
-        "Smart Banner",
         "Large Banner",
         "Banner",
         "Full Banner",
@@ -60,13 +59,11 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
     }
 
     ads = [
-      "Banner": kGADAdSizeBanner,
-      "Large Banner": kGADAdSizeLargeBanner,
-      "Smart Banner Portrait": kGADAdSizeSmartBannerPortrait,
-      "Smart Banner Landscape": kGADAdSizeSmartBannerLandscape,
-      "Full Banner": kGADAdSizeFullBanner,
-      "Medium Rectangle": kGADAdSizeMediumRectangle,
-      "Leaderboard": kGADAdSizeLeaderboard,
+      "Banner": GADAdSizeBanner,
+      "Large Banner": GADAdSizeLargeBanner,
+      "Full Banner": GADAdSizeFullBanner,
+      "Medium Rectangle": GADAdSizeMediumRectangle,
+      "Leaderboard": GADAdSizeLeaderboard,
     ]
   }
 
@@ -111,14 +108,6 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
     }
 
     var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]
-
-    if bannerSizeString == "Smart Banner" {
-      if UIDevice.current.orientation == .portrait {
-        bannerSizeString = "Smart Banner Portrait"
-      } else {
-        bannerSizeString = "Smart Banner Landscape"
-      }
-    }
 
     bannerView.adSize = ads[bannerSizeString]!
     bannerView.load(GADRequest())

@@ -45,10 +45,10 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
   // Loads an ad for any of unified native or custom native ads.
   NSMutableArray *adTypes = [[NSMutableArray alloc] init];
   if (self.unifiedNativeAdSwitch.on) {
-    [adTypes addObject:kGADAdLoaderAdTypeNative];
+    [adTypes addObject:GADAdLoaderAdTypeNative];
   }
   if (self.customNativeAdSwitch.on) {
-    [adTypes addObject:kGADAdLoaderAdTypeCustomNative];
+    [adTypes addObject:GADAdLoaderAdTypeCustomNative];
   }
 
   if (!adTypes.count) {

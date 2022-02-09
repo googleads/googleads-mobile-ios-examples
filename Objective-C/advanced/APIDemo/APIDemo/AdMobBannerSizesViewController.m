@@ -52,12 +52,11 @@
 
   switch ([UIDevice currentDevice].userInterfaceIdiom) {
     case UIUserInterfaceIdiomPhone:
-      self.bannerSizes = @[ @"Large Banner", @"Banner", @"Smart Banner" ];
+      self.bannerSizes = @[ @"Large Banner", @"Banner" ];
       [self.bannerSizesPicker selectRow:1 inComponent:0 animated:NO];
       break;
     case UIUserInterfaceIdiomPad:
       self.bannerSizes = @[
-        @"Smart Banner",
         @"Large Banner",
         @"Banner",
         @"Full Banner",
@@ -67,7 +66,7 @@
       [self.bannerSizesPicker selectRow:2 inComponent:0 animated:NO];
       break;
     case UIUserInterfaceIdiomUnspecified:
-      self.bannerSizes = @[ @"Large Banner", @"Banner", @"Smart Banner" ];
+      self.bannerSizes = @[ @"Large Banner", @"Banner" ];
       [self.bannerSizesPicker selectRow:1 inComponent:0 animated:NO];
       break;
     default:
@@ -75,13 +74,11 @@
   }
 
   self.ads = @{
-    @"Banner" : NSValueFromGADAdSize(kGADAdSizeBanner),
-    @"Large Banner" : NSValueFromGADAdSize(kGADAdSizeLargeBanner),
-    @"Smart Banner Portrait" : NSValueFromGADAdSize(kGADAdSizeSmartBannerPortrait),
-    @"Smart Banner Landscape" : NSValueFromGADAdSize(kGADAdSizeSmartBannerLandscape),
-    @"Full Banner" : NSValueFromGADAdSize(kGADAdSizeFullBanner),
-    @"Medium Rectangle" : NSValueFromGADAdSize(kGADAdSizeMediumRectangle),
-    @"Leaderboard" : NSValueFromGADAdSize(kGADAdSizeLeaderboard)
+    @"Banner" : NSValueFromGADAdSize(GADAdSizeBanner),
+    @"Large Banner" : NSValueFromGADAdSize(GADAdSizeLargeBanner),
+    @"Full Banner" : NSValueFromGADAdSize(GADAdSizeFullBanner),
+    @"Medium Rectangle" : NSValueFromGADAdSize(GADAdSizeMediumRectangle),
+    @"Leaderboard" : NSValueFromGADAdSize(GADAdSizeLeaderboard)
   };
 }
 
@@ -134,14 +131,6 @@
   }
 
   NSString *bannerSizeString = self.bannerSizes[[self.bannerSizesPicker selectedRowInComponent:0]];
-
-  if ([bannerSizeString isEqual:@"Smart Banner"]) {
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
-      bannerSizeString = @"Smart Banner Portrait";
-    } else {
-      bannerSizeString = @"Smart Banner Landscape";
-    }
-  }
 
   self.bannerView.adSize = GADAdSizeFromNSValue(self.ads[bannerSizeString]);
   GADRequest *request = [GADRequest request];

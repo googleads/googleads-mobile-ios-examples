@@ -66,7 +66,9 @@ static NSString *const MySimpleNativeAdViewCaptionKey = @"Caption";
   // asset if available, and otherwise fallback to the image asset.
   UIView *mainView = nil;
   if (customNativeAd.mediaContent.hasVideoContent) {
-    mainView = customNativeAd.mediaView;
+    GADMediaView *mediaView = [[GADMediaView alloc] init];
+    mediaView.mediaContent = customNativeAd.mediaContent;
+    mainView = mediaView;
   } else {
     UIImage *image = [customNativeAd imageForKey:MySimpleNativeAdViewMainImageKey].image;
     mainView = [[UIImageView alloc] initWithImage:image];

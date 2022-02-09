@@ -65,7 +65,7 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
   GADNativeMuteThisAdLoaderOptions *muteOptions = [GADNativeMuteThisAdLoaderOptions new];
   self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:GADAPIDemoNativeTestAdUnit
                                      rootViewController:self
-                                                adTypes:@[ kGADAdLoaderAdTypeNative ]
+                                                adTypes:@[ GADAdLoaderAdTypeNative ]
                                                 options:@[ muteOptions ]];
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GADRequest request]];

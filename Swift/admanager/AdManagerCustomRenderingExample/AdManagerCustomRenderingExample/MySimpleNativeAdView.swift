@@ -89,9 +89,9 @@ class MySimpleNativeAdView: UIView {
   /// This custom native ad also has a both a video and image associated with it. We'll use the
   /// video asset if available, and otherwise fallback to the image asset.
   private func mainView(forCustomNativeAd customNativeAd: GADCustomNativeAd) -> UIView {
-    if customNativeAd.mediaContent.hasVideoContent,
-      let mediaView = customNativeAd.mediaView
-    {
+    if customNativeAd.mediaContent.hasVideoContent {
+      let mediaView = GADMediaView()
+      mediaView.mediaContent = customNativeAd.mediaContent
       return mediaView
     } else {
       let imageKey = MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey

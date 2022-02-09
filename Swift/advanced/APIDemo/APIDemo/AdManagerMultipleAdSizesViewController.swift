@@ -35,7 +35,7 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView = GAMBannerView(adSize: kGADAdSizeBanner)
+    bannerView = GAMBannerView(adSize: GADAdSizeBanner)
     bannerView.adUnitID = Constants.AdManagerAdSizesAdUnitID
     bannerView.rootViewController = self
     bannerView.adSizeDelegate = self
@@ -81,10 +81,10 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
       adSizes.append(NSValueFromGADAdSize(customGADAdSize))
     }
     if GADAdSizeBannerSwitch.isOn {
-      adSizes.append(NSValueFromGADAdSize(kGADAdSizeBanner))
+      adSizes.append(NSValueFromGADAdSize(GADAdSizeBanner))
     }
     if GADAdSizeMediumRectangleSwitch.isOn {
-      adSizes.append(NSValueFromGADAdSize(kGADAdSizeMediumRectangle))
+      adSizes.append(NSValueFromGADAdSize(GADAdSizeMediumRectangle))
     }
 
     bannerView.validAdSizes = adSizes

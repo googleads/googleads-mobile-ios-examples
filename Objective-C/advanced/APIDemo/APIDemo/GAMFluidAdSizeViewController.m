@@ -52,7 +52,7 @@
 
   self.bannerView.adUnitID = kAdManagerFluidAdSizeAdUnitID;
   self.bannerView.rootViewController = self;
-  self.bannerView.adSize = kGADAdSizeFluid;
+  self.bannerView.adSize = GADAdSizeFluid;
   [self.bannerView loadRequest:[GAMRequest request]];
 }
 
