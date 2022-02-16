@@ -116,9 +116,9 @@ static const NSInteger TimeoutInterval = 4;
 
 #pragma mark - GADFullScreenContentDelegate
 
-/// Tells the delegate that the ad presented full screen content.
-- (void)adDidPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
-  NSLog(@"App open ad is presented.");
+/// Tells the delegate that the ad will present full screen content.
+- (void)adWillPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"App open ad is will be presented.");
 }
 
 /// Tells the delegate that the ad dismissed full screen content.

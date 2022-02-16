@@ -109,8 +109,8 @@ class AppOpenAdManager: NSObject {
 }
 
 extension AppOpenAdManager: GADFullScreenContentDelegate {
-  func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-    print("App open ad is presented.")
+  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("App open ad is will be presented.")
   }
 
   func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {

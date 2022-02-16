@@ -193,11 +193,11 @@ typedef NS_ENUM(NSInteger, GameState) {
   }
 }
 
-#pragma mark GADFullScreenContent implementation
+#pragma mark GADFullScreenContentDelegate implementation
 
-/// Tells the delegate that the rewarded ad was presented.
-- (void)adDidPresentFullScreenContent:(id)ad {
-  NSLog(@"Rewarded ad presented.");
+/// Tells the delegate that the rewarded ad will be presented.
+- (void)adWillPresentFullScreenContent:(id)ad {
+  NSLog(@"Rewarded ad will be presented.");
 }
 
 /// Tells the delegate that the rewarded ad failed to present.

@@ -177,8 +177,8 @@ static const NSInteger kGameLength = 5;
 }
 
 #pragma GADFullScreenContentdelegate implementation
-- (void)adDidPresentFullScreenContent:(id)ad {
-  NSLog(@"Ad did present full screen content.");
+- (void)adWillPresentFullScreenContent:(id)ad {
+  NSLog(@"Ad will present full screen content.");
 }
 
 - (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {

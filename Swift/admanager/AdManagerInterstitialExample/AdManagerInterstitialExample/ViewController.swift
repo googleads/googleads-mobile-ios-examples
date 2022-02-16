@@ -172,8 +172,8 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   }
 
   // MARK: - GADFullScreenContentDelegate
-  func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-    print("Ad did present full screen content.")
+  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("Ad will present full screen content.")
   }
 
   func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error)

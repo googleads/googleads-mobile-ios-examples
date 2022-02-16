@@ -189,8 +189,8 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
 
   // MARK: GADFullScreenContentDelegate
 
-  func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-    print("Rewarded ad presented.")
+  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("Rewarded ad will be presented.")
   }
 
   func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
