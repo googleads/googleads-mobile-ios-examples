@@ -1,6 +1,6 @@
 # Google Mobile Ads SDK for iOS
 
-![Build status](https://github.com/googleads/googleads-mobile-ios-examples/workflows/Build%20Status/badge.svg?branch=master)
+![Build status](https://github.com/googleads/googleads-mobile-ios-examples/workflows/Build%20Status/badge.svg?branch=main)
 
 The Google Mobile Ads SDK is the latest generation in Google mobile advertising,
 featuring refined ad formats and streamlined APIs for access to mobile ad
@@ -40,59 +40,55 @@ for more information on installing and updating pods.
 
 ### AdMob
 
-*   [App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/AppOpenExample)
-*   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/BannerExample)
-*   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/InterstitialExample)
-*   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/NativeAdvancedExample)
-*   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admob/RewardedVideoExample)
+*   [App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/AppOpenExample)
+*   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/BannerExample)
+*   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/InterstitialExample)
+*   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/NativeAdvancedExample)
+*   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/RewardedVideoExample)
 
 ### Advanced
 
-*   [API
-    Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/APIDemo) -
+*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/advanced/APIDemo) -
     Provides additional examples for both AdMob and Ad Manager to help improve
     your mobile app integration of the Google Mobile Ads SDK.
-*   [Banner UITableView
-    Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/advanced/BannerTableViewExample) -
+*   [Banner UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/advanced/BannerTableViewExample) -
     Provides an example for displaying ads from AdMob Banners in a UITableView.
 
 ### AdManager
 
-*   [AdManager App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerAppOpenExample)
-*   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerBannerExample)
-*   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerInterstitialExample)
-*   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerRewardedVideoExample)
-*   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Swift/admanager/AdManagerCustomRenderingExample)
+*   [AdManager App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admanager/AdManagerAppOpenExample)
+*   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admanager/AdManagerBannerExample)
+*   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admanager/AdManagerInterstitialExample)
+*   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admanager/AdManagerRewardedVideoExample)
+*   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admanager/AdManagerCustomRenderingExample)
 
 ## Objective-C
 
 ### AdMob
 
-*   [App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/AppOpenExample)
-*   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/BannerExample)
-*   [Instream Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InstreamExample)
-*   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/InterstitialExample)
-*   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/NativeAdvancedExample)
-*   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admob/RewardedVideoExample)
+*   [App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/AppOpenExample)
+*   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/BannerExample)
+*   [Instream Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/InstreamExample)
+*   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/InterstitialExample)
+*   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/NativeAdvancedExample)
+*   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/RewardedVideoExample)
 
 ### Advanced
 
-*   [API
-    Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/APIDemo)
+*   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/advanced/APIDemo)
     -   Provides additional examples for both AdMob and Ad Manager to help
         improve your mobile app integration of the Google Mobile Ads SDK.
-*   [Banner UITableView
-    Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/advanced/BannerTableViewExample)
+*   [Banner UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/advanced/BannerTableViewExample)
     -   Provides an example for displaying ads from AdMob Banners in a
         UITableView.
 
 ### AdManager
 
-*   [AdManager App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerAppOpenExample)
-*   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerBannerExample)
-*   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerInterstitialExample)
-*   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerRewardedVideoExample)
-*   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/master/Objective-C/admanager/AdManagerCustomRenderingExample)
+*   [AdManager App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerAppOpenExample)
+*   [AdManager Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerBannerExample)
+*   [AdManager Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerInterstitialExample)
+*   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerRewardedVideoExample)
+*   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerCustomRenderingExample)
 
 # Downloads
 
