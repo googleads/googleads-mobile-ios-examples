@@ -43,18 +43,6 @@
       "size" : "40x40"
     },
     {
-      "filename" : "Icon-App-57x57@1x.png",
-      "idiom" : "iphone",
-      "scale" : "1x",
-      "size" : "57x57"
-    },
-    {
-      "filename" : "Icon-App-57x57@2x.png",
-      "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "57x57"
-    },
-    {
       "filename" : "Icon-App-60x60@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
