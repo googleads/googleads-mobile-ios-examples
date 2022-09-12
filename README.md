@@ -53,6 +53,8 @@ for more information on installing and updating pods.
     your mobile app integration of the Google Mobile Ads SDK.
 *   [Banner UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/advanced/BannerTableViewExample) -
     Provides an example for displaying ads from AdMob Banners in a UITableView.
+*   [SwiftUI Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/advanced/SwiftUIDemo) -
+    Provides an examples for displaying ads from AdMob in a SwiftUI project.
 
 ### AdManager
 
