@@ -43,23 +43,23 @@ class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
   }
 
   // Called when an ad request failed.
-  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: NSError) {
+  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
     print("\(#function): \(error.localizedDescription)")
   }
 
   // Called just before presenting the user a full screen view, such as a browser, in response to
   // clicking on an ad.
-  func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
     print(#function)
   }
 
   // Called just before dismissing a full screen view.
-  func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
     print(#function)
   }
 
   // Called just after dismissing a full screen view.
-  func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
     print(#function)
   }
 

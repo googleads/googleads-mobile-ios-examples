@@ -166,11 +166,11 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
 extension AdMobAdTargetingTableViewController: GADBannerViewDelegate {
 
-  func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
     print("\(#function)")
   }
 
-  func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: NSError) {
+  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
     print("\(#function): \(error.localizedDescription)")
   }
 }

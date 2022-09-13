@@ -27,10 +27,16 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
   @IBOutlet weak var bannerSizesPicker: UIPickerView!
 
   /// The banner sizes.
-  var bannerSizes: [String]!
+  var bannerSizes: [String] = []
 
   /// The banner sizes mapped to GADAdSize constants.
-  var ads: [String: GADAdSize]!
+  var ads = [
+    "Banner": GADAdSizeBanner,
+    "Large Banner": GADAdSizeLargeBanner,
+    "Full Banner": GADAdSizeFullBanner,
+    "Medium Rectangle": GADAdSizeMediumRectangle,
+    "Leaderboard": GADAdSizeLeaderboard,
+  ]
 
   /// The banner view.
   var bannerView: GADBannerView!
@@ -57,14 +63,6 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
     default:
       break
     }
-
-    ads = [
-      "Banner": GADAdSizeBanner,
-      "Large Banner": GADAdSizeLargeBanner,
-      "Full Banner": GADAdSizeFullBanner,
-      "Medium Rectangle": GADAdSizeMediumRectangle,
-      "Leaderboard": GADAdSizeLeaderboard,
-    ]
   }
 
   // MARK: - UIPickerViewDataSource
@@ -99,15 +97,15 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
       // Layout constraints that align the banner view to the bottom center of the screen.
       view.addConstraint(
         NSLayoutConstraint(
-          item: bannerView, attribute: .bottom, relatedBy: .equal,
+          item: bannerView!, attribute: .bottom, relatedBy: .equal,
           toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
       view.addConstraint(
         NSLayoutConstraint(
-          item: bannerView, attribute: .centerX, relatedBy: .equal,
+          item: bannerView!, attribute: .centerX, relatedBy: .equal,
           toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
     }
 
-    var bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]
+    let bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]
 
     bannerView.adSize = ads[bannerSizeString]!
     bannerView.load(GADRequest())
