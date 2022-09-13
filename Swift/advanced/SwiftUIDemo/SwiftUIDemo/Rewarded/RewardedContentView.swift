@@ -9,13 +9,16 @@ struct RewardedContentView: View {
   private let adViewControllerRepresentable = AdViewControllerRepresentable()
   let navigationTitle: String
 
+  var adViewControllerRepresentableView: some View {
+    adViewControllerRepresentable
+      .frame(width: .zero, height: .zero)
+  }
+
   var body: some View {
     VStack(spacing: 20) {
-      adViewControllerRepresentable
-        .frame(width: .zero, height: .zero)
-
       Text("The Impossible Game")
         .font(.largeTitle)
+        .background(adViewControllerRepresentableView)
 
       Spacer()
 

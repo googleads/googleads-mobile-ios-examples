@@ -19,13 +19,16 @@ struct RewardedInterstitialContentView: View {
     }
   }
 
+  var adViewControllerRepresentableView: some View {
+    adViewControllerRepresentable
+      .frame(width: .zero, height: .zero)
+  }
+
   var rewardedInterstitialBody: some View {
     VStack(spacing: 20) {
-      adViewControllerRepresentable
-        .frame(width: .zero, height: .zero)
-
       Text("The Impossible Game")
         .font(.largeTitle)
+        .background(adViewControllerRepresentableView)
 
       Spacer()
 
