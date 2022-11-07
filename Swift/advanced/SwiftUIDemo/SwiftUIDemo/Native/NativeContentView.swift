@@ -8,7 +8,7 @@ struct NativeContentView: View {
   var body: some View {
     ScrollView {
       VStack(spacing: 20) {
-        NativeAdView(nativeAd: $nativeViewModel.nativeAd)
+        NativeAdView(nativeViewModel: nativeViewModel)
           .frame(height: 300)
 
         Text(
@@ -47,7 +47,7 @@ struct NativeContentView_Previews: PreviewProvider {
 private struct NativeAdView: UIViewRepresentable {
   typealias UIViewType = GADNativeAdView
 
-  @Binding var nativeAd: GADNativeAd?
+  @ObservedObject var nativeViewModel: NativeAdViewModel
 
   func makeUIView(context: Context) -> GADNativeAdView {
     return
@@ -58,7 +58,7 @@ private struct NativeAdView: UIViewRepresentable {
   }
 
   func updateUIView(_ nativeAdView: GADNativeAdView, context: Context) {
-    guard let nativeAd = nativeAd else { return }
+    guard let nativeAd = nativeViewModel.nativeAd else { return }
 
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
 
