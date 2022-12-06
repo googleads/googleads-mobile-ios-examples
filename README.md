@@ -70,6 +70,7 @@ for more information on installing and updating pods.
 
 *   [App Open Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/AppOpenExample)
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/BannerExample)
+*   [Full Screen Native Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/FullScreenNativeExample)
 *   [Instream Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/InstreamExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/InterstitialExample)
 *   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/NativeAdvancedExample)
