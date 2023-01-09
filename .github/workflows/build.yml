@@ -19,7 +19,9 @@ jobs:
       matrix:
         regex:
         - "Objective-C/advanced"
-        - "Swift/advanced"
+        - "Swift/advanced/APIDemo"
+        - "Swift/advanced/BannerTableViewExample"
+        - "Swift/advanced/SwiftUIDemo"
         - "Objective-C/admob"
         - "Swift/admob"
         - "Objective-C/admanager"
