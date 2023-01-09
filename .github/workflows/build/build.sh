@@ -21,7 +21,7 @@ do
     example_name=$(echo "${example_app_path}" | xargs -I{} basename {});
     echo "::set-output name=building_app::Pod install for App (${example_name})";
     pushd "${example_app_path}";
-    pod install --no-repo-update;
+    pod install --no-repo-update --verbose;
     echo "::set-output name=building_app::Building App (${example_name})";
     eval "xcodebuild -workspace ${example_name}.xcworkspace -scheme ${example_name} -sdk iphonesimulator -arch x86_64 | xcpretty";
     popd;
