@@ -1,0 +1,45 @@
+name: Build Status
+
+# Step 1: Build on pull-requests or pushes to main
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  # Step 2: Build the samples
+  build:
+    name: Build
+    runs-on: macOS-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        regex:
+        - "Swift/advanced/SwiftUIDemo"
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v1
+
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Install xcpretty
+        run: sudo gem install xcpretty
+
+      - name: Set commit range (push to the main branch, e.g. merge)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: echo "COMMIT_RANGE="${{ github.event.before }}.."" >> $GITHUB_ENV
+
+      - name: Set commit range (pull request)
+        if: github.event_name == 'pull_request'
+        run: echo "COMMIT_RANGE="HEAD~.."" >> $GITHUB_ENV
+
+      - name: Build
+        run: .github/workflows/build/build-spm.sh
+        shell: bash
+        env:
+          COMMIT_RANGE: ${{ env.COMMIT_RANGE }}
+          REGEX: ${{ matrix.regex }}
