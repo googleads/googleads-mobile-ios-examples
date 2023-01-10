@@ -19,7 +19,9 @@ jobs:
       matrix:
         regex:
         - "Objective-C/advanced"
-        - "Swift/advanced"
+        - "Swift/advanced/APIDemo"
+        - "Swift/advanced/BannerTableViewExample"
+        - "Swift/advanced/SwiftUIDemo"
         - "Objective-C/admob"
         - "Swift/admob"
         - "Objective-C/admanager"
@@ -32,7 +34,7 @@ jobs:
         run: /usr/bin/xcodebuild -version
 
       - name: Pod repo update
-        run: pod repo update
+        run: pod repo update --verbose
 
       - name: Install xcpretty
         run: sudo gem install xcpretty
