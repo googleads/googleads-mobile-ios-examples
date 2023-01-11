@@ -1,3 +1,7 @@
+=begin
+This is a test. Delete me.
+=end
+
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
