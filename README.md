@@ -44,6 +44,7 @@ for more information on installing and updating pods.
 *   [Banner Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/BannerExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/InterstitialExample)
 *   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/NativeAdvancedExample)
+*   [Rewarded Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/RewardedInterstitialExample)
 *   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Swift/admob/RewardedVideoExample)
 
 ### Advanced
@@ -74,6 +75,7 @@ for more information on installing and updating pods.
 *   [Instream Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/InstreamExample)
 *   [Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/InterstitialExample)
 *   [Native Advanced Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/NativeAdvancedExample)
+*   [Rewarded Interstitial Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/RewardedInterstitialExample)
 *   [Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admob/RewardedVideoExample)
 
 ### Advanced
