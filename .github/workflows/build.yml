@@ -18,12 +18,8 @@ jobs:
       fail-fast: false
       matrix:
         regex:
-        - "Objective-C/advanced"
-        - "Swift/advanced"
-        - "Objective-C/admob"
-        - "Swift/admob"
-        - "Objective-C/admanager"
-        - "Swift/admanager"
+        - "Samples"
+        
     steps:
       - name: Clone Repo
         uses: actions/checkout@v1
