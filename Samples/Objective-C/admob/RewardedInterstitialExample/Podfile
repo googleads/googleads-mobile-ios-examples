@@ -1,0 +1,5 @@
+platform :ios, '12.0'
+
+target 'RewardedInterstitialExample' do
+  pod 'Google-Mobile-Ads-SDK'
+end

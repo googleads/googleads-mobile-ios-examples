@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SimpleNativeAdView" customModule="APIDemo">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="24" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ7-Y2-nrO">
+                    <rect key="frame" x="5" y="5" width="365" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoj-tc-K51">
+                    <rect key="frame" x="101.5" y="39" width="171" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Z4E-2z-qz3"/>
+                        <constraint firstAttribute="width" secondItem="hoj-tc-K51" secondAttribute="height" multiplier="12:7" id="fAh-as-Khc"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-BT-xiP">
+                    <rect key="frame" x="5" y="149" width="365" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Opb-BT-xiP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="1CU-Pe-kBU"/>
+                <constraint firstItem="hoj-tc-K51" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3uf-GC-Yeu"/>
+                <constraint firstItem="hoj-tc-K51" firstAttribute="top" secondItem="EJ7-Y2-nrO" secondAttribute="bottom" constant="10" id="5jE-i2-2GZ"/>
+                <constraint firstAttribute="trailing" secondItem="EJ7-Y2-nrO" secondAttribute="trailing" constant="5" id="B60-mb-6NP"/>
+                <constraint firstItem="EJ7-Y2-nrO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="HYz-iO-1sm"/>
+                <constraint firstItem="EJ7-Y2-nrO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Ig4-Aj-mWl"/>
+                <constraint firstItem="Opb-BT-xiP" firstAttribute="top" secondItem="hoj-tc-K51" secondAttribute="bottom" constant="10" id="VYt-oI-EN1"/>
+                <constraint firstAttribute="trailing" secondItem="Opb-BT-xiP" secondAttribute="trailing" constant="5" id="WYZ-v6-Hph"/>
+            </constraints>
+            <connections>
+                <outlet property="captionView" destination="Opb-BT-xiP" id="hSg-rU-Z7U"/>
+                <outlet property="headlineView" destination="EJ7-Y2-nrO" id="BKi-kL-8EA"/>
+                <outlet property="mainPlaceholder" destination="hoj-tc-K51" id="pmf-nl-x4R"/>
+            </connections>
+            <point key="canvasLocation" x="13" y="27"/>
+        </view>
+    </objects>
+</document>

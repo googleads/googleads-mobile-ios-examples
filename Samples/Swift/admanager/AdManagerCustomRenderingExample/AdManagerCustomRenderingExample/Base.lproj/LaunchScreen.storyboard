@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2048" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AfZ-rZ-cPa"/>
+                        <viewControllerLayoutGuide type="bottom" id="GEn-YH-hkC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdManagerCustomRenderingExample" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCa-f5-9d8">
+                                <rect key="frame" x="16" y="131" width="343" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2015 Google. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVI-wJ-Bxi">
+                                <rect key="frame" x="25" y="632" width="326" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SCa-f5-9d8" secondAttribute="trailing" id="FQk-cz-A5V"/>
+                            <constraint firstItem="KVI-wJ-Bxi" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="9" id="IM6-8t-7Wn"/>
+                            <constraint firstItem="KVI-wJ-Bxi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LEK-ct-FUC"/>
+                            <constraint firstItem="GEn-YH-hkC" firstAttribute="top" secondItem="KVI-wJ-Bxi" secondAttribute="bottom" constant="20" id="MmK-Db-d4U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KVI-wJ-Bxi" secondAttribute="trailing" constant="8" id="caX-si-EVL"/>
+                            <constraint firstItem="SCa-f5-9d8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hTy-SY-nsP"/>
+                            <constraint firstItem="SCa-f5-9d8" firstAttribute="top" secondItem="AfZ-rZ-cPa" secondAttribute="bottom" constant="111" id="mIi-jQ-oyT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="SCa-f5-9d8" secondAttribute="leading" id="urM-fv-fzY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="355"/>
+        </scene>
+    </scenes>
+</document>

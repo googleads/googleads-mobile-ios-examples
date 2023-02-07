@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XJ1-SI-FAU"/>
+                        <viewControllerLayoutGuide type="bottom" id="lYJ-XE-Yhy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8I-QX-BFr">
+                                <rect key="frame" x="119" y="151" width="137.66666666666669" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-BM-5pl">
+                                <rect key="frame" x="152" y="391" width="71" height="30"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7g7-dg-jNU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo0-r9-be3">
+                                <rect key="frame" x="67" y="490" width="241" height="30"/>
+                                <state key="normal" title="Watch Video for 10 additional coins">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oug-du-o1x"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coins: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66F-G1-EAg" userLabel="Label">
+                                <rect key="frame" x="36" y="737" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00R-h7-8ah">
+                                <rect key="frame" x="70.666666666666686" y="78" width="234" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="00R-h7-8ah" firstAttribute="top" secondItem="XJ1-SI-FAU" secondAttribute="bottom" constant="34" id="0zT-ZG-8lX"/>
+                            <constraint firstAttribute="centerX" secondItem="jo0-r9-be3" secondAttribute="centerX" id="7AM-av-9T2"/>
+                            <constraint firstAttribute="centerX" secondItem="00R-h7-8ah" secondAttribute="centerX" id="8SX-r4-Czg"/>
+                            <constraint firstItem="lYJ-XE-Yhy" firstAttribute="top" secondItem="66F-G1-EAg" secondAttribute="bottom" constant="20" id="LCJ-2U-AaD"/>
+                            <constraint firstAttribute="centerX" secondItem="M2Q-BM-5pl" secondAttribute="centerX" id="LiN-Gi-1PT"/>
+                            <constraint firstItem="M2Q-BM-5pl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OJ1-z4-D0H"/>
+                            <constraint firstItem="66F-G1-EAg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="crS-Gz-BBS"/>
+                            <constraint firstAttribute="centerX" secondItem="O8I-QX-BFr" secondAttribute="centerX" id="i83-ka-T23"/>
+                            <constraint firstItem="O8I-QX-BFr" firstAttribute="top" secondItem="00R-h7-8ah" secondAttribute="bottom" constant="43" id="p1f-s2-n8q"/>
+                            <constraint firstItem="jo0-r9-be3" firstAttribute="top" secondItem="M2Q-BM-5pl" secondAttribute="bottom" constant="69" id="wpp-ln-mG8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CoinCountLabel" destination="8bC-Xf-vdC" id="5Qt-gW-qHb"/>
+                        <outlet property="coinCountLabel" destination="66F-G1-EAg" id="3f8-Ux-ZLc"/>
+                        <outlet property="gameLabel" destination="O8I-QX-BFr" id="26K-1G-F7M"/>
+                        <outlet property="playAgainButton" destination="M2Q-BM-5pl" id="7Cj-0o-XXR"/>
+                        <outlet property="showVideoButton" destination="jo0-r9-be3" id="Cfc-Kw-ASW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="406.59333333333331"/>
+        </scene>
+    </scenes>
+</document>

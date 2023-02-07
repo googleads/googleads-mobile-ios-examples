@@ -1,0 +1,5 @@
+platform :ios, '10.0'
+
+target 'AdaptiveBannerExample' do
+  pod 'Google-Mobile-Ads-SDK'
+end

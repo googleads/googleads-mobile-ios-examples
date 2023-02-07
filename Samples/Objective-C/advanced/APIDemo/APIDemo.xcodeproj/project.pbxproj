@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A96E7211B856D5000031470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7201B856D5000031470 /* main.m */; };
+		4A96E7241B856D5000031470 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7231B856D5000031470 /* AppDelegate.m */; };
+		4A96E72D1B856D5000031470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72B1B856D5000031470 /* Main.storyboard */; };
+		4A96E72F1B856D5000031470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72E1B856D5000031470 /* Images.xcassets */; };
+		4A96E7321B856D5000031470 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E7301B856D5000031470 /* LaunchScreen.xib */; };
+		4A96E74C1B8572A800031470 /* AdMobAdDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E74B1B8572A800031470 /* AdMobAdDelegateViewController.m */; };
+		4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7521B8578D600031470 /* AdMobBannerSizesViewController.m */; };
+		4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */; };
+		5038FC6D2511428A00750F9C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038FC6C2511428A00750F9C /* MainViewController.m */; };
+		50DC0CEC212F1C2E00424CC7 /* GAMCustomVideoControlsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CEB212F1C2D00424CC7 /* GAMCustomVideoControlsController.m */; };
+		50DC0CF9212F1C4000424CC7 /* GAMCategoryExclusionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CEE212F1C3D00424CC7 /* GAMCategoryExclusionsViewController.m */; };
+		50DC0CFA212F1C4000424CC7 /* GAMFluidAdSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF2212F1C3E00424CC7 /* GAMFluidAdSizeViewController.m */; };
+		50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF3212F1C3E00424CC7 /* GAMMultipleAdSizesViewController.m */; };
+		50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */; };
+		50DC0CFD212F1C4000424CC7 /* GAMCustomTargetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */; };
+		50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */; };
+		AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */; };
+		AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */; };
+		AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110F20320CA800EA4BEE /* NativeAdView.xib */; };
+		AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */; };
+		AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A96E71B1B856D5000031470 /* APIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A96E71F1B856D5000031470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A96E7201B856D5000031470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A96E7221B856D5000031470 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A96E7231B856D5000031470 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A96E72C1B856D5000031470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A96E72E1B856D5000031470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4A96E7311B856D5000031470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4A96E74A1B8572A800031470 /* AdMobAdDelegateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobAdDelegateViewController.h; sourceTree = "<group>"; };
+		4A96E74B1B8572A800031470 /* AdMobAdDelegateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobAdDelegateViewController.m; sourceTree = "<group>"; };
+		4A96E74D1B85766300031470 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4A96E7511B8578D600031470 /* AdMobBannerSizesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobBannerSizesViewController.h; sourceTree = "<group>"; };
+		4A96E7521B8578D600031470 /* AdMobBannerSizesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobBannerSizesViewController.m; sourceTree = "<group>"; };
+		4A96E79B1B862E0200031470 /* AdMobAdTargetingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobAdTargetingTableViewController.h; sourceTree = "<group>"; };
+		4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobAdTargetingTableViewController.m; sourceTree = "<group>"; };
+		5038FC6B2511428A00750F9C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5038FC6C2511428A00750F9C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		50DC0CEA212F1C2D00424CC7 /* GAMCustomVideoControlsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMCustomVideoControlsController.h; sourceTree = "<group>"; };
+		50DC0CEB212F1C2D00424CC7 /* GAMCustomVideoControlsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCustomVideoControlsController.m; sourceTree = "<group>"; };
+		50DC0CED212F1C3C00424CC7 /* GAMCategoryExclusionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMCategoryExclusionsViewController.h; sourceTree = "<group>"; };
+		50DC0CEE212F1C3D00424CC7 /* GAMCategoryExclusionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCategoryExclusionsViewController.m; sourceTree = "<group>"; };
+		50DC0CEF212F1C3D00424CC7 /* GAMFluidAdSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMFluidAdSizeViewController.h; sourceTree = "<group>"; };
+		50DC0CF0212F1C3D00424CC7 /* GAMAppEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMAppEventsViewController.h; sourceTree = "<group>"; };
+		50DC0CF1212F1C3D00424CC7 /* GAMPPIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMPPIDViewController.h; sourceTree = "<group>"; };
+		50DC0CF2212F1C3E00424CC7 /* GAMFluidAdSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMFluidAdSizeViewController.m; sourceTree = "<group>"; };
+		50DC0CF3212F1C3E00424CC7 /* GAMMultipleAdSizesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMMultipleAdSizesViewController.m; sourceTree = "<group>"; };
+		50DC0CF4212F1C3E00424CC7 /* GAMCustomTargetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMCustomTargetingViewController.h; sourceTree = "<group>"; };
+		50DC0CF5212F1C3F00424CC7 /* GAMMultipleAdSizesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAMMultipleAdSizesViewController.h; sourceTree = "<group>"; };
+		50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMAppEventsViewController.m; sourceTree = "<group>"; };
+		50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCustomTargetingViewController.m; sourceTree = "<group>"; };
+		50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMPPIDViewController.m; sourceTree = "<group>"; };
+		AEC9AC0B2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobNativeCustomMuteThisAdViewController.h; sourceTree = "<group>"; };
+		AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobNativeCustomMuteThisAdViewController.m; sourceTree = "<group>"; };
+		AED1110D20320ABB00EA4BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimpleNativeAdView.xib; sourceTree = "<group>"; };
+		AED1110F20320CA800EA4BEE /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NativeAdView.xib; path = Base.lproj/NativeAdView.xib; sourceTree = "<group>"; };
+		AEE8DA9C201BD7A5008792E6 /* SimpleNativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNativeAdView.h; sourceTree = "<group>"; };
+		AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNativeAdView.m; sourceTree = "<group>"; };
+		AEE8DAA3201BDCA9008792E6 /* CustomControlsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomControlsView.h; sourceTree = "<group>"; };
+		AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomControlsView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A96E7181B856D5000031470 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36C1AC19EDAA11E3B19FE7DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4A96E7121B856D5000031470 = {
+			isa = PBXGroup;
+			children = (
+				4A96E71D1B856D5000031470 /* APIDemo */,
+				4A96E71C1B856D5000031470 /* Products */,
+				36C1AC19EDAA11E3B19FE7DF /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		4A96E71C1B856D5000031470 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A96E71B1B856D5000031470 /* APIDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A96E71D1B856D5000031470 /* APIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4A96E7221B856D5000031470 /* AppDelegate.h */,
+				4A96E7231B856D5000031470 /* AppDelegate.m */,
+				4A96E74D1B85766300031470 /* Constants.h */,
+				4A96E72B1B856D5000031470 /* Main.storyboard */,
+				4A96E7471B856E0D00031470 /* Controllers */,
+				4A96E72E1B856D5000031470 /* Images.xcassets */,
+				4A96E7301B856D5000031470 /* LaunchScreen.xib */,
+				4A96E71E1B856D5000031470 /* Supporting Files */,
+			);
+			path = APIDemo;
+			sourceTree = "<group>";
+		};
+		4A96E71E1B856D5000031470 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A96E71F1B856D5000031470 /* Info.plist */,
+				4A96E7201B856D5000031470 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A96E7471B856E0D00031470 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5038FC6B2511428A00750F9C /* MainViewController.h */,
+				5038FC6C2511428A00750F9C /* MainViewController.m */,
+				50DC0CF0212F1C3D00424CC7 /* GAMAppEventsViewController.h */,
+				50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */,
+				50DC0CED212F1C3C00424CC7 /* GAMCategoryExclusionsViewController.h */,
+				50DC0CEE212F1C3D00424CC7 /* GAMCategoryExclusionsViewController.m */,
+				50DC0CF4212F1C3E00424CC7 /* GAMCustomTargetingViewController.h */,
+				50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */,
+				50DC0CEF212F1C3D00424CC7 /* GAMFluidAdSizeViewController.h */,
+				50DC0CF2212F1C3E00424CC7 /* GAMFluidAdSizeViewController.m */,
+				50DC0CF5212F1C3F00424CC7 /* GAMMultipleAdSizesViewController.h */,
+				50DC0CF3212F1C3E00424CC7 /* GAMMultipleAdSizesViewController.m */,
+				50DC0CF1212F1C3D00424CC7 /* GAMPPIDViewController.h */,
+				50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */,
+				4A96E74A1B8572A800031470 /* AdMobAdDelegateViewController.h */,
+				4A96E74B1B8572A800031470 /* AdMobAdDelegateViewController.m */,
+				4A96E79B1B862E0200031470 /* AdMobAdTargetingTableViewController.h */,
+				4A96E79C1B862E0200031470 /* AdMobAdTargetingTableViewController.m */,
+				4A96E7511B8578D600031470 /* AdMobBannerSizesViewController.h */,
+				4A96E7521B8578D600031470 /* AdMobBannerSizesViewController.m */,
+				AEC9AC0B2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.h */,
+				AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */,
+				AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */ = {
+			isa = PBXGroup;
+			children = (
+				50DC0CEA212F1C2D00424CC7 /* GAMCustomVideoControlsController.h */,
+				50DC0CEB212F1C2D00424CC7 /* GAMCustomVideoControlsController.m */,
+				AEE8DA9C201BD7A5008792E6 /* SimpleNativeAdView.h */,
+				AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */,
+				AEE8DAA3201BDCA9008792E6 /* CustomControlsView.h */,
+				AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */,
+				AED1110F20320CA800EA4BEE /* NativeAdView.xib */,
+				AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */,
+			);
+			name = GAMCustomVideoControls;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A96E71A1B856D5000031470 /* APIDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A96E7411B856D5000031470 /* Build configuration list for PBXNativeTarget "APIDemo" */;
+			buildPhases = (
+				4A96E7171B856D5000031470 /* Sources */,
+				4A96E7181B856D5000031470 /* Frameworks */,
+				4A96E7191B856D5000031470 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APIDemo;
+			productName = APIDemo;
+			productReference = 4A96E71B1B856D5000031470 /* APIDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A96E7131B856D5000031470 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Google;
+				TargetAttributes = {
+					4A96E71A1B856D5000031470 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 4A96E7161B856D5000031470 /* Build configuration list for PBXProject "APIDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 4A96E7121B856D5000031470;
+			productRefGroup = 4A96E71C1B856D5000031470 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A96E71A1B856D5000031470 /* APIDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A96E7191B856D5000031470 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */,
+				4A96E72D1B856D5000031470 /* Main.storyboard in Resources */,
+				4A96E7321B856D5000031470 /* LaunchScreen.xib in Resources */,
+				4A96E72F1B856D5000031470 /* Images.xcassets in Resources */,
+				AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A96E7171B856D5000031470 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A96E7241B856D5000031470 /* AppDelegate.m in Sources */,
+				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
+				AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */,
+				5038FC6D2511428A00750F9C /* MainViewController.m in Sources */,
+				50DC0CF9212F1C4000424CC7 /* GAMCategoryExclusionsViewController.m in Sources */,
+				4A96E7211B856D5000031470 /* main.m in Sources */,
+				50DC0CFD212F1C4000424CC7 /* GAMCustomTargetingViewController.m in Sources */,
+				50DC0CEC212F1C2E00424CC7 /* GAMCustomVideoControlsController.m in Sources */,
+				4A96E74C1B8572A800031470 /* AdMobAdDelegateViewController.m in Sources */,
+				50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */,
+				4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */,
+				50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */,
+				50DC0CFA212F1C4000424CC7 /* GAMFluidAdSizeViewController.m in Sources */,
+				AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */,
+				AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */,
+				50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A96E72B1B856D5000031470 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A96E72C1B856D5000031470 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4A96E7301B856D5000031470 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A96E7311B856D5000031470 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AED1110D20320ABB00EA4BEE /* Base */,
+			);
+			name = SimpleNativeAdView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A96E73F1B856D5000031470 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A96E7401B856D5000031470 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A96E7421B856D5000031470 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = APIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ios.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4A96E7431B856D5000031470 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = APIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.google.ios.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A96E7161B856D5000031470 /* Build configuration list for PBXProject "APIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A96E73F1B856D5000031470 /* Debug */,
+				4A96E7401B856D5000031470 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A96E7411B856D5000031470 /* Build configuration list for PBXNativeTarget "APIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A96E7421B856D5000031470 /* Debug */,
+				4A96E7431B856D5000031470 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A96E7131B856D5000031470 /* Project object */;
+}
