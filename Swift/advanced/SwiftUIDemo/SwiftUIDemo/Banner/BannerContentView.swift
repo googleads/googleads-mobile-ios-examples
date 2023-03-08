@@ -26,7 +26,14 @@ private struct BannerView: UIViewControllerRepresentable {
     bannerView.adUnitID = adUnitID
     bannerView.rootViewController = bannerViewController
     bannerView.delegate = context.coordinator
+    bannerView.translatesAutoresizingMaskIntoConstraints = false
     bannerViewController.view.addSubview(bannerView)
+    // Constrain GADBannerView to the bottom of the view.
+    NSLayoutConstraint.activate([
+      bannerView.bottomAnchor.constraint(
+        equalTo: bannerViewController.view.safeAreaLayoutGuide.bottomAnchor),
+      bannerView.centerXAnchor.constraint(equalTo: bannerViewController.view.centerXAnchor),
+    ])
     bannerViewController.delegate = context.coordinator
 
     return bannerViewController
