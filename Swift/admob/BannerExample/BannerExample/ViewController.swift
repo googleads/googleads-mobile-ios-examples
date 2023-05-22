@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
+    print("GMA SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
     bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
     bannerView.rootViewController = self
     bannerView.load(GADRequest())
