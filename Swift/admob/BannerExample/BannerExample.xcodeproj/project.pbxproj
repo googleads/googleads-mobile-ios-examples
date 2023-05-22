@@ -12,6 +12,7 @@
 		849326ED1B066C7900863759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849326EB1B066C7900863759 /* Main.storyboard */; };
 		849326EF1B066C7900863759 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849326EE1B066C7900863759 /* Images.xcassets */; };
 		849326F21B066C7900863759 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849326F01B066C7900863759 /* LaunchScreen.xib */; };
+		A84D338929EE07A2007C35BD /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84D338829EE07A1007C35BD /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		849326EC1B066C7900863759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		849326EE1B066C7900863759 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		849326F11B066C7900863759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A84D338829EE07A1007C35BD /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				849326E71B066C7900863759 /* AppDelegate.swift */,
+				A84D338829EE07A1007C35BD /* GoogleMobileAdsConsentManager.swift */,
 				849326E91B066C7900863759 /* ViewController.swift */,
 				849326EB1B066C7900863759 /* Main.storyboard */,
 				849326EE1B066C7900863759 /* Images.xcassets */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84D338929EE07A2007C35BD /* GoogleMobileAdsConsentManager.swift in Sources */,
 				849326EA1B066C7900863759 /* ViewController.swift in Sources */,
 				849326E81B066C7900863759 /* AppDelegate.swift in Sources */,
 			);

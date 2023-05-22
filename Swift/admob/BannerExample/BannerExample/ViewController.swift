@@ -13,21 +13,73 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 //
-
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GADBannerViewDelegate {
 
-  /// The banner view.
+  // The banner view.
   @IBOutlet weak var bannerView: GADBannerView!
+
+  // Handle changes to user consent.
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    GoogleMobileAdsConsentManager.shared.presentRevocationForm(from: self) {
+      [weak self] formError in
+      guard let self, let formError else { return }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+      self.present(alertController, animated: true)
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
     bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
     bannerView.rootViewController = self
-    bannerView.load(GADRequest())
+    bannerView.delegate = self
+
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      _ = startGoogleMobileAdsSDK
+    }
+
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
+      guard let self else { return }
+
+      if let consentError {
+        // Consent gathering failed. This sample loads ads using
+        // consent obtained in the previous session.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        _ = self.startGoogleMobileAdsSDK
+      }
+    }
   }
 
+  // The lazy property is used instead of unavailable `dispatch_once` to
+  // initialize the Google Mobile Ads SDK only once."
+  private lazy var startGoogleMobileAdsSDK: Void = {
+    // Initialize the Google Mobile Ads SDK.
+    GADMobileAds.sharedInstance().start { [weak self] _ in
+      guard let self else { return }
+
+      // Request an ad.
+      self.bannerView.load(GADRequest())
+    }
+  }()
+}
+
+// MARK: - GADBannerViewDelegate methods
+extension ViewController {
+  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+    print("Ad loaded.")
+  }
+
+  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+    print("Failed to load ad with error: \(error)")
+  }
 }

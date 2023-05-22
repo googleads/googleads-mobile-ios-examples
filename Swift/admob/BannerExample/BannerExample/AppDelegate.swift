@@ -27,10 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
 
-    // Initialize Google Mobile Ads SDK
-    GADMobileAds.sharedInstance().start(completionHandler: nil)
+    print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
 
     return true
   }
-
 }
