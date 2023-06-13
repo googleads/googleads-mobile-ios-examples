@@ -49,9 +49,7 @@
   CGRect frame = self.view.frame;
   // Here safe area is taken into account, hence the view frame is used after the
   // view has been laid out.
-  if (@available(iOS 11.0, *)) {
-    frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
-  }
+  frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
   CGFloat viewWidth = frame.size.width;
 
   // Here the current interface orientation is used. If the ad is being preloaded

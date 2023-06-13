@@ -63,11 +63,7 @@ class ViewController: UIViewController {
 
   @IBAction func loadBannerAd(_ sender: Any?) {
     let frame = { () -> CGRect in
-      if #available(iOS 11.0, *) {
-        return view.frame.inset(by: view.safeAreaInsets)
-      } else {
-        return view.frame
-      }
+      return view.frame.inset(by: view.safeAreaInsets)
     }()
     let viewWidth = frame.size.width
 

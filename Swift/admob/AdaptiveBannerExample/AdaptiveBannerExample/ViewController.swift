@@ -50,11 +50,7 @@ class ViewController: UIViewController {
     // Here safe area is taken into account, hence the view frame is used after the
     // view has been laid out.
     let frame = { () -> CGRect in
-      if #available(iOS 11.0, *) {
-        return view.frame.inset(by: view.safeAreaInsets)
-      } else {
-        return view.frame
-      }
+      return view.frame.inset(by: view.safeAreaInsets)
     }()
     let viewWidth = frame.size.width
 

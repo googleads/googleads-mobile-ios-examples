@@ -64,9 +64,7 @@ static NSString *_Nonnull const backfillAdUnitID = @"/30497360/adaptive_banner_t
   CGRect frame = self.view.frame;
   // Here safe area is taken into account, hence the view frame is used after the
   // view has been laid out.
-  if (@available(iOS 11.0, *)) {
-    frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
-  }
+  frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
   CGFloat viewWidth = frame.size.width;
 
   // Replace this ad unit ID with your own ad unit ID.
