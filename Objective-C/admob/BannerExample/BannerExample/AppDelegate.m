@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2014 Google, Inc.
+//  Copyright (C) 2014 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 //
 
 #import "AppDelegate.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 
@@ -25,8 +24,6 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Initialize Google Mobile Ads SDK
-  [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
 
   return YES;
 }
