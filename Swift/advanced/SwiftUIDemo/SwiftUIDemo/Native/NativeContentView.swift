@@ -23,7 +23,9 @@ struct NativeContentView: View {
           refreshAd()
         }
 
-        Text("SDK Version: \(GADMobileAds.sharedInstance().sdkVersion)")
+        Text(
+          "SDK Version:"
+            + "\(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))")
       }
       .padding()
     }

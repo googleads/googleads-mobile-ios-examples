@@ -49,7 +49,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADMobileAds.sharedInstance().sdkVersion
+    versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
     guard
       let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
       let adView = nibObjects.first as? GADNativeAdView

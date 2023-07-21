@@ -37,7 +37,7 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
+  self.versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance.versionNumber);
 
   [self setAdView:[[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil]
                       .firstObject];

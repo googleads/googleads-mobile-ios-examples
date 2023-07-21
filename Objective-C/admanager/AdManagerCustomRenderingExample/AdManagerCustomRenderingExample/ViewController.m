@@ -24,7 +24,7 @@ static NSString *const TestNativeCustomTemplateID = @"10104090";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
+  self.versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance.versionNumber);
 
   [self refreshAd:nil];
 }
