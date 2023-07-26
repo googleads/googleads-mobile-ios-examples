@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2014 Google LLC
+//  Copyright (C) 2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -76,20 +76,20 @@
                                   }
 
                                   if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
-                                    [strongSelf startGoogleMobileAdsSDKOnce];
+                                    [strongSelf startGoogleMobileAdsSDK];
                                   }
 
                                   [strongSelf.privacySettingsButton
                                       setEnabled:GoogleMobileAdsConsentManager.sharedInstance
-                                                     .isFormAvailable];
+                                                     .isPrivacyOptionsFormRequired];
                                 }];
 
   if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
-    [self startGoogleMobileAdsSDKOnce];
+    [self startGoogleMobileAdsSDK];
   }
 }
 
-- (void)startGoogleMobileAdsSDKOnce {
+- (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     // Initialize the Google Mobile Ads SDK.
