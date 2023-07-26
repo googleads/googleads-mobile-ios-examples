@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2015 Google LLC
+//  Copyright (C) 2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
 
-    print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
+    print(
+      "Google Mobile Ads SDK version: \(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))"
+    )
 
     return true
   }

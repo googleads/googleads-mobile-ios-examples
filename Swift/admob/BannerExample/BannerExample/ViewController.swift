@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2015 Google LLC
+//  Copyright (C) 2024 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -55,7 +55,8 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         _ = self.startGoogleMobileAdsSDK
       }
 
-      self.privacySettingsButton.isEnabled = GoogleMobileAdsConsentManager.shared.isFormAvailable
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsFormRequired
     }
 
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
