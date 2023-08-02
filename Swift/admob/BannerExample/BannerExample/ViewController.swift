@@ -46,8 +46,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
       guard let self else { return }
 
       if let consentError {
-        // Consent gathering failed. This sample loads ads using
-        // consent obtained in the previous session.
+        // Consent gathering failed.
         print("Error: \(consentError.localizedDescription)")
       }
 
@@ -55,9 +54,11 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         _ = self.startGoogleMobileAdsSDK
       }
 
-      self.privacySettingsButton.isEnabled = GoogleMobileAdsConsentManager.shared.isFormAvailable
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
     }
 
+    // This sample attempts to load ads using consent obtained in the previous session.
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
       _ = startGoogleMobileAdsSDK
     }

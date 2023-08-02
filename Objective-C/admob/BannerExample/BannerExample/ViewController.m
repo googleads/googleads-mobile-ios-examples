@@ -65,8 +65,7 @@
       gatherConsentFromConsentPresentationViewController:self
                                 consentGatheringComplete:^(NSError *_Nullable consentError) {
                                   if (consentError) {
-                                    // Consent gathering failed. This sample loads
-                                    // ads using consent obtained in the previous session.
+                                    // Consent gathering failed.
                                     NSLog(@"Error: %@", consentError.localizedDescription);
                                   }
 
@@ -76,20 +75,21 @@
                                   }
 
                                   if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
-                                    [strongSelf startGoogleMobileAdsSDKOnce];
+                                    [strongSelf startGoogleMobileAdsSDK];
                                   }
 
                                   [strongSelf.privacySettingsButton
                                       setEnabled:GoogleMobileAdsConsentManager.sharedInstance
-                                                     .isFormAvailable];
+                                                     .isPrivacyOptionsRequired];
                                 }];
 
+  // This sample attempts to load ads using consent obtained in the previous session.
   if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
-    [self startGoogleMobileAdsSDKOnce];
+    [self startGoogleMobileAdsSDK];
   }
 }
 
-- (void)startGoogleMobileAdsSDKOnce {
+- (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     // Initialize the Google Mobile Ads SDK.

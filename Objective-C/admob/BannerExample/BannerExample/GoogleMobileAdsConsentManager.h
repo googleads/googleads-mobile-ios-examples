@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2014 Google LLC
+//  Copyright (C) 2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -26,23 +26,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(class, atomic, readonly, strong, nonnull) GoogleMobileAdsConsentManager *sharedInstance;
 @property(nonatomic, readonly) BOOL canRequestAds;
-@property(nonatomic, readonly) BOOL isFormAvailable;
+@property(nonatomic, readonly) BOOL isPrivacyOptionsRequired;
 
 /// Helper method to call the UMP SDK methods to request consent information and load/present a
 /// consent form if necessary.
-///
-/// @param viewController The view controller to present the user consent form on screen.
-/// @param completionHandler The block to execute after consent gathering finishes.
 - (void)gatherConsentFromConsentPresentationViewController:(UIViewController *)viewController
                                   consentGatheringComplete:
                                       (void (^)(NSError *_Nullable error))completionHandler;
 
 /// Helper method to call the UMP SDK method to present the privacy options form.
-///
-/// Attempts to load a new privacy options form upon completion.
-///
-/// @param viewController The view controller to present the privacy options form on screen.
-/// @param completionHandler The block to execute after the presentation finishes.
 - (void)presentPrivacyOptionsFormFromViewController:(UIViewController *)viewController
                                   completionHandler:
                                       (void (^)(NSError *_Nullable error))completionHandler;
