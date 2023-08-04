@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8lA-gL-Sig">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Kl4-rT-1pv">
+            <objects>
+                <navigationController id="8lA-gL-Sig" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s3M-dw-2mx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aYz-73-evt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vZy-kA-MvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1355" y="296"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -34,13 +50,21 @@
                             <constraint firstItem="MX3-T9-ba1" firstAttribute="top" secondItem="fBW-gG-mfa" secondAttribute="bottom" id="xBf-vF-1TM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zjZ-eV-b2f">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="rxB-NA-q5M">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="5kZ-4m-78v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="fBW-gG-mfa" id="1MT-sm-mgi"/>
+                        <outlet property="privacySettingsButton" destination="rxB-NA-q5M" id="CA0-fr-OLw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185.50724637681162" y="272.27232142857139"/>
+            <point key="canvasLocation" x="-319" y="295"/>
         </scene>
     </scenes>
 </document>

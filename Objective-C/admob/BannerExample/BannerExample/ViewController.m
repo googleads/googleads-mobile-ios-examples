@@ -78,9 +78,9 @@
                                     [strongSelf startGoogleMobileAdsSDK];
                                   }
 
-                                  [strongSelf.privacySettingsButton
-                                      setEnabled:GoogleMobileAdsConsentManager.sharedInstance
-                                                     .isPrivacyOptionsRequired];
+                                  strongSelf.privacySettingsButton.enabled =
+                                      GoogleMobileAdsConsentManager.sharedInstance
+                                          .isPrivacyOptionsRequired;
                                 }];
 
   // This sample attempts to load ads using consent obtained in the previous session.

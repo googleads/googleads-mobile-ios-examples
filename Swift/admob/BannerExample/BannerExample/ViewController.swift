@@ -22,6 +22,8 @@ class ViewController: UIViewController, GADBannerViewDelegate {
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
 
+  private var isMobileAdsStartCalled = false
+
   // Handle changes to user consent.
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
@@ -51,7 +53,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
       }
 
       if GoogleMobileAdsConsentManager.shared.canRequestAds {
-        _ = self.startGoogleMobileAdsSDK
+        self.startGoogleMobileAdsSDK()
       }
 
       self.privacySettingsButton.isEnabled =
@@ -60,19 +62,22 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 
     // This sample attempts to load ads using consent obtained in the previous session.
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
-      _ = startGoogleMobileAdsSDK
+      startGoogleMobileAdsSDK()
     }
   }
 
-  // The lazy property is used instead of unavailable `dispatch_once` to
-  // initialize the Google Mobile Ads SDK only once."
-  private lazy var startGoogleMobileAdsSDK: Void = {
-    // Initialize the Google Mobile Ads SDK.
-    GADMobileAds.sharedInstance().start()
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
 
-    // Request an ad.
-    self.bannerView.load(GADRequest())
-  }()
+      self.isMobileAdsStartCalled = true
+
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+      // Request an ad.
+      self.bannerView.load(GADRequest())
+    }
+  }
 }
 
 // MARK: - GADBannerViewDelegate methods
