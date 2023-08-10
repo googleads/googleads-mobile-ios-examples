@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8DD02A72A7C189E001530DF /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD02A52A7C189E001530DF /* GoogleMobileAdsConsentManager.m */; };
 		CF9F261F1991396300F5C44E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F261E1991396300F5C44E /* main.m */; };
 		CF9F26221991396300F5C44E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F26211991396300F5C44E /* AppDelegate.m */; };
 		CF9F26251991396300F5C44E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F26241991396300F5C44E /* ViewController.m */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8DD02A52A7C189E001530DF /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
+		A8DD02A62A7C189E001530DF /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
 		CF9F26191991396300F5C44E /* InterstitialExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterstitialExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9F261D1991396300F5C44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9F261E1991396300F5C44E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 			children = (
 				CF9F261B1991396300F5C44E /* InterstitialExample */,
 				CF9F261A1991396300F5C44E /* Products */,
+				D7A1BDE55B9C5FBEDF1F8C87 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +62,8 @@
 			children = (
 				CF9F26201991396300F5C44E /* AppDelegate.h */,
 				CF9F26211991396300F5C44E /* AppDelegate.m */,
+				A8DD02A62A7C189E001530DF /* GoogleMobileAdsConsentManager.h */,
+				A8DD02A52A7C189E001530DF /* GoogleMobileAdsConsentManager.m */,
 				CF9F26231991396300F5C44E /* ViewController.h */,
 				CF9F26241991396300F5C44E /* ViewController.m */,
 				CF9F26261991396300F5C44E /* Main.storyboard */,
@@ -74,6 +80,13 @@
 				CF9F261E1991396300F5C44E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7A1BDE55B9C5FBEDF1F8C87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DD02A72A7C189E001530DF /* GoogleMobileAdsConsentManager.m in Sources */,
 				CF9F26251991396300F5C44E /* ViewController.m in Sources */,
 				CF9F26221991396300F5C44E /* AppDelegate.m in Sources */,
 				CF9F261F1991396300F5C44E /* main.m in Sources */,

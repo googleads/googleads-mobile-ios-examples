@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="z4J-Qy-E8X">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Cs7-dU-vZD">
+            <objects>
+                <navigationController id="z4J-Qy-E8X" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WTY-7w-jFT">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ESD-A7-mDT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NaZ-fo-Ulz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1360" y="50"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -21,45 +36,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbK-8l-i8l">
-                                <rect key="frame" x="133" y="440.66666666666669" width="109" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Play Again">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rz5-Hh-fxO"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNG-Yh-paY">
-                                <rect key="frame" x="116" y="391.66666666666669" width="143" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="loN-uS-mW3">
+                                <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-CF-3nz">
+                                <rect key="frame" x="96" y="341" width="183" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbK-8l-i8l">
+                                        <rect key="frame" x="37" y="69" width="109" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Play Again">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rz5-Hh-fxO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNG-Yh-paY">
+                                        <rect key="frame" x="20" y="20" width="143" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="hNG-Yh-paY" secondAttribute="centerY" constant="30.5" id="FVY-Qf-qFX"/>
+                                    <constraint firstItem="hNG-Yh-paY" firstAttribute="top" secondItem="gVv-CF-3nz" secondAttribute="top" constant="20" symbolic="YES" id="O9P-Po-VVL"/>
+                                    <constraint firstAttribute="trailing" secondItem="hNG-Yh-paY" secondAttribute="trailing" constant="20" symbolic="YES" id="TJn-yl-XRd"/>
+                                    <constraint firstAttribute="centerX" secondItem="YbK-8l-i8l" secondAttribute="centerX" id="ci5-MO-hqR"/>
+                                    <constraint firstItem="hNG-Yh-paY" firstAttribute="leading" secondItem="gVv-CF-3nz" secondAttribute="leading" constant="20" symbolic="YES" id="hVq-e9-0MY"/>
+                                    <constraint firstItem="YbK-8l-i8l" firstAttribute="top" secondItem="hNG-Yh-paY" secondAttribute="bottom" constant="20" id="mdX-0b-Htg"/>
+                                    <constraint firstAttribute="bottom" secondItem="YbK-8l-i8l" secondAttribute="bottom" constant="20" symbolic="YES" id="xTC-2M-Qp2"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBt-AA-hYj">
-                                <rect key="frame" x="48" y="94" width="279.66666666666669" height="36"/>
+                                <rect key="frame" x="47.666666666666657" y="144" width="280" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="hNG-Yh-paY" secondAttribute="centerX" id="4ma-ZB-rwu"/>
                             <constraint firstItem="kBt-AA-hYj" firstAttribute="top" secondItem="Bsf-Bd-tO4" secondAttribute="bottom" constant="50" id="9IX-Gm-pL0"/>
-                            <constraint firstItem="YbK-8l-i8l" firstAttribute="top" secondItem="hNG-Yh-paY" secondAttribute="bottom" constant="20" id="RwP-ui-d3w"/>
-                            <constraint firstAttribute="centerY" secondItem="hNG-Yh-paY" secondAttribute="centerY" id="TSr-3T-XQq"/>
+                            <constraint firstItem="loN-uS-mW3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EwI-6P-XNA"/>
+                            <constraint firstItem="loN-uS-mW3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PYQ-qU-Qgb"/>
                             <constraint firstAttribute="centerX" secondItem="kBt-AA-hYj" secondAttribute="centerX" id="V9M-fh-nEx"/>
-                            <constraint firstAttribute="centerX" secondItem="YbK-8l-i8l" secondAttribute="centerX" id="YeH-Yv-EaQ"/>
+                            <constraint firstItem="gVv-CF-3nz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fiC-wu-zWL"/>
+                            <constraint firstItem="gVv-CF-3nz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ueq-Fc-enP"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="b6c-uF-OLQ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="dyk-NC-qAO">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="V08-1Y-A8E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gameText" destination="hNG-Yh-paY" id="EaJ-Mh-Htn"/>
+                        <outlet property="gameView" destination="gVv-CF-3nz" id="bZy-gg-YnQ"/>
+                        <outlet property="loadingSpinner" destination="loN-uS-mW3" id="tHD-M8-hDk"/>
                         <outlet property="playAgainButton" destination="YbK-8l-i8l" id="SKB-fc-Knv"/>
+                        <outlet property="privacySettingsButton" destination="dyk-NC-qAO" id="Bz7-cm-q3Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-218" y="50"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

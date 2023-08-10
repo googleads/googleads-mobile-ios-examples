@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2015 Google, Inc.
+//  Copyright (C) 2015 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -47,14 +47,55 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   /// The last fire date before a pause.
   var previousFireDate: Date?
 
+  /// Indicates whether the Google Mobile Ads SDK has started.
+  private var isMobileAdsStartCalled = false
+
+  /// The container for the game.
+  @IBOutlet weak var gameView: UIView!
+
+  /// A spinner indicating whether the app is loading content.
+  @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+
+  /// The privacy settings button.
+  @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
+
   /// The countdown timer label.
   @IBOutlet weak var gameText: UILabel!
 
   /// The play again button.
   @IBOutlet weak var playAgainButton: UIButton!
 
+  /// Handle changes to user consent.
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    pauseGame()
+
+    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
+      [weak self] formError in
+      guard let self else { return }
+      guard let formError else { return self.resumeGame() }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(
+        UIAlertAction(
+          title: "OK", style: .cancel,
+          handler: { _ in
+            self.resumeGame()
+          }))
+      self.present(alertController, animated: true)
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    // Sets up a loading spinner while consent is being gathered.
+    let loadingSpinnerWorkItem = DispatchWorkItem {
+      self.loadingSpinner.startAnimating()
+    }
+    // Show spinner if loading takes longer than 1 second.
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: loadingSpinnerWorkItem)
 
     // Pause game when application enters background.
     NotificationCenter.default.addObserver(
@@ -68,14 +109,54 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       selector: #selector(ViewController.resumeGame),
       name: UIApplication.didBecomeActiveNotification, object: nil)
 
-    startNewGame()
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
+      guard let self else { return }
+
+      loadingSpinnerWorkItem.cancel()
+      self.loadingSpinner.stopAnimating()
+
+      // Animate the visibility of the game UI.
+      UIView.animate(withDuration: 0.25) {
+        self.gameView.alpha = 1
+      }
+
+      self.startNewGame()
+
+      if let consentError {
+        // Consent gathering failed.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        self.startGoogleMobileAdsSDK()
+      }
+
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
+    }
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      startGoogleMobileAdsSDK()
+    }
+  }
+
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
+
+      self.isMobileAdsStartCalled = true
+
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+      // Request an ad.
+      self.loadInterstitial()
+    }
   }
 
   // MARK: - Game Logic
 
   fileprivate func startNewGame() {
-    loadInterstitial()
-
     gameState = .playing
     timeLeft = ViewController.gameLength
     playAgainButton.isHidden = true
@@ -169,6 +250,10 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
 
   @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
+
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      loadInterstitial()
+    }
   }
 
   // MARK: - GADFullScreenContentDelegate

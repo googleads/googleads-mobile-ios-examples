@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="QKh-B8-b5v">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="0RG-ev-ZWo">
+            <objects>
+                <navigationController id="QKh-B8-b5v" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TS9-qY-ox0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gdi-0I-UT5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Emb-bY-5TW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1524" y="9"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,45 +36,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-eo-02o">
-                                <rect key="frame" x="133" y="368" width="109" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Play Again">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tQf-zl-icO"/>
-                                </connections>
-                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRu-cy-KFK">
+                                <rect key="frame" x="96" y="268.5" width="183" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-eo-02o">
+                                        <rect key="frame" x="37" y="69" width="109" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Play Again">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tQf-zl-icO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-KP-hMF">
+                                        <rect key="frame" x="20" y="20" width="143" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Axu-KP-hMF" firstAttribute="top" secondItem="WRu-cy-KFK" secondAttribute="top" constant="20" symbolic="YES" id="CMT-Eb-zR8"/>
+                                    <constraint firstItem="dcM-eo-02o" firstAttribute="top" secondItem="Axu-KP-hMF" secondAttribute="bottom" constant="20" id="GLJ-mz-vVq"/>
+                                    <constraint firstAttribute="centerX" secondItem="dcM-eo-02o" secondAttribute="centerX" id="NaL-qw-Uue"/>
+                                    <constraint firstAttribute="bottom" secondItem="dcM-eo-02o" secondAttribute="bottom" constant="20" symbolic="YES" id="dWp-4O-f5g"/>
+                                    <constraint firstAttribute="trailing" secondItem="Axu-KP-hMF" secondAttribute="trailing" constant="20" symbolic="YES" id="nnW-M1-nIb"/>
+                                    <constraint firstItem="Axu-KP-hMF" firstAttribute="leading" secondItem="WRu-cy-KFK" secondAttribute="leading" constant="20" symbolic="YES" id="uS5-gM-cyl"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-Er-q8F">
-                                <rect key="frame" x="48" y="70" width="279.5" height="36"/>
+                                <rect key="frame" x="47.5" y="114" width="280" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-KP-hMF">
-                                <rect key="frame" x="116" y="319" width="143" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Hro-fg-3MF">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Axu-KP-hMF" secondAttribute="centerY" id="1U4-6e-r40"/>
-                            <constraint firstAttribute="centerX" secondItem="Axu-KP-hMF" secondAttribute="centerX" id="7K9-VT-r06"/>
+                            <constraint firstItem="Hro-fg-3MF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3YG-80-N1t"/>
+                            <constraint firstItem="Hro-fg-3MF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9BJ-ip-ToS"/>
                             <constraint firstAttribute="centerX" secondItem="2F4-Er-q8F" secondAttribute="centerX" id="9uG-eg-3ID"/>
-                            <constraint firstAttribute="centerX" secondItem="dcM-eo-02o" secondAttribute="centerX" id="JIF-MD-XSr"/>
                             <constraint firstItem="2F4-Er-q8F" firstAttribute="top" secondItem="mE0-hg-V3L" secondAttribute="bottom" constant="50" id="LHF-ty-uu3"/>
-                            <constraint firstItem="dcM-eo-02o" firstAttribute="top" secondItem="Axu-KP-hMF" secondAttribute="bottom" constant="20" id="cr1-vZ-eVx"/>
+                            <constraint firstItem="WRu-cy-KFK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fEM-ka-3y1"/>
+                            <constraint firstItem="WRu-cy-KFK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wGb-Vv-ym3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Q4f-q9-ymA">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="qoL-oN-ZSm">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="bxY-OT-3fI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gameText" destination="Axu-KP-hMF" id="gzf-u2-Ph4"/>
+                        <outlet property="gameView" destination="WRu-cy-KFK" id="pDT-t5-yj2"/>
+                        <outlet property="loadingSpinner" destination="Hro-fg-3MF" id="tO3-aG-IXf"/>
                         <outlet property="playAgainButton" destination="dcM-eo-02o" id="xfV-et-rkD"/>
+                        <outlet property="privacySettingsButton" destination="qoL-oN-ZSm" id="lhI-Zx-MD3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-316" y="9"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

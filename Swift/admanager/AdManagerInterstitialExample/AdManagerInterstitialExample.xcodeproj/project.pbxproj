@@ -12,6 +12,7 @@
 		507818C3219654B400E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818BC219654B400E5A44A /* Main.storyboard */; };
 		507818C4219654B400E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818BE219654B400E5A44A /* Images.xcassets */; };
 		507818C6219654B400E5A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818C0219654B400E5A44A /* ViewController.swift */; };
+		A8DD02A42A7C156E001530DF /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD02A32A7C156E001530DF /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		507818BF219654B400E5A44A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507818C0219654B400E5A44A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84FEE90F1B0D65A8006C8148 /* AdManagerInterstitialExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerInterstitialExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8DD02A32A7C156E001530DF /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				507818B9219654B400E5A44A /* AppDelegate.swift */,
+				A8DD02A32A7C156E001530DF /* GoogleMobileAdsConsentManager.swift */,
 				507818BA219654B400E5A44A /* LaunchScreen.xib */,
 				507818BC219654B400E5A44A /* Main.storyboard */,
 				507818BE219654B400E5A44A /* Images.xcassets */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				507818C6219654B400E5A44A /* ViewController.swift in Sources */,
+				A8DD02A42A7C156E001530DF /* GoogleMobileAdsConsentManager.swift in Sources */,
 				507818C1219654B400E5A44A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

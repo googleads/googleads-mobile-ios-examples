@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="E4m-nH-ONQ">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="agJ-Mx-BiD">
+            <objects>
+                <navigationController id="E4m-nH-ONQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zdP-hO-qLG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6P9-jI-oti"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UGp-7j-9Wd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="352"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,48 +37,80 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nq7-zZ-b1b">
-                                <rect key="frame" x="10" y="70" width="356" height="36"/>
+                                <rect key="frame" x="10" y="114" width="356" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc5-sK-15o">
-                                <rect key="frame" x="116" y="319" width="143" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-GQ-Gow">
-                                <rect key="frame" x="16" y="368" width="343" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Play Again">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gQW-01-Nos"/>
-                                </connections>
-                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbH-7u-FJC">
+                                <rect key="frame" x="105" y="268.5" width="165" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc5-sK-15o">
+                                        <rect key="frame" x="11" y="20" width="143" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-GQ-Gow">
+                                        <rect key="frame" x="28" y="69" width="109" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Play Again">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gQW-01-Nos"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="sc5-sK-15o" secondAttribute="centerX" id="2hT-4D-Iwc"/>
+                                    <constraint firstItem="sc5-sK-15o" firstAttribute="centerY" secondItem="wbH-7u-FJC" secondAttribute="centerY" constant="-30.5" id="63v-VL-pf4"/>
+                                    <constraint firstItem="sc5-sK-15o" firstAttribute="top" secondItem="wbH-7u-FJC" secondAttribute="top" constant="20" symbolic="YES" id="Y4N-94-BY6"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="bEK-GQ-Gow" secondAttribute="trailing" constant="20" id="eDH-Fg-SQE"/>
+                                    <constraint firstAttribute="leadingMargin" secondItem="bEK-GQ-Gow" secondAttribute="leading" constant="-20" id="pZb-64-3yR"/>
+                                    <constraint firstItem="bEK-GQ-Gow" firstAttribute="top" secondItem="sc5-sK-15o" secondAttribute="bottom" constant="20" id="v0n-Ou-QdJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="bEK-GQ-Gow" secondAttribute="bottom" constant="20" symbolic="YES" id="wPk-uo-wEL"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JBM-bu-D5H">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nq7-zZ-b1b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="0Fm-5l-P0w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nq7-zZ-b1b" secondAttribute="trailing" constant="-7" id="CWY-4k-zJj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bEK-GQ-Gow" secondAttribute="trailing" id="Q2h-sh-zXz"/>
-                            <constraint firstAttribute="centerX" secondItem="sc5-sK-15o" secondAttribute="centerX" id="lXU-rD-eFf"/>
-                            <constraint firstItem="bEK-GQ-Gow" firstAttribute="top" secondItem="sc5-sK-15o" secondAttribute="bottom" constant="20" id="tTK-Gi-fUA"/>
+                            <constraint firstItem="JBM-bu-D5H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mwm-Lx-WgT"/>
+                            <constraint firstItem="JBM-bu-D5H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oS1-l0-tqN"/>
+                            <constraint firstItem="wbH-7u-FJC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tEM-9O-Ncg"/>
                             <constraint firstItem="nq7-zZ-b1b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-6" id="u5o-vF-j0U"/>
-                            <constraint firstItem="sc5-sK-15o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ugK-os-hTD"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="bEK-GQ-Gow" secondAttribute="leading" id="v1B-St-Qe4"/>
+                            <constraint firstItem="wbH-7u-FJC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vbh-Xn-Bxd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tDg-Fc-B0F">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="ELh-e3-xpq">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="6Gg-ev-x9M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gameText" destination="sc5-sK-15o" id="n9O-tH-n29"/>
+                        <outlet property="gameView" destination="wbH-7u-FJC" id="tR8-yj-87b"/>
+                        <outlet property="loadingSpinner" destination="JBM-bu-D5H" id="ted-bL-aMx"/>
                         <outlet property="playAgainButton" destination="bEK-GQ-Gow" id="f36-u0-hvn"/>
+                        <outlet property="privacySettingsButton" destination="ELh-e3-xpq" id="UF3-D1-tsv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="392"/>
+            <point key="canvasLocation" x="323.19999999999999" y="352.62368815592208"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
