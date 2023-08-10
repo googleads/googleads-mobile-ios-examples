@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2019 Google, Inc.
+//  Copyright (C) 2019 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 //
 
 #import "AppDelegate.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 
@@ -25,12 +24,6 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Add the iOS simulator as a test device (this is default behavior but included for
-  // demonstration purposes).
-  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ GADSimulatorID ];
-
-  // Initialize Google Mobile Ads SDK
-  [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
   return YES;
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8369D782A841EF300F125DE /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8369D772A841EF200F125DE /* GoogleMobileAdsConsentManager.m */; };
 		CF86EE1D19787E6B00411520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE1C19787E6B00411520 /* main.m */; };
 		CF86EE2019787E6B00411520 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE1F19787E6B00411520 /* AppDelegate.m */; };
 		CF86EE2319787E6B00411520 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF86EE2219787E6B00411520 /* ViewController.m */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8369D762A841EF200F125DE /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
+		A8369D772A841EF200F125DE /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
 		CF86EE1719787E6B00411520 /* AdaptiveBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF86EE1B19787E6B00411520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF86EE1C19787E6B00411520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,11 +40,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26D0DFCA99C185908C9281C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CF86EE0E19787E6B00411520 = {
 			isa = PBXGroup;
 			children = (
 				CF86EE1919787E6B00411520 /* AdaptiveBannerExample */,
 				CF86EE1819787E6B00411520 /* Products */,
+				26D0DFCA99C185908C9281C1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +69,8 @@
 			children = (
 				CF86EE1E19787E6B00411520 /* AppDelegate.h */,
 				CF86EE1F19787E6B00411520 /* AppDelegate.m */,
+				A8369D762A841EF200F125DE /* GoogleMobileAdsConsentManager.h */,
+				A8369D772A841EF200F125DE /* GoogleMobileAdsConsentManager.m */,
 				CF86EE2119787E6B00411520 /* ViewController.h */,
 				CF86EE2219787E6B00411520 /* ViewController.m */,
 				CF86EE2419787E6B00411520 /* Main.storyboard */,
@@ -146,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8369D782A841EF300F125DE /* GoogleMobileAdsConsentManager.m in Sources */,
 				CF86EE2319787E6B00411520 /* ViewController.m in Sources */,
 				CF86EE2019787E6B00411520 /* AppDelegate.m in Sources */,
 				CF86EE1D19787E6B00411520 /* main.m in Sources */,

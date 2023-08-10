@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2019 Google, Inc.
+//  Copyright (C) 2019 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 //
 
 #import "AppDelegate.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 
@@ -25,13 +24,6 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Requests test ads on devices you specify. Your test device ID is printed to the console when
-  // an ad request is made. GADBannerView automatically returns test ads when running on a
-  // simulator.
-  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ GADSimulatorID ];
-
-  // Initialize Google Mobile Ads SDK
-  [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
   return YES;
 }
 

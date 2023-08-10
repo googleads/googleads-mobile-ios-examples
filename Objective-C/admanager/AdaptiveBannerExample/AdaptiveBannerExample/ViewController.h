@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2019 Google, Inc.
+//  Copyright (C) 2019 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@
 @interface ViewController : UIViewController
 
 @property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
+@property(weak, nonatomic) IBOutlet UIButton *loadAdButton;
 @property(weak, nonatomic) IBOutlet UISwitch *iuSwitch;
 @property(weak, nonatomic) IBOutlet UILabel *iuLabel;
 

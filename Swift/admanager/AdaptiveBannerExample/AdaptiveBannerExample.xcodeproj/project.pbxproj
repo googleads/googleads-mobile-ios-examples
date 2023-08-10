@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8369D752A84199500F125DE /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8369D742A84199500F125DE /* GoogleMobileAdsConsentManager.swift */; };
 		AEF85E07234CF11700CB7ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF85E06234CF11700CB7ED6 /* AppDelegate.swift */; };
 		AEF85E09234CF53400CB7ED6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF85E08234CF53400CB7ED6 /* ViewController.swift */; };
 		CF86EE2619787E6B00411520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF86EE2419787E6B00411520 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8369D742A84199500F125DE /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 		AE73CDBB234E9E8B00764210 /* AdaptiveBannerExample-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdaptiveBannerExample-BridgingHeader.h"; sourceTree = "<group>"; };
 		AEF85E06234CF11700CB7ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEF85E08234CF53400CB7ED6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,11 +36,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0090D86EB8A4956969B8D0E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CF86EE0E19787E6B00411520 = {
 			isa = PBXGroup;
 			children = (
 				CF86EE1919787E6B00411520 /* AdaptiveBannerExample */,
 				CF86EE1819787E6B00411520 /* Products */,
+				0090D86EB8A4956969B8D0E3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				AEF85E06234CF11700CB7ED6 /* AppDelegate.swift */,
+				A8369D742A84199500F125DE /* GoogleMobileAdsConsentManager.swift */,
 				AEF85E08234CF53400CB7ED6 /* ViewController.swift */,
 				CF86EE2419787E6B00411520 /* Main.storyboard */,
 				CF86EE2719787E6B00411520 /* Images.xcassets */,
@@ -102,6 +113,7 @@
 				TargetAttributes = {
 					CF86EE1619787E6B00411520 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = CSTR6SUWN9;
 						LastSwiftMigration = 1020;
 					};
 				};
@@ -143,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF85E07234CF11700CB7ED6 /* AppDelegate.swift in Sources */,
+				A8369D752A84199500F125DE /* GoogleMobileAdsConsentManager.swift in Sources */,
 				AEF85E09234CF53400CB7ED6 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

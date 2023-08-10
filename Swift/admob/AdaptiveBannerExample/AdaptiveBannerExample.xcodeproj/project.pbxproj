@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8369D732A840AB100F125DE /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8369D722A840AB100F125DE /* GoogleMobileAdsConsentManager.swift */; };
 		AEF85E0B234D081700CB7ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF85E0A234D081600CB7ED6 /* AppDelegate.swift */; };
 		AEF85E0D234D083B00CB7ED6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF85E0C234D083700CB7ED6 /* ViewController.swift */; };
 		CF86EE2619787E6B00411520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF86EE2419787E6B00411520 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8369D722A840AB100F125DE /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 		AEF85E0A234D081600CB7ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEF85E0C234D083700CB7ED6 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF86EE1719787E6B00411520 /* AdaptiveBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,11 +35,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		326C345EABCF7A481F91B87F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CF86EE0E19787E6B00411520 = {
 			isa = PBXGroup;
 			children = (
 				CF86EE1919787E6B00411520 /* AdaptiveBannerExample */,
 				CF86EE1819787E6B00411520 /* Products */,
+				326C345EABCF7A481F91B87F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AEF85E0A234D081600CB7ED6 /* AppDelegate.swift */,
+				A8369D722A840AB100F125DE /* GoogleMobileAdsConsentManager.swift */,
 				AEF85E0C234D083700CB7ED6 /* ViewController.swift */,
 				CF86EE2419787E6B00411520 /* Main.storyboard */,
 				CF86EE2719787E6B00411520 /* Images.xcassets */,
@@ -141,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF85E0D234D083B00CB7ED6 /* ViewController.swift in Sources */,
+				A8369D732A840AB100F125DE /* GoogleMobileAdsConsentManager.swift in Sources */,
 				AEF85E0B234D081700CB7ED6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
