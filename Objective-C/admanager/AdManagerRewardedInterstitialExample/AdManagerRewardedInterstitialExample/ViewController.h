@@ -18,16 +18,4 @@
 
 @interface ViewController : UIViewController
 
-/// The game text.
-@property(nonatomic, weak) IBOutlet UILabel *gameText;
-
-/// The play again button.
-@property(nonatomic, weak) IBOutlet UIButton *playAgainButton;
-
-/// The text indicating current coin count.
-@property(weak, nonatomic) IBOutlet UILabel *coinCountLabel;
-
-/// Starts a new game. Shows a rewarded interstitial if it's ready.
-- (IBAction)playAgain:(id)sender;
-
 @end

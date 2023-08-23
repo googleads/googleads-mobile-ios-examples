@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="CTL-aN-haQ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="gab-th-BuW">
+            <objects>
+                <navigationController id="CTL-aN-haQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="35f-zL-cr5">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Otm-cq-6C4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C51-v8-q6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-798" y="103"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -36,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBt-AA-hYj">
-                                <rect key="frame" x="47.666666666666657" y="94" width="280" height="36"/>
+                                <rect key="frame" x="47.666666666666657" y="144" width="280" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -59,10 +75,18 @@
                             <constraint firstItem="728-cg-9BF" firstAttribute="top" secondItem="K63-xT-qpW" secondAttribute="bottom" constant="20" id="mxq-iL-0N5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Z6G-cr-nVO">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="dfa-vN-3oU">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="acU-rH-jhx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="coinCountLabel" destination="K63-xT-qpW" id="cAl-QK-AAy"/>
                         <outlet property="gameText" destination="hNG-Yh-paY" id="EaJ-Mh-Htn"/>
                         <outlet property="playAgainButton" destination="YbK-8l-i8l" id="SKB-fc-Knv"/>
+                        <outlet property="privacySettingsButton" destination="dfa-vN-3oU" id="EWu-jG-vdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

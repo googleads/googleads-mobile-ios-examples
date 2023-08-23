@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2023 Google LLC
+//  Copyright 2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -47,6 +47,12 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
   /// The state of the game.
   private var gameState = GameState.notStarted
 
+  /// Indicates whether the Google Mobile Ads SDK has started.
+  private var isMobileAdsStartCalled = false
+
+  /// The privacy settings button.
+  @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
+
   /// The countdown timer label.
   @IBOutlet weak var gameText: UILabel!
 
@@ -71,16 +77,46 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
       selector: #selector(GameViewController.resumeGame),
       name: UIApplication.didBecomeActiveNotification, object: nil)
 
-    startNewGame()
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
+      guard let self else { return }
+
+      self.startNewGame()
+
+      if let consentError {
+        // Consent gathering failed.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        self.startGoogleMobileAdsSDK()
+      }
+
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
+    }
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      startGoogleMobileAdsSDK()
+    }
+  }
+
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
+
+      self.isMobileAdsStartCalled = true
+
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+      // Request an ad.
+      self.loadRewardedInterstitialAd()
+    }
   }
 
   // MARK: - Game Logic
 
   private func startNewGame() {
-    if rewardedInterstitialAd == nil {
-      loadRewardedInterstitialAd()
-    }
-
     gameState = .playing
     timeLeft = GameViewController.gameLength
     playAgainButton.isHidden = true
@@ -198,10 +234,34 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
     }
   }
 
-  // MARK: - Interstitial Button Actions
+  // MARK: - Button Actions
+
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    pauseGame()
+
+    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
+      [weak self] formError in
+      guard let self else { return }
+      guard let formError else { return self.resumeGame() }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(
+        UIAlertAction(
+          title: "OK", style: .cancel,
+          handler: { _ in
+            self.resumeGame()
+          }))
+      self.present(alertController, animated: true)
+    }
+  }
 
   @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      loadRewardedInterstitialAd()
+    }
   }
 
   // MARK: - GADFullScreenContentDelegate

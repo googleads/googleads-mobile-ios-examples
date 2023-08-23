@@ -18,6 +18,8 @@
 
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
+#import "GoogleMobileAdsConsentManager.h"
+
 /// GameState indicates the progress of the game.
 typedef NS_ENUM(NSUInteger, GameState) {
   /** Game has not started. */
@@ -37,6 +39,21 @@ static const NSInteger kGameLength = 5;
 static const NSInteger kAdIntroLength = 3;
 
 @interface ViewController () <GADFullScreenContentDelegate>
+
+/// The privacy settings button.
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
+
+/// The game text.
+@property(nonatomic, weak) IBOutlet UILabel *gameText;
+
+/// The play again button.
+@property(nonatomic, weak) IBOutlet UIButton *playAgainButton;
+
+/// The text indicating current coin count.
+@property(weak, nonatomic) IBOutlet UILabel *coinCountLabel;
+
+/// Starts a new game. Shows a rewarded interstitial if it's ready.
+- (IBAction)playAgain:(id)sender;
 
 /// The rewarded interstitial ad.
 @property(nonatomic) GADRewardedInterstitialAd *rewardedInterstitialAd;
@@ -61,27 +78,62 @@ static const NSInteger kAdIntroLength = 3;
   [super viewDidLoad];
 
   // Pause game when application is backgrounded.
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(pauseGame)
-                                               name:UIApplicationDidEnterBackgroundNotification
-                                             object:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                         selector:@selector(pauseGame)
+                                             name:UIApplicationDidEnterBackgroundNotification
+                                           object:nil];
 
   // Resume game when application becomes active.
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(resumeGame)
-                                               name:UIApplicationDidBecomeActiveNotification
-                                             object:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                         selector:@selector(resumeGame)
+                                             name:UIApplicationDidBecomeActiveNotification
+                                           object:nil];
 
-  [self startNewGame];
+  __weak __typeof__(self) weakSelf = self;
+  [GoogleMobileAdsConsentManager.sharedInstance
+      gatherConsentFromConsentPresentationViewController:self
+                                consentGatheringComplete:^(NSError *_Nullable consentError) {
+                                  __strong __typeof__(self) strongSelf = weakSelf;
+                                  if (!strongSelf) {
+                                    return;
+                                  }
+
+                                  [strongSelf startNewGame];
+
+                                  if (consentError) {
+                                    // Consent gathering failed.
+                                    NSLog(@"Error: %@", consentError.localizedDescription);
+                                  }
+
+                                  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+                                    [strongSelf startGoogleMobileAdsSDK];
+                                  }
+
+                                  strongSelf.privacySettingsButton.enabled =
+                                      GoogleMobileAdsConsentManager.sharedInstance
+                                          .isPrivacyOptionsRequired;
+                                }];
+
+  // This sample attempts to load ads using consent obtained in the previous session.
+  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+    [self startGoogleMobileAdsSDK];
+  }
+}
+
+- (void)startGoogleMobileAdsSDK {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    // Initialize the Google Mobile Ads SDK.
+    [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
+
+    // Request an ad.
+    [self loadRewardedInterstitialAd];
+  });
 }
 
 #pragma mark Game logic
 
 - (void)startNewGame {
-  if (!self.rewardedInterstitialAd) {
-    [self loadRewardedInterstitialAd];
-  }
-
   self.gameState = GameStatePlaying;
   self.playAgainButton.hidden = YES;
   self.timeLeft = kGameLength;
@@ -218,7 +270,7 @@ static const NSInteger kAdIntroLength = 3;
   }
 }
 
-#pragma GADFullScreeContentDelegate implementation
+#pragma mark GADFullScreeContentDelegate implementation
 
 - (void)adWillPresentFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
   NSLog(@"Ad did present full screen content.");
@@ -236,10 +288,41 @@ static const NSInteger kAdIntroLength = 3;
   self.playAgainButton.hidden = NO;
 }
 
-#pragma Rewarded Interstitial button actions
+#pragma mark Rewarded Interstitial button actions
+
+- (IBAction)privacySettingsTapped:(UIBarButtonItem *)sender {
+  [self pauseGame];
+
+  [GoogleMobileAdsConsentManager.sharedInstance
+      presentPrivacyOptionsFormFromViewController:self
+                                completionHandler:^(NSError *_Nullable formError) {
+                                  if (formError) {
+                                    UIAlertController *alertController = [UIAlertController
+                                        alertControllerWithTitle:formError.localizedDescription
+                                                         message:@"Please try again later."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                    UIAlertAction *defaultAction =
+                                        [UIAlertAction actionWithTitle:@"OK"
+                                                                 style:UIAlertActionStyleCancel
+                                                               handler:^(UIAlertAction *action) {
+                                                                 [self resumeGame];
+                                                               }];
+
+                                    [alertController addAction:defaultAction];
+                                    [self presentViewController:alertController
+                                                       animated:YES
+                                                     completion:nil];
+                                  } else {
+                                    [self resumeGame];
+                                  }
+                                }];
+}
 
 - (IBAction)playAgain:(id)sender {
   [self startNewGame];
+  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+    [self loadRewardedInterstitialAd];
+  }
 }
 
 @end
