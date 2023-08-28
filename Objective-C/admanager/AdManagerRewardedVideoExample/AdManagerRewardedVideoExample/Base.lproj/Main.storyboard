@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="744-Tn-U5D">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="F0e-Rd-cK3">
+            <objects>
+                <navigationController id="744-Tn-U5D" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AFs-Jp-NGB">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ubT-tJ-ZL7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8l-m5-xpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-796" y="300"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,12 +36,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8I-QX-BFr">
-                                <rect key="frame" x="119" y="151" width="137.66666666666669" height="28"/>
+                                <rect key="frame" x="118.66666666666667" y="201" width="137.66666666666663" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-BM-5pl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-BM-5pl">
                                 <rect key="frame" x="152" y="391" width="71" height="30"/>
                                 <state key="normal" title="Play Again">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,7 +50,7 @@
                                     <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7g7-dg-jNU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo0-r9-be3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo0-r9-be3">
                                 <rect key="frame" x="67" y="490" width="241" height="30"/>
                                 <state key="normal" title="Watch Video for 10 additional coins">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00R-h7-8ah">
-                                <rect key="frame" x="70.666666666666686" y="78" width="234" height="30"/>
+                                <rect key="frame" x="70.666666666666686" y="128" width="234" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -73,17 +86,24 @@
                             <constraint firstItem="jo0-r9-be3" firstAttribute="top" secondItem="M2Q-BM-5pl" secondAttribute="bottom" constant="69" id="wpp-ln-mG8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PGv-CE-ob6">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="zmm-hJ-J8C">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="DF4-1f-7EI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="CoinCountLabel" destination="8bC-Xf-vdC" id="5Qt-gW-qHb"/>
                         <outlet property="coinCountLabel" destination="66F-G1-EAg" id="3f8-Ux-ZLc"/>
                         <outlet property="gameLabel" destination="O8I-QX-BFr" id="26K-1G-F7M"/>
                         <outlet property="playAgainButton" destination="M2Q-BM-5pl" id="7Cj-0o-XXR"/>
+                        <outlet property="privacySettingsButton" destination="zmm-hJ-J8C" id="qpr-ic-bcl"/>
                         <outlet property="showVideoButton" destination="jo0-r9-be3" id="Cfc-Kw-ASW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="406.59333333333331"/>
+            <point key="canvasLocation" x="204.80000000000001" y="300.4384236453202"/>
         </scene>
     </scenes>
 </document>

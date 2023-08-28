@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="pGH-Ev-CeE">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="LbX-T3-8Cj">
+            <objects>
+                <navigationController id="pGH-Ev-CeE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XKb-Wu-QdO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qWi-5L-oqx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gO-z7-i8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-770" y="331"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RewardedVideoExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AdManagerRewardedVideoExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B53-EV-pAP"/>
                         <viewControllerLayoutGuide type="bottom" id="WtJ-WL-DO3"/>
@@ -25,12 +36,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IL-to-DZf">
-                                <rect key="frame" x="8" y="70" width="359" height="36"/>
+                                <rect key="frame" x="8" y="114" width="359" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoO-Ga-hur">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoO-Ga-hur">
                                 <rect key="frame" x="16" y="368" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Play Again">
@@ -38,6 +49,16 @@
                                 </state>
                                 <connections>
                                     <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8PF-rz-hFt"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTO-QG-Mlb">
+                                <rect key="frame" x="8" y="429" width="359" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Watch video for additional 10 coins">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="watchVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ng-ff-FJq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpQ-a9-WRd">
@@ -56,6 +77,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NoO-Ga-hur" secondAttribute="trailing" id="0oN-7D-qbb"/>
+                            <constraint firstItem="uTO-QG-Mlb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AVQ-e1-DIT"/>
                             <constraint firstAttribute="bottomMargin" secondItem="QZR-go-ZKi" secondAttribute="bottom" id="KYP-wF-lJc"/>
                             <constraint firstItem="wpQ-a9-WRd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rj7-wA-EE9"/>
                             <constraint firstItem="6IL-to-DZf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="WGr-Js-IQC"/>
@@ -63,19 +85,28 @@
                             <constraint firstAttribute="leadingMargin" secondItem="NoO-Ga-hur" secondAttribute="leading" id="ZYv-Kl-Jml"/>
                             <constraint firstItem="NoO-Ga-hur" firstAttribute="top" secondItem="wpQ-a9-WRd" secondAttribute="bottom" constant="20" id="c67-gY-PSX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6IL-to-DZf" secondAttribute="trailing" constant="-8" id="hCf-OY-DWm"/>
+                            <constraint firstItem="uTO-QG-Mlb" firstAttribute="top" secondItem="NoO-Ga-hur" secondAttribute="bottom" constant="20" id="llU-Od-5B2"/>
                             <constraint firstItem="QZR-go-ZKi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sey-pf-b0q"/>
                             <constraint firstItem="wpQ-a9-WRd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t4z-bx-Lo4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kej-Cx-qHW">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="xfn-We-cUj">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="AUR-Ph-cq6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="coinCountLabel" destination="QZR-go-ZKi" id="phD-yy-NM6"/>
                         <outlet property="gameText" destination="wpQ-a9-WRd" id="jgH-bl-10i"/>
                         <outlet property="playAgainButton" destination="NoO-Ga-hur" id="NmL-nh-1EK"/>
+                        <outlet property="watchVideoButton" destination="uTO-QG-Mlb" id="mbV-qa-rVp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125" y="368"/>
+            <point key="canvasLocation" x="200" y="331.0344827586207"/>
         </scene>
     </scenes>
 </document>

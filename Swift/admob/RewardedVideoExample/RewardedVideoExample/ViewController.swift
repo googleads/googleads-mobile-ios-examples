@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016 Google, Inc.
+//  Copyright 2016 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -53,11 +53,20 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   /// The last fire date before a pause.
   var previousFireDate: Date?
 
+  /// Indicates whether the Google Mobile Ads SDK has started.
+  private var isMobileAdsStartCalled = false
+
+  /// The privacy settings button.
+  @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
+
   /// In-game text that indicates current counter value or game over state.
   @IBOutlet weak var gameText: UILabel!
 
   /// Button to restart game.
   @IBOutlet weak var playAgainButton: UIButton!
+
+  /// Button to watch a video.
+  @IBOutlet weak var watchVideoButton: UIButton!
 
   /// Text that indicates current coin count.
   @IBOutlet weak var coinCountLabel: UILabel!
@@ -69,25 +78,53 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
     // Pause game when application is backgrounded.
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(ViewController.applicationDidEnterBackground(_:)),
+      selector: #selector(ViewController.pauseGame),
       name: UIApplication.didEnterBackgroundNotification, object: nil)
 
     // Resume game when application is returned to foreground.
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(ViewController.applicationDidBecomeActive(_:)),
+      selector: #selector(ViewController.resumeGame),
       name: UIApplication.didBecomeActiveNotification, object: nil)
 
-    startNewGame()
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
+      guard let self else { return }
+
+      self.startNewGame()
+
+      if let consentError {
+        // Consent gathering failed.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        self.startGoogleMobileAdsSDK()
+      }
+
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
+    }
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      startGoogleMobileAdsSDK()
+    }
   }
 
-  // MARK: Game logic
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
 
-  fileprivate func startNewGame() {
-    gameState = .playing
-    counter = gameLength
-    playAgainButton.isHidden = true
+      self.isMobileAdsStartCalled = true
 
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+      // Request an ad.
+      self.loadRewardedAd()
+    }
+  }
+
+  func loadRewardedAd() {
     GADRewardedAd.load(
       withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: GADRequest()
     ) { (ad, error) in
@@ -99,6 +136,15 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       self.rewardedAd = ad
       self.rewardedAd?.fullScreenContentDelegate = self
     }
+  }
+
+  // MARK: Game logic
+
+  fileprivate func startNewGame() {
+    gameState = .playing
+    counter = gameLength
+    playAgainButton.isHidden = true
+    watchVideoButton.isHidden = true
 
     gameText.text = String(counter)
     timer = Timer.scheduledTimer(
@@ -109,7 +155,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       repeats: true)
   }
 
-  @objc func applicationDidEnterBackground(_ notification: Notification) {
+  @objc func pauseGame() {
     // Pause the game if it is currently playing.
     if gameState != .playing {
       return
@@ -124,7 +170,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
     timer?.fireDate = Date.distantFuture
   }
 
-  @objc func applicationDidBecomeActive(_ notification: Notification) {
+  @objc func resumeGame() {
     // Resume the game if it is currently paused.
     if gameState != .paused {
       return
@@ -156,6 +202,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
     gameState = .ended
     gameText.text = "Game over!"
     playAgainButton.isHidden = false
+    watchVideoButton.isHidden = false
     timer?.invalidate()
     timer = nil
     earnCoins(gameOverReward)
@@ -163,7 +210,30 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
 
   // MARK: Button actions
 
-  @IBAction func playAgain(_ sender: AnyObject) {
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    pauseGame()
+
+    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
+      [weak self] formError in
+      guard let self else { return }
+      guard let formError else { return self.resumeGame() }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(
+        UIAlertAction(
+          title: "OK", style: .cancel,
+          handler: { _ in
+            self.resumeGame()
+          }))
+      self.present(alertController, animated: true)
+    }
+  }
+
+  @IBAction func watchVideo(_ sender: UIButton) {
+    watchVideoButton.isHidden = true
+
     if let ad = rewardedAd {
       ad.present(fromRootViewController: self) {
         let reward = ad.adReward
@@ -178,12 +248,16 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
         preferredStyle: .alert)
       let alertAction = UIAlertAction(
         title: "OK",
-        style: .cancel,
-        handler: { [weak self] action in
-          self?.startNewGame()
-        })
+        style: .cancel)
       alert.addAction(alertAction)
       self.present(alert, animated: true, completion: nil)
+    }
+  }
+
+  @IBAction func playAgain(_ sender: AnyObject) {
+    startNewGame()
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      loadRewardedAd()
     }
   }
 
@@ -208,10 +282,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       preferredStyle: .alert)
     let alertAction = UIAlertAction(
       title: "Drat",
-      style: .cancel,
-      handler: { [weak self] action in
-        self?.startNewGame()
-      })
+      style: .cancel)
     alert.addAction(alertAction)
     self.present(alert, animated: true, completion: nil)
   }

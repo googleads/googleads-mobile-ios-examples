@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2017 Google, Inc.
+//  Copyright 2017 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //  limitations under the License.
 //
 
-import GoogleMobileAds
 import UIKit
 
 @UIApplicationMain
@@ -26,9 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-
-    // Initialize Google Mobile Ads SDK
-    GADMobileAds.sharedInstance().start()
     return true
   }
 

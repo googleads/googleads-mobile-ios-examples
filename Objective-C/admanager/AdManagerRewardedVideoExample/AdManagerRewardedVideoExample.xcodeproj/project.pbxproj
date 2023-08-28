@@ -13,6 +13,7 @@
 		507818A52196508400E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5078189D2196508300E5A44A /* Images.xcassets */; };
 		507818A72196508400E5A44A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 507818A02196508400E5A44A /* ViewController.m */; };
 		507818A82196508400E5A44A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 507818A12196508400E5A44A /* main.m */; };
+		A863BE562A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A863BE542A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		507818A02196508400E5A44A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		507818A12196508400E5A44A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E1845D1B30D695002ADFFB /* AdManagerRewardedVideoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerRewardedVideoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A863BE542A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
+		A863BE552A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,11 +42,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EDA40070968E29A84D09672 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		507818962196508300E5A44A /* AdManagerRewardedVideoExample */ = {
 			isa = PBXGroup;
 			children = (
 				507818972196508300E5A44A /* AppDelegate.h */,
 				507818982196508300E5A44A /* AppDelegate.m */,
+				A863BE552A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.h */,
+				A863BE542A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.m */,
 				507818992196508300E5A44A /* LaunchScreen.xib */,
 				5078189B2196508300E5A44A /* Main.storyboard */,
 				5078189D2196508300E5A44A /* Images.xcassets */,
@@ -60,6 +72,7 @@
 			children = (
 				507818962196508300E5A44A /* AdManagerRewardedVideoExample */,
 				84E1845E1B30D695002ADFFB /* Products */,
+				4EDA40070968E29A84D09672 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A863BE562A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.m in Sources */,
 				507818A72196508400E5A44A /* ViewController.m in Sources */,
 				507818A82196508400E5A44A /* main.m in Sources */,
 				507818A22196508400E5A44A /* AppDelegate.m in Sources */,

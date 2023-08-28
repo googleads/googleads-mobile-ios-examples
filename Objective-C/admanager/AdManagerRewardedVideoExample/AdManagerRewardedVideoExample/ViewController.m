@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2017 Google, Inc.
+//  Copyright 2017 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -15,7 +15,10 @@
 //
 
 #import "ViewController.h"
+
 #import <GoogleMobileAds/GoogleMobileAds.h>
+
+#import "GoogleMobileAdsConsentManager.h"
 
 /// Constant for coin rewards.
 static const NSInteger GameOverReward = 1;
@@ -31,6 +34,27 @@ typedef NS_ENUM(NSInteger, GameState) {
 };
 
 @interface ViewController () <GADFullScreenContentDelegate>
+
+/// The privacy settings button.
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
+
+/// The game text.
+@property(weak, nonatomic) IBOutlet UILabel *gameLabel;
+
+/// The play again button.
+@property(weak, nonatomic) IBOutlet UIButton *playAgainButton;
+
+/// The button to show rewarded video.
+@property(weak, nonatomic) IBOutlet UIButton *showVideoButton;
+
+/// The text indicating current coin count.
+@property(weak, nonatomic) IBOutlet UILabel *coinCountLabel;
+
+/// Restarts the game.
+- (IBAction)playAgain:(id)sender;
+
+/// Shows a rewarded video.
+- (IBAction)showVideo:(id)sender;
 
 /// Number of coins the user has earned.
 @property(nonatomic, assign) NSInteger coinCount;
@@ -52,6 +76,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 
 /// A pre-loaded rewarded ad.
 @property(nonatomic, strong) GADRewardedAd *rewardedAd;
+
 @end
 
 @implementation ViewController
@@ -59,30 +84,64 @@ typedef NS_ENUM(NSInteger, GameState) {
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.coinCount = 0;
-  [self startNewGame];
+
+  // Pause game when application is backgrounded.
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(pauseGame)
+                                               name:UIApplicationDidEnterBackgroundNotification
+                                             object:nil];
+
+  // Resume game when application becomes active.
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(resumeGame)
+                                               name:UIApplicationDidBecomeActiveNotification
+                                             object:nil];
+
+  __weak __typeof__(self) weakSelf = self;
+  [GoogleMobileAdsConsentManager.sharedInstance
+      gatherConsentFromConsentPresentationViewController:self
+                                consentGatheringComplete:^(NSError *_Nullable consentError) {
+                                  __strong __typeof__(self) strongSelf = weakSelf;
+                                  if (!strongSelf) {
+                                    return;
+                                  }
+
+                                  [strongSelf startNewGame];
+
+                                  if (consentError) {
+                                    // Consent gathering failed.
+                                    NSLog(@"Error: %@", consentError.localizedDescription);
+                                  }
+
+                                  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+                                    [strongSelf startGoogleMobileAdsSDK];
+                                  }
+
+                                  strongSelf.privacySettingsButton.enabled =
+                                      GoogleMobileAdsConsentManager.sharedInstance
+                                          .isPrivacyOptionsRequired;
+                                }];
+
+  // This sample attempts to load ads using consent obtained in the previous session.
+  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+    [self startGoogleMobileAdsSDK];
+  }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  [self resumeGame];
-}
+- (void)startGoogleMobileAdsSDK {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    // Initialize the Google Mobile Ads SDK.
+    [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
 
-- (void)viewWillDisappear:(BOOL)animated {
-  [super viewWillDisappear:animated];
-  [self pauseGame];
-}
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    // Request an ad.
+    [self loadRewardedAd];
+  });
 }
 
 #pragma mark Game logic
 
 - (void)startNewGame {
-  if (!self.rewardedAd) {
-    [self loadRewardedAd];
-  }
   self.gameState = kGameStatePlaying;
   self.playAgainButton.hidden = YES;
   self.showVideoButton.hidden = YES;
@@ -170,13 +229,46 @@ typedef NS_ENUM(NSInteger, GameState) {
   [self earnCoins:GameOverReward];
 }
 
-#pragma Interstitial button actions
+#pragma mark Button actions
+
+- (IBAction)privacySettingsTapped:(UIBarButtonItem *)sender {
+  [self pauseGame];
+
+  [GoogleMobileAdsConsentManager.sharedInstance
+      presentPrivacyOptionsFormFromViewController:self
+                                completionHandler:^(NSError *_Nullable formError) {
+                                  if (formError) {
+                                    UIAlertController *alertController = [UIAlertController
+                                        alertControllerWithTitle:formError.localizedDescription
+                                                         message:@"Please try again later."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                    UIAlertAction *defaultAction =
+                                        [UIAlertAction actionWithTitle:@"OK"
+                                                                 style:UIAlertActionStyleCancel
+                                                               handler:^(UIAlertAction *action) {
+                                                                 [self resumeGame];
+                                                               }];
+
+                                    [alertController addAction:defaultAction];
+                                    [self presentViewController:alertController
+                                                       animated:YES
+                                                     completion:nil];
+                                  } else {
+                                    [self resumeGame];
+                                  }
+                                }];
+}
 
 - (IBAction)playAgain:(id)sender {
   [self startNewGame];
+  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+    [self loadRewardedAd];
+  }
 }
 
 - (IBAction)showVideo:(id)sender {
+  self.showVideoButton.hidden = YES;
+
   if (self.rewardedAd && [self.rewardedAd canPresentFromRootViewController:self error:nil]) {
     [self.rewardedAd presentFromRootViewController:self
                           userDidEarnRewardHandler:^{
@@ -188,7 +280,6 @@ typedef NS_ENUM(NSInteger, GameState) {
                             NSLog(@"%@", rewardMessage);
                             // Reward the user for watching the video.
                             [self earnCoins:[reward.amount integerValue]];
-                            self.showVideoButton.hidden = YES;
                           }];
   }
 }
@@ -203,7 +294,6 @@ typedef NS_ENUM(NSInteger, GameState) {
 /// Tells the delegate that the rewarded ad failed to present.
 - (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
   NSLog(@"Rewarded ad failed to present with error: %@", [error localizedDescription]);
-  __weak ViewController *weakSelf = self;
   UIAlertController *alert = [UIAlertController
       alertControllerWithTitle:@"Rewarded Ad not ready"
                        message:[NSString
@@ -212,9 +302,7 @@ typedef NS_ENUM(NSInteger, GameState) {
                 preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Drat"
                                                         style:UIAlertActionStyleCancel
-                                                      handler:^(UIAlertAction *action) {
-                                                        [weakSelf startNewGame];
-                                                      }];
+                                                      handler:nil];
   [alert addAction:alertAction];
   [self presentViewController:alert animated:YES completion:nil];
 }

@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="qry-Zw-rIU">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
-        
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="HK6-Af-Zmk">
+            <objects>
+                <navigationController id="qry-Zw-rIU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XBL-iS-CWJ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hb1-Ld-Zis"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EyC-Ce-Cb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="331"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -25,12 +36,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Impossible Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IL-to-DZf">
-                                <rect key="frame" x="8" y="70" width="359" height="36"/>
+                                <rect key="frame" x="8" y="114" width="359" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoO-Ga-hur">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoO-Ga-hur">
                                 <rect key="frame" x="16" y="368" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Play Again">
@@ -38,6 +49,16 @@
                                 </state>
                                 <connections>
                                     <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8PF-rz-hFt"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp8-Gb-gGT">
+                                <rect key="frame" x="8" y="429" width="359" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Watch video for additional 10 coins">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="watchVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3aR-1k-zIr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpQ-a9-WRd">
@@ -57,25 +78,36 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NoO-Ga-hur" secondAttribute="trailing" id="0oN-7D-qbb"/>
                             <constraint firstAttribute="bottomMargin" secondItem="QZR-go-ZKi" secondAttribute="bottom" id="KYP-wF-lJc"/>
+                            <constraint firstItem="wp8-Gb-gGT" firstAttribute="top" secondItem="NoO-Ga-hur" secondAttribute="bottom" constant="20" id="N10-8k-Olg"/>
                             <constraint firstItem="wpQ-a9-WRd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rj7-wA-EE9"/>
                             <constraint firstItem="6IL-to-DZf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="WGr-Js-IQC"/>
                             <constraint firstItem="6IL-to-DZf" firstAttribute="top" secondItem="B53-EV-pAP" secondAttribute="bottom" constant="50" id="XtW-vs-4Pk"/>
                             <constraint firstAttribute="leadingMargin" secondItem="NoO-Ga-hur" secondAttribute="leading" id="ZYv-Kl-Jml"/>
                             <constraint firstItem="NoO-Ga-hur" firstAttribute="top" secondItem="wpQ-a9-WRd" secondAttribute="bottom" constant="20" id="c67-gY-PSX"/>
+                            <constraint firstItem="wp8-Gb-gGT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gft-Am-Zap"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6IL-to-DZf" secondAttribute="trailing" constant="-8" id="hCf-OY-DWm"/>
                             <constraint firstItem="QZR-go-ZKi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sey-pf-b0q"/>
                             <constraint firstItem="wpQ-a9-WRd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t4z-bx-Lo4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7Bb-F7-zZZ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="JAf-SR-ukB">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="kPO-7v-zzk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="coinCountLabel" destination="QZR-go-ZKi" id="phD-yy-NM6"/>
                         <outlet property="gameText" destination="wpQ-a9-WRd" id="jgH-bl-10i"/>
                         <outlet property="playAgainButton" destination="NoO-Ga-hur" id="NmL-nh-1EK"/>
+                        <outlet property="privacySettingsButton" destination="JAf-SR-ukB" id="KSb-ft-xtt"/>
+                        <outlet property="watchVideoButton" destination="wp8-Gb-gGT" id="o73-H2-ilU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125" y="368"/>
+            <point key="canvasLocation" x="200" y="331.0344827586207"/>
         </scene>
     </scenes>
 </document>

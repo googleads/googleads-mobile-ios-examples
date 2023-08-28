@@ -13,6 +13,7 @@
 		84E1846C1B30D695002ADFFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E1846A1B30D695002ADFFB /* Main.storyboard */; };
 		84E1846E1B30D695002ADFFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E1846D1B30D695002ADFFB /* Images.xcassets */; };
 		84E184711B30D695002ADFFB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E1846F1B30D695002ADFFB /* LaunchScreen.xib */; };
+		A863BE532A8FD44600910FF5 /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A863BE522A8FD44600910FF5 /* GoogleMobileAdsConsentManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		84E1846B1B30D695002ADFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E1846D1B30D695002ADFFB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84E184701B30D695002ADFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A863BE512A8FD44600910FF5 /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
+		A863BE522A8FD44600910FF5 /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 			children = (
 				84E184641B30D695002ADFFB /* AppDelegate.h */,
 				84E184651B30D695002ADFFB /* AppDelegate.m */,
+				A863BE512A8FD44600910FF5 /* GoogleMobileAdsConsentManager.h */,
+				A863BE522A8FD44600910FF5 /* GoogleMobileAdsConsentManager.m */,
 				84E184671B30D695002ADFFB /* ViewController.h */,
 				84E184681B30D695002ADFFB /* ViewController.m */,
 				84E1846A1B30D695002ADFFB /* Main.storyboard */,
@@ -158,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A863BE532A8FD44600910FF5 /* GoogleMobileAdsConsentManager.m in Sources */,
 				84E184691B30D695002ADFFB /* ViewController.m in Sources */,
 				84E184661B30D695002ADFFB /* AppDelegate.m in Sources */,
 				84E184631B30D695002ADFFB /* main.m in Sources */,

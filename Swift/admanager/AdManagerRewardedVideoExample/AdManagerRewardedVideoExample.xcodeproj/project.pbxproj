@@ -12,6 +12,7 @@
 		507818E92199E6C200E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818E22199E6C100E5A44A /* Main.storyboard */; };
 		507818EA2199E6C200E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818E42199E6C100E5A44A /* Images.xcassets */; };
 		507818EC2199E6C200E5A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818E62199E6C100E5A44A /* ViewController.swift */; };
+		A863BE502A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A863BE4F2A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		507818E52199E6C100E5A44A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507818E62199E6C100E5A44A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		849326B01B066A7F00863759 /* AdManagerRewardedVideoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerRewardedVideoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A863BE4F2A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				507818DF2199E6C100E5A44A /* AppDelegate.swift */,
+				A863BE4F2A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift */,
 				507818E02199E6C100E5A44A /* LaunchScreen.xib */,
 				507818E22199E6C100E5A44A /* Main.storyboard */,
 				507818E42199E6C100E5A44A /* Images.xcassets */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				507818EC2199E6C200E5A44A /* ViewController.swift in Sources */,
+				A863BE502A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift in Sources */,
 				507818E72199E6C200E5A44A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
