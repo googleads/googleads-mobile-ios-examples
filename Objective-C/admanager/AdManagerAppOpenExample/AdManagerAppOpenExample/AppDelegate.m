@@ -20,12 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<NSString *, __kindof NSObject *> *)launchOptions {
-  // Initialize Google Mobile Ads SDK.
-  [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
-  // Although the Google Mobile Ads SDK might not be fully initialized at this point,
-  // we should still load the app open ad so it becomes ready to show when the splash
-  // screen dismisses.
-  [AppOpenAdManager.sharedInstance loadAd];
   return YES;
 }
 

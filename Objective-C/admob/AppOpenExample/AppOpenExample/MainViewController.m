@@ -16,10 +16,41 @@
 
 #import "MainViewController.h"
 
+#import "GoogleMobileAdsConsentManager.h"
+
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  self.privacySettingsButton.enabled =
+      GoogleMobileAdsConsentManager.sharedInstance.isPrivacyOptionsRequired;
+}
+
+- (IBAction)privacySettingsTapped:(UIBarButtonItem *)sender {
+  [GoogleMobileAdsConsentManager.sharedInstance
+      presentPrivacyOptionsFormFromViewController:self
+                                completionHandler:^(NSError *_Nullable formError) {
+                                  if (formError) {
+                                    UIAlertController *alertController = [UIAlertController
+                                        alertControllerWithTitle:formError.localizedDescription
+                                                         message:@"Please try again later."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                    UIAlertAction *defaultAction =
+                                        [UIAlertAction actionWithTitle:@"OK"
+                                                                 style:UIAlertActionStyleCancel
+                                                               handler:^(UIAlertAction *action){
+                                                               }];
+
+                                    [alertController addAction:defaultAction];
+                                    [self presentViewController:alertController
+                                                       animated:YES
+                                                     completion:nil];
+                                  }
+                                }];
+}
 
 @end

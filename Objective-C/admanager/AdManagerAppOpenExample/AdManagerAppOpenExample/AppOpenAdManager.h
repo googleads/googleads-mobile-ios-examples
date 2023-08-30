@@ -18,7 +18,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol AppOpenAdManagerDelegate <NSObject>
-/// Method to be invoked when an app open ad is complete (i.e. dismissed or fails to show).
+/// Method to be invoked when an app open ad life cycle is complete (i.e. dismissed or fails to
+/// show).
 - (void)adDidComplete;
 @end
 

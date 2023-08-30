@@ -15,6 +15,7 @@
 		50CF72B922FE190500C450A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B822FE190500C450A7 /* Assets.xcassets */; };
 		50CF72BC22FE190600C450A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */; };
 		50CF72BF22FE190600C450A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72BE22FE190600C450A7 /* main.m */; };
+		A89F3F2F2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A89F3F2E2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		50CF72BB22FE190600C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50CF72BD22FE190600C450A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50CF72BE22FE190600C450A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A89F3F2D2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
+		A89F3F2E2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +70,10 @@
 			children = (
 				50CF72AF22FE190400C450A7 /* AppDelegate.h */,
 				50CF72B022FE190400C450A7 /* AppDelegate.m */,
-				2BA7163526F122A500D9382D /* AppOpenAdManager.m */,
 				2BA7163726F122C600D9382D /* AppOpenAdManager.h */,
+				2BA7163526F122A500D9382D /* AppOpenAdManager.m */,
+				A89F3F2D2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.h */,
+				A89F3F2E2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m */,
 				2BA7163026F0732900D9382D /* SplashViewController.h */,
 				2BA7163226F073B700D9382D /* SplashViewController.m */,
 				2B169D6826F1F41E00AB7B77 /* MainViewController.h */,
@@ -161,6 +166,7 @@
 			files = (
 				50CF72BF22FE190600C450A7 /* main.m in Sources */,
 				2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */,
+				A89F3F2F2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */,
 				50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */,
 				2B169D6926F1F41E00AB7B77 /* MainViewController.m in Sources */,
 				2BA7163326F073B700D9382D /* SplashViewController.m in Sources */,

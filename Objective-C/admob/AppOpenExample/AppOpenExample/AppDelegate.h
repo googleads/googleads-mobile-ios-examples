@@ -16,10 +16,9 @@
 
 #import "AppOpenAdManager.h"
 #import "SplashViewController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, GADFullScreenContentDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(nonatomic) UIWindow* window;
 

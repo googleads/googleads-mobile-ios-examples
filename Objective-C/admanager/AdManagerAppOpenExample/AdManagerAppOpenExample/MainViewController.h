@@ -18,4 +18,6 @@
 
 @interface MainViewController : UIViewController
 
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
+
 @end

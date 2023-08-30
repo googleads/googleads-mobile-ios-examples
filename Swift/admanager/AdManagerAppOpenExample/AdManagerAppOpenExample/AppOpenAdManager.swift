@@ -17,7 +17,8 @@
 import GoogleMobileAds
 
 protocol AppOpenAdManagerDelegate: AnyObject {
-  /// Method to be invoked when an app open ad is complete (i.e. dismissed or fails to show).
+  /// Method to be invoked when an app open ad life cycle is complete (i.e. dismissed or fails to
+  /// show).
   func appOpenAdManagerAdDidComplete(_ appOpenAdManager: AppOpenAdManager)
 }
 
@@ -74,7 +75,7 @@ class AppOpenAdManager: NSObject {
       if let error = error {
         self.appOpenAd = nil
         self.loadTime = nil
-        print("App open ad failed to load with error: \(error.localizedDescription).")
+        print("App open ad failed to load with error: \(error.localizedDescription)")
         return
       }
 
@@ -97,7 +98,9 @@ class AppOpenAdManager: NSObject {
     if !isAdAvailable() {
       print("App open ad is not ready yet.")
       appOpenAdManagerAdDidComplete()
-      loadAd()
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        loadAd()
+      }
       return
     }
     if let ad = appOpenAd {
@@ -127,7 +130,7 @@ extension AppOpenAdManager: GADFullScreenContentDelegate {
   ) {
     appOpenAd = nil
     isShowingAd = false
-    print("App open ad failed to present with error: \(error.localizedDescription).")
+    print("App open ad failed to present with error: \(error.localizedDescription)")
     appOpenAdManagerAdDidComplete()
     loadAd()
   }

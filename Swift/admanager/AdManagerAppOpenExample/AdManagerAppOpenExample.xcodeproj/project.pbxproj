@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		2B658146272B2A5B000EC8AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B65813D272B2A5B000EC8AB /* Main.storyboard */; };
 		2B658148272B2A5B000EC8AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B658140272B2A5B000EC8AB /* MainViewController.swift */; };
 		2B658149272B2A5B000EC8AB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B658141272B2A5B000EC8AB /* SplashViewController.swift */; };
+		A89F3F2C2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F3F2B2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2B658140272B2A5B000EC8AB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2B658141272B2A5B000EC8AB /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2BED246326958D2200E96170 /* AdManagerAppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerAppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A89F3F2B2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			children = (
 				2B658138272B2A5B000EC8AB /* AppDelegate.swift */,
 				2B658139272B2A5B000EC8AB /* AppOpenAdManager.swift */,
+				A89F3F2B2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift */,
 				2B65813A272B2A5B000EC8AB /* Assets.xcassets */,
 				2B65813B272B2A5B000EC8AB /* LaunchScreen.storyboard */,
 				2B65813D272B2A5B000EC8AB /* Main.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				2B658148272B2A5B000EC8AB /* MainViewController.swift in Sources */,
 				2B658143272B2A5B000EC8AB /* AppOpenAdManager.swift in Sources */,
+				A89F3F2C2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift in Sources */,
 				2B658142272B2A5B000EC8AB /* AppDelegate.swift in Sources */,
 				2B658149272B2A5B000EC8AB /* SplashViewController.swift in Sources */,
 			);

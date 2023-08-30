@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VTY-iM-chx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VTY-iM-chx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="L6y-cZ-Qch">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" id="Hwg-hu-1bJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c4e-pR-ucM">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="y6F-GR-HP5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="llq-15-zQ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-601" y="104"/>
+        </scene>
         <!--SplashScreen-->
         <scene sceneID="F7j-xK-S4E">
             <objects>
@@ -29,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App is done loading in: 5 seconds." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-cP-vCE">
-                                <rect key="frame" x="76.5" y="442.5" width="261" height="21"/>
+                                <rect key="frame" x="76.5" y="444.5" width="261" height="21"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,18 +64,21 @@
                             <constraint firstAttribute="bottomMargin" secondItem="6Mc-lZ-UkN" secondAttribute="bottom" constant="20" id="fQH-sg-qNy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="56M-it-Zvz">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="djj-5E-57x"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="splashScreenLabel" destination="Q8x-cP-vCE" id="dQb-gl-Wcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDP-nf-Xs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-599" y="104"/>
+            <point key="canvasLocation" x="-1332" y="104"/>
         </scene>
         <!--Main Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainStoryBoard" title="Main Screen" id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryBoard" title="Main Screen" id="BYZ-38-t0r" customClass="MainViewController" customModule="AppOpenExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hf7-bD-DxT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,10 +106,20 @@
                             <constraint firstAttribute="centerX" secondItem="aB0-sP-Iui" secondAttribute="centerX" id="Yx2-eC-oL5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fwU-TG-60Q">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="iuj-MN-j3s">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="aeP-rA-Sc6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="privacySettingsButton" destination="iuj-MN-j3s" id="hJl-rA-Yr5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125" y="104"/>
+            <point key="canvasLocation" x="199" y="104"/>
         </scene>
     </scenes>
 </document>

@@ -15,6 +15,7 @@
 		2B15BE532707A49600B39A12 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE492707A49600B39A12 /* MainViewController.m */; };
 		2B15BE542707A49600B39A12 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE4B2707A49600B39A12 /* SplashViewController.m */; };
 		2B15BE552707A49600B39A12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE4C2707A49600B39A12 /* main.m */; };
+		A89F3F322A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A89F3F302A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		2B15BE4B2707A49600B39A12 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		2B15BE4C2707A49600B39A12 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50CF72AC22FE190400C450A7 /* AdManagerAppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerAppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A89F3F302A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
+		A89F3F312A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,8 @@
 				2B15BE3F2707A49600B39A12 /* AppDelegate.m */,
 				2B15BE402707A49600B39A12 /* AppOpenAdManager.h */,
 				2B15BE412707A49600B39A12 /* AppOpenAdManager.m */,
+				A89F3F312A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.h */,
+				A89F3F302A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.m */,
 				2B15BE422707A49600B39A12 /* Assets.xcassets */,
 				2B15BE432707A49600B39A12 /* LaunchScreen.storyboard */,
 				2B15BE452707A49600B39A12 /* Main.storyboard */,
@@ -161,6 +166,7 @@
 			files = (
 				2B15BE552707A49600B39A12 /* main.m in Sources */,
 				2B15BE4E2707A49600B39A12 /* AppOpenAdManager.m in Sources */,
+				A89F3F322A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */,
 				2B15BE532707A49600B39A12 /* MainViewController.m in Sources */,
 				2B15BE4D2707A49600B39A12 /* AppDelegate.m in Sources */,
 				2B15BE542707A49600B39A12 /* SplashViewController.m in Sources */,

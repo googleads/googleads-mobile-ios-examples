@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 
+import GoogleMobileAds
 import UIKit
 
 class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
@@ -22,6 +23,8 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
   var secondsRemaining: Int = 5
   /// The countdown timer.
   var countdownTimer: Timer?
+  /// Indicates whether the Google Mobile Ads SDK has been intitialized.
+  private var isMobileAdsStartCalled = false
   /// Text that indicates the number of seconds left to show an app open ad.
   @IBOutlet weak var splashScreenLabel: UILabel!
 
@@ -29,16 +32,56 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
     super.viewDidLoad()
     AppOpenAdManager.shared.appOpenAdManagerDelegate = self
     startTimer()
+
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) {
+      [weak self] consentError in
+      guard let self else { return }
+
+      if let consentError {
+        // Consent gathering failed.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        self.startGoogleMobileAdsSDK()
+      }
+
+      // Move onto the main screen if the app is done loading.
+      if self.secondsRemaining <= 0 {
+        self.startMainScreen()
+      }
+    }
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      startGoogleMobileAdsSDK()
+    }
   }
 
   @objc func decrementCounter() {
     secondsRemaining -= 1
-    if secondsRemaining > 0 {
+    guard secondsRemaining <= 0 else {
       splashScreenLabel.text = "App is done loading in: \(secondsRemaining)"
-    } else {
-      splashScreenLabel.text = "Done."
-      countdownTimer?.invalidate()
-      AppOpenAdManager.shared.showAdIfAvailable(viewController: self)
+      return
+    }
+
+    splashScreenLabel.text = "Done."
+    countdownTimer?.invalidate()
+
+    AppOpenAdManager.shared.showAdIfAvailable(viewController: self)
+  }
+
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
+
+      self.isMobileAdsStartCalled = true
+
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+
+      // Load an ad.
+      AppOpenAdManager.shared.loadAd()
     }
   }
 
@@ -54,14 +97,15 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
 
   func startMainScreen() {
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-    let mainViewController = mainStoryBoard.instantiateViewController(
-      withIdentifier: "MainStoryBoard")
-    present(mainViewController, animated: true) {
+    let navigationController = mainStoryBoard.instantiateViewController(
+      withIdentifier: "NavigationController")
+    present(navigationController, animated: true) {
       self.dismiss(animated: false) {
+        AppOpenAdManager.shared.appOpenAdManagerDelegate = nil
         // Find the keyWindow which is currently being displayed on the device,
         // and set its rootViewController to mainViewController.
         let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
-        keyWindow?.rootViewController = mainViewController
+        keyWindow?.rootViewController = navigationController
       }
     }
   }

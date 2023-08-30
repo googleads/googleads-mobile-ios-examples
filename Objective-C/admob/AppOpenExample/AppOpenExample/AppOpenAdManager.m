@@ -16,6 +16,8 @@
 
 #import "AppOpenAdManager.h"
 
+#import "GoogleMobileAdsConsentManager.h"
+
 /// Ad references in the app open beta will time out after four hours, but this time limit
 /// may change in future beta versions. For details, see:
 /// https://support.google.com/admob/answer/9341964?hl=en
@@ -84,7 +86,7 @@ static const NSInteger TimeoutInterval = 4;
     if (error) {
       self->_appOpenAd = nil;
       self->_loadTime = nil;
-      NSLog(@"App open ad failed to load with error: %@.", error);
+      NSLog(@"App open ad failed to load with error: %@", error);
       return;
     }
     self->_appOpenAd = appOpenAd;
@@ -106,7 +108,9 @@ static const NSInteger TimeoutInterval = 4;
   if (![self isAdAvailable]) {
     NSLog(@"App open ad is not ready yet.");
     [self adDidComplete];
-    [self loadAd];
+    if ([GoogleMobileAdsConsentManager.sharedInstance canRequestAds]) {
+      [self loadAd];
+    }
     return;
   }
   NSLog(@"App open ad will be displayed.");
@@ -135,7 +139,7 @@ static const NSInteger TimeoutInterval = 4;
     didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
   _appOpenAd = nil;
   _isShowingAd = NO;
-  NSLog(@"App open ad failed to present with error: %@.", error.localizedDescription);
+  NSLog(@"App open ad failed to present with error: %@", error.localizedDescription);
   [self adDidComplete];
   [self loadAd];
 }

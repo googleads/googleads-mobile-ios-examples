@@ -14,11 +14,10 @@
 //  limitations under the License.
 //
 
-import GoogleMobileAds
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GADFullScreenContentDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
@@ -26,12 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GADFullScreenContentDeleg
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    // Initialize Google Mobile Ads SDK.
-    GADMobileAds.sharedInstance().start(completionHandler: nil)
-    // Although the Google Mobile Ads SDK might not be fully initialized at this point,
-    // we should still load the app open ad so it becomes ready to show when the splash
-    // screen dismisses.
-    AppOpenAdManager.shared.loadAd()
     return true
   }
 
