@@ -15,6 +15,7 @@
 		507818DA2199E5DA00E5A44A /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507818D02199E5D900E5A44A /* NativeAdView.xib */; };
 		507818DC2199E5DA00E5A44A /* MySimpleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818D32199E5D900E5A44A /* MySimpleNativeAdView.swift */; };
 		507818DD2199E5DA00E5A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818D42199E5D900E5A44A /* ViewController.swift */; };
+		A8DD029A2A7BF778001530DF /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD02992A7BF778001530DF /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		507818D22199E5D900E5A44A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507818D32199E5D900E5A44A /* MySimpleNativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySimpleNativeAdView.swift; sourceTree = "<group>"; };
 		507818D42199E5D900E5A44A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A8DD02992A7BF778001530DF /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				507818C82199E5D900E5A44A /* AppDelegate.swift */,
+				A8DD02992A7BF778001530DF /* GoogleMobileAdsConsentManager.swift */,
 				507818C92199E5D900E5A44A /* Assets.xcassets */,
 				507818CA2199E5D900E5A44A /* LaunchScreen.storyboard */,
 				507818CC2199E5D900E5A44A /* Main.storyboard */,
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DD029A2A7BF778001530DF /* GoogleMobileAdsConsentManager.swift in Sources */,
 				507818DD2199E5DA00E5A44A /* ViewController.swift in Sources */,
 				507818DC2199E5DA00E5A44A /* MySimpleNativeAdView.swift in Sources */,
 				507818D52199E5DA00E5A44A /* AppDelegate.swift in Sources */,

@@ -12,6 +12,7 @@
 		4AEBD5751BF0109B00874961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5731BF0109B00874961 /* Main.storyboard */; };
 		4AEBD5771BF0109B00874961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5761BF0109B00874961 /* Assets.xcassets */; };
 		4AEBD57A1BF0109B00874961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5781BF0109B00874961 /* LaunchScreen.storyboard */; };
+		A8DD02982A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD02972A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift */; };
 		AEA59A4A1FBCD0DE00E6D57D /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA59A481FBCD0DE00E6D57D /* NativeAdView.xib */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		4AEBD5761BF0109B00874961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AEBD5791BF0109B00874961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AEBD57B1BF0109B00874961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8DD02972A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 		AEA59A491FBCD0DE00E6D57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAdView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				4AEBD56F1BF0109B00874961 /* AppDelegate.swift */,
+				A8DD02972A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift */,
 				4AEBD5711BF0109B00874961 /* ViewController.swift */,
 				4AEBD5731BF0109B00874961 /* Main.storyboard */,
 				4AEBD5781BF0109B00874961 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AEBD5721BF0109B00874961 /* ViewController.swift in Sources */,
+				A8DD02982A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift in Sources */,
 				4AEBD5701BF0109B00874961 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

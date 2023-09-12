@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="Ij1-YH-UFk">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="dyG-Ll-1BR">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="FFa-d4-oKK">
+            <objects>
+                <navigationController id="dyG-Ll-1BR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z0c-nu-VtU">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ij1-YH-UFk" kind="relationship" relationship="rootViewController" id="gWP-Mn-Lbr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hq2-a6-dZh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1000" y="205"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tZt-u9-22D">
             <objects>
@@ -22,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNi-Nt-Yy2">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufn-YX-pph" userLabel="Outer Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
@@ -30,18 +44,18 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Native Ads Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dem-T2-XjZ">
                                                 <rect key="frame" x="8" y="8.0000000000000018" width="359" height="20.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8z-h7-dB1" userLabel="Placeholder View">
-                                                <rect key="frame" x="8" y="48.666666666666686" width="359" height="300"/>
+                                                <rect key="frame" x="8" y="48.666666666666657" width="359" height="300"/>
                                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" placeholder="YES" id="TO3-ek-RfG"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUM-rn-obM">
-                                                <rect key="frame" x="10" y="358.66666666666669" width="355" height="20.333333333333314"/>
+                                                <rect key="frame" x="10" y="358.66666666666669" width="355" height="20.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="8j4-XF-Qbf"/>
                                                 </constraints>
@@ -50,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6D-p2-RuP" userLabel="Inner Content View">
-                                                <rect key="frame" x="8" y="389" width="359" height="40"/>
+                                                <rect key="frame" x="8" y="389.33333333333331" width="359" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PC4-5n-8Mc" userLabel="Divider View">
                                                         <rect key="frame" x="179" y="0.0" width="1" height="40"/>
@@ -60,13 +74,13 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Start Videos Muted" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sv-GY-hRf">
-                                                        <rect key="frame" x="14.666666666666671" y="9.9999999999999982" width="156.33333333333331" height="21.333333333333329"/>
+                                                        <rect key="frame" x="16" y="9.9999999999999982" width="155" height="21.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" systemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWh-l9-I1W" userLabel="Start Videos Muted Switch">
-                                                        <rect key="frame" x="195" y="5.3333333333333144" width="51" height="31"/>
+                                                        <rect key="frame" x="195" y="5" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,8 +95,8 @@
                                                     <constraint firstItem="PC4-5n-8Mc" firstAttribute="leading" secondItem="4sv-GY-hRf" secondAttribute="trailing" constant="8" id="xXA-uA-nsr"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bL-Cx-hSz">
-                                                <rect key="frame" x="8" y="439" width="359" height="33"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bL-Cx-hSz">
+                                                <rect key="frame" x="8" y="439.33333333333337" width="359" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Refresh Ad"/>
                                                 <connections>
@@ -90,9 +104,9 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-7I-IVd">
-                                                <rect key="frame" x="8" y="482" width="359" height="20.666666666666686"/>
+                                                <rect key="frame" x="8" y="482.33333333333337" width="359" height="20.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -139,8 +153,16 @@
                             <constraint firstItem="cNi-Nt-Yy2" firstAttribute="leading" secondItem="haS-q5-jEu" secondAttribute="leading" id="bdE-nw-QKp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6On-Xg-1gf">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="8Vd-mB-a4X">
+                            <connections>
+                                <action selector="privacySettingsTapped:" destination="Ij1-YH-UFk" id="1sM-mG-Wyb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nativeAdPlaceholder" destination="b8z-h7-dB1" id="pmf-HK-aoz"/>
+                        <outlet property="privacySettingsButton" destination="8Vd-mB-a4X" id="zc6-22-bS3"/>
                         <outlet property="refreshButton" destination="2bL-Cx-hSz" id="yez-FS-gIq"/>
                         <outlet property="startMutedSwitch" destination="MWh-l9-I1W" id="ArL-a7-hLG"/>
                         <outlet property="versionLabel" destination="9Lg-7I-IVd" id="NUr-Fa-rO4"/>
@@ -149,7 +171,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1k-ph-RoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313.5" y="237.5"/>
+            <point key="canvasLocation" x="22" y="205"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

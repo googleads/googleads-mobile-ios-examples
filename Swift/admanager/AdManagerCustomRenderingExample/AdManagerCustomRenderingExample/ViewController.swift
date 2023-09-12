@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2015 Google, Inc.
+//  Copyright 2015 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -19,25 +19,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  // The view that holds the native ad.
+  /// The privacy settings button.
+  @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
+
+  /// The view that holds the native ad.
   @IBOutlet weak var nativeAdPlaceholder: UIView!
 
-  // Displays status messages about presence of video assets.
+  /// Displays status messages about presence of video assets.
   @IBOutlet weak var videoStatusLabel: UILabel!
 
-  // The app install ad switch.
+  /// The app install ad switch.
   @IBOutlet weak var nativeAdSwitch: UISwitch!
 
-  // The custom native ad switch.
+  /// The custom native ad switch.
   @IBOutlet weak var customNativeAdSwitch: UISwitch!
 
-  // The refresh ad button.
+  /// The refresh ad button.
   @IBOutlet weak var refreshAdButton: UIButton!
 
-  // The SDK version label.
+  /// The SDK version label.
   @IBOutlet weak var versionLabel: UILabel!
 
-  // Switch to indicate if video ads should start muted.
+  /// Switch to indicate if video ads should start muted.
   @IBOutlet weak var startMutedSwitch: UISwitch!
 
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
@@ -45,7 +48,10 @@ class ViewController: UIViewController {
   var adLoader: GADAdLoader!
 
   /// The native ad view that is being presented.
-  var nativeAdView: UIView?
+  var nativeAdView: UIView!
+
+  /// Indicates whether the Google Mobile Ads SDK has started.
+  private var isMobileAdsStartCalled = false
 
   /// The ad unit ID.
   let adUnitID = "/6499/example/native"
@@ -53,18 +59,66 @@ class ViewController: UIViewController {
   /// The native custom format id
   let nativeCustomFormatId = "10104090"
 
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
+      [weak self] formError in
+      guard let self, let formError else { return }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+      self.present(alertController, animated: true)
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
     versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
-    refreshAd(nil)
+
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
+      guard let self else { return }
+
+      if let consentError {
+        // Consent gathering failed.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        self.startGoogleMobileAdsSDK()
+      }
+
+      self.refreshAdButton.isHidden = !GoogleMobileAdsConsentManager.shared.canRequestAds
+
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
+    }
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      startGoogleMobileAdsSDK()
+    }
+  }
+
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
+
+      self.isMobileAdsStartCalled = true
+
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+      // Request an ad.
+      self.refreshAd(nil)
+    }
   }
 
   func setAdView(_ view: UIView) {
-    // Remove the previous ad view.
-    nativeAdView?.removeFromSuperview()
+    nativeAdView.removeFromSuperview()
     nativeAdView = view
-    nativeAdPlaceholder.addSubview(nativeAdView!)
-    nativeAdView!.translatesAutoresizingMaskIntoConstraints = false
+    nativeAdPlaceholder.addSubview(nativeAdView)
+    nativeAdView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.

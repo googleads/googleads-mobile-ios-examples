@@ -1,4 +1,4 @@
-// Copyright (C) 2015 Google, Inc.
+// Copyright 2015 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,10 @@
 // limitations under the License.
 
 #import "ViewController.h"
+
+#import <GoogleMobileAds/GoogleMobileAds.h>
+
+#import "GoogleMobileAdsConsentManager.h"
 
 // Native Advanced ad unit ID for testing.
 static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
@@ -41,7 +45,71 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
   [self setAdView:[[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil]
                       .firstObject];
-  [self refreshAd:nil];
+
+  __weak __typeof__(self) weakSelf = self;
+  [GoogleMobileAdsConsentManager.sharedInstance
+      gatherConsentFromConsentPresentationViewController:self
+                                consentGatheringComplete:^(NSError *_Nullable consentError) {
+                                  if (consentError) {
+                                    // Consent gathering failed.
+                                    NSLog(@"Error: %@", consentError.localizedDescription);
+                                  }
+
+                                  __strong __typeof__(self) strongSelf = weakSelf;
+                                  if (!strongSelf) {
+                                    return;
+                                  }
+
+                                  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+                                    [strongSelf startGoogleMobileAdsSDK];
+                                  }
+
+                                  [strongSelf.refreshButton
+                                      setHidden:!GoogleMobileAdsConsentManager.sharedInstance
+                                                     .canRequestAds];
+
+                                  strongSelf.privacySettingsButton.enabled =
+                                      GoogleMobileAdsConsentManager.sharedInstance
+                                          .isPrivacyOptionsRequired;
+                                }];
+
+  // This sample attempts to load ads using consent obtained in the previous session.
+  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+    [self startGoogleMobileAdsSDK];
+  }
+}
+
+- (void)startGoogleMobileAdsSDK {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    // Initialize the Google Mobile Ads SDK.
+    [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
+
+    // Request an ad.
+    [self refreshAd:nil];
+  });
+}
+
+- (IBAction)privacySettingsTapped:(UIBarButtonItem *)sender {
+  [GoogleMobileAdsConsentManager.sharedInstance
+      presentPrivacyOptionsFormFromViewController:self
+                                completionHandler:^(NSError *_Nullable formError) {
+                                  if (formError) {
+                                    UIAlertController *alertController = [UIAlertController
+                                        alertControllerWithTitle:formError.localizedDescription
+                                                         message:@"Please try again later."
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                    UIAlertAction *defaultAction =
+                                        [UIAlertAction actionWithTitle:@"OK"
+                                                                 style:UIAlertActionStyleCancel
+                                                               handler:nil];
+
+                                    [alertController addAction:defaultAction];
+                                    [self presentViewController:alertController
+                                                       animated:YES
+                                                     completion:nil];
+                                  }
+                                }];
 }
 
 - (IBAction)refreshAd:(id)sender {

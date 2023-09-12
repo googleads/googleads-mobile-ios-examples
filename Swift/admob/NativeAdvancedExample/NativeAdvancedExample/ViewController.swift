@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2015 Google, Inc.
+//  Copyright 2015 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -18,6 +18,9 @@ import GoogleMobileAds
 import UIKit
 
 class ViewController: UIViewController {
+
+  /// The privacy options button.
+  @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
 
   /// The view that holds the native ad.
   @IBOutlet weak var nativeAdPlaceholder: UIView!
@@ -44,26 +47,79 @@ class ViewController: UIViewController {
   /// The native ad view that is being presented.
   var nativeAdView: GADNativeAdView!
 
+  /// Indicates whether the Google Mobile Ads SDK has started.
+  private var isMobileAdsStartCalled = false
+
   /// The ad unit ID.
   let adUnitID = "ca-app-pub-3940256099942544/3986624511"
+
+  // Handle changes to user consent.
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
+      [weak self] formError in
+      guard let self, let formError else { return }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+      self.present(alertController, animated: true)
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
+
     guard
       let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
       let adView = nibObjects.first as? GADNativeAdView
     else {
       assert(false, "Could not load nib file for adView")
     }
+
     setAdView(adView)
-    refreshAd(nil)
+
+    GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
+      guard let self else { return }
+
+      if let consentError {
+        // Consent gathering failed.
+        print("Error: \(consentError.localizedDescription)")
+      }
+
+      if GoogleMobileAdsConsentManager.shared.canRequestAds {
+        self.startGoogleMobileAdsSDK()
+      }
+
+      self.refreshAdButton.isHidden = !GoogleMobileAdsConsentManager.shared.canRequestAds
+
+      self.privacySettingsButton.isEnabled =
+        GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
+    }
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    if GoogleMobileAdsConsentManager.shared.canRequestAds {
+      startGoogleMobileAdsSDK()
+    }
+  }
+
+  private func startGoogleMobileAdsSDK() {
+    DispatchQueue.main.async {
+      guard !self.isMobileAdsStartCalled else { return }
+
+      self.isMobileAdsStartCalled = true
+
+      // Initialize the Google Mobile Ads SDK.
+      GADMobileAds.sharedInstance().start()
+      // Request an ad.
+      self.refreshAd(nil)
+    }
   }
 
   func setAdView(_ view: GADNativeAdView) {
-    // Remove the previous ad view.
     nativeAdView = view
-    nativeAdPlaceholder.addSubview(nativeAdView)
+    nativeAdPlaceholder.addSubview(view)
     nativeAdView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints for positioning the native ad view to stretch the entire width and height
