@@ -96,12 +96,13 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
   }
 
   func startMainScreen() {
+    AppOpenAdManager.shared.appOpenAdManagerDelegate = nil
+
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     let navigationController = mainStoryBoard.instantiateViewController(
       withIdentifier: "NavigationController")
     present(navigationController, animated: true) {
       self.dismiss(animated: false) {
-        AppOpenAdManager.shared.appOpenAdManagerDelegate = nil
         // Find the keyWindow which is currently being displayed on the device,
         // and set its rootViewController to mainViewController.
         let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })

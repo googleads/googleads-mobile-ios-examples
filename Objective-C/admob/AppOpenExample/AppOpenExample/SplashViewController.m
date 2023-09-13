@@ -106,6 +106,8 @@ static const NSInteger CounterTime = 5;
 }
 
 - (void)startMainScreen {
+  AppOpenAdManager.sharedInstance.delegate = nil;
+
   UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
   UINavigationController *navigationController = (UINavigationController *)[mainStoryBoard
       instantiateViewControllerWithIdentifier:@"NavigationController"];
@@ -115,7 +117,6 @@ static const NSInteger CounterTime = 5;
                    completion:^{
                      [self dismissViewControllerAnimated:NO
                                               completion:^{
-                                                AppOpenAdManager.sharedInstance.delegate = nil;
                                                 // Find the keyWindow which is currently being
                                                 // displayed on the device, and set its
                                                 // rootViewController to mainViewController.
