@@ -15,6 +15,7 @@
 		A88A283B28AEEA27003946EE /* RewardedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A283A28AEEA27003946EE /* RewardedContentView.swift */; };
 		A88A283F28AEEA3A003946EE /* AdDialogContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A283D28AEEA3A003946EE /* AdDialogContentView.swift */; };
 		A88A284028AEEA3A003946EE /* RewardedInterstitialContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A283E28AEEA3A003946EE /* RewardedInterstitialContentView.swift */; };
+		A895BBAF2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A895BBAE2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift */; };
 		A8C744922864F9B800327C12 /* SwiftUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C744912864F9B800327C12 /* SwiftUIDemoApp.swift */; };
 		A8C744952864F9CD00327C12 /* BannerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C744942864F9CC00327C12 /* BannerContentView.swift */; };
 		A8C744962864F9E100327C12 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C744902864F92A00327C12 /* MenuView.swift */; };
@@ -29,6 +30,7 @@
 		A88A283A28AEEA27003946EE /* RewardedContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardedContentView.swift; sourceTree = "<group>"; };
 		A88A283D28AEEA3A003946EE /* AdDialogContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdDialogContentView.swift; sourceTree = "<group>"; };
 		A88A283E28AEEA3A003946EE /* RewardedInterstitialContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardedInterstitialContentView.swift; sourceTree = "<group>"; };
+		A895BBAE2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMobileAdsConsentManager.swift; sourceTree = "<group>"; };
 		A8C7446A2864F75B00327C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "SwiftUIDemo/Supporting-Files/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		A8C7446F2864F75B00327C12 /* SwiftUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C744862864F7A600327C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftUIDemo/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -115,6 +117,7 @@
 			children = (
 				A8C7446A2864F75B00327C12 /* Assets.xcassets */,
 				A86D7F87289CD83A00496237 /* CountdownTimer.swift */,
+				A895BBAE2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift */,
 				A8C744862864F7A600327C12 /* Info.plist */,
 				A8C7448D2864F92A00327C12 /* Menu */,
 				A8C744912864F9B800327C12 /* SwiftUIDemoApp.swift */,
@@ -230,6 +233,7 @@
 				A8C744952864F9CD00327C12 /* BannerContentView.swift in Sources */,
 				A86D7F88289CD83A00496237 /* CountdownTimer.swift in Sources */,
 				A88A283B28AEEA27003946EE /* RewardedContentView.swift in Sources */,
+				A895BBAF2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift in Sources */,
 				A81C3A4B28786EFF002BFF3B /* InterstitialContentView.swift in Sources */,
 				A8C744962864F9E100327C12 /* MenuView.swift in Sources */,
 				A88A283F28AEEA3A003946EE /* AdDialogContentView.swift in Sources */,

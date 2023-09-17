@@ -21,8 +21,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
-
-    GADMobileAds.sharedInstance().start()
+    let versionNumber = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
+    print("Google Mobile Ads SDK version: \(versionNumber)")
 
     return true
   }
