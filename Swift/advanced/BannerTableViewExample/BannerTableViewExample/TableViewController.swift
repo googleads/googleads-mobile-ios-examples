@@ -46,10 +46,16 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 135
 
-    // Load the sample data.
     addMenuItems()
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+
+    // Load the sample data.
     addBannerAds()
     preloadNextAd()
+    tableView.reloadData()
   }
 
   // MARK: - UITableView delegate methods
@@ -115,16 +121,16 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
 
   // MARK: - GADBannerView delegate methods
 
-  func adViewDidReceiveAd(_ adView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
     // Mark banner ad as succesfully loaded.
-    loadStateForAds[adView] = true
+    loadStateForAds[bannerView] = true
     // Load the next ad in the adsToLoad list.
     preloadNextAd()
   }
 
-  func adView(
-    _ adView: GADBannerView,
-    didFailToReceiveAdWithError error: NSError
+  func bannerView(
+    _ bannerView: GADBannerView,
+    didFailToReceiveAdWithError error: Error
   ) {
     print("Failed to receive ad: \(error.localizedDescription)")
     // Load the next ad in the adsToLoad list.
@@ -137,7 +143,6 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
   func addBannerAds() {
     var index = adInterval
     // Ensure subview layout has been performed before accessing subview sizes.
-    tableView.layoutIfNeeded()
     while index < tableViewItems.count {
       let adSize = GADAdSizeFromCGSize(
         CGSize(width: tableView.contentSize.width, height: adViewHeight))

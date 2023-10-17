@@ -56,10 +56,16 @@ static const CGFloat GADAdViewHeight = 100;
   self.tableView.rowHeight = UITableViewAutomaticDimension;
   self.tableView.estimatedRowHeight = 135;
 
-  // Load the sample data.
   [self addMenuItems];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  // Load the sample data.
   [self addBannerAds];
   [self preloadNextAd];
+  [self.tableView reloadData];
 }
 
 // Return string containing memory address location of a GADBannerView to be used to
@@ -124,14 +130,14 @@ static const CGFloat GADAdViewHeight = 100;
 
 // MARK: - GADBannerView delegate methods
 
-- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+- (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   // Mark banner ad as succesfully loaded.
   _loadStateForAds[[self referenceKeyForAdView:bannerView]] = @YES;
   // Load the next ad in the adsToLoad list.
   [self preloadNextAd];
 }
 
-- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
+- (void)bannerView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
   NSLog(@"Failed to receive ad: %@", error.localizedDescription);
   // Load the next ad in the adsToLoad list.
   [self preloadNextAd];
@@ -143,8 +149,6 @@ static const CGFloat GADAdViewHeight = 100;
 - (void)addBannerAds {
   NSInteger index = _adInterval;
   // Ensure subview layout has been performed before accessing subview sizes.
-  [self.tableView layoutIfNeeded];
-
   while (index < _tableViewItems.count) {
     GADBannerView *adView = [[GADBannerView alloc]
         initWithAdSize:GADAdSizeFromCGSize(
