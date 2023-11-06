@@ -1,70 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="I2k-Tk-Ql0">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="hrC-kg-0cx">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="6Vs-oQ-PZA">
+        <scene sceneID="C4n-XQ-wRB">
             <objects>
-                <navigationController id="I2k-Tk-Ql0" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mvh-jd-d5M">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                <navigationController id="hrC-kg-0cx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FPg-sG-Arc">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BT4-IE-4oK"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Uds-uW-h0Q"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="79R-RW-eZH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uSn-6A-8ax" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1355" y="296"/>
+            <point key="canvasLocation" x="-1388" y="-1360"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SFb-1a-qlX"/>
-                        <viewControllerLayoutGuide type="bottom" id="LF1-Ug-RAX"/>
+                        <viewControllerLayoutGuide type="top" id="tbf-Mn-K5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="VPC-wN-zKU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPL-30-0SK" customClass="GAMBannerView">
-                                <rect key="frame" x="36.666666666666657" y="768" width="320" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ZaG-Ct-7iz"/>
-                                    <constraint firstAttribute="width" constant="320" id="fpu-sd-d1g"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banner Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChV-Lb-5si">
+                                <rect key="frame" x="104" y="144" width="167" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="b5b-Tm-bLe" customClass="GAMBannerView">
+                                <rect key="frame" x="27.666666666666657" y="728" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LF1-Ug-RAX" firstAttribute="top" secondItem="jPL-30-0SK" secondAttribute="bottom" id="OZR-Fx-FSc"/>
-                            <constraint firstItem="jPL-30-0SK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TDu-IU-gjl"/>
+                            <constraint firstAttribute="centerX" secondItem="ChV-Lb-5si" secondAttribute="centerX" id="NIs-CX-Ldp"/>
+                            <constraint firstItem="b5b-Tm-bLe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WeT-da-GCk"/>
+                            <constraint firstItem="ChV-Lb-5si" firstAttribute="top" secondItem="tbf-Mn-K5I" secondAttribute="bottom" constant="50" id="cAO-jl-Cb8"/>
+                            <constraint firstItem="VPC-wN-zKU" firstAttribute="top" secondItem="b5b-Tm-bLe" secondAttribute="bottom" id="gEX-fN-fGB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lTn-F8-vJq">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="Yww-jA-bXG">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="OeE-zL-ruC">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="D2V-uK-vBr">
                             <connections>
-                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="GiJ-B4-wKI"/>
+                                <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="35e-S9-mPt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bannerView" destination="jPL-30-0SK" id="rUl-2d-laY"/>
-                        <outlet property="privacySettingsButton" destination="Yww-jA-bXG" id="WSz-kj-LSr"/>
+                        <outlet property="bannerView" destination="b5b-Tm-bLe" id="cWf-NW-i8E"/>
+                        <outlet property="privacySettingsButton" destination="D2V-uK-vBr" id="eKt-Ys-Cxs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-160" y="296"/>
+            <point key="canvasLocation" x="-190.40000000000001" y="-1359.2203898050975"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
