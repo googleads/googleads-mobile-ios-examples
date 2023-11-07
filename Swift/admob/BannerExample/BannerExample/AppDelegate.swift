@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2015 Google LLC
+//  Copyright 2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -21,16 +21,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
   func application(
     _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
-
     print(
-      "Google Mobile Ads SDK version: \(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))"
+      "Google Mobile Ads SDK version: 
+        \(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))"
     )
-
     return true
   }
+
 }
