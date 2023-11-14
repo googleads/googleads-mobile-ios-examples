@@ -30,7 +30,7 @@ class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     bannerView.delegate = self
-    bannerView.adUnitID = Constants.AdMobAdUnitID
+    bannerView.adUnitID = Constants.adMobAdUnitID
     bannerView.rootViewController = self
     bannerView.load(GADRequest())
   }

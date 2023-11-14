@@ -28,7 +28,7 @@ class AdManagerPPIDViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bannerView.rootViewController = self
-    bannerView.adUnitID = Constants.AdManagerPPIDAdUnitID
+    bannerView.adUnitID = Constants.adManagerPPIDAdUnitID
   }
 
   @IBAction func loadAd(_ sender: AnyObject) {

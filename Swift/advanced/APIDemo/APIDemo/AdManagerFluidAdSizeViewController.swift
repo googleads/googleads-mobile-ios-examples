@@ -39,7 +39,7 @@ class AdManagerFluidAdSizeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView.adUnitID = Constants.AdManagerFluidAdSizeAdUnitID
+    bannerView.adUnitID = Constants.adManagerFluidAdSizeAdUnitID
     bannerView.rootViewController = self
     bannerView.adSize = GADAdSizeFluid
     bannerView.load(GAMRequest())

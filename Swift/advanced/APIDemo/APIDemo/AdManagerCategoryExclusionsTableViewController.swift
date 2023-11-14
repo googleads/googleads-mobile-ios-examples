@@ -33,21 +33,21 @@ class AdManagerCategoryExclusionsTableViewController: UITableViewController {
 
     tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-    noExclusionsBannerView.adUnitID = Constants.AdManagerCategoryExclusionsAdUnitID
+    noExclusionsBannerView.adUnitID = Constants.adManagerCategoryExclusionsAdUnitID
     noExclusionsBannerView.rootViewController = self
     let noExclusionsRequest = GAMRequest()
     noExclusionsBannerView.load(noExclusionsRequest)
 
-    excludeDogsBannerView.adUnitID = Constants.AdManagerCategoryExclusionsAdUnitID
+    excludeDogsBannerView.adUnitID = Constants.adManagerCategoryExclusionsAdUnitID
     excludeDogsBannerView.rootViewController = self
     let excludeDogsRequest = GAMRequest()
-    excludeDogsRequest.categoryExclusions = [Constants.CategoryExclusionDogs]
+    excludeDogsRequest.categoryExclusions = [Constants.categoryExclusionDogs]
     excludeDogsBannerView.load(excludeDogsRequest)
 
-    excludeCatsBannerView.adUnitID = Constants.AdManagerCategoryExclusionsAdUnitID
+    excludeCatsBannerView.adUnitID = Constants.adManagerCategoryExclusionsAdUnitID
     excludeCatsBannerView.rootViewController = self
     let excludeCatsRequest = GAMRequest()
-    excludeCatsRequest.categoryExclusions = [Constants.CategoryExclusionCats]
+    excludeCatsRequest.categoryExclusions = [Constants.categoryExclusionCats]
     excludeCatsBannerView.load(excludeCatsRequest)
   }
 

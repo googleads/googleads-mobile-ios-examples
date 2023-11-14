@@ -36,7 +36,7 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
   override func viewDidLoad() {
     super.viewDidLoad()
     bannerView = GAMBannerView(adSize: GADAdSizeBanner)
-    bannerView.adUnitID = Constants.AdManagerAdSizesAdUnitID
+    bannerView.adUnitID = Constants.adManagerAdSizesAdUnitID
     bannerView.rootViewController = self
     bannerView.adSizeDelegate = self
 

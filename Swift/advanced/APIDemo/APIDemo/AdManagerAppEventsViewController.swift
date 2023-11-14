@@ -26,7 +26,7 @@ class AdManagerAppEventsViewController: UIViewController, GADAppEventDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView.adUnitID = Constants.AdManagerAppEventsAdUnitID
+    bannerView.adUnitID = Constants.adManagerAppEventsAdUnitID
     bannerView.rootViewController = self
     bannerView.appEventDelegate = self
     bannerView.load(GAMRequest())

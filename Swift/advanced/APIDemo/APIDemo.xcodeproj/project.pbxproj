@@ -28,6 +28,7 @@
 		AED11120203213FC00EA4BEE /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED11118203213F500EA4BEE /* UnifiedNativeAdView.xib */; };
 		AED111262032151200EA4BEE /* SimpleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED111252032151200EA4BEE /* SimpleNativeAdView.swift */; };
 		AED111282032174100EA4BEE /* CustomControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED111272032174100EA4BEE /* CustomControlsView.swift */; };
+		EFC712462AD853D80014A2BF /* CollapsibleBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		AED11118203213F500EA4BEE /* UnifiedNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeAdView.xib; sourceTree = "<group>"; };
 		AED111252032151200EA4BEE /* SimpleNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNativeAdView.swift; sourceTree = "<group>"; };
 		AED111272032174100EA4BEE /* CustomControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlsView.swift; sourceTree = "<group>"; };
+		EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleBannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				507818F3219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift */,
 				507818ED219A417E00E5A44A /* AdManagerMultipleAdSizesViewController.swift */,
 				507818EF219A417F00E5A44A /* AdManagerPPIDViewController.swift */,
+				EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */,
 				4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */,
 				4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */,
 				4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */,
@@ -225,6 +228,7 @@
 				507818FA219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift in Sources */,
 				4A7A6CD71C76237500FB1A32 /* Constants.swift in Sources */,
 				507818F6219A418100E5A44A /* AdManagerPPIDViewController.swift in Sources */,
+				EFC712462AD853D80014A2BF /* CollapsibleBannerViewController.swift in Sources */,
 				AED111282032174100EA4BEE /* CustomControlsView.swift in Sources */,
 				4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */,
 				AE3068CA21221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift in Sources */,

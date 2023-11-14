@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016 Google, Inc.
+//  Copyright 2016-2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -31,13 +31,13 @@ class MainViewController: UITableViewController {
       "AdMob - Native Custom Mute This Ad",
       "AdManager - PPID", "AdManager - Custom Targeting", "AdManager - Category Exclusions",
       "AdManager - Multiple Ad Sizes", "AdManager - App Events", "AdManager - Fluid Ad Size",
-      "AdManager - Custom Video Controls",
+      "AdManager - Custom Video Controls", "Collapsible Banner Ad",
     ]
     identifiers = [
       "adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "customMuteSegue",
       "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
       "multipleAdSizesSegue", "appEventsSegue", "fluidAdSizeSegue",
-      "customControlsSegue",
+      "customControlsSegue", "collapsibleSegue",
     ]
   }
 

@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016 Google, Inc.
+//  Copyright 2023 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -19,30 +19,33 @@ import Foundation
 struct Constants {
 
   /// Banner ad unit ID.
-  static let AdMobAdUnitID = "ca-app-pub-3940256099942544/2934735716"
+  static let adMobAdUnitID = "ca-app-pub-3940256099942544/2934735716"
 
   /// AdManager PPID ad unit ID.
-  static let AdManagerPPIDAdUnitID = "/6499/example/APIDemo/PPID"
+  static let adManagerPPIDAdUnitID = "/6499/example/APIDemo/PPID"
 
   /// AdManager custom targeting ad unit ID.
-  static let AdManagerCustomTargetingAdUnitID = "/6499/example/APIDemo/CustomTargeting"
+  static let adManagerCustomTargetingAdUnitID = "/6499/example/APIDemo/CustomTargeting"
 
   /// AdManager category exclusions ad unit ID.
-  static let AdManagerCategoryExclusionsAdUnitID = "/6499/example/APIDemo/CategoryExclusion"
-
-  /// Dogs category excliusion.
-  static let CategoryExclusionDogs = "apidemo_exclude_dogs"
-
-  /// Cats category exclusion.
-  static let CategoryExclusionCats = "apidemo_exclude_cats"
+  static let adManagerCategoryExclusionsAdUnitID = "/6499/example/APIDemo/CategoryExclusion"
 
   /// AdManager ad sizes ad unit ID.
-  static let AdManagerAdSizesAdUnitID = "/6499/example/APIDemo/AdSizes"
+  static let adManagerAdSizesAdUnitID = "/6499/example/APIDemo/AdSizes"
 
   /// AdManager app events ad unit ID.
-  static let AdManagerAppEventsAdUnitID = "/6499/example/APIDemo/AppEvents"
+  static let adManagerAppEventsAdUnitID = "/6499/example/APIDemo/AppEvents"
 
   /// AdManager Fluid ad size ad unit ID.
-  static let AdManagerFluidAdSizeAdUnitID = "/6499/example/APIDemo/Fluid"
+  static let adManagerFluidAdSizeAdUnitID = "/6499/example/APIDemo/Fluid"
+
+  /// Dogs category exclusion.
+  static let categoryExclusionDogs = "apidemo_exclude_dogs"
+
+  /// Cats category exclusion.
+  static let categoryExclusionCats = "apidemo_exclude_cats"
+
+  /// Collapsible banner ad unit ID.
+  static let collapsibleBannerAdUnitID = "ca-app-pub-3940256099942544/8388050270"
 
 }

@@ -56,7 +56,7 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADMobileAds.sharedInstance().sdkVersion
+    versionLabel.text = "\(GADMobileAds.sharedInstance().versionNumber)"
     guard
       let nibObjects =
         Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil),

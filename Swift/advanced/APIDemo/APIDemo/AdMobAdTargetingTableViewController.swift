@@ -46,7 +46,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     // GADBannerView setup.
-    bannerView.adUnitID = Constants.AdMobAdUnitID
+    bannerView.adUnitID = Constants.adMobAdUnitID
     bannerView.rootViewController = self
     bannerView.delegate = self
 

@@ -37,7 +37,7 @@ class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewData
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView.adUnitID = Constants.AdManagerCustomTargetingAdUnitID
+    bannerView.adUnitID = Constants.adManagerCustomTargetingAdUnitID
     bannerView.rootViewController = self
     favoriteSportsPicker.delegate = self
     favoriteSportsPicker.dataSource = self

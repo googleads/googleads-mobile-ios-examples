@@ -47,7 +47,7 @@ class AdManagerCustomVideoControlsController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADMobileAds.sharedInstance().sdkVersion
+    versionLabel.text = "\(GADMobileAds.sharedInstance().versionNumber)"
     refreshAd(nil)
   }
   @IBAction func refreshAd(_ sender: Any?) {

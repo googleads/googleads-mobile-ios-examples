@@ -88,7 +88,7 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
   @IBAction func loadAd(_ sender: AnyObject) {
     if bannerView == nil {
       bannerView = GADBannerView()
-      bannerView.adUnitID = Constants.AdMobAdUnitID
+      bannerView.adUnitID = Constants.adMobAdUnitID
       bannerView.rootViewController = self
 
       view.addSubview(bannerView)
