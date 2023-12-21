@@ -1,7 +1,6 @@
 platform :ios, '11.0'
 
-target 'APIDemo' do
-  use_frameworks!
+target 'AdaptiveBannerExample' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'GoogleUserMessagingPlatform'
 end
