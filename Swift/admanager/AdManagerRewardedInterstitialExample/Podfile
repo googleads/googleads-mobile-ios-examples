@@ -3,4 +3,5 @@ platform :ios, '11.0'
 target 'AdManagerRewardedInterstitialExample' do
   project 'AdManagerRewardedInterstitialExample.xcodeproj'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'GoogleUserMessagingPlatform'
 end

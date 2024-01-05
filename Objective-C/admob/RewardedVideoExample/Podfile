@@ -2,4 +2,5 @@ platform :ios, '11.0'
 
 target 'RewardedVideoExample' do
   pod 'Google-Mobile-Ads-SDK'
+  pod 'GoogleUserMessagingPlatform'
 end
