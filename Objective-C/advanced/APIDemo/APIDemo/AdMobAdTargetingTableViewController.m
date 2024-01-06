@@ -147,8 +147,8 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
   GADRequest *request = [GADRequest request];
   if ([self.childDirectedLabel.text isEqual:@"Yes"] ||
       [self.childDirectedLabel.text isEqual:@"No"]) {
-    [GADMobileAds.sharedInstance.requestConfiguration
-        tagForChildDirectedTreatment:self.childDirectedLabel.text.boolValue];
+    GADMobileAds.sharedInstance.requestConfiguration.tagForChildDirectedTreatment =
+        [NSNumber numberWithBool:self.childDirectedLabel.text.boolValue];
   }
 
   [self.bannerView loadRequest:request];

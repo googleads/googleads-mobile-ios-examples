@@ -98,7 +98,8 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
       view.addConstraint(
         NSLayoutConstraint(
           item: bannerView!, attribute: .bottom, relatedBy: .equal,
-          toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 0))
+          toItem: view.safeAreaLayoutGuide.bottomAnchor, attribute: .top, multiplier: 1, constant: 0
+        ))
       view.addConstraint(
         NSLayoutConstraint(
           item: bannerView!, attribute: .centerX, relatedBy: .equal,
