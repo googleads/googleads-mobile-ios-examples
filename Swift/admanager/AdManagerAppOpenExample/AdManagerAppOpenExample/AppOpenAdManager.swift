@@ -68,8 +68,7 @@ class AppOpenAdManager: NSObject {
     print("Start loading app open ad.")
     GADAppOpenAd.load(
       withAdUnitID: "/6499/example/app-open",
-      request: GADRequest(),
-      orientation: UIInterfaceOrientation.portrait
+      request: GADRequest()
     ) { ad, error in
       self.isLoadingAd = false
       if let error = error {

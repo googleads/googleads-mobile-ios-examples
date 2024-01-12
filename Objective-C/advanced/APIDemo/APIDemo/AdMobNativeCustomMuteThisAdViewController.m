@@ -44,7 +44,7 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.versionLabel.text = GADMobileAds.sharedInstance.sdkVersion;
+  self.versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance.versionNumber);
 
   NSArray<GADNativeAdView *> *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"NativeAdView"
                                                                          owner:nil
