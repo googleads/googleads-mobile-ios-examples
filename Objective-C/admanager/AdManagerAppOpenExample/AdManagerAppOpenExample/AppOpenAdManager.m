@@ -80,7 +80,6 @@ static const NSInteger TimeoutInterval = 4;
   NSLog(@"Start loading app open ad.");
   [GADAppOpenAd loadWithAdUnitID:@"/6499/example/app-open"
                          request:[GADRequest request]
-                     orientation:UIInterfaceOrientationPortrait
                completionHandler:^(GADAppOpenAd * _Nullable appOpenAd, NSError * _Nullable error) {
     self->_isLoadingAd = NO;
     if (error) {
