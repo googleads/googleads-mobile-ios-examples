@@ -6,19 +6,12 @@ struct RewardedContentView: View {
   @State private var coins: Int = 0
   @State private var showWatchVideoButton = false
   private let coordinator = RewardedAdCoordinator()
-  private let adViewControllerRepresentable = AdViewControllerRepresentable()
   let navigationTitle: String
-
-  var adViewControllerRepresentableView: some View {
-    adViewControllerRepresentable
-      .frame(width: .zero, height: .zero)
-  }
 
   var body: some View {
     VStack(spacing: 20) {
       Text("The Impossible Game")
         .font(.largeTitle)
-        .background(adViewControllerRepresentableView)
 
       Spacer()
 
@@ -31,7 +24,7 @@ struct RewardedContentView: View {
         }
 
         Button("Watch video for additional 10 coins") {
-          coordinator.showAd(from: adViewControllerRepresentable.viewController) { rewardAmount in
+          coordinator.showAd { rewardAmount in
             coins += rewardAmount
           }
           showWatchVideoButton = false
@@ -79,17 +72,6 @@ struct RewardedContentView_Previews: PreviewProvider {
   }
 }
 
-// MARK: - Helper to present Rewarded Ad
-private struct AdViewControllerRepresentable: UIViewControllerRepresentable {
-  let viewController = UIViewController()
-
-  func makeUIViewController(context: Context) -> some UIViewController {
-    return viewController
-  }
-
-  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-}
-
 private class RewardedAdCoordinator: NSObject, GADFullScreenContentDelegate {
   var rewardedAd: GADRewardedAd?
 
@@ -107,15 +89,12 @@ private class RewardedAdCoordinator: NSObject, GADFullScreenContentDelegate {
     rewardedAd = nil
   }
 
-  func showAd(
-    from viewController: UIViewController,
-    userDidEarnRewardHandler completion: @escaping (Int) -> Void
-  ) {
+  func showAd(userDidEarnRewardHandler completion: @escaping (Int) -> Void) {
     guard let rewardedAd = rewardedAd else {
       return print("Ad wasn't ready")
     }
 
-    rewardedAd.present(fromRootViewController: viewController) {
+    rewardedAd.present(fromRootViewController: nil) {
       let reward = rewardedAd.adReward
       print("Reward amount: \(reward.amount)")
       completion(reward.amount.intValue)

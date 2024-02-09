@@ -5,19 +5,12 @@ struct InterstitialContentView: View {
   @StateObject private var countdownTimer = CountdownTimer()
   @State private var showGameOverAlert = false
   private let coordinator = InterstitialAdCoordinator()
-  private let adViewControllerRepresentable = AdViewControllerRepresentable()
   let navigationTitle: String
-
-  var adViewControllerRepresentableView: some View {
-    adViewControllerRepresentable
-      .frame(width: .zero, height: .zero)
-  }
 
   var body: some View {
     VStack(spacing: 20) {
       Text("The Impossible Game")
         .font(.largeTitle)
-        .background(adViewControllerRepresentableView)
 
       Spacer()
 
@@ -50,7 +43,7 @@ struct InterstitialContentView: View {
         dismissButton: .cancel(
           Text("OK"),
           action: {
-            coordinator.showAd(from: adViewControllerRepresentable.viewController)
+            coordinator.showAd()
           }))
     }
     .navigationTitle(navigationTitle)
@@ -69,17 +62,6 @@ struct InterstitialContentView_Previews: PreviewProvider {
   }
 }
 
-// MARK: - Helper to present Interstitial Ad
-private struct AdViewControllerRepresentable: UIViewControllerRepresentable {
-  let viewController = UIViewController()
-
-  func makeUIViewController(context: Context) -> some UIViewController {
-    return viewController
-  }
-
-  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-}
-
 private class InterstitialAdCoordinator: NSObject, GADFullScreenContentDelegate {
   private var interstitial: GADInterstitialAd?
 
@@ -96,11 +78,11 @@ private class InterstitialAdCoordinator: NSObject, GADFullScreenContentDelegate 
     interstitial = nil
   }
 
-  func showAd(from viewController: UIViewController) {
+  func showAd() {
     guard let interstitial = interstitial else {
       return print("Ad wasn't ready")
     }
 
-    interstitial.present(fromRootViewController: viewController)
+    interstitial.present(fromRootViewController: nil)
   }
 }

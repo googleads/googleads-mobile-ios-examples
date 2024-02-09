@@ -7,7 +7,6 @@ struct RewardedInterstitialContentView: View {
   @State private var showAdDialog = false
   @State private var showAd = false
   private let coordinator = RewardedAdCoordinator()
-  private let adViewControllerRepresentable = AdViewControllerRepresentable()
   let navigationTitle: String
 
   var body: some View {
@@ -19,16 +18,10 @@ struct RewardedInterstitialContentView: View {
     }
   }
 
-  var adViewControllerRepresentableView: some View {
-    adViewControllerRepresentable
-      .frame(width: .zero, height: .zero)
-  }
-
   var rewardedInterstitialBody: some View {
     VStack(spacing: 20) {
       Text("The Impossible Game")
         .font(.largeTitle)
-        .background(adViewControllerRepresentableView)
 
       Spacer()
 
@@ -67,7 +60,7 @@ struct RewardedInterstitialContentView: View {
       of: showAd,
       perform: { newValue in
         if newValue {
-          coordinator.showAd(from: adViewControllerRepresentable.viewController) { rewardAmount in
+          coordinator.showAd { rewardAmount in
             coins += rewardAmount
           }
         }
@@ -89,17 +82,6 @@ struct RewardedIntersititalContentView_Previews: PreviewProvider {
   }
 }
 
-// MARK: - Helper to present Rewarded Interstitial Ad
-private struct AdViewControllerRepresentable: UIViewControllerRepresentable {
-  let viewController = UIViewController()
-
-  func makeUIViewController(context: Context) -> some UIViewController {
-    return viewController
-  }
-
-  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-}
-
 private class RewardedAdCoordinator: NSObject, GADFullScreenContentDelegate {
   var rewardedInterstitialAd: GADRewardedInterstitialAd?
 
@@ -116,15 +98,12 @@ private class RewardedAdCoordinator: NSObject, GADFullScreenContentDelegate {
     rewardedInterstitialAd = nil
   }
 
-  func showAd(
-    from viewController: UIViewController,
-    userDidEarnRewardHandler completion: @escaping (Int) -> Void
-  ) {
+  func showAd(userDidEarnRewardHandler completion: @escaping (Int) -> Void) {
     guard let rewarded = rewardedInterstitialAd else {
       return print("Ad wasn't ready")
     }
 
-    rewarded.present(fromRootViewController: viewController) {
+    rewarded.present(fromRootViewController: nil) {
       let reward = rewarded.adReward
       print("Reward amount: \(reward.amount)")
       completion(reward.amount.intValue)
