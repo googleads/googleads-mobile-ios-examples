@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		50931E692151A9C60031BE3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50931E632151A9C60031BE3E /* main.m */; };
 		A863EB632A7B08D800FBEB64 /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A863EB622A7B08D800FBEB64 /* GoogleMobileAdsConsentManager.m */; };
 		EFE9E28025DF3988002F7C5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE9E27F25DF3988002F7C5A /* StoreKit.framework */; };
-		EFE9E28225DF3DD1002F7C5A /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE9E27C25DF3876002F7C5A /* GoogleAppMeasurement.xcframework */; };
 		EFE9E28325DF3DD6002F7C5A /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE9E27A25DF3860002F7C5A /* GoogleMobileAds.xcframework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE9E28325DF3DD6002F7C5A /* GoogleMobileAds.xcframework in Frameworks */,
-				EFE9E28225DF3DD1002F7C5A /* GoogleAppMeasurement.xcframework in Frameworks */,
 				EFE9E28025DF3988002F7C5A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +284,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/AdManagerBannerExample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +302,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/AdManagerBannerExample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
