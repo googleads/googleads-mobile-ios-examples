@@ -81,7 +81,9 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
       GADMobileAds.sharedInstance().start()
 
       // Load an ad.
-      AppOpenAdManager.shared.loadAd()
+      Task {
+        await AppOpenAdManager.shared.loadAd()
+      }
     }
   }
 

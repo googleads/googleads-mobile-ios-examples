@@ -120,21 +120,19 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       // Initialize the Google Mobile Ads SDK.
       GADMobileAds.sharedInstance().start()
       // Request an ad.
-      self.loadRewardedAd()
+      Task {
+        await self.loadRewardedAd()
+      }
     }
   }
 
-  func loadRewardedAd() {
-    GADRewardedAd.load(
-      withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: GADRequest()
-    ) { (ad, error) in
-      if let error = error {
-        print("Rewarded ad failed to load with error: \(error.localizedDescription)")
-        return
-      }
-      print("Loading Succeeded")
-      self.rewardedAd = ad
-      self.rewardedAd?.fullScreenContentDelegate = self
+  func loadRewardedAd() async {
+    do {
+      rewardedAd = try await GADRewardedAd.load(
+        withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: GADRequest())
+      rewardedAd?.fullScreenContentDelegate = self
+    } catch {
+      print("Rewarded ad failed to load with error: \(error.localizedDescription)")
     }
   }
 
@@ -257,7 +255,9 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
-      loadRewardedAd()
+      Task {
+        await loadRewardedAd()
+      }
     }
   }
 

@@ -110,7 +110,9 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
       // Initialize the Google Mobile Ads SDK.
       GADMobileAds.sharedInstance().start()
       // Request an ad.
-      self.loadRewardedInterstitialAd()
+      Task {
+        await self.loadRewardedInterstitialAd()
+      }
     }
   }
 
@@ -129,18 +131,14 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
       repeats: true)
   }
 
-  private func loadRewardedInterstitialAd() {
-    let request = GAMRequest()
-    GADRewardedInterstitialAd.load(
-      withAdUnitID: "/21775744923/example/rewarded_interstitial", request: request
-    ) { (ad, error) in
-      if let error = error {
-        print("Failed to load rewarded interstitial ad with error: \(error.localizedDescription)")
-        self.playAgainButton.isHidden = false
-        return
-      }
-      self.rewardedInterstitialAd = ad
-      self.rewardedInterstitialAd?.fullScreenContentDelegate = self
+  private func loadRewardedInterstitialAd() async {
+    do {
+      rewardedInterstitialAd = try await GADRewardedInterstitialAd.load(
+        withAdUnitID: "/21775744923/example/rewarded_interstitial", request: GAMRequest())
+      rewardedInterstitialAd?.fullScreenContentDelegate = self
+    } catch {
+      print("Failed to load rewarded interstitial ad with error: \(error.localizedDescription)")
+      playAgainButton.isHidden = false
     }
   }
 
@@ -260,7 +258,9 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
   @IBAction func playAgain(_ sender: AnyObject) {
     startNewGame()
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
-      loadRewardedInterstitialAd()
+      Task {
+        await loadRewardedInterstitialAd()
+      }
     }
   }
 

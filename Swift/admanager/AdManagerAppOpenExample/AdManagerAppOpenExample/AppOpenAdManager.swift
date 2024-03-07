@@ -59,30 +59,26 @@ class AppOpenAdManager: NSObject {
     appOpenAdManagerDelegate?.appOpenAdManagerAdDidComplete(self)
   }
 
-  func loadAd() {
+  func loadAd() async {
     // Do not load ad if there is an unused ad or one is already loading.
     if isLoadingAd || isAdAvailable() {
       return
     }
     isLoadingAd = true
-    print("Start loading app open ad.")
-    GADAppOpenAd.load(
-      withAdUnitID: "/6499/example/app-open",
-      request: GADRequest()
-    ) { ad, error in
-      self.isLoadingAd = false
-      if let error = error {
-        self.appOpenAd = nil
-        self.loadTime = nil
-        print("App open ad failed to load with error: \(error.localizedDescription)")
-        return
-      }
 
-      self.appOpenAd = ad
-      self.appOpenAd?.fullScreenContentDelegate = self
-      self.loadTime = Date()
-      print("App open ad loaded successfully.")
+    print("Start loading app open ad.")
+
+    do {
+      appOpenAd = try await GADAppOpenAd.load(
+        withAdUnitID: "/6499/example/app-open", request: GAMRequest())
+      appOpenAd?.fullScreenContentDelegate = self
+      loadTime = Date()
+    } catch {
+      appOpenAd = nil
+      loadTime = nil
+      print("App open ad failed to load with error: \(error.localizedDescription)")
     }
+    isLoadingAd = false
   }
 
   func showAdIfAvailable(viewController: UIViewController) {
@@ -98,7 +94,9 @@ class AppOpenAdManager: NSObject {
       print("App open ad is not ready yet.")
       appOpenAdManagerAdDidComplete()
       if GoogleMobileAdsConsentManager.shared.canRequestAds {
-        loadAd()
+        Task {
+          await loadAd()
+        }
       }
       return
     }
@@ -120,7 +118,9 @@ extension AppOpenAdManager: GADFullScreenContentDelegate {
     isShowingAd = false
     print("App open ad was dismissed.")
     appOpenAdManagerAdDidComplete()
-    loadAd()
+    Task {
+      await loadAd()
+    }
   }
 
   func ad(
@@ -131,6 +131,8 @@ extension AppOpenAdManager: GADFullScreenContentDelegate {
     isShowingAd = false
     print("App open ad failed to present with error: \(error.localizedDescription)")
     appOpenAdManagerAdDidComplete()
-    loadAd()
+    Task {
+      await loadAd()
+    }
   }
 }

@@ -150,7 +150,9 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       // Initialize the Google Mobile Ads SDK.
       GADMobileAds.sharedInstance().start()
       // Request an ad.
-      self.loadInterstitial()
+      Task {
+        await self.loadInterstitial()
+      }
     }
   }
 
@@ -169,17 +171,13 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
       repeats: true)
   }
 
-  fileprivate func loadInterstitial() {
-    let request = GADRequest()
-    GADInterstitialAd.load(
-      withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request
-    ) { (ad, error) in
-      if let error = error {
-        print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-        return
-      }
-      self.interstitial = ad
-      self.interstitial?.fullScreenContentDelegate = self
+  fileprivate func loadInterstitial() async {
+    do {
+      interstitial = try await GADInterstitialAd.load(
+        withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest())
+      interstitial?.fullScreenContentDelegate = self
+    } catch {
+      print("Failed to load interstitial ad with error: \(error.localizedDescription)")
     }
   }
 
@@ -252,7 +250,9 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
     startNewGame()
 
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
-      loadInterstitial()
+      Task {
+        await loadInterstitial()
+      }
     }
   }
 
