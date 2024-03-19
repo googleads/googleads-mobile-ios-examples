@@ -2,10 +2,9 @@ import GoogleMobileAds
 import SwiftUI
 
 struct RewardedContentView: View {
+  @StateObject private var viewModel = RewardedViewModel()
   @StateObject private var countdownTimer = CountdownTimer(10)
-  @State private var coins: Int = 0
   @State private var showWatchVideoButton = false
-  private let coordinator = RewardedAdCoordinator()
   let navigationTitle: String
 
   var body: some View {
@@ -24,9 +23,7 @@ struct RewardedContentView: View {
         }
 
         Button("Watch video for additional 10 coins") {
-          coordinator.showAd { rewardAmount in
-            coins += rewardAmount
-          }
+          viewModel.showAd()
           showWatchVideoButton = false
         }
         .opacity(showWatchVideoButton ? 1 : 0)
@@ -37,7 +34,7 @@ struct RewardedContentView: View {
       Spacer()
 
       HStack {
-        Text("Coins: \(coins)")
+        Text("Coins: \(viewModel.coins)")
         Spacer()
       }
       .padding()
@@ -52,7 +49,7 @@ struct RewardedContentView: View {
     }
     .onChange(of: countdownTimer.isComplete) { newValue in
       if newValue {
-        coins += 1
+        viewModel.addCoins(1)
         showWatchVideoButton = true
       }
     }
@@ -60,9 +57,10 @@ struct RewardedContentView: View {
   }
 
   private func startNewGame() {
-    coordinator.loadAd()
-
     countdownTimer.start()
+    Task {
+      await viewModel.loadAd()
+    }
   }
 }
 
@@ -72,32 +70,39 @@ struct RewardedContentView_Previews: PreviewProvider {
   }
 }
 
-private class RewardedAdCoordinator: NSObject, GADFullScreenContentDelegate {
-  var rewardedAd: GADRewardedAd?
+private class RewardedViewModel: NSObject, ObservableObject, GADFullScreenContentDelegate {
+  @Published var coins = 0
+  private var rewardedAd: GADRewardedAd?
 
-  func loadAd() {
-    GADRewardedAd.load(
-      withAdUnitID: "ca-app-pub-3940256099942544/1712485313",
-      request: GADRequest()
-    ) { ad, error in
-      self.rewardedAd = ad
-      self.rewardedAd?.fullScreenContentDelegate = self
+  func loadAd() async {
+    do {
+      rewardedAd = try await GADRewardedAd.load(
+        withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: GADRequest())
+      rewardedAd?.fullScreenContentDelegate = self
+    } catch {
+      print("Failed to load rewarded ad with error: \(error.localizedDescription)")
     }
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-    rewardedAd = nil
-  }
-
-  func showAd(userDidEarnRewardHandler completion: @escaping (Int) -> Void) {
+  func showAd() {
     guard let rewardedAd = rewardedAd else {
-      return print("Ad wasn't ready")
+      return print("Ad wasn't ready.")
     }
 
     rewardedAd.present(fromRootViewController: nil) {
       let reward = rewardedAd.adReward
       print("Reward amount: \(reward.amount)")
-      completion(reward.amount.intValue)
+      self.addCoins(reward.amount.intValue)
     }
+  }
+
+  func addCoins(_ amount: Int) {
+    coins += amount
+  }
+
+  // MARK: - GADFullScreenContentDelegate methods
+
+  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    rewardedAd = nil
   }
 }

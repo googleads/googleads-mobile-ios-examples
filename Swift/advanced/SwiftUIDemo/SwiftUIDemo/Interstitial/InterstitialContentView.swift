@@ -4,7 +4,7 @@ import SwiftUI
 struct InterstitialContentView: View {
   @StateObject private var countdownTimer = CountdownTimer()
   @State private var showGameOverAlert = false
-  private let coordinator = InterstitialAdCoordinator()
+  private let viewModel = InterstitialViewModel()
   let navigationTitle: String
 
   var body: some View {
@@ -14,7 +14,7 @@ struct InterstitialContentView: View {
 
       Spacer()
 
-      Text("\(countdownTimer.timeLeft) seconds left!")
+      Text(countdownTimer.isComplete ? "You lose!" : "\(countdownTimer.timeLeft)")
         .font(.title2)
 
       Button("Play Again") {
@@ -43,16 +43,17 @@ struct InterstitialContentView: View {
         dismissButton: .cancel(
           Text("OK"),
           action: {
-            coordinator.showAd()
+            viewModel.showAd()
           }))
     }
     .navigationTitle(navigationTitle)
   }
 
   private func startNewGame() {
-    coordinator.loadAd()
-
     countdownTimer.start()
+    Task {
+      await viewModel.loadAd()
+    }
   }
 }
 
@@ -62,27 +63,30 @@ struct InterstitialContentView_Previews: PreviewProvider {
   }
 }
 
-private class InterstitialAdCoordinator: NSObject, GADFullScreenContentDelegate {
-  private var interstitial: GADInterstitialAd?
+private class InterstitialViewModel: NSObject, GADFullScreenContentDelegate {
+  private var interstitialAd: GADInterstitialAd?
 
-  func loadAd() {
-    GADInterstitialAd.load(
-      withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest()
-    ) { ad, error in
-      self.interstitial = ad
-      self.interstitial?.fullScreenContentDelegate = self
+  func loadAd() async {
+    do {
+      interstitialAd = try await GADInterstitialAd.load(
+        withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest())
+      interstitialAd?.fullScreenContentDelegate = self
+    } catch {
+      print("Failed to load interstitial ad with error: \(error.localizedDescription)")
     }
-  }
-
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-    interstitial = nil
   }
 
   func showAd() {
-    guard let interstitial = interstitial else {
-      return print("Ad wasn't ready")
+    guard let interstitialAd = interstitialAd else {
+      return print("Ad wasn't ready.")
     }
 
-    interstitial.present(fromRootViewController: nil)
+    interstitialAd.present(fromRootViewController: nil)
+  }
+
+  // MARK: - GADFullScreenContentDelegate methods
+
+  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    interstitialAd = nil
   }
 }

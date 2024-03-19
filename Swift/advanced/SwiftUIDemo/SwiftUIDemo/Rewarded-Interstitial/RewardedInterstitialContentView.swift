@@ -2,11 +2,10 @@ import GoogleMobileAds
 import SwiftUI
 
 struct RewardedInterstitialContentView: View {
+  @StateObject private var viewModel = RewardedInterstitialViewModel()
   @StateObject private var countdownTimer = CountdownTimer(10)
-  @State private var coins: Int = 0
   @State private var showAdDialog = false
   @State private var showAd = false
-  private let coordinator = RewardedAdCoordinator()
   let navigationTitle: String
 
   var body: some View {
@@ -37,7 +36,7 @@ struct RewardedInterstitialContentView: View {
       Spacer()
 
       HStack {
-        Text("Coins: \(coins)")
+        Text("Coins: \(viewModel.coins)")
         Spacer()
       }
       .padding()
@@ -53,16 +52,14 @@ struct RewardedInterstitialContentView: View {
     .onChange(of: countdownTimer.isComplete) { newValue in
       if newValue {
         showAdDialog = true
-        coins += 1
+        viewModel.addCoins(1)
       }
     }
     .onChange(
       of: showAd,
       perform: { newValue in
         if newValue {
-          coordinator.showAd { rewardAmount in
-            coins += rewardAmount
-          }
+          viewModel.showAd()
         }
       }
     )
@@ -70,9 +67,10 @@ struct RewardedInterstitialContentView: View {
   }
 
   private func startNewGame() {
-    coordinator.loadAd()
-
     countdownTimer.start()
+    Task {
+      await viewModel.loadAd()
+    }
   }
 }
 
@@ -82,31 +80,42 @@ struct RewardedIntersititalContentView_Previews: PreviewProvider {
   }
 }
 
-private class RewardedAdCoordinator: NSObject, GADFullScreenContentDelegate {
-  var rewardedInterstitialAd: GADRewardedInterstitialAd?
+private class RewardedInterstitialViewModel: NSObject, ObservableObject,
+  GADFullScreenContentDelegate
+{
+  @Published var coins = 0
+  private var rewardedInterstitialAd: GADRewardedInterstitialAd?
 
-  func loadAd() {
-    GADRewardedInterstitialAd.load(
-      withAdUnitID: "ca-app-pub-3940256099942544/6978759866", request: GADRequest()
-    ) { ad, error in
-      self.rewardedInterstitialAd = ad
-      self.rewardedInterstitialAd?.fullScreenContentDelegate = self
+  func loadAd() async {
+    do {
+      rewardedInterstitialAd = try await GADRewardedInterstitialAd.load(
+        withAdUnitID: "ca-app-pub-3940256099942544/6978759866", request: GADRequest())
+      rewardedInterstitialAd?.fullScreenContentDelegate = self
+    } catch {
+      print(
+        "Failed to load rewarded interstitial ad with error: \(error.localizedDescription)")
     }
   }
+
+  func showAd() {
+    guard let rewardedInterstitialAd = rewardedInterstitialAd else {
+      return print("Ad wasn't ready.")
+    }
+
+    rewardedInterstitialAd.present(fromRootViewController: nil) {
+      let reward = rewardedInterstitialAd.adReward
+      print("Reward amount: \(reward.amount)")
+      self.addCoins(reward.amount.intValue)
+    }
+  }
+
+  func addCoins(_ amount: Int) {
+    coins += amount
+  }
+
+  // MARK: - GADFullScreenContentDelegate methods
 
   func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
     rewardedInterstitialAd = nil
-  }
-
-  func showAd(userDidEarnRewardHandler completion: @escaping (Int) -> Void) {
-    guard let rewarded = rewardedInterstitialAd else {
-      return print("Ad wasn't ready")
-    }
-
-    rewarded.present(fromRootViewController: nil) {
-      let reward = rewarded.adReward
-      print("Reward amount: \(reward.amount)")
-      completion(reward.amount.intValue)
-    }
   }
 }
