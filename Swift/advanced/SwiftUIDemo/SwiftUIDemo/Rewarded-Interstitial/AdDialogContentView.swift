@@ -3,7 +3,7 @@ import SwiftUI
 struct AdDialogContentView: View {
   @StateObject private var countdownTimer = CountdownTimer()
   @Binding var isPresenting: Bool
-  @Binding var showAd: Bool
+  @Binding var countdownComplete: Bool
 
   var body: some View {
     ZStack {
@@ -36,7 +36,7 @@ struct AdDialogContentView: View {
       }
     }
     .onAppear {
-      showAd = false
+      countdownComplete = false
     }
     .onChange(
       of: isPresenting,
@@ -48,8 +48,8 @@ struct AdDialogContentView: View {
       of: countdownTimer.isComplete,
       perform: { newValue in
         if newValue {
+          countdownComplete = true
           isPresenting = false
-          showAd = true
         }
       }
     )
@@ -59,6 +59,6 @@ struct AdDialogContentView: View {
 
 struct AdDialogContentView_Previews: PreviewProvider {
   static var previews: some View {
-    AdDialogContentView(isPresenting: .constant(true), showAd: .constant(false))
+    AdDialogContentView(isPresenting: .constant(true), countdownComplete: .constant(false))
   }
 }

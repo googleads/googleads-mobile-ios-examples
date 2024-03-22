@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A81C3A4B28786EFF002BFF3B /* InterstitialContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81C3A4928786EFF002BFF3B /* InterstitialContentView.swift */; };
 		A83160CD286DF6A8007B34CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C7446A2864F75B00327C12 /* Assets.xcassets */; };
+		A83664782BADFFA400F4183A /* RewardedInterstitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83664772BADFFA400F4183A /* RewardedInterstitialViewModel.swift */; };
+		A836647A2BADFFDC00F4183A /* RewardedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83664792BADFFDC00F4183A /* RewardedViewModel.swift */; };
+		A836647C2BAE000F00F4183A /* NativeAdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836647B2BAE000F00F4183A /* NativeAdViewModel.swift */; };
+		A836647E2BAE002B00F4183A /* InterstitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836647D2BAE002B00F4183A /* InterstitialViewModel.swift */; };
 		A841C7BD2885D0DF00C37F77 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A841C7BB2885D0DF00C37F77 /* NativeAdView.xib */; };
 		A841C7BE2885D0DF00C37F77 /* NativeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841C7BC2885D0DF00C37F77 /* NativeContentView.swift */; };
 		A86D7F88289CD83A00496237 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D7F87289CD83A00496237 /* CountdownTimer.swift */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		A81C3A4928786EFF002BFF3B /* InterstitialContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialContentView.swift; sourceTree = "<group>"; };
+		A83664772BADFFA400F4183A /* RewardedInterstitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedInterstitialViewModel.swift; sourceTree = "<group>"; };
+		A83664792BADFFDC00F4183A /* RewardedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedViewModel.swift; sourceTree = "<group>"; };
+		A836647B2BAE000F00F4183A /* NativeAdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdViewModel.swift; sourceTree = "<group>"; };
+		A836647D2BAE002B00F4183A /* InterstitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewModel.swift; sourceTree = "<group>"; };
 		A841C7BB2885D0DF00C37F77 /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		A841C7BC2885D0DF00C37F77 /* NativeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeContentView.swift; sourceTree = "<group>"; };
 		A86D7F87289CD83A00496237 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
@@ -62,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				A81C3A4928786EFF002BFF3B /* InterstitialContentView.swift */,
+				A836647D2BAE002B00F4183A /* InterstitialViewModel.swift */,
 			);
 			name = Interstitial;
 			path = SwiftUIDemo/Interstitial;
@@ -71,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A841C7BB2885D0DF00C37F77 /* NativeAdView.xib */,
+				A836647B2BAE000F00F4183A /* NativeAdViewModel.swift */,
 				A841C7BC2885D0DF00C37F77 /* NativeContentView.swift */,
 			);
 			path = Native;
@@ -80,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				A88A283A28AEEA27003946EE /* RewardedContentView.swift */,
+				A83664792BADFFDC00F4183A /* RewardedViewModel.swift */,
 			);
 			name = Rewarded;
 			path = SwiftUIDemo/Rewarded;
@@ -90,6 +101,7 @@
 			children = (
 				A88A283D28AEEA3A003946EE /* AdDialogContentView.swift */,
 				A88A283E28AEEA3A003946EE /* RewardedInterstitialContentView.swift */,
+				A83664772BADFFA400F4183A /* RewardedInterstitialViewModel.swift */,
 			);
 			name = "Rewarded-Interstitial";
 			path = "SwiftUIDemo/Rewarded-Interstitial";
@@ -230,14 +242,18 @@
 			files = (
 				A841C7BE2885D0DF00C37F77 /* NativeContentView.swift in Sources */,
 				A8C744972864F9E400327C12 /* MenuItem.swift in Sources */,
+				A836647E2BAE002B00F4183A /* InterstitialViewModel.swift in Sources */,
 				A8C744952864F9CD00327C12 /* BannerContentView.swift in Sources */,
 				A86D7F88289CD83A00496237 /* CountdownTimer.swift in Sources */,
+				A83664782BADFFA400F4183A /* RewardedInterstitialViewModel.swift in Sources */,
 				A88A283B28AEEA27003946EE /* RewardedContentView.swift in Sources */,
 				A895BBAF2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift in Sources */,
 				A81C3A4B28786EFF002BFF3B /* InterstitialContentView.swift in Sources */,
 				A8C744962864F9E100327C12 /* MenuView.swift in Sources */,
 				A88A283F28AEEA3A003946EE /* AdDialogContentView.swift in Sources */,
+				A836647A2BADFFDC00F4183A /* RewardedViewModel.swift in Sources */,
 				A88A284028AEEA3A003946EE /* RewardedInterstitialContentView.swift in Sources */,
+				A836647C2BAE000F00F4183A /* NativeAdViewModel.swift in Sources */,
 				A8C744922864F9B800327C12 /* SwiftUIDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
