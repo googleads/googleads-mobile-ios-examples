@@ -24,12 +24,11 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
   var tableViewItems = [AnyObject]()
   var adsToLoad = [GADBannerView]()
   var loadStateForAds = [GADBannerView: Bool]()
-  let adUnitID = "ca-app-pub-3940256099942544/2934735716"
+  let adUnitID = "ca-app-pub-3940256099942544/2435281174"
+
   // A banner ad is placed in the UITableView once per `adInterval`. iPads will have a
   // larger ad interval to avoid mutliple ads being on screen at the same time.
   let adInterval = UIDevice.current.userInterfaceIdiom == .pad ? 16 : 8
-  // The banner ad height.
-  let adViewHeight = CGFloat(100)
 
   // MARK: - UIViewController methods
 
@@ -70,7 +69,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
   ) -> CGFloat {
     if let tableItem = tableViewItems[indexPath.row] as? GADBannerView {
       let isAdLoaded = loadStateForAds[tableItem]
-      return isAdLoaded == true ? adViewHeight : 0
+      return isAdLoaded == true ? CGSizeFromGADAdSize(tableItem.adSize).height : 0
     }
     return UITableView.automaticDimension
   }
@@ -122,7 +121,6 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
   // MARK: - GADBannerView delegate methods
 
   func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-    // Mark banner ad as succesfully loaded.
     loadStateForAds[bannerView] = true
     // Load the next ad in the adsToLoad list.
     preloadNextAd()
@@ -144,9 +142,9 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     var index = adInterval
     // Ensure subview layout has been performed before accessing subview sizes.
     while index < tableViewItems.count {
-      let adSize = GADAdSizeFromCGSize(
-        CGSize(width: tableView.contentSize.width, height: adViewHeight))
-      let adView = GADBannerView(adSize: adSize)
+      let adView = GADBannerView(
+        adSize: GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(
+          tableView.contentSize.width))
       adView.adUnitID = adUnitID
       adView.rootViewController = self
       adView.delegate = self
