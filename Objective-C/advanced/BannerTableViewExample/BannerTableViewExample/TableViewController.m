@@ -19,8 +19,7 @@
 #import "MenuItem.h"
 #import "MenuItemTableViewCell.h"
 
-static NSString *const GADAdUnitID = @"ca-app-pub-3940256099942544/2934735716";
-static const CGFloat GADAdViewHeight = 100;
+static NSString *const GADAdUnitID = @"ca-app-pub-3940256099942544/2435281174";
 
 @interface TableViewController () <GADBannerViewDelegate> {
   /// UITableView source items.
@@ -88,7 +87,7 @@ static const CGFloat GADAdViewHeight = 100;
   if ([_tableViewItems[indexPath.row] isKindOfClass:[GADBannerView class]]) {
     GADBannerView *adView = _tableViewItems[indexPath.row];
     BOOL isLoaded = [_loadStateForAds[[self referenceKeyForAdView:adView]] boolValue];
-    return isLoaded ? GADAdViewHeight : 0;
+    return isLoaded ? CGSizeFromGADAdSize(adView.adSize).height : 0;
   }
 
   return UITableViewAutomaticDimension;
@@ -151,8 +150,8 @@ static const CGFloat GADAdViewHeight = 100;
   // Ensure subview layout has been performed before accessing subview sizes.
   while (index < _tableViewItems.count) {
     GADBannerView *adView = [[GADBannerView alloc]
-        initWithAdSize:GADAdSizeFromCGSize(
-                           CGSizeMake(self.tableView.contentSize.width, GADAdViewHeight))];
+        initWithAdSize:GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(
+                           self.tableView.contentSize.width)];
     adView.adUnitID = GADAdUnitID;
     adView.rootViewController = self;
     adView.delegate = self;
@@ -173,8 +172,6 @@ static const CGFloat GADAdViewHeight = 100;
   GADBannerView *adView = _adsToLoad.firstObject;
   [_adsToLoad removeObjectAtIndex:0];
   GADRequest *request = [GADRequest request];
-  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers =
-      @[ GADSimulatorID ];  // Sample device ID
   [adView loadRequest:request];
 }
 
