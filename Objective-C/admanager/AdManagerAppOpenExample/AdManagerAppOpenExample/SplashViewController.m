@@ -91,7 +91,7 @@ static const NSInteger CounterTime = 5;
   [_countdownTimer invalidate];
   _countdownTimer = nil;
 
-  [AppOpenAdManager.sharedInstance showAdIfAvailable:self];
+  [AppOpenAdManager.sharedInstance showAdIfAvailable];
 }
 
 - (void)startGoogleMobileAdsSDK {

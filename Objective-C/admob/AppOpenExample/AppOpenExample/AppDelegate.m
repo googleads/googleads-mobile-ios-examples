@@ -24,15 +24,8 @@
 }
 
 - (void) applicationDidBecomeActive:(UIApplication *)application {
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.isKeyWindow == YES"];
-  UIWindow *keyWindow = [[application.windows filteredArrayUsingPredicate:predicate] firstObject];
-  UIViewController *rootViewController = keyWindow.rootViewController;
-  // Do not show app open ad if the current view controller is SplashViewController.
-  if (!rootViewController ||
-      [rootViewController isKindOfClass:[SplashViewController class]]) {
-    return;
-  }
-  [AppOpenAdManager.sharedInstance showAdIfAvailable:rootViewController];
+  // Show the app open ad when the app is foregrounded.
+  [AppOpenAdManager.sharedInstance showAdIfAvailable];
 }
 
 @end

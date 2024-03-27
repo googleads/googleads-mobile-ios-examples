@@ -95,7 +95,7 @@ static const NSInteger TimeoutInterval = 4;
   }];
 }
 
-- (void)showAdIfAvailable:(nonnull UIViewController *)viewController {
+- (void)showAdIfAvailable {
   // If the app open ad is already showing, do not show the ad again.
   if (_isShowingAd) {
     NSLog(@"App open ad is already showing.");
@@ -114,7 +114,7 @@ static const NSInteger TimeoutInterval = 4;
   }
   NSLog(@"App open ad will be displayed.");
   _isShowingAd = YES;
-  [_appOpenAd presentFromRootViewController:viewController];
+  [_appOpenAd presentFromRootViewController:nil];
 }
 
 #pragma mark - GADFullScreenContentDelegate

@@ -29,6 +29,6 @@
 
 + (nonnull AppOpenAdManager *)sharedInstance;
 - (void)loadAd;
-- (void)showAdIfAvailable:(nonnull UIViewController*)viewController;
+- (void)showAdIfAvailable;
 
 @end

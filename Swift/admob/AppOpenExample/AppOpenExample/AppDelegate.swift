@@ -29,14 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationDidBecomeActive(_ application: UIApplication) {
-    let rootViewController = application.windows.first(
-      where: { $0.isKeyWindow })?.rootViewController
-    if let rootViewController = rootViewController {
-      // Do not show app open ad if the current view controller is SplashViewController.
-      if rootViewController is SplashViewController {
-        return
-      }
-      AppOpenAdManager.shared.showAdIfAvailable(viewController: rootViewController)
-    }
+    // Show the app open ad when the app is foregrounded.
+    AppOpenAdManager.shared.showAdIfAvailable()
   }
 }

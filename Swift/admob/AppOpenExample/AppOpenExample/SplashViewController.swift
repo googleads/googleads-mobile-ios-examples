@@ -68,7 +68,7 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
     splashScreenLabel.text = "Done."
     countdownTimer?.invalidate()
 
-    AppOpenAdManager.shared.showAdIfAvailable(viewController: self)
+    AppOpenAdManager.shared.showAdIfAvailable()
   }
 
   private func startGoogleMobileAdsSDK() {
