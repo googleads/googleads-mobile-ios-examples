@@ -83,7 +83,7 @@ for more information on installing and updating pods.
 *   [API Demo](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/advanced/APIDemo)
     -   Provides additional examples for both AdMob and Ad Manager to help
         improve your mobile app integration of the Google Mobile Ads SDK.
-*   [Banner UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/advanced/BannerTableViewExample)
+*   [Banner UITableView Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/advanced/InlineAdaptiveBannerExample)
     -   Provides an example for displaying ads from AdMob Banners in a
         UITableView.
 
