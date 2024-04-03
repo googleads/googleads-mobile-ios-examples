@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		840C3FE41DA1D82A00400493 /* BannerTableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BannerTableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		840C3FE41DA1D82A00400493 /* InlineAdaptiveBannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InlineAdaptiveBannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840C3FE81DA1D82A00400493 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		840C3FEA1DA1D82A00400493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		840C3FEB1DA1D82A00400493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,20 +56,21 @@
 		840C3FDB1DA1D82A00400493 = {
 			isa = PBXGroup;
 			children = (
-				840C3FE61DA1D82A00400493 /* BannerTableViewExample */,
+				840C3FE61DA1D82A00400493 /* InlineAdaptiveBannerExample */,
 				840C3FE51DA1D82A00400493 /* Products */,
+				CB93A10F1B1FAC5EDE49783B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		840C3FE51DA1D82A00400493 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				840C3FE41DA1D82A00400493 /* BannerTableViewExample.app */,
+				840C3FE41DA1D82A00400493 /* InlineAdaptiveBannerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		840C3FE61DA1D82A00400493 /* BannerTableViewExample */ = {
+		840C3FE61DA1D82A00400493 /* InlineAdaptiveBannerExample */ = {
 			isa = PBXGroup;
 			children = (
 				843022011DADB8EC00614B4A /* menu_item_image-web.png */,
@@ -90,7 +91,7 @@
 				840C3FF81DA1D82A00400493 /* Info.plist */,
 				840C3FE71DA1D82A00400493 /* Supporting Files */,
 			);
-			path = BannerTableViewExample;
+			path = InlineAdaptiveBannerExample;
 			sourceTree = "<group>";
 		};
 		840C3FE71DA1D82A00400493 /* Supporting Files */ = {
@@ -101,12 +102,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CB93A10F1B1FAC5EDE49783B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		840C3FE31DA1D82A00400493 /* BannerTableViewExample */ = {
+		840C3FE31DA1D82A00400493 /* InlineAdaptiveBannerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 840C3FFB1DA1D82A00400493 /* Build configuration list for PBXNativeTarget "BannerTableViewExample" */;
+			buildConfigurationList = 840C3FFB1DA1D82A00400493 /* Build configuration list for PBXNativeTarget "InlineAdaptiveBannerExample" */;
 			buildPhases = (
 				840C3FE01DA1D82A00400493 /* Sources */,
 				840C3FE11DA1D82A00400493 /* Frameworks */,
@@ -116,9 +124,9 @@
 			);
 			dependencies = (
 			);
-			name = BannerTableViewExample;
-			productName = BannerTableViewExample;
-			productReference = 840C3FE41DA1D82A00400493 /* BannerTableViewExample.app */;
+			name = InlineAdaptiveBannerExample;
+			productName = InlineAdaptiveBannerExample;
+			productReference = 840C3FE41DA1D82A00400493 /* InlineAdaptiveBannerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -135,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 840C3FDF1DA1D82A00400493 /* Build configuration list for PBXProject "BannerTableViewExample" */;
+			buildConfigurationList = 840C3FDF1DA1D82A00400493 /* Build configuration list for PBXProject "InlineAdaptiveBannerExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -149,7 +157,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				840C3FE31DA1D82A00400493 /* BannerTableViewExample */,
+				840C3FE31DA1D82A00400493 /* InlineAdaptiveBannerExample */,
 			);
 		};
 /* End PBXProject section */
@@ -294,10 +302,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/BannerTableViewExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/InlineAdaptiveBannerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.BannerTableViewExample;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @execuable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.InlineAdaptiveBannerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -306,10 +314,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/BannerTableViewExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/InlineAdaptiveBannerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.BannerTableViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.ads.InlineAdaptiveBannerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -317,7 +325,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		840C3FDF1DA1D82A00400493 /* Build configuration list for PBXProject "BannerTableViewExample" */ = {
+		840C3FDF1DA1D82A00400493 /* Build configuration list for PBXProject "InlineAdaptiveBannerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				840C3FF91DA1D82A00400493 /* Debug */,
@@ -326,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		840C3FFB1DA1D82A00400493 /* Build configuration list for PBXNativeTarget "BannerTableViewExample" */ = {
+		840C3FFB1DA1D82A00400493 /* Build configuration list for PBXNativeTarget "InlineAdaptiveBannerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				840C3FFC1DA1D82A00400493 /* Debug */,
