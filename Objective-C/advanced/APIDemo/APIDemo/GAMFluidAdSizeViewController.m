@@ -18,7 +18,7 @@
 //
 
 #import "GAMFluidAdSizeViewController.h"
-
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Constants.h"
 
 /// GAM - Fluid Ad Size
@@ -50,7 +50,7 @@
   self.bannerWidths = @[ @200, @250, @320 ];
   self.currentIndex = 0;
 
-  self.bannerView.adUnitID = kAdManagerFluidAdSizeAdUnitID;
+  self.bannerView.adUnitID = AdUnitIDAdManagerFluidAdSize;
   self.bannerView.rootViewController = self;
   self.bannerView.adSize = GADAdSizeFluid;
   [self.bannerView loadRequest:[GAMRequest request]];

@@ -17,9 +17,10 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// GAM - Custom Targeting
+/// Demonstrates adding custom targeting information to a GAMRequest.
 @interface GAMCustomTargetingViewController : UIViewController
 
 @end

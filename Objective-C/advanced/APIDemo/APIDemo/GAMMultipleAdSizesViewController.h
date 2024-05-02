@@ -17,9 +17,10 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// GAM - Multiple Ad Sizes
+/// Demonstrates setting valid ad sizes for a GAMRequest.
 @interface GAMMultipleAdSizesViewController : UIViewController
 
 @end

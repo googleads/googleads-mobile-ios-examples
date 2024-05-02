@@ -18,7 +18,7 @@
 //
 
 #import "GAMCustomTargetingViewController.h"
-
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Constants.h"
 
 /// The constant for the customTargeting dictionary sport preference key.
@@ -84,7 +84,7 @@ static NSString *const kSportPreferenceKey = @"sportpref";
 #pragma mark - Actions
 
 - (IBAction)loadAd:(id)sender {
-  self.bannerView.adUnitID = kAdManagerCustomTargetingAdUnitID;
+  self.bannerView.adUnitID = AdUnitIDAdManagerCustomTargeting;
   self.bannerView.rootViewController = self;
 
   NSInteger row = [self.favoriteSportsPicker selectedRowInComponent:0];

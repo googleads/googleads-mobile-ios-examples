@@ -18,7 +18,7 @@
 //
 
 #import "GAMAppEventsViewController.h"
-
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Constants.h"
 
 /// GAM - App Events
@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.bannerView.adUnitID = kAdManagerAppEventsAdUnitID;
+  self.bannerView.adUnitID = AdUnitIDAdManagerAppEvents;
   self.bannerView.rootViewController = self;
   self.bannerView.appEventDelegate = self;
 

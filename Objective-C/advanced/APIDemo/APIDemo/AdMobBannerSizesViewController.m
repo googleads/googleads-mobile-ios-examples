@@ -18,7 +18,7 @@
 //
 
 #import "AdMobBannerSizesViewController.h"
-
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Constants.h"
 
 /// AdMob - Banner Sizes
@@ -107,7 +107,7 @@
 - (IBAction)loadAd:(id)sender {
   if (!self.bannerView) {
     self.bannerView = [[GADBannerView alloc] init];
-    self.bannerView.adUnitID = kAdMobAdUnitID;
+    self.bannerView.adUnitID = AdUnitIDBanner;
     self.bannerView.rootViewController = self;
 
     [self.view addSubview:self.bannerView];

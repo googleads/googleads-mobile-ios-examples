@@ -45,17 +45,17 @@
   [super viewDidLoad];
 
   self.APIDemoNames = @[
-    @"Google AdMob - Ad Delegate", @"Google AdMob - Ad Targeting", @"Google AdMob - Banner Sizes",
-    @"Google AdMob - Native Custom Mute This Ad", @"Google Ad Manager - PPID",
-    @"Google Ad Manager - Custom Targeting", @"Google Ad Manager - Category Exclusions",
-    @"Google Ad Manager - Multiple Ad Sizes", @"Google Ad Manager - App Events",
-    @"Google Ad Manager - Fluid Ad Size", @"Google Ad Manager - Custom Video Controls"
+    @"AdMob - Ad Delegate", @"AdMob - Ad Targeting", @"AdMob - Banner Sizes",
+    @"AdMob - Native Custom Mute This Ad", @"Ad Manager - PPID", @"Ad Manager - Custom Targeting",
+    @"Ad Manager - Category Exclusions", @"Ad Manager - Multiple Ad Sizes",
+    @"Ad Manager - App Events", @"Ad Manager - Fluid Ad Size",
+    @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad"
   ];
 
   self.identifiers = @[
     @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue", @"PPIDSegue",
     @"customTargetingSegue", @"categoryExclusionsSegue", @"multipleAdSizesSegue", @"appEventsSegue",
-    @"fluidAdSizeSegue", @"customControlsSegue"
+    @"fluidAdSizeSegue", @"customControlsSegue", @"collapsibleBannerSegue"
   ];
 }
 

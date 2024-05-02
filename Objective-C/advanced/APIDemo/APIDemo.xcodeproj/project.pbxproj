@@ -28,6 +28,7 @@
 		AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110F20320CA800EA4BEE /* NativeAdView.xib */; };
 		AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */; };
 		AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */; };
+		EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNativeAdView.m; sourceTree = "<group>"; };
 		AEE8DAA3201BDCA9008792E6 /* CustomControlsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomControlsView.h; sourceTree = "<group>"; };
 		AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomControlsView.m; sourceTree = "<group>"; };
+		EF98F6042BD948A400FDCA41 /* CollapsibleBannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollapsibleBannerViewController.h; sourceTree = "<group>"; };
+		EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollapsibleBannerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				4A96E7521B8578D600031470 /* AdMobBannerSizesViewController.m */,
 				AEC9AC0B2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.h */,
 				AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */,
+				EF98F6042BD948A400FDCA41 /* CollapsibleBannerViewController.h */,
+				EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */,
 				AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */,
 			);
 			name = Controllers;
@@ -261,6 +266,7 @@
 				50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */,
 				4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */,
 				50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */,
+				EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */,
 				50DC0CFA212F1C4000424CC7 /* GAMFluidAdSizeViewController.m in Sources */,
 				AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */,
 				AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */,

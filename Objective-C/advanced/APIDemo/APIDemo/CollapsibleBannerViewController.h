@@ -1,10 +1,7 @@
 //
-//  Copyright (C) 2015 Google, Inc.
+//  Copyright 2024 Google LLC
 //
-//  GAMAppEventsViewController.h
-//  APIDemo
-//
-//  Licensed under the Apache License, Version 2.0 (the "License");
+//  Licensed under the Apache License, Version 2.0 (the "License")
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 //
@@ -19,8 +16,10 @@
 
 #import <UIKit/UIKit.h>
 
-/// GAM - App Events
-/// Demonstrates handling GADAppEventDelegate app event messages sent by the banner.
-@interface GAMAppEventsViewController : UIViewController
+/// Collapsible banner ads.
+@interface CollapsibleBannerViewController : UIViewController
+
+/// Refresh a collapsible banner ad.
+- (IBAction)refreshAd:(id)sender;
 
 @end

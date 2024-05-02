@@ -17,9 +17,10 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// AdMob - Banner Sizes
+/// Demonstrates setting a desired banner size prior to loading an ad.
 @interface AdMobBannerSizesViewController : UIViewController
 
 @end

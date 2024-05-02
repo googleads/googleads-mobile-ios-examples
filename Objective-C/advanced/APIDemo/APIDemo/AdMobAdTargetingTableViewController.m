@@ -18,6 +18,7 @@
 //
 
 #import "AdMobAdTargetingTableViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "Constants.h"
 
@@ -140,7 +141,7 @@ static NSString *const kChildDirectedPickerCellIdentifier = @"childDirectedPicke
 #pragma mark - Actions
 
 - (IBAction)loadTargetedAd:(id)sender {
-  self.bannerView.adUnitID = kAdMobAdUnitID;
+  self.bannerView.adUnitID = AdUnitIDBanner;
   self.bannerView.rootViewController = self;
   self.bannerView.delegate = self;
 

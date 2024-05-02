@@ -17,9 +17,14 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// Google AdMob - Ad Delegate
+/// Demonstrates handling GADBannerViewDelegate ad request status and ad click lifecycle messages.
+/// This is an AdMob example, so it uses a GADBannerView to show an AdMob ad. GADBannerViewDelegate
+/// also works with GAMBannerView objects, so publishers displaying ads from
+/// Google Ad Manager (GAM) can also use it with their banners.
+/// To see this in action, use the GAMBannerView class instead of GADBannerView.
 @interface AdMobAdDelegateViewController : UIViewController
 
 @end

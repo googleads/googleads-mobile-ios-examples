@@ -18,6 +18,7 @@
 //
 
 #import "AdMobAdDelegateViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "Constants.h"
 
@@ -40,7 +41,7 @@
   [super viewDidLoad];
   self.bannerView.delegate = self;
 
-  self.bannerView.adUnitID = kAdMobAdUnitID;
+  self.bannerView.adUnitID = AdUnitIDBanner;
   self.bannerView.rootViewController = self;
 
   GADRequest *request = [GADRequest request];

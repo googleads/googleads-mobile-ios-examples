@@ -19,6 +19,7 @@
 
 #import <UIKit/UIKit.h>
 
+/// The main menu for API demo app.
 @interface MainViewController : UITableViewController
 
 @end

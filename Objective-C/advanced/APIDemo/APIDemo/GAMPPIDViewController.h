@@ -17,9 +17,10 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// GAM - PPID
+/// Demonstrates adding a Publisher-Provided Identifier (PPID) value to a GAMRequest.
 @interface GAMPPIDViewController : UIViewController
 
 @end

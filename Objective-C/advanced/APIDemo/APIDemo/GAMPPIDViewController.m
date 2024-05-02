@@ -18,6 +18,7 @@
 //
 
 #import "GAMPPIDViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import <CommonCrypto/CommonDigest.h>
 
@@ -52,7 +53,7 @@
 - (IBAction)loadAd:(id)sender {
   [self.view endEditing:YES];
   if (self.usernameTextField.text.length) {
-    self.bannerView.adUnitID = kAdManagerPPIDAdUnitID;
+    self.bannerView.adUnitID = AdUnitIDAdManagerPPID;
     self.bannerView.rootViewController = self;
 
     GAMRequest *request = [GAMRequest request];

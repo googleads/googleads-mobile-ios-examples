@@ -17,9 +17,11 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// GAM - Fluid Ad Size
+/// Demonstrates using the Fluid ad size - an ad size that spans the full width of its container,
+/// with a height dynamically determined by the ad.
 @interface GAMFluidAdSizeViewController : UIViewController
 
 @end

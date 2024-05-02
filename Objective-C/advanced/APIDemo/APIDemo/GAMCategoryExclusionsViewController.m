@@ -18,7 +18,7 @@
 //
 
 #import "GAMCategoryExclusionsViewController.h"
-
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Constants.h"
 
 /// The constants for category exclusions.
@@ -46,20 +46,20 @@ static NSString *const kCategoryExclusionCats = @"apidemo_exclude_cats";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.noExclusionsBannerView.adUnitID = kAdManagerCategoryExclusionsAdUnitID;
+  self.noExclusionsBannerView.adUnitID = AdUnitIDAdManagerCategoryExclusions;
   self.noExclusionsBannerView.rootViewController = self;
 
   GAMRequest *noExclusionsRequest = [GAMRequest request];
   [self.noExclusionsBannerView loadRequest:noExclusionsRequest];
 
-  self.excludeDogsBannerView.adUnitID = kAdManagerCategoryExclusionsAdUnitID;
+  self.excludeDogsBannerView.adUnitID = AdUnitIDAdManagerCategoryExclusions;
   self.excludeDogsBannerView.rootViewController = self;
 
   GAMRequest *excludeDogsRequest = [GAMRequest request];
   excludeDogsRequest.categoryExclusions = @[ kCategoryExclusionDogs ];
   [self.excludeDogsBannerView loadRequest:excludeDogsRequest];
 
-  self.excludeCatsBannerView.adUnitID = kAdManagerCategoryExclusionsAdUnitID;
+  self.excludeCatsBannerView.adUnitID = AdUnitIDAdManagerCategoryExclusions;
   self.excludeCatsBannerView.rootViewController = self;
 
   GAMRequest *excludeCatsRequest = [GAMRequest request];

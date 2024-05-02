@@ -17,9 +17,11 @@
 //  limitations under the License.
 //
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+/// GAM - Category Exclusions
+/// Demonstrates using category exclusions with GAMRequests to exclude specified categories in ad
+/// results.
 @interface GAMCategoryExclusionsViewController : UIViewController
 
 @end

@@ -18,6 +18,7 @@
 //
 
 #import "GAMMultipleAdSizesViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "Constants.h"
 
@@ -48,7 +49,7 @@
   [super viewDidLoad];
 
   self.bannerView = [[GAMBannerView alloc] initWithAdSize:GADAdSizeBanner];
-  self.bannerView.adUnitID = kAdManagerAdSizesAdUnitID;
+  self.bannerView.adUnitID = AdUnitIDAdManagerAdSizes;
   self.bannerView.rootViewController = self;
   self.bannerView.adSizeDelegate = self;
 
