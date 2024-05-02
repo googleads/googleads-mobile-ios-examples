@@ -27,17 +27,19 @@ class CollapsibleBannerViewController: UIViewController {
     super.viewDidLoad()
     view.addSubview(bannerView)
     bannerView.translatesAutoresizingMaskIntoConstraints = false
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
-
     // Layout constraints that align the banner view to the bottom center of the screen.
     NSLayoutConstraint.activate([
       bannerView.bottomAnchor.constraint(
         equalTo: view.safeAreaLayoutGuide.bottomAnchor),
       bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
     ])
+
+    bannerView.adUnitID = Constants.collapsibleBannerAdUnitID
+    bannerView.rootViewController = self
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
 
     // Here safe area is taken into account, hence the view frame is used after the
     // view has been laid out.
@@ -47,8 +49,6 @@ class CollapsibleBannerViewController: UIViewController {
     let viewWidth = frame.size.width
     bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
 
-    bannerView.adUnitID = Constants.collapsibleBannerAdUnitID
-    bannerView.rootViewController = self
     loadAd()
   }
 
