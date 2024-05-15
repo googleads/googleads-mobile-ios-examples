@@ -40,16 +40,34 @@ static NSString *const MySimpleNativeAdViewCaptionKey = @"Caption";
   // Enable clicks on the headline.
   [self.headlineView addGestureRecognizer:[[UITapGestureRecognizer alloc]
                                               initWithTarget:self
-                                                      action:@selector(performClickOnHeadline)]];
+                                              action:@selector(performClickOnHeadline:)]];
   self.headlineView.userInteractionEnabled = YES;
+
+  // Enable clicks on AdChoices.
+  [self.adChoicesView addGestureRecognizer:[[UITapGestureRecognizer alloc]
+                                                initWithTarget:self
+                                                action:@selector(performClickOnAdChoices:)]];
+  self.adChoicesView.userInteractionEnabled = YES;
 }
 
-- (void)performClickOnHeadline {
+- (void)performClickOnHeadline:(UITapGestureRecognizer *)sender {
   [self.customNativeAd performClickOnAssetWithKey:MySimpleNativeAdViewHeadlineKey];
+}
+
+- (void)performClickOnAdChoices:(UITapGestureRecognizer *)sender {
+  [self.customNativeAd performClickOnAssetWithKey:GADNativeAdChoicesViewAsset];
 }
 
 - (void)populateWithCustomNativeAd:(GADCustomNativeAd *)customNativeAd {
   self.customNativeAd = customNativeAd;
+
+   // Render the AdChoices image.
+  GADNativeAdImage *adChoicesAsset = [customNativeAd imageForKey:GADNativeAdChoicesViewAsset];
+  if (adChoicesAsset) {
+    self.adChoicesView.image = adChoicesAsset.image;
+  }
+  self.adChoicesView.hidden = (adChoicesAsset == nil);
+
   // The custom click handler is an optional block which will override the normal click action
   // defined by the ad. Pass nil for the click handler to let the SDK process the default click
   // action.

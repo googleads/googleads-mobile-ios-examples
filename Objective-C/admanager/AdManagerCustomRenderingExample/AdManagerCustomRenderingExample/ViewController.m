@@ -22,7 +22,7 @@
 #import "MySimpleNativeAdView.h"
 
 static NSString *const TestAdUnit = @"/6499/example/native";
-static NSString *const TestNativeCustomTemplateID = @"10104090";
+static NSString *const TestNativeCustomTemplateID = @"10063170";
 
 @interface ViewController () <GADAdLoaderDelegate,
                               GADCustomNativeAdLoaderDelegate,
