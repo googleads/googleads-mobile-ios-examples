@@ -57,7 +57,7 @@ class ViewController: UIViewController {
   let adUnitID = "/6499/example/native"
 
   /// The native custom format id
-  let nativeCustomFormatId = "10104090"
+  let nativeCustomFormatId = "10063170"
 
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
   }
 
   func setAdView(_ view: UIView) {
-    nativeAdView.removeFromSuperview()
+    nativeAdView?.removeFromSuperview()
     nativeAdView = view
     nativeAdPlaceholder.addSubview(nativeAdView)
     nativeAdView.translatesAutoresizingMaskIntoConstraints = false
@@ -242,7 +242,8 @@ extension ViewController: GADNativeAdLoaderDelegate {
     // Some native ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
     // UI accordingly.
-    let hasVideoContent = nativeAd.mediaContent.hasVideoContent  // Update the ViewController for video content.
+    // Update the ViewController for video content.
+    let hasVideoContent = nativeAd.mediaContent.hasVideoContent
     updateVideoStatusLabel(hasVideoContent: hasVideoContent)
     if hasVideoContent {
       // By acting as the delegate to the GADVideoController, this ViewController receives messages

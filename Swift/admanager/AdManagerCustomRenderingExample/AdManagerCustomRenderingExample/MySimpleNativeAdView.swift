@@ -21,13 +21,13 @@ import UIKit
 enum MySimpleNativeAdViewTypeProperties {
 
   /// The headline asset key.
-  static let MySimpleNativeAdViewHeadlineKey = "Headline"
+  static let mySimpleNativeAdViewHeadlineKey = "Headline"
 
   /// The main image asset key.
-  static let MySimpleNativeAdViewMainImageKey = "MainImage"
+  static let mySimpleNativeAdViewMainImageKey = "MainImage"
 
   /// The caption asset key.
-  static let MySimpleNativeAdViewCaptionKey = "Caption"
+  static let mySimpleNativeAdViewCaptionKey = "Caption"
 }
 
 /// Custom native ad view class with format ID 10063170.
@@ -35,9 +35,9 @@ class MySimpleNativeAdView: UIView {
 
   /// Weak references to this ad's asset views.
   @IBOutlet weak var headlineView: UILabel!
-
   @IBOutlet weak var mainPlaceholder: UIView!
   @IBOutlet weak var captionView: UILabel!
+  @IBOutlet weak var adChoicesView: UIImageView!
 
   /// The custom native ad that populated this view.
   var customNativeAd: GADCustomNativeAd!
@@ -49,18 +49,37 @@ class MySimpleNativeAdView: UIView {
     mainPlaceholder.addGestureRecognizer(
       UITapGestureRecognizer(
         target: self,
-        action: #selector(MySimpleNativeAdView.performClickOnMainImage(_:))))
+        action: #selector(performClickOnMainImage(_:))))
     mainPlaceholder.isUserInteractionEnabled = true
+
+    // Enable clicks on AdChoices.
+    adChoicesView.addGestureRecognizer(
+      UITapGestureRecognizer(
+        target: self,
+        action: #selector(performClickOnAdChoices(_:))))
+    adChoicesView.isUserInteractionEnabled = true
   }
 
-  @objc func performClickOnMainImage(_ sender: UIImage!) {
+  @objc func performClickOnMainImage(_ sender: UITapGestureRecognizer!) {
     customNativeAd.performClickOnAsset(
-      withKey: MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey)
+      withKey: MySimpleNativeAdViewTypeProperties.mySimpleNativeAdViewMainImageKey)
+  }
+
+  @objc func performClickOnAdChoices(_ sender: UITapGestureRecognizer!) {
+    customNativeAd.performClickOnAsset(
+      withKey: GADNativeAssetIdentifier.adChoicesViewAsset.rawValue)
   }
 
   /// Populates the ad view with the custom native ad object.
   func populate(withCustomNativeAd customNativeAd: GADCustomNativeAd) {
     self.customNativeAd = customNativeAd
+
+    // Render the AdChoices image.
+    let adChoicesKey = GADNativeAssetIdentifier.adChoicesViewAsset.rawValue
+    let adChoicesImage = customNativeAd.image(forKey: adChoicesKey)?.image
+    adChoicesView.image = adChoicesImage
+    adChoicesView.isHidden = adChoicesImage == nil
+
     // The custom click handler closure overrides the normal click action defined by the ad.
     customNativeAd.customClickHandler = { assetID in
       let alert = UIAlertController(
@@ -77,9 +96,9 @@ class MySimpleNativeAdView: UIView {
     }
 
     // Populate the custom native ad assets.
-    let headlineKey = MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewHeadlineKey
+    let headlineKey = MySimpleNativeAdViewTypeProperties.mySimpleNativeAdViewHeadlineKey
     headlineView.text = customNativeAd.string(forKey: headlineKey)
-    let captionKey = MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewCaptionKey
+    let captionKey = MySimpleNativeAdViewTypeProperties.mySimpleNativeAdViewCaptionKey
     captionView.text = customNativeAd.string(forKey: captionKey)
 
     let mainView: UIView = self.mainView(forCustomNativeAd: customNativeAd)
@@ -94,7 +113,7 @@ class MySimpleNativeAdView: UIView {
       mediaView.mediaContent = customNativeAd.mediaContent
       return mediaView
     } else {
-      let imageKey = MySimpleNativeAdViewTypeProperties.MySimpleNativeAdViewMainImageKey
+      let imageKey = MySimpleNativeAdViewTypeProperties.mySimpleNativeAdViewMainImageKey
       let image: UIImage? = customNativeAd.image(forKey: imageKey)?.image
       return UIImageView(image: image)
     }
@@ -118,5 +137,4 @@ class MySimpleNativeAdView: UIView {
         withVisualFormat: "V:|[mainView]|", options: [], metrics: nil,
         views: viewDictionary as? [String: Any] ?? [String: Any]()))
   }
-
 }
