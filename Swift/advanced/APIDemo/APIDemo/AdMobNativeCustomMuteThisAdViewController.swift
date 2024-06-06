@@ -18,7 +18,9 @@ import GoogleMobileAds
 import UIKit
 
 /// A controller that demonstrates how to implement the custom Mute This Ad feature.
-class AdMobNativeCustomMuteThisAdViewController: UIViewController {
+class AdMobNativeCustomMuteThisAdViewController: UIViewController, UIPickerViewDelegate,
+  UIPickerViewDataSource
+{
 
   /// The view that holds the native ad.
   @IBOutlet var nativeAdPlaceholder: UIView!
@@ -64,6 +66,8 @@ class AdMobNativeCustomMuteThisAdViewController: UIViewController {
     else {
       assert(false, "Could not load nib file for adView")
     }
+    pickerView.delegate = self
+    pickerView.dataSource = self
     setAdView(adView)
     nativeAdView.isHidden = true
     refreshAd(nil)
