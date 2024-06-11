@@ -62,7 +62,7 @@ static NSString *const GADAPIDemoNativeTestAdUnit = @"ca-app-pub-394025609994254
   self.refreshButton.enabled = NO;
 
   // Provide the custom mute this ad loader options to request custom mute feature.
-  GADNativeMuteThisAdLoaderOptions *muteOptions = [GADNativeMuteThisAdLoaderOptions new];
+  GADNativeMuteThisAdLoaderOptions *muteOptions = [[GADNativeMuteThisAdLoaderOptions alloc] init];
   self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:GADAPIDemoNativeTestAdUnit
                                      rootViewController:self
                                                 adTypes:@[ GADAdLoaderAdTypeNative ]
