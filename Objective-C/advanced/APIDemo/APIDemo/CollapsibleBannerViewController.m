@@ -18,6 +18,10 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Constants.h"
 
+@interface CollapsibleBannerViewController () <GADBannerViewDelegate>
+
+@end
+
 @implementation CollapsibleBannerViewController {
   // The banner ad view.
   GADBannerView *_bannerView;
@@ -40,6 +44,7 @@
 
   _bannerView.adUnitID = AdUnitIDCollapsibleBanner;
   _bannerView.rootViewController = self;
+  _bannerView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -70,5 +75,11 @@
 
   [_bannerView loadRequest:request];
 }
+
+#pragma mark - GADBannerViewDelegate
+
+- (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
+  NSLog(@"The last loaded banner is %@collapsible.", (bannerView.isCollapsible ? @"" : @"not "));
+  }
 
 @end

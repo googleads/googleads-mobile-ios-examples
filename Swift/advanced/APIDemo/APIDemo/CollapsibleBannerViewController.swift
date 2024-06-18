@@ -18,7 +18,7 @@ import GoogleMobileAds
 import UIKit
 
 /// AdMob - Collapsible banner ads.
-class CollapsibleBannerViewController: UIViewController {
+class CollapsibleBannerViewController: UIViewController, GADBannerViewDelegate {
 
   /// The collapsible banner ad view.
   let bannerView = GADBannerView()
@@ -36,6 +36,7 @@ class CollapsibleBannerViewController: UIViewController {
 
     bannerView.adUnitID = Constants.collapsibleBannerAdUnitID
     bannerView.rootViewController = self
+    bannerView.delegate = self
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -65,5 +66,9 @@ class CollapsibleBannerViewController: UIViewController {
     request.register(extras)
 
     bannerView.load(request)
+  }
+
+  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+    print("The last loaded banner is \(bannerView.isCollapsible ? "" : "not") collapsible.")
   }
 }
