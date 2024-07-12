@@ -78,7 +78,7 @@ static const NSInteger TimeoutInterval = 4;
   }
   _isLoadingAd = YES;
   NSLog(@"Start loading app open ad.");
-  [GADAppOpenAd loadWithAdUnitID:@"/6499/example/app-open"
+  [GADAppOpenAd loadWithAdUnitID:@"/21775744923/example/app-open"
                          request:[GADRequest request]
                completionHandler:^(GADAppOpenAd * _Nullable appOpenAd, NSError * _Nullable error) {
     self->_isLoadingAd = NO;
