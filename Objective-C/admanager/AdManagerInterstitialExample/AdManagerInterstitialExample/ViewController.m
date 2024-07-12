@@ -143,7 +143,7 @@ static const NSInteger kGameLength = 5;
 
 - (void)loadInterstitial {
   GAMRequest *request = [GAMRequest request];
-  [GAMInterstitialAd loadWithAdManagerAdUnitID:@"/6499/example/interstitial"
+  [GAMInterstitialAd loadWithAdManagerAdUnitID:@"/21775744923/example/interstitial"
                                        request:request
                              completionHandler:^(GAMInterstitialAd *ad, NSError *error) {
                                if (error) {

@@ -173,7 +173,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   fileprivate func loadInterstitial() async {
     do {
       interstitial = try await GAMInterstitialAd.load(
-        withAdManagerAdUnitID: "/6499/example/interstitial", request: GAMRequest())
+        withAdManagerAdUnitID: "/21775744923/example/interstitial", request: GAMRequest())
       interstitial?.fullScreenContentDelegate = self
     } catch {
       print("Failed to load interstitial ad with error: \(error.localizedDescription)")
