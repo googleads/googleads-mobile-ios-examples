@@ -158,7 +158,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 - (void)loadRewardedAd {
   GAMRequest *request = [GAMRequest request];
   [GADRewardedAd
-       loadWithAdUnitID:@"/6499/example/rewarded-video"
+       loadWithAdUnitID:@"/21775744923/example/rewarded"
                 request:request
       completionHandler:^(GADRewardedAd *ad, NSError *error) {
         if (error) {

@@ -130,7 +130,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   func loadRewardedAd() async {
     do {
       rewardedAd = try await GADRewardedAd.load(
-        withAdUnitID: "/6499/example/rewarded-video", request: GAMRequest())
+        withAdUnitID: "/21775744923/example/rewarded", request: GAMRequest())
       rewardedAd?.fullScreenContentDelegate = self
     } catch {
       print("Rewarded ad failed to load with error: \(error.localizedDescription)")
