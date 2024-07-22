@@ -147,7 +147,7 @@ static const NSInteger kAdIntroLength = 3;
 
 - (void)loadRewardedInterstitialAd {
   GAMRequest *request = [GAMRequest request];
-  [GADRewardedInterstitialAd loadWithAdUnitID:@"/21775744923/example/rewarded_interstitial"
+  [GADRewardedInterstitialAd loadWithAdUnitID:@"/21775744923/example/rewarded-interstitial"
                                       request:request
                             completionHandler:^(GADRewardedInterstitialAd *ad, NSError *error) {
                               if (error) {

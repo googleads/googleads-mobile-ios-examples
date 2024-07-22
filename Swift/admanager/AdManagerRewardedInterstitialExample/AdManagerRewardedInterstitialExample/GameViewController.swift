@@ -134,7 +134,7 @@ class GameViewController: UIViewController, GADFullScreenContentDelegate {
   private func loadRewardedInterstitialAd() async {
     do {
       rewardedInterstitialAd = try await GADRewardedInterstitialAd.load(
-        withAdUnitID: "/21775744923/example/rewarded_interstitial", request: GAMRequest())
+        withAdUnitID: "/21775744923/example/rewarded-interstitial", request: GAMRequest())
       rewardedInterstitialAd?.fullScreenContentDelegate = self
     } catch {
       print("Failed to load rewarded interstitial ad with error: \(error.localizedDescription)")
