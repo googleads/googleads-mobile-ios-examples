@@ -1,15 +1,36 @@
+//
+//  Copyright (C) 2022 Google, Inc.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
 import GoogleMobileAds
 import SwiftUI
 
+// [START add_view_model_to_view]
 struct NativeContentView: View {
+  // Single source of truth for the native ad data.
   @StateObject private var nativeViewModel = NativeAdViewModel()
+  // [START_EXCLUDE silent]
   let navigationTitle: String
+  // [END_EXCLUDE]
 
   var body: some View {
     ScrollView {
       VStack(spacing: 20) {
-        NativeAdView(nativeViewModel: nativeViewModel)
-          .frame(height: 300)
+        NativeAdView(nativeViewModel: nativeViewModel)  // Updates when the native ad data changes.
+          .frame(minHeight: 300)  // minHeight determined from xib.
+        // [END add_view_model_to_view]
 
         Text(
           nativeViewModel.nativeAd?.mediaContent.hasVideoContent == true
@@ -46,9 +67,11 @@ struct NativeContentView_Previews: PreviewProvider {
   }
 }
 
+// [START create_native_ad_view]
 private struct NativeAdView: UIViewRepresentable {
   typealias UIViewType = GADNativeAdView
 
+  // Observer to update the UIView when the native ad value changes.
   @ObservedObject var nativeViewModel: NativeAdViewModel
 
   func makeUIView(context: Context) -> GADNativeAdView {
@@ -62,6 +85,7 @@ private struct NativeAdView: UIViewRepresentable {
   func updateUIView(_ nativeAdView: GADNativeAdView, context: Context) {
     guard let nativeAd = nativeViewModel.nativeAd else { return }
 
+    // Each UI property is configurable using your native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
 
     nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
@@ -80,13 +104,15 @@ private struct NativeAdView: UIViewRepresentable {
 
     (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
 
-    // In order for the SDK to process touch events properly, user interaction should be disabled.
+    // For the SDK to process touch events properly, user interaction should be disabled.
     nativeAdView.callToActionView?.isUserInteractionEnabled = false
 
-    // Associate the native ad view with the native ad object. This is required to make the ad clickable.
+    // Associate the native ad view with the native ad object. This is required to make the ad
+    // clickable.
     // Note: this should always be done after populating the ad views.
     nativeAdView.nativeAd = nativeAd
   }
+  // [END create_native_ad_view]
 
   private func imageOfStars(from starRating: NSDecimalNumber?) -> UIImage? {
     guard let rating = starRating?.doubleValue else {
