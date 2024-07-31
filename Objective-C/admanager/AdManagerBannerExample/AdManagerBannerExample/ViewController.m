@@ -58,7 +58,7 @@
   self.bannerView.delegate = self;
 
   // Replace this ad unit ID with your own ad unit ID.
-  self.bannerView.adUnitID = @"/30497360/adaptive_banner_test_iu/backfill";
+  self.bannerView.adUnitID = @"/21775744923/example/adaptive-banner";
 
   __weak __typeof__(self) weakSelf = self;
   [GoogleMobileAdsConsentManager.sharedInstance

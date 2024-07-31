@@ -24,7 +24,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
   private var isMobileAdsStartCalled = false
 
   // This is an ad unit ID for a test ad. Replace with your own banner ad unit ID.
-  let adUnitID = "/30497360/adaptive_banner_test_iu/backfill"
+  let adUnitID = "/21775744923/example/adaptive-banner"
 
   override func viewDidLoad() {
     super.viewDidLoad()
