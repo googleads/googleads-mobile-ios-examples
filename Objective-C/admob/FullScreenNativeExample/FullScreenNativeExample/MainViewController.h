@@ -1,4 +1,4 @@
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,21 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
-/// Container that holds the native ad.
-@property(nonatomic, weak) IBOutlet UIView *nativeAdPlaceholder;
-
-/// Indicates if video ads should start muted.
-@property(nonatomic, weak) IBOutlet UISwitch *startMutedSwitch;
-
-/// Refresh the native ad.
-@property(nonatomic, weak) IBOutlet UIButton *refreshButton;
-
-/// Refreshes the ad.
-- (IBAction)refreshAd:(id)sender;
+@interface MainViewController : UIViewController
 
 @end
+
+NS_ASSUME_NONNULL_END

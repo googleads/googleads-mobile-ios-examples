@@ -16,8 +16,6 @@
 
 #import "AppDelegate.h"
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
-
 @interface AppDelegate ()
 
 @end
@@ -26,8 +24,6 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Initialize the Google Mobile Ads SDK.
-  [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
 
   return YES;
 }

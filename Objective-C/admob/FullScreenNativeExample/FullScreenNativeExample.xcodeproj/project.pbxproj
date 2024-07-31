@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A864A1E42C5199560030C5CA /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A864A1E22C5199560030C5CA /* GoogleMobileAdsConsentManager.m */; };
+		A8C4B65D2C52B1E4005E047B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C4B65C2C52B1E4005E047B /* MainViewController.m */; };
 		EF5BBBF228F4816400DBC4FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBE728F4816400DBC4FA /* AppDelegate.m */; };
 		EF5BBBF328F4816400DBC4FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBE828F4816400DBC4FA /* LaunchScreen.xib */; };
 		EF5BBBF428F4816400DBC4FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBEA28F4816400DBC4FA /* Main.storyboard */; };
 		EF5BBBF528F4816400DBC4FA /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBEC28F4816400DBC4FA /* NativeAdView.xib */; };
-		EF5BBBF728F4816400DBC4FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBF028F4816400DBC4FA /* ViewController.m */; };
+		EF5BBBF728F4816400DBC4FA /* NativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBF028F4816400DBC4FA /* NativeAdViewController.m */; };
 		EF5BBBF828F4816400DBC4FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBF128F4816400DBC4FA /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A864A1E22C5199560030C5CA /* GoogleMobileAdsConsentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMobileAdsConsentManager.m; sourceTree = "<group>"; };
+		A864A1E32C5199560030C5CA /* GoogleMobileAdsConsentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMobileAdsConsentManager.h; sourceTree = "<group>"; };
+		A8C4B65B2C52B1E4005E047B /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A8C4B65C2C52B1E4005E047B /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CF9335B71B26706400DEF1B4 /* FullScreenNativeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FullScreenNativeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5BBBE628F4816400DBC4FA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF5BBBE728F4816400DBC4FA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -23,8 +29,8 @@
 		EF5BBBEB28F4816400DBC4FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF5BBBED28F4816400DBC4FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAdView.xib; sourceTree = "<group>"; };
 		EF5BBBEE28F4816400DBC4FA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF5BBBEF28F4816400DBC4FA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EF5BBBF028F4816400DBC4FA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EF5BBBEF28F4816400DBC4FA /* NativeAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdViewController.h; sourceTree = "<group>"; };
+		EF5BBBF028F4816400DBC4FA /* NativeAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeAdViewController.m; sourceTree = "<group>"; };
 		EF5BBBF128F4816400DBC4FA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,12 +74,16 @@
 			children = (
 				EF5BBBE628F4816400DBC4FA /* AppDelegate.h */,
 				EF5BBBE728F4816400DBC4FA /* AppDelegate.m */,
+				A864A1E32C5199560030C5CA /* GoogleMobileAdsConsentManager.h */,
+				A864A1E22C5199560030C5CA /* GoogleMobileAdsConsentManager.m */,
 				EF5BBBE828F4816400DBC4FA /* LaunchScreen.xib */,
 				EF5BBBEA28F4816400DBC4FA /* Main.storyboard */,
 				EF5BBBEC28F4816400DBC4FA /* NativeAdView.xib */,
 				EF5BBBEE28F4816400DBC4FA /* Info.plist */,
-				EF5BBBEF28F4816400DBC4FA /* ViewController.h */,
-				EF5BBBF028F4816400DBC4FA /* ViewController.m */,
+				A8C4B65B2C52B1E4005E047B /* MainViewController.h */,
+				A8C4B65C2C52B1E4005E047B /* MainViewController.m */,
+				EF5BBBEF28F4816400DBC4FA /* NativeAdViewController.h */,
+				EF5BBBF028F4816400DBC4FA /* NativeAdViewController.m */,
 				EF5BBBF128F4816400DBC4FA /* main.m */,
 			);
 			path = FullScreenNativeExample;
@@ -150,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A864A1E42C5199560030C5CA /* GoogleMobileAdsConsentManager.m in Sources */,
 				EF5BBBF228F4816400DBC4FA /* AppDelegate.m in Sources */,
 				EF5BBBF828F4816400DBC4FA /* main.m in Sources */,
-				EF5BBBF728F4816400DBC4FA /* ViewController.m in Sources */,
+				A8C4B65D2C52B1E4005E047B /* MainViewController.m in Sources */,
+				EF5BBBF728F4816400DBC4FA /* NativeAdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
