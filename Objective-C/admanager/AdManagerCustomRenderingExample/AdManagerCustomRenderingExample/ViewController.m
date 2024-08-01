@@ -21,7 +21,7 @@
 #import "GoogleMobileAdsConsentManager.h"
 #import "MySimpleNativeAdView.h"
 
-static NSString *const TestAdUnit = @"/6499/example/native";
+static NSString *const TestAdUnit = @"/21775744923/example/native";
 static NSString *const TestNativeCustomTemplateID = @"10063170";
 
 @interface ViewController () <GADAdLoaderDelegate,
