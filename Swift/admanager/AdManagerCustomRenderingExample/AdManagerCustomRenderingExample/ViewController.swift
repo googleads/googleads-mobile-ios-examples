@@ -54,10 +54,10 @@ class ViewController: UIViewController {
   private var isMobileAdsStartCalled = false
 
   /// The ad unit ID.
-  let adUnitID = "/6499/example/native"
+  let adUnitID = "/21775744923/example/native"
 
   /// The native custom format id
-  let nativeCustomFormatId = "10063170"
+  let nativeCustomFormatId = "12387226"
 
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
