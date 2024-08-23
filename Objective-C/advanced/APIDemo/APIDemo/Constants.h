@@ -26,20 +26,20 @@ static NSString *const AdUnitIDBanner = @"ca-app-pub-3940256099942544/2934735716
 static NSString *const AdUnitIDCollapsibleBanner = @"ca-app-pub-3940256099942544/8388050270";
 
 /// GAM PPID ad unit ID.
-static NSString *const AdUnitIDAdManagerPPID = @"/6499/example/APIDemo/PPID";
+static NSString *const AdUnitIDAdManagerPPID = @"/21775744923/example/api-demo/ppid";
 
 /// GAM custom targeting ad unit ID.
-static NSString *const AdUnitIDAdManagerCustomTargeting = @"/6499/example/APIDemo/CustomTargeting";
+static NSString *const AdUnitIDAdManagerCustomTargeting = @"/21775744923/example/api-demo/custom-targeting";
 
 /// GAM category exclusions ad unit ID.
 static NSString *const AdUnitIDAdManagerCategoryExclusions =
-    @"/6499/example/APIDemo/CategoryExclusion";
+    @"/21775744923/example/api-demo/category-exclusion";
 
 /// GAM ad sizes ad unit ID.
-static NSString *const AdUnitIDAdManagerAdSizes = @"/6499/example/APIDemo/AdSizes";
+static NSString *const AdUnitIDAdManagerAdSizes = @"/21775744923/example/api-demo/ad-sizes";
 
 /// GAM app events ad unit ID.
-static NSString *const AdUnitIDAdManagerAppEvents = @"/6499/example/APIDemo/AppEvents";
+static NSString *const AdUnitIDAdManagerAppEvents = @"/21775744923/example/api-demo/app-events";
 
 /// GAM Fluid ad size ad unit ID.
-static NSString *const AdUnitIDAdManagerFluidAdSize = @"/6499/example/APIDemo/Fluid";
+static NSString *const AdUnitIDAdManagerFluidAdSize = @"/21775744923/example/api-demo/fluid";

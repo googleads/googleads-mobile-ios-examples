@@ -19,8 +19,8 @@
 import GoogleMobileAds
 import UIKit
 
-private let TestAdUnit = "/6499/example/native-video"
-private let testNativeCustomFormatID = "10104090"
+private let testAdUnit = "/21775744923/example/native-video"
+private let testNativeCustomFormatID = "12406343"
 
 class AdManagerCustomVideoControlsController: UIViewController {
   /// Switch to indicate if video ads should start muted.
@@ -68,7 +68,7 @@ class AdManagerCustomVideoControlsController: UIViewController {
     videoOptions.customControlsRequested = requestCustomControlsSwitch.isOn
     refreshButton.isEnabled = false
     adLoader = GADAdLoader(
-      adUnitID: TestAdUnit, rootViewController: self, adTypes: adTypes, options: [videoOptions])
+      adUnitID: testAdUnit, rootViewController: self, adTypes: adTypes, options: [videoOptions])
     customControlsView.reset(withStartMuted: videoOptions.startMuted)
     adLoader?.delegate = self
     adLoader?.load(GAMRequest())

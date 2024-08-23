@@ -18,8 +18,8 @@
 
 #import "GAMCustomVideoControlsController.h"
 
-static NSString *const TestAdUnit = @"/6499/example/native-video";
-static NSString *const TestNativeCustomTemplateID = @"10104090";
+static NSString *const TestAdUnit = @"/21775744923/example/native-video";
+static NSString *const TestNativeCustomTemplateID = @"12406343";
 
 @interface GAMCustomVideoControlsController () <GADNativeAdLoaderDelegate,
                                                 GADCustomNativeAdLoaderDelegate>

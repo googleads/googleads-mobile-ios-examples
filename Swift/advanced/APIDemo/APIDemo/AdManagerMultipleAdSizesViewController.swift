@@ -44,14 +44,10 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
     bannerView.translatesAutoresizingMaskIntoConstraints = false
 
     // Layout constraints that align the banner view to the bottom center of the screen.
-    view.addConstraint(
-      NSLayoutConstraint(
-        item: bannerView!, attribute: .bottom, relatedBy: .equal,
-        toItem: view.safeAreaLayoutGuide.bottomAnchor, attribute: .top, multiplier: 1, constant: 0))
-    view.addConstraint(
-      NSLayoutConstraint(
-        item: bannerView!, attribute: .centerX, relatedBy: .equal,
-        toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+    NSLayoutConstraint.activate([
+      bannerView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+      bannerView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+    ])
   }
 
   // MARK: - Actions

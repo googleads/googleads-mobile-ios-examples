@@ -22,22 +22,23 @@ struct Constants {
   static let adMobAdUnitID = "ca-app-pub-3940256099942544/2934735716"
 
   /// AdManager PPID ad unit ID.
-  static let adManagerPPIDAdUnitID = "/6499/example/APIDemo/PPID"
+  static let adManagerPPIDAdUnitID = "/21775744923/example/api-demo/ppid"
 
   /// AdManager custom targeting ad unit ID.
-  static let adManagerCustomTargetingAdUnitID = "/6499/example/APIDemo/CustomTargeting"
+  static let adManagerCustomTargetingAdUnitID = "/21775744923/example/api-demo/custom-targeting"
 
   /// AdManager category exclusions ad unit ID.
-  static let adManagerCategoryExclusionsAdUnitID = "/6499/example/APIDemo/CategoryExclusion"
+  static let adManagerCategoryExclusionsAdUnitID =
+    "/21775744923/example/api-demo/category-exclusion"
 
   /// AdManager ad sizes ad unit ID.
-  static let adManagerAdSizesAdUnitID = "/6499/example/APIDemo/AdSizes"
+  static let adManagerAdSizesAdUnitID = "/21775744923/example/api-demo/ad-sizes"
 
   /// AdManager app events ad unit ID.
-  static let adManagerAppEventsAdUnitID = "/6499/example/APIDemo/AppEvents"
+  static let adManagerAppEventsAdUnitID = "/21775744923/example/api-demo/app-events"
 
   /// AdManager Fluid ad size ad unit ID.
-  static let adManagerFluidAdSizeAdUnitID = "/6499/example/APIDemo/Fluid"
+  static let adManagerFluidAdSizeAdUnitID = "/21775744923/example/api-demo/fluid"
 
   /// Dogs category exclusion.
   static let categoryExclusionDogs = "apidemo_exclude_dogs"
