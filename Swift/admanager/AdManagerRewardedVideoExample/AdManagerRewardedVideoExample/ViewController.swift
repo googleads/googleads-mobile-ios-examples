@@ -59,6 +59,9 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   /// The privacy settings button.
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
 
+  /// The ad inspector button.
+  @IBOutlet weak var adInspectorButton: UIBarButtonItem!
+
   /// In-game text that indicates current counter value or game over state.
   @IBOutlet weak var gameText: UILabel!
 
@@ -209,6 +212,7 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
 
   // MARK: Button actions
 
+  /// Handle changes to user consent.
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     pauseGame()
 
@@ -226,6 +230,21 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
           handler: { _ in
             self.resumeGame()
           }))
+      self.present(alertController, animated: true)
+    }
+  }
+
+  /// Handle ad inspector launch.
+  @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
+    GADMobileAds.sharedInstance().presentAdInspector(from: self) {
+      // Error will be non-nil if there was an issue and the inspector was not displayed.
+      [weak self] error in
+      guard let self, let error else { return }
+
+      let alertController = UIAlertController(
+        title: error.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
       self.present(alertController, animated: true)
     }
   }

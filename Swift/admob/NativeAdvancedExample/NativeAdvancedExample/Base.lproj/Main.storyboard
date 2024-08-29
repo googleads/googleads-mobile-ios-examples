@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="VPJ-V6-pY5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="VPJ-V6-pY5">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -154,6 +154,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Sj-S5-UNb">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="uwX-HR-e9t">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="Ij1-YH-UFk" id="qWU-Bx-9g3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="xKK-ug-L3l">
                             <connections>
                                 <action selector="privacySettingsTapped:" destination="Ij1-YH-UFk" id="t4L-qx-p5e"/>
@@ -161,6 +166,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="uwX-HR-e9t" id="Bkh-I7-YX6"/>
                         <outlet property="nativeAdPlaceholder" destination="b8z-h7-dB1" id="OgN-Nt-nou"/>
                         <outlet property="privacySettingsButton" destination="xKK-ug-L3l" id="sjU-7E-fh5"/>
                         <outlet property="refreshAdButton" destination="2bL-Cx-hSz" id="gKe-aC-H2i"/>

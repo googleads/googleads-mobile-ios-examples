@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="E4m-nH-ONQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="E4m-nH-ONQ">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,6 +89,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tDg-Fc-B0F">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="WdP-Sz-JdD">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="BYZ-38-t0r" id="1ha-nS-gvk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="ELh-e3-xpq">
                             <connections>
                                 <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="6Gg-ev-x9M"/>
@@ -96,6 +101,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="WdP-Sz-JdD" id="MKl-Zn-RYl"/>
                         <outlet property="gameText" destination="sc5-sK-15o" id="n9O-tH-n29"/>
                         <outlet property="gameView" destination="wbH-7u-FJC" id="tR8-yj-87b"/>
                         <outlet property="loadingSpinner" destination="JBM-bu-D5H" id="ted-bL-aMx"/>

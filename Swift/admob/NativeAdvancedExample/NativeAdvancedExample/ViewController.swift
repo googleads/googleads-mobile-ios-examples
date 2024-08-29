@@ -22,6 +22,9 @@ class ViewController: UIViewController {
   /// The privacy options button.
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
 
+  /// The ad inspector button.
+  @IBOutlet weak var adInspectorButton: UIBarButtonItem!
+
   /// The view that holds the native ad.
   @IBOutlet weak var nativeAdPlaceholder: UIView!
 
@@ -52,20 +55,6 @@ class ViewController: UIViewController {
 
   /// The ad unit ID.
   let adUnitID = "ca-app-pub-3940256099942544/3986624511"
-
-  // Handle changes to user consent.
-  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
-    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
-      [weak self] formError in
-      guard let self, let formError else { return }
-
-      let alertController = UIAlertController(
-        title: formError.localizedDescription, message: "Please try again later.",
-        preferredStyle: .alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
-      self.present(alertController, animated: true)
-    }
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -138,6 +127,35 @@ class ViewController: UIViewController {
   }
 
   // MARK: - Actions
+
+  /// Handle changes to user consent.
+  @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
+    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
+      [weak self] formError in
+      guard let self, let formError else { return }
+
+      let alertController = UIAlertController(
+        title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+      self.present(alertController, animated: true)
+    }
+  }
+
+  /// Handle ad inspector launch.
+  @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
+    GADMobileAds.sharedInstance().presentAdInspector(from: self) {
+      // Error will be non-nil if there was an issue and the inspector was not displayed.
+      [weak self] error in
+      guard let self, let error else { return }
+
+      let alertController = UIAlertController(
+        title: error.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+      self.present(alertController, animated: true)
+    }
+  }
 
   /// Refreshes the native ad.
   @IBAction func refreshAd(_ sender: AnyObject!) {
