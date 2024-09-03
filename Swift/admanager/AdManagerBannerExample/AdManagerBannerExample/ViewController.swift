@@ -20,6 +20,7 @@ import UIKit
 class ViewController: UIViewController, GADBannerViewDelegate {
   @IBOutlet weak var bannerView: GAMBannerView!
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
+  @IBOutlet weak var adInspectorButton: UIBarButtonItem!
 
   private var isMobileAdsStartCalled = false
 
@@ -75,7 +76,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     }
   }
 
-  // Handle changes to user consent.
+  /// Handle changes to user consent.
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
       [weak self] (formError) in
@@ -83,6 +84,21 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 
       let alertController = UIAlertController(
         title: formError.localizedDescription, message: "Please try again later.",
+        preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+      self.present(alertController, animated: true)
+    }
+  }
+
+  /// Handle ad inspector launch.
+  @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
+    GADMobileAds.sharedInstance().presentAdInspector(from: self) {
+      // Error will be non-nil if there was an issue and the inspector was not displayed.
+      [weak self] error in
+      guard let self, let error else { return }
+
+      let alertController = UIAlertController(
+        title: error.localizedDescription, message: "Please try again later.",
         preferredStyle: .alert)
       alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
       self.present(alertController, animated: true)
