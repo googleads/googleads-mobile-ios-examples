@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yNo-FF-Eut">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yNo-FF-Eut">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,6 +104,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0rM-wW-YPw">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="dwx-Ie-hfA">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="BYZ-38-t0r" id="S2D-aM-G2H"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="jOf-sG-VlR">
                             <connections>
                                 <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="cfa-M0-nYH"/>
@@ -111,6 +116,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="dwx-Ie-hfA" id="9ZX-am-RLh"/>
                         <outlet property="privacySettingsButton" destination="jOf-sG-VlR" id="sYJ-FJ-Dq1"/>
                     </connections>
                 </viewController>

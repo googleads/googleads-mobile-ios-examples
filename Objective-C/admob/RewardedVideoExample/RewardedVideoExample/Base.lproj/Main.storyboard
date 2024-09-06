@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eAu-YM-7ge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eAu-YM-7ge">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -87,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0fM-W5-W3u">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="Dqe-1U-O9j">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="BYZ-38-t0r" id="fsr-Oa-YCq"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="kGv-GU-0QV">
                             <connections>
                                 <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="PI3-B7-3SB"/>
@@ -94,6 +99,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="Dqe-1U-O9j" id="3xh-dQ-ZdK"/>
                         <outlet property="coinCountLabel" destination="66F-G1-EAg" id="3f8-Ux-ZLc"/>
                         <outlet property="gameLabel" destination="O8I-QX-BFr" id="26K-1G-F7M"/>
                         <outlet property="playAgainButton" destination="M2Q-BM-5pl" id="7Cj-0o-XXR"/>

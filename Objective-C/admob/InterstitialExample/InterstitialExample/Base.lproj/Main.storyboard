@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="z4J-Qy-E8X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="z4J-Qy-E8X">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b6c-uF-OLQ">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="5ev-Vb-Ryg">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="BYZ-38-t0r" id="DAK-DV-R4v"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="dyk-NC-qAO">
                             <connections>
                                 <action selector="privacySettingsTapped:" destination="BYZ-38-t0r" id="V08-1Y-A8E"/>
@@ -94,6 +99,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="5ev-Vb-Ryg" id="YKm-vL-rU6"/>
                         <outlet property="gameText" destination="hNG-Yh-paY" id="EaJ-Mh-Htn"/>
                         <outlet property="gameView" destination="gVv-CF-3nz" id="bZy-gg-YnQ"/>
                         <outlet property="loadingSpinner" destination="loN-uS-mW3" id="tHD-M8-hDk"/>

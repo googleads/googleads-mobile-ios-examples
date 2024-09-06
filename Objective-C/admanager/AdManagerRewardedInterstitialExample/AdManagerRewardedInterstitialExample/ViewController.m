@@ -43,6 +43,9 @@ static const NSInteger kAdIntroLength = 3;
 /// The privacy settings button.
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
 
+/// The ad inspector button.
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *adInspectorButton;
+
 /// The game text.
 @property(nonatomic, weak) IBOutlet UILabel *gameText;
 
@@ -315,6 +318,29 @@ static const NSInteger kAdIntroLength = 3;
                                     [self resumeGame];
                                   }
                                 }];
+}
+
+- (IBAction)adInspectorTapped:(UIBarButtonItem *)sender {
+  [GADMobileAds.sharedInstance
+      presentAdInspectorFromViewController:self
+                         completionHandler:^(NSError *_Nullable error) {
+                           if (error) {
+                             UIAlertController *alertController = [UIAlertController
+                                 alertControllerWithTitle:error.localizedDescription
+                                                  message:@"Please try again later."
+                                           preferredStyle:UIAlertControllerStyleAlert];
+                             UIAlertAction *defaultAction =
+                                 [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction *action){
+                                                        }];
+
+                             [alertController addAction:defaultAction];
+                             [self presentViewController:alertController
+                                                animated:YES
+                                              completion:nil];
+                           }
+                         }];
 }
 
 - (IBAction)playAgain:(id)sender {

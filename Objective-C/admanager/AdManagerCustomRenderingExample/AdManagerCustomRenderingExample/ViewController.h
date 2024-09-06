@@ -21,6 +21,9 @@
 /// The privacy settings button.
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
 
+/// The ad inspector button.
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *adInspectorButton;
+
 /// Container that holds the native ad.
 @property(nonatomic, weak) IBOutlet UIView *nativeAdPlaceholder;
 

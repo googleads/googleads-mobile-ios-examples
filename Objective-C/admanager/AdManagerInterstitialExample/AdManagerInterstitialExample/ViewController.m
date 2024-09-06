@@ -255,6 +255,29 @@ static const NSInteger kGameLength = 5;
                                 }];
 }
 
+- (IBAction)adInspectorTapped:(UIBarButtonItem *)sender {
+  [GADMobileAds.sharedInstance
+      presentAdInspectorFromViewController:self
+                         completionHandler:^(NSError *_Nullable error) {
+                           if (error) {
+                             UIAlertController *alertController = [UIAlertController
+                                 alertControllerWithTitle:error.localizedDescription
+                                                  message:@"Please try again later."
+                                           preferredStyle:UIAlertControllerStyleAlert];
+                             UIAlertAction *defaultAction =
+                                 [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction *action){
+                                                        }];
+
+                             [alertController addAction:defaultAction];
+                             [self presentViewController:alertController
+                                                animated:YES
+                                              completion:nil];
+                           }
+                         }];
+}
+
 - (IBAction)playAgain:(id)sender {
   [self startNewGame];
 

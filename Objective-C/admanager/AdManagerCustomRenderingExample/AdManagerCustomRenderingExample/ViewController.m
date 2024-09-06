@@ -111,6 +111,29 @@ static NSString *const TestNativeCustomTemplateID = @"12387226";
                                 }];
 }
 
+- (IBAction)adInspectorTapped:(UIBarButtonItem *)sender {
+  [GADMobileAds.sharedInstance
+      presentAdInspectorFromViewController:self
+                         completionHandler:^(NSError *_Nullable error) {
+                           if (error) {
+                             UIAlertController *alertController = [UIAlertController
+                                 alertControllerWithTitle:error.localizedDescription
+                                                  message:@"Please try again later."
+                                           preferredStyle:UIAlertControllerStyleAlert];
+                             UIAlertAction *defaultAction =
+                                 [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction *action){
+                                                        }];
+
+                             [alertController addAction:defaultAction];
+                             [self presentViewController:alertController
+                                                animated:YES
+                                              completion:nil];
+                           }
+                         }];
+}
+
 - (IBAction)refreshAd:(id)sender {
   // Loads an ad for native ads or custom native ads.
   NSMutableArray *adTypes = [[NSMutableArray alloc] init];

@@ -20,4 +20,6 @@
 
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
 
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *adInspectorButton;
+
 @end

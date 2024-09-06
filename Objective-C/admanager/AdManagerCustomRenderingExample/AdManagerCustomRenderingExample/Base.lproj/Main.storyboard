@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22113.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="bCS-So-gjg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="bCS-So-gjg">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -174,6 +174,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EiA-U5-8is">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="6cK-Lg-xlj">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="m1l-bW-rbg" id="LAB-Ga-XO0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="rxR-FT-kD4">
                             <connections>
                                 <action selector="privacySettingsTapped:" destination="m1l-bW-rbg" id="qDd-eV-g90"/>
@@ -181,6 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="6cK-Lg-xlj" id="vX1-4N-rMb"/>
                         <outlet property="customNativeAdSwitch" destination="Ea3-6P-gPY" id="4S5-1J-PZo"/>
                         <outlet property="nativeAdPlaceholder" destination="1Sh-Io-8vE" id="0PL-aB-bPq"/>
                         <outlet property="nativeAdSwitch" destination="Ng2-tC-5a0" id="lrD-91-Cef"/>

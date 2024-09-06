@@ -27,6 +27,9 @@
 /// The privacy settings button.
 @property(nonatomic, weak) IBOutlet UIBarButtonItem *privacySettingsButton;
 
+/// The ad inspector button.
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *adInspectorButton;
+
 /// The game text.
 @property(nonatomic, weak) IBOutlet UILabel *gameText;
 

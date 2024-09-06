@@ -23,6 +23,7 @@
 
 @property(nonatomic, weak) IBOutlet GAMBannerView *bannerView;
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *privacySettingsButton;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *adInspectorButton;
 
 @end
 
@@ -49,6 +50,29 @@
                                                      completion:nil];
                                   }
                                 }];
+}
+
+- (IBAction)adInspectorTapped:(UIBarButtonItem *)sender {
+  [GADMobileAds.sharedInstance
+      presentAdInspectorFromViewController:self
+                         completionHandler:^(NSError *_Nullable error) {
+                           if (error) {
+                             UIAlertController *alertController = [UIAlertController
+                                 alertControllerWithTitle:error.localizedDescription
+                                                  message:@"Please try again later."
+                                           preferredStyle:UIAlertControllerStyleAlert];
+                             UIAlertAction *defaultAction =
+                                 [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction *action){
+                                                        }];
+
+                             [alertController addAction:defaultAction];
+                             [self presentViewController:alertController
+                                                animated:YES
+                                              completion:nil];
+                           }
+                         }];
 }
 
 - (void)viewDidLoad {

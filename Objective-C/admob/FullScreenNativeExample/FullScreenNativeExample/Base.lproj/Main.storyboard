@@ -3,7 +3,7 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,6 +50,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C7o-9z-57E">
+                        <barButtonItem key="leftBarButtonItem" title="Ad Inspector" id="vc6-tL-VDu">
+                            <connections>
+                                <action selector="adInspectorTapped:" destination="Ij1-YH-UFk" id="gjB-E6-zUW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Privacy Settings" id="ACN-7S-azc">
                             <connections>
                                 <action selector="privacySettingsButtonPressed:" destination="Ij1-YH-UFk" id="XhC-nA-nTc"/>
@@ -57,6 +62,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adInspectorButton" destination="vc6-tL-VDu" id="Qo7-4q-H73"/>
                         <outlet property="loadAdButton" destination="Nxc-m1-LUf" id="zCf-Ij-Chu"/>
                         <outlet property="privacySettingsButton" destination="ACN-7S-azc" id="emh-Gz-nvH"/>
                         <outlet property="showAdButton" destination="sxV-nP-fvx" id="ifs-pQ-7FP"/>
