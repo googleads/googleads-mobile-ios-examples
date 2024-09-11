@@ -4,6 +4,7 @@ import SwiftUI
 struct BannerContentView: View {
   let navigationTitle: String
 
+  // [START add_banner_to_view]
   var body: some View {
     GeometryReader { geometry in
       let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
@@ -14,6 +15,7 @@ struct BannerContentView: View {
           .frame(height: adSize.size.height)
       }
     }
+    // [END add_banner_to_view]
     .navigationTitle(navigationTitle)
   }
 }
@@ -24,6 +26,7 @@ struct BannerContentView_Previews: PreviewProvider {
   }
 }
 
+// [START create_banner_view]
 private struct BannerView: UIViewRepresentable {
   let adSize: GADAdSize
 
@@ -47,14 +50,20 @@ private struct BannerView: UIViewRepresentable {
   func makeCoordinator() -> BannerCoordinator {
     return BannerCoordinator(self)
   }
+  // [END create_banner_view]
 
+  // [START create_banner]
   class BannerCoordinator: NSObject, GADBannerViewDelegate {
 
     private(set) lazy var bannerView: GADBannerView = {
       let banner = GADBannerView(adSize: parent.adSize)
+      // [START load_ad]
       banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"
       banner.load(GADRequest())
+      // [END load_ad]
+      // [START set_delegate]
       banner.delegate = self
+      // [END set_delegate]
       return banner
     }()
 
@@ -63,6 +72,7 @@ private struct BannerView: UIViewRepresentable {
     init(_ parent: BannerView) {
       self.parent = parent
     }
+    // [END create_banner]
 
     // MARK: - GADBannerViewDelegate methods
 
