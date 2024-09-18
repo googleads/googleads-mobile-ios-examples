@@ -1,7 +1,0 @@
-.DS_Store
-xcuserdata
-*.xcworkspace
-GoogleMobileAds.framework
-firebase.framework
-firebase_admob.framework
-Pods
