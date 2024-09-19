@@ -65,7 +65,6 @@ static NSString *const TestNativeCustomTemplateID = @"12406343";
                                      rootViewController:self
                                                 adTypes:adTypes
                                                 options:@[ videoOptions ]];
-  [self.customControlsView resetWithStartMuted:videoOptions.startMuted];
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GAMRequest request]];
 }
@@ -113,8 +112,6 @@ static NSString *const TestNativeCustomTemplateID = @"12406343";
 
   // Populate the custom native ad view with its assets.
   [simpleNativeAdView populateWithCustomNativeAd:customNativeAd];
-
-  self.customControlsView.mediaContent = customNativeAd.mediaContent;
 }
 
 - (nonnull NSArray<NSString *> *)customNativeAdFormatIDsForAdLoader:
@@ -152,8 +149,6 @@ static NSString *const TestNativeCustomTemplateID = @"12406343";
     heightConstraint.active = YES;
   }
 
-  self.customControlsView.mediaContent = nativeAd.mediaContent;
-
   // These assets are not guaranteed to be present. Check that they are before
   // showing or hiding them.
   ((UILabel *)nativeAdView.bodyView).text = nativeAd.body;
@@ -186,6 +181,30 @@ static NSString *const TestNativeCustomTemplateID = @"12406343";
   // required to make the ad clickable.
   // Note: this should always be done after populating the ad views.
   nativeAdView.nativeAd = nativeAd;
+
+  // [START set_custom_video_controls]
+  // Add custom video controls to replace default video controls.
+  if (nativeAd.mediaContent.hasVideoContent) {
+    GADMediaView *mediaView = nativeAdView.mediaView;
+    if (mediaView) {
+      if (nativeAd.mediaContent.videoController.customControlsEnabled) {
+        CustomControlsView *customControlsView =
+            [[[NSBundle mainBundle] loadNibNamed:@"CustomControls" owner:nil
+                                         options:nil] firstObject];
+        if ([customControlsView isKindOfClass:[CustomControlsView class]]) {
+          [customControlsView resetWithStartMuted:self.startMutedSwitch.isOn];
+          customControlsView.mediaContent = mediaView.mediaContent;
+          [mediaView addSubview:customControlsView];
+          [NSLayoutConstraint activateConstraints:@[
+            [customControlsView.leadingAnchor constraintEqualToAnchor:mediaView.leadingAnchor],
+            [customControlsView.bottomAnchor constraintEqualToAnchor:mediaView.bottomAnchor],
+          ]];
+          [mediaView bringSubviewToFront:customControlsView];
+        }
+      }
+    }
+  }
+  // [END set_custom_video_controls]
 }
 
 /// Gets an image representing the number of stars. Returns nil if rating is less than 3.5 stars.
