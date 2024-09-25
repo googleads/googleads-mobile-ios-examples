@@ -17,6 +17,7 @@
 //  limitations under the License.
 
 #import "SimpleNativeAdView.h"
+#import "GAMCustomVideoControlsController.h"
 
 /// Headline asset key.
 static NSString *const SimpleNativeAdViewHeadlineKey = @"Headline";
@@ -85,6 +86,23 @@ static NSString *const SimpleNativeAdViewCaptionKey = @"Caption";
     GADMediaView *mediaView = [[GADMediaView alloc] init];
     mediaView.mediaContent = customNativeAd.mediaContent;
     mainView = mediaView;
+    // [START gam_set_custom_video_controls]
+    // Add custom video controls to replace default video controls.
+    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomControls"
+                                                      owner:nil
+                                                    options:nil];
+    CustomControlsView *customControlsView = [nibObjects firstObject];
+    if ([customControlsView isKindOfClass:[CustomControlsView class]]) {
+      customControlsView.mediaContent = customNativeAd.mediaContent;
+      [mediaView addSubview:customControlsView];
+
+      [NSLayoutConstraint activateConstraints:@[
+        [customControlsView.leadingAnchor constraintEqualToAnchor:mediaView.leadingAnchor],
+        [customControlsView.bottomAnchor constraintEqualToAnchor:mediaView.bottomAnchor],
+      ]];
+      [mediaView bringSubviewToFront:customControlsView];
+    }
+    // [END gam_set_custom_video_controls]}
   } else {
     UIImage *image = [customNativeAd imageForKey:SimpleNativeAdViewMainImageKey].image;
     mainView = [[UIImageView alloc] initWithImage:image];
