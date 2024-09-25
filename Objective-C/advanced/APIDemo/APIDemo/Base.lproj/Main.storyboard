@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -51,9 +51,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="Vch-k2-d8D" kind="push" identifier="collapsibleBannerSegue" id="17K-CU-Mb7"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -71,6 +68,7 @@
                         <segue destination="hZP-P9-1wH" kind="push" identifier="fluidAdSizeSegue" id="UQn-Bs-pNU"/>
                         <segue destination="FgD-4P-bPV" kind="push" identifier="customControlsSegue" id="ZhH-lF-0He"/>
                         <segue destination="85K-uZ-lc0" kind="push" identifier="customMuteSegue" id="wZD-GP-O3D"/>
+                        <segue destination="Vch-k2-d8D" kind="push" identifier="collapsibleBannerSegue" id="GXC-5c-GCx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
