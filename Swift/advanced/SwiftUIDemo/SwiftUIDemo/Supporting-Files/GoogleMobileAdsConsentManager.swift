@@ -41,7 +41,7 @@ class GoogleMobileAdsConsentManager: NSObject {
   func gatherConsent(consentGatheringComplete: @escaping (Error?) -> Void) {
     let parameters = UMPRequestParameters()
 
-    //For testing purposes, you can force a UMPDebugGeography of EEA or not EEA.
+    // For testing purposes, you can use UMPDebugGeography to simulate a location.
     let debugSettings = UMPDebugSettings()
     // debugSettings.geography = UMPDebugGeography.EEA
     parameters.debugSettings = debugSettings
@@ -53,18 +53,21 @@ class GoogleMobileAdsConsentManager: NSObject {
         return consentGatheringComplete(requestConsentError)
       }
 
-      UMPConsentForm.loadAndPresentIfRequired(from: nil) {
-        loadAndPresentError in
-
-        // Consent has been gathered.
-        consentGatheringComplete(loadAndPresentError)
+      Task { @MainActor in
+        do {
+          try await UMPConsentForm.loadAndPresentIfRequired(from: nil)
+          // Consent has been gathered.
+          consentGatheringComplete(nil)
+        } catch {
+          consentGatheringComplete(error)
+        }
       }
     }
   }
 
   /// Helper method to call the UMP SDK method to present the privacy options form.
-  func presentPrivacyOptionsForm(completionHandler: @escaping (Error?) -> Void) {
-    UMPConsentForm.presentPrivacyOptionsForm(from: nil, completionHandler: completionHandler)
+  @MainActor func presentPrivacyOptionsForm() async throws {
+    try await UMPConsentForm.presentPrivacyOptionsForm(from: nil)
   }
 
   /// Method to initialize the Google Mobile Ads SDK. The SDK should only be initialized once.

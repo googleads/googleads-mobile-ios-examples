@@ -25,11 +25,13 @@ struct MenuView: View {
       .navigationTitle("Menu")
       .toolbar {
         Button("Privacy Settings") {
-          GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm { formError in
-            guard let formError else { return }
-
-            formErrorDescription = formError.localizedDescription
-            showPrivacyOptionsAlert = true
+          Task {
+            do {
+              try await GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm()
+            } catch {
+              formErrorDescription = error.localizedDescription
+              showPrivacyOptionsAlert = true
+            }
           }
         }
         .disabled(isPrivacyOptionsButtonDisabled)
