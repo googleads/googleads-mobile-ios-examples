@@ -17,11 +17,11 @@
 //  limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <UIKit/UIKit.h>
 
-#import "SimpleNativeAdView.h"
 #import "CustomControlsView.h"
+#import "SimpleNativeAdView.h"
 
 @interface GAMCustomVideoControlsController : UIViewController
 
@@ -39,9 +39,6 @@
 
 /// Switch to custom native ads.
 @property(nonatomic, weak) IBOutlet UISwitch *customNativeAdSwitch;
-
-/// View containing information about video and custom controls.
-@property(nonatomic, weak) IBOutlet CustomControlsView *customControlsView;
 
 /// Refresh the native ad.
 @property(nonatomic, weak) IBOutlet UIButton *refreshButton;
