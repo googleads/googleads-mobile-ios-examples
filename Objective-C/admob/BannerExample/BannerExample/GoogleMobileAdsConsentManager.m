@@ -35,10 +35,12 @@
   return UMPConsentInformation.sharedInstance.canRequestAds;
 }
 
+// [START is_privacy_options_required]
 - (BOOL)isPrivacyOptionsRequired {
   return UMPConsentInformation.sharedInstance.privacyOptionsRequirementStatus ==
          UMPPrivacyOptionsRequirementStatusRequired;
 }
+// [END is_privacy_options_required]
 
 - (void)gatherConsentFromConsentPresentationViewController:(UIViewController *)viewController
                                   consentGatheringComplete:
@@ -50,6 +52,7 @@
   // debugSettings.geography = UMPDebugGeographyEEA;
   parameters.debugSettings = debugSettings;
 
+  // [START gather_consent]
   // Requesting an update to consent information should be called on every app launch.
   [UMPConsentInformation.sharedInstance
       requestConsentInfoUpdateWithParameters:parameters
@@ -68,13 +71,16 @@
                                                             }];
                              }
                            }];
+  // [END gather_consent]
 }
 
 - (void)presentPrivacyOptionsFormFromViewController:(UIViewController *)viewController
                                   completionHandler:
                                       (void (^)(NSError *_Nullable))completionHandler {
+  // [START present_privacy_options_form]
   [UMPConsentForm presentPrivacyOptionsFormFromViewController:viewController
                                             completionHandler:completionHandler];
+  // [END present_privacy_options_form]
 }
 
 @end

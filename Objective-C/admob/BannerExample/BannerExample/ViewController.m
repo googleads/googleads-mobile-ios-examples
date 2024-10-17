@@ -85,6 +85,7 @@
   self.bannerView.delegate = self;
 
   __weak __typeof__(self) weakSelf = self;
+  // [START can_request_ads]
   [GoogleMobileAdsConsentManager.sharedInstance
       gatherConsentFromConsentPresentationViewController:self
                                 consentGatheringComplete:^(NSError *_Nullable consentError) {
@@ -101,16 +102,21 @@
                                   if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
                                     [strongSelf startGoogleMobileAdsSDK];
                                   }
+                                  // [START_EXCLUDE]
 
+                                  // [START add_privacy_options]
                                   strongSelf.privacySettingsButton.enabled =
                                       GoogleMobileAdsConsentManager.sharedInstance
                                           .isPrivacyOptionsRequired;
+                                  // [END add_privacy_options]
+                                  // [END_EXCLUDE]
                                 }];
 
   // This sample attempts to load ads using consent obtained in the previous session.
   if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
     [self startGoogleMobileAdsSDK];
   }
+  // [END can_request_ads]
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -133,6 +139,7 @@
                       completion:nil];
 }
 
+// [START request_ads]
 - (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -141,6 +148,7 @@
     [self loadBannerAd];
   });
 }
+// [END request_ads]
 
 - (void)loadBannerAd {
   // Here safe area is taken into account, hence the view frame is used after the
