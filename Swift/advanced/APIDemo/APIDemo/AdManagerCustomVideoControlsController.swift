@@ -19,10 +19,11 @@
 import GoogleMobileAds
 import UIKit
 
-private let testAdUnit = "/21775744923/example/native-video"
-private let testNativeCustomFormatID = "12406343"
+private let testAdUnit = "/6499/example/native-video"
+private let testNativeCustomFormatID = "10104090"
 
 class AdManagerCustomVideoControlsController: UIViewController {
+
   /// Switch to indicate if video ads should start muted.
   @IBOutlet weak var startMutedSwitch: UISwitch!
   /// Switch to indicate if video ads should request custom controls.
@@ -33,8 +34,6 @@ class AdManagerCustomVideoControlsController: UIViewController {
   @IBOutlet weak var unifiedNativeAdSwitch: UISwitch!
   /// Switch to custom native ads.
   @IBOutlet weak var customNativeAdSwitch: UISwitch!
-  /// View containing information about video and custom controls.
-  @IBOutlet weak var customControlsView: CustomControlsView!
   /// Refresh the native ad.
   @IBOutlet weak var refreshButton: UIButton!
   /// The Google Mobile Ads SDK version number label.
@@ -47,9 +46,10 @@ class AdManagerCustomVideoControlsController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = "\(GADMobileAds.sharedInstance().versionNumber)"
+    versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
     refreshAd(nil)
   }
+
   @IBAction func refreshAd(_ sender: Any?) {
     // Loads an ad for any of unified native or custom native ads.
     var adTypes = [GADAdLoaderAdType]()
@@ -69,10 +69,10 @@ class AdManagerCustomVideoControlsController: UIViewController {
     refreshButton.isEnabled = false
     adLoader = GADAdLoader(
       adUnitID: testAdUnit, rootViewController: self, adTypes: adTypes, options: [videoOptions])
-    customControlsView.reset(withStartMuted: videoOptions.startMuted)
     adLoader?.delegate = self
     adLoader?.load(GAMRequest())
   }
+
   func setAdView(_ view: UIView) {
     // Remove previous ad view.
     nativeAdView?.removeFromSuperview()
@@ -147,8 +147,6 @@ extension AdManagerCustomVideoControlsController: GADNativeAdLoaderDelegate {
       heightConstraint.isActive = true
     }
 
-    customControlsView.mediaContent = nativeAd.mediaContent
-
     // These assets are not guaranteed to be present. Check that they are before
     // showing or hiding them.
     (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
@@ -180,7 +178,30 @@ extension AdManagerCustomVideoControlsController: GADNativeAdLoaderDelegate {
     // required to make the ad clickable.
     // Note: this should always be done after populating the ad views.
     nativeAdView.nativeAd = nativeAd
+
+    // [START set_custom_video_controls]
+    // Add custom video controls to replace default video controls.
+    if nativeAd.mediaContent.hasVideoContent,
+      nativeAd.mediaContent.videoController.customControlsEnabled(),
+      let mediaView = nativeAdView.mediaView,
+      let customControlsView = Bundle.main.loadNibNamed(
+        "CustomControls", owner: nil, options: nil
+      )?.first as? CustomControlsView
+    {
+
+      customControlsView.mediaContent = mediaView.mediaContent
+      customControlsView.isMuted = startMutedSwitch.isOn
+      mediaView.addSubview(customControlsView)
+
+      NSLayoutConstraint.activate([
+        customControlsView.leadingAnchor.constraint(equalTo: mediaView.leadingAnchor),
+        customControlsView.bottomAnchor.constraint(equalTo: mediaView.bottomAnchor),
+      ])
+
+      mediaView.bringSubviewToFront(customControlsView)
+    }
   }
+  // [END set_custom_video_controls]
 }
 
 extension AdManagerCustomVideoControlsController: GADCustomNativeAdLoaderDelegate {
@@ -196,8 +217,8 @@ extension AdManagerCustomVideoControlsController: GADCustomNativeAdLoaderDelegat
       as! SimpleNativeAdView
     setAdView(simpleNativeAdView)
     // Populate the custom native ad view with its assets.
-    simpleNativeAdView.populate(withCustomNativeAd: customNativeAd)
-    customControlsView.mediaContent = customNativeAd.mediaContent
+    simpleNativeAdView.populate(
+      withCustomNativeAd: customNativeAd, startMuted: self.startMutedSwitch.isOn)
   }
 
   func customNativeAdFormatIDs(for adLoader: GADAdLoader) -> [String] {
