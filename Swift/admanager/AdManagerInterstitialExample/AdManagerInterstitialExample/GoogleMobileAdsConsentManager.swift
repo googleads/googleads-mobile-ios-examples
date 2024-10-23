@@ -37,12 +37,12 @@ class GoogleMobileAdsConsentManager: NSObject {
   /// Helper method to call the UMP SDK methods to request consent information and load/present a
   /// consent form if necessary.
   func gatherConsent(
-    from consentFormPresentationviewController: UIViewController,
+    from viewController: UIViewController? = nil,
     consentGatheringComplete: @escaping (Error?) -> Void
   ) {
     let parameters = UMPRequestParameters()
 
-    //For testing purposes, you can force a UMPDebugGeography of EEA or not EEA.
+    // For testing purposes, you can use UMPDebugGeography to simulate a location.
     let debugSettings = UMPDebugSettings()
     // debugSettings.geography = UMPDebugGeography.EEA
     parameters.debugSettings = debugSettings
@@ -54,20 +54,22 @@ class GoogleMobileAdsConsentManager: NSObject {
         return consentGatheringComplete(requestConsentError)
       }
 
-      UMPConsentForm.loadAndPresentIfRequired(from: consentFormPresentationviewController) {
-        loadAndPresentError in
-
-        // Consent has been gathered.
-        consentGatheringComplete(loadAndPresentError)
+      Task { @MainActor in
+        do {
+          try await UMPConsentForm.loadAndPresentIfRequired(from: viewController)
+          // Consent has been gathered.
+          consentGatheringComplete(nil)
+        } catch {
+          consentGatheringComplete(error)
+        }
       }
     }
   }
 
   /// Helper method to call the UMP SDK method to present the privacy options form.
-  func presentPrivacyOptionsForm(
-    from viewController: UIViewController, completionHandler: @escaping (Error?) -> Void
-  ) {
-    UMPConsentForm.presentPrivacyOptionsForm(
-      from: viewController, completionHandler: completionHandler)
+  @MainActor func presentPrivacyOptionsForm(from viewController: UIViewController? = nil)
+    async throws
+  {
+    try await UMPConsentForm.presentPrivacyOptionsForm(from: viewController)
   }
 }
