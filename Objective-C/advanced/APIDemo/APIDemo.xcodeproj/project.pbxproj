@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CD352992C9CE6A600534FCC /* CustomControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD352982C9CE6A600534FCC /* CustomControls.xib */; };
 		4A96E7211B856D5000031470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7201B856D5000031470 /* main.m */; };
 		4A96E7241B856D5000031470 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7231B856D5000031470 /* AppDelegate.m */; };
 		4A96E72D1B856D5000031470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72B1B856D5000031470 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CD352982C9CE6A600534FCC /* CustomControls.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomControls.xib; sourceTree = "<group>"; };
 		4A96E71B1B856D5000031470 /* APIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A96E71F1B856D5000031470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A96E7201B856D5000031470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */ = {
 			isa = PBXGroup;
 			children = (
+				1CD352982C9CE6A600534FCC /* CustomControls.xib */,
 				50DC0CEA212F1C2D00424CC7 /* GAMCustomVideoControlsController.h */,
 				50DC0CEB212F1C2D00424CC7 /* GAMCustomVideoControlsController.m */,
 				AEE8DA9C201BD7A5008792E6 /* SimpleNativeAdView.h */,
@@ -243,6 +246,7 @@
 				4A96E72D1B856D5000031470 /* Main.storyboard in Resources */,
 				4A96E7321B856D5000031470 /* LaunchScreen.xib in Resources */,
 				4A96E72F1B856D5000031470 /* Images.xcassets in Resources */,
+				1CD352992C9CE6A600534FCC /* CustomControls.xib in Resources */,
 				AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
