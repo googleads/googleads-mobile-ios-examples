@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23089" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BMJ-97-6JR">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment version="2048" identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23077"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,6 +33,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BBc-Dj-8RM" kind="push" identifier="preloadSegue" id="Cdi-vk-s29"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1118,6 +1121,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNs-3r-g4Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2066" y="582"/>
+        </scene>
+        <!--Preload Ads-->
+        <scene sceneID="RMP-gV-K7J">
+            <objects>
+                <viewController id="BBc-Dj-8RM" customClass="AdmobPreloadViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eli-Iw-6nH"/>
+                        <viewControllerLayoutGuide type="bottom" id="b2z-CE-EyO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OfB-Sn-Zav">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-HN-BSx">
+                                <rect key="frame" x="0.0" y="131" width="375" height="536"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Preload Ads" id="Gq5-5u-rcm"/>
+                    <connections>
+                        <outlet property="preloadContainer" destination="HMi-HN-BSx" id="w9D-nY-KWZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zcn-iy-Fja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468" y="1681.7091454272866"/>
         </scene>
     </scenes>
     <resources>

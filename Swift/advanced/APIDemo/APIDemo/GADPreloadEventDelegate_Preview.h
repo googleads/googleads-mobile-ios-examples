@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016 Google, Inc.
+//  Copyright 2024 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -14,11 +14,15 @@
 //  limitations under the License.
 //
 
-#import <CommonCrypto/CommonDigest.h>
-
-#import "GADAppOpenAd_Preview.h"
-#import "GADInterstitialAd_Preview.h"
-#import "GADMobileAds_Preview.h"
 #import "GADPreloadConfiguration_Preview.h"
-#import "GADPreloadEventDelegate_Preview.h"
-#import "GADRewardedAd_Preview.h"
+
+/// Delegate for preloading events.
+@protocol GADPreloadEventDelegate <NSObject>
+
+/// Called when an ad becomes available for the configuration.
+- (void)adAvailableForPreloadConfiguration:(nonnull GADPreloadConfiguration *)configuration;
+
+/// Called when the last available ad is exhausted for the configuration.
+- (void)adsExhaustedForPreloadConfiguration:(nonnull GADPreloadConfiguration *)configuration;
+
+@end

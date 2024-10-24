@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016 Google, Inc.
+//  Copyright 2024 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -14,11 +14,16 @@
 //  limitations under the License.
 //
 
-#import <CommonCrypto/CommonDigest.h>
+#import <GoogleMobileAds/GADMobileAds.h>
+#import <GoogleMobileAds/GADRewardedAd.h>
 
-#import "GADAppOpenAd_Preview.h"
-#import "GADInterstitialAd_Preview.h"
-#import "GADMobileAds_Preview.h"
-#import "GADPreloadConfiguration_Preview.h"
-#import "GADPreloadEventDelegate_Preview.h"
-#import "GADRewardedAd_Preview.h"
+@interface GADRewardedAd ()
+
+/// Returns if a rewarded ad is preloaded for the given ad unit ID.
++ (BOOL)isPreloadedAdAvailable:(nonnull NSString *)adUnitID;
+
+/// Returns a rewarded ad associated with the ad unit ID. Returns nil if
+/// an ad is not available.
++ (nullable GADRewardedAd *)preloadedAdWithAdUnitID:(nonnull NSString *)adUnitID;
+
+@end
