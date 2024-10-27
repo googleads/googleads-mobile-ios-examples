@@ -215,37 +215,37 @@ class ViewController: UIViewController, GADFullScreenContentDelegate {
   /// Handle changes to user consent.
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     pauseGame()
-
-    GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self) {
-      [weak self] formError in
-      guard let self else { return }
-      guard let formError else { return self.resumeGame() }
-
-      let alertController = UIAlertController(
-        title: formError.localizedDescription, message: "Please try again later.",
-        preferredStyle: .alert)
-      alertController.addAction(
-        UIAlertAction(
-          title: "OK", style: .cancel,
-          handler: { _ in
-            self.resumeGame()
-          }))
-      self.present(alertController, animated: true)
+    Task {
+      do {
+        try await GoogleMobileAdsConsentManager.shared.presentPrivacyOptionsForm(from: self)
+        resumeGame()
+      } catch {
+        let alertController = UIAlertController(
+          title: error.localizedDescription, message: "Please try again later.",
+          preferredStyle: .alert)
+        alertController.addAction(
+          UIAlertAction(
+            title: "OK", style: .cancel,
+            handler: { _ in
+              self.resumeGame()
+            }))
+        present(alertController, animated: true)
+      }
     }
   }
 
   /// Handle ad inspector launch.
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
-    GADMobileAds.sharedInstance().presentAdInspector(from: self) {
-      // Error will be non-nil if there was an issue and the inspector was not displayed.
-      [weak self] error in
-      guard let self, let error else { return }
-
-      let alertController = UIAlertController(
-        title: error.localizedDescription, message: "Please try again later.",
-        preferredStyle: .alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
-      self.present(alertController, animated: true)
+    Task {
+      do {
+        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+      } catch {
+        let alertController = UIAlertController(
+          title: error.localizedDescription, message: "Please try again later.",
+          preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alertController, animated: true)
+      }
     }
   }
 
