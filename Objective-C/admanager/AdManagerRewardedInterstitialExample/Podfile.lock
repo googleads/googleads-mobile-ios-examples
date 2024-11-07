@@ -1,7 +1,7 @@
 PODS:
-  - Google-Mobile-Ads-SDK (11.11.0):
+  - Google-Mobile-Ads-SDK (11.12.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleUserMessagingPlatform (2.6.0)
+  - GoogleUserMessagingPlatform (2.7.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
@@ -13,9 +13,9 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 6d2fc31d83b7b13a7dee3d622f1538fa3324958a
-  GoogleUserMessagingPlatform: 0c3a08353e53ce8c2feab7addd0b652cde522450
+  Google-Mobile-Ads-SDK: 3a76704456669fbed2057efc8bdb99050ad0e3fb
+  GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
 
 PODFILE CHECKSUM: 78238ffaa9289bca848f3d9541aeb040ff5a3507
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.1
