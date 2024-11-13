@@ -46,6 +46,7 @@ class GoogleMobileAdsConsentManager: NSObject {
     // debugSettings.geography = UMPDebugGeography.EEA
     parameters.debugSettings = debugSettings
 
+    // [START gather_consent]
     // Requesting an update to consent information should be called on every app launch.
     UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters) {
       requestConsentError in
@@ -63,13 +64,17 @@ class GoogleMobileAdsConsentManager: NSObject {
         }
       }
     }
+    // [END gather_consent]
   }
 
   /// Helper method to call the UMP SDK method to present the privacy options form.
   @MainActor func presentPrivacyOptionsForm() async throws {
+    // [START present_privacy_options_form]
     try await UMPConsentForm.presentPrivacyOptionsForm(from: nil)
+    // [END present_privacy_options_form]
   }
 
+  // [START request_ads]
   /// Method to initialize the Google Mobile Ads SDK. The SDK should only be initialized once.
   func startGoogleMobileAdsSDK() {
     guard canRequestAds, !isMobileAdsStartCalled else { return }
@@ -79,4 +84,5 @@ class GoogleMobileAdsConsentManager: NSObject {
     // Initialize the Google Mobile Ads SDK.
     GADMobileAds.sharedInstance().start()
   }
+  // [END request_ads]
 }
