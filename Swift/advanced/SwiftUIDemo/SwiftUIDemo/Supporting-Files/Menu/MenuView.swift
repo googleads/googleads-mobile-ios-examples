@@ -43,7 +43,6 @@ struct MenuView: View {
       }
     }
     .onAppear {
-      // [START can_request_ads]
       GoogleMobileAdsConsentManager.shared.gatherConsent { consentError in
         if let consentError {
           // Consent gathering failed.
@@ -53,17 +52,14 @@ struct MenuView: View {
         // Check if you can request ads in `startGoogleMobileAdsSDK` before initializing the
         // Google Mobile Ads SDK.
         GoogleMobileAdsConsentManager.shared.startGoogleMobileAdsSDK()
-        // [START_EXCLUDE]
         // Update the state of the menu items and privacy options button.
         isMenuItemDisabled = !GoogleMobileAdsConsentManager.shared.canRequestAds
         isPrivacyOptionsButtonDisabled = !GoogleMobileAdsConsentManager.shared
           .isPrivacyOptionsRequired
-        // [END_EXCLUDE]
       }
 
       // This sample attempts to load ads using consent obtained in the previous session.
       GoogleMobileAdsConsentManager.shared.startGoogleMobileAdsSDK()
-      // [END can_request_ads]
     }
   }
 }

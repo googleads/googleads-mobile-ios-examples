@@ -34,7 +34,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     bannerView.rootViewController = self
     bannerView.delegate = self
 
-    // [START can_request_ads]
     GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
       guard let self else { return }
 
@@ -46,20 +45,15 @@ class ViewController: UIViewController, GADBannerViewDelegate {
       if GoogleMobileAdsConsentManager.shared.canRequestAds {
         self.startGoogleMobileAdsSDK()
       }
-      // [START_EXCLUDE]
 
-      // [START add_privacy_options]
       self.privacySettingsButton.isEnabled =
         GoogleMobileAdsConsentManager.shared.isPrivacyOptionsRequired
-      // [END add_privacy_options]
-      // [END_EXCLUDE]
     }
 
     // This sample attempts to load ads using consent obtained in the previous session.
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
       startGoogleMobileAdsSDK()
     }
-    // [END can_request_ads]
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -114,7 +108,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     }
   }
 
-  // [START request_ads]
   private func startGoogleMobileAdsSDK() {
     DispatchQueue.main.async {
       guard !self.isMobileAdsStartCalled else { return }
@@ -129,7 +122,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
       }
     }
   }
-  // [END request_ads]
 
   func loadBannerAd() {
     let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
