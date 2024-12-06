@@ -49,4 +49,10 @@ struct Constants {
   /// Collapsible banner ad unit ID.
   static let collapsibleBannerAdUnitID = "ca-app-pub-3940256099942544/8388050270"
 
+  /// Preload ad unit IDs for testing.
+  static let admobPreloadAppOpenAdUnitID = "ca-app-pub-3940256099942544/5575463023"
+
+  static let admobPreloadInterstitialAdUnitID = "ca-app-pub-3940256099942544/4411468910"
+
+  static let admobPreloadRewardedAdUnitID = "ca-app-pub-3940256099942544/1712485313"
 }
