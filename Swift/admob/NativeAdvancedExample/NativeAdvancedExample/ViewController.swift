@@ -40,9 +40,6 @@ class ViewController: UIViewController {
   /// The SDK version label.
   @IBOutlet weak var versionLabel: UILabel!
 
-  /// The height constraint applied to the ad view, where necessary.
-  var heightConstraint: NSLayoutConstraint?
-
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
   var adLoader: GADAdLoader!
@@ -113,17 +110,12 @@ class ViewController: UIViewController {
 
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.
-    let viewDictionary = ["_nativeAdView": nativeAdView!]
-    self.view.addConstraints(
-      NSLayoutConstraint.constraints(
-        withVisualFormat: "H:|[_nativeAdView]|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
-    )
-    self.view.addConstraints(
-      NSLayoutConstraint.constraints(
-        withVisualFormat: "V:|[_nativeAdView]|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
-    )
+    NSLayoutConstraint.activate([
+      nativeAdView.leadingAnchor.constraint(equalTo: nativeAdPlaceholder.leadingAnchor),
+      nativeAdView.trailingAnchor.constraint(equalTo: nativeAdPlaceholder.trailingAnchor),
+      nativeAdView.topAnchor.constraint(equalTo: nativeAdPlaceholder.topAnchor),
+      nativeAdView.bottomAnchor.constraint(equalTo: nativeAdPlaceholder.bottomAnchor),
+    ])
   }
 
   // MARK: - Actions
@@ -214,9 +206,6 @@ extension ViewController: GADNativeAdLoaderDelegate {
     // Set ourselves as the native ad delegate to be notified of native ad events.
     nativeAd.delegate = self
 
-    // Deactivate the height constraint that was set when the previous video ad loaded.
-    heightConstraint?.isActive = false
-
     // Populate the native ad view with the native ad assets.
     // The headline and mediaContent are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
@@ -238,15 +227,16 @@ extension ViewController: GADNativeAdLoaderDelegate {
     // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
     // ratio of the media it displays.
     if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
-      heightConstraint = NSLayoutConstraint(
+      let aspectRatioConstraint = NSLayoutConstraint(
         item: mediaView,
-        attribute: .height,
+        attribute: .width,
         relatedBy: .equal,
         toItem: mediaView,
-        attribute: .width,
-        multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+        attribute: .height,
+        multiplier: CGFloat(nativeAd.mediaContent.aspectRatio),
         constant: 0)
-      heightConstraint?.isActive = true
+      mediaView.addConstraint(aspectRatioConstraint)
+      nativeAdView.layoutIfNeeded()
     }
 
     // These assets are not guaranteed to be present. Check that they are before
@@ -279,7 +269,6 @@ extension ViewController: GADNativeAdLoaderDelegate {
     // required to make the ad clickable.
     // Note: this should always be done after populating the ad views.
     nativeAdView.nativeAd = nativeAd
-
   }
 }
 
