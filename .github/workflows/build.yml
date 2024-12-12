@@ -28,11 +28,11 @@ jobs:
       - name: Clone Repo
         uses: actions/checkout@v1
 
-      - name: Select the Google Mobile Ads SDK minimum Xcode version (15.3)
+      - name: Select the Google Mobile Ads SDK minimum Xcode version (15.4)
         # Available Xcode versions:
         # https://github.com/actions/runner-images/blob/main/images/macos/toolsets/toolset-14.json
         run: |
-          sudo xcode-select -s /Applications/Xcode_15.3.app/Contents/Developer
+          sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
           echo "Selected Xcode version:"
           /usr/bin/xcodebuild -version
 

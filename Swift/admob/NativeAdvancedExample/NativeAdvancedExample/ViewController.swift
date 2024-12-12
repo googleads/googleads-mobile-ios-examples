@@ -192,21 +192,21 @@ class ViewController: UIViewController {
   }
 }
 
-extension ViewController: GADVideoControllerDelegate {
+extension ViewController: @preconcurrency GADVideoControllerDelegate {
 
   func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     videoStatusLabel.text = "Video playback has ended."
   }
 }
 
-extension ViewController: GADAdLoaderDelegate {
+extension ViewController: @preconcurrency GADAdLoaderDelegate {
   func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
     refreshAdButton.isEnabled = true
   }
 }
 
-extension ViewController: GADNativeAdLoaderDelegate {
+extension ViewController: @preconcurrency GADNativeAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
     refreshAdButton.isEnabled = true
@@ -284,7 +284,7 @@ extension ViewController: GADNativeAdLoaderDelegate {
 }
 
 // MARK: - GADNativeAdDelegate implementation
-extension ViewController: GADNativeAdDelegate {
+extension ViewController: @preconcurrency GADNativeAdDelegate {
 
   func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
