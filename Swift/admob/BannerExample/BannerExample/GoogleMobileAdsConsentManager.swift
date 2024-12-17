@@ -30,9 +30,11 @@ class GoogleMobileAdsConsentManager: NSObject {
     return UMPConsentInformation.sharedInstance.canRequestAds
   }
 
+  // [START is_privacy_options_required]
   var isPrivacyOptionsRequired: Bool {
     return UMPConsentInformation.sharedInstance.privacyOptionsRequirementStatus == .required
   }
+  // [END is_privacy_options_required]
 
   /// Helper method to call the UMP SDK methods to request consent information and load/present a
   /// consent form if necessary.
