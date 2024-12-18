@@ -232,7 +232,7 @@ class ViewController: UIViewController {
 
 // MARK: - GADAdLoaderDelegate
 
-extension ViewController: GADAdLoaderDelegate {
+extension ViewController: @preconcurrency GADAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
@@ -242,7 +242,7 @@ extension ViewController: GADAdLoaderDelegate {
 
 // MARK: - GADNativeAdLoaderDelegate
 
-extension ViewController: GADNativeAdLoaderDelegate {
+extension ViewController: @preconcurrency GADNativeAdLoaderDelegate {
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
     print("Received native ad: \(nativeAd)")
@@ -324,7 +324,7 @@ extension ViewController: GADNativeAdLoaderDelegate {
 
 // MARK: - GADCustomNativeAdLoaderDelegate
 
-extension ViewController: GADCustomNativeAdLoaderDelegate {
+extension ViewController: @preconcurrency GADCustomNativeAdLoaderDelegate {
   func customNativeAdFormatIDs(for adLoader: GADAdLoader) -> [String] {
     return [nativeCustomFormatId]
   }
@@ -356,7 +356,7 @@ extension ViewController: GADCustomNativeAdLoaderDelegate {
 }
 
 // MARK: - GADVideoControllerDelegate implementation
-extension ViewController: GADVideoControllerDelegate {
+extension ViewController: @preconcurrency GADVideoControllerDelegate {
 
   func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     videoStatusLabel.text = "Video playback has ended."
@@ -364,7 +364,7 @@ extension ViewController: GADVideoControllerDelegate {
 }
 
 // MARK: - GADNativeAdDelegate implementation
-extension ViewController: GADNativeAdDelegate {
+extension ViewController: @preconcurrency GADNativeAdDelegate {
 
   func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
     print("\(#function) called")

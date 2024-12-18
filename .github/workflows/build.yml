@@ -17,22 +17,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        regex:
-        - "Objective-C/advanced"
-        - "Swift/advanced"
-        - "Objective-C/admob"
-        - "Swift/admob"
-        - "Objective-C/admanager"
-        - "Swift/admanager"
+        include:
+          - { regex: "Objective-C/advanced", xcode_version: "15.3" }
+          - { regex: "Swift/advanced", xcode_version: "16.0" }
+          - { regex: "Objective-C/admob", xcode_version: "15.3" }
+          - { regex: "Swift/admob", xcode_version: "16.0" }
+          - { regex: "Objective-C/admanager", xcode_version: "15.3" }
+          - { regex: "Swift/admanager", xcode_version: "16.0" }
     steps:
       - name: Clone Repo
         uses: actions/checkout@v1
 
-      - name: Select the Google Mobile Ads SDK minimum Xcode version (15.3)
+      - name: Select an Xcode version
         # Available Xcode versions:
         # https://github.com/actions/runner-images/blob/main/images/macos/toolsets/toolset-14.json
         run: |
-          sudo xcode-select -s /Applications/Xcode_15.3.app/Contents/Developer
+          sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode_version }}.app/Contents/Developer
           echo "Selected Xcode version:"
           /usr/bin/xcodebuild -version
 

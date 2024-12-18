@@ -45,19 +45,21 @@ class MySimpleNativeAdView: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
 
-    // Enable clicks on the main image.
-    mainPlaceholder.addGestureRecognizer(
-      UITapGestureRecognizer(
-        target: self,
-        action: #selector(performClickOnMainImage(_:))))
-    mainPlaceholder.isUserInteractionEnabled = true
+    DispatchQueue.main.async {
+      // Enable clicks on the main image.
+      self.mainPlaceholder.addGestureRecognizer(
+        UITapGestureRecognizer(
+          target: self,
+          action: #selector(self.performClickOnMainImage(_:))))
+      self.mainPlaceholder.isUserInteractionEnabled = true
 
-    // Enable clicks on AdChoices.
-    adChoicesView.addGestureRecognizer(
-      UITapGestureRecognizer(
-        target: self,
-        action: #selector(performClickOnAdChoices(_:))))
-    adChoicesView.isUserInteractionEnabled = true
+      // Enable clicks on AdChoices.
+      self.adChoicesView.addGestureRecognizer(
+        UITapGestureRecognizer(
+          target: self,
+          action: #selector(self.performClickOnAdChoices(_:))))
+      self.adChoicesView.isUserInteractionEnabled = true
+    }
   }
 
   @objc func performClickOnMainImage(_ sender: UITapGestureRecognizer!) {
