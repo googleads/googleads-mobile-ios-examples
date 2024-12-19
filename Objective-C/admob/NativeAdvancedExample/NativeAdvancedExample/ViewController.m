@@ -32,9 +32,6 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 /// The native ad view that is being presented.
 @property(nonatomic, strong) GADNativeAdView *nativeAdView;
 
-/// The height constraint applied to the ad view, where necessary.
-@property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
-
 @end
 
 @implementation ViewController
@@ -202,9 +199,6 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
   GADNativeAdView *nativeAdView = self.nativeAdView;
 
-  // Deactivate the height constraint that was set when the previous video ad loaded.
-  self.heightConstraint.active = NO;
-
   // Set ourselves as the ad delegate to be notified of native ad events.
   nativeAd.delegate = self;
 
@@ -215,16 +209,17 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
   // This app uses a fixed width for the GADMediaView and changes its height
   // to match the aspect ratio of the media content it displays.
-  if (nativeAd.mediaContent.aspectRatio > 0) {
-    self.heightConstraint =
+  if (nativeAdView.mediaView != nil && nativeAd.mediaContent.aspectRatio > 0) {
+    NSLayoutConstraint *aspectRatioConstraint =
         [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
-                                     attribute:NSLayoutAttributeHeight
+                                     attribute:NSLayoutAttributeWidth
                                      relatedBy:NSLayoutRelationEqual
                                         toItem:nativeAdView.mediaView
-                                     attribute:NSLayoutAttributeWidth
-                                    multiplier:(1 / nativeAd.mediaContent.aspectRatio)
+                                     attribute:NSLayoutAttributeHeight
+                                    multiplier:(nativeAd.mediaContent.aspectRatio)
                                       constant:0];
-    self.heightConstraint.active = YES;
+    [nativeAdView.mediaView addConstraint:aspectRatioConstraint];
+    [nativeAdView layoutIfNeeded];
   }
 
   if (nativeAd.mediaContent.hasVideoContent) {
