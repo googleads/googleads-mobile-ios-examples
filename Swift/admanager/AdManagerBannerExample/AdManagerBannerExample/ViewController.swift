@@ -17,7 +17,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADBannerViewDelegate {
+class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
   @IBOutlet weak var bannerView: GAMBannerView!
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
   @IBOutlet weak var adInspectorButton: UIBarButtonItem!
