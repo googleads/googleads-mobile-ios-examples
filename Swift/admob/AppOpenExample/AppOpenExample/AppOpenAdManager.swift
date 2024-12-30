@@ -14,14 +14,16 @@
 //  limitations under the License.
 //
 
-import GoogleMobileAds
+@preconcurrency import GoogleMobileAds
 
+@MainActor
 protocol AppOpenAdManagerDelegate: AnyObject {
   /// Method to be invoked when an app open ad life cycle is complete (i.e. dismissed or fails to
   /// show).
   func appOpenAdManagerAdDidComplete(_ appOpenAdManager: AppOpenAdManager)
 }
 
+@MainActor
 class AppOpenAdManager: NSObject {
   /// Ad references in the app open beta will time out after four hours,
   /// but this time limit may change in future beta versions. For details, see:
@@ -108,7 +110,7 @@ class AppOpenAdManager: NSObject {
   }
 }
 
-extension AppOpenAdManager: GADFullScreenContentDelegate {
+extension AppOpenAdManager: @preconcurrency GADFullScreenContentDelegate {
   func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
     print("App open ad is will be presented.")
   }

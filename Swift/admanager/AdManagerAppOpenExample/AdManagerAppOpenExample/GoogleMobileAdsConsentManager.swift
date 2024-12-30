@@ -23,6 +23,7 @@ import UserMessagingPlatform
 /// consent for users in GDPR impacted countries. This is an example and
 /// you can choose another consent management platform to capture consent.
 
+@MainActor
 class GoogleMobileAdsConsentManager: NSObject {
   static let shared = GoogleMobileAdsConsentManager()
 
