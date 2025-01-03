@@ -14,10 +14,10 @@
 //  limitations under the License.
 //
 
-import GoogleMobileAds
+@preconcurrency import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADFullScreenContentDelegate {
+class ViewController: UIViewController, @preconcurrency GADFullScreenContentDelegate {
 
   enum GameState: NSInteger {
     case notStarted
