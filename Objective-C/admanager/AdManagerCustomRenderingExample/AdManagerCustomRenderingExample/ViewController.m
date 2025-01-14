@@ -229,16 +229,17 @@ static NSString *const TestNativeCustomTemplateID = @"12387226";
 
   // This app uses a fixed width for the GADMediaView and changes its height
   // to match the aspect ratio of the media content it displays.
-  if (nativeAd.mediaContent.aspectRatio > 0) {
-    NSLayoutConstraint *heightConstraint =
-        [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nativeAdView.mediaView
-                                     attribute:NSLayoutAttributeWidth
-                                    multiplier:(1 / nativeAd.mediaContent.aspectRatio)
-                                      constant:0];
-    heightConstraint.active = YES;
+  if (nativeAdView.mediaView != nil && nativeAd.mediaContent.aspectRatio > 0) {
+    NSLayoutConstraint *aspectRatioConstraint =
+    [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nativeAdView.mediaView
+                                 attribute:NSLayoutAttributeHeight
+                                multiplier:(nativeAd.mediaContent.aspectRatio)
+                                  constant:0];
+    [nativeAdView.mediaView addConstraint:aspectRatioConstraint];
+    [nativeAdView layoutIfNeeded];
   }
 
   if (nativeAd.mediaContent.hasVideoContent) {
