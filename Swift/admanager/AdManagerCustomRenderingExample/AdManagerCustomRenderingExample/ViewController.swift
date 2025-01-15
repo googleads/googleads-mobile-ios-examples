@@ -145,17 +145,12 @@ class ViewController: UIViewController {
 
     // Layout constraints for positioning the native ad view to stretch the entire width and height
     // of the nativeAdPlaceholder.
-    let viewDictionary = ["_nativeAdView": nativeAdView!]
-    self.view.addConstraints(
-      NSLayoutConstraint.constraints(
-        withVisualFormat: "H:|[_nativeAdView]|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
-    )
-    self.view.addConstraints(
-      NSLayoutConstraint.constraints(
-        withVisualFormat: "V:|[_nativeAdView]|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
-    )
+    NSLayoutConstraint.activate([
+      nativeAdView.leadingAnchor.constraint(equalTo: nativeAdPlaceholder.leadingAnchor),
+      nativeAdView.trailingAnchor.constraint(equalTo: nativeAdPlaceholder.trailingAnchor),
+      nativeAdView.topAnchor.constraint(equalTo: nativeAdPlaceholder.topAnchor),
+      nativeAdView.bottomAnchor.constraint(equalTo: nativeAdPlaceholder.bottomAnchor),
+    ])
   }
 
   // MARK: - Actions
@@ -277,15 +272,16 @@ extension ViewController: @preconcurrency GADNativeAdLoaderDelegate {
     // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
     // ratio of the media it displays.
     if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
-      let heightConstraint = NSLayoutConstraint(
+      let aspectRatioConstraint = NSLayoutConstraint(
         item: mediaView,
-        attribute: .height,
+        attribute: .width,
         relatedBy: .equal,
         toItem: mediaView,
-        attribute: .width,
-        multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+        attribute: .height,
+        multiplier: CGFloat(nativeAd.mediaContent.aspectRatio),
         constant: 0)
-      heightConstraint.isActive = true
+      mediaView.addConstraint(aspectRatioConstraint)
+      nativeAdView.layoutIfNeeded()
     }
 
     // These assets are not guaranteed to be present. Check that they are before
