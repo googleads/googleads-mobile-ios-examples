@@ -17,13 +17,13 @@
 import GoogleMobileAds
 import UIKit
 
-class TableViewController: UITableViewController, GADBannerViewDelegate {
+class TableViewController: UITableViewController, BannerViewDelegate {
 
   // MARK: - Properties
 
   var tableViewItems = [AnyObject]()
-  var adsToLoad = [GADBannerView]()
-  var loadStateForAds = [GADBannerView: Bool]()
+  var adsToLoad = [BannerView]()
+  var loadStateForAds = [BannerView: Bool]()
   let adUnitID = "ca-app-pub-3940256099942544/2435281174"
 
   // A banner ad is placed in the UITableView once per `adInterval`. iPads will have a
@@ -67,9 +67,9 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     _ tableView: UITableView,
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
-    if let tableItem = tableViewItems[indexPath.row] as? GADBannerView {
+    if let tableItem = tableViewItems[indexPath.row] as? BannerView {
       let isAdLoaded = loadStateForAds[tableItem]
-      return isAdLoaded == true ? CGSizeFromGADAdSize(tableItem.adSize).height : 0
+      return isAdLoaded == true ? cgSize(for: tableItem.adSize).height : 0
     }
     return UITableView.automaticDimension
   }
@@ -83,7 +83,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
 
-    if let BannerView = tableViewItems[indexPath.row] as? GADBannerView {
+    if let bannerView = tableViewItems[indexPath.row] as? BannerView {
       let reusableAdCell = tableView.dequeueReusableCell(
         withIdentifier: "BannerViewCell",
         for: indexPath)
@@ -93,9 +93,9 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
         subview.removeFromSuperview()
       }
 
-      reusableAdCell.contentView.addSubview(BannerView)
+      reusableAdCell.contentView.addSubview(bannerView)
       // Center GADBannerView in the table cell's content view.
-      BannerView.center = reusableAdCell.contentView.center
+      bannerView.center = reusableAdCell.contentView.center
 
       return reusableAdCell
 
@@ -120,14 +120,14 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
 
   // MARK: - GADBannerView delegate methods
 
-  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     loadStateForAds[bannerView] = true
     // Load the next ad in the adsToLoad list.
     preloadNextAd()
   }
 
   func bannerView(
-    _ bannerView: GADBannerView,
+    _ bannerView: BannerView,
     didFailToReceiveAdWithError error: Error
   ) {
     print("Failed to receive ad: \(error.localizedDescription)")
@@ -142,9 +142,9 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
     var index = adInterval
     // Ensure subview layout has been performed before accessing subview sizes.
     while index < tableViewItems.count {
-      let adView = GADBannerView(
-        adSize: GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(
-          tableView.contentSize.width))
+      let adView = BannerView(
+        adSize: currentOrientationInlineAdaptiveBanner(
+          width: tableView.contentSize.width))
       adView.adUnitID = adUnitID
       adView.rootViewController = self
       adView.delegate = self
@@ -161,7 +161,7 @@ class TableViewController: UITableViewController, GADBannerViewDelegate {
   func preloadNextAd() {
     if !adsToLoad.isEmpty {
       let ad = adsToLoad.removeFirst()
-      let adRequest = GADRequest()
+      let adRequest = Request()
       ad.load(adRequest)
     }
   }

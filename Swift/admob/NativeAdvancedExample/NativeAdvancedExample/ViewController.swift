@@ -42,10 +42,10 @@ class ViewController: UIViewController {
 
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
-  var adLoader: GADAdLoader!
+  var adLoader: AdLoader!
 
   /// The native ad view that is being presented.
-  var nativeAdView: GADNativeAdView!
+  var nativeAdView: NativeAdView!
 
   /// Indicates whether the Google Mobile Ads SDK has started.
   private var isMobileAdsStartCalled = false
@@ -55,11 +55,11 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
+    versionLabel.text = string(for: MobileAds.shared.versionNumber)
 
     guard
       let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
-      let adView = nibObjects.first as? GADNativeAdView
+      let adView = nibObjects.first as? NativeAdView
     else {
       assert(false, "Could not load nib file for adView")
     }
@@ -97,13 +97,13 @@ class ViewController: UIViewController {
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
       // Request an ad.
       self.refreshAd(nil)
     }
   }
 
-  func setAdView(_ view: GADNativeAdView) {
+  func setAdView(_ view: NativeAdView) {
     nativeAdView = view
     nativeAdPlaceholder.addSubview(view)
     nativeAdView.translatesAutoresizingMaskIntoConstraints = false
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         let alertController = UIAlertController(
           title: error.localizedDescription, message: "Please try again later.",
@@ -157,11 +157,11 @@ class ViewController: UIViewController {
   @IBAction func refreshAd(_ sender: AnyObject!) {
     refreshAdButton.isEnabled = false
     videoStatusLabel.text = ""
-    adLoader = GADAdLoader(
+    adLoader = AdLoader(
       adUnitID: adUnitID, rootViewController: self,
       adTypes: [.native], options: nil)
     adLoader.delegate = self
-    adLoader.load(GADRequest())
+    adLoader.load(Request())
   }
 
   /// Returns a `UIImage` representing the number of stars from the given star rating; returns `nil`
@@ -184,23 +184,23 @@ class ViewController: UIViewController {
   }
 }
 
-extension ViewController: @preconcurrency GADVideoControllerDelegate {
+extension ViewController: @preconcurrency VideoControllerDelegate {
 
-  func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+  func videoControllerDidEndVideoPlayback(_ videoController: VideoController) {
     videoStatusLabel.text = "Video playback has ended."
   }
 }
 
-extension ViewController: @preconcurrency GADAdLoaderDelegate {
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
+extension ViewController: @preconcurrency AdLoaderDelegate {
+  func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
     refreshAdButton.isEnabled = true
   }
 }
 
-extension ViewController: @preconcurrency GADNativeAdLoaderDelegate {
+extension ViewController: @preconcurrency NativeAdLoaderDelegate {
 
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
+  func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
     refreshAdButton.isEnabled = true
 
     // Set ourselves as the native ad delegate to be notified of native ad events.
@@ -273,29 +273,29 @@ extension ViewController: @preconcurrency GADNativeAdLoaderDelegate {
 }
 
 // MARK: - GADNativeAdDelegate implementation
-extension ViewController: @preconcurrency GADNativeAdDelegate {
+extension ViewController: @preconcurrency NativeAdDelegate {
 
-  func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
+  func nativeAdDidRecordClick(_ nativeAd: NativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
+  func nativeAdDidRecordImpression(_ nativeAd: NativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
+  func nativeAdWillPresentScreen(_ nativeAd: NativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
+  func nativeAdWillDismissScreen(_ nativeAd: NativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
+  func nativeAdDidDismissScreen(_ nativeAd: NativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillLeaveApplication(_ nativeAd: GADNativeAd) {
+  func nativeAdWillLeaveApplication(_ nativeAd: NativeAd) {
     print("\(#function) called")
   }
 }

@@ -7,11 +7,11 @@ struct BannerContentView: View {
   // [START add_banner_to_view]
   var body: some View {
     GeometryReader { geometry in
-      let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(geometry.size.width)
+      let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
 
       VStack {
         Spacer()
-        BannerView(adSize)
+        BannerViewContainer(adSize)
           .frame(height: adSize.size.height)
       }
     }
@@ -27,10 +27,10 @@ struct BannerContentView_Previews: PreviewProvider {
 }
 
 // [START create_banner_view]
-private struct BannerView: UIViewRepresentable {
-  let adSize: GADAdSize
+private struct BannerViewContainer: UIViewRepresentable {
+  let adSize: AdSize
 
-  init(_ adSize: GADAdSize) {
+  init(_ adSize: AdSize) {
     self.adSize = adSize
   }
 
@@ -53,13 +53,13 @@ private struct BannerView: UIViewRepresentable {
   // [END create_banner_view]
 
   // [START create_banner]
-  class BannerCoordinator: NSObject, GADBannerViewDelegate {
+  class BannerCoordinator: NSObject, BannerViewDelegate {
 
-    private(set) lazy var bannerView: GADBannerView = {
-      let banner = GADBannerView(adSize: parent.adSize)
+    private(set) lazy var bannerView: BannerView = {
+      let banner = BannerView(adSize: parent.adSize)
       // [START load_ad]
       banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"
-      banner.load(GADRequest())
+      banner.load(Request())
       // [END load_ad]
       // [START set_delegate]
       banner.delegate = self
@@ -67,20 +67,20 @@ private struct BannerView: UIViewRepresentable {
       return banner
     }()
 
-    let parent: BannerView
+    let parent: BannerViewContainer
 
-    init(_ parent: BannerView) {
+    init(_ parent: BannerViewContainer) {
       self.parent = parent
     }
     // [END create_banner]
 
     // MARK: - GADBannerViewDelegate methods
 
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+    func bannerViewDidReceiveAd(_ bannerView: BannerView) {
       print("DID RECEIVE AD.")
     }
 
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+    func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
       print("FAILED TO RECEIVE AD: \(error.localizedDescription)")
     }
   }

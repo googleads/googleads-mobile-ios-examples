@@ -19,22 +19,22 @@ import UIKit
 
 /// AdManager - App Events
 /// Demonstrates handling GADAppEventDelegate app event messages sent by the banner.
-class AdManagerAppEventsViewController: UIViewController, GADAppEventDelegate {
+class AdManagerAppEventsViewController: UIViewController, AppEventDelegate {
 
   /// The AdManager banner view.
-  @IBOutlet weak var bannerView: GAMBannerView!
+  @IBOutlet weak var bannerView: AdManagerBannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     bannerView.adUnitID = Constants.adManagerAppEventsAdUnitID
     bannerView.rootViewController = self
     bannerView.appEventDelegate = self
-    bannerView.load(GAMRequest())
+    bannerView.load(AdManagerRequest())
   }
 
   // MARK - GADAppEventDelegate
 
-  func adView(_ banner: GADBannerView, didReceiveAppEvent name: String, withInfo info: String?) {
+  func adView(_ banner: BannerView, didReceiveAppEvent name: String, with info: String?) {
     // The AdManager banner sends app event messages to its app event delegate, this view controller. The
     // GADAppEventDelegate will be notified when the SDK receives an app event message from the
     // banner. In this demo, the GADAppEventDelegate method sets the background of this view

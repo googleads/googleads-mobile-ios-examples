@@ -20,13 +20,13 @@ import UIKit
 class AdManagerCategoryExclusionsTableViewController: UITableViewController {
 
   /// The no exclusions banner view.
-  @IBOutlet weak var noExclusionsBannerView: GAMBannerView!
+  @IBOutlet weak var noExclusionsBannerView: AdManagerBannerView!
 
   /// The exclude dogs banner view.
-  @IBOutlet weak var excludeDogsBannerView: GAMBannerView!
+  @IBOutlet weak var excludeDogsBannerView: AdManagerBannerView!
 
   /// The exclude cats banner view.
-  @IBOutlet weak var excludeCatsBannerView: GAMBannerView!
+  @IBOutlet weak var excludeCatsBannerView: AdManagerBannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,18 +35,18 @@ class AdManagerCategoryExclusionsTableViewController: UITableViewController {
 
     noExclusionsBannerView.adUnitID = Constants.adManagerCategoryExclusionsAdUnitID
     noExclusionsBannerView.rootViewController = self
-    let noExclusionsRequest = GAMRequest()
+    let noExclusionsRequest = AdManagerRequest()
     noExclusionsBannerView.load(noExclusionsRequest)
 
     excludeDogsBannerView.adUnitID = Constants.adManagerCategoryExclusionsAdUnitID
     excludeDogsBannerView.rootViewController = self
-    let excludeDogsRequest = GAMRequest()
+    let excludeDogsRequest = AdManagerRequest()
     excludeDogsRequest.categoryExclusions = [Constants.categoryExclusionDogs]
     excludeDogsBannerView.load(excludeDogsRequest)
 
     excludeCatsBannerView.adUnitID = Constants.adManagerCategoryExclusionsAdUnitID
     excludeCatsBannerView.rootViewController = self
-    let excludeCatsRequest = GAMRequest()
+    let excludeCatsRequest = AdManagerRequest()
     excludeCatsRequest.categoryExclusions = [Constants.categoryExclusionCats]
     excludeCatsBannerView.load(excludeCatsRequest)
   }

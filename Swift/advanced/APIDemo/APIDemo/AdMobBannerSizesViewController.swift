@@ -31,15 +31,15 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
 
   /// The banner sizes mapped to GADAdSize constants.
   var ads = [
-    "Banner": GADAdSizeBanner,
-    "Large Banner": GADAdSizeLargeBanner,
-    "Full Banner": GADAdSizeFullBanner,
-    "Medium Rectangle": GADAdSizeMediumRectangle,
-    "Leaderboard": GADAdSizeLeaderboard,
+    "Banner": AdSizeBanner,
+    "Large Banner": AdSizeLargeBanner,
+    "Full Banner": AdSizeFullBanner,
+    "Medium Rectangle": AdSizeMediumRectangle,
+    "Leaderboard": AdSizeLeaderboard,
   ]
 
   /// The banner view.
-  var bannerView: GADBannerView!
+  var bannerView: BannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -87,7 +87,7 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
 
   @IBAction func loadAd(_ sender: AnyObject) {
     if bannerView == nil {
-      bannerView = GADBannerView()
+      bannerView = BannerView()
       bannerView.adUnitID = Constants.adMobAdUnitID
       bannerView.rootViewController = self
 
@@ -109,7 +109,7 @@ class AdMobBannerSizesViewController: UIViewController, UIPickerViewDataSource,
     let bannerSizeString = bannerSizes[bannerSizesPicker.selectedRow(inComponent: 0)]
 
     bannerView.adSize = ads[bannerSizeString]!
-    bannerView.load(GADRequest())
+    bannerView.load(Request())
   }
 
 }

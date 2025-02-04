@@ -59,7 +59,7 @@
 
 - (IBAction)muteUnmute:(id)sender {
   self.muted = !self.muted;
-  [self.mediaContent.videoController setMute:self.muted];
+  self.mediaContent.videoController.muted = self.muted;
 }
 
 - (void)setPlaying:(BOOL)playing {

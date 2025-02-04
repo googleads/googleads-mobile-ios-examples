@@ -29,10 +29,10 @@ class CustomControlsView: UIView {
   /// Resets the controls status, and lets the controls view know the initial mute state.
   /// The controller for the ad currently being displayed. Setting this sets up the view according
   /// to the video controller state.
-  weak var mediaContent: GADMediaContent? {
+  weak var mediaContent: MediaContent? {
     didSet {
       if let mediaContent = mediaContent {
-        self.isHidden = !mediaContent.videoController.customControlsEnabled()
+        self.isHidden = !mediaContent.videoController.areCustomControlsEnabled
         mediaContent.videoController.delegate = self
       } else {
         self.isHidden = true
@@ -77,29 +77,29 @@ class CustomControlsView: UIView {
 
   @IBAction func muteUnmute(_ sender: Any) {
     if let mediaContent = mediaContent {
-      mediaContent.videoController.setMute(!mediaContent.videoController.isMuted)
+      mediaContent.videoController.isMuted = mediaContent.videoController.isMuted
     }
   }
 }
 
-extension CustomControlsView: GADVideoControllerDelegate {
-  func videoControllerDidPlayVideo(_ videoController: GADVideoController) {
+extension CustomControlsView: VideoControllerDelegate {
+  func videoControllerDidPlayVideo(_ videoController: VideoController) {
     print("\(#function)")
     isPlaying = true
   }
-  func videoControllerDidPauseVideo(_ videoController: GADVideoController) {
+  func videoControllerDidPauseVideo(_ videoController: VideoController) {
     print("\(#function)")
     isPlaying = false
   }
-  func videoControllerDidMuteVideo(_ videoController: GADVideoController) {
+  func videoControllerDidMuteVideo(_ videoController: VideoController) {
     print("\(#function)")
     isMuted = true
   }
-  func videoControllerDidUnmuteVideo(_ videoController: GADVideoController) {
+  func videoControllerDidUnmuteVideo(_ videoController: VideoController) {
     print("\(#function)")
     isMuted = false
   }
-  func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+  func videoControllerDidEndVideoPlayback(_ videoController: VideoController) {
     print("\(#function)")
     isPlaying = false
   }

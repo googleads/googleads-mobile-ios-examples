@@ -17,7 +17,7 @@
 @preconcurrency import GoogleMobileAds
 import UIKit
 
-class GameViewController: UIViewController, @preconcurrency GADFullScreenContentDelegate {
+class GameViewController: UIViewController, FullScreenContentDelegate {
 
   private enum GameState: Int {
     case notStarted
@@ -33,7 +33,7 @@ class GameViewController: UIViewController, @preconcurrency GADFullScreenContent
   private static let adIntroLength = 3.0
 
   /// The rewarded interstitial ad.
-  private var rewardedInterstitialAd: GADRewardedInterstitialAd?
+  private var rewardedInterstitialAd: RewardedInterstitialAd?
 
   /// The countdown timer.
   private var timer: Timer?
@@ -111,7 +111,7 @@ class GameViewController: UIViewController, @preconcurrency GADFullScreenContent
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
       // Request an ad.
       Task {
         await self.loadRewardedInterstitialAd()
@@ -136,8 +136,8 @@ class GameViewController: UIViewController, @preconcurrency GADFullScreenContent
 
   private func loadRewardedInterstitialAd() async {
     do {
-      rewardedInterstitialAd = try await GADRewardedInterstitialAd.load(
-        withAdUnitID: "/21775744923/example/rewarded-interstitial", request: GAMRequest())
+      rewardedInterstitialAd = try await RewardedInterstitialAd.load(
+        with: "/21775744923/example/rewarded-interstitial", request: AdManagerRequest())
       rewardedInterstitialAd?.fullScreenContentDelegate = self
     } catch {
       print("Failed to load rewarded interstitial ad with error: \(error.localizedDescription)")
@@ -226,7 +226,7 @@ class GameViewController: UIViewController, @preconcurrency GADFullScreenContent
       print("Ad wasn't ready")
       return
     }
-    ad.present(fromRootViewController: self) {
+    ad.present(from: self) {
       let reward = ad.adReward
       print(
         "Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)"
@@ -263,7 +263,7 @@ class GameViewController: UIViewController, @preconcurrency GADFullScreenContent
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         let alertController = UIAlertController(
           title: error.localizedDescription, message: "Please try again later.",
@@ -285,18 +285,17 @@ class GameViewController: UIViewController, @preconcurrency GADFullScreenContent
 
   // MARK: - GADFullScreenContentDelegate
 
-  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("Ad did present full screen content.")
   }
 
-  func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error)
-  {
+  func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
     print("Ad failed to present full screen content with error \(error.localizedDescription).")
     self.rewardedInterstitialAd = nil
     self.playAgainButton.isHidden = false
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("Ad did dismiss full screen content.")
     self.rewardedInterstitialAd = nil
     self.playAgainButton.isHidden = false

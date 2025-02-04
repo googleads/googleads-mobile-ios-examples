@@ -30,7 +30,7 @@ class AppOpenAdManager: NSObject {
   /// https://support.google.com/admanager/answer/9351867?hl=en
   let timeoutInterval: TimeInterval = 4 * 3_600
   /// The app open ad.
-  var appOpenAd: GADAppOpenAd?
+  var appOpenAd: AppOpenAd?
   /// Maintains a reference to the delegate.
   weak var appOpenAdManagerDelegate: AppOpenAdManagerDelegate?
   /// Keeps track of if an app open ad is loading.
@@ -71,8 +71,8 @@ class AppOpenAdManager: NSObject {
     print("Start loading app open ad.")
 
     do {
-      appOpenAd = try await GADAppOpenAd.load(
-        withAdUnitID: "/21775744923/example/app-open", request: GAMRequest())
+      appOpenAd = try await AppOpenAd.load(
+        with: "/21775744923/example/app-open", request: AdManagerRequest())
       appOpenAd?.fullScreenContentDelegate = self
       loadTime = Date()
     } catch {
@@ -105,17 +105,17 @@ class AppOpenAdManager: NSObject {
     if let ad = appOpenAd {
       print("App open ad will be displayed.")
       isShowingAd = true
-      ad.present(fromRootViewController: nil)
+      ad.present(from: nil)
     }
   }
 }
 
-extension AppOpenAdManager: @preconcurrency GADFullScreenContentDelegate {
-  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+extension AppOpenAdManager: FullScreenContentDelegate {
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("App open ad is will be presented.")
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     appOpenAd = nil
     isShowingAd = false
     print("App open ad was dismissed.")
@@ -126,7 +126,7 @@ extension AppOpenAdManager: @preconcurrency GADFullScreenContentDelegate {
   }
 
   func ad(
-    _ ad: GADFullScreenPresentingAd,
+    _ ad: FullScreenPresentingAd,
     didFailToPresentFullScreenContentWithError error: Error
   ) {
     appOpenAd = nil

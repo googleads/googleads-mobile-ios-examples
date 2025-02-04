@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
 
     // Initialize the Google Mobile Ads SDK with the AdMob application ID.
-    GADMobileAds.sharedInstance().start(completionHandler: nil)
+    MobileAds.shared.start(completionHandler: nil)
 
     return true
   }

@@ -17,8 +17,8 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
-  @IBOutlet weak var bannerView: GAMBannerView!
+class ViewController: UIViewController, BannerViewDelegate {
+  @IBOutlet weak var bannerView: AdManagerBannerView!
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
   @IBOutlet weak var adInspectorButton: UIBarButtonItem!
 
@@ -71,7 +71,7 @@ class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
       self.loadBannerAd()
     }
   }
@@ -98,7 +98,7 @@ class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         let alertController = UIAlertController(
           title: error.localizedDescription, message: "Please try again later.",
@@ -116,42 +116,42 @@ class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
     // GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth or
     // GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth if you prefer to load an ad of a
     // particular orientation,
-    let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+    let adaptiveSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
 
     // Note that Google may serve any reservation ads that that are smaller than
     // the adaptive size as outlined here - https://support.google.com/admanager/answer/9464128.
     // The returned ad will be centered in the ad view.
     bannerView.adSize = adaptiveSize
-    bannerView.load(GAMRequest())
+    bannerView.load(AdManagerRequest())
   }
 
   // MARK: - GADBannerViewDelegate methods
 
-  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+  func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
     print(#function + ": " + error.localizedDescription)
   }
 
-  func bannerViewDidRecordClick(_ bannerView: GADBannerView) {
+  func bannerViewDidRecordClick(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+  func bannerViewDidRecordImpression(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillPresentScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewDidDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
 

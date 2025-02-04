@@ -28,7 +28,8 @@ struct NativeContentView: View {
   var body: some View {
     ScrollView {
       VStack(spacing: 20) {
-        NativeAdView(nativeViewModel: nativeViewModel)  // Updates when the native ad data changes.
+        // Updates when the native ad data changes.
+        NativeAdViewContainer(nativeViewModel: nativeViewModel)
           .frame(minHeight: 300)  // minHeight determined from xib.
         // [END add_view_model_to_view]
 
@@ -46,7 +47,7 @@ struct NativeContentView: View {
 
         Text(
           "SDK Version:"
-            + "\(GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber))")
+            + "\(string(for: MobileAds.shared.versionNumber))")
       }
       .padding()
     }
@@ -68,21 +69,21 @@ struct NativeContentView_Previews: PreviewProvider {
 }
 
 // [START create_native_ad_view]
-private struct NativeAdView: UIViewRepresentable {
-  typealias UIViewType = GADNativeAdView
+private struct NativeAdViewContainer: UIViewRepresentable {
+  typealias UIViewType = NativeAdView
 
   // Observer to update the UIView when the native ad value changes.
   @ObservedObject var nativeViewModel: NativeAdViewModel
 
-  func makeUIView(context: Context) -> GADNativeAdView {
+  func makeUIView(context: Context) -> NativeAdView {
     return
       Bundle.main.loadNibNamed(
         "NativeAdView",
         owner: nil,
-        options: nil)?.first as! GADNativeAdView
+        options: nil)?.first as! NativeAdView
   }
 
-  func updateUIView(_ nativeAdView: GADNativeAdView, context: Context) {
+  func updateUIView(_ nativeAdView: NativeAdView, context: Context) {
     guard let nativeAd = nativeViewModel.nativeAd else { return }
 
     // Each UI property is configurable using your native ad.

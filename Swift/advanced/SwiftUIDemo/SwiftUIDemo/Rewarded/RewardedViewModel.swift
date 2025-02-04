@@ -17,14 +17,14 @@
 // [START load_ad]
 import GoogleMobileAds
 
-class RewardedViewModel: NSObject, ObservableObject, GADFullScreenContentDelegate {
+class RewardedViewModel: NSObject, ObservableObject, FullScreenContentDelegate {
   @Published var coins = 0
-  private var rewardedAd: GADRewardedAd?
+  private var rewardedAd: RewardedAd?
 
   func loadAd() async {
     do {
-      rewardedAd = try await GADRewardedAd.load(
-        withAdUnitID: "ca-app-pub-3940256099942544/1712485313", request: GADRequest())
+      rewardedAd = try await RewardedAd.load(
+        with: "ca-app-pub-3940256099942544/1712485313", request: Request())
       // [START set_the_delegate]
       rewardedAd?.fullScreenContentDelegate = self
       // [END set_the_delegate]
@@ -40,7 +40,7 @@ class RewardedViewModel: NSObject, ObservableObject, GADFullScreenContentDelegat
       return print("Ad wasn't ready.")
     }
 
-    rewardedAd.present(fromRootViewController: nil) {
+    rewardedAd.present(from: nil) {
       let reward = rewardedAd.adReward
       print("Reward amount: \(reward.amount)")
       self.addCoins(reward.amount.intValue)
@@ -55,30 +55,30 @@ class RewardedViewModel: NSObject, ObservableObject, GADFullScreenContentDelegat
   // MARK: - GADFullScreenContentDelegate methods
 
   // [START ad_events]
-  func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+  func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
-  func adDidRecordClick(_ ad: GADFullScreenPresentingAd) {
+  func adDidRecordClick(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
   func ad(
-    _ ad: GADFullScreenPresentingAd,
+    _ ad: FullScreenPresentingAd,
     didFailToPresentFullScreenContentWithError error: Error
   ) {
     print("\(#function) called")
   }
 
-  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
-  func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
     // Clear the rewarded ad.
     rewardedAd = nil

@@ -23,7 +23,7 @@ import UIKit
 class AdManagerFluidAdSizeViewController: UIViewController {
 
   /// The banner view.
-  @IBOutlet weak var bannerView: GAMBannerView!
+  @IBOutlet weak var bannerView: AdManagerBannerView!
 
   /// The banner view's width constraint.
   @IBOutlet weak var bannerViewWidthConstraint: NSLayoutConstraint!
@@ -41,8 +41,8 @@ class AdManagerFluidAdSizeViewController: UIViewController {
     super.viewDidLoad()
     bannerView.adUnitID = Constants.adManagerFluidAdSizeAdUnitID
     bannerView.rootViewController = self
-    bannerView.adSize = GADAdSizeFluid
-    bannerView.load(GAMRequest())
+    bannerView.adSize = AdSizeFluid
+    bannerView.load(AdManagerRequest())
   }
 
   /// Handles the user tapping on the "Change Banner Width" button.

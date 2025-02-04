@@ -17,7 +17,7 @@
 @preconcurrency import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, @preconcurrency GADFullScreenContentDelegate {
+class ViewController: UIViewController, FullScreenContentDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -36,7 +36,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
   var coinCount = 0
 
   /// The reward-based video ad.
-  var rewardedAd: GADRewardedAd?
+  var rewardedAd: RewardedAd?
 
   /// The countdown timer.
   var timer: Timer?
@@ -121,7 +121,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
       // Request an ad.
       Task {
         await self.loadRewardedAd()
@@ -132,8 +132,8 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
 
   func loadRewardedAd() async {
     do {
-      rewardedAd = try await GADRewardedAd.load(
-        withAdUnitID: "/21775744923/example/rewarded", request: GAMRequest())
+      rewardedAd = try await RewardedAd.load(
+        with: "/21775744923/example/rewarded", request: AdManagerRequest())
       rewardedAd?.fullScreenContentDelegate = self
     } catch {
       print("Rewarded ad failed to load with error: \(error.localizedDescription)")
@@ -238,7 +238,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         let alertController = UIAlertController(
           title: error.localizedDescription, message: "Please try again later.",
@@ -253,7 +253,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
     watchVideoButton.isHidden = true
 
     if let ad = rewardedAd {
-      ad.present(fromRootViewController: self) {
+      ad.present(from: self) {
         let reward = ad.adReward
         print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
         self.earnCoins(NSInteger(truncating: reward.amount))
@@ -283,16 +283,16 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
 
   // MARK: GADFullScreenContentDelegate
 
-  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("Rewarded ad will be presented.")
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("Rewarded ad dismissed.")
   }
 
   func ad(
-    _ ad: GADFullScreenPresentingAd,
+    _ ad: FullScreenPresentingAd,
     didFailToPresentFullScreenContentWithError error: Error
   ) {
     print("Rewarded ad failed to present with error: \(error.localizedDescription).")

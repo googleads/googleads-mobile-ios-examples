@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
-    let versionNumber = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
+    let versionNumber = string(for: MobileAds.shared.versionNumber)
     print("Google Mobile Ads SDK version: \(versionNumber)")
 
     return true

@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         let alertController = UIAlertController(
           title: error.localizedDescription, message: "Please try again later.",

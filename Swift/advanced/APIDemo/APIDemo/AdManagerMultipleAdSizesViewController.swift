@@ -19,7 +19,7 @@ import UIKit
 
 /// AdManager - Multiple Ad Sizes
 /// Demonstrates setting valid ad sizes for a GAMRequest.
-class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegate {
+class AdManagerMultipleAdSizesViewController: UIViewController, AdSizeDelegate {
 
   /// The custom banner size (120x20) switch.
   @IBOutlet weak var GADAdSizeCustomBannerSwitch: UISwitch!
@@ -31,11 +31,11 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
   @IBOutlet weak var GADAdSizeMediumRectangleSwitch: UISwitch!
 
   /// The banner view.
-  var bannerView: GAMBannerView!
+  var bannerView: AdManagerBannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView = GAMBannerView(adSize: GADAdSizeBanner)
+    bannerView = AdManagerBannerView(adSize: AdSizeBanner)
     bannerView.adUnitID = Constants.adManagerAdSizesAdUnitID
     bannerView.rootViewController = self
     bannerView.adSizeDelegate = self
@@ -73,24 +73,24 @@ class AdManagerMultipleAdSizesViewController: UIViewController, GADAdSizeDelegat
 
     var adSizes = [NSValue]()
     if GADAdSizeCustomBannerSwitch.isOn {
-      let customGADAdSize = GADAdSizeFromCGSize(CGSize(width: 120, height: 20))
-      adSizes.append(NSValueFromGADAdSize(customGADAdSize))
+      let customGADAdSize = adSizeFor(cgSize: CGSize(width: 120, height: 20))
+      adSizes.append(nsValue(for: customGADAdSize))
     }
     if GADAdSizeBannerSwitch.isOn {
-      adSizes.append(NSValueFromGADAdSize(GADAdSizeBanner))
+      adSizes.append(nsValue(for: AdSizeBanner))
     }
     if GADAdSizeMediumRectangleSwitch.isOn {
-      adSizes.append(NSValueFromGADAdSize(GADAdSizeMediumRectangle))
+      adSizes.append(nsValue(for: AdSizeMediumRectangle))
     }
 
     bannerView.validAdSizes = adSizes
-    bannerView.load(GAMRequest())
+    bannerView.load(AdManagerRequest())
   }
 
   // MARK: - GADAdSizeDelegate
 
   /// Called before the ad view changes to the new size.
-  func adView(_ bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
+  func adView(_ bannerView: BannerView, willChangeAdSizeTo size: AdSize) {
     // The bannerView calls this method on its adSizeDelegate object before the banner updates its
     // size, allowing the application to adjust any views that may be affected by the new ad size.
     print("Make your app layout changes here, if necessary. New banner ad size will be \(size).")

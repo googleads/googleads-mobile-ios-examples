@@ -40,7 +40,7 @@ class MySimpleNativeAdView: UIView {
   @IBOutlet weak var adChoicesView: UIImageView!
 
   /// The custom native ad that populated this view.
-  var customNativeAd: GADCustomNativeAd!
+  var customNativeAd: CustomNativeAd!
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -73,7 +73,7 @@ class MySimpleNativeAdView: UIView {
   }
 
   /// Populates the ad view with the custom native ad object.
-  func populate(withCustomNativeAd customNativeAd: GADCustomNativeAd) {
+  func populate(withCustomNativeAd customNativeAd: CustomNativeAd) {
     self.customNativeAd = customNativeAd
 
     // Render the AdChoices image.
@@ -109,9 +109,9 @@ class MySimpleNativeAdView: UIView {
 
   /// This custom native ad also has a both a video and image associated with it. We'll use the
   /// video asset if available, and otherwise fallback to the image asset.
-  private func mainView(forCustomNativeAd customNativeAd: GADCustomNativeAd) -> UIView {
+  private func mainView(forCustomNativeAd customNativeAd: CustomNativeAd) -> UIView {
     if customNativeAd.mediaContent.hasVideoContent {
-      let mediaView = GADMediaView()
+      let mediaView = MediaView()
       mediaView.mediaContent = customNativeAd.mediaContent
       return mediaView
     } else {

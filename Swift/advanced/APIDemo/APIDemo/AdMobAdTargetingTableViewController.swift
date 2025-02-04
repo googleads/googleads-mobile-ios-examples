@@ -36,7 +36,7 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   @IBOutlet weak var childDirectedPicker: UIPickerView!
 
   /// The banner view.
-  @IBOutlet weak var bannerView: GADBannerView!
+  @IBOutlet weak var bannerView: BannerView!
 
   /// The child-directed options.
   var childDirectedOptions: [String]!
@@ -149,11 +149,11 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   /// Loads an ad based on user's birthdate, gender, and child-directed status.
   @IBAction func loadTargetedAd(_ sender: AnyObject) {
-    let request = GADRequest()
+    let request = Request()
     if childDirectedLabel.text == "Yes" {
-      GADMobileAds.sharedInstance().requestConfiguration.tagForChildDirectedTreatment = true
+      MobileAds.shared.requestConfiguration.tagForChildDirectedTreatment = true
     } else if childDirectedLabel.text == "No" {
-      GADMobileAds.sharedInstance().requestConfiguration.tagForChildDirectedTreatment = false
+      MobileAds.shared.requestConfiguration.tagForChildDirectedTreatment = false
     }
     bannerView.load(request)
   }
@@ -164,13 +164,13 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
 }
 
-extension AdMobAdTargetingTableViewController: GADBannerViewDelegate {
+extension AdMobAdTargetingTableViewController: BannerViewDelegate {
 
-  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print("\(#function)")
   }
 
-  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+  func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
     print("\(#function): \(error.localizedDescription)")
   }
 }

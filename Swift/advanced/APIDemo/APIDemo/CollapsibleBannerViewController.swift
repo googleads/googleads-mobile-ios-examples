@@ -18,10 +18,10 @@ import GoogleMobileAds
 import UIKit
 
 /// AdMob - Collapsible banner ads.
-class CollapsibleBannerViewController: UIViewController, GADBannerViewDelegate {
+class CollapsibleBannerViewController: UIViewController, BannerViewDelegate {
 
   /// The collapsible banner ad view.
-  let bannerView = GADBannerView()
+  let bannerView = BannerView()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,7 +48,7 @@ class CollapsibleBannerViewController: UIViewController, GADBannerViewDelegate {
       return view.frame.inset(by: view.safeAreaInsets)
     }()
     let viewWidth = frame.size.width
-    bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
 
     loadAd()
   }
@@ -58,8 +58,8 @@ class CollapsibleBannerViewController: UIViewController, GADBannerViewDelegate {
   }
 
   private func loadAd() {
-    let request = GADRequest()
-    let extras = GADExtras()
+    let request = Request()
+    let extras = Extras()
 
     // Aligns the bottom edge of the overlay with the bottom edge of the collapsed ad.
     extras.additionalParameters = ["collapsible": "bottom"]
@@ -68,7 +68,7 @@ class CollapsibleBannerViewController: UIViewController, GADBannerViewDelegate {
     bannerView.load(request)
   }
 
-  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print("The last loaded banner is \(bannerView.isCollapsible ? "" : "not") collapsible.")
   }
 }

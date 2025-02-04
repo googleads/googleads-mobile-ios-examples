@@ -17,13 +17,13 @@
 // [START load_ad]
 import GoogleMobileAds
 
-class InterstitialViewModel: NSObject, GADFullScreenContentDelegate {
-  private var interstitialAd: GADInterstitialAd?
+class InterstitialViewModel: NSObject, FullScreenContentDelegate {
+  private var interstitialAd: InterstitialAd?
 
   func loadAd() async {
     do {
-      interstitialAd = try await GADInterstitialAd.load(
-        withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest())
+      interstitialAd = try await InterstitialAd.load(
+        with: "ca-app-pub-3940256099942544/4411468910", request: Request())
       // [START set_the_delegate]
       interstitialAd?.fullScreenContentDelegate = self
       // [END set_the_delegate]
@@ -39,37 +39,37 @@ class InterstitialViewModel: NSObject, GADFullScreenContentDelegate {
       return print("Ad wasn't ready.")
     }
 
-    interstitialAd.present(fromRootViewController: nil)
+    interstitialAd.present(from: nil)
   }
   // [END show_ad]
 
   // MARK: - GADFullScreenContentDelegate methods
 
   // [START ad_events]
-  func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+  func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
-  func adDidRecordClick(_ ad: GADFullScreenPresentingAd) {
+  func adDidRecordClick(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
   func ad(
-    _ ad: GADFullScreenPresentingAd,
+    _ ad: FullScreenPresentingAd,
     didFailToPresentFullScreenContentWithError error: Error
   ) {
     print("\(#function) called")
   }
 
-  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
-  func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("\(#function) called")
     // Clear the interstitial ad.
     interstitialAd = nil

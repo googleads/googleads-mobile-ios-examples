@@ -78,7 +78,7 @@ class SplashViewController: UIViewController, AppOpenAdManagerDelegate {
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
 
       // Load an ad.
       Task {

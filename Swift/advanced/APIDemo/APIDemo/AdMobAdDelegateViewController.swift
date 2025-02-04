@@ -23,49 +23,49 @@ import UIKit
 /// also works with GAMBannerView objects, so publishers displaying ads from
 /// AdManager can also use it with their banners. To see this in action,
 /// use the GAMBannerView class instead of GADBannerView.
-class AdMobAdDelegateViewController: UIViewController, GADBannerViewDelegate {
+class AdMobAdDelegateViewController: UIViewController, BannerViewDelegate {
 
-  @IBOutlet weak var bannerView: GADBannerView!
+  @IBOutlet weak var bannerView: BannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     bannerView.delegate = self
     bannerView.adUnitID = Constants.adMobAdUnitID
     bannerView.rootViewController = self
-    bannerView.load(GADRequest())
+    bannerView.load(Request())
   }
 
   // MARK: - GADBannerViewDelegate
 
   // Called when an ad request loaded an ad.
-  func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func adViewDidReceiveAd(_ bannerView: BannerView) {
     print(#function)
   }
 
   // Called when an ad request failed.
-  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+  func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
     print("\(#function): \(error.localizedDescription)")
   }
 
   // Called just before presenting the user a full screen view, such as a browser, in response to
   // clicking on an ad.
-  func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillPresentScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
   // Called just before dismissing a full screen view.
-  func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
   // Called just after dismissing a full screen view.
-  func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewDidDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
   // Called just before the application will background or exit because the user clicked on an
   // ad that will launch another application (such as the App Store).
-  func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+  func adViewWillLeaveApplication(_ bannerView: BannerView) {
     print(#function)
   }
 

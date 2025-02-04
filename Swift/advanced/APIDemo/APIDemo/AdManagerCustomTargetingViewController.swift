@@ -27,7 +27,7 @@ class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewData
   let sportPreferenceKey = "sportpref"
 
   /// The AdManager banner view.
-  @IBOutlet weak var bannerView: GAMBannerView!
+  @IBOutlet weak var bannerView: AdManagerBannerView!
 
   /// The favorite sports view picker.
   @IBOutlet weak var favoriteSportsPicker: UIPickerView!
@@ -74,7 +74,7 @@ class AdManagerCustomTargetingViewController: UIViewController, UIPickerViewData
 
   @IBAction func loadAd(_ sender: AnyObject) {
     let row = favoriteSportsPicker.selectedRow(inComponent: 0)
-    let request = GAMRequest()
+    let request = AdManagerRequest()
     request.customTargeting = [sportPreferenceKey: favoriteSportsOptions[row]]
     bannerView.load(request)
   }

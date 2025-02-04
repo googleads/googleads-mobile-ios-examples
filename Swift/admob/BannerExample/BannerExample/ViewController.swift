@@ -17,9 +17,9 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
+class ViewController: UIViewController, BannerViewDelegate {
 
-  @IBOutlet weak var bannerView: GADBannerView!
+  @IBOutlet weak var bannerView: BannerView!
   @IBOutlet weak var privacySettingsButton: UIBarButtonItem!
   @IBOutlet weak var adInspectorButton: UIBarButtonItem!
 
@@ -96,7 +96,7 @@ class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         // There was an issue and the inspector was not displayed.
         let alertController = UIAlertController(
@@ -115,7 +115,7 @@ class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
 
       if self.isViewDidAppearCalled {
         self.loadBannerAd()
@@ -130,38 +130,38 @@ class ViewController: UIViewController, @preconcurrency GADBannerViewDelegate {
     // GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth or
     // GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth if you prefer to load an ad of a
     // particular orientation
-    bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
 
-    bannerView.load(GADRequest())
+    bannerView.load(Request())
   }
 
   // MARK: - GADBannerViewDelegate methods
 
-  func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+  func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
     print(#function + ": " + error.localizedDescription)
   }
 
-  func bannerViewDidRecordClick(_ bannerView: GADBannerView) {
+  func bannerViewDidRecordClick(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+  func bannerViewDidRecordImpression(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillPresentScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewWillDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
 
-  func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+  func bannerViewDidDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
 

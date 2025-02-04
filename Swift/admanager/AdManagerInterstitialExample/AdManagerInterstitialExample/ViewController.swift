@@ -17,7 +17,7 @@
 @preconcurrency import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, @preconcurrency GADFullScreenContentDelegate {
+class ViewController: UIViewController, FullScreenContentDelegate {
 
   enum GameState: NSInteger {
     case notStarted
@@ -30,7 +30,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
   static let gameLength = 5
 
   /// The interstitial ad.
-  var interstitial: GAMInterstitialAd?
+  var interstitial: AdManagerInterstitialAd?
 
   /// The countdown timer.
   var timer: Timer?
@@ -94,7 +94,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
   @IBAction func adInspectorTapped(_ sender: UIBarButtonItem) {
     Task {
       do {
-        try await GADMobileAds.sharedInstance().presentAdInspector(from: self)
+        try await MobileAds.shared.presentAdInspector(from: self)
       } catch {
         let alertController = UIAlertController(
           title: error.localizedDescription, message: "Please try again later.",
@@ -166,7 +166,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
       self.isMobileAdsStartCalled = true
 
       // Initialize the Google Mobile Ads SDK.
-      GADMobileAds.sharedInstance().start()
+      MobileAds.shared.start()
       // Request an ad.
       Task {
         await self.loadInterstitial()
@@ -191,8 +191,8 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
 
   fileprivate func loadInterstitial() async {
     do {
-      interstitial = try await GAMInterstitialAd.load(
-        withAdManagerAdUnitID: "/21775744923/example/interstitial", request: GAMRequest())
+      interstitial = try await AdManagerInterstitialAd.load(
+        with: "/21775744923/example/interstitial", request: AdManagerRequest())
       interstitial?.fullScreenContentDelegate = self
     } catch {
       print("Failed to load interstitial ad with error: \(error.localizedDescription)")
@@ -252,7 +252,7 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
       style: .cancel,
       handler: { [weak self] action in
         if let ad = self?.interstitial {
-          ad.present(fromRootViewController: self!)
+          ad.present(from: self!)
         } else {
           print("Ad wasn't ready")
         }
@@ -275,16 +275,15 @@ class ViewController: UIViewController, @preconcurrency GADFullScreenContentDele
   }
 
   // MARK: - GADFullScreenContentDelegate
-  func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("Ad will present full screen content.")
   }
 
-  func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error)
-  {
+  func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
     print("Ad failed to present full screen content with error \(error.localizedDescription).")
   }
 
-  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+  func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
     print("Ad did dismiss full screen content.")
   }
 

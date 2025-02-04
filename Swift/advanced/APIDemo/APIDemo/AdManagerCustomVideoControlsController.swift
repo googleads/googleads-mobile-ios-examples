@@ -40,19 +40,19 @@ class AdManagerCustomVideoControlsController: UIViewController {
   @IBOutlet weak var versionLabel: UILabel!
 
   /// You must keep a strong reference to the GADAdLoader during the ad loading process.
-  var adLoader: GADAdLoader?
+  var adLoader: AdLoader?
   /// The native ad view being presented.
   var nativeAdView: UIView?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    versionLabel.text = GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)
+    versionLabel.text = string(for: MobileAds.shared.versionNumber)
     refreshAd(nil)
   }
 
   @IBAction func refreshAd(_ sender: Any?) {
     // Loads an ad for any of unified native or custom native ads.
-    var adTypes = [GADAdLoaderAdType]()
+    var adTypes = [AdLoaderAdType]()
     if unifiedNativeAdSwitch.isOn {
       adTypes.append(.native)
     }
@@ -63,14 +63,14 @@ class AdManagerCustomVideoControlsController: UIViewController {
       print("Error: You must specify at least one ad type to load.")
       return
     }
-    let videoOptions = GADVideoOptions()
-    videoOptions.startMuted = startMutedSwitch.isOn
-    videoOptions.customControlsRequested = requestCustomControlsSwitch.isOn
+    let videoOptions = VideoOptions()
+    videoOptions.shouldStartMuted = startMutedSwitch.isOn
+    videoOptions.areCustomControlsRequested = requestCustomControlsSwitch.isOn
     refreshButton.isEnabled = false
-    adLoader = GADAdLoader(
+    adLoader = AdLoader(
       adUnitID: testAdUnit, rootViewController: self, adTypes: adTypes, options: [videoOptions])
     adLoader?.delegate = self
-    adLoader?.load(GAMRequest())
+    adLoader?.load(AdManagerRequest())
   }
 
   func setAdView(_ view: UIView) {
@@ -109,23 +109,23 @@ class AdManagerCustomVideoControlsController: UIViewController {
   }
 }
 
-extension AdManagerCustomVideoControlsController: GADAdLoaderDelegate {
+extension AdManagerCustomVideoControlsController: AdLoaderDelegate {
 
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
+  func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
     refreshButton.isEnabled = true
   }
 }
 
-extension AdManagerCustomVideoControlsController: GADNativeAdLoaderDelegate {
+extension AdManagerCustomVideoControlsController: NativeAdLoaderDelegate {
 
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
+  func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
     print("Received unified native ad: \(nativeAd)")
     refreshButton.isEnabled = true
     // Create and place ad in view hierarchy.
     let nativeAdView =
       Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil, options: nil)?.first
-      as! GADNativeAdView
+      as! NativeAdView
     setAdView(nativeAdView)
 
     // Populate the native ad view with the native ad assets.
@@ -182,7 +182,7 @@ extension AdManagerCustomVideoControlsController: GADNativeAdLoaderDelegate {
     // [START set_custom_video_controls]
     // Add custom video controls to replace default video controls.
     if nativeAd.mediaContent.hasVideoContent,
-      nativeAd.mediaContent.videoController.customControlsEnabled(),
+      nativeAd.mediaContent.videoController.areCustomControlsEnabled,
       let mediaView = nativeAdView.mediaView,
       let customControlsView = Bundle.main.loadNibNamed(
         "CustomControls", owner: nil, options: nil
@@ -204,10 +204,10 @@ extension AdManagerCustomVideoControlsController: GADNativeAdLoaderDelegate {
   // [END set_custom_video_controls]
 }
 
-extension AdManagerCustomVideoControlsController: GADCustomNativeAdLoaderDelegate {
+extension AdManagerCustomVideoControlsController: CustomNativeAdLoaderDelegate {
 
   func adLoader(
-    _ adLoader: GADAdLoader, didReceive customNativeAd: GADCustomNativeAd
+    _ adLoader: AdLoader, didReceive customNativeAd: CustomNativeAd
   ) {
     print("Received custom native ad: \(customNativeAd)")
     refreshButton.isEnabled = true
@@ -221,7 +221,7 @@ extension AdManagerCustomVideoControlsController: GADCustomNativeAdLoaderDelegat
       withCustomNativeAd: customNativeAd, startMuted: self.startMutedSwitch.isOn)
   }
 
-  func customNativeAdFormatIDs(for adLoader: GADAdLoader) -> [String] {
+  func customNativeAdFormatIDs(for adLoader: AdLoader) -> [String] {
     return [testNativeCustomFormatID]
   }
 
