@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2016 Google, Inc.
+//  Copyright 2024 Google LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -14,11 +14,14 @@
 //  limitations under the License.
 //
 
-#import <CommonCrypto/CommonDigest.h>
-
-#import "GADAppOpenAd_Preview.h"
-#import "GADInterstitialAd_Preview.h"
-#import "GADMobileAds_Preview.h"
+#import <GoogleMobileAds/GADMobileAds.h>
 #import "GADPreloadConfiguration_Preview.h"
 #import "GADPreloadEventDelegate_Preview.h"
-#import "GADRewardedAd_Preview.h"
+
+@interface GADMobileAds ()
+
+/// Starts preloading full screen ads from the configurations.
+/// Ad loads and ad expiration events will be forwarded to the delegate provided.
+- (void)preloadWithConfigurations:(nonnull NSArray<GADPreloadConfiguration *> *)configurations
+                         delegate:(nonnull id<GADPreloadEventDelegate>)delegate;
+@end
