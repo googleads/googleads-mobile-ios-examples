@@ -189,15 +189,19 @@ class ViewController: UIViewController, FullScreenContentDelegate {
       repeats: true)
   }
 
+  // [START load_interstitial]
   fileprivate func loadInterstitial() async {
     do {
       interstitial = try await AdManagerInterstitialAd.load(
         with: "/21775744923/example/interstitial", request: AdManagerRequest())
+      // [START set_the_delegate]
       interstitial?.fullScreenContentDelegate = self
+      // [END set_the_delegate]
     } catch {
       print("Failed to load interstitial ad with error: \(error.localizedDescription)")
     }
   }
+  // [END load_interstitial]
 
   fileprivate func updateTimeLeft() {
     gameText.text = "\(timeLeft) seconds left!"
@@ -252,7 +256,9 @@ class ViewController: UIViewController, FullScreenContentDelegate {
       style: .cancel,
       handler: { [weak self] action in
         if let ad = self?.interstitial {
+          // [START present_interstitial]
           ad.present(from: self!)
+          // [END present_interstitial]
         } else {
           print("Ad wasn't ready")
         }
@@ -275,17 +281,36 @@ class ViewController: UIViewController, FullScreenContentDelegate {
   }
 
   // MARK: - GADFullScreenContentDelegate
-  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
-    print("Ad will present full screen content.")
+
+  // [START ad_events]
+  func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called")
+  }
+
+  func adDidRecordClick(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called")
   }
 
   func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-    print("Ad failed to present full screen content with error \(error.localizedDescription).")
+    print("\(#function) called with error: \(error.localizedDescription)")
+    // Clear the interstitial ad.
+    interstitial = nil
+  }
+
+  func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called")
+  }
+
+  func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called")
   }
 
   func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
-    print("Ad did dismiss full screen content.")
+    print("\(#function) called")
+    // Clear the interstitial ad.
+    interstitial = nil
   }
+  // [END ad_events]
 
   // MARK: - deinit
 

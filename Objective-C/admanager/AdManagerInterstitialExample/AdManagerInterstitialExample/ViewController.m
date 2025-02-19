@@ -142,9 +142,9 @@ static const NSInteger kGameLength = 5;
 }
 
 - (void)loadInterstitial {
-  GAMRequest *request = [GAMRequest request];
+  // [START load_interstitial]
   [GAMInterstitialAd loadWithAdManagerAdUnitID:@"/21775744923/example/interstitial"
-                                       request:request
+                                       request:[GAMRequest request]
                              completionHandler:^(GAMInterstitialAd *ad, NSError *error) {
                                if (error) {
                                  NSLog(@"Failed to load interstitial ad with error: %@",
@@ -152,8 +152,11 @@ static const NSInteger kGameLength = 5;
                                  return;
                                }
                                self.interstitial = ad;
+                               // [START set_the_delegate]
                                self.interstitial.fullScreenContentDelegate = self;
+                               // [END set_the_delegate]
                              }];
+  // [END load_interstitial]
 }
 
 - (void)updateTimeLeft {
@@ -209,22 +212,26 @@ static const NSInteger kGameLength = 5;
       [UIAlertAction actionWithTitle:@"OK"
                                style:UIAlertActionStyleCancel
                              handler:^(UIAlertAction *action) {
-                               ViewController *strongSelf = weakSelf;
+                               __strong __typeof__(self) strongSelf = weakSelf;
                                if (!strongSelf) {
-                                 return;
-                               }
-                               if (strongSelf.interstitial &&
-                                   [strongSelf.interstitial
-                                       canPresentFromRootViewController:strongSelf
-                                                                  error:nil]) {
-                                 [strongSelf.interstitial presentFromRootViewController:strongSelf];
-                               } else {
-                                 NSLog(@"Ad wasn't ready");
-                               }
-                               strongSelf.playAgainButton.hidden = NO;
-                             }];
+                                return;
+                              }
+                              [strongSelf presentInterstitialAd];
+                              strongSelf.playAgainButton.hidden = NO;
+                            }];
   [alert addAction:alertAction];
   [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)presentInterstitialAd {
+  if (!self.interstitial ||
+      ![self.interstitial canPresentFromRootViewController:self error:nil]) {
+    NSLog(@"Ad wasn't ready");
+    return;
+  }
+  // [START present_interstitial]
+  [self.interstitial presentFromRootViewController:self];
+  // [END present_interstitial]
 }
 
 - (IBAction)privacySettingsTapped:(UIBarButtonItem *)sender {
@@ -287,16 +294,36 @@ static const NSInteger kGameLength = 5;
 }
 
 #pragma GADFullScreenContentdelegate implementation
-- (void)adWillPresentFullScreenContent:(id)ad {
-  NSLog(@"Ad will present full screen content.");
+
+// [START ad_events]
+- (void)adDidRecordImpression:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
 }
 
-- (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
-  NSLog(@"Ad failed to present full screen content with error %@.", [error localizedDescription]);
+- (void)adDidRecordClick:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
 }
 
-- (void)adDidDismissFullScreenContent:(id)ad {
-  NSLog(@"Ad did dismiss full screen content.");
+- (void)ad:(id<GADFullScreenPresentingAd>)ad
+    didFailToPresentFullScreenContentWithError:(NSError *)error {
+  NSLog(@"%s called with error: %@", __PRETTY_FUNCTION__, error.localizedDescription);
+  // Clear the interstitial ad.
+  self.interstitial = nil;
 }
+
+- (void)adWillPresentFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+}
+
+- (void)adWillDismissFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+}
+
+- (void)adDidDismissFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+  // Clear the interstitial ad.
+  self.interstitial = nil;
+}
+// [END ad_events]
 
 @end
