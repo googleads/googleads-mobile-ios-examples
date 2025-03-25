@@ -28,12 +28,12 @@ class GoogleMobileAdsConsentManager: NSObject {
   static let shared = GoogleMobileAdsConsentManager()
 
   var canRequestAds: Bool {
-    return UMPConsentInformation.sharedInstance.canRequestAds
+    return ConsentInformation.shared.canRequestAds
   }
 
   // [START is_privacy_options_required]
   var isPrivacyOptionsRequired: Bool {
-    return UMPConsentInformation.sharedInstance.privacyOptionsRequirementStatus == .required
+    return ConsentInformation.shared.privacyOptionsRequirementStatus == .required
   }
   // [END is_privacy_options_required]
 
@@ -43,16 +43,16 @@ class GoogleMobileAdsConsentManager: NSObject {
     from viewController: UIViewController? = nil,
     consentGatheringComplete: @escaping (Error?) -> Void
   ) {
-    let parameters = UMPRequestParameters()
+    let parameters = RequestParameters()
 
     // For testing purposes, you can use UMPDebugGeography to simulate a location.
-    let debugSettings = UMPDebugSettings()
-    // debugSettings.geography = UMPDebugGeography.EEA
+    let debugSettings = DebugSettings()
+    // debugSettings.geography = DebugGeography.EEA
     parameters.debugSettings = debugSettings
 
     // [START request_consent_info_update]
     // Requesting an update to consent information should be called on every app launch.
-    UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters) {
+    ConsentInformation.shared.requestConsentInfoUpdate(with: parameters) {
       requestConsentError in
       // [START_EXCLUDE]
       guard requestConsentError == nil else {
@@ -62,7 +62,7 @@ class GoogleMobileAdsConsentManager: NSObject {
       Task {
         do {
           // [START load_and_present_consent_form]
-          try await UMPConsentForm.loadAndPresentIfRequired(from: viewController)
+          try await ConsentForm.loadAndPresentIfRequired(from: viewController)
           // [END load_and_present_consent_form]
           // Consent has been gathered.
           consentGatheringComplete(nil)
@@ -80,7 +80,7 @@ class GoogleMobileAdsConsentManager: NSObject {
     async throws
   {
     // [START present_privacy_options_form]
-    try await UMPConsentForm.presentPrivacyOptionsForm(from: viewController)
+    try await ConsentForm.presentPrivacyOptionsForm(from: viewController)
     // [END present_privacy_options_form]
   }
 }
