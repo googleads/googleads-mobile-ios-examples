@@ -27,17 +27,29 @@ class MainViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     APIDemoNames = [
-      "AdMob - Ad Delegate", "AdMob - Ad Targeting", "AdMob - Banner Sizes",
+      "AdMob - Ad Delegate",
+      "AdMob - Ad Targeting",
+      "AdMob - Banner Sizes",
       "AdMob - Native Custom Mute This Ad",
+      "AdMob - Preload ads",
       "AdManager - PPID", "AdManager - Custom Targeting", "AdManager - Category Exclusions",
       "AdManager - Multiple Ad Sizes", "AdManager - App Events", "AdManager - Fluid Ad Size",
       "AdManager - Custom Video Controls", "Collapsible Banner Ad",
     ]
     identifiers = [
-      "adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "customMuteSegue",
-      "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
-      "multipleAdSizesSegue", "appEventsSegue", "fluidAdSizeSegue",
-      "customControlsSegue", "collapsibleSegue",
+      "adDelegateSegue",
+      "adTargetingSegue",
+      "bannerSizesSegue",
+      "customMuteSegue",
+      "preloadSegue",
+      "PPIDSegue",
+      "customTargetingSegue",
+      "categoryExclusionsSegue",
+      "multipleAdSizesSegue",
+      "appEventsSegue",
+      "fluidAdSizeSegue",
+      "customControlsSegue",
+      "collapsibleSegue",
     ]
   }
 
