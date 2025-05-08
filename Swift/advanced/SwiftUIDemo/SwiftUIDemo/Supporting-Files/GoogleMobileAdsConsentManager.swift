@@ -84,7 +84,9 @@ class GoogleMobileAdsConsentManager: NSObject {
 
     isMobileAdsStartCalled = true
 
+    // [START initialize_sdk]
     // Initialize the Google Mobile Ads SDK.
     MobileAds.shared.start()
+    // [END initialize_sdk]
   }
 }
