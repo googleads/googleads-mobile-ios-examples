@@ -24,6 +24,7 @@
 		50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */; };
 		50DC0CFD212F1C4000424CC7 /* GAMCustomTargetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */; };
 		50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */; };
+		A8B6503A2DD63FA500AE1D3F /* RequestConfigurationSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */; };
 		AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */; };
 		AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */; };
 		AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110F20320CA800EA4BEE /* NativeAdView.xib */; };
@@ -65,6 +66,7 @@
 		50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMAppEventsViewController.m; sourceTree = "<group>"; };
 		50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCustomTargetingViewController.m; sourceTree = "<group>"; };
 		50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMPPIDViewController.m; sourceTree = "<group>"; };
+		A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestConfigurationSnippets.m; sourceTree = "<group>"; };
 		AEC9AC0B2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobNativeCustomMuteThisAdViewController.h; sourceTree = "<group>"; };
 		AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobNativeCustomMuteThisAdViewController.m; sourceTree = "<group>"; };
 		AED1110D20320ABB00EA4BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimpleNativeAdView.xib; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				4A96E72E1B856D5000031470 /* Images.xcassets */,
 				4A96E7301B856D5000031470 /* LaunchScreen.xib */,
 				4A96E71E1B856D5000031470 /* Supporting Files */,
+				A8B6503B2DD63FAB00AE1D3F /* Snippets */,
 			);
 			path = APIDemo;
 			sourceTree = "<group>";
@@ -166,6 +169,14 @@
 				AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A8B6503B2DD63FAB00AE1D3F /* Snippets */ = {
+			isa = PBXGroup;
+			children = (
+				A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */,
+			);
+			path = Snippets;
 			sourceTree = "<group>";
 		};
 		AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */ = {
@@ -272,6 +283,7 @@
 				50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */,
 				EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */,
 				50DC0CFA212F1C4000424CC7 /* GAMFluidAdSizeViewController.m in Sources */,
+				A8B6503A2DD63FA500AE1D3F /* RequestConfigurationSnippets.m in Sources */,
 				AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */,
 				AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */,
 				50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */,

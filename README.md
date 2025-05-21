@@ -95,6 +95,20 @@ for more information on installing and updating pods.
 *   [AdManager Rewarded Video Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerRewardedVideoExample)
 *   [AdManager Custom Rendering Example](https://github.com/googleads/googleads-mobile-ios-examples/tree/main/Objective-C/admanager/AdManagerCustomRenderingExample)
 
+## Documentation Snippets
+
+This repository also contains code snippets used in developer documentation for
+[AdMob](https://developers.google.com/admob/ios) and
+[Ad Manager](https://developers.google.com/ad-manager/mobile-ads-sdk/ios).
+These snippets live in the API Demo projects for Swift and Objective-C in a
+`Snippets` folder.
+
+The idea is that by including the code snippets from documentation in a sample
+project, developers will gain more context on how to implement a specific API.
+
+In addition, by having CI running on this repo, we can ensure that the code
+snippets the documentation are in a working condition.
+
 # Downloads
 
 Please check out our [releases](https://github.com/googleads/googleads-mobile-ios-examples/releases)
