@@ -118,7 +118,9 @@
   [coordinator
       animateAlongsideTransition:^(
           id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        [self loadBannerAd];
+        if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+          [self loadBannerAd];
+        }
       }
                       completion:nil];
 }
@@ -133,21 +135,12 @@
 }
 
 - (void)loadBannerAd {
-  // Here safe area is taken into account, hence the view frame is used after the
-  // view has been laid out.
-  CGRect frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
-  CGFloat viewWidth = frame.size.width;
-
-  // Here the current interface orientation is used. If the ad is being preloaded
-  // for a future orientation change or different orientation, the function for the
-  // relevant orientation should be used.
-  GADAdSize adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth);
-
   // Note that Google may serve any reservation ads that that are smaller than
   // the adaptive size as outlined here - https://support.google.com/admanager/answer/9464128.
   // The returned ad will be centered in the ad view.
-  self.bannerView.adSize = adaptiveSize;
 
+  // Request an anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
   [self.bannerView loadRequest:[GAMRequest request]];
 }
 
