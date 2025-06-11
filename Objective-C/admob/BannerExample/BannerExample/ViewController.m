@@ -128,8 +128,10 @@
 - (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
+    // [START initialize_sdk]
     // Initialize the Google Mobile Ads SDK.
     [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
+    // [END initialize_sdk]
     [self loadBannerAd];
   });
 }
