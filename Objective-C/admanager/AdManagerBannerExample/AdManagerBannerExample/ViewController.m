@@ -79,7 +79,9 @@
   [super viewDidLoad];
 
   self.bannerView.rootViewController = self;
+  // [START banner_view_delegate]
   self.bannerView.delegate = self;
+  // [END banner_view_delegate]
 
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"/21775744923/example/adaptive-banner";
@@ -141,13 +143,19 @@
   // the adaptive size as outlined here - https://support.google.com/admanager/answer/9464128.
   // The returned ad will be centered in the ad view.
 
+  // [START ad_size]
   // Request an anchored adaptive banner with a width of 375.
   self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  // [END ad_size]
+
+  // [START load_ad]
   [self.bannerView loadRequest:[GAMRequest request]];
+  // [END load_ad]
 }
 
 #pragma mark GADBannerViewDelegate implementation
 
+// [START banner_view_delegate_methods]
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidReceiveAd");
 }
@@ -171,6 +179,7 @@
 - (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidDismissScreen");
 }
+// [END banner_view_delegate_methods]
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];

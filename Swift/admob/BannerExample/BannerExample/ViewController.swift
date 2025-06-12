@@ -31,7 +31,9 @@ class ViewController: UIViewController, BannerViewDelegate {
     // Replace this ad unit ID with your own ad unit ID.
     bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
     bannerView.rootViewController = self
+    // [START banner_view_delegate]
     bannerView.delegate = self
+    // [END banner_view_delegate]
 
     GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
       guard let self else { return }
@@ -112,13 +114,19 @@ class ViewController: UIViewController, BannerViewDelegate {
   }
 
   func loadBannerAd() {
+    // [START ad_size]
     // Request an anchored adaptive banner with a width of 375.
     bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: 375)
+    // [END ad_size]
+
+    // [START load_ad]
     bannerView.load(Request())
+    // [END load_ad]
   }
 
   // MARK: - GADBannerViewDelegate methods
 
+  // [START banner_view_delegate_methods]
   func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print(#function)
   }
@@ -146,5 +154,5 @@ class ViewController: UIViewController, BannerViewDelegate {
   func bannerViewDidDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
-
+  // [END banner_view_delegate_methods]
 }
