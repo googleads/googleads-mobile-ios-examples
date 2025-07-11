@@ -79,7 +79,9 @@
   [super viewDidLoad];
 
   self.bannerView.rootViewController = self;
+  // [START banner_view_delegate]
   self.bannerView.delegate = self;
+  // [END banner_view_delegate]
 
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"/21775744923/example/adaptive-banner";
@@ -118,7 +120,9 @@
   [coordinator
       animateAlongsideTransition:^(
           id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        [self loadBannerAd];
+        if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+          [self loadBannerAd];
+        }
       }
                       completion:nil];
 }
@@ -126,33 +130,32 @@
 - (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
+    // [START initialize_sdk]
     // Initialize the Google Mobile Ads SDK.
     [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
+    // [END initialize_sdk]
     [self loadBannerAd];
   });
 }
 
 - (void)loadBannerAd {
-  // Here safe area is taken into account, hence the view frame is used after the
-  // view has been laid out.
-  CGRect frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
-  CGFloat viewWidth = frame.size.width;
-
-  // Here the current interface orientation is used. If the ad is being preloaded
-  // for a future orientation change or different orientation, the function for the
-  // relevant orientation should be used.
-  GADAdSize adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth);
-
   // Note that Google may serve any reservation ads that that are smaller than
   // the adaptive size as outlined here - https://support.google.com/admanager/answer/9464128.
   // The returned ad will be centered in the ad view.
-  self.bannerView.adSize = adaptiveSize;
 
+  // [START ad_size]
+  // Request an anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  // [END ad_size]
+
+  // [START load_ad]
   [self.bannerView loadRequest:[GAMRequest request]];
+  // [END load_ad]
 }
 
 #pragma mark GADBannerViewDelegate implementation
 
+// [START banner_view_delegate_methods]
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidReceiveAd");
 }
@@ -176,6 +179,7 @@
 - (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidDismissScreen");
 }
+// [END banner_view_delegate_methods]
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];

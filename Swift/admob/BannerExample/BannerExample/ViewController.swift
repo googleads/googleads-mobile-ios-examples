@@ -24,7 +24,6 @@ class ViewController: UIViewController, BannerViewDelegate {
   @IBOutlet weak var adInspectorButton: UIBarButtonItem!
 
   private var isMobileAdsStartCalled = false
-  private var isViewDidAppearCalled = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,7 +31,9 @@ class ViewController: UIViewController, BannerViewDelegate {
     // Replace this ad unit ID with your own ad unit ID.
     bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
     bannerView.rootViewController = self
+    // [START banner_view_delegate]
     bannerView.delegate = self
+    // [END banner_view_delegate]
 
     GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] consentError in
       guard let self else { return }
@@ -54,17 +55,6 @@ class ViewController: UIViewController, BannerViewDelegate {
     if GoogleMobileAdsConsentManager.shared.canRequestAds {
       startGoogleMobileAdsSDK()
     }
-  }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    // Attempting to load adaptive banner ads is handled in viewDidAppear as this is the first
-    // time that the safe area is known. If safe area is not a concern (eg your app is locked
-    // in portrait mode) the banner can be loaded in viewDidLoad.
-    if GoogleMobileAdsConsentManager.shared.canRequestAds {
-      loadBannerAd()
-    }
-    isViewDidAppearCalled = true
   }
 
   override func viewWillTransition(
@@ -114,29 +104,29 @@ class ViewController: UIViewController, BannerViewDelegate {
 
       self.isMobileAdsStartCalled = true
 
+      // [START initialize_sdk]
       // Initialize the Google Mobile Ads SDK.
       MobileAds.shared.start()
+      // [END initialize_sdk]
 
-      if self.isViewDidAppearCalled {
-        self.loadBannerAd()
-      }
+      self.loadBannerAd()
     }
   }
 
   func loadBannerAd() {
-    let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
+    // [START ad_size]
+    // Request an anchored adaptive banner with a width of 375.
+    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: 375)
+    // [END ad_size]
 
-    // Here the current interface orientation is used. Use
-    // GADLandscapeAnchoredAdaptiveBannerAdSizeWithWidth or
-    // GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth if you prefer to load an ad of a
-    // particular orientation
-    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
-
+    // [START load_ad]
     bannerView.load(Request())
+    // [END load_ad]
   }
 
   // MARK: - GADBannerViewDelegate methods
 
+  // [START banner_view_delegate_methods]
   func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print(#function)
   }
@@ -164,5 +154,5 @@ class ViewController: UIViewController, BannerViewDelegate {
   func bannerViewDidDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
-
+  // [END banner_view_delegate_methods]
 }

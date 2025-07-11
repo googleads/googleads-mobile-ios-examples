@@ -82,7 +82,9 @@
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2435281174";
   self.bannerView.rootViewController = self;
+  // [START banner_view_delegate]
   self.bannerView.delegate = self;
+  // [END banner_view_delegate]
 
   __weak __typeof__(self) weakSelf = self;
   [GoogleMobileAdsConsentManager.sharedInstance
@@ -113,22 +115,14 @@
   }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-  // Attempting to load adaptive banner ads is handled in viewDidAppear as this is the first
-  // time that the safe area is known. If safe area is not a concern (eg your app is locked in
-  // portrait mode) the banner can be loaded in viewDidLoad.
-  if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
-    [self loadBannerAd];
-  }
-}
-
 - (void)viewWillTransitionToSize:(CGSize)size
        withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
   [coordinator
       animateAlongsideTransition:^(
           id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        [self loadBannerAd];
+        if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
+          [self loadBannerAd];
+        }
       }
                       completion:nil];
 }
@@ -136,28 +130,28 @@
 - (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
+    // [START initialize_sdk]
     // Initialize the Google Mobile Ads SDK.
     [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
+    // [END initialize_sdk]
     [self loadBannerAd];
   });
 }
 
 - (void)loadBannerAd {
-  // Here safe area is taken into account, hence the view frame is used after the
-  // view has been laid out.
-  CGRect frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
-  CGFloat viewWidth = frame.size.width;
+  // [START ad_size]
+  // Request an anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  // [END ad_size]
 
-  // Here the current interface orientation is used. If the ad is being preloaded
-  // for a future orientation change or different orientation, the function for the
-  // relevant orientation should be used.
-  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth);
-
+  // [START load_ad]
   [self.bannerView loadRequest:[GADRequest request]];
+  // [END load_ad]
 }
 
 #pragma mark GADBannerViewDelegate implementation
 
+// [START banner_view_delegate_methods]
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidReceiveAd");
 }
@@ -181,6 +175,7 @@
 - (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidDismissScreen");
 }
+// [END banner_view_delegate_methods]
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
