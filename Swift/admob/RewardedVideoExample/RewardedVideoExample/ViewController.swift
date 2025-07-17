@@ -129,15 +129,20 @@ class ViewController: UIViewController, FullScreenContentDelegate {
     }
   }
 
+  // [START load_rewarded]
   func loadRewardedAd() async {
     do {
       rewardedAd = try await RewardedAd.load(
+        // Replace this ad unit ID with your own ad unit ID.
         with: "ca-app-pub-3940256099942544/1712485313", request: Request())
+      // [START set_the_delegate]
       rewardedAd?.fullScreenContentDelegate = self
+      // [END set_the_delegate]
     } catch {
       print("Rewarded ad failed to load with error: \(error.localizedDescription)")
     }
   }
+  // [END load_rewarded]
 
   // MARK: Game logic
 
@@ -251,13 +256,18 @@ class ViewController: UIViewController, FullScreenContentDelegate {
   @IBAction func watchVideo(_ sender: UIButton) {
     watchVideoButton.isHidden = true
 
-    if let ad = rewardedAd {
-      ad.present(from: self) {
-        let reward = ad.adReward
+    if let rewardedAd {
+      // [START present_rewarded]
+      rewardedAd.present(from: self) {
+        let reward = rewardedAd.adReward
         print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
+        // [START_EXCLUDE silent]
         self.earnCoins(NSInteger(truncating: reward.amount))
+        // [END_EXCLUDE]
+
         // TODO: Reward the user.
       }
+      // [END present_rewarded]
     } else {
       let alert = UIAlertController(
         title: "Rewarded ad isn't available yet.",
@@ -282,19 +292,35 @@ class ViewController: UIViewController, FullScreenContentDelegate {
 
   // MARK: GADFullScreenContentDelegate
 
+  // [START ad_events]
+  func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called.")
+  }
+
+  func adDidRecordClick(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called.")
+  }
+
   func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
-    print("Rewarded ad will be presented.")
+    print("\(#function) called.")
+  }
+
+  func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+    print("\(#function) called.")
   }
 
   func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
-    print("Rewarded ad dismissed.")
+    print("\(#function) called.")
+    // Clear the rewarded ad.
+    rewardedAd = nil
   }
 
   func ad(
     _ ad: FullScreenPresentingAd,
     didFailToPresentFullScreenContentWithError error: Error
   ) {
-    print("Rewarded ad failed to present with error: \(error.localizedDescription).")
+    print("\(#function) called with error: \(error.localizedDescription).")
+    // [START_EXCLUDE silent]
     let alert = UIAlertController(
       title: "Rewarded ad failed to present",
       message: "The reward ad could not be presented.",
@@ -304,7 +330,9 @@ class ViewController: UIViewController, FullScreenContentDelegate {
       style: .cancel)
     alert.addAction(alertAction)
     self.present(alert, animated: true, completion: nil)
+    // [END_EXCLUDE]
   }
+  // [END ad_events]
 
   deinit {
     NotificationCenter.default.removeObserver(

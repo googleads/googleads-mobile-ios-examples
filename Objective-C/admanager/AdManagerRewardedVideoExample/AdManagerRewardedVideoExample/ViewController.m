@@ -159,19 +159,21 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (void)loadRewardedAd {
-  GAMRequest *request = [GAMRequest request];
-  [GADRewardedAd
-       loadWithAdUnitID:@"/21775744923/example/rewarded"
-                request:request
+  // [START load_rewarded]
+  // Replace this ad unit ID with your own ad unit ID.
+  [GADRewardedAd loadWithAdUnitID:@"/21775744923/example/rewarded"
+                request:[GAMRequest request]
       completionHandler:^(GADRewardedAd *ad, NSError *error) {
         if (error) {
           NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
           return;
         }
         self.rewardedAd = ad;
-        NSLog(@"Rewarded ad loaded.");
+        // [START set_the_delegate]
         self.rewardedAd.fullScreenContentDelegate = self;
+        // [END set_the_delegate]
       }];
+  // [END load_rewarded]
 }
 
 - (void)pauseGame {
@@ -296,32 +298,59 @@ typedef NS_ENUM(NSInteger, GameState) {
   self.showVideoButton.hidden = YES;
 
   if (self.rewardedAd && [self.rewardedAd canPresentFromRootViewController:self error:nil]) {
+    // [START present_rewarded]
     [self.rewardedAd presentFromRootViewController:self
                           userDidEarnRewardHandler:^{
                             GADAdReward *reward = self.rewardedAd.adReward;
-
                             NSString *rewardMessage = [NSString
                                 stringWithFormat:@"Reward received with currency %@ , amount %lf",
                                                  reward.type, [reward.amount doubleValue]];
                             NSLog(@"%@", rewardMessage);
-                            // Reward the user for watching the video.
+                            // [START_EXCLUDE silent]
                             [self earnCoins:[reward.amount integerValue]];
+                            // [END_EXCLUDE]
+
+                            // TODO: Reward the user.
                           }];
+    // [END present_rewarded]
   }
 }
 
 #pragma mark GADFullScreenContentDelegate implementation
 
-/// Tells the delegate that the rewarded ad will be presented.
-- (void)adWillPresentFullScreenContent:(id)ad {
-  NSLog(@"Rewarded ad will be presented.");
+// [START ad_events]
+- (void)adDidRecordImpression:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
 }
 
-/// Tells the delegate that the rewarded ad failed to present.
+- (void)adDidRecordClick:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+}
+
+- (void)adWillPresentFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+}
+
+- (void)adWillDismissFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+}
+
+- (void)adDidDismissFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"%s called", __PRETTY_FUNCTION__);
+  // Clear the rewarded ad.
+  self.rewardedAd = nil;
+  // [START_EXCLUDE silent]
+  [self loadRewardedAd];
+  self.showVideoButton.hidden = YES;
+  NSLog(@"Rewarded ad dismissed.");
+  // [END_EXCLUDE]
+}
+
 - (void)ad:(id)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
-  NSLog(@"Rewarded ad failed to present with error: %@", [error localizedDescription]);
+  NSLog(@"%s called with error: %@", __PRETTY_FUNCTION__, error.localizedDescription);
+  // [START_EXCLUDE silent]
   UIAlertController *alert = [UIAlertController
-      alertControllerWithTitle:@"Rewarded Ad not ready"
+      alertControllerWithTitle:@"Rewarded Ad failed to present."
                        message:[NSString
                                    stringWithFormat:@"Rewarded ad failed to present with error: %@",
                                                     [error localizedDescription]]
@@ -331,12 +360,8 @@ typedef NS_ENUM(NSInteger, GameState) {
                                                       handler:nil];
   [alert addAction:alertAction];
   [self presentViewController:alert animated:YES completion:nil];
+  // [END_EXCLUDE]
 }
+// [END ad_events]
 
-/// Tells the delegate that the rewarded ad was dismissed.
-- (void)adDidDismissFullScreenContent:(id)ad {
-  [self loadRewardedAd];
-  self.showVideoButton.hidden = YES;
-  NSLog(@"Rewarded ad dismissed.");
-}
 @end
