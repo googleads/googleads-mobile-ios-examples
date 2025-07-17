@@ -24,4 +24,11 @@ private class RequestConfigurationSnippets {
     MobileAds.shared.requestConfiguration.testDeviceIdentifiers = testDeviceIdentifiers
     // [END set_test_device_ids]
   }
+
+  private func disablePublisherFirstPartyID() {
+    // [START disable_publisher_first_party_id]
+    // Disables Publisher first-party ID, formerly known as same app key.
+    MobileAds.shared.requestConfiguration.setPublisherFirstPartyIDEnabled(false)
+    // [END disable_publisher_first_party_id]
+  }
 }
