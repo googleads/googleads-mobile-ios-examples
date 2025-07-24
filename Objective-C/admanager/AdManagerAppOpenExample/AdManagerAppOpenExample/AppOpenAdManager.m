@@ -18,25 +18,24 @@
 
 #import "GoogleMobileAdsConsentManager.h"
 
-/// Ad references in the app open beta will time out after four hours, but this time limit
-/// may change in future beta versions. For details, see:
-/// https://support.google.com/admanager/answer/9351867?hl=en
-static const NSInteger TimeoutInterval = 4;
-
+// [START app_open_ad_manager]
 @interface AppOpenAdManager ()
+
+/// The app open ad.
+@property(nonatomic, strong, nullable) GADAppOpenAd *appOpenAd;
+/// Keeps track of if an app open ad is loading.
+@property(nonatomic, assign) BOOL isLoadingAd;
+/// Keeps track of if an app open ad is showing.
+@property(nonatomic, assign) BOOL isShowingAd;
+/// Keeps track of the time when an app open ad was loaded to discard expired ad.
+@property(nonatomic, strong, nullable) NSDate *loadTime;
 
 @end
 
-@implementation AppOpenAdManager {
-  /// The app open ad.
-  GADAppOpenAd *_appOpenAd;
-  /// Keeps track of if an app open ad is loading.
-  BOOL _isLoadingAd;
-  /// Keeps track of if an app open ad is showing.
-  BOOL _isShowingAd;
-  /// Keeps track of the time when an app open ad was loaded to discard expired ad.
-  NSDate *_loadTime;
-}
+/// For more interval details, see https://support.google.com/admanager/answer/9351867
+static const NSInteger kTimeoutInterval = 4;
+
+@implementation AppOpenAdManager
 
 + (nonnull AppOpenAdManager *)sharedInstance {
   static AppOpenAdManager *instance = nil;
@@ -46,11 +45,13 @@ static const NSInteger TimeoutInterval = 4;
   });
   return instance;
 }
+// [END app_open_ad_manager]
 
+// [START ad_expiration]
 - (BOOL)wasLoadTimeLessThanNHoursAgo:(int)n {
   // Check if ad was loaded more than n hours ago.
   NSDate *now = [NSDate date];
-  NSTimeInterval timeIntervalBetweenNowAndLoadTime = [now timeIntervalSinceDate:_loadTime];
+  NSTimeInterval timeIntervalBetweenNowAndLoadTime = [now timeIntervalSinceDate:self.loadTime];
   double secondsPerHour = 3600.0;
   double intervalInHours = timeIntervalBetweenNowAndLoadTime / secondsPerHour;
   return intervalInHours < n;
@@ -58,89 +59,106 @@ static const NSInteger TimeoutInterval = 4;
 
 - (BOOL)isAdAvailable {
   // Check if ad exists and can be shown.
-  return _appOpenAd && [self wasLoadTimeLessThanNHoursAgo:TimeoutInterval];
+  return self.appOpenAd && [self wasLoadTimeLessThanNHoursAgo:kTimeoutInterval];
 }
+// [END ad_expiration]
 
 - (void)adDidComplete {
-  // The app open ad is considered to be complete when it dismisses or fails to show,
-  // call the delegate's adDidComplete method if the delegate is not nil.
-  if (!_delegate) {
-    return;
-  }
-  [_delegate adDidComplete];
-  _delegate = nil;
+  // The app open ad is considered to be complete when it dismisses or fails to show.
+  [self.delegate adDidComplete];
+  self.delegate = nil;
 }
 
+// [START load_ad]
 - (void)loadAd {
   // Do not load ad if there is an unused ad or one is already loading.
-  if ([self isAdAvailable] || _isLoadingAd) {
+  if ([self isAdAvailable] || self.isLoadingAd) {
     return;
   }
-  _isLoadingAd = YES;
-  NSLog(@"Start loading app open ad.");
+  self.isLoadingAd = YES;
+
   [GADAppOpenAd loadWithAdUnitID:@"/21775744923/example/app-open"
                          request:[GADRequest request]
                completionHandler:^(GADAppOpenAd * _Nullable appOpenAd, NSError * _Nullable error) {
-    self->_isLoadingAd = NO;
+    self.isLoadingAd = NO;
     if (error) {
-      self->_appOpenAd = nil;
-      self->_loadTime = nil;
       NSLog(@"App open ad failed to load with error: %@", error);
+      self.appOpenAd = nil;
+      self.loadTime = nil;
       return;
     }
-    self->_appOpenAd = appOpenAd;
-    self->_appOpenAd.fullScreenContentDelegate = self;
-    self->_loadTime = [NSDate date];
-    NSLog(@"App open ad loaded successfully.");
+    self.appOpenAd = appOpenAd;
+    // [START set_delegate]
+    self.appOpenAd.fullScreenContentDelegate = self;
+    // [END set_delegate]
+    self.loadTime = [NSDate date];
   }];
 }
+// [END load_ad]
 
+// [START show_ad]
 - (void)showAdIfAvailable {
   // If the app open ad is already showing, do not show the ad again.
-  if (_isShowingAd) {
+  if (self.isShowingAd) {
     NSLog(@"App open ad is already showing.");
     return;
   }
-  // If the app open ad is not available yet but it is supposed to show,
-  // it is considered to be complete in this example. Call the adDidComplete method
-  // and load a new ad.
+
+  // If the app open ad is not available yet but is supposed to show, load
+  // a new ad.
   if (![self isAdAvailable]) {
     NSLog(@"App open ad is not ready yet.");
+    // The app open ad is considered to be complete in this example.
     [self adDidComplete];
+    // Load a new ad.
+    // [START_EXCLUDE silent]
     if ([GoogleMobileAdsConsentManager.sharedInstance canRequestAds]) {
       [self loadAd];
     }
+    // [END_EXCLUDE]
     return;
   }
-  NSLog(@"App open ad will be displayed.");
-  _isShowingAd = YES;
-  [_appOpenAd presentFromRootViewController:nil];
+
+  [self.appOpenAd presentFromRootViewController:nil];
+  self.isShowingAd = YES;
 }
+// [END show_ad]
 
 #pragma mark - GADFullScreenContentDelegate
 
-/// Tells the delegate that the ad will present full screen content.
-- (void)adWillPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
-  NSLog(@"App open ad is will be presented.");
+// [START ad_events]
+- (void)adDidRecordImpression:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"App open ad recorded an impression.");
 }
 
-/// Tells the delegate that the ad dismissed full screen content.
+- (void)adDidRecordClick:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"App open ad recorded a click.");
+}
+
+- (void)adWillPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"App open ad will be presented.");
+}
+
+- (void)adWillDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"App open ad will be dismissed.");
+}
+
 - (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
-  _appOpenAd = nil;
-  _isShowingAd = NO;
   NSLog(@"App open ad was dismissed.");
+  self.appOpenAd = nil;
+  self.isShowingAd = NO;
   [self adDidComplete];
   [self loadAd];
 }
 
-/// Tells the delegate that the ad failed to present full screen content.
 - (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
     didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
-  _appOpenAd = nil;
-  _isShowingAd = NO;
   NSLog(@"App open ad failed to present with error: %@", error.localizedDescription);
+  self.appOpenAd = nil;
+  self.isShowingAd = NO;
   [self adDidComplete];
   [self loadAd];
 }
+// [END ad_events]
 
 @end

@@ -28,8 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
+  // [START show_ad_on_foreground]
   func applicationDidBecomeActive(_ application: UIApplication) {
     // Show the app open ad when the app is foregrounded.
     AppOpenAdManager.shared.showAdIfAvailable()
   }
+  // [END show_ad_on_foreground]
 }

@@ -17,11 +17,13 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
+// [START app_open_ad_manager_delegate]
 @protocol AppOpenAdManagerDelegate <NSObject>
 /// Method to be invoked when an app open ad life cycle is complete (i.e. dismissed or fails to
 /// show).
 - (void)adDidComplete;
 @end
+// [END app_open_ad_manager_delegate]
 
 @interface AppOpenAdManager : NSObject <GADFullScreenContentDelegate>
 
