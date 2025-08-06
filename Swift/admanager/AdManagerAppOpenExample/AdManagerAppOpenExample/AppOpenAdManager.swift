@@ -17,18 +17,17 @@
 @preconcurrency import GoogleMobileAds
 
 @MainActor
+// [START app_open_ad_manager_delegate]
 protocol AppOpenAdManagerDelegate: AnyObject {
   /// Method to be invoked when an app open ad life cycle is complete (i.e. dismissed or fails to
   /// show).
   func appOpenAdManagerAdDidComplete(_ appOpenAdManager: AppOpenAdManager)
 }
+// [END app_open_ad_manager_delegate]
 
 @MainActor
+// [START app_open_ad_manager]
 class AppOpenAdManager: NSObject {
-  /// Ad references in the app open beta will time out after four hours,
-  /// but this time limit may change in future beta versions. For details, see:
-  /// https://support.google.com/admanager/answer/9351867?hl=en
-  let timeoutInterval: TimeInterval = 4 * 3_600
   /// The app open ad.
   var appOpenAd: AppOpenAd?
   /// Maintains a reference to the delegate.
@@ -39,9 +38,13 @@ class AppOpenAdManager: NSObject {
   var isShowingAd = false
   /// Keeps track of the time when an app open ad was loaded to discard expired ad.
   var loadTime: Date?
+  /// For more interval details, see https://support.google.com/admanager/answer/9351867
+  let timeoutInterval: TimeInterval = 4 * 3_600
 
   static let shared = AppOpenAdManager()
+  // [END app_open_ad_manager]
 
+  // [START ad_expiration]
   private func wasLoadTimeLessThanNHoursAgo(timeoutInterval: TimeInterval) -> Bool {
     // Check if ad was loaded more than n hours ago.
     if let loadTime = loadTime {
@@ -54,13 +57,9 @@ class AppOpenAdManager: NSObject {
     // Check if ad exists and can be shown.
     return appOpenAd != nil && wasLoadTimeLessThanNHoursAgo(timeoutInterval: timeoutInterval)
   }
+  // [END ad_expiration]
 
-  private func appOpenAdManagerAdDidComplete() {
-    // The app open ad is considered to be complete when it dismisses or fails to show,
-    // call the delegate's appOpenAdManagerAdDidComplete method if the delegate is not nil.
-    appOpenAdManagerDelegate?.appOpenAdManagerAdDidComplete(self)
-  }
-
+  // [START load_ad]
   func loadAd() async {
     // Do not load ad if there is an unused ad or one is already loading.
     if isLoadingAd || isAdAvailable() {
@@ -68,58 +67,78 @@ class AppOpenAdManager: NSObject {
     }
     isLoadingAd = true
 
-    print("Start loading app open ad.")
-
     do {
       appOpenAd = try await AppOpenAd.load(
         with: "/21775744923/example/app-open", request: AdManagerRequest())
+      // [START set_delegate]
       appOpenAd?.fullScreenContentDelegate = self
+      // [END set_delegate]
       loadTime = Date()
     } catch {
+      print("App open ad failed to load with error: \(error.localizedDescription)")
       appOpenAd = nil
       loadTime = nil
-      print("App open ad failed to load with error: \(error.localizedDescription)")
     }
     isLoadingAd = false
   }
+  // [END load_ad]
 
+  // [START show_ad]
   func showAdIfAvailable() {
     // If the app open ad is already showing, do not show the ad again.
     if isShowingAd {
-      print("App open ad is already showing.")
-      return
+      return print("App open ad is already showing.")
     }
-    // If the app open ad is not available yet but it is supposed to show,
-    // it is considered to be complete in this example. Call the appOpenAdManagerAdDidComplete
-    // method and load a new ad.
+
+    // If the app open ad is not available yet but is supposed to show, load
+    // a new ad.
     if !isAdAvailable() {
       print("App open ad is not ready yet.")
-      appOpenAdManagerAdDidComplete()
+      // The app open ad is considered to be complete in this example.
+      appOpenAdManagerDelegate?.appOpenAdManagerAdDidComplete(self)
+      // Load a new ad.
+      // [START_EXCLUDE silent]
       if GoogleMobileAdsConsentManager.shared.canRequestAds {
         Task {
           await loadAd()
         }
       }
+      // [END_EXCLUDE]
       return
     }
-    if let ad = appOpenAd {
+
+    if let appOpenAd {
       print("App open ad will be displayed.")
+      appOpenAd.present(from: nil)
       isShowingAd = true
-      ad.present(from: nil)
     }
   }
+  // [END show_ad]
 }
 
 extension AppOpenAdManager: FullScreenContentDelegate {
+  // [START ad_events]
+  func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
+    print("App open ad recorded an impression.")
+  }
+
+  func adDidRecordClick(_ ad: FullScreenPresentingAd) {
+    print("App open ad recorded a click.")
+  }
+
+  func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+    print("App open ad will be dismissed.")
+  }
+
   func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
-    print("App open ad is will be presented.")
+    print("App open ad will be presented.")
   }
 
   func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+    print("App open ad was dismissed.")
     appOpenAd = nil
     isShowingAd = false
-    print("App open ad was dismissed.")
-    appOpenAdManagerAdDidComplete()
+    appOpenAdManagerDelegate?.appOpenAdManagerAdDidComplete(self)
     Task {
       await loadAd()
     }
@@ -129,12 +148,13 @@ extension AppOpenAdManager: FullScreenContentDelegate {
     _ ad: FullScreenPresentingAd,
     didFailToPresentFullScreenContentWithError error: Error
   ) {
+    print("App open ad failed to present with error: \(error.localizedDescription)")
     appOpenAd = nil
     isShowingAd = false
-    print("App open ad failed to present with error: \(error.localizedDescription)")
-    appOpenAdManagerAdDidComplete()
+    appOpenAdManagerDelegate?.appOpenAdManagerAdDidComplete(self)
     Task {
       await loadAd()
     }
   }
+  // [END ad_events]
 }

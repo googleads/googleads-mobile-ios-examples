@@ -17,24 +17,23 @@
 #import <Foundation/Foundation.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface RequestConfigurationSnippets : NSObject
+@interface ResponseInfoSnippets : NSObject
 
 @end
 
-@implementation RequestConfigurationSnippets
+@implementation ResponseInfoSnippets
 
-- (void)setTestDeviceIdentifiers {
-  // [START set_test_device_ids]
-  NSArray *testDeviceIdentifiers = @[ @"2077ef9a63d2b398840261c8221a0c9b" ];
-  GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = testDeviceIdentifiers;
-  // [END set_test_device_ids]
+// [START get_ad_source_name]
+- (NSString *)uniqueAdSourceNameForAdNetworkResponseInfo:
+    (AdNetworkResponseInfo *)loadedAdNetworkResponseInfo {
+  NSString *adSourceName = loadedAdNetworkResponseInfo.adSourceName;
+  if ([adSourceName isEqualToString:@"Custom Event"]) {
+    if ([loadedAdNetworkResponseInfo.adNetworkClassName isEqualToString:@"SampleCustomEvent"]) {
+      adSourceName = @"Sample Ad Network (Custom Event)";
+    }
+  }
+  return adSourceName;
 }
-
-- (void)disablePublisherFirstPartyID {
-  // [START disable_publisher_first_party_id]
-  // Disables Publisher first-party ID, formerly known as same app key.
-  [GADMobileAds.sharedInstance.requestConfiguration setPublisherFirstPartyIDEnabled:NO];
-  // [END disable_publisher_first_party_id]
-}
+// [END get_ad_source_name]
 
 @end

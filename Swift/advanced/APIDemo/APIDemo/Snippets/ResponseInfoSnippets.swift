@@ -16,19 +16,19 @@
 
 import GoogleMobileAds
 
-private class RequestConfigurationSnippets {
+private class ResponseInfoSnippets {
 
-  private func setTestDeviceIdentifiers() {
-    // [START set_test_device_ids]
-    let testDeviceIdentifiers = ["2077ef9a63d2b398840261c8221a0c9b"]
-    MobileAds.shared.requestConfiguration.testDeviceIdentifiers = testDeviceIdentifiers
-    // [END set_test_device_ids]
+  // [START get_ad_source_name]
+  func uniqueAdSourceName(for loadedAdNetworkResponseInfo: AdNetworkResponseInfo) -> String {
+    var adSourceName: String = loadedAdNetworkResponseInfo.adSourceName ?? ""
+    if adSourceName == "Custom Event" {
+      if loadedAdNetworkResponseInfo.adNetworkClassName
+        == "MediationExample.SampleCustomEventSwift"
+      {
+        adSourceName = "Sample Ad Network (Custom Event)"
+      }
+    }
+    return adSourceName
   }
-
-  private func disablePublisherFirstPartyID() {
-    // [START disable_publisher_first_party_id]
-    // Disables Publisher first-party ID, formerly known as same app key.
-    MobileAds.shared.requestConfiguration.setPublisherFirstPartyIDEnabled(false)
-    // [END disable_publisher_first_party_id]
-  }
+  // [END get_ad_source_name]
 }

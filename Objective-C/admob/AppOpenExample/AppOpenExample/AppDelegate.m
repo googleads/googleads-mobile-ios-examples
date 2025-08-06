@@ -23,9 +23,11 @@
   return YES;
 }
 
+// [START show_ad_on_foreground]
 - (void) applicationDidBecomeActive:(UIApplication *)application {
   // Show the app open ad when the app is foregrounded.
   [AppOpenAdManager.sharedInstance showAdIfAvailable];
 }
+// [END show_ad_on_foreground]
 
 @end
