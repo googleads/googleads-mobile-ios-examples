@@ -58,16 +58,6 @@ class ViewController: UIViewController, BannerViewDelegate {
     }
   }
 
-  override func viewWillTransition(
-    to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
-  ) {
-    coordinator.animate(alongsideTransition: { _ in
-      if GoogleMobileAdsConsentManager.shared.canRequestAds {
-        self.loadBannerAd()
-      }
-    })
-  }
-
   private func startGoogleMobileAdsSDK() {
     DispatchQueue.main.async {
       guard !self.isMobileAdsStartCalled else { return }

@@ -30,6 +30,15 @@
   [self createBannerViewProgrammatically];
 }
 
+// [START handle_orientation_changes]
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+  [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    // Load a new ad for the new orientation.
+  } completion:nil];
+}
+// [END handle_orientation_changes]
+
 - (void)createBannerViewProgrammatically {
     // [START create_banner_view]
     // Initialize the GADBannerView.
