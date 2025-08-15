@@ -24,6 +24,9 @@
 		50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */; };
 		50DC0CFD212F1C4000424CC7 /* GAMCustomTargetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */; };
 		50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */; };
+		A8265F742E4F8AE000A9C150 /* BannerSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8265F722E4F8AE000A9C150 /* BannerSnippets.m */; };
+		A8265F752E4F8AE000A9C150 /* ResponseInfoSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */; };
+		A8265F772E4F8AF600A9C150 /* NativeAdOptionsSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */; };
 		A846F1C32E2584AD00F96E49 /* RewardedAdSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A846F1C22E2584A800F96E49 /* RewardedAdSnippets.m */; };
 		A86568AD2E254DD800D360C3 /* ATTSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A86568AC2E254DD300D360C3 /* ATTSnippets.m */; };
 		A8B6503A2DD63FA500AE1D3F /* RequestConfigurationSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */; };
@@ -68,6 +71,9 @@
 		50DC0CF6212F1C3F00424CC7 /* GAMAppEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMAppEventsViewController.m; sourceTree = "<group>"; };
 		50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCustomTargetingViewController.m; sourceTree = "<group>"; };
 		50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMPPIDViewController.m; sourceTree = "<group>"; };
+		A8265F722E4F8AE000A9C150 /* BannerSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerSnippets.m; sourceTree = "<group>"; };
+		A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseInfoSnippets.m; sourceTree = "<group>"; };
+		A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAdOptionsSnippets.m; sourceTree = "<group>"; };
 		A846F1C22E2584A800F96E49 /* RewardedAdSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RewardedAdSnippets.m; sourceTree = "<group>"; };
 		A86568AC2E254DD300D360C3 /* ATTSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATTSnippets.m; sourceTree = "<group>"; };
 		A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestConfigurationSnippets.m; sourceTree = "<group>"; };
@@ -179,7 +185,10 @@
 			isa = PBXGroup;
 			children = (
 				A86568AC2E254DD300D360C3 /* ATTSnippets.m */,
+				A8265F722E4F8AE000A9C150 /* BannerSnippets.m */,
+				A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */,
 				A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */,
+				A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */,
 				A846F1C22E2584A800F96E49 /* RewardedAdSnippets.m */,
 			);
 			path = Snippets;
@@ -290,6 +299,9 @@
 				4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */,
 				50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */,
 				EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */,
+				A8265F772E4F8AF600A9C150 /* NativeAdOptionsSnippets.m in Sources */,
+				A8265F742E4F8AE000A9C150 /* BannerSnippets.m in Sources */,
+				A8265F752E4F8AE000A9C150 /* ResponseInfoSnippets.m in Sources */,
 				50DC0CFA212F1C4000424CC7 /* GAMFluidAdSizeViewController.m in Sources */,
 				A8B6503A2DD63FA500AE1D3F /* RequestConfigurationSnippets.m in Sources */,
 				AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */,
