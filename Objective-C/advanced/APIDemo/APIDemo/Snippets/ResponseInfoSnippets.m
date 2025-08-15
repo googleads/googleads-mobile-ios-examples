@@ -25,7 +25,7 @@
 
 // [START get_ad_source_name]
 - (NSString *)uniqueAdSourceNameForAdNetworkResponseInfo:
-    (AdNetworkResponseInfo *)loadedAdNetworkResponseInfo {
+    (GADAdNetworkResponseInfo *)loadedAdNetworkResponseInfo {
   NSString *adSourceName = loadedAdNetworkResponseInfo.adSourceName;
   if ([adSourceName isEqualToString:@"Custom Event"]) {
     if ([loadedAdNetworkResponseInfo.adNetworkClassName isEqualToString:@"SampleCustomEvent"]) {
