@@ -18,12 +18,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { regex: "Objective-C/advanced", xcode_version: "16.1" }
-          - { regex: "Swift/advanced", xcode_version: "16.1" }
-          - { regex: "Objective-C/admob", xcode_version: "16.1" }
-          - { regex: "Swift/admob", xcode_version: "16.1" }
-          - { regex: "Objective-C/admanager", xcode_version: "16.1" }
-          - { regex: "Swift/admanager", xcode_version: "16.1" }
+          - { regex: "Objective-C/advanced", xcode_version: "16.4" }
+          - { regex: "Swift/advanced", xcode_version: "16.4" }
+          - { regex: "Objective-C/admob", xcode_version: "16.4" }
+          - { regex: "Swift/admob", xcode_version: "16.4" }
+          - { regex: "Objective-C/admanager", xcode_version: "16.4" }
+          - { regex: "Swift/admanager", xcode_version: "16.4" }
     steps:
       - name: Clone Repo
         uses: actions/checkout@v1
