@@ -20,8 +20,8 @@ private class RewardedAdSnippets {
 
   private var rewardedAd: RewardedAd?
 
+  // [START validate_server_side_verification]
   private func validateServerSideVerification() async {
-    // [START validate_server_side_verification]
     do {
       rewardedAd = try await RewardedAd.load(
         // Replace this ad unit ID with your own ad unit ID.
@@ -32,6 +32,23 @@ private class RewardedAdSnippets {
     } catch {
       print("Rewarded ad failed to load with error: \(error.localizedDescription)")
     }
-    // [END validate_server_side_verification]
   }
+  // [END validate_server_side_verification]
+
+  // MARK: Ad Manager snippets
+
+  // [START validate_server_side_verification_ad_manager]
+  private func validateAdManagerServerSideVerification() async {
+    do {
+      rewardedAd = try await RewardedAd.load(
+        // Replace this ad unit ID with your own ad unit ID.
+        with: "/21775744923/example/rewarded", request: AdManagerRequest())
+      let options = ServerSideVerificationOptions()
+      options.customRewardText = "SAMPLE_CUSTOM_DATA_STRING"
+      rewardedAd?.serverSideVerificationOptions = options
+    } catch {
+      print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+    }
+  }
+  // [END validate_server_side_verification_ad_manager]
 }

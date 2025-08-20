@@ -44,4 +44,25 @@
   // [END validate_server_side_verification]
 }
 
+#pragma mark - Ad Manager snippets
+
+- (void)validateAdManagerServerSideVerification {
+  // [START validate_server_side_verification_ad_manager]
+  // Replace this ad unit ID with your own ad unit ID.
+  [GADRewardedAd loadWithAdUnitID:@"/21775744923/example/rewarded"
+                          request:[GAMRequest request]
+                completionHandler:^(GADRewardedAd *ad, NSError *error) {
+                  if (error) {
+                    NSLog(@"Rewarded ad failed to load with error: %@", error.localizedDescription);
+                    return;
+                  }
+                  self.rewardedAd = ad;
+                  GADServerSideVerificationOptions *options =
+                      [[GADServerSideVerificationOptions alloc] init];
+                  options.customRewardString = @"SAMPLE_CUSTOM_DATA_STRING";
+                  ad.serverSideVerificationOptions = options;
+                }];
+  // [END validate_server_side_verification_ad_manager]
+}
+
 @end
