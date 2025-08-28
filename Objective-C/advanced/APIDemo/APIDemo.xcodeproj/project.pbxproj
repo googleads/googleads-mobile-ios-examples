@@ -35,6 +35,9 @@
 		AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110F20320CA800EA4BEE /* NativeAdView.xib */; };
 		AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */; };
 		AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */; };
+		EF25D0222E4B916800688F43 /* BannerSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0212E4B916800688F43 /* BannerSnippets.m */; };
+		EF25D0242E4B917500688F43 /* ResponseInfoSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0232E4B917500688F43 /* ResponseInfoSnippets.m */; };
+		EF25D0262E4B95F400688F43 /* RewardedInterstitialAdSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0252E4B917E00688F43 /* RewardedInterstitialAdSnippets.m */; };
 		EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,9 @@
 		AEE8DA9D201BD7A6008792E6 /* SimpleNativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNativeAdView.m; sourceTree = "<group>"; };
 		AEE8DAA3201BDCA9008792E6 /* CustomControlsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomControlsView.h; sourceTree = "<group>"; };
 		AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomControlsView.m; sourceTree = "<group>"; };
+		EF25D0212E4B916800688F43 /* BannerSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerSnippets.m; sourceTree = "<group>"; };
+		EF25D0232E4B917500688F43 /* ResponseInfoSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseInfoSnippets.m; sourceTree = "<group>"; };
+		EF25D0252E4B917E00688F43 /* RewardedInterstitialAdSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RewardedInterstitialAdSnippets.m; sourceTree = "<group>"; };
 		EF98F6042BD948A400FDCA41 /* CollapsibleBannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollapsibleBannerViewController.h; sourceTree = "<group>"; };
 		EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollapsibleBannerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +190,9 @@
 		A8B6503B2DD63FAB00AE1D3F /* Snippets */ = {
 			isa = PBXGroup;
 			children = (
+				EF25D0252E4B917E00688F43 /* RewardedInterstitialAdSnippets.m */,
+				EF25D0232E4B917500688F43 /* ResponseInfoSnippets.m */,
+				EF25D0212E4B916800688F43 /* BannerSnippets.m */,
 				A86568AC2E254DD300D360C3 /* ATTSnippets.m */,
 				A8265F722E4F8AE000A9C150 /* BannerSnippets.m */,
 				A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */,
@@ -284,6 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF25D0262E4B95F400688F43 /* RewardedInterstitialAdSnippets.m in Sources */,
+				EF25D0242E4B917500688F43 /* ResponseInfoSnippets.m in Sources */,
 				4A96E7241B856D5000031470 /* AppDelegate.m in Sources */,
 				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
 				AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */,
