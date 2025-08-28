@@ -194,8 +194,11 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
 #pragma mark GADNativeAdLoaderDelegate implementation
 
+// [START display_native_ad]
 - (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
+  // [START_EXCLUDE]
   self.refreshButton.enabled = YES;
+  // [END_EXCLUDE]
 
   GADNativeAdView *nativeAdView = self.nativeAdView;
 
@@ -205,7 +208,9 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   // Populate the native ad view with the native ad assets.
   // The headline and mediaContent are guaranteed to be present in every native ad.
   ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
+  // [START set_media_content]
   nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
+  // [END set_media_content]
 
   // This app uses a fixed width for the GADMediaView and changes its height
   // to match the aspect ratio of the media content it displays.
@@ -265,6 +270,7 @@ static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
   // Note: this should always be done after populating the ad views.
   nativeAdView.nativeAd = nativeAd;
 }
+// [END display_native_ad]
 
 #pragma mark GADVideoControllerDelegate implementation
 

@@ -200,8 +200,11 @@ extension ViewController: @preconcurrency AdLoaderDelegate {
 
 extension ViewController: @preconcurrency NativeAdLoaderDelegate {
 
+  // [START display_native_ad]
   func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
+    // [START_EXCLUDE]
     refreshAdButton.isEnabled = true
+    // [END_EXCLUDE]
 
     // Set ourselves as the native ad delegate to be notified of native ad events.
     nativeAd.delegate = self
@@ -209,7 +212,9 @@ extension ViewController: @preconcurrency NativeAdLoaderDelegate {
     // Populate the native ad view with the native ad assets.
     // The headline and mediaContent are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+    // [START set_media_content]
     nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+    // [END set_media_content]
 
     // Some native ads will include a video asset, while others do not. Apps can use the
     // GADVideoController's hasVideoContent property to determine if one is present, and adjust their
@@ -270,6 +275,7 @@ extension ViewController: @preconcurrency NativeAdLoaderDelegate {
     // Note: this should always be done after populating the ad views.
     nativeAdView.nativeAd = nativeAd
   }
+  // [END display_native_ad]
 }
 
 // MARK: - GADNativeAdDelegate implementation
