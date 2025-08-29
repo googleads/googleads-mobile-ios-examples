@@ -25,6 +25,16 @@ private class BannerSnippets: UIViewController {
     createBannerViewProgrammatically()
   }
 
+  // [START handle_orientation_changes]
+  override func viewWillTransition(
+    to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
+  ) {
+    coordinator.animate(alongsideTransition: { _ in
+      // Load a new ad for the new orientation.
+    })
+  }
+  // [END handle_orientation_changes]
+
   private func createBannerViewProgrammatically() {
     // [START create_banner_view]
     // Initialize the BannerView.

@@ -57,16 +57,6 @@ class ViewController: UIViewController, BannerViewDelegate {
     }
   }
 
-  override func viewWillTransition(
-    to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
-  ) {
-    coordinator.animate(alongsideTransition: { _ in
-      if GoogleMobileAdsConsentManager.shared.canRequestAds {
-        self.loadBannerAd()
-      }
-    })
-  }
-
   /// Handle changes to user consent.
   @IBAction func privacySettingsTapped(_ sender: UIBarButtonItem) {
     Task {

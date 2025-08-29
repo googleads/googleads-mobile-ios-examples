@@ -115,18 +115,6 @@
   }
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-  [coordinator
-      animateAlongsideTransition:^(
-          id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        if (GoogleMobileAdsConsentManager.sharedInstance.canRequestAds) {
-          [self loadBannerAd];
-        }
-      }
-                      completion:nil];
-}
-
 - (void)startGoogleMobileAdsSDK {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
