@@ -27,7 +27,7 @@ private class RequestConfigurationSnippets {
 
   private func disablePublisherFirstPartyID() {
     // [START disable_publisher_first_party_id]
-    // Disables Publisher first-party ID, formerly known as same app key.
+    // Disables Publisher first-party ID.
     MobileAds.shared.requestConfiguration.setPublisherFirstPartyIDEnabled(false)
     // [END disable_publisher_first_party_id]
   }
