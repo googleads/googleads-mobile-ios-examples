@@ -32,7 +32,7 @@
 
 - (void)disablePublisherFirstPartyID {
   // [START disable_publisher_first_party_id]
-  // Disables Publisher first-party ID, formerly known as same app key.
+  // Disables Publisher first-party ID.
   [GADMobileAds.sharedInstance.requestConfiguration setPublisherFirstPartyIDEnabled:NO];
   // [END disable_publisher_first_party_id]
 }
