@@ -21,8 +21,8 @@ private class UMPSnippets {
   func syncConsentIdentifier() {
     // [START sync_consent_identifier]
     let parameters = RequestParameters()
-    /// Example using IDFV to identify the user across apps.
-    // parameters.consentSyncID = UIDevice.current.identifierForVendor?.uuidString
+    // Example using IDFV to identify the user across apps.
+    parameters.consentSyncID = UIDevice.current.identifierForVendor?.uuidString
     // [END sync_consent_identifier]
   }
 }

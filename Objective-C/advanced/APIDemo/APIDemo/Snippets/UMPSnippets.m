@@ -27,7 +27,7 @@
   // [START sync_consent_identifier]
   UMPRequestParameters *parameters = [[UMPRequestParameters alloc] init];
   // Example using IDFV to identify the user across apps.
-  // parameters.consentSyncID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+  parameters.consentSyncID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
   // [END sync_consent_identifier]
 }
 
