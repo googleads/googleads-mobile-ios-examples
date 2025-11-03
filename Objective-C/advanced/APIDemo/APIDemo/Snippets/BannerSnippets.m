@@ -27,7 +27,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self createBannerViewProgrammatically];
+  // AdMob setup.
+  [self setupAdMobBannerViewProgrammatically];
+  // Ad Manager setup.
+  [self setupAdManagerBannerViewProgrammatically];
 }
 
 // [START handle_orientation_changes]
@@ -39,9 +42,9 @@
 }
 // [END handle_orientation_changes]
 
-- (void)createBannerViewProgrammatically {
-    // [START create_banner_view]
-    // Initialize the GADBannerView.
+- (void)setupAdMobBannerViewProgrammatically {
+    // [START create_admob_banner_view]
+    // Initialize the banner view.
     self.bannerView = [[GADBannerView alloc] init];
 
     self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -55,7 +58,28 @@
         // Center the banner horizontally in the view
         [self.bannerView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
     ]];
-    // [END create_banner_view]
+    // [END create_admob_banner_view]
+}
+
+#pragma mark - Ad Manager
+
+- (void)setupAdManagerBannerViewProgrammatically {
+    // [START create_admanager_banner_view]
+    // Initialize the banner view.
+    self.bannerView = [[GAMBannerView alloc] init];
+
+    self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.bannerView];
+
+    // This example doesn't give width or height constraints, as the ad size gives the banner an
+    // intrinsic content size to size the view.
+    [NSLayoutConstraint activateConstraints:@[
+        // Align the banner's bottom edge with the safe area's bottom edge
+        [self.bannerView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor],
+        // Center the banner horizontally in the view
+        [self.bannerView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+    ]];
+    // [END create_admanager_banner_view]
 }
 
 @end

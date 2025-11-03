@@ -22,7 +22,10 @@ private class BannerSnippets: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    createBannerViewProgrammatically()
+    // AdMob setup.
+    createAdMobBannerViewProgrammatically()
+    // Ad Manager setup.
+    createAdManagerBannerViewProgrammatically()
   }
 
   // [START handle_orientation_changes]
@@ -35,9 +38,9 @@ private class BannerSnippets: UIViewController {
   }
   // [END handle_orientation_changes]
 
-  private func createBannerViewProgrammatically() {
-    // [START create_banner_view]
-    // Initialize the BannerView.
+  private func createAdMobBannerViewProgrammatically() {
+    // [START create_admob_banner_view]
+    // Initialize the banner view.
     bannerView = BannerView()
 
     bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +54,27 @@ private class BannerSnippets: UIViewController {
       // Center the banner horizontally in the view
       bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
     ])
-    // [END create_banner_view]
+    // [END create_admob_banner_view]
+  }
+
+  // MARK: Ad Manager
+
+  private func createAdManagerBannerViewProgrammatically() {
+    // [START create_admanager_banner_view]
+    // Initialize the banner view.
+    bannerView = AdManagerBannerView()
+
+    bannerView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(bannerView)
+
+    // This example doesn't give width or height constraints, as the ad size gives the banner an
+    // intrinsic content size to size the view.
+    NSLayoutConstraint.activate([
+      // Align the banner's bottom edge with the safe area's bottom edge
+      bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+      // Center the banner horizontally in the view
+      bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+    ])
+    // [END create_admanager_banner_view]
   }
 }
