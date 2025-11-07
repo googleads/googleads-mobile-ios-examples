@@ -31,4 +31,12 @@ private class ResponseInfoSnippets {
     return adSourceName
   }
   // [END get_ad_source_name]
+
+  private func getMediationAdapterClassNameFromAd(ad: BannerView) {
+    // [START get_adapter_class_name]
+    print(
+      "Adapter class name: \(ad.responseInfo?.loadedAdNetworkResponseInfo?.adNetworkClassName ?? "Unknown")"
+    )
+    // [END get_adapter_class_name]
+  }
 }

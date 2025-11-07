@@ -36,4 +36,11 @@
 }
 // [END get_ad_source_name]
 
+- (void)getMediationAdapterClassNameFromAd:(GADBannerView *)ad {
+  // [START get_adapter_class_name]
+  NSLog(@"Adapter class name: %@",
+        ad.responseInfo.loadedAdNetworkResponseInfo.adNetworkClassName ?: @"Unknown");
+  // [END get_adapter_class_name]
+}
+
 @end
