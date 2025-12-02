@@ -26,6 +26,7 @@
 		507818F8219A418100E5A44A /* AdManagerCustomVideoControlsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F1219A417F00E5A44A /* AdManagerCustomVideoControlsController.swift */; };
 		507818F9219A418100E5A44A /* AdManagerAppEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F2219A418000E5A44A /* AdManagerAppEventsViewController.swift */; };
 		507818FA219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818F3219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift */; };
+		A80EED082EDE280A005DFC04 /* MobileAdsSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EED072EDE2807005DFC04 /* MobileAdsSnippets.swift */; };
 		A8265F6F2E4F883500A9C150 /* ResponseInfoSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8265F6E2E4F883500A9C150 /* ResponseInfoSnippets.swift */; };
 		A8265F712E4F884500A9C150 /* NativeAdOptionsSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8265F702E4F884100A9C150 /* NativeAdOptionsSnippets.swift */; };
 		A846F1C12E2583D200F96E49 /* RewardedAdSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A846F1C02E2583CF00F96E49 /* RewardedAdSnippets.swift */; };
@@ -64,7 +65,7 @@
 		507818F1219A417F00E5A44A /* AdManagerCustomVideoControlsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerCustomVideoControlsController.swift; sourceTree = "<group>"; };
 		507818F2219A418000E5A44A /* AdManagerAppEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerAppEventsViewController.swift; sourceTree = "<group>"; };
 		507818F3219A418100E5A44A /* AdManagerFluidAdSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManagerFluidAdSizeViewController.swift; sourceTree = "<group>"; };
-		A8265F6C2E4F882600A9C150 /* BannerSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSnippets.swift; sourceTree = "<group>"; };
+		A80EED072EDE2807005DFC04 /* MobileAdsSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAdsSnippets.swift; sourceTree = "<group>"; };
 		A8265F6E2E4F883500A9C150 /* ResponseInfoSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseInfoSnippets.swift; sourceTree = "<group>"; };
 		A8265F702E4F884100A9C150 /* NativeAdOptionsSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdOptionsSnippets.swift; sourceTree = "<group>"; };
 		A846F1C02E2583CF00F96E49 /* RewardedAdSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdSnippets.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		AED111252032151200EA4BEE /* SimpleNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNativeAdView.swift; sourceTree = "<group>"; };
 		AED111272032174100EA4BEE /* CustomControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlsView.swift; sourceTree = "<group>"; };
 		EF25D0272E4B97F000688F43 /* BannerSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSnippets.swift; sourceTree = "<group>"; };
-		EF25D0292E4B97FA00688F43 /* ResponseInfoSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseInfoSnippets.swift; sourceTree = "<group>"; };
 		EF25D02B2E4B980100688F43 /* RewardedInterstitialAdSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedInterstitialAdSnippets.swift; sourceTree = "<group>"; };
 		EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleBannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,16 +151,15 @@
 			children = (
 				1C1F6FC52E70E87700B6D6F5 /* AdManagerSCARSnippets.swift */,
 				1C1F6FC62E70E87700B6D6F5 /* AdMobSCARSnippets.swift */,
-				EF25D02B2E4B980100688F43 /* RewardedInterstitialAdSnippets.swift */,
-				EF25D0292E4B97FA00688F43 /* ResponseInfoSnippets.swift */,
-				EF25D0272E4B97F000688F43 /* BannerSnippets.swift */,
 				A86568AA2E254CD100D360C3 /* ATTSnippets.swift */,
-				A8265F6C2E4F882600A9C150 /* BannerSnippets.swift */,
+				EF25D0272E4B97F000688F43 /* BannerSnippets.swift */,
 				A8265F702E4F884100A9C150 /* NativeAdOptionsSnippets.swift */,
 				A8C200472EBD03D1004E4D77 /* MediationSnippets.swift */,
+				A80EED072EDE2807005DFC04 /* MobileAdsSnippets.swift */,
 				A8B650352DD63DFC00AE1D3F /* RequestConfigurationSnippets.swift */,
 				A8265F6E2E4F883500A9C150 /* ResponseInfoSnippets.swift */,
 				A846F1C02E2583CF00F96E49 /* RewardedAdSnippets.swift */,
+				EF25D02B2E4B980100688F43 /* RewardedInterstitialAdSnippets.swift */,
 			);
 			path = Snippets;
 			sourceTree = "<group>";
@@ -268,6 +267,7 @@
 				4AA7D6911C625A1200DFD2EB /* AppDelegate.swift in Sources */,
 				4AA7D6AC1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift in Sources */,
 				A8265F712E4F884500A9C150 /* NativeAdOptionsSnippets.swift in Sources */,
+				A80EED082EDE280A005DFC04 /* MobileAdsSnippets.swift in Sources */,
 				507818F7219A418100E5A44A /* AdManagerCustomTargetingViewController.swift in Sources */,
 				AED111262032151200EA4BEE /* SimpleNativeAdView.swift in Sources */,
 				507818F9219A418100E5A44A /* AdManagerAppEventsViewController.swift in Sources */,
