@@ -16,7 +16,7 @@
 
 import GoogleMobileAds
 
-private class BannerSnippets: UIViewController {
+private class AdManagerBannerSnippets: UIViewController, AppEventDelegate {
 
   var bannerView: AdManagerBannerView!
 
@@ -75,4 +75,42 @@ private class BannerSnippets: UIViewController {
     bannerView.adUnitID = "/21775744923/example/adaptive-banner"
     bannerView.load(AdManagerRequest())
   }
+
+  private func enableManualImpressionCountingForBannerView() {
+    // [START enable_manual_impression_counting]
+    bannerView.enableManualImpressions = true
+    // [END enable_manual_impression_counting]
+  }
+
+  private func recordManualImpression() {
+    // [START record_manual_impression]
+    bannerView.recordImpression()
+    // [END record_manual_impression]
+  }
+
+  private func setAppEventListener() {
+    // [START set_app_event_listener]
+    // Set this property before making the request for an ad.
+    bannerView.appEventDelegate = self
+    // [END set_app_event_listener]
+  }
+
+  // [START app_events]
+  func bannerView(
+    _ banner: AdManagerBannerView, didReceiveAppEvent name: String, withInfo info: String?
+  ) {
+    if name == "color" {
+      if info == "green" {
+        // Set background color to green.
+        view.backgroundColor = UIColor.green
+      } else if info == "blue" {
+        // Set background color to blue.
+        view.backgroundColor = UIColor.blue
+      } else {
+        // Set background color to black.
+        view.backgroundColor = UIColor.black
+      }
+    }
+  }
+  // [END app_events]
 }

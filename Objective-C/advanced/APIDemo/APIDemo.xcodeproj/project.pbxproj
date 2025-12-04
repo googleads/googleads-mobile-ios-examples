@@ -35,7 +35,6 @@
 		A8C2004A2EBD077D004E4D77 /* MediationSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C200492EBD0778004E4D77 /* MediationSnippets.m */; };
 		A8C4F2A12EDF582B00A8615A /* ImpressionLevelAdRevenueSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F2A02EDF582500A8615A /* ImpressionLevelAdRevenueSnippets.m */; };
 		A8C4F2A32EDF92C600A8615A /* BannerSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0212E4B916800688F43 /* BannerSnippets.m */; };
-		A8C4F2A52EDF9C4900A8615A /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		A8C4F2A92EE1DE8B00A8615A /* AdManagerBannerSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F2A82EE1DE8B00A8615A /* AdManagerBannerSnippets.m */; };
 		AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */; };
 		AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */; };
@@ -311,7 +310,6 @@
 				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
 				AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */,
 				5038FC6D2511428A00750F9C /* MainViewController.m in Sources */,
-				A8C4F2A52EDF9C4900A8615A /* BuildFile in Sources */,
 				A846F1C32E2584AD00F96E49 /* RewardedAdSnippets.m in Sources */,
 				50DC0CF9212F1C4000424CC7 /* GAMCategoryExclusionsViewController.m in Sources */,
 				A8C4F2A12EDF582B00A8615A /* ImpressionLevelAdRevenueSnippets.m in Sources */,

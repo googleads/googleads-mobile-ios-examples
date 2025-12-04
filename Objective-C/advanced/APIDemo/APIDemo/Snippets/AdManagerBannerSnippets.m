@@ -17,7 +17,7 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
-@interface AdManagerBannerSnippets : UIViewController
+@interface AdManagerBannerSnippets : UIViewController <GADAppEventDelegate>
 
 @property(nonatomic, strong) GAMBannerView *bannerView;
 
@@ -89,5 +89,43 @@
   bannerView.adUnitID = @"/21775744923/example/adaptive-banner";
   [bannerView loadRequest:[GAMRequest request]];
 }
+
+- (void)enableManualImpressionCountingForBannerView {
+  // [START enable_manual_impression_counting]
+  self.bannerView.enableManualImpressions = YES;
+  // [END enable_manual_impression_counting]
+}
+
+- (void)recordManualImpression {
+  // [START record_manual_impression]
+  [self.bannerView recordImpression];
+  // [END record_manual_impression]
+}
+
+- (void)setAppEventListener {
+  // [START set_app_event_listener]
+  // Set this property before making the request for an ad.
+  self.bannerView.appEventDelegate = self;
+  // [END set_app_event_listener]
+}
+
+// [START app_events]
+- (void)bannerView:(GAMBannerView *)banner
+    didReceiveAppEvent:(NSString *)name
+              withInfo:(NSString *)info {
+  if ([name isEqual:@"color"]) {
+    if ([info isEqual:@"green"]) {
+      // Set background color to green.
+      self.view.backgroundColor = [UIColor greenColor];
+    } else if ([info isEqual:@"blue"]) {
+      // Set background color to blue.
+      self.view.backgroundColor = [UIColor blueColor];
+    } else {
+      // Set background color to black.
+      self.view.backgroundColor = [UIColor blackColor];
+    }
+  }
+}
+// [END app_events]
 
 @end
