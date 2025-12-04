@@ -27,6 +27,7 @@
 		50DC0CFD212F1C4000424CC7 /* GAMCustomTargetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */; };
 		50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */; };
 		A80EED0A2EDE29B5005DFC04 /* MobileAdsSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A80EED092EDE29B0005DFC04 /* MobileAdsSnippets.m */; };
+		A816AF262EE1F4790074BDF2 /* NativeAdSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A816AF252EE1F4790074BDF2 /* NativeAdSnippets.m */; };
 		A8265F752E4F8AE000A9C150 /* ResponseInfoSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */; };
 		A8265F772E4F8AF600A9C150 /* NativeAdOptionsSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */; };
 		A846F1C32E2584AD00F96E49 /* RewardedAdSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A846F1C22E2584A800F96E49 /* RewardedAdSnippets.m */; };
@@ -81,6 +82,7 @@
 		50DC0CF7212F1C3F00424CC7 /* GAMCustomTargetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMCustomTargetingViewController.m; sourceTree = "<group>"; };
 		50DC0CF8212F1C4000424CC7 /* GAMPPIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAMPPIDViewController.m; sourceTree = "<group>"; };
 		A80EED092EDE29B0005DFC04 /* MobileAdsSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileAdsSnippets.m; sourceTree = "<group>"; };
+		A816AF252EE1F4790074BDF2 /* NativeAdSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAdSnippets.m; sourceTree = "<group>"; };
 		A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseInfoSnippets.m; sourceTree = "<group>"; };
 		A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAdOptionsSnippets.m; sourceTree = "<group>"; };
 		A846F1C22E2584A800F96E49 /* RewardedAdSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RewardedAdSnippets.m; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				A8C4F2A02EDF582500A8615A /* ImpressionLevelAdRevenueSnippets.m */,
 				A8C200492EBD0778004E4D77 /* MediationSnippets.m */,
 				A80EED092EDE29B0005DFC04 /* MobileAdsSnippets.m */,
+				A816AF252EE1F4790074BDF2 /* NativeAdSnippets.m */,
 				A8265F762E4F8AEF00A9C150 /* NativeAdOptionsSnippets.m */,
 				A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */,
 				A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */,
@@ -319,6 +322,7 @@
 				50DC0CEC212F1C2E00424CC7 /* GAMCustomVideoControlsController.m in Sources */,
 				4A96E74C1B8572A800031470 /* AdMobAdDelegateViewController.m in Sources */,
 				50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */,
+				A816AF262EE1F4790074BDF2 /* NativeAdSnippets.m in Sources */,
 				4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */,
 				50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */,
 				A8C4F2A92EE1DE8B00A8615A /* AdManagerBannerSnippets.m in Sources */,
