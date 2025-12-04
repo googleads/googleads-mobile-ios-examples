@@ -14,16 +14,16 @@
 //  limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <UIKit/UIKit.h>
 
-@interface BannerSnippets : UIViewController
+@interface AdManagerBannerSnippets : UIViewController
 
-@property(nonatomic, strong) GADBannerView *bannerView;
+@property(nonatomic, strong) GAMBannerView *bannerView;
 
 @end
 
-@implementation BannerSnippets
+@implementation AdManagerBannerSnippets
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -35,19 +35,10 @@
   [self loadInlineAdaptiveBanner];
 }
 
-// [START handle_orientation_changes]
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-  [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-    // Load a new ad for the new orientation.
-  } completion:nil];
-}
-// [END handle_orientation_changes]
-
 - (void)setUpBannerViewProgrammatically {
-  // [START create_admob_banner_view]
+  // [START create_admanager_banner_view]
   // Initialize the banner view.
-  GADBannerView *bannerView = [[GADBannerView alloc] init];
+  GAMBannerView *bannerView = [[GAMBannerView alloc] init];
   UIView *view = self.view;
 
   bannerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -64,11 +55,11 @@
   ]];
 
   self.bannerView = bannerView;
-  // [END create_admob_banner_view]
+  // [END create_admanager_banner_view]
 }
 
 - (void)loadInlineAdaptiveBanner {
-  GADBannerView *bannerView = self.bannerView;
+  GAMBannerView *bannerView = self.bannerView;
   UIView *view = self.view;
 
   // [START get_width]
@@ -86,11 +77,17 @@
   // [START set_adaptive_ad_size]
   GADAdSize adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(adWidth);
   bannerView.adSize = adSize;
+
+  // For Ad Manager, the `adSize` property is used for the adaptive banner ad
+  // size. The `validAdSizes` property is used as normal for the supported
+  // reservation sizes for the ad placement.
+  GADAdSize validAdSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(adWidth);
+  bannerView.validAdSizes = @[ NSValueFromGADAdSize(validAdSize) ];
   // [END set_adaptive_ad_size]
 
   // Test ad unit ID for inline adaptive banners.
-  bannerView.adUnitID = @"ca-app-pub-3940256099942544/2435281174";
-  [bannerView loadRequest:[GADRequest request]];
+  bannerView.adUnitID = @"/21775744923/example/adaptive-banner";
+  [bannerView loadRequest:[GAMRequest request]];
 }
 
 @end

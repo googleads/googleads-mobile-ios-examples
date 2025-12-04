@@ -18,7 +18,7 @@ import GoogleMobileAds
 
 private class BannerSnippets: UIViewController {
 
-  var bannerView: BannerView!
+  var bannerView: AdManagerBannerView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,20 +30,10 @@ private class BannerSnippets: UIViewController {
     loadInlineAdaptiveBanner()
   }
 
-  // [START handle_orientation_changes]
-  override func viewWillTransition(
-    to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator
-  ) {
-    coordinator.animate(alongsideTransition: { _ in
-      // Load a new ad for the new orientation.
-    })
-  }
-  // [END handle_orientation_changes]
-
   private func createBannerViewProgrammatically() {
-    // [START create_admob_banner_view]
+    // [START create_admanager_banner_view]
     // Initialize the banner view.
-    bannerView = BannerView()
+    bannerView = AdManagerBannerView()
 
     bannerView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(bannerView)
@@ -56,7 +46,7 @@ private class BannerSnippets: UIViewController {
       // Center the banner horizontally in the view
       bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
     ])
-    // [END create_admob_banner_view]
+    // [END create_admanager_banner_view]
   }
 
   private func loadInlineAdaptiveBanner() {
@@ -73,10 +63,16 @@ private class BannerSnippets: UIViewController {
     // [START set_adaptive_ad_size]
     let adSize = currentOrientationInlineAdaptiveBanner(width: adWidth)
     bannerView.adSize = adSize
+
+    // For Ad Manager, the `adSize` property is used for the adaptive banner ad
+    // size. The `validAdSizes` property is used as normal for the supported
+    // reservation sizes for the ad placement.
+    let validAdSize = currentOrientationAnchoredAdaptiveBanner(width: adWidth)
+    bannerView.validAdSizes = [nsValue(for: validAdSize)]
     // [END set_adaptive_ad_size]
 
     // Test ad unit ID for inline adaptive banners.
-    bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
-    bannerView.load(Request())
+    bannerView.adUnitID = "/21775744923/example/adaptive-banner"
+    bannerView.load(AdManagerRequest())
   }
 }

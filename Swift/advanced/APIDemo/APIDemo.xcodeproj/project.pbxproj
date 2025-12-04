@@ -34,6 +34,8 @@
 		A8B650362DD63E0300AE1D3F /* RequestConfigurationSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B650352DD63DFC00AE1D3F /* RequestConfigurationSnippets.swift */; };
 		A8C200482EBD03D5004E4D77 /* MediationSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C200472EBD03D1004E4D77 /* MediationSnippets.swift */; };
 		A8C4F29F2EDF549D00A8615A /* ImpressionLevelAdRevenueSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F29E2EDF549800A8615A /* ImpressionLevelAdRevenueSnippets.swift */; };
+		A8C4F2A22EDF8E2300A8615A /* BannerSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0272E4B97F000688F43 /* BannerSnippets.swift */; };
+		A8C4F2A72EDF9DD500A8615A /* AdManagerBannerSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F2A62EDF9DD100A8615A /* AdManagerBannerSnippets.swift */; };
 		AE3068CA21221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3068C921221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift */; };
 		AED1111F203213FC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED11117203213F300EA4BEE /* SimpleNativeAdView.xib */; };
 		AED11120203213FC00EA4BEE /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED11118203213F500EA4BEE /* UnifiedNativeAdView.xib */; };
@@ -151,6 +153,7 @@
 		A8B650372DD63E0F00AE1D3F /* Snippets */ = {
 			isa = PBXGroup;
 			children = (
+				A8C4F2A62EDF9DD100A8615A /* AdManagerBannerSnippets.swift */,
 				1C1F6FC52E70E87700B6D6F5 /* AdManagerSCARSnippets.swift */,
 				1C1F6FC62E70E87700B6D6F5 /* AdMobSCARSnippets.swift */,
 				A86568AA2E254CD100D360C3 /* ATTSnippets.swift */,
@@ -266,6 +269,7 @@
 				4AA7D6AA1C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift in Sources */,
 				1C1F6FC72E70E87700B6D6F5 /* AdManagerSCARSnippets.swift in Sources */,
 				1C1F6FC82E70E87700B6D6F5 /* AdMobSCARSnippets.swift in Sources */,
+				A8C4F2A22EDF8E2300A8615A /* BannerSnippets.swift in Sources */,
 				507818F5219A418100E5A44A /* AdManagerCategoryExclusionsTableViewController.swift in Sources */,
 				4AA7D6911C625A1200DFD2EB /* AppDelegate.swift in Sources */,
 				4AA7D6AC1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift in Sources */,
@@ -289,6 +293,7 @@
 				A8B650362DD63E0300AE1D3F /* RequestConfigurationSnippets.swift in Sources */,
 				EF25D02C2E4B980C00688F43 /* RewardedInterstitialAdSnippets.swift in Sources */,
 				4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */,
+				A8C4F2A72EDF9DD500A8615A /* AdManagerBannerSnippets.swift in Sources */,
 				AE3068CA21221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift in Sources */,
 				507818F4219A418100E5A44A /* AdManagerMultipleAdSizesViewController.swift in Sources */,
 			);

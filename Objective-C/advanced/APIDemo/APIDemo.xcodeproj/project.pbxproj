@@ -34,6 +34,9 @@
 		A8B6503A2DD63FA500AE1D3F /* RequestConfigurationSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */; };
 		A8C2004A2EBD077D004E4D77 /* MediationSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C200492EBD0778004E4D77 /* MediationSnippets.m */; };
 		A8C4F2A12EDF582B00A8615A /* ImpressionLevelAdRevenueSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F2A02EDF582500A8615A /* ImpressionLevelAdRevenueSnippets.m */; };
+		A8C4F2A32EDF92C600A8615A /* BannerSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0212E4B916800688F43 /* BannerSnippets.m */; };
+		A8C4F2A52EDF9C4900A8615A /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		A8C4F2A92EE1DE8B00A8615A /* AdManagerBannerSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F2A82EE1DE8B00A8615A /* AdManagerBannerSnippets.m */; };
 		AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */; };
 		AED1110E20320ABC00EA4BEE /* SimpleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110C20320ABB00EA4BEE /* SimpleNativeAdView.xib */; };
 		AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1110F20320CA800EA4BEE /* NativeAdView.xib */; };
@@ -86,6 +89,7 @@
 		A8B650392DD63FA500AE1D3F /* RequestConfigurationSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestConfigurationSnippets.m; sourceTree = "<group>"; };
 		A8C200492EBD0778004E4D77 /* MediationSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediationSnippets.m; sourceTree = "<group>"; };
 		A8C4F2A02EDF582500A8615A /* ImpressionLevelAdRevenueSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImpressionLevelAdRevenueSnippets.m; sourceTree = "<group>"; };
+		A8C4F2A82EE1DE8B00A8615A /* AdManagerBannerSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdManagerBannerSnippets.m; sourceTree = "<group>"; };
 		AEC9AC0B2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobNativeCustomMuteThisAdViewController.h; sourceTree = "<group>"; };
 		AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobNativeCustomMuteThisAdViewController.m; sourceTree = "<group>"; };
 		AED1110D20320ABB00EA4BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimpleNativeAdView.xib; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 		A8B6503B2DD63FAB00AE1D3F /* Snippets */ = {
 			isa = PBXGroup;
 			children = (
+				A8C4F2A82EE1DE8B00A8615A /* AdManagerBannerSnippets.m */,
 				1C1F6FC92E70EA9300B6D6F5 /* AdManagerSCARSnippets.m */,
 				1C1F6FCA2E70EA9300B6D6F5 /* AdMobSCARSnippets.m */,
 				A86568AC2E254DD300D360C3 /* ATTSnippets.m */,
@@ -306,6 +311,7 @@
 				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
 				AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */,
 				5038FC6D2511428A00750F9C /* MainViewController.m in Sources */,
+				A8C4F2A52EDF9C4900A8615A /* BuildFile in Sources */,
 				A846F1C32E2584AD00F96E49 /* RewardedAdSnippets.m in Sources */,
 				50DC0CF9212F1C4000424CC7 /* GAMCategoryExclusionsViewController.m in Sources */,
 				A8C4F2A12EDF582B00A8615A /* ImpressionLevelAdRevenueSnippets.m in Sources */,
@@ -317,6 +323,8 @@
 				50DC0CFC212F1C4000424CC7 /* GAMAppEventsViewController.m in Sources */,
 				4A96E79D1B862E0200031470 /* AdMobAdTargetingTableViewController.m in Sources */,
 				50DC0CFB212F1C4000424CC7 /* GAMMultipleAdSizesViewController.m in Sources */,
+				A8C4F2A92EE1DE8B00A8615A /* AdManagerBannerSnippets.m in Sources */,
+				A8C4F2A32EDF92C600A8615A /* BannerSnippets.m in Sources */,
 				EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */,
 				A80EED0A2EDE29B5005DFC04 /* MobileAdsSnippets.m in Sources */,
 				A8265F772E4F8AF600A9C150 /* NativeAdOptionsSnippets.m in Sources */,
