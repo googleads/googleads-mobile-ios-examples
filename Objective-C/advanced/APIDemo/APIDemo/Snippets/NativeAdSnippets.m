@@ -19,18 +19,171 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NativeAdSnippets : NSObject
+// Replace this ad unit ID with your own ad unit ID.
+static NSString *const kNativeAdUnitID = @"ca-app-pub-3940256099942544/3986624511";
+
+@interface NativeAdSnippets : UIViewController <GADNativeAdLoaderDelegate,
+                                                GADNativeAdDelegate,
+                                                GADCustomNativeAdLoaderDelegate,
+                                                GADCustomNativeAdDelegate>
+@property(nonatomic, strong) GADAdLoader *adLoader;
 @end
 
 @implementation NativeAdSnippets
 
-- (void)setContentModeForNativeAdView:(GADNativeAdView *)nativeAdView nativeAd:(GADNativeAd *)ad {
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  [self setNativeAdLoader];
+}
+
+- (void)setNativeAdLoader {
+  // [START set_ad_loader]
+  self.adLoader =
+      [[GADAdLoader alloc] initWithAdUnitID:kNativeAdUnitID
+                         // The UIViewController parameter is optional.
+                         rootViewController:self
+                                    // To receive native ads, the ad loader's delegate must
+                                    // conform to the NativeAdLoaderDelegate protocol.
+                                    adTypes:@[ GADAdLoaderAdTypeNative ]
+                                    // Use nil for default options.
+                                    options:nil];
+  // [END set_ad_loader]
+
+  // [START set_adloader_delegate]
+  // Set the delegate before making an ad request.
+  self.adLoader.delegate = self;
+  // [END set_adloader_delegate]
+}
+
+/**
+ * Loads an AdMob native ad.
+ */
+- (void)loadAdMobNativeAd {
+  // [START load_ad]
+  [self.adLoader loadRequest:[GADRequest request]];
+  // [END load_ad]
+}
+
+/**
+ * Loads an Ad Manager native ad.
+ */
+- (void)loadAdManagerNativeAd {
+  // [START load_admanager_ad]
+  [self.adLoader loadRequest:[GAMRequest request]];
+  // [END load_admanager_ad]
+}
+
+- (void)loadMultipleNativeAds {
+  // [START load_multiple_ads]
+  GADMultipleAdsAdLoaderOptions *multipleAdOptions = [[GADMultipleAdsAdLoaderOptions alloc] init];
+  multipleAdOptions.numberOfAds = 5;
+
+  self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:kNativeAdUnitID
+                                     // The UIViewController parameter is optional.
+                                     rootViewController:self
+                                                adTypes:@[ GADAdLoaderAdTypeNative ]
+                                                options:@[ multipleAdOptions ]];
+  // [END load_multiple_ads]
+}
+
+- (void)setContentMode:(GADNativeAdView *)nativeAdView forAd:(GADNativeAd *)ad {
   // [START set_content_mode]
-  GADMediaView *mediaView = nativeAdView.mediaView;
-  if (mediaView) {
-    mediaView.contentMode = UIViewContentModeScaleAspectFit;
-  }
+  nativeAdView.mediaView.contentMode = UIViewContentModeScaleAspectFit;
   // [END set_content_mode]
+}
+
+#pragma mark - GADNativeAdLoaderDelegate
+
+// [START ad_loader_did_receive_ad]
+- (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
+  // To be notified of events related to the native ad interactions, set the delegate property
+  // of the native ad
+  nativeAd.delegate = self;
+
+  // TODO: Display the native ad.
+}
+// [END ad_loader_did_receive_ad]
+
+// [START ad_loader_did_finish_loading]
+- (void)adLoaderDidFinishLoading:(GADAdLoader *)adLoader {
+  // The adLoader has finished loading ads.
+}
+// [END ad_loader_did_finish_loading]
+
+// [START ad_loader_failed]
+- (void)adLoader:(GADAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
+  // The adLoader failed to receive an ad.
+}
+// [END ad_loader_failed]
+
+#pragma mark - GADCustomNativeAdLoaderDelegate
+
+// [START ad_loader_did_receive_custom_ad]
+- (void)adLoader:(GADAdLoader *)adLoader
+    didReceiveCustomNativeAd:(GADCustomNativeAd *)customNativeAd {
+  // To be notified of events related to the custom native ad interactions, set the delegate
+  // property of the native ad
+  customNativeAd.delegate = self;
+
+  // TODO: Display the custom native ad.
+}
+// [END ad_loader_did_receive_custom_ad]
+
+- (NSArray<NSString *> *)customNativeAdFormatIDsForAdLoader:(GADAdLoader *)adLoader {
+  // Your list of custom native ad format IDs for the ad loader.
+  return @[];
+}
+
+#pragma mark - GADNativeAdDelegate
+
+// [START native_ad_delegate_methods]
+- (void)nativeAdDidRecordImpression:(GADNativeAd *)nativeAd {
+  // The native ad was shown.
+}
+
+- (void)nativeAdDidRecordClick:(GADNativeAd *)nativeAd {
+  // The native ad was clicked on.
+}
+
+- (void)nativeAdWillPresentScreen:(GADNativeAd *)nativeAd {
+  // The native ad will present a full screen view.
+}
+
+- (void)nativeAdWillDismissScreen:(GADNativeAd *)nativeAd {
+  // The native ad will dismiss a full screen view.
+}
+
+- (void)nativeAdDidDismissScreen:(GADNativeAd *)nativeAd {
+  // The native ad did dismiss a full screen view.
+}
+
+- (void)nativeAdWillLeaveApplication:(GADNativeAd *)nativeAd {
+  // The native ad will cause the app to become inactive and
+  // open a new app.
+}
+// [END native_ad_delegate_methods]
+
+#pragma mark - GADCustomNativeAdDelegate
+
+- (void)customNativeAdDidRecordImpression:(GADCustomNativeAd *)customNativeAd {
+  // The custom native ad was shown.
+}
+
+- (void)customNativeAdDidRecordClick:(GADCustomNativeAd *)customNativeAd {
+  // The custom native ad was clicked on.
+}
+
+- (void)customNativeAdWillDismissScreen:(GADCustomNativeAd *)customNativeAd {
+  // The custom native ad will dismiss a full screen view.
+}
+
+- (void)customNativeAdDidDismissScreen:(GADCustomNativeAd *)customNativeAd {
+  // The custom native ad did dismiss a full screen view.
+}
+
+- (void)customNativeAdWillPresentScreen:(GADCustomNativeAd *)customNativeAd {
+  // The custom native ad will cause the app to become inactive and
+  // open a new app.
 }
 
 NS_ASSUME_NONNULL_END
