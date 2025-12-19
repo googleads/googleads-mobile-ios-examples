@@ -37,12 +37,9 @@ class NativeAdSnippets: UIViewController {
       adTypes: [.native],
       // Use nil for default options.
       options: nil)
-    // [END set_ad_loader]
-
-    // [START set_adloader_delegate]
     // Set the delegate before making an ad request.
     adLoader.delegate = self
-    // [END set_adloader_delegate]
+    // [END set_ad_loader]
   }
 
   /// Loads an AdMob native ad.
@@ -82,9 +79,10 @@ class NativeAdSnippets: UIViewController {
 extension NativeAdSnippets: NativeAdLoaderDelegate {
   // [START ad_loader_did_receive_ad]
   func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
-    // To be notified of events related to the native ad interactions, set the delegate property
-    // of the native ad
+    // Set the delegate to receive notifications for interactions with the native ad.
+    // [START set_native_ad_delegate]
     nativeAd.delegate = self
+    // [END set_native_ad_delegate]
 
     // TODO: Display the native ad.
   }

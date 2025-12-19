@@ -47,12 +47,9 @@ static NSString *const kNativeAdUnitID = @"ca-app-pub-3940256099942544/398662451
                                     adTypes:@[ GADAdLoaderAdTypeNative ]
                                     // Use nil for default options.
                                     options:nil];
-  // [END set_ad_loader]
-
-  // [START set_adloader_delegate]
   // Set the delegate before making an ad request.
   self.adLoader.delegate = self;
-  // [END set_adloader_delegate]
+  // [END set_ad_loader]
 }
 
 /**
@@ -96,9 +93,10 @@ static NSString *const kNativeAdUnitID = @"ca-app-pub-3940256099942544/398662451
 
 // [START ad_loader_did_receive_ad]
 - (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
-  // To be notified of events related to the native ad interactions, set the delegate property
-  // of the native ad
+  // Set the delegate to receive notifications for interactions with the native ad.
+  // [START set_native_ad_delegate]
   nativeAd.delegate = self;
+  // [END set_native_ad_delegate]
 
   // TODO: Display the native ad.
 }
