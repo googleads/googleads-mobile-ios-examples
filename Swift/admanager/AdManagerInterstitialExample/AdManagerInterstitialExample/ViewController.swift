@@ -131,16 +131,14 @@ class ViewController: UIViewController, FullScreenContentDelegate {
       guard let self else { return }
 
       loadingSpinnerWorkItem.cancel()
+      self.loadingSpinner.stopAnimating()
 
-      DispatchQueue.main.async {
-        self.loadingSpinner.stopAnimating()
-
-        // Animate the visibility of the game UI.
-        UIView.animate(withDuration: 0.25) {
-          self.gameView.alpha = 1
-        }
-        self.startNewGame()
+      // Animate the visibility of the game UI.
+      UIView.animate(withDuration: 0.25) {
+        self.gameView.alpha = 1
       }
+
+      self.startNewGame()
 
       if let consentError {
         // Consent gathering failed.

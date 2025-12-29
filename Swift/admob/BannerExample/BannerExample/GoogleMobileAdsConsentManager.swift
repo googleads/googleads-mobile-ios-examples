@@ -41,7 +41,7 @@ class GoogleMobileAdsConsentManager: NSObject {
   /// consent form if necessary.
   func gatherConsent(
     from viewController: UIViewController? = nil,
-    consentGatheringComplete: @escaping (Error?) -> Void
+    consentGatheringComplete: @escaping @MainActor (Error?) -> Void
   ) {
     let parameters = RequestParameters()
 
@@ -56,10 +56,13 @@ class GoogleMobileAdsConsentManager: NSObject {
       requestConsentError in
       // [START_EXCLUDE]
       guard requestConsentError == nil else {
-        return consentGatheringComplete(requestConsentError)
+        Task { @MainActor in
+          consentGatheringComplete(requestConsentError)
+        }
+        return
       }
 
-      Task {
+      Task { @MainActor in
         do {
           // [START load_and_present_consent_form]
           try await ConsentForm.loadAndPresentIfRequired(from: viewController)
