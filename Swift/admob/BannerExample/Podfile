@@ -2,6 +2,6 @@ platform :ios, '13.0'
 
 target 'BannerExample' do
   use_frameworks!
-  pod 'Google-Mobile-Ads-SDK'
+  pod 'Google-Mobile-Ads-SDK', '~> 13.0.0'
   pod 'GoogleUserMessagingPlatform'
 end
