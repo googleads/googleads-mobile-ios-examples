@@ -112,8 +112,8 @@ class ViewController: UIViewController, BannerViewDelegate {
     // The returned ad will be centered in the ad view.
 
     // [START ad_size]
-    // Request an anchored adaptive banner with a width of 375.
-    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: 375)
+    // Request a large anchored adaptive banner with a width of 375.
+    bannerView.adSize = largeAnchoredAdaptiveBanner(width: 375)
     // [END ad_size]
 
     // [START load_ad]

@@ -132,8 +132,8 @@
   // The returned ad will be centered in the ad view.
 
   // [START ad_size]
-  // Request an anchored adaptive banner with a width of 375.
-  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  // Request a large anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADLargeAnchoredAdaptiveBannerAdSizeWithWidth(this, 375);
   // [END ad_size]
 
   // [START load_ad]
