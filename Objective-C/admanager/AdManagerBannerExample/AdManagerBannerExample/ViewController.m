@@ -133,7 +133,7 @@
 
   // [START ad_size]
   // Request an anchored adaptive banner with a width of 375.
-  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  self.bannerView.adSize = GADLargeAnchoredAdaptiveBannerAdSizeWithWidth(375);
   // [END ad_size]
 
   // [START load_ad]
