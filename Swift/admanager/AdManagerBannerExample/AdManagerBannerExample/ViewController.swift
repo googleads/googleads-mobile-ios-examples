@@ -32,9 +32,7 @@ class ViewController: UIViewController, BannerViewDelegate {
 
     bannerView.adUnitID = adUnitID
     bannerView.rootViewController = self
-    // [START banner_view_delegate]
     bannerView.delegate = self
-    // [END banner_view_delegate]
 
     GoogleMobileAdsConsentManager.shared.gatherConsent(from: self) { [weak self] (consentError) in
       guard let self else { return }
@@ -64,10 +62,8 @@ class ViewController: UIViewController, BannerViewDelegate {
 
       self.isMobileAdsStartCalled = true
 
-      // [START initialize_sdk]
       // Initialize the Google Mobile Ads SDK.
       MobileAds.shared.start()
-      // [END initialize_sdk]
 
       self.loadBannerAd()
     }
@@ -111,19 +107,14 @@ class ViewController: UIViewController, BannerViewDelegate {
     // the adaptive size as outlined here - https://support.google.com/admanager/answer/9464128.
     // The returned ad will be centered in the ad view.
 
-    // [START ad_size]
-    // Request an anchored adaptive banner with a width of 375.
-    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: 375)
-    // [END ad_size]
+    // Request a large anchored adaptive banner with a width of 375.
+    bannerView.adSize = largeLandscapeAnchoredAdaptiveBanner(width: 375)
 
-    // [START load_ad]
     bannerView.load(AdManagerRequest())
-    // [END load_ad]
   }
 
   // MARK: - GADBannerViewDelegate methods
 
-  // [START banner_view_delegate_methods]
   func bannerViewDidReceiveAd(_ bannerView: BannerView) {
     print(#function)
   }
@@ -151,5 +142,4 @@ class ViewController: UIViewController, BannerViewDelegate {
   func bannerViewDidDismissScreen(_ bannerView: BannerView) {
     print(#function)
   }
-  // [END banner_view_delegate_methods]
 }
