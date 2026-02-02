@@ -105,8 +105,8 @@ class ViewController: UIViewController, BannerViewDelegate {
 
   func loadBannerAd() {
     // [START ad_size]
-    // Request an anchored adaptive banner with a width of 375.
-    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: 375)
+    // Request a large anchored adaptive banner with a width of 375.
+    bannerView.adSize = largeAnchoredAdaptiveBanner(width: 375)
     // [END ad_size]
 
     // [START load_ad]
