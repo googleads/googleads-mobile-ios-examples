@@ -17,7 +17,9 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIKit/UIKit.h>
 
-@interface AdManagerBannerSnippets : UIViewController <GADAppEventDelegate>
+static NSString *const testAdUnitID = @"/21775744923/example/adaptive-banner";
+
+@interface AdManagerBannerSnippets : UIViewController <GADAppEventDelegate, GADBannerViewDelegate>
 
 @property(nonatomic, strong) GAMBannerView *bannerView;
 
@@ -39,6 +41,9 @@
   // [START create_admanager_banner_view]
   // Initialize the banner view.
   GAMBannerView *bannerView = [[GAMBannerView alloc] init];
+  // [START set_delegate]
+  bannerView.delegate = self;
+  // [END set_delegate]
   UIView *view = self.view;
 
   bannerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -75,18 +80,18 @@
   }
 
   // [START set_adaptive_ad_size]
-  GADAdSize adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(adWidth);
+  GADAdSize adSize = GADLargeLandscapeAnchoredAdaptiveBannerAdSizeWithWidth(adWidth);
   bannerView.adSize = adSize;
 
   // For Ad Manager, the `adSize` property is used for the adaptive banner ad
   // size. The `validAdSizes` property is used as normal for the supported
   // reservation sizes for the ad placement.
-  GADAdSize validAdSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(adWidth);
+  GADAdSize validAdSize = GADLargeLandscapeAnchoredAdaptiveBannerAdSizeWithWidth(adWidth);
   bannerView.validAdSizes = @[ NSValueFromGADAdSize(validAdSize) ];
   // [END set_adaptive_ad_size]
 
   // Test ad unit ID for inline adaptive banners.
-  bannerView.adUnitID = @"/21775744923/example/adaptive-banner";
+  bannerView.adUnitID = testAdUnitID;
   [bannerView loadRequest:[GAMRequest request]];
 }
 
@@ -128,4 +133,51 @@
 }
 // [END app_events]
 
+// [START create_ad_view]
+- (void)createAdView:(UIView *)adViewContainer
+    rootViewController:(UIViewController *)rootViewController {
+  GAMBannerView *bannerView = [[GAMBannerView alloc] initWithAdSize:GADAdSizeBanner];
+  bannerView.adUnitID = testAdUnitID;
+  bannerView.rootViewController = rootViewController;
+  [adViewContainer addSubview:bannerView];
+}
+// [END create_ad_view]
+
+- (void)loadBannerAd {
+  // [START load_ad]
+  // [START ad_size]
+  // Request a large anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADLargeLandscapeAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  // [END ad_size]
+
+  [self.bannerView loadRequest:[GAMRequest request]];
+  // [END load_ad]
+}
+
+  // [START ad_events]
+- (void)bannerViewDidReceiveAd:(GAMBannerView *)bannerView {
+  NSLog(@"bannerViewDidReceiveAd");
+}
+
+- (void)bannerView:(GAMBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
+  NSLog(@"bannerView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+- (void)bannerViewDidRecordImpression:(GAMBannerView *)bannerView {
+  NSLog(@"bannerViewDidRecordImpression");
+}
+
+- (void)bannerViewWillPresentScreen:(GAMBannerView *)bannerView {
+  NSLog(@"bannerViewWillPresentScreen");
+}
+
+- (void)bannerViewWillDismissScreen:(GAMBannerView *)bannerView {
+  NSLog(@"bannerViewWillDismissScreen");
+}
+
+- (void)bannerViewDidDismissScreen:(GAMBannerView *)bannerView {
+  NSLog(@"bannerViewDidDismissScreen");
+}
+
+// [END ad_events]
 @end

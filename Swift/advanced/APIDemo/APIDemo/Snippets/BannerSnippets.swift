@@ -16,8 +16,9 @@
 
 import GoogleMobileAds
 
-private class BannerSnippets: UIViewController {
+private class BannerSnippets: UIViewController, BannerViewDelegate {
 
+  let testAdUnitID = "ca-app-pub-3940256099942544/2435281174"
   var bannerView: BannerView!
 
   override func viewDidLoad() {
@@ -27,7 +28,7 @@ private class BannerSnippets: UIViewController {
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    loadInlineAdaptiveBanner()
+    loadLargeAnchoredAdaptiveBanner()
   }
 
   // [START handle_orientation_changes]
@@ -44,6 +45,9 @@ private class BannerSnippets: UIViewController {
     // [START create_admob_banner_view]
     // Initialize the banner view.
     bannerView = BannerView()
+    // [START set_delegate]
+    bannerView.delegate = self
+    // [END set_delegate]
 
     bannerView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(bannerView)
@@ -59,7 +63,7 @@ private class BannerSnippets: UIViewController {
     // [END create_admob_banner_view]
   }
 
-  private func loadInlineAdaptiveBanner() {
+  private func loadLargeAnchoredAdaptiveBanner() {
     // [START get_width]
     let totalWidth = view.bounds.width
     // Make sure the ad fits inside the readable area.
@@ -71,12 +75,68 @@ private class BannerSnippets: UIViewController {
     guard adWidth > 0 else { return }
 
     // [START set_adaptive_ad_size]
-    let adSize = currentOrientationInlineAdaptiveBanner(width: adWidth)
+    let adSize = largeLandscapeAnchoredAdaptiveBanner(width: adWidth)
     bannerView.adSize = adSize
     // [END set_adaptive_ad_size]
 
     // Test ad unit ID for inline adaptive banners.
-    bannerView.adUnitID = "ca-app-pub-3940256099942544/2435281174"
+    bannerView.adUnitID = testAdUnitID
     bannerView.load(Request())
   }
+
+  func createCustomAdSize(bannerView: BannerView) {
+    // [START create_custom_ad_size]
+    bannerView.adSize = adSizeFor(cgSize: CGSize(width: 250, height: 250))
+    // [END create_custom_ad_size]
+  }
+
+  // [START create_ad_view]
+  func createAdView(adViewContainer: UIView, rootViewController: UIViewController) {
+    let bannerView = BannerView(adSize: AdSizeBanner)
+    bannerView.adUnitID = testAdUnitID
+    bannerView.rootViewController = rootViewController
+    adViewContainer.addSubview(bannerView)
+  }
+  // [END create_ad_view]
+
+  // [START load_ad]
+  func loadBannerAd(bannerView: BannerView) {
+    // Request a large anchored adaptive banner with a width of 375.
+    // [START ad_size]
+    bannerView.adSize = largeLandscapeAnchoredAdaptiveBanner(width: 375)
+    // [END ad_size]
+    bannerView.load(Request())
+  }
+  // [END load_ad]
+
+  // [START ad_events]
+  // MARK: - BannerViewDelegate methods
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
+    print("Banner ad loaded.")
+  }
+
+  func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
+    print("Banner ad failed to load: \(error.localizedDescription)")
+  }
+
+  func bannerViewDidRecordImpression(_ bannerView: BannerView) {
+    print("Banner ad recorded an impression.")
+  }
+
+  func bannerViewDidRecordClick(_ bannerView: BannerView) {
+    print("Banner ad recorded a click.")
+  }
+
+  func bannerViewWillPresentScreen(_ bannerView: BannerView) {
+    print("Banner ad will present screen.")
+  }
+
+  func bannerViewWillDismissScreen(_ bannerView: BannerView) {
+    print("Banner ad will dismiss screen.")
+  }
+
+  func bannerViewDidDismissScreen(_ bannerView: BannerView) {
+    print("Banner ad did dismiss screen.")
+  }
+  // [END ad_events]
 }
