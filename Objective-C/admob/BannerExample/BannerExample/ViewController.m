@@ -15,9 +15,7 @@
 //
 
 #import "ViewController.h"
-
 #import <GoogleMobileAds/GoogleMobileAds.h>
-
 #import "GoogleMobileAdsConsentManager.h"
 
 @interface ViewController () <GADBannerViewDelegate>
@@ -82,9 +80,7 @@
   // Replace this ad unit ID with your own ad unit ID.
   self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2435281174";
   self.bannerView.rootViewController = self;
-  // [START banner_view_delegate]
   self.bannerView.delegate = self;
-  // [END banner_view_delegate]
 
   __weak __typeof__(self) weakSelf = self;
   [GoogleMobileAdsConsentManager.sharedInstance
@@ -127,19 +123,14 @@
 }
 
 - (void)loadBannerAd {
-  // [START ad_size]
-  // Request an anchored adaptive banner with a width of 375.
-  self.bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(375);
-  // [END ad_size]
+  // Request a large anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADLargeAnchoredAdaptiveBannerAdSizeWithWidth(375);
 
-  // [START load_ad]
   [self.bannerView loadRequest:[GADRequest request]];
-  // [END load_ad]
 }
 
 #pragma mark GADBannerViewDelegate implementation
 
-// [START banner_view_delegate_methods]
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidReceiveAd");
 }
@@ -163,7 +154,6 @@
 - (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
   NSLog(@"bannerViewDidDismissScreen");
 }
-// [END banner_view_delegate_methods]
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];

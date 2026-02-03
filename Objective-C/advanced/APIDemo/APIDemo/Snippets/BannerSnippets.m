@@ -17,7 +17,9 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface BannerSnippets : UIViewController
+static NSString *const kTestAdUnitID = @"ca-app-pub-3940256099942544/2435281174";
+
+@interface BannerSnippets : UIViewController <GADBannerViewDelegate>
 
 @property(nonatomic, strong) GADBannerView *bannerView;
 
@@ -48,6 +50,9 @@
   // [START create_admob_banner_view]
   // Initialize the banner view.
   GADBannerView *bannerView = [[GADBannerView alloc] init];
+  // [START set_delegate]
+  bannerView.delegate = self;
+  // [END set_delegate]
   UIView *view = self.view;
 
   bannerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -89,8 +94,52 @@
   // [END set_adaptive_ad_size]
 
   // Test ad unit ID for inline adaptive banners.
-  bannerView.adUnitID = @"ca-app-pub-3940256099942544/2435281174";
+  bannerView.adUnitID = kTestAdUnitID;
   [bannerView loadRequest:[GADRequest request]];
 }
+
+- (void)createCustomAdSize:(GADBannerView *)bannerView {
+  // [START create_custom_ad_size]
+  bannerView.adSize = GADAdSizeFromCGSize(CGSizeMake(250, 250));
+  // [END create_custom_ad_size]
+}
+
+- (void)loadBannerAd {
+  // [START load_ad]
+  // [START ad_size]
+  // Request a large anchored adaptive banner with a width of 375.
+  self.bannerView.adSize = GADLargeAnchoredAdaptiveBannerAdSizeWithWidth(375);
+  // [END ad_size]
+
+  [self.bannerView loadRequest:[GADRequest request]];
+  // [END load_ad]
+}
+
+// [START ad_events]
+- (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewDidReceiveAd");
+}
+
+- (void)bannerView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
+  NSLog(@"bannerView:didFailToReceiveAdWithError: %@", error.localizedDescription);
+}
+
+- (void)bannerViewDidRecordImpression:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewDidRecordImpression");
+}
+
+- (void)bannerViewWillPresentScreen:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewWillPresentScreen");
+}
+
+- (void)bannerViewWillDismissScreen:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewWillDismissScreen");
+}
+
+- (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
+  NSLog(@"bannerViewDidDismissScreen");
+}
+
+// [END ad_events]
 
 @end
