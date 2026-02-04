@@ -16,8 +16,9 @@
 
 import GoogleMobileAds
 
-private class AdManagerBannerSnippets: UIViewController, AppEventDelegate {
+private class AdManagerBannerSnippets: UIViewController, AppEventDelegate, BannerViewDelegate {
 
+  let testAdUnitID = "/21775744923/example/adaptive-banner"
   var bannerView: AdManagerBannerView!
 
   override func viewDidLoad() {
@@ -34,6 +35,9 @@ private class AdManagerBannerSnippets: UIViewController, AppEventDelegate {
     // [START create_admanager_banner_view]
     // Initialize the banner view.
     bannerView = AdManagerBannerView()
+    // [START set_delegate]
+    bannerView.delegate = self
+    // [END set_delegate]
 
     bannerView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(bannerView)
@@ -67,12 +71,12 @@ private class AdManagerBannerSnippets: UIViewController, AppEventDelegate {
     // For Ad Manager, the `adSize` property is used for the adaptive banner ad
     // size. The `validAdSizes` property is used as normal for the supported
     // reservation sizes for the ad placement.
-    let validAdSize = currentOrientationAnchoredAdaptiveBanner(width: adWidth)
+    let validAdSize = largeAnchoredAdaptiveBanner(width: adWidth)
     bannerView.validAdSizes = [nsValue(for: validAdSize)]
     // [END set_adaptive_ad_size]
 
     // Test ad unit ID for inline adaptive banners.
-    bannerView.adUnitID = "/21775744923/example/adaptive-banner"
+    bannerView.adUnitID = testAdUnitID
     bannerView.load(AdManagerRequest())
   }
 
@@ -113,4 +117,44 @@ private class AdManagerBannerSnippets: UIViewController, AppEventDelegate {
     }
   }
   // [END app_events]
+
+  // [START load_ad]
+  func loadBannerAd(bannerView: AdManagerBannerView) {
+    // [START ad_size]
+    // Request a large anchored adaptive banner with a width of 375.
+    bannerView.adSize = largeAnchoredAdaptiveBanner(width: 375)
+    // [END ad_size]
+    bannerView.load(AdManagerRequest())
+  }
+  // [END load_ad]
+
+  // [START ad_events]
+  func bannerViewDidReceiveAd(_ bannerView: BannerView) {
+    print("Banner ad loaded.")
+  }
+
+  func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
+    print("Banner ad failed to load: \(error.localizedDescription)")
+  }
+
+  func bannerViewDidRecordImpression(_ bannerView: BannerView) {
+    print("Banner ad recorded an impression.")
+  }
+
+  func bannerViewDidRecordClick(_ bannerView: BannerView) {
+    print("Banner ad recorded a click.")
+  }
+
+  func bannerViewWillPresentScreen(_ bannerView: BannerView) {
+    print("Banner ad will present screen.")
+  }
+
+  func bannerViewWillDismissScreen(_ bannerView: BannerView) {
+    print("Banner ad will dismiss screen.")
+  }
+
+  func bannerViewDidDismissScreen(_ bannerView: BannerView) {
+    print("Banner ad did dismiss screen.")
+  }
+  // [END ad_events]
 }
