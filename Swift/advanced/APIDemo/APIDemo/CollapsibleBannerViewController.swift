@@ -48,7 +48,7 @@ class CollapsibleBannerViewController: UIViewController, BannerViewDelegate {
       return view.frame.inset(by: view.safeAreaInsets)
     }()
     let viewWidth = frame.size.width
-    bannerView.adSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
+    bannerView.adSize = largeAnchoredAdaptiveBanner(width: viewWidth)
 
     loadAd()
   }
