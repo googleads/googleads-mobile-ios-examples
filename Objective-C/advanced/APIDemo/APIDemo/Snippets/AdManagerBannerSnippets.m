@@ -67,28 +67,11 @@ static NSString *const kTestAdUnitID = @"/21775744923/example/adaptive-banner";
   GAMBannerView *bannerView = self.bannerView;
   UIView *view = self.view;
 
-  // [START get_width]
-  CGFloat totalWidth = CGRectGetWidth(view.bounds);
+  // [START set_inline_adaptive_ad_size]
   // Make sure the ad fits inside the readable area.
-  UIEdgeInsets insets = view.safeAreaInsets;
-  CGFloat adWidth = totalWidth - insets.left - insets.right;
-  // [END get_width]
-
-  // View is not laid out yet, return early.
-  if (adWidth <= 0) {
-    return;
-  }
-
-  // [START set_adaptive_ad_size]
-  GADAdSize adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(adWidth);
-  bannerView.adSize = adSize;
-
-  // For Ad Manager, the `adSize` property is used for the adaptive banner ad
-  // size. The `validAdSizes` property is used as normal for the supported
-  // reservation sizes for the ad placement.
-  GADAdSize validAdSize = GADLargeAnchoredAdaptiveBannerAdSizeWithWidth(adWidth);
-  bannerView.validAdSizes = @[ NSValueFromGADAdSize(validAdSize) ];
-  // [END set_adaptive_ad_size]
+  CGFloat adWidth = CGRectGetWidth(UIEdgeInsetsInsetRect(view.bounds, view.safeAreaInsets));
+  bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(adWidth);
+  // [END set_inline_adaptive_ad_size]
 
   // Test ad unit ID for inline adaptive banners.
   bannerView.adUnitID = kTestAdUnitID;
