@@ -54,26 +54,11 @@ private class AdManagerBannerSnippets: UIViewController, AppEventDelegate, Banne
   }
 
   private func loadInlineAdaptiveBanner() {
-    // [START get_width]
-    let totalWidth = view.bounds.width
+    // [START set_inline_adaptive_ad_size]
     // Make sure the ad fits inside the readable area.
-    let insets = view.safeAreaInsets
-    let adWidth = totalWidth - insets.left - insets.right
-    // [END get_width]
-
-    // View is not laid out yet, return early.
-    guard adWidth > 0 else { return }
-
-    // [START set_adaptive_ad_size]
-    let adSize = currentOrientationInlineAdaptiveBanner(width: adWidth)
-    bannerView.adSize = adSize
-
-    // For Ad Manager, the `adSize` property is used for the adaptive banner ad
-    // size. The `validAdSizes` property is used as normal for the supported
-    // reservation sizes for the ad placement.
-    let validAdSize = largeAnchoredAdaptiveBanner(width: adWidth)
-    bannerView.validAdSizes = [nsValue(for: validAdSize)]
-    // [END set_adaptive_ad_size]
+    let adWidth = view.bounds.inset(by: view.safeAreaInsets).width
+    bannerView.adSize = currentOrientationInlineAdaptiveBanner(width: adWidth)
+    // [END set_inline_adaptive_ad_size]
 
     // Test ad unit ID for inline adaptive banners.
     bannerView.adUnitID = testAdUnitID

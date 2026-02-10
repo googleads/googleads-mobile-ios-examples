@@ -64,20 +64,11 @@ private class BannerSnippets: UIViewController, BannerViewDelegate {
   }
 
   private func loadInlineAdaptiveBanner() {
-    // [START get_width]
-    let totalWidth = view.bounds.width
+    // [START set_inline_adaptive_ad_size]
     // Make sure the ad fits inside the readable area.
-    let insets = view.safeAreaInsets
-    let adWidth = totalWidth - insets.left - insets.right
-    // [END get_width]
-
-    // View is not laid out yet, return early.
-    guard adWidth > 0 else { return }
-
-    // [START set_adaptive_ad_size]
-    let adSize = currentOrientationInlineAdaptiveBanner(width: adWidth)
-    bannerView.adSize = adSize
-    // [END set_adaptive_ad_size]
+    let adWidth = view.bounds.inset(by: view.safeAreaInsets).width
+    bannerView.adSize = currentOrientationInlineAdaptiveBanner(width: adWidth)
+    // [END set_inline_adaptive_ad_size]
 
     // Test ad unit ID for inline adaptive banners.
     bannerView.adUnitID = testAdUnitID
