@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		849326BB1B066A7F00863759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849326B91B066A7F00863759 /* Main.storyboard */; };
 		849326BD1B066A7F00863759 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849326BC1B066A7F00863759 /* Images.xcassets */; };
 		849326C01B066A7F00863759 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849326BE1B066A7F00863759 /* LaunchScreen.xib */; };
+		A8714FED2F44DC3100FB9514 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A8714FEC2F44DC3100FB9514 /* GoogleMobileAds */; };
 		A8CC5DF82A8EC6E60094B83E /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CC5DF72A8EC6E60094B83E /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,25 +32,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8714FED2F44DC3100FB9514 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B48FFAA1C599896D1BA4999 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		849326A71B066A7E00863759 = {
 			isa = PBXGroup;
 			children = (
 				849326B21B066A7F00863759 /* RewardedInterstitialExample */,
 				849326B11B066A7F00863759 /* Products */,
-				6B48FFAA1C599896D1BA4999 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 849326A71B066A7E00863759;
+			packageReferences = (
+				A8714FEB2F44DC3100FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 849326B11B066A7F00863759 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -289,7 +286,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -305,7 +303,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/RewardedInterstitialExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -326,7 +327,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/RewardedInterstitialExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -360,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A8714FEB2F44DC3100FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A8714FEC2F44DC3100FB9514 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8714FEB2F44DC3100FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 849326A81B066A7E00863759 /* Project object */;
 }

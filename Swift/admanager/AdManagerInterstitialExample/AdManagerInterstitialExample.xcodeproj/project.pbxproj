@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		507818C3219654B400E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818BC219654B400E5A44A /* Main.storyboard */; };
 		507818C4219654B400E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818BE219654B400E5A44A /* Images.xcassets */; };
 		507818C6219654B400E5A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818C0219654B400E5A44A /* ViewController.swift */; };
+		A8714FFC2F44DEB300FB9514 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A8714FFB2F44DEB300FB9514 /* GoogleMobileAds */; };
 		A8DD02A42A7C156E001530DF /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD02A32A7C156E001530DF /* GoogleMobileAdsConsentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8714FFC2F44DEB300FB9514 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +58,6 @@
 			children = (
 				507818B8219654B400E5A44A /* AdManagerInterstitialExample */,
 				84FEE9101B0D65A8006C8148 /* Products */,
-				85930201881B89903DE128E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,13 +67,6 @@
 				84FEE90F1B0D65A8006C8148 /* AdManagerInterstitialExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		85930201881B89903DE128E1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 84FEE9061B0D65A8006C8148;
+			packageReferences = (
+				A8714FFA2F44DEB300FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 84FEE9101B0D65A8006C8148 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,7 +258,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -276,7 +274,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdManagerInterstitialExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -296,7 +297,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdManagerInterstitialExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -330,6 +334,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A8714FFA2F44DEB300FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A8714FFB2F44DEB300FB9514 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8714FFA2F44DEB300FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84FEE9071B0D65A8006C8148 /* Project object */;
 }

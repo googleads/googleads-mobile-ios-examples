@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		50CF72B922FE190500C450A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B822FE190500C450A7 /* Assets.xcassets */; };
 		50CF72BC22FE190600C450A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */; };
 		50CF72BF22FE190600C450A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72BE22FE190600C450A7 /* main.m */; };
+		A871500B2F44E0D600FB9514 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A871500A2F44E0D600FB9514 /* GoogleMobileAds */; };
 		A89F3F2F2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A89F3F2E2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A871500B2F44E0D600FB9514 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +55,6 @@
 			children = (
 				50CF72AE22FE190400C450A7 /* AppOpenExample */,
 				50CF72AD22FE190400C450A7 /* Products */,
-				EEC2A82DEF99A19EEBB0CBF2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,13 +86,6 @@
 				50CF72BE22FE190600C450A7 /* main.m */,
 			);
 			path = AppOpenExample;
-			sourceTree = "<group>";
-		};
-		EEC2A82DEF99A19EEBB0CBF2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 50CF72A322FE190300C450A7;
+			packageReferences = (
+				A87150092F44E0D600FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 50CF72AD22FE190400C450A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A87150092F44E0D600FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A871500A2F44E0D600FB9514 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A87150092F44E0D600FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50CF72A422FE190300C450A7 /* Project object */;
 }

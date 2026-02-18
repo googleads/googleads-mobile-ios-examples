@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		A8265F712E4F884500A9C150 /* NativeAdOptionsSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8265F702E4F884100A9C150 /* NativeAdOptionsSnippets.swift */; };
 		A846F1C12E2583D200F96E49 /* RewardedAdSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A846F1C02E2583CF00F96E49 /* RewardedAdSnippets.swift */; };
 		A86568AB2E254CD500D360C3 /* ATTSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86568AA2E254CD100D360C3 /* ATTSnippets.swift */; };
+		A87150052F44DF6200FB9514 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A87150042F44DF6200FB9514 /* GoogleMobileAds */; };
 		A8B650362DD63E0300AE1D3F /* RequestConfigurationSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B650352DD63DFC00AE1D3F /* RequestConfigurationSnippets.swift */; };
 		A8C200482EBD03D5004E4D77 /* MediationSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C200472EBD03D1004E4D77 /* MediationSnippets.swift */; };
 		A8C4F29F2EDF549D00A8615A /* ImpressionLevelAdRevenueSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C4F29E2EDF549800A8615A /* ImpressionLevelAdRevenueSnippets.swift */; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87150052F44DF6200FB9514 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +107,6 @@
 			children = (
 				4AA7D68F1C625A1200DFD2EB /* APIDemo */,
 				4AA7D68E1C625A1200DFD2EB /* Products */,
-				E67BC192F0B0F683C00B6670 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,13 +188,6 @@
 			name = AdManagerCustomVideoControls;
 			sourceTree = "<group>";
 		};
-		E67BC192F0B0F683C00B6670 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 4AA7D6841C625A1200DFD2EB;
+			packageReferences = (
+				A87150032F44DF6200FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 4AA7D68E1C625A1200DFD2EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -411,7 +408,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -427,7 +425,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = APIDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -450,7 +451,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = APIDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -485,6 +489,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A87150032F44DF6200FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A87150042F44DF6200FB9514 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A87150032F44DF6200FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AA7D6851C625A1200DFD2EB /* Project object */;
 }

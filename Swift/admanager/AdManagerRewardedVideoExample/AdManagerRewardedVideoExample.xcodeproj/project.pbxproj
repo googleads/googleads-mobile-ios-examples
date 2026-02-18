@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		507818EA2199E6C200E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818E42199E6C100E5A44A /* Images.xcassets */; };
 		507818EC2199E6C200E5A44A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818E62199E6C100E5A44A /* ViewController.swift */; };
 		A863BE502A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A863BE4F2A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift */; };
+		A87150022F44DEFF00FB9514 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A87150012F44DEFF00FB9514 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,19 +32,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87150022F44DEFF00FB9514 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		34039192518B2E889F6AEEF1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		507818DE2199E6C100E5A44A /* AdManagerRewardedVideoExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,7 +58,6 @@
 			children = (
 				507818DE2199E6C100E5A44A /* AdManagerRewardedVideoExample */,
 				849326B11B066A7F00863759 /* Products */,
-				34039192518B2E889F6AEEF1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 849326A71B066A7E00863759;
+			packageReferences = (
+				A87150002F44DEFF00FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 849326B11B066A7F00863759 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,7 +258,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -275,7 +273,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdManagerRewardedVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -294,7 +295,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AdManagerRewardedVideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -328,6 +332,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A87150002F44DEFF00FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A87150012F44DEFF00FB9514 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A87150002F44DEFF00FB9514 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 849326A81B066A7E00863759 /* Project object */;
 }
