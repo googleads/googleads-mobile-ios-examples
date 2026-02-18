@@ -30,7 +30,10 @@ class AdManagerSCARSnippets: NSObject {
     do {
       let signal = try await MobileAds.generateSignal(signalRequest)
       print("Signal string: \(signal.signal)")
-      // TODO: Fetch the ad response using your generated signal.
+
+      // Fetch the ad response using your generated signal.
+      let response = await fetchAdResponseString(signalRequest: signal)
+
     } catch {
       print("Error getting ad info: \(error.localizedDescription)")
     }
@@ -49,9 +52,11 @@ class AdManagerSCARSnippets: NSObject {
     signalRequest.adSize = currentOrientationInlineAdaptiveBanner(width: 375)
 
     do {
-      let signal = try await MobileAds.generateSignal(signalRequest)
-      print("Signal string: \(signal.signal)")
-      // TODO: Fetch the ad response using your generated signal.
+      let signalResponse = try await MobileAds.generateSignal(signalRequest)
+      print("Signal string: \(signalResponse.signal)")
+
+      // Fetch the ad response using your generated signal.
+      let response = await fetchAdResponseString(signalRequest: signalResponse)
     } catch {
       print("Error getting ad info: \(error.localizedDescription)")
     }
@@ -71,12 +76,110 @@ class AdManagerSCARSnippets: NSObject {
     signalRequest.adSizes = [nsValue(for: currentOrientationInlineAdaptiveBanner(width: 375))]
 
     do {
-      let signal = try await MobileAds.generateSignal(signalRequest)
-      print("Signal string: \(signal.signal)")
+      let signalResponse = try await MobileAds.generateSignal(signalRequest)
+      print("Signal string: \(signalResponse.signal)")
       // TODO: Fetch the ad response using your generated signal.
+
+      // Fetch the ad response using your generated signal.
+      let response = await fetchAdResponseString(signalRequest: signalResponse)
+
     } catch {
       print("Error getting ad info: \(error.localizedDescription)")
     }
   }
   // [END signal_request_native_plus_banner]
+
+  // [START native_ad_options]
+  func loadNativeWithOptions(adUnitID: String) async {
+    // Create a signal request for an ad.
+    // Specify the "signal_type_ad_manager_s2s" to
+    // denote that the usage of QueryInfo is for Ad Manager S2S.
+    let signalRequest = NativeSignalRequest(signalType: "signal_type_ad_manager_s2s")
+    signalRequest.adUnitID = adUnitID
+
+    // Enable shared native ad options.
+    signalRequest.isImageLoadingDisabled = false
+    signalRequest.mediaAspectRatio = .any
+    signalRequest.preferredAdChoicesPosition = .topRightCorner
+
+    // Enable video options.
+    let videoOptions = VideoOptions()
+    videoOptions.shouldStartMuted = true
+    signalRequest.videoOptions = videoOptions
+
+    do {
+      let signalResponse = try await MobileAds.generateSignal(signalRequest)
+      print("Signal string: \(signalResponse.signal)")
+
+      // Fetch the ad response using your generated signal.
+      let response = await fetchAdResponseString(signalRequest: signalResponse)
+
+    } catch {
+      print("Error getting ad info: \(error.localizedDescription)")
+    }
+  }
+  // [END native_ad_options]
+
+  // [START fetch_response]
+  // This function emulates a request to your ad server.
+  func fetchAdResponseString(signalRequest: Signal) async -> String {
+    return "adResponseString"
+  }
+  // [END fetch_response]
+
+  // [START render_banner]
+  func renderBanner(adUnitID: String, signalResponse: String) {
+    let bannerView = AdManagerBannerView(adSize: AdSizeBanner)
+    bannerView.adUnitID = adUnitID
+    bannerView.load(with: signalResponse)
+  }
+  // [END render_banner]
+
+  // [START render_native]
+  var adLoader: AdLoader!
+
+  func renderNative(
+    adUnitID: String, signalResponse: String, rootViewController: UIViewController
+  ) {
+    adLoader = AdLoader(
+      adUnitID: adUnitID,
+      rootViewController: rootViewController,
+      adTypes: [.native],
+      options: nil)
+    adLoader.delegate = self
+    adLoader.load(with: signalResponse)
+  }
+  // [END render_native]
+
+  // [START render_native_plus_banner]
+  func renderNativePlusBanner(
+    adUnitID: String, signalResponse: String, rootViewController: UIViewController
+  ) {
+    adLoader = AdLoader(
+      adUnitID: adUnitID,
+      rootViewController: rootViewController,
+      adTypes: [.native, .adManagerBanner],
+      options: nil)
+    adLoader.delegate = self
+    adLoader.load(with: signalResponse)
+  }
+  // [END render_native_plus_banner]
+}
+
+extension AdManagerSCARSnippets: NativeAdLoaderDelegate {
+  func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
+    // Native ad received.
+  }
+
+  func adLoader(_ adLoader: AdLoader, didReceive bannerView: AdManagerBannerView) {
+    // Banner ad received.
+  }
+
+  func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {
+    // Native ad failed to load.
+  }
+
+  func validAdSizes(for adLoader: AdLoader) -> [NSValue] {
+    return [nsValue(for: currentOrientationInlineAdaptiveBanner(width: 375))]
+  }
 }
