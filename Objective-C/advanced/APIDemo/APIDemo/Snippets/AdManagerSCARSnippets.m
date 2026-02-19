@@ -86,7 +86,7 @@
   // denote that the usage of QueryInfo is for Ad Manager S2S.
   GADNativeSignalRequest *signalRequest =
       [[GADNativeSignalRequest alloc] initWithSignalType:@"signal_type_ad_manager_s2s"];
-  signalRequest.requestAgent = @"request_agent";
+  signalRequest.requestAgent = @"REQUEST_AGENT";
   signalRequest.adUnitID = adUnitID;
   signalRequest.adLoaderAdTypes =
       [NSSet setWithArray:@[ GADAdLoaderAdTypeNative, GADAdLoaderAdTypeGAMBanner ]];
