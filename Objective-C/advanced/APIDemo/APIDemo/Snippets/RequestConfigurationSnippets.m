@@ -37,4 +37,28 @@
   // [END disable_publisher_first_party_id]
 }
 
+- (void)setChildAgeTreatment {
+  // [START set_child_age_treatment]
+  // Indicates that ad requests should have child age treatment.
+  GADMobileAds.sharedInstance.requestConfiguration.ageRestrictedTreatment =
+      GADAgeRestrictedTreatmentChild;
+  // [END set_child_age_treatment]
+}
+
+- (void)setTeenAgeTreatment {
+  // [START set_teen_age_treatment]
+  // Indicates that ad requests should have teen age treatment.
+  GADMobileAds.sharedInstance.requestConfiguration.ageRestrictedTreatment =
+      GADAgeRestrictedTreatmentTeen;
+  // [END set_teen_age_treatment]
+}
+
+- (void)setUnspecifiedAgeTreatment {
+  // [START set_unspecified_age_treatment]
+  // Indicates that ad requests should have unspecified age treatment.
+  GADMobileAds.sharedInstance.requestConfiguration.ageRestrictedTreatment =
+      GADAgeRestrictedTreatmentUnspecified;
+  // [END set_unspecified_age_treatment]
+}
+
 @end

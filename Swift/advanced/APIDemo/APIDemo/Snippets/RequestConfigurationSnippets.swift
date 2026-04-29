@@ -31,4 +31,25 @@ private class RequestConfigurationSnippets {
     MobileAds.shared.requestConfiguration.setPublisherFirstPartyIDEnabled(false)
     // [END disable_publisher_first_party_id]
   }
+
+  private func setChildAgeTreatment() {
+    // [START set_child_age_treatment]
+    // Indicates that ad requests should have child age treatment.
+    MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .child
+    // [END set_child_age_treatment]
+  }
+
+  private func setTeenAgeTreatment() {
+    // [START set_teen_age_treatment]
+    // Indicates that ad requests should have teen age treatment.
+    MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .teen
+    // [END set_teen_age_treatment]
+  }
+
+  private func setUnspecifiedAgeTreatment() {
+    // [START set_unspecified_age_treatment]
+    // Indicates that ad requests should have unspecified age treatment.
+    MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .unspecified
+    // [END set_unspecified_age_treatment]
+  }
 }
