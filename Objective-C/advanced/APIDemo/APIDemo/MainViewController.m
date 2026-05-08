@@ -32,7 +32,7 @@
 @interface MainViewController ()
 
 /// API demo names.
-@property(nonatomic, copy) NSArray *APIDemoNames;
+@property(nonatomic, copy) NSArray *apiDemoNames;
 
 /// Segue identifiers.
 @property(nonatomic, copy) NSArray *identifiers;
@@ -44,16 +44,16 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.APIDemoNames = @[
+  self.apiDemoNames = @[
     @"AdMob - Ad Delegate", @"AdMob - Ad Targeting", @"AdMob - Banner Sizes",
-    @"AdMob - Native Custom Mute This Ad", @"Ad Manager - PPID", @"Ad Manager - Custom Targeting",
+    @"AdMob - Native Custom Mute This Ad", @"AdMob - Ad Preloading", @"Ad Manager - PPID", @"Ad Manager - Custom Targeting",
     @"Ad Manager - Category Exclusions", @"Ad Manager - Multiple Ad Sizes",
     @"Ad Manager - App Events", @"Ad Manager - Fluid Ad Size",
     @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad"
   ];
 
   self.identifiers = @[
-    @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue", @"PPIDSegue",
+    @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue", @"adPreloadingSegue", @"PPIDSegue",
     @"customTargetingSegue", @"categoryExclusionsSegue", @"multipleAdSizesSegue", @"appEventsSegue",
     @"fluidAdSizeSegue", @"customControlsSegue", @"collapsibleBannerSegue"
   ];
@@ -72,7 +72,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.APIDemoNames.count;
+  return self.apiDemoNames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -80,7 +80,7 @@
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"
                                                           forIndexPath:indexPath];
 
-  cell.textLabel.text = self.APIDemoNames[indexPath.row];
+  cell.textLabel.text = self.apiDemoNames[indexPath.row];
 
   return cell;
 }
