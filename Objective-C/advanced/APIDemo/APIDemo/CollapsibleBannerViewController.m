@@ -54,7 +54,7 @@
   // view has been laid out.
   CGRect frame = UIEdgeInsetsInsetRect(self.view.frame, self.view.safeAreaInsets);
   CGFloat viewWidth = frame.size.width;
-  GADAdSize adSize = GADLargeAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth);
+  GADAdSize adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth);
   _bannerView.adSize = adSize;
 
   [self loadAd];
