@@ -45,6 +45,10 @@
 		AED111282032174100EA4BEE /* CustomControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED111272032174100EA4BEE /* CustomControlsView.swift */; };
 		EF25D02C2E4B980C00688F43 /* RewardedInterstitialAdSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25D02B2E4B980100688F43 /* RewardedInterstitialAdSnippets.swift */; };
 		EFC712462AD853D80014A2BF /* CollapsibleBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */; };
+		ADPRELOAD21 /* AdMobAdPreloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD22 /* AdMobAdPreloadingViewController.swift */; };
+		ADPRELOAD23 /* PreloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD24 /* PreloadView.swift */; };
+		ADPRELOAD25 /* PreloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD26 /* PreloadView.xib */; };
+		ADPRELOAD31 /* AdPreloaderSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD32 /* AdPreloaderSnippets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +92,10 @@
 		EF25D0272E4B97F000688F43 /* BannerSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSnippets.swift; sourceTree = "<group>"; };
 		EF25D02B2E4B980100688F43 /* RewardedInterstitialAdSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedInterstitialAdSnippets.swift; sourceTree = "<group>"; };
 		EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleBannerViewController.swift; sourceTree = "<group>"; };
+		ADPRELOAD22 /* AdMobAdPreloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobAdPreloadingViewController.swift; sourceTree = "<group>"; };
+		ADPRELOAD24 /* PreloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadView.swift; sourceTree = "<group>"; };
+		ADPRELOAD26 /* PreloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreloadView.xib; sourceTree = "<group>"; };
+		ADPRELOAD32 /* AdPreloaderSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPreloaderSnippets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,9 @@
 				4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */,
 				4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */,
 				AE3068C921221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift */,
+				ADPRELOAD22 /* AdMobAdPreloadingViewController.swift */,
+				ADPRELOAD24 /* PreloadView.swift */,
+				ADPRELOAD26 /* PreloadView.xib */,
 				AED11115203213DF00EA4BEE /* AdManagerCustomVideoControls */,
 			);
 			name = Controllers;
@@ -171,6 +182,7 @@
 				A8265F6E2E4F883500A9C150 /* ResponseInfoSnippets.swift */,
 				A846F1C02E2583CF00F96E49 /* RewardedAdSnippets.swift */,
 				EF25D02B2E4B980100688F43 /* RewardedInterstitialAdSnippets.swift */,
+				ADPRELOAD32 /* AdPreloaderSnippets.swift */,
 			);
 			path = Snippets;
 			sourceTree = "<group>";
@@ -257,6 +269,7 @@
 				4AA7D6961C625A1200DFD2EB /* Main.storyboard in Resources */,
 				1CD352682C9CC97200534FCC /* CustomControls.xib in Resources */,
 				AED11120203213FC00EA4BEE /* UnifiedNativeAdView.xib in Resources */,
+				ADPRELOAD25 /* PreloadView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +311,9 @@
 				4AA7D6AE1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift in Sources */,
 				AE3068CA21221F7E006D7843 /* AdMobNativeCustomMuteThisAdViewController.swift in Sources */,
 				507818F4219A418100E5A44A /* AdManagerMultipleAdSizesViewController.swift in Sources */,
+				ADPRELOAD21 /* AdMobAdPreloadingViewController.swift in Sources */,
+				ADPRELOAD23 /* PreloadView.swift in Sources */,
+				ADPRELOAD31 /* AdPreloaderSnippets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
