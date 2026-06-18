@@ -49,6 +49,7 @@
 		ADPRELOAD03 /* PreloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD04 /* PreloadView.m */; };
 		ADPRELOAD05 /* PreloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD06 /* PreloadView.xib */; };
 		ADPRELOAD11 /* AdPreloaderSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD12 /* AdPreloaderSnippets.m */; };
+		202607060000000000000003 /* SwipeableInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202607060000000000000002 /* SwipeableInterstitialViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,8 @@
 		ADPRELOAD04 /* PreloadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreloadView.m; sourceTree = "<group>"; };
 		ADPRELOAD06 /* PreloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreloadView.xib; sourceTree = "<group>"; };
 		ADPRELOAD12 /* AdPreloaderSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdPreloaderSnippets.m; sourceTree = "<group>"; };
+		202607060000000000000001 /* SwipeableInterstitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeableInterstitialViewController.h; sourceTree = "<group>"; };
+		202607060000000000000002 /* SwipeableInterstitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeableInterstitialViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,8 @@
 				ADPRELOAD10 /* PreloadView.h */,
 				ADPRELOAD04 /* PreloadView.m */,
 				ADPRELOAD06 /* PreloadView.xib */,
+				202607060000000000000001 /* SwipeableInterstitialViewController.h */,
+				202607060000000000000002 /* SwipeableInterstitialViewController.m */,
 				AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */,
 			);
 			name = Controllers;
@@ -342,6 +347,7 @@
 				A8C4F2A92EE1DE8B00A8615A /* AdManagerBannerSnippets.m in Sources */,
 				A8C4F2A32EDF92C600A8615A /* BannerSnippets.m in Sources */,
 				EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */,
+				202607060000000000000003 /* SwipeableInterstitialViewController.m in Sources */,
 				A80EED0A2EDE29B5005DFC04 /* MobileAdsSnippets.m in Sources */,
 				A8265F772E4F8AF600A9C150 /* NativeAdOptionsSnippets.m in Sources */,
 				A8265F752E4F8AE000A9C150 /* ResponseInfoSnippets.m in Sources */,

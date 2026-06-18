@@ -49,4 +49,7 @@ struct Constants {
   /// Collapsible banner ad unit ID.
   static let collapsibleBannerAdUnitID = "ca-app-pub-3940256099942544/8388050270"
 
+  /// Swipeable interstitial ad unit ID.
+  static let swipeableInterstitialAdUnitID = "ca-app-pub-3940256099942544/2737863066"
+
 }
