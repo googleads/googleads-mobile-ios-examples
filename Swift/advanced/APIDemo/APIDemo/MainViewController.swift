@@ -19,23 +19,23 @@ import UIKit
 class MainViewController: UITableViewController {
 
   /// API Demo names.
-  var APIDemoNames: [String]!
+  var apiDemoNames: [String]!
 
   /// Segue identifiers.
   var identifiers: [String]!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    APIDemoNames = [
+    apiDemoNames = [
       "AdMob - Ad Delegate", "AdMob - Ad Targeting", "AdMob - Banner Sizes",
-      "AdMob - Native Custom Mute This Ad",
+      "AdMob - Native Custom Mute This Ad", "AdMob - Ad Preloading",
       "AdManager - PPID", "AdManager - Custom Targeting", "AdManager - Category Exclusions",
       "AdManager - Multiple Ad Sizes", "AdManager - App Events", "AdManager - Fluid Ad Size",
       "AdManager - Custom Video Controls", "Collapsible Banner Ad",
     ]
     identifiers = [
       "adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "customMuteSegue",
-      "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
+      "adPreloadingSegue", "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
       "multipleAdSizesSegue", "appEventsSegue", "fluidAdSizeSegue",
       "customControlsSegue", "collapsibleSegue",
     ]
@@ -51,14 +51,14 @@ class MainViewController: UITableViewController {
   // MARK: - Table View
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return APIDemoNames.count
+    return apiDemoNames.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
     -> UITableViewCell
   {
     let cell = tableView.dequeueReusableCell(withIdentifier: "DemoCell")!
-    cell.textLabel!.text = APIDemoNames[indexPath.row]
+    cell.textLabel!.text = apiDemoNames[indexPath.row]
 
     return cell
   }
