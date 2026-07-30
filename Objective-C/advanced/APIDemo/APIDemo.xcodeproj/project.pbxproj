@@ -45,6 +45,10 @@
 		AEE8DAA5201BDCA9008792E6 /* CustomControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8DAA4201BDCA9008792E6 /* CustomControlsView.m */; };
 		EF25D0262E4B95F400688F43 /* RewardedInterstitialAdSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25D0252E4B917E00688F43 /* RewardedInterstitialAdSnippets.m */; };
 		EF98F6062BD948C900FDCA41 /* CollapsibleBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */; };
+		ADPRELOAD01 /* AdMobAdPreloadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD02 /* AdMobAdPreloadingViewController.m */; };
+		ADPRELOAD03 /* PreloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD04 /* PreloadView.m */; };
+		ADPRELOAD05 /* PreloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD06 /* PreloadView.xib */; };
+		ADPRELOAD11 /* AdPreloaderSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD12 /* AdPreloaderSnippets.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +108,12 @@
 		EF25D0252E4B917E00688F43 /* RewardedInterstitialAdSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RewardedInterstitialAdSnippets.m; sourceTree = "<group>"; };
 		EF98F6042BD948A400FDCA41 /* CollapsibleBannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollapsibleBannerViewController.h; sourceTree = "<group>"; };
 		EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollapsibleBannerViewController.m; sourceTree = "<group>"; };
+		ADPRELOAD09 /* AdMobAdPreloadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdMobAdPreloadingViewController.h; sourceTree = "<group>"; };
+		ADPRELOAD02 /* AdMobAdPreloadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdMobAdPreloadingViewController.m; sourceTree = "<group>"; };
+		ADPRELOAD10 /* PreloadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreloadView.h; sourceTree = "<group>"; };
+		ADPRELOAD04 /* PreloadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreloadView.m; sourceTree = "<group>"; };
+		ADPRELOAD06 /* PreloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreloadView.xib; sourceTree = "<group>"; };
+		ADPRELOAD12 /* AdPreloaderSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdPreloaderSnippets.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +196,11 @@
 				AEC9AC0C2140985000E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m */,
 				EF98F6042BD948A400FDCA41 /* CollapsibleBannerViewController.h */,
 				EF98F6052BD948C900FDCA41 /* CollapsibleBannerViewController.m */,
+				ADPRELOAD09 /* AdMobAdPreloadingViewController.h */,
+				ADPRELOAD02 /* AdMobAdPreloadingViewController.m */,
+				ADPRELOAD10 /* PreloadView.h */,
+				ADPRELOAD04 /* PreloadView.m */,
+				ADPRELOAD06 /* PreloadView.xib */,
 				AEE8DA9A201BD788008792E6 /* GAMCustomVideoControls */,
 			);
 			name = Controllers;
@@ -208,6 +223,7 @@
 				A8265F732E4F8AE000A9C150 /* ResponseInfoSnippets.m */,
 				A846F1C22E2584A800F96E49 /* RewardedAdSnippets.m */,
 				EF25D0252E4B917E00688F43 /* RewardedInterstitialAdSnippets.m */,
+				ADPRELOAD12 /* AdPreloaderSnippets.m */,
 			);
 			path = Snippets;
 			sourceTree = "<group>";
@@ -295,6 +311,7 @@
 				4A96E72F1B856D5000031470 /* Images.xcassets in Resources */,
 				1CD352992C9CE6A600534FCC /* CustomControls.xib in Resources */,
 				AED1111020320CA900EA4BEE /* NativeAdView.xib in Resources */,
+				ADPRELOAD05 /* PreloadView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +353,9 @@
 				AEE8DA9F201BD7A6008792E6 /* SimpleNativeAdView.m in Sources */,
 				A8C2004A2EBD077D004E4D77 /* MediationSnippets.m in Sources */,
 				50DC0CFE212F1C4000424CC7 /* GAMPPIDViewController.m in Sources */,
+				ADPRELOAD01 /* AdMobAdPreloadingViewController.m in Sources */,
+				ADPRELOAD03 /* PreloadView.m in Sources */,
+				ADPRELOAD11 /* AdPreloaderSnippets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
