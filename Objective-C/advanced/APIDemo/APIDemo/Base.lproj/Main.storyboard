@@ -68,6 +68,7 @@
                         <segue destination="hZP-P9-1wH" kind="push" identifier="fluidAdSizeSegue" id="UQn-Bs-pNU"/>
                         <segue destination="FgD-4P-bPV" kind="push" identifier="customControlsSegue" id="ZhH-lF-0He"/>
                         <segue destination="85K-uZ-lc0" kind="push" identifier="customMuteSegue" id="wZD-GP-O3D"/>
+                        <segue destination="adPreloadingVC" kind="push" identifier="adPreloadingSegue" id="adPreloadingSegue-id"/>
                         <segue destination="Vch-k2-d8D" kind="push" identifier="collapsibleBannerSegue" id="GXC-5c-GCx"/>
                     </connections>
                 </tableViewController>
@@ -1116,6 +1117,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="267-3n-oPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1300" y="3587.9464285714284"/>
+        </scene>
+        <!--AdMob Ad Preloading-->
+        <scene sceneID="adPreloading-scene">
+            <objects>
+                <viewController id="adPreloadingVC" customClass="AdMobAdPreloadingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="adPreloading-top"/>
+                        <viewControllerLayoutGuide type="bottom" id="adPreloading-bottom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="adPreloading-view">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adPreloading-scroll">
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="adPreloading-stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="AdMob - Ad Preloading" id="adPreloading-nav"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="preloadContainer" destination="adPreloading-stack" id="adPreloading-conn1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adPreloading-resp" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1300" y="4300"/>
         </scene>
     </scenes>
     <resources>
