@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_END
 
 @implementation AdPreloaderSnippets
 
-// [START start_preload]
 - (void)startPreloadingWithAdUnitID:(nonnull NSString *)adUnitID {
+  // [START start_preload]
   // Start the preloading initialization process.
   GADRequest *request = [GADRequest request];
   GADPreloadConfigurationV2 *interstitialConfig =
@@ -39,8 +39,17 @@ NS_ASSUME_NONNULL_END
   [GADInterstitialAdPreloader.sharedInstance preloadForPreloadID:adUnitID
                                                    configuration:interstitialConfig
                                                         delegate:self];
+  // [END start_preload]
 }
-// [END start_preload]
+
+- (void)setBufferSizeWithAdUnitID:(nonnull NSString *)adUnitID {
+  // [START set_buffer_size]
+  GADPreloadConfigurationV2 *preloadConfig =
+      [[GADPreloadConfigurationV2 alloc] initWithAdUnitID:adUnitID];
+  // Define a PreloadConfiguration and set the buffer size to 2 preloaded ads.
+  preloadConfig.bufferSize = 2;
+  // [END set_buffer_size]
+}
 
 // [START pollAndShowAd]
 - (void)showInterstitialAdWithAdUnitID:(nonnull NSString *)adUnitID {

@@ -22,16 +22,24 @@ private class AdPreloaderSnippets: UIViewController, PreloadDelegate,
   FullScreenContentDelegate
 {
 
-  // [START start_preload]
   private func startPreloading(adUnitID: String) {
+    // [START start_preload]
     // Start the preloading initialization process.
     let request = Request()
     let interstitialConfig = PreloadConfigurationV2(
       adUnitID: adUnitID, request: request)
     InterstitialAdPreloader.shared.preload(
       for: adUnitID, configuration: interstitialConfig, delegate: self)
+    // [END start_preload]
   }
-  // [END start_preload]
+
+  private func setBufferSize(adUnitID: String) {
+    // [START set_buffer_size]
+    let preloadConfig = PreloadConfigurationV2(adUnitID: adUnitID)
+    // Define a PreloadConfiguration and set the buffer size to 2 preloaded ads.
+    preloadConfig.bufferSize = 2
+    // [END set_buffer_size]
+  }
 
   // [START pollAndShowAd]
   private func showInterstitialAd(adUnitID: String) {
