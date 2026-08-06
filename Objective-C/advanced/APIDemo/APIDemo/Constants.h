@@ -25,6 +25,9 @@ static NSString *const AdUnitIDBanner = @"ca-app-pub-3940256099942544/2934735716
 /// Collapsible banner ad unit ID.
 static NSString *const AdUnitIDCollapsibleBanner = @"ca-app-pub-3940256099942544/8388050270";
 
+/// Swipeable interstitial ad unit ID.
+static NSString *const AdUnitIDSwipeableInterstitial = @"ca-app-pub-3940256099942544/2737863066";
+
 /// GAM PPID ad unit ID.
 static NSString *const AdUnitIDAdManagerPPID = @"/21775744923/example/api-demo/ppid";
 

@@ -70,6 +70,7 @@
                         <segue destination="85K-uZ-lc0" kind="push" identifier="customMuteSegue" id="wZD-GP-O3D"/>
                         <segue destination="adPreloadingVC" kind="push" identifier="adPreloadingSegue" id="adPreloadingSegue-id"/>
                         <segue destination="Vch-k2-d8D" kind="push" identifier="collapsibleBannerSegue" id="GXC-5c-GCx"/>
+                        <segue destination="SWP-SI-OBJCDEMO" kind="push" identifier="swipeableSegue" id="SWP-SI-SEGUE1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -1153,6 +1154,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adPreloading-resp" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1300" y="4300"/>
+        </scene>
+        <!--Swipeable Interstitial Ad Scene-->
+        <scene sceneID="SWP-SI-SCN1">
+            <objects>
+                <viewController title="Swipeable Interstitial Ad Scene" id="SWP-SI-OBJCDEMO" customClass="SwipeableInterstitialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="swp-top-g"/>
+                        <viewControllerLayoutGuide type="bottom" id="swp-bot-g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="swp-v1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Swipeable Interstitial Ad Scene" id="swp-nav-i1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swp-fr-1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="582"/>
         </scene>
     </scenes>
     <resources>

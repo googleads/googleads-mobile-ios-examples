@@ -49,6 +49,11 @@
 		ADPRELOAD23 /* PreloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD24 /* PreloadView.swift */; };
 		ADPRELOAD25 /* PreloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD26 /* PreloadView.xib */; };
 		ADPRELOAD31 /* AdPreloaderSnippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD32 /* AdPreloaderSnippets.swift */; };
+		EFC7124A2AD853D80014A2A1 /* SwipeableInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712492AD853D80014A2A1 /* SwipeableInterstitialViewController.swift */; };
+		EFC7124A2AD853D80014A2A2 /* SwipeableFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712492AD853D80014A2A2 /* SwipeableFeedView.swift */; };
+		EFC7124A2AD853D80014A2A3 /* ContentSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712492AD853D80014A2A3 /* ContentSlideView.swift */; };
+		EFC7124A2AD853D80014A2A5 /* AdViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712492AD853D80014A2A5 /* AdViewRepresentable.swift */; };
+		EFC7124A2AD853D80014A2A6 /* SwipeableFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712492AD853D80014A2A6 /* SwipeableFeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +101,11 @@
 		ADPRELOAD24 /* PreloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadView.swift; sourceTree = "<group>"; };
 		ADPRELOAD26 /* PreloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreloadView.xib; sourceTree = "<group>"; };
 		ADPRELOAD32 /* AdPreloaderSnippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPreloaderSnippets.swift; sourceTree = "<group>"; };
+		EFC712492AD853D80014A2A1 /* SwipeableInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableInterstitialViewController.swift; sourceTree = "<group>"; };
+		EFC712492AD853D80014A2A2 /* SwipeableFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableFeedView.swift; sourceTree = "<group>"; };
+		EFC712492AD853D80014A2A3 /* ContentSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSlideView.swift; sourceTree = "<group>"; };
+		EFC712492AD853D80014A2A5 /* AdViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewRepresentable.swift; sourceTree = "<group>"; };
+		EFC712492AD853D80014A2A6 /* SwipeableFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableFeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +163,7 @@
 				507818ED219A417E00E5A44A /* AdManagerMultipleAdSizesViewController.swift */,
 				507818EF219A417F00E5A44A /* AdManagerPPIDViewController.swift */,
 				EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */,
+				EFC712492AD853D80014A2AA /* SwipeableInterstitial */,
 				4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */,
 				4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */,
 				4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */,
@@ -163,6 +174,18 @@
 				AED11115203213DF00EA4BEE /* AdManagerCustomVideoControls */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EFC712492AD853D80014A2AA /* SwipeableInterstitial */ = {
+			isa = PBXGroup;
+			children = (
+				EFC712492AD853D80014A2A1 /* SwipeableInterstitialViewController.swift */,
+				EFC712492AD853D80014A2A2 /* SwipeableFeedView.swift */,
+				EFC712492AD853D80014A2A3 /* ContentSlideView.swift */,
+				EFC712492AD853D80014A2A5 /* AdViewRepresentable.swift */,
+				EFC712492AD853D80014A2A6 /* SwipeableFeedViewModel.swift */,
+			);
+			path = SwipeableInterstitial;
 			sourceTree = "<group>";
 		};
 		A8B650372DD63E0F00AE1D3F /* Snippets */ = {
@@ -305,6 +328,11 @@
 				A8C4F29F2EDF549D00A8615A /* ImpressionLevelAdRevenueSnippets.swift in Sources */,
 				A846F1C12E2583D200F96E49 /* RewardedAdSnippets.swift in Sources */,
 				EFC712462AD853D80014A2BF /* CollapsibleBannerViewController.swift in Sources */,
+				EFC7124A2AD853D80014A2A1 /* SwipeableInterstitialViewController.swift in Sources */,
+				EFC7124A2AD853D80014A2A2 /* SwipeableFeedView.swift in Sources */,
+				EFC7124A2AD853D80014A2A3 /* ContentSlideView.swift in Sources */,
+				EFC7124A2AD853D80014A2A5 /* AdViewRepresentable.swift in Sources */,
+				EFC7124A2AD853D80014A2A6 /* SwipeableFeedViewModel.swift in Sources */,
 				AED111282032174100EA4BEE /* CustomControlsView.swift in Sources */,
 				A8B650362DD63E0300AE1D3F /* RequestConfigurationSnippets.swift in Sources */,
 				EF25D02C2E4B980C00688F43 /* RewardedInterstitialAdSnippets.swift in Sources */,

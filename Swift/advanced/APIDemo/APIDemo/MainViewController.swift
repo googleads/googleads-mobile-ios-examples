@@ -31,13 +31,13 @@ class MainViewController: UITableViewController {
       "AdMob - Native Custom Mute This Ad", "AdMob - Ad Preloading",
       "AdManager - PPID", "AdManager - Custom Targeting", "AdManager - Category Exclusions",
       "AdManager - Multiple Ad Sizes", "AdManager - App Events", "AdManager - Fluid Ad Size",
-      "AdManager - Custom Video Controls", "Collapsible Banner Ad",
+      "AdManager - Custom Video Controls", "Collapsible Banner Ad", "Swipeable Interstitial Ad",
     ]
     identifiers = [
       "adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "customMuteSegue",
       "adPreloadingSegue", "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
       "multipleAdSizesSegue", "appEventsSegue", "fluidAdSizeSegue",
-      "customControlsSegue", "collapsibleSegue",
+      "customControlsSegue", "collapsibleSegue", "swipeableSegue",
     ]
   }
 
