@@ -28,6 +28,7 @@
 #import "GAMFluidAdSizeViewController.h"
 #import "GAMMultipleAdSizesViewController.h"
 #import "GAMPPIDViewController.h"
+#import "SwipeableInterstitialViewController.h"
 
 @interface MainViewController ()
 
@@ -49,13 +50,13 @@
     @"AdMob - Native Custom Mute This Ad", @"AdMob - Ad Preloading", @"Ad Manager - PPID", @"Ad Manager - Custom Targeting",
     @"Ad Manager - Category Exclusions", @"Ad Manager - Multiple Ad Sizes",
     @"Ad Manager - App Events", @"Ad Manager - Fluid Ad Size",
-    @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad"
+    @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad", @"Swipeable Interstitial Ad"
   ];
 
   self.identifiers = @[
     @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue", @"adPreloadingSegue", @"PPIDSegue",
     @"customTargetingSegue", @"categoryExclusionsSegue", @"multipleAdSizesSegue", @"appEventsSegue",
-    @"fluidAdSizeSegue", @"customControlsSegue", @"collapsibleBannerSegue"
+    @"fluidAdSizeSegue", @"customControlsSegue", @"collapsibleBannerSegue", @"swipeableSegue"
   ];
 }
 
