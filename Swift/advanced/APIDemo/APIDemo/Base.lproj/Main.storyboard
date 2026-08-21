@@ -597,21 +597,21 @@
                         <sections>
                             <tableViewSection headerTitle=" " id="FIo-PO-8sP">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="childDirectedCell" textLabel="3a7-hJ-Sa3" detailTextLabel="BKy-la-d6k" style="IBUITableViewCellStyleValue1" id="tvQ-oj-Ypv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ageRestrictedCell" textLabel="3a7-hJ-Sa3" detailTextLabel="BKy-la-d6k" style="IBUITableViewCellStyleValue1" id="tvQ-oj-Ypv">
                                         <rect key="frame" x="0.0" y="50" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tvQ-oj-Ypv" id="pWW-Uv-tDO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Child-Directed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3a7-hJ-Sa3">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Age-Restricted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3a7-hJ-Sa3">
                                                     <rect key="frame" x="16" y="13" width="106.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Child-Directed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BKy-la-d6k">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Unspecified" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BKy-la-d6k">
                                                     <rect key="frame" x="197.5" y="13" width="106.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -621,14 +621,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="childDirectedPickerCell" rowHeight="150" id="cQc-3G-Znc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ageRestrictedPickerCell" rowHeight="150" id="cQc-3G-Znc">
                                         <rect key="frame" x="0.0" y="94" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQc-3G-Znc" id="fAs-ir-swQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-yp-EgL" userLabel="Child-Directed Picker View">
+                                                <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONJ-yp-EgL" userLabel="Age-Restricted Picker View">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                                 </pickerView>
                                             </subviews>
@@ -712,8 +712,8 @@
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
                         <outlet property="bannerView" destination="3M9-NT-Wd4" id="b53-ab-3Ii"/>
-                        <outlet property="childDirectedLabel" destination="BKy-la-d6k" id="OCj-ej-Eis"/>
-                        <outlet property="childDirectedPicker" destination="ONJ-yp-EgL" id="lLR-2m-pji"/>
+                        <outlet property="ageRestrictedLabel" destination="BKy-la-d6k" id="OCj-ej-Eis"/>
+                        <outlet property="ageRestrictedPicker" destination="ONJ-yp-EgL" id="lLR-2m-pji"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIK-5P-mym" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,8 +19,8 @@ import UIKit
 
 /// The constants for AdMobAdTargeting table cell identifiers.
 struct AdMobAdTargetingTableCellIdentifiers {
-  static let ChildDirectedCell = "childDirectedCell"
-  static let ChildDirectedPickerCell = "childDirectedPickerCell"
+  static let ageRestrictedCell = "ageRestrictedCell"
+  static let ageRestrictedPickerCell = "ageRestrictedPickerCell"
 }
 
 /// AdMob - Ad Targeting
@@ -29,17 +29,17 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   UIPickerViewDelegate
 {
 
-  /// The child-directed label.
-  @IBOutlet weak var childDirectedLabel: UILabel!
+  /// The age-restricted treatment label.
+  @IBOutlet weak var ageRestrictedLabel: UILabel!
 
-  /// The child-directed picker.
-  @IBOutlet weak var childDirectedPicker: UIPickerView!
+  /// The age-restricted treatment picker.
+  @IBOutlet weak var ageRestrictedPicker: UIPickerView!
 
   /// The banner view.
   @IBOutlet weak var bannerView: BannerView!
 
-  /// The child-directed options.
-  var childDirectedOptions: [String]!
+  /// The age-restricted treatment options.
+  var ageRestrictedOptions: [String]!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,14 +50,14 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     bannerView.rootViewController = self
     bannerView.delegate = self
 
-    // Child-directed setup.
-    childDirectedOptions = ["Yes", "No", "Unspecified"]
-    childDirectedPicker.delegate = self
-    childDirectedPicker.dataSource = self
-    let childDirectedPickerMiddleRow = childDirectedOptions.count / 2
-    childDirectedPicker.selectRow(
-      childDirectedPickerMiddleRow, inComponent: 0,
+    // Age-restricted setup.
+    ageRestrictedOptions = ["Child", "Teen", "Unspecified"]
+    ageRestrictedPicker.delegate = self
+    ageRestrictedPicker.dataSource = self
+    ageRestrictedPicker.selectRow(
+      0, inComponent: 0,
       animated: false)
+    ageRestrictedLabel.text = ageRestrictedOptions[0]
   }
 
   // MARK: - UITableViewDelegate
@@ -67,8 +67,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     var currentPicker: UIView?
     if let cellIdentifier = cell?.reuseIdentifier {
       switch cellIdentifier {
-      case AdMobAdTargetingTableCellIdentifiers.ChildDirectedCell:
-        currentPicker = childDirectedPicker
+      case AdMobAdTargetingTableCellIdentifiers.ageRestrictedCell:
+        currentPicker = ageRestrictedPicker
       default:
         break
       }
@@ -95,8 +95,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   {
     let cell = self.tableView(tableView, cellForRowAt: indexPath)
     if let cellIdentifier = cell.reuseIdentifier {
-      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ChildDirectedPickerCell
-        && childDirectedPicker.isHidden
+      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ageRestrictedPickerCell
+        && ageRestrictedPicker.isHidden
       {
         return 0
       }
@@ -111,8 +111,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   {
     var rowTitle = ""
     switch pickerView {
-    case childDirectedPicker:
-      rowTitle = childDirectedOptions[row]
+    case ageRestrictedPicker:
+      rowTitle = ageRestrictedOptions[row]
     default:
       rowTitle = ""
     }
@@ -121,8 +121,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     switch pickerView {
-    case childDirectedPicker:
-      childDirectedLabel.text = childDirectedOptions[row]
+    case ageRestrictedPicker:
+      ageRestrictedLabel.text = ageRestrictedOptions[row]
     default:
       break
     }
@@ -137,8 +137,8 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     var numOfRows = 0
     switch pickerView {
-    case childDirectedPicker:
-      numOfRows = childDirectedOptions.count
+    case ageRestrictedPicker:
+      numOfRows = ageRestrictedOptions.count
     default:
       numOfRows = 0
     }
@@ -147,19 +147,22 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
 
   // MARK: - Actions
 
-  /// Loads an ad based on user's birthdate, gender, and child-directed status.
+  /// Loads an ad based on age-restricted treatment.
   @IBAction func loadTargetedAd(_ sender: AnyObject) {
     let request = Request()
-    if childDirectedLabel.text == "Yes" {
-      MobileAds.shared.requestConfiguration.tagForChildDirectedTreatment = true
-    } else if childDirectedLabel.text == "No" {
-      MobileAds.shared.requestConfiguration.tagForChildDirectedTreatment = false
+    switch ageRestrictedLabel.text {
+    case "Child":
+      MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .child
+    case "Teen":
+      MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .teen
+    default:
+      MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .unspecified
     }
     bannerView.load(request)
   }
 
   fileprivate func hideAllPickers() {
-    childDirectedPicker.isHidden = true
+    ageRestrictedPicker.isHidden = true
   }
 
 }
