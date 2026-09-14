@@ -14,7 +14,8 @@
 //  limitations under the License.
 //
 
-@import GoogleMobileAds;
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <UIKit/UIKit.h>
 
 @interface MobileAdsSnippets : NSObject
 @end

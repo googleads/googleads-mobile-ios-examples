@@ -14,8 +14,9 @@
 //  limitations under the License.
 //
 
-@import GoogleMobileAds;
-@import GoogleMobileAds_Beta;
+#import <Foundation/Foundation.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <GoogleMobileAds/GoogleMobileAds_Beta.h>
 
 static NSString *const kTestAdUnitID = @"ca-app-pub-3940256099942544/5662855259";
 static NSString *const kTestAdapterClassName = @"ExampleMediationAdapter";

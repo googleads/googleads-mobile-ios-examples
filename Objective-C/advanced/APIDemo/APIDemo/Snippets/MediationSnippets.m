@@ -14,7 +14,8 @@
 //  limitations under the License.
 //
 
-@import GoogleMobileAds;
+#import <Foundation/Foundation.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface MediationSnippets : NSObject
 @end
