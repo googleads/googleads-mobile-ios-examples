@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AEBD5701BF0109B00874961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBD56F1BF0109B00874961 /* AppDelegate.swift */; };
+		3BA61B0D376B20DEA65FA46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E3C1B7C765231A1358323 /* SceneDelegate.swift */; };
 		4AEBD5721BF0109B00874961 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBD5711BF0109B00874961 /* ViewController.swift */; };
 		4AEBD5751BF0109B00874961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5731BF0109B00874961 /* Main.storyboard */; };
 		4AEBD5771BF0109B00874961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBD5761BF0109B00874961 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		4AEBD56C1BF0109B00874961 /* NativeAdvancedExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeAdvancedExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEBD56F1BF0109B00874961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		910E3C1B7C765231A1358323 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4AEBD5711BF0109B00874961 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4AEBD5741BF0109B00874961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AEBD5761BF0109B00874961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				4AEBD56F1BF0109B00874961 /* AppDelegate.swift */,
+				910E3C1B7C765231A1358323 /* SceneDelegate.swift */,
 				A8DD02972A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift */,
 				4AEBD5711BF0109B00874961 /* ViewController.swift */,
 				4AEBD5731BF0109B00874961 /* Main.storyboard */,
@@ -152,6 +155,7 @@
 				4AEBD5721BF0109B00874961 /* ViewController.swift in Sources */,
 				A8DD02982A7BEFC9001530DF /* GoogleMobileAdsConsentManager.swift in Sources */,
 				4AEBD5701BF0109B00874961 /* AppDelegate.swift in Sources */,
+				3BA61B0D376B20DEA65FA46E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

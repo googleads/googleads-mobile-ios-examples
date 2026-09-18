@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50A6A5F52196462C004B500E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A6A5E52196462B004B500E /* AppDelegate.m */; };
+		D91B68B2924DDD38C0DCF803 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02135AA3985F010A803696FE /* SceneDelegate.m */; };
 		50A6A5F62196462C004B500E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A6A5E62196462B004B500E /* LaunchScreen.xib */; };
 		50A6A5F72196462C004B500E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A6A5E82196462B004B500E /* Main.storyboard */; };
 		50A6A5F82196462C004B500E /* SimpleCustomNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A6A5EA2196462B004B500E /* SimpleCustomNativeAdView.xib */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		50A6A5E42196462B004B500E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A6A5E52196462B004B500E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A5BF6FBD1D877C63FFF33F05 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		02135AA3985F010A803696FE /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		50A6A5E72196462B004B500E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		50A6A5E92196462B004B500E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50A6A5EB2196462B004B500E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimpleCustomNativeAdView.xib; sourceTree = "<group>"; };
@@ -56,6 +59,8 @@
 			children = (
 				50A6A5E42196462B004B500E /* AppDelegate.h */,
 				50A6A5E52196462B004B500E /* AppDelegate.m */,
+				A5BF6FBD1D877C63FFF33F05 /* SceneDelegate.h */,
+				02135AA3985F010A803696FE /* SceneDelegate.m */,
 				A8DD029F2A7C0117001530DF /* GoogleMobileAdsConsentManager.h */,
 				A8DD029E2A7C0117001530DF /* GoogleMobileAdsConsentManager.m */,
 				50A6A5E62196462B004B500E /* LaunchScreen.xib */,
@@ -170,6 +175,7 @@
 				50A6A5FC2196462C004B500E /* MySimpleNativeAdView.m in Sources */,
 				50A6A5FE2196462C004B500E /* main.m in Sources */,
 				50A6A5F52196462C004B500E /* AppDelegate.m in Sources */,
+				D91B68B2924DDD38C0DCF803 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

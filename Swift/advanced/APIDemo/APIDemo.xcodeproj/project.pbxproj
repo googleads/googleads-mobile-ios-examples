@@ -12,6 +12,7 @@
 		1CD352682C9CC97200534FCC /* CustomControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD352672C9CC97200534FCC /* CustomControls.xib */; };
 		4A7A6CD71C76237500FB1A32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A6CD61C76237500FB1A32 /* Constants.swift */; };
 		4AA7D6911C625A1200DFD2EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7D6901C625A1200DFD2EB /* AppDelegate.swift */; };
+		CC79C6AA82F56DB6EFC0304C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DCB3D5DB45C593E379728 /* SceneDelegate.swift */; };
 		4AA7D6961C625A1200DFD2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA7D6941C625A1200DFD2EB /* Main.storyboard */; };
 		4AA7D6981C625A1200DFD2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA7D6971C625A1200DFD2EB /* Assets.xcassets */; };
 		4AA7D69B1C625A1200DFD2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA7D6991C625A1200DFD2EB /* LaunchScreen.storyboard */; };
@@ -64,6 +65,7 @@
 		4A7A6CD61C76237500FB1A32 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA7D68D1C625A1200DFD2EB /* APIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA7D6901C625A1200DFD2EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		816DCB3D5DB45C593E379728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4AA7D6951C625A1200DFD2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AA7D6971C625A1200DFD2EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AA7D69A1C625A1200DFD2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA7D6901C625A1200DFD2EB /* AppDelegate.swift */,
+				816DCB3D5DB45C593E379728 /* SceneDelegate.swift */,
 				4A7A6CD61C76237500FB1A32 /* Constants.swift */,
 				4AA7D6941C625A1200DFD2EB /* Main.storyboard */,
 				4AA7D6A41C625ABD00DFD2EB /* Controllers */,
@@ -310,6 +313,7 @@
 				A816AF242EE1F4000074BDF2 /* AdManagerBannerSnippets.swift in Sources */,
 				507818F5219A418100E5A44A /* AdManagerCategoryExclusionsTableViewController.swift in Sources */,
 				4AA7D6911C625A1200DFD2EB /* AppDelegate.swift in Sources */,
+				CC79C6AA82F56DB6EFC0304C /* SceneDelegate.swift in Sources */,
 				4AA7D6AC1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift in Sources */,
 				A816AF222EE1EF540074BDF2 /* NativeAdSnippets.swift in Sources */,
 				A8265F712E4F884500A9C150 /* NativeAdOptionsSnippets.swift in Sources */,

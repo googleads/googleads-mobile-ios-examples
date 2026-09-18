@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		507818E72199E6C200E5A44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818DF2199E6C100E5A44A /* AppDelegate.swift */; };
+		5DAEED6C268543CE6A7F5275 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C52296FFFC5081100BE3 /* SceneDelegate.swift */; };
 		507818E82199E6C200E5A44A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507818E02199E6C100E5A44A /* LaunchScreen.xib */; };
 		507818E92199E6C200E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818E22199E6C100E5A44A /* Main.storyboard */; };
 		507818EA2199E6C200E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818E42199E6C100E5A44A /* Images.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		507818DF2199E6C100E5A44A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24B8C52296FFFC5081100BE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		507818E12199E6C100E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		507818E32199E6C100E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		507818E42199E6C100E5A44A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				507818DF2199E6C100E5A44A /* AppDelegate.swift */,
+				24B8C52296FFFC5081100BE3 /* SceneDelegate.swift */,
 				A863BE4F2A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift */,
 				507818E02199E6C100E5A44A /* LaunchScreen.xib */,
 				507818E22199E6C100E5A44A /* Main.storyboard */,
@@ -149,6 +152,7 @@
 				507818EC2199E6C200E5A44A /* ViewController.swift in Sources */,
 				A863BE502A8FCE3400910FF5 /* GoogleMobileAdsConsentManager.swift in Sources */,
 				507818E72199E6C200E5A44A /* AppDelegate.swift in Sources */,
+				5DAEED6C268543CE6A7F5275 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

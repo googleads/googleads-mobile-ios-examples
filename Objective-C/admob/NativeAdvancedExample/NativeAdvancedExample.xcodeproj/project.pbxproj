@@ -11,6 +11,7 @@
 		A8DD029D2A7BFCED001530DF /* GoogleMobileAdsConsentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD029B2A7BFCED001530DF /* GoogleMobileAdsConsentManager.m */; };
 		CF9335BD1B26706400DEF1B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9335BC1B26706400DEF1B4 /* main.m */; };
 		CF9335C01B26706400DEF1B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9335BF1B26706400DEF1B4 /* AppDelegate.m */; };
+		347D27151C98C9D28BB073F7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2873CBDC7717C158FA62A /* SceneDelegate.m */; };
 		CF9335C31B26706400DEF1B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9335C21B26706400DEF1B4 /* ViewController.m */; };
 		CF9335C61B26706400DEF1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C41B26706400DEF1B4 /* Main.storyboard */; };
 		CF9335C81B26706400DEF1B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C71B26706400DEF1B4 /* Images.xcassets */; };
@@ -26,6 +27,8 @@
 		CF9335BC1B26706400DEF1B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF9335BE1B26706400DEF1B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CF9335BF1B26706400DEF1B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5776EB1DBAF7073461867054 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		89F2873CBDC7717C158FA62A /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		CF9335C11B26706400DEF1B4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CF9335C21B26706400DEF1B4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CF9335C51B26706400DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 			children = (
 				CF9335BE1B26706400DEF1B4 /* AppDelegate.h */,
 				CF9335BF1B26706400DEF1B4 /* AppDelegate.m */,
+				5776EB1DBAF7073461867054 /* SceneDelegate.h */,
+				89F2873CBDC7717C158FA62A /* SceneDelegate.m */,
 				A8DD029C2A7BFCED001530DF /* GoogleMobileAdsConsentManager.h */,
 				A8DD029B2A7BFCED001530DF /* GoogleMobileAdsConsentManager.m */,
 				CF9335C11B26706400DEF1B4 /* ViewController.h */,
@@ -167,6 +172,7 @@
 				A8DD029D2A7BFCED001530DF /* GoogleMobileAdsConsentManager.m in Sources */,
 				CF9335C31B26706400DEF1B4 /* ViewController.m in Sources */,
 				CF9335C01B26706400DEF1B4 /* AppDelegate.m in Sources */,
+				347D27151C98C9D28BB073F7 /* SceneDelegate.m in Sources */,
 				CF9335BD1B26706400DEF1B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

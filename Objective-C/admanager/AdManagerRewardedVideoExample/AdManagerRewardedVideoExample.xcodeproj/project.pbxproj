@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		507818A22196508400E5A44A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 507818982196508300E5A44A /* AppDelegate.m */; };
+		35E79BEA37F3D4B741AF1B72 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5BED35672D1C30183ECB5A /* SceneDelegate.m */; };
 		507818A32196508400E5A44A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507818992196508300E5A44A /* LaunchScreen.xib */; };
 		507818A42196508400E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5078189B2196508300E5A44A /* Main.storyboard */; };
 		507818A52196508400E5A44A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5078189D2196508300E5A44A /* Images.xcassets */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		507818972196508300E5A44A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		507818982196508300E5A44A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8825BB9BF40CD2F8ADB79723 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		AD5BED35672D1C30183ECB5A /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		5078189A2196508300E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5078189C2196508300E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5078189D2196508300E5A44A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,8 @@
 			children = (
 				507818972196508300E5A44A /* AppDelegate.h */,
 				507818982196508300E5A44A /* AppDelegate.m */,
+				8825BB9BF40CD2F8ADB79723 /* SceneDelegate.h */,
+				AD5BED35672D1C30183ECB5A /* SceneDelegate.m */,
 				A863BE552A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.h */,
 				A863BE542A8FD8A200910FF5 /* GoogleMobileAdsConsentManager.m */,
 				507818992196508300E5A44A /* LaunchScreen.xib */,
@@ -156,6 +161,7 @@
 				507818A72196508400E5A44A /* ViewController.m in Sources */,
 				507818A82196508400E5A44A /* main.m in Sources */,
 				507818A22196508400E5A44A /* AppDelegate.m in Sources */,
+				35E79BEA37F3D4B741AF1B72 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

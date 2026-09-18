@@ -11,6 +11,7 @@
 		A87150112F44E12300FB9514 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A87150102F44E12300FB9514 /* GoogleMobileAds */; };
 		A8C4B65D2C52B1E4005E047B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C4B65C2C52B1E4005E047B /* MainViewController.m */; };
 		EF5BBBF228F4816400DBC4FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBE728F4816400DBC4FA /* AppDelegate.m */; };
+		BCCE77178A626F3A53DED163 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B33BB9AB35783A42241622 /* SceneDelegate.m */; };
 		EF5BBBF328F4816400DBC4FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBE828F4816400DBC4FA /* LaunchScreen.xib */; };
 		EF5BBBF428F4816400DBC4FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBEA28F4816400DBC4FA /* Main.storyboard */; };
 		EF5BBBF528F4816400DBC4FA /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBEC28F4816400DBC4FA /* NativeAdView.xib */; };
@@ -26,6 +27,8 @@
 		CF9335B71B26706400DEF1B4 /* FullScreenNativeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FullScreenNativeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5BBBE628F4816400DBC4FA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF5BBBE728F4816400DBC4FA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F24F1F245F75AD0DC91F9C1 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		18B33BB9AB35783A42241622 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		EF5BBBE928F4816400DBC4FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EF5BBBEB28F4816400DBC4FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF5BBBED28F4816400DBC4FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAdView.xib; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 			children = (
 				EF5BBBE628F4816400DBC4FA /* AppDelegate.h */,
 				EF5BBBE728F4816400DBC4FA /* AppDelegate.m */,
+				9F24F1F245F75AD0DC91F9C1 /* SceneDelegate.h */,
+				18B33BB9AB35783A42241622 /* SceneDelegate.m */,
 				A864A1E32C5199560030C5CA /* GoogleMobileAdsConsentManager.h */,
 				A864A1E22C5199560030C5CA /* GoogleMobileAdsConsentManager.m */,
 				EF5BBBE828F4816400DBC4FA /* LaunchScreen.xib */,
@@ -159,6 +164,7 @@
 			files = (
 				A864A1E42C5199560030C5CA /* GoogleMobileAdsConsentManager.m in Sources */,
 				EF5BBBF228F4816400DBC4FA /* AppDelegate.m in Sources */,
+				BCCE77178A626F3A53DED163 /* SceneDelegate.m in Sources */,
 				EF5BBBF828F4816400DBC4FA /* main.m in Sources */,
 				A8C4B65D2C52B1E4005E047B /* MainViewController.m in Sources */,
 				EF5BBBF728F4816400DBC4FA /* NativeAdViewController.m in Sources */,

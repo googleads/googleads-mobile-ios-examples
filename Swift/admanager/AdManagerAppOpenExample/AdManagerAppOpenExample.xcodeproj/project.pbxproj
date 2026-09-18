@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B658142272B2A5B000EC8AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B658138272B2A5B000EC8AB /* AppDelegate.swift */; };
+		522B8996F79C558905024992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1ED91811A590E69B4936EC /* SceneDelegate.swift */; };
 		2B658143272B2A5B000EC8AB /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B658139272B2A5B000EC8AB /* AppOpenAdManager.swift */; };
 		2B658144272B2A5B000EC8AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B65813A272B2A5B000EC8AB /* Assets.xcassets */; };
 		2B658145272B2A5B000EC8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B65813B272B2A5B000EC8AB /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		2B658138272B2A5B000EC8AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6A1ED91811A590E69B4936EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2B658139272B2A5B000EC8AB /* AppOpenAdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
 		2B65813A272B2A5B000EC8AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B65813C272B2A5B000EC8AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				2B658138272B2A5B000EC8AB /* AppDelegate.swift */,
+				6A1ED91811A590E69B4936EC /* SceneDelegate.swift */,
 				2B658139272B2A5B000EC8AB /* AppOpenAdManager.swift */,
 				A89F3F2B2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift */,
 				2B65813A272B2A5B000EC8AB /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 				2B658143272B2A5B000EC8AB /* AppOpenAdManager.swift in Sources */,
 				A89F3F2C2A8A981C00ADB803 /* GoogleMobileAdsConsentManager.swift in Sources */,
 				2B658142272B2A5B000EC8AB /* AppDelegate.swift in Sources */,
+				522B8996F79C558905024992 /* SceneDelegate.swift in Sources */,
 				2B658149272B2A5B000EC8AB /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

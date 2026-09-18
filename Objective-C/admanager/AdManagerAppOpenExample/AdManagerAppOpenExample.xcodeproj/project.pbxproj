@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B15BE4D2707A49600B39A12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE3F2707A49600B39A12 /* AppDelegate.m */; };
+		3A823E43467D766865AD6E73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3726A6581C2212639E9271B1 /* SceneDelegate.m */; };
 		2B15BE4E2707A49600B39A12 /* AppOpenAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B15BE412707A49600B39A12 /* AppOpenAdManager.m */; };
 		2B15BE4F2707A49600B39A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B15BE422707A49600B39A12 /* Assets.xcassets */; };
 		2B15BE502707A49600B39A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B15BE432707A49600B39A12 /* LaunchScreen.storyboard */; };
@@ -22,6 +23,8 @@
 /* Begin PBXFileReference section */
 		2B15BE3E2707A49600B39A12 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B15BE3F2707A49600B39A12 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		30FDC46B5EBCA1867E493541 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		3726A6581C2212639E9271B1 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		2B15BE402707A49600B39A12 /* AppOpenAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppOpenAdManager.h; sourceTree = "<group>"; };
 		2B15BE412707A49600B39A12 /* AppOpenAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppOpenAdManager.m; sourceTree = "<group>"; };
 		2B15BE422707A49600B39A12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 			children = (
 				2B15BE3E2707A49600B39A12 /* AppDelegate.h */,
 				2B15BE3F2707A49600B39A12 /* AppDelegate.m */,
+				30FDC46B5EBCA1867E493541 /* SceneDelegate.h */,
+				3726A6581C2212639E9271B1 /* SceneDelegate.m */,
 				2B15BE402707A49600B39A12 /* AppOpenAdManager.h */,
 				2B15BE412707A49600B39A12 /* AppOpenAdManager.m */,
 				A89F3F312A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.h */,
@@ -166,6 +171,7 @@
 				A89F3F322A8ABCA400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */,
 				2B15BE532707A49600B39A12 /* MainViewController.m in Sources */,
 				2B15BE4D2707A49600B39A12 /* AppDelegate.m in Sources */,
+				3A823E43467D766865AD6E73 /* SceneDelegate.m in Sources */,
 				2B15BE542707A49600B39A12 /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

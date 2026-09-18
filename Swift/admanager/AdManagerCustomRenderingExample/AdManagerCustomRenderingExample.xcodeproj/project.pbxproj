@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		507818D52199E5DA00E5A44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507818C82199E5D900E5A44A /* AppDelegate.swift */; };
+		8FD85DDCE9E62B21FEF4F6F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520788A146D5B1A482F491D5 /* SceneDelegate.swift */; };
 		507818D62199E5DA00E5A44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507818C92199E5D900E5A44A /* Assets.xcassets */; };
 		507818D72199E5DA00E5A44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818CA2199E5D900E5A44A /* LaunchScreen.storyboard */; };
 		507818D82199E5DA00E5A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507818CC2199E5D900E5A44A /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		4AEBD8B01BF01CF200874961 /* AdManagerCustomRenderingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdManagerCustomRenderingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507818C82199E5D900E5A44A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		520788A146D5B1A482F491D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		507818C92199E5D900E5A44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		507818CB2199E5D900E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		507818CD2199E5D900E5A44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				507818C82199E5D900E5A44A /* AppDelegate.swift */,
+				520788A146D5B1A482F491D5 /* SceneDelegate.swift */,
 				A8DD02992A7BF778001530DF /* GoogleMobileAdsConsentManager.swift */,
 				507818C92199E5D900E5A44A /* Assets.xcassets */,
 				507818CA2199E5D900E5A44A /* LaunchScreen.storyboard */,
@@ -160,6 +163,7 @@
 				507818DD2199E5DA00E5A44A /* ViewController.swift in Sources */,
 				507818DC2199E5DA00E5A44A /* MySimpleNativeAdView.swift in Sources */,
 				507818D52199E5DA00E5A44A /* AppDelegate.swift in Sources */,
+				8FD85DDCE9E62B21FEF4F6F6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

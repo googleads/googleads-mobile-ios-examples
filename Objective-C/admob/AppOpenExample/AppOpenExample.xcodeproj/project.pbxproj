@@ -11,6 +11,7 @@
 		2BA7163326F073B700D9382D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7163226F073B700D9382D /* SplashViewController.m */; };
 		2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7163526F122A500D9382D /* AppOpenAdManager.m */; };
 		50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF72B022FE190400C450A7 /* AppDelegate.m */; };
+		BD370F16BB7C7699E98FE83A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF8DD9E66D84E9CA2741318 /* SceneDelegate.m */; };
 		50CF72B722FE190400C450A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B522FE190400C450A7 /* Main.storyboard */; };
 		50CF72B922FE190500C450A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72B822FE190500C450A7 /* Assets.xcassets */; };
 		50CF72BC22FE190600C450A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF72BA22FE190600C450A7 /* LaunchScreen.storyboard */; };
@@ -29,6 +30,8 @@
 		50CF72AC22FE190400C450A7 /* AppOpenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOpenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF72AF22FE190400C450A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50CF72B022FE190400C450A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BD49B9C29A518C9EA74BA600 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		FBF8DD9E66D84E9CA2741318 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		50CF72B622FE190400C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50CF72B822FE190500C450A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50CF72BB22FE190600C450A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 			children = (
 				50CF72AF22FE190400C450A7 /* AppDelegate.h */,
 				50CF72B022FE190400C450A7 /* AppDelegate.m */,
+				BD49B9C29A518C9EA74BA600 /* SceneDelegate.h */,
+				FBF8DD9E66D84E9CA2741318 /* SceneDelegate.m */,
 				2BA7163726F122C600D9382D /* AppOpenAdManager.h */,
 				2BA7163526F122A500D9382D /* AppOpenAdManager.m */,
 				A89F3F2D2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.h */,
@@ -165,6 +170,7 @@
 				2BA7163626F122A500D9382D /* AppOpenAdManager.m in Sources */,
 				A89F3F2F2A8AAD1400ADB803 /* GoogleMobileAdsConsentManager.m in Sources */,
 				50CF72B122FE190400C450A7 /* AppDelegate.m in Sources */,
+				BD370F16BB7C7699E98FE83A /* SceneDelegate.m in Sources */,
 				2B169D6926F1F41E00AB7B77 /* MainViewController.m in Sources */,
 				2BA7163326F073B700D9382D /* SplashViewController.m in Sources */,
 			);

@@ -12,6 +12,7 @@
 		1CD352992C9CE6A600534FCC /* CustomControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD352982C9CE6A600534FCC /* CustomControls.xib */; };
 		4A96E7211B856D5000031470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7201B856D5000031470 /* main.m */; };
 		4A96E7241B856D5000031470 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A96E7231B856D5000031470 /* AppDelegate.m */; };
+		A6FF5AE13CF144851D6A302C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F90D7C3C8CBD899A3E432F45 /* SceneDelegate.m */; };
 		4A96E72D1B856D5000031470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72B1B856D5000031470 /* Main.storyboard */; };
 		4A96E72F1B856D5000031470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E72E1B856D5000031470 /* Images.xcassets */; };
 		4A96E7321B856D5000031470 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A96E7301B856D5000031470 /* LaunchScreen.xib */; };
@@ -61,6 +62,8 @@
 		4A96E7201B856D5000031470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A96E7221B856D5000031470 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A96E7231B856D5000031470 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		58AAE47A25BCDA30AFFFB321 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		F90D7C3C8CBD899A3E432F45 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		4A96E72C1B856D5000031470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A96E72E1B856D5000031470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4A96E7311B856D5000031470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 			children = (
 				4A96E7221B856D5000031470 /* AppDelegate.h */,
 				4A96E7231B856D5000031470 /* AppDelegate.m */,
+				58AAE47A25BCDA30AFFFB321 /* SceneDelegate.h */,
+				F90D7C3C8CBD899A3E432F45 /* SceneDelegate.m */,
 				4A96E74D1B85766300031470 /* Constants.h */,
 				4A96E72B1B856D5000031470 /* Main.storyboard */,
 				4A96E7471B856E0D00031470 /* Controllers */,
@@ -329,6 +334,7 @@
 			files = (
 				EF25D0262E4B95F400688F43 /* RewardedInterstitialAdSnippets.m in Sources */,
 				4A96E7241B856D5000031470 /* AppDelegate.m in Sources */,
+				A6FF5AE13CF144851D6A302C /* SceneDelegate.m in Sources */,
 				4A96E7531B8578D600031470 /* AdMobBannerSizesViewController.m in Sources */,
 				AEC9AC0D2140985100E1DC91 /* AdMobNativeCustomMuteThisAdViewController.m in Sources */,
 				5038FC6D2511428A00750F9C /* MainViewController.m in Sources */,
