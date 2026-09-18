@@ -28,6 +28,7 @@
 #import "GAMFluidAdSizeViewController.h"
 #import "GAMMultipleAdSizesViewController.h"
 #import "GAMPPIDViewController.h"
+#import "PictureInPicture/PictureInPictureAdManager.h"
 #import "SwipeableInterstitialViewController.h"
 
 @interface MainViewController ()
@@ -47,16 +48,18 @@
 
   self.apiDemoNames = @[
     @"AdMob - Ad Delegate", @"AdMob - Ad Targeting", @"AdMob - Banner Sizes",
-    @"AdMob - Native Custom Mute This Ad", @"AdMob - Ad Preloading", @"Ad Manager - PPID", @"Ad Manager - Custom Targeting",
-    @"Ad Manager - Category Exclusions", @"Ad Manager - Multiple Ad Sizes",
-    @"Ad Manager - App Events", @"Ad Manager - Fluid Ad Size",
-    @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad", @"Swipeable Interstitial Ad"
+    @"AdMob - Native Custom Mute This Ad", @"AdMob - Ad Preloading", @"Ad Manager - PPID",
+    @"Ad Manager - Custom Targeting", @"Ad Manager - Category Exclusions",
+    @"Ad Manager - Multiple Ad Sizes", @"Ad Manager - App Events", @"Ad Manager - Fluid Ad Size",
+    @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad", @"Swipeable Interstitial Ad",
+    @"Picture-in-Picture Ad"
   ];
 
   self.identifiers = @[
-    @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue", @"adPreloadingSegue", @"PPIDSegue",
-    @"customTargetingSegue", @"categoryExclusionsSegue", @"multipleAdSizesSegue", @"appEventsSegue",
-    @"fluidAdSizeSegue", @"customControlsSegue", @"collapsibleBannerSegue", @"swipeableSegue"
+    @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue",
+    @"adPreloadingSegue", @"PPIDSegue", @"customTargetingSegue", @"categoryExclusionsSegue",
+    @"multipleAdSizesSegue", @"appEventsSegue", @"fluidAdSizeSegue", @"customControlsSegue",
+    @"collapsibleBannerSegue", @"swipeableSegue", @"pipSegue"
   ];
 }
 
@@ -89,6 +92,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   NSInteger row = indexPath.row;
   if (row < self.identifiers.count) {
+    if (![self.identifiers[row] isEqualToString:@"pipSegue"]) {
+      [PictureInPictureAdManager.sharedInstance destroyAd];
+    }
     [self performSegueWithIdentifier:self.identifiers[row] sender:self];
   }
 }
