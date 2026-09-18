@@ -50,6 +50,8 @@
 		ADPRELOAD05 /* PreloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD06 /* PreloadView.xib */; };
 		ADPRELOAD11 /* AdPreloaderSnippets.m in Sources */ = {isa = PBXBuildFile; fileRef = ADPRELOAD12 /* AdPreloaderSnippets.m */; };
 		202607060000000000000003 /* SwipeableInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202607060000000000000002 /* SwipeableInterstitialViewController.m */; };
+		202609180000000000000005 /* PictureInPictureAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 202609180000000000000002 /* PictureInPictureAdManager.m */; };
+		202609180000000000000006 /* PictureInPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202609180000000000000004 /* PictureInPictureViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,10 @@
 		ADPRELOAD12 /* AdPreloaderSnippets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdPreloaderSnippets.m; sourceTree = "<group>"; };
 		202607060000000000000001 /* SwipeableInterstitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeableInterstitialViewController.h; sourceTree = "<group>"; };
 		202607060000000000000002 /* SwipeableInterstitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeableInterstitialViewController.m; sourceTree = "<group>"; };
+		202609180000000000000001 /* PictureInPictureAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureInPictureAdManager.h; sourceTree = "<group>"; };
+		202609180000000000000002 /* PictureInPictureAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureInPictureAdManager.m; sourceTree = "<group>"; };
+		202609180000000000000003 /* PictureInPictureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureInPictureViewController.h; sourceTree = "<group>"; };
+		202609180000000000000004 /* PictureInPictureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureInPictureViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +165,20 @@
 				4A96E7301B856D5000031470 /* LaunchScreen.xib */,
 				4A96E71E1B856D5000031470 /* Supporting Files */,
 				A8B6503B2DD63FAB00AE1D3F /* Snippets */,
+				202609180000000000000007 /* PictureInPicture */,
 			);
 			path = APIDemo;
+			sourceTree = "<group>";
+		};
+		202609180000000000000007 /* PictureInPicture */ = {
+			isa = PBXGroup;
+			children = (
+				202609180000000000000001 /* PictureInPictureAdManager.h */,
+				202609180000000000000002 /* PictureInPictureAdManager.m */,
+				202609180000000000000003 /* PictureInPictureViewController.h */,
+				202609180000000000000004 /* PictureInPictureViewController.m */,
+			);
+			path = PictureInPicture;
 			sourceTree = "<group>";
 		};
 		4A96E71E1B856D5000031470 /* Supporting Files */ = {
@@ -362,6 +380,8 @@
 				ADPRELOAD01 /* AdMobAdPreloadingViewController.m in Sources */,
 				ADPRELOAD03 /* PreloadView.m in Sources */,
 				ADPRELOAD11 /* AdPreloaderSnippets.m in Sources */,
+				202609180000000000000005 /* PictureInPictureAdManager.m in Sources */,
+				202609180000000000000006 /* PictureInPictureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

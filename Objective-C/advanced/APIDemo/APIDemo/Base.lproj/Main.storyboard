@@ -71,6 +71,7 @@
                         <segue destination="adPreloadingVC" kind="push" identifier="adPreloadingSegue" id="adPreloadingSegue-id"/>
                         <segue destination="Vch-k2-d8D" kind="push" identifier="collapsibleBannerSegue" id="GXC-5c-GCx"/>
                         <segue destination="SWP-SI-OBJCDEMO" kind="push" identifier="swipeableSegue" id="SWP-SI-SEGUE1"/>
+                        <segue destination="PIP-AD-DEMO" kind="push" identifier="pipSegue" id="pipSegue-id"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -1174,10 +1175,227 @@
             </objects>
             <point key="canvasLocation" x="2700" y="582"/>
         </scene>
+        <!--Picture-in-Picture Ad-->
+        <scene sceneID="pip-ad-scn1">
+            <objects>
+                <viewController title="Picture-in-Picture Ad" id="PIP-AD-DEMO" customClass="PictureInPictureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pip-top-g"/>
+                        <viewControllerLayoutGuide type="bottom" id="pip-bot-g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pip-v1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pip-sv1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pip-cv1" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="420"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture-in-Picture ads display as a draggable floating window that snaps to screen corners and can persist across view controllers." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-desc">
+                                                <rect key="frame" x="16" y="16" width="343" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pip-v-card" userLabel="Options Card View">
+                                                <rect key="frame" x="16" y="86" width="343" height="206"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PictureInPictureAdOptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-opt-title">
+                                                        <rect key="frame" x="16" y="16" width="311" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="bold" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Applied when showing the ad." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-opt-desc">
+                                                        <rect key="frame" x="16" y="40" width="311" height="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentation scope" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-scope">
+                                                        <rect key="frame" x="16" y="72" width="311" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pip-seg-scope">
+                                                        <rect key="frame" x="16" y="98" width="311" height="32"/>
+                                                        <segments>
+                                                            <segment title="Screen"/>
+                                                            <segment title="Application"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pip-v-pos-row" userLabel="Position Row">
+                                                        <rect key="frame" x="16" y="146" width="311" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-pos-title">
+                                                                <rect key="frame" x="16" y="13" width="55" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="›" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-pos-chev">
+                                                                <rect key="frame" x="287" y="10" width="8" height="24"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-pos-val">
+                                                                <rect key="frame" x="79" y="13" width="202" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pip-btn-pos-tap">
+                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="44"/>
+                                                                <connections>
+                                                                    <action selector="positionRowTapped:" destination="PIP-AD-DEMO" eventType="touchUpInside" id="pip-act-pos-tap"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="pip-c-posrow-h"/>
+                                                            <constraint firstItem="pip-lbl-pos-title" firstAttribute="leading" secondItem="pip-v-pos-row" secondAttribute="leading" constant="16" id="pip-c-pr1"/>
+                                                            <constraint firstItem="pip-lbl-pos-title" firstAttribute="centerY" secondItem="pip-v-pos-row" secondAttribute="centerY" id="pip-c-pr2"/>
+                                                            <constraint firstAttribute="trailing" secondItem="pip-lbl-pos-chev" secondAttribute="trailing" constant="16" id="pip-c-pr3"/>
+                                                            <constraint firstItem="pip-lbl-pos-chev" firstAttribute="centerY" secondItem="pip-v-pos-row" secondAttribute="centerY" id="pip-c-pr4"/>
+                                                            <constraint firstItem="pip-lbl-pos-chev" firstAttribute="leading" secondItem="pip-lbl-pos-val" secondAttribute="trailing" constant="6" id="pip-c-pr5"/>
+                                                            <constraint firstItem="pip-lbl-pos-val" firstAttribute="leading" secondItem="pip-lbl-pos-title" secondAttribute="trailing" constant="8" id="pip-c-pr6"/>
+                                                            <constraint firstItem="pip-lbl-pos-val" firstAttribute="centerY" secondItem="pip-v-pos-row" secondAttribute="centerY" id="pip-c-pr7"/>
+                                                            <constraint firstItem="pip-btn-pos-tap" firstAttribute="top" secondItem="pip-v-pos-row" secondAttribute="top" id="pip-c-pr8"/>
+                                                            <constraint firstItem="pip-btn-pos-tap" firstAttribute="leading" secondItem="pip-v-pos-row" secondAttribute="leading" id="pip-c-pr9"/>
+                                                            <constraint firstAttribute="trailing" secondItem="pip-btn-pos-tap" secondAttribute="trailing" id="pip-c-pr10"/>
+                                                            <constraint firstAttribute="bottom" secondItem="pip-btn-pos-tap" secondAttribute="bottom" id="pip-c-pr11"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="pip-lbl-opt-title" firstAttribute="top" secondItem="pip-v-card" secondAttribute="top" constant="16" id="pip-cc1"/>
+                                                    <constraint firstItem="pip-lbl-opt-title" firstAttribute="leading" secondItem="pip-v-card" secondAttribute="leading" constant="16" id="pip-cc2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pip-lbl-opt-title" secondAttribute="trailing" constant="16" id="pip-cc3"/>
+                                                    <constraint firstItem="pip-lbl-opt-desc" firstAttribute="top" secondItem="pip-lbl-opt-title" secondAttribute="bottom" constant="4" id="pip-cc4"/>
+                                                    <constraint firstItem="pip-lbl-opt-desc" firstAttribute="leading" secondItem="pip-v-card" secondAttribute="leading" constant="16" id="pip-cc5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pip-lbl-opt-desc" secondAttribute="trailing" constant="16" id="pip-cc6"/>
+                                                    <constraint firstItem="pip-lbl-scope" firstAttribute="top" secondItem="pip-lbl-opt-desc" secondAttribute="bottom" constant="16" id="pip-cc7"/>
+                                                    <constraint firstItem="pip-lbl-scope" firstAttribute="leading" secondItem="pip-v-card" secondAttribute="leading" constant="16" id="pip-cc8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pip-lbl-scope" secondAttribute="trailing" constant="16" id="pip-cc9"/>
+                                                    <constraint firstItem="pip-seg-scope" firstAttribute="top" secondItem="pip-lbl-scope" secondAttribute="bottom" constant="8" id="pip-cc10"/>
+                                                    <constraint firstItem="pip-seg-scope" firstAttribute="leading" secondItem="pip-v-card" secondAttribute="leading" constant="16" id="pip-cc11"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pip-seg-scope" secondAttribute="trailing" constant="16" id="pip-cc12"/>
+                                                    <constraint firstItem="pip-v-pos-row" firstAttribute="top" secondItem="pip-seg-scope" secondAttribute="bottom" constant="16" id="pip-cc13"/>
+                                                    <constraint firstItem="pip-v-pos-row" firstAttribute="leading" secondItem="pip-v-card" secondAttribute="leading" constant="16" id="pip-cc14"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pip-v-pos-row" secondAttribute="trailing" constant="16" id="pip-cc15"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pip-v-pos-row" secondAttribute="bottom" constant="16" id="pip-cc16"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pip-stk-btns">
+                                                <rect key="frame" x="16" y="312" width="343" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pip-btn-load">
+                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="40"/>
+                                                        <state key="normal" title="Load ad"/>
+                                                        <connections>
+                                                            <action selector="loadAdButtonTapped:" destination="PIP-AD-DEMO" eventType="touchUpInside" id="pip-act-load"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pip-btn-show">
+                                                        <rect key="frame" x="117" y="0.0" width="109" height="40"/>
+                                                        <state key="normal" title="Show ad"/>
+                                                        <connections>
+                                                            <action selector="showAdButtonTapped:" destination="PIP-AD-DEMO" eventType="touchUpInside" id="pip-act-show"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pip-btn-hide">
+                                                        <rect key="frame" x="234" y="0.0" width="109" height="40"/>
+                                                        <state key="normal" title="Hide ad"/>
+                                                        <connections>
+                                                            <action selector="hideAdButtonTapped:" destination="PIP-AD-DEMO" eventType="touchUpInside" id="pip-act-hide"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="pip-c-btnh"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-lbl-status">
+                                                <rect key="frame" x="16" y="368" width="343" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="pip-lbl-desc" firstAttribute="top" secondItem="pip-cv1" secondAttribute="top" constant="16" id="pip-c1"/>
+                                            <constraint firstItem="pip-lbl-desc" firstAttribute="leading" secondItem="pip-cv1" secondAttribute="leading" constant="16" id="pip-c2"/>
+                                            <constraint firstAttribute="trailing" secondItem="pip-lbl-desc" secondAttribute="trailing" constant="16" id="pip-c3"/>
+                                            <constraint firstItem="pip-v-card" firstAttribute="top" secondItem="pip-lbl-desc" secondAttribute="bottom" constant="16" id="pip-c4"/>
+                                            <constraint firstItem="pip-v-card" firstAttribute="leading" secondItem="pip-cv1" secondAttribute="leading" constant="16" id="pip-c5"/>
+                                            <constraint firstAttribute="trailing" secondItem="pip-v-card" secondAttribute="trailing" constant="16" id="pip-c6"/>
+                                            <constraint firstItem="pip-stk-btns" firstAttribute="top" secondItem="pip-v-card" secondAttribute="bottom" constant="20" id="pip-c7"/>
+                                            <constraint firstItem="pip-stk-btns" firstAttribute="leading" secondItem="pip-cv1" secondAttribute="leading" constant="16" id="pip-c8"/>
+                                            <constraint firstAttribute="trailing" secondItem="pip-stk-btns" secondAttribute="trailing" constant="16" id="pip-c9"/>
+                                            <constraint firstItem="pip-lbl-status" firstAttribute="top" secondItem="pip-stk-btns" secondAttribute="bottom" constant="16" id="pip-c10"/>
+                                            <constraint firstItem="pip-lbl-status" firstAttribute="leading" secondItem="pip-cv1" secondAttribute="leading" constant="16" id="pip-c11"/>
+                                            <constraint firstAttribute="trailing" secondItem="pip-lbl-status" secondAttribute="trailing" constant="16" id="pip-c12"/>
+                                            <constraint firstAttribute="bottom" secondItem="pip-lbl-status" secondAttribute="bottom" constant="20" id="pip-c13"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pip-cv1" firstAttribute="top" secondItem="pip-sv1" secondAttribute="top" id="pip-c23"/>
+                                    <constraint firstItem="pip-cv1" firstAttribute="leading" secondItem="pip-sv1" secondAttribute="leading" id="pip-c24"/>
+                                    <constraint firstAttribute="trailing" secondItem="pip-cv1" secondAttribute="trailing" id="pip-c25"/>
+                                    <constraint firstAttribute="bottom" secondItem="pip-cv1" secondAttribute="bottom" id="pip-c26"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pip-sv1" firstAttribute="top" secondItem="pip-top-g" secondAttribute="bottom" id="pip-c27"/>
+                            <constraint firstItem="pip-bot-g" firstAttribute="top" secondItem="pip-sv1" secondAttribute="bottom" id="pip-c28"/>
+                            <constraint firstItem="pip-sv1" firstAttribute="leading" secondItem="pip-v1" secondAttribute="leading" id="pip-c29"/>
+                            <constraint firstAttribute="trailing" secondItem="pip-sv1" secondAttribute="trailing" id="pip-c30"/>
+                            <constraint firstItem="pip-cv1" firstAttribute="width" secondItem="pip-v1" secondAttribute="width" id="pip-c31"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Picture-in-Picture Ad" id="pip-nav-i1"/>
+                    <connections>
+                        <outlet property="hideAdButton" destination="pip-btn-hide" id="pip-o-hide"/>
+                        <outlet property="loadAdButton" destination="pip-btn-load" id="pip-o-load"/>
+                        <outlet property="positionValueLabel" destination="pip-lbl-pos-val" id="pip-o-posval"/>
+                        <outlet property="scopeSegmentedControl" destination="pip-seg-scope" id="pip-o-scope"/>
+                        <outlet property="showAdButton" destination="pip-btn-show" id="pip-o-show"/>
+                        <outlet property="statusLabel" destination="pip-lbl-status" id="pip-o-status"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pip-fr-1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3300" y="582"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
