@@ -46,3 +46,6 @@ static NSString *const AdUnitIDAdManagerAppEvents = @"/21775744923/example/api-d
 
 /// GAM Fluid ad size ad unit ID.
 static NSString *const AdUnitIDAdManagerFluidAdSize = @"/21775744923/example/api-demo/fluid";
+
+/// Picture-in-Picture ad unit ID.
+static NSString *const AdUnitIDPictureInPicture = @"ca-app-pub-3940256099942544/8810945611";
