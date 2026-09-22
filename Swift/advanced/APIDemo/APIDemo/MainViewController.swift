@@ -32,12 +32,14 @@ class MainViewController: UITableViewController {
       "AdManager - PPID", "AdManager - Custom Targeting", "AdManager - Category Exclusions",
       "AdManager - Multiple Ad Sizes", "AdManager - App Events", "AdManager - Fluid Ad Size",
       "AdManager - Custom Video Controls", "Collapsible Banner Ad", "Swipeable Interstitial Ad",
+      "Picture-in-Picture Ad",
     ]
     identifiers = [
       "adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "customMuteSegue",
       "adPreloadingSegue", "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
       "multipleAdSizesSegue", "appEventsSegue", "fluidAdSizeSegue",
       "customControlsSegue", "collapsibleSegue", "swipeableSegue",
+      "pictureInPictureSegue",
     ]
   }
 
@@ -66,6 +68,9 @@ class MainViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let row = indexPath.row
     if row < identifiers.count {
+      if identifiers[row] != "pictureInPictureSegue" {
+        PictureInPictureAdManager.shared.destroyAd()
+      }
       performSegue(withIdentifier: identifiers[row], sender: self)
     }
   }
