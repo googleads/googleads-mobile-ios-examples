@@ -52,4 +52,7 @@ struct Constants {
   /// Swipeable interstitial ad unit ID.
   static let swipeableInterstitialAdUnitID = "ca-app-pub-3940256099942544/2737863066"
 
+  /// Picture-in-Picture ad unit ID.
+  static let pictureInPictureAdUnitID = "ca-app-pub-3940256099942544/8810945611"
+
 }
