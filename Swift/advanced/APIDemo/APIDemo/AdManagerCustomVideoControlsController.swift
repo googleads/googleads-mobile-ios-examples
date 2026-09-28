@@ -19,8 +19,8 @@
 import GoogleMobileAds
 import UIKit
 
-private let testAdUnit = "/6499/example/native-video"
-private let testNativeCustomFormatID = "10104090"
+private let testAdUnit = "/21775744923/example/native-video"
+private let testNativeCustomFormatID = "12387226"
 
 class AdManagerCustomVideoControlsController: UIViewController {
 
