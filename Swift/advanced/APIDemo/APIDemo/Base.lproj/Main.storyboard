@@ -1102,7 +1102,6 @@
                                 <rect key="frame" x="133.5" y="134" width="108" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Refresh Ad">
-                                    <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
                                 <connections>
