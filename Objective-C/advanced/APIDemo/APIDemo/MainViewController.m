@@ -34,10 +34,10 @@
 @interface MainViewController ()
 
 /// API demo names.
-@property(nonatomic, copy) NSArray *apiDemoNames;
+@property(nonatomic, copy) NSArray<NSString *> *apiDemoNames;
 
 /// Segue identifiers.
-@property(nonatomic, copy) NSArray *identifiers;
+@property(nonatomic, copy) NSArray<NSString *> *identifiers;
 
 @end
 
@@ -52,14 +52,14 @@
     @"Ad Manager - Custom Targeting", @"Ad Manager - Category Exclusions",
     @"Ad Manager - Multiple Ad Sizes", @"Ad Manager - App Events", @"Ad Manager - Fluid Ad Size",
     @"Ad Manager - Custom Video Controls", @"Collapsible Banner Ad", @"Swipeable Interstitial Ad",
-    @"Picture-in-Picture Ad"
+    @"Picture-in-Picture Ad", @"Squeezeback Ad"
   ];
 
   self.identifiers = @[
     @"adDelegateSegue", @"adTargetingSegue", @"bannerSizesSegue", @"customMuteSegue",
     @"adPreloadingSegue", @"PPIDSegue", @"customTargetingSegue", @"categoryExclusionsSegue",
     @"multipleAdSizesSegue", @"appEventsSegue", @"fluidAdSizeSegue", @"customControlsSegue",
-    @"collapsibleBannerSegue", @"swipeableSegue", @"pictureInPictureSegue"
+    @"collapsibleBannerSegue", @"swipeableSegue", @"pictureInPictureSegue", @"squeezebackSegue"
   ];
 }
 
