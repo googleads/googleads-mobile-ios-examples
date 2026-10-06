@@ -49,3 +49,6 @@ static NSString *const AdUnitIDAdManagerFluidAdSize = @"/21775744923/example/api
 
 /// Picture-in-Picture ad unit ID.
 static NSString *const AdUnitIDPictureInPicture = @"ca-app-pub-3940256099942544/8810945611";
+
+/// Squeezeback ad unit ID.
+static NSString *const AdUnitIDSqueezeback = @"ca-app-pub-3940256099942544/3986624511";
