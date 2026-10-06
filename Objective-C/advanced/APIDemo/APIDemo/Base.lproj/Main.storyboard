@@ -72,6 +72,7 @@
                         <segue destination="Vch-k2-d8D" kind="push" identifier="collapsibleBannerSegue" id="GXC-5c-GCx"/>
                         <segue destination="SWP-SI-OBJCDEMO" kind="push" identifier="swipeableSegue" id="SWP-SI-SEGUE1"/>
                         <segue destination="PIP-AD-DEMO" kind="push" identifier="pictureInPictureSegue" id="pipSegue-id"/>
+                        <segue destination="SQZ-AD-DEMO" kind="push" identifier="squeezebackSegue" id="sqzSegue-id"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -1388,6 +1389,110 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pip-fr-1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3300" y="582"/>
+        </scene>
+        <!--Squeezeback Ad-->
+        <scene sceneID="sqz-ad-scn1">
+            <objects>
+                <viewController title="Squeezeback Ad" id="SQZ-AD-DEMO" customClass="SqueezebackViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sqz-top-g"/>
+                        <viewControllerLayoutGuide type="bottom" id="sqz-bot-g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sqz-v1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-sv1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-cv1" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squeezeback ads scale down your app content to display an ad around it while keeping your app interactive." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-lbl-desc">
+                                                <rect key="frame" x="16" y="16" width="343" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-stk-btns">
+                                                <rect key="frame" x="16" y="90" width="343" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-btn-load">
+                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="40"/>
+                                                        <state key="normal" title="Load ad"/>
+                                                        <connections>
+                                                            <action selector="loadAdButtonTapped:" destination="SQZ-AD-DEMO" eventType="touchUpInside" id="sqz-act-load"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-btn-show">
+                                                        <rect key="frame" x="117" y="0.0" width="109" height="40"/>
+                                                        <state key="normal" title="Show ad"/>
+                                                        <connections>
+                                                            <action selector="showAdButtonTapped:" destination="SQZ-AD-DEMO" eventType="touchUpInside" id="sqz-act-show"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-btn-hide">
+                                                        <rect key="frame" x="234" y="0.0" width="109" height="40"/>
+                                                        <state key="normal" title="Hide ad"/>
+                                                        <connections>
+                                                            <action selector="hideAdButtonTapped:" destination="SQZ-AD-DEMO" eventType="touchUpInside" id="sqz-act-hide"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="sqz-c-btnh"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqz-lbl-status">
+                                                <rect key="frame" x="16" y="146" width="343" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="sqz-lbl-desc" firstAttribute="top" secondItem="sqz-cv1" secondAttribute="top" constant="16" id="sqz-c1"/>
+                                            <constraint firstItem="sqz-lbl-desc" firstAttribute="leading" secondItem="sqz-cv1" secondAttribute="leading" constant="16" id="sqz-c2"/>
+                                            <constraint firstAttribute="trailing" secondItem="sqz-lbl-desc" secondAttribute="trailing" constant="16" id="sqz-c3"/>
+                                            <constraint firstItem="sqz-stk-btns" firstAttribute="top" secondItem="sqz-lbl-desc" secondAttribute="bottom" constant="20" id="sqz-c7"/>
+                                            <constraint firstItem="sqz-stk-btns" firstAttribute="leading" secondItem="sqz-cv1" secondAttribute="leading" constant="16" id="sqz-c8"/>
+                                            <constraint firstAttribute="trailing" secondItem="sqz-stk-btns" secondAttribute="trailing" constant="16" id="sqz-c9"/>
+                                            <constraint firstItem="sqz-lbl-status" firstAttribute="top" secondItem="sqz-stk-btns" secondAttribute="bottom" constant="16" id="sqz-c10"/>
+                                            <constraint firstItem="sqz-lbl-status" firstAttribute="leading" secondItem="sqz-cv1" secondAttribute="leading" constant="16" id="sqz-c11"/>
+                                            <constraint firstAttribute="trailing" secondItem="sqz-lbl-status" secondAttribute="trailing" constant="16" id="sqz-c12"/>
+                                            <constraint firstAttribute="bottom" secondItem="sqz-lbl-status" secondAttribute="bottom" constant="20" id="sqz-c13"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sqz-cv1" firstAttribute="top" secondItem="sqz-sv1" secondAttribute="top" id="sqz-c23"/>
+                                    <constraint firstItem="sqz-cv1" firstAttribute="leading" secondItem="sqz-sv1" secondAttribute="leading" id="sqz-c24"/>
+                                    <constraint firstAttribute="trailing" secondItem="sqz-cv1" secondAttribute="trailing" id="sqz-c25"/>
+                                    <constraint firstAttribute="bottom" secondItem="sqz-cv1" secondAttribute="bottom" id="sqz-c26"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sqz-sv1" firstAttribute="top" secondItem="sqz-top-g" secondAttribute="bottom" id="sqz-c27"/>
+                            <constraint firstItem="sqz-bot-g" firstAttribute="top" secondItem="sqz-sv1" secondAttribute="bottom" id="sqz-c28"/>
+                            <constraint firstItem="sqz-sv1" firstAttribute="leading" secondItem="sqz-v1" secondAttribute="leading" id="sqz-c29"/>
+                            <constraint firstAttribute="trailing" secondItem="sqz-sv1" secondAttribute="trailing" id="sqz-c30"/>
+                            <constraint firstItem="sqz-cv1" firstAttribute="width" secondItem="sqz-v1" secondAttribute="width" id="sqz-c31"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Squeezeback Ad" id="sqz-nav-i1"/>
+                    <connections>
+                        <outlet property="hideAdButton" destination="sqz-btn-hide" id="sqz-o-hide"/>
+                        <outlet property="loadAdButton" destination="sqz-btn-load" id="sqz-o-load"/>
+                        <outlet property="showAdButton" destination="sqz-btn-show" id="sqz-o-show"/>
+                        <outlet property="statusLabel" destination="sqz-lbl-status" id="sqz-o-status"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqz-fr-1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3900" y="582"/>
         </scene>
     </scenes>
     <resources>
