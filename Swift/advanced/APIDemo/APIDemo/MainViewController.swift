@@ -32,14 +32,14 @@ class MainViewController: UITableViewController {
       "AdManager - PPID", "AdManager - Custom Targeting", "AdManager - Category Exclusions",
       "AdManager - Multiple Ad Sizes", "AdManager - App Events", "AdManager - Fluid Ad Size",
       "AdManager - Custom Video Controls", "Collapsible Banner Ad", "Swipeable Interstitial Ad",
-      "Picture-in-Picture Ad",
+      "Picture-in-Picture Ad", "Squeezeback Ad",
     ]
     identifiers = [
       "adDelegateSegue", "adTargetingSegue", "bannerSizesSegue", "customMuteSegue",
       "adPreloadingSegue", "PPIDSegue", "customTargetingSegue", "categoryExclusionsSegue",
       "multipleAdSizesSegue", "appEventsSegue", "fluidAdSizeSegue",
       "customControlsSegue", "collapsibleSegue", "swipeableSegue",
-      "pictureInPictureSegue",
+      "pictureInPictureSegue", "squeezebackSegue",
     ]
   }
 
