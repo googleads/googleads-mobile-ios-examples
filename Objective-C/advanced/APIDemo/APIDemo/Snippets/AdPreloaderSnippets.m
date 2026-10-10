@@ -65,9 +65,6 @@ NS_ASSUME_NONNULL_END
 
   // Interact with the ad object as needed.
   NSLog(@"Interstitial ad response info: %@", ad.responseInfo);
-  ad.paidEventHandler = ^(GADAdValue *_Nonnull value) {
-    NSLog(@"Interstitial ad paid event: %@ %@ ", value.value, value.currencyCode);
-  };
   ad.fullScreenContentDelegate = self;
   [ad presentFromRootViewController:self];
 }
@@ -117,5 +114,11 @@ NS_ASSUME_NONNULL_END
         error.localizedDescription);
 }
 // [END set_callback]
+
+#pragma mark - GADFullScreenContentDelegate
+
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad didPayValue:(nonnull GADAdValue *)value {
+  NSLog(@"Interstitial ad paid event: %@ %@", value.value, value.currencyCode);
+}
 
 @end

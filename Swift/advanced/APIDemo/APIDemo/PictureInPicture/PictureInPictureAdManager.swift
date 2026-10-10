@@ -75,9 +75,6 @@ class PictureInPictureAdManager: NSObject, PictureInPictureAdDelegate {
 
   private func setAdEventCallback(_ ad: PictureInPictureAd) {
     ad.delegate = self
-    ad.paidEventHandler = { value in
-      print("Picture-in-Picture ad paid: \(value.value) \(value.currencyCode)")
-    }
   }
 
   // MARK: - PictureInPictureAdDelegate
@@ -104,6 +101,10 @@ class PictureInPictureAdManager: NSObject, PictureInPictureAdDelegate {
 
   func pictureInPictureAdDidRecordClick(_ pictureInPictureAd: PictureInPictureAd) {
     print("Picture-in-Picture ad recorded a click.")
+  }
+
+  func pictureInPictureAd(_ pictureInPictureAd: PictureInPictureAd, didPay value: AdValue) {
+    print("Picture-in-Picture ad paid: \(value.value) \(value.currencyCode)")
   }
 
   func pictureInPictureAdWillPresentScreen(_ pictureInPictureAd: PictureInPictureAd) {
