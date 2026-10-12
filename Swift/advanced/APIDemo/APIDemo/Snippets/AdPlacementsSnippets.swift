@@ -19,7 +19,7 @@ import GoogleMobileAds
 private class AdPlacementsSnippets: UIViewController {
 
   // Replace with your own placement ID.
-  private let adPlacementID: Int64 = 2500718471
+  private let adPlacementID: Int64 = 2_500_718_471
   private let adUnitID = "ca-app-pub-3940256099942544/6978759866"
 
   // [START load_interstitial]
