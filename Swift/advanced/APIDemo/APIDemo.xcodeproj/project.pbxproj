@@ -57,6 +57,8 @@
 		EFC7124A2AD853D80014A2A6 /* SwipeableFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC712492AD853D80014A2A6 /* SwipeableFeedViewModel.swift */; };
 		PIPADM01 /* PictureInPictureAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = PIPADM02 /* PictureInPictureAdManager.swift */; };
 		PIPDEV01 /* PictureInPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = PIPDEV02 /* PictureInPictureViewController.swift */; };
+		SQZADM01 /* SqueezebackAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = SQZADM02 /* SqueezebackAdManager.swift */; };
+		SQZDEV01 /* SqueezebackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = SQZDEV02 /* SqueezebackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		EFC712492AD853D80014A2A6 /* SwipeableFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableFeedViewModel.swift; sourceTree = "<group>"; };
 		PIPADM02 /* PictureInPictureAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInPictureAdManager.swift; sourceTree = "<group>"; };
 		PIPDEV02 /* PictureInPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInPictureViewController.swift; sourceTree = "<group>"; };
+		SQZADM02 /* SqueezebackAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqueezebackAdManager.swift; sourceTree = "<group>"; };
+		SQZDEV02 /* SqueezebackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqueezebackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 				EFC712452AD853D80014A2BF /* CollapsibleBannerViewController.swift */,
 				EFC712492AD853D80014A2AA /* SwipeableInterstitial */,
 				PIPADM03 /* PictureInPicture */,
+				SQZADM03 /* Squeezeback */,
 				4AA7D6AB1C626EE700DFD2EB /* AdMobAdDelegateViewController.swift */,
 				4AA7D6A91C626E7000DFD2EB /* AdMobAdTargetingTableViewController.swift */,
 				4AA7D6AD1C626F2D00DFD2EB /* AdMobBannerSizesViewController.swift */,
@@ -191,6 +196,15 @@
 				PIPDEV02 /* PictureInPictureViewController.swift */,
 			);
 			path = PictureInPicture;
+			sourceTree = "<group>";
+		};
+		SQZADM03 /* Squeezeback */ = {
+			isa = PBXGroup;
+			children = (
+				SQZADM02 /* SqueezebackAdManager.swift */,
+				SQZDEV02 /* SqueezebackViewController.swift */,
+			);
+			path = Squeezeback;
 			sourceTree = "<group>";
 		};
 		EFC712492AD853D80014A2AA /* SwipeableInterstitial */ = {
@@ -362,6 +376,8 @@
 				ADPRELOAD31 /* AdPreloaderSnippets.swift in Sources */,
 				PIPADM01 /* PictureInPictureAdManager.swift in Sources */,
 				PIPDEV01 /* PictureInPictureViewController.swift in Sources */,
+				SQZADM01 /* SqueezebackAdManager.swift in Sources */,
+				SQZDEV01 /* SqueezebackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
