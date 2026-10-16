@@ -5,6 +5,7 @@ enum MenuItem: String, Identifiable {
   var id: Self { self }
 
   case banner = "Banner"
+  case inlineAdaptiveBanner = "Inline Adaptive Banner"
   case interstitial = "Interstitial"
   case native = "Native"
   case rewarded = "Rewarded"
@@ -21,6 +22,8 @@ extension MenuItem {
     switch self {
     case .banner:
       BannerContentView(navigationTitle: self.rawValue)
+    case .inlineAdaptiveBanner:
+      InlineAdaptiveBannerContentView(navigationTitle: self.rawValue)
     case .interstitial:
       InterstitialContentView(navigationTitle: self.rawValue)
     case .native:

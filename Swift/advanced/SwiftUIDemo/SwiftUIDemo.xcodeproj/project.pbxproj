@@ -25,6 +25,10 @@
 		A8C744962864F9E100327C12 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C744902864F92A00327C12 /* MenuView.swift */; };
 		A8C744972864F9E400327C12 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7448F2864F92A00327C12 /* MenuItem.swift */; };
 		A8DC61C42EC530A300123FC8 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A8DC61C32EC530A300123FC8 /* GoogleMobileAds */; };
+		A8F1A0022EC530A300123FC8 /* InlineAdaptiveBannerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1A0012EC530A300123FC8 /* InlineAdaptiveBannerContentView.swift */; };
+		A8F1A0042EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1A0032EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift */; };
+		A8F1A0062EC530A300123FC8 /* RestaurantMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1A0052EC530A300123FC8 /* RestaurantMenuItem.swift */; };
+		A8F1A0082EC530A300123FC8 /* menuItemsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A8F1A0072EC530A300123FC8 /* menuItemsJSON.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		A8C744902864F92A00327C12 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A8C744912864F9B800327C12 /* SwiftUIDemoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIDemoApp.swift; sourceTree = "<group>"; };
 		A8C744942864F9CC00327C12 /* BannerContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerContentView.swift; sourceTree = "<group>"; };
+		A8F1A0012EC530A300123FC8 /* InlineAdaptiveBannerContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineAdaptiveBannerContentView.swift; sourceTree = "<group>"; };
+		A8F1A0032EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineAdaptiveBannerViewModel.swift; sourceTree = "<group>"; };
+		A8F1A0052EC530A300123FC8 /* RestaurantMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenuItem.swift; sourceTree = "<group>"; };
+		A8F1A0072EC530A300123FC8 /* menuItemsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 				A895BBAE2AA0B20100E1ECBD /* GoogleMobileAdsConsentManager.swift */,
 				A8C744862864F7A600327C12 /* Info.plist */,
 				A8C7448D2864F92A00327C12 /* Menu */,
+				A8F1A0072EC530A300123FC8 /* menuItemsJSON.json */,
 				A8C744912864F9B800327C12 /* SwiftUIDemoApp.swift */,
 			);
 			name = "Supporting-Files";
@@ -154,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				A8C744932864F9CC00327C12 /* Banner */,
+				A8F1A0002EC530A300123FC8 /* Inline-Adaptive-Banner */,
 				A81C3A4728786EFF002BFF3B /* Interstitial */,
 				A841C7BA2885D0DF00C37F77 /* Native */,
 				A88A283928AEEA27003946EE /* Rewarded */,
@@ -161,6 +171,17 @@
 				A8C744872864F7C200327C12 /* Supporting-Files */,
 			);
 			path = SwiftUIDemo;
+			sourceTree = SOURCE_ROOT;
+		};
+		A8F1A0002EC530A300123FC8 /* Inline-Adaptive-Banner */ = {
+			isa = PBXGroup;
+			children = (
+				A8F1A0012EC530A300123FC8 /* InlineAdaptiveBannerContentView.swift */,
+				A8F1A0032EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift */,
+				A8F1A0052EC530A300123FC8 /* RestaurantMenuItem.swift */,
+			);
+			name = "Inline-Adaptive-Banner";
+			path = "SwiftUIDemo/Inline-Adaptive-Banner";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -227,6 +248,7 @@
 			files = (
 				A841C7BD2885D0DF00C37F77 /* NativeAdView.xib in Resources */,
 				A83160CD286DF6A8007B34CD /* Assets.xcassets in Resources */,
+				A8F1A0082EC530A300123FC8 /* menuItemsJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +263,9 @@
 				A8C744972864F9E400327C12 /* MenuItem.swift in Sources */,
 				A836647E2BAE002B00F4183A /* InterstitialViewModel.swift in Sources */,
 				A8C744952864F9CD00327C12 /* BannerContentView.swift in Sources */,
+				A8F1A0022EC530A300123FC8 /* InlineAdaptiveBannerContentView.swift in Sources */,
+				A8F1A0042EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift in Sources */,
+				A8F1A0062EC530A300123FC8 /* RestaurantMenuItem.swift in Sources */,
 				A86D7F88289CD83A00496237 /* CountdownTimer.swift in Sources */,
 				A83664782BADFFA400F4183A /* RewardedInterstitialViewModel.swift in Sources */,
 				A88A283B28AEEA27003946EE /* RewardedContentView.swift in Sources */,
