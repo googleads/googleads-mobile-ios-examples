@@ -3,6 +3,7 @@ import SwiftUI
 struct MenuView: View {
   private let items: [MenuItem] = [
     .banner,
+    .inlineAdaptiveBanner,
     .interstitial,
     .native,
     .rewarded,
