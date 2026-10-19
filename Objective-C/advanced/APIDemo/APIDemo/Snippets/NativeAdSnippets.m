@@ -1,11 +1,11 @@
 //
-//  Copyright (C) 2025 Google, Inc.
+//  Copyright (C) 2026 Google, Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 //
-//      http://www.apache.org/licenses/LICENSE-2.0
+//      https://www.apache.org/licenses/LICENSE-2.0
 //
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,6 +27,7 @@ static NSString *const kNativeAdUnitID = @"ca-app-pub-3940256099942544/398662451
                                                 GADCustomNativeAdLoaderDelegate,
                                                 GADCustomNativeAdDelegate>
 @property(nonatomic, strong) GADAdLoader *adLoader;
+@property(nonatomic, strong) UIView *mainPlaceholder;
 @end
 
 @implementation NativeAdSnippets
@@ -88,6 +89,37 @@ static NSString *const kNativeAdUnitID = @"ca-app-pub-3940256099942544/398662451
   nativeAdView.mediaView.contentMode = UIViewContentModeScaleAspectFit;
   // [END set_content_mode]
 }
+
+// [START render_custom_native_media]
+- (void)populateWithCustomNativeAd:(GADCustomNativeAd *)customNativeAd {
+  // Remove all the media placeholder's subviews.
+  for (UIView *subview in self.mainPlaceholder.subviews) {
+    [subview removeFromSuperview];
+  }
+
+  // This custom native ad has both a video and image associated with it. Use the video
+  // asset if available, or fall back to the image asset.
+  UIView *mainView = nil;
+  if (customNativeAd.mediaContent.hasVideoContent) {
+    GADMediaView *mediaView = [[GADMediaView alloc] init];
+    mediaView.mediaContent = customNativeAd.mediaContent;
+    mainView = mediaView;
+  } else {
+    UIImage *image = [customNativeAd imageForKey:@"MainImage"].image;
+    mainView = [[UIImageView alloc] initWithImage:image];
+  }
+  [self.mainPlaceholder addSubview:mainView];
+
+  // Size the media view to fill the container size.
+  mainView.translatesAutoresizingMaskIntoConstraints = NO;
+  [NSLayoutConstraint activateConstraints:@[
+    [mainView.leadingAnchor constraintEqualToAnchor:self.mainPlaceholder.leadingAnchor],
+    [mainView.trailingAnchor constraintEqualToAnchor:self.mainPlaceholder.trailingAnchor],
+    [mainView.topAnchor constraintEqualToAnchor:self.mainPlaceholder.topAnchor],
+    [mainView.bottomAnchor constraintEqualToAnchor:self.mainPlaceholder.bottomAnchor],
+  ]];
+}
+// [END render_custom_native_media]
 
 #pragma mark - GADNativeAdLoaderDelegate
 

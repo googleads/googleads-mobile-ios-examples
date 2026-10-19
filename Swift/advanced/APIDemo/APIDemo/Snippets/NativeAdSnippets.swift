@@ -1,11 +1,11 @@
 //
-//  Copyright (C) 2025 Google, Inc.
+//  Copyright (C) 2026 Google, Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 //
-//      http://www.apache.org/licenses/LICENSE-2.0
+//      https://www.apache.org/licenses/LICENSE-2.0
 //
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
@@ -74,6 +74,39 @@ class NativeAdSnippets: UIViewController {
     nativeAdView.mediaView?.contentMode = .scaleAspectFit
     // [END set_content_mode]
   }
+
+  private var mainPlaceholder = UIView()
+
+  // [START render_custom_native_media]
+  func populate(withCustomNativeAd customNativeAd: CustomNativeAd) {
+    // Remove all the media placeholder's subviews.
+    for subview: UIView in mainPlaceholder.subviews {
+      subview.removeFromSuperview()
+    }
+
+    // This custom native ad has both a video and image associated with it. Use the video
+    // asset if available, or fall back to the image asset.
+    let mainView: UIView
+    if customNativeAd.mediaContent.hasVideoContent {
+      let mediaView = MediaView()
+      mediaView.mediaContent = customNativeAd.mediaContent
+      mainView = mediaView
+    } else {
+      let image: UIImage? = customNativeAd.image(forKey: "MainImage")?.image
+      mainView = UIImageView(image: image)
+    }
+    mainPlaceholder.addSubview(mainView)
+
+    // Size the media view to fill the container size.
+    mainView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      mainView.leadingAnchor.constraint(equalTo: mainPlaceholder.leadingAnchor),
+      mainView.trailingAnchor.constraint(equalTo: mainPlaceholder.trailingAnchor),
+      mainView.topAnchor.constraint(equalTo: mainPlaceholder.topAnchor),
+      mainView.bottomAnchor.constraint(equalTo: mainPlaceholder.bottomAnchor),
+    ])
+  }
+  // [END render_custom_native_media]
 }
 
 extension NativeAdSnippets: NativeAdLoaderDelegate {
