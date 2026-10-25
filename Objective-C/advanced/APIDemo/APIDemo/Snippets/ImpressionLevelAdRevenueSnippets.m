@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface ImpressionLevelAdRevenueSnippets : NSObject
+@interface ImpressionLevelAdRevenueSnippets : NSObject <GADFullScreenContentDelegate>
 @property(nonatomic, strong) GADRewardedAd *rewardedAd;
 @end
 
@@ -35,21 +35,7 @@
                   }
 
                   self.rewardedAd = rewardedAd;
-
-                  // [START get_impression_level_ad_revenue]
-                  rewardedAd.paidEventHandler = ^(GADAdValue *_Nonnull adValue) {
-                    // TODO: Send the impression-level ad revenue information to your preferred
-                    // analytics server directly within this callback.
-
-                    // Extract the impression-level ad revenue data.
-                    NSDecimalNumber *value = adValue.value;
-                    NSString *currencyCode = adValue.currencyCode;
-                    GADAdValuePrecision precision = adValue.precision;
-
-                    NSLog(@"Ad paid event. Value: %@ %@, with precision: %ld.", value, currencyCode,
-                          (long)precision);
-                  };
-                  // [END get_impression_level_ad_revenue]
+                  self.rewardedAd.fullScreenContentDelegate = self;
 
                   // Get the ad unit ID.
                   NSString *adUnitID = rewardedAd.adUnitID;
@@ -82,5 +68,21 @@
                   NSLog(@"Mediation AB test variant: %@", mediationABTestVariant);
                 }];
 }
+
+#pragma mark - GADFullScreenContentDelegate
+
+// [START get_impression_level_ad_revenue]
+- (void)ad:(id<GADFullScreenPresentingAd>)ad didPayValue:(GADAdValue *)adValue {
+  // TODO: Send the impression-level ad revenue information to your preferred
+  // analytics server directly within this callback.
+
+  // Extract the impression-level ad revenue data.
+  NSDecimalNumber *value = adValue.value;
+  NSString *currencyCode = adValue.currencyCode;
+  GADAdValuePrecision precision = adValue.precision;
+
+  NSLog(@"Ad paid event. Value: %@ %@, with precision: %ld.", value, currencyCode, (long)precision);
+}
+// [END get_impression_level_ad_revenue]
 
 @end

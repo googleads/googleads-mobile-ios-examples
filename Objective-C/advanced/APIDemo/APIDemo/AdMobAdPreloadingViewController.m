@@ -131,9 +131,6 @@ static NSString *const kRewardedInterstitialAdUnitID = @"ca-app-pub-394025609994
 
   // Interact with the ad object as needed.
   NSLog(@"Interstitial ad response info: %@", ad.responseInfo);
-  ad.paidEventHandler = ^(GADAdValue *_Nonnull value) {
-    NSLog(@"Interstitial ad paid event: %@ %@ ", value.value, value.currencyCode);
-  };
   ad.fullScreenContentDelegate = self;
   [ad presentFromRootViewController:self];
 }
@@ -151,9 +148,6 @@ static NSString *const kRewardedInterstitialAdUnitID = @"ca-app-pub-394025609994
 
   // Interact with the ad object as needed.
   NSLog(@"Rewarded ad response info: %@", ad.responseInfo);
-  ad.paidEventHandler = ^(GADAdValue *_Nonnull value) {
-    NSLog(@"Rewarded ad paid event: %@ %@ ", value.value, value.currencyCode);
-  };
   ad.fullScreenContentDelegate = self;
   [ad presentFromRootViewController:self
            userDidEarnRewardHandler:^{
@@ -179,9 +173,6 @@ static NSString *const kRewardedInterstitialAdUnitID = @"ca-app-pub-394025609994
 
   // Interact with the ad object as needed.
   NSLog(@"Rewarded interstitial ad response info: %@", ad.responseInfo);
-  ad.paidEventHandler = ^(GADAdValue *_Nonnull value) {
-    NSLog(@"Rewarded interstitial ad paid event: %@ %@ ", value.value, value.currencyCode);
-  };
   ad.fullScreenContentDelegate = self;
   [ad presentFromRootViewController:self
            userDidEarnRewardHandler:^{
@@ -206,9 +197,6 @@ static NSString *const kRewardedInterstitialAdUnitID = @"ca-app-pub-394025609994
 
   // Interact with the ad object as needed.
   NSLog(@"App open ad response info: %@", ad.responseInfo);
-  ad.paidEventHandler = ^(GADAdValue *_Nonnull value) {
-    NSLog(@"App open ad paid event: %@ %@ ", value.value, value.currencyCode);
-  };
   ad.fullScreenContentDelegate = self;
   [ad presentFromRootViewController:self];
 }
@@ -291,6 +279,10 @@ static NSString *const kRewardedInterstitialAdUnitID = @"ca-app-pub-394025609994
 }
 
 #pragma mark - GADFullScreenContentDelegate
+
+- (void)ad:(id<GADFullScreenPresentingAd>)ad didPayValue:(GADAdValue *)value {
+  NSLog(@"Preloaded ad paid event: %@ %@", value.value, value.currencyCode);
+}
 
 - (void)adWillPresentFullScreenContent:(id<GADFullScreenPresentingAd>)ad {
   NSLog(@"Preloaded ad will be presented.");

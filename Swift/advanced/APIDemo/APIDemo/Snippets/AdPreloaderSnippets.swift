@@ -54,9 +54,6 @@ private class AdPreloaderSnippets: UIViewController, PreloadDelegate,
 
     // Interact with the ad object as needed.
     print("Interstitial ad response info: \(String(describing: ad?.responseInfo))")
-    ad?.paidEventHandler = { (value: AdValue) in
-      print("Interstitial ad paid event: \(value.value), \(value.currencyCode)")
-    }
 
     ad?.fullScreenContentDelegate = self
     ad?.present(from: self)
@@ -104,4 +101,9 @@ private class AdPreloaderSnippets: UIViewController, PreloadDelegate,
     )
   }
   // [END set_callback]
+
+  // MARK: - FullScreenContentDelegate
+  func ad(_ ad: FullScreenPresentingAd, didPay value: AdValue) {
+    print("Interstitial ad paid event: \(value.value), \(value.currencyCode)")
+  }
 }

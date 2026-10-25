@@ -92,9 +92,6 @@
 
 - (void)setAdEventCallback:(GADPictureInPictureAd *)ad {
   ad.delegate = self;
-  ad.paidEventHandler = ^(GADAdValue *value) {
-    NSLog(@"Picture-in-Picture ad paid: %@ %@", value.value, value.currencyCode);
-  };
 }
 
 #pragma mark - GADPictureInPictureAdDelegate
@@ -124,6 +121,11 @@
 
 - (void)pictureInPictureAdDidRecordClick:(GADPictureInPictureAd *)pictureInPictureAd {
   NSLog(@"Picture-in-Picture ad recorded a click.");
+}
+
+- (void)pictureInPictureAd:(GADPictureInPictureAd *)pictureInPictureAd
+               didPayValue:(GADAdValue *)value {
+  NSLog(@"Picture-in-Picture ad paid: %@ %@", value.value, value.currencyCode);
 }
 
 - (void)pictureInPictureAdWillPresentScreen:(GADPictureInPictureAd *)pictureInPictureAd {

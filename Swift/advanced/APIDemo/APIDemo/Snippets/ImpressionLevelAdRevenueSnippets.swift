@@ -16,7 +16,7 @@
 
 import GoogleMobileAds
 
-private class ImpressionLevelAdRevenueSnippets {
+private class ImpressionLevelAdRevenueSnippets: NSObject, FullScreenContentDelegate {
 
   private let adUnitID = "ca-app-pub-3940256099942544/6978759866"
 
@@ -25,21 +25,7 @@ private class ImpressionLevelAdRevenueSnippets {
   func requestRewardedAd() async {
     do {
       rewardedAd = try await RewardedAd.load(with: adUnitID, request: Request())
-      // [START get_impression_level_ad_revenue]
-      rewardedAd?.paidEventHandler = { adValue in
-        // TODO: Send the impression-level ad revenue information to your preferred
-        // analytics server directly within this callback.
-
-        // Extract the impression-level ad revenue data.
-        let value = adValue.value
-        let currencyCode = adValue.currencyCode
-        let precision = adValue.precision
-
-        print(
-          "Ad paid event. Value: \(value) \(currencyCode), with precision: \(precision)."
-        )
-      }
-      // [END get_impression_level_ad_revenue]
+      rewardedAd?.fullScreenContentDelegate = self
 
       // Get the ad unit ID.
       _ = self.rewardedAd?.adUnitID
@@ -61,4 +47,22 @@ private class ImpressionLevelAdRevenueSnippets {
       print("Failed to load rewarded ad with error: \(error.localizedDescription)")
     }
   }
+
+  // MARK: - FullScreenContentDelegate
+
+  // [START get_impression_level_ad_revenue]
+  func ad(_ ad: FullScreenPresentingAd, didPay adValue: AdValue) {
+    // TODO: Send the impression-level ad revenue information to your preferred
+    // analytics server directly within this callback.
+
+    // Extract the impression-level ad revenue data.
+    let value = adValue.value
+    let currencyCode = adValue.currencyCode
+    let precision = adValue.precision
+
+    print(
+      "Ad paid event. Value: \(value) \(currencyCode), with precision: \(precision)."
+    )
+  }
+  // [END get_impression_level_ad_revenue]
 }
