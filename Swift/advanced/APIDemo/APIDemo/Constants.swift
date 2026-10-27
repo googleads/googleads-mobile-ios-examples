@@ -55,4 +55,7 @@ struct Constants {
   /// Picture-in-Picture ad unit ID.
   static let pictureInPictureAdUnitID = "ca-app-pub-3940256099942544/8810945611"
 
+  /// Squeezeback ad unit ID.
+  static let squeezebackAdUnitID = "ca-app-pub-3940256099942544/3986624511"
+
 }
