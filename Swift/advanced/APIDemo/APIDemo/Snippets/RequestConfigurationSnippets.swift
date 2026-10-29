@@ -52,4 +52,11 @@ private class RequestConfigurationSnippets {
     MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .unspecified
     // [END set_unspecified_age_treatment]
   }
+
+  private func setCoarseLocationCollectionEnabled() {
+    // [START set_coarse_location_collection_enabled]
+    // Disables automatic coarse location collection by the SDK.
+    MobileAds.shared.requestConfiguration.coarseLocationCollectionEnabled = false
+    // [END set_coarse_location_collection_enabled]
+  }
 }

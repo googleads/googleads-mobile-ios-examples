@@ -61,4 +61,11 @@
   // [END set_unspecified_age_treatment]
 }
 
+- (void)setCoarseLocationCollectionEnabled {
+  // [START set_coarse_location_collection_enabled]
+  // Disables automatic coarse location collection by the SDK.
+  GADMobileAds.sharedInstance.requestConfiguration.coarseLocationCollectionEnabled = NO;
+  // [END set_coarse_location_collection_enabled]
+}
+
 @end
