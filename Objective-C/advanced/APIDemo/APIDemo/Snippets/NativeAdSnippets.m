@@ -121,6 +121,22 @@ static NSString *const kNativeAdUnitID = @"ca-app-pub-3940256099942544/398662451
 }
 // [END render_custom_native_media]
 
+// [START populate_creative_summary]
+- (void)populateCreativeSummaryWithNativeAd:(GADNativeAd *)nativeAd
+                       creativeSummaryLabel:(UILabel *)creativeSummaryLabel
+                               nativeAdView:(GADNativeAdView *)nativeAdView {
+  NSString *summary = nativeAd.creativeSummary;
+  if (!summary) {
+    creativeSummaryLabel.hidden = YES;
+    return;
+  }
+
+  creativeSummaryLabel.text = summary;
+  creativeSummaryLabel.hidden = NO;
+  nativeAdView.creativeSummaryView = creativeSummaryLabel;
+}
+// [END populate_creative_summary]
+
 #pragma mark - GADNativeAdLoaderDelegate
 
 // [START ad_loader_did_receive_ad]

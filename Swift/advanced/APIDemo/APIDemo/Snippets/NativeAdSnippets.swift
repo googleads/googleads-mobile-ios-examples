@@ -15,6 +15,7 @@
 //
 
 import GoogleMobileAds
+import UIKit
 
 class NativeAdSnippets: UIViewController {
 
@@ -107,6 +108,23 @@ class NativeAdSnippets: UIViewController {
     ])
   }
   // [END render_custom_native_media]
+
+  // [START populate_creative_summary]
+  private func populateCreativeSummary(
+    nativeAd: NativeAd,
+    creativeSummaryLabel: UILabel,
+    nativeAdView: NativeAdView
+  ) {
+    guard let summary = nativeAd.creativeSummary else {
+      creativeSummaryLabel.isHidden = true
+      return
+    }
+
+    creativeSummaryLabel.text = summary
+    creativeSummaryLabel.isHidden = false
+    nativeAdView.creativeSummaryView = creativeSummaryLabel
+  }
+  // [END populate_creative_summary]
 }
 
 extension NativeAdSnippets: NativeAdLoaderDelegate {
