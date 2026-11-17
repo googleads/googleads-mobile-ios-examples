@@ -17,6 +17,7 @@
 		EF5BBBF528F4816400DBC4FA /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBEC28F4816400DBC4FA /* NativeAdView.xib */; };
 		EF5BBBF728F4816400DBC4FA /* NativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBF028F4816400DBC4FA /* NativeAdViewController.m */; };
 		EF5BBBF828F4816400DBC4FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5BBBF128F4816400DBC4FA /* main.m */; };
+		EF5BBBF928F4816400DBC4FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5BBBFA28F4816400DBC4FA /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EF5BBBEF28F4816400DBC4FA /* NativeAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdViewController.h; sourceTree = "<group>"; };
 		EF5BBBF028F4816400DBC4FA /* NativeAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeAdViewController.m; sourceTree = "<group>"; };
 		EF5BBBF128F4816400DBC4FA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF5BBBFA28F4816400DBC4FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				EF5BBBE828F4816400DBC4FA /* LaunchScreen.xib */,
 				EF5BBBEA28F4816400DBC4FA /* Main.storyboard */,
 				EF5BBBEC28F4816400DBC4FA /* NativeAdView.xib */,
+				EF5BBBFA28F4816400DBC4FA /* Images.xcassets */,
 				EF5BBBEE28F4816400DBC4FA /* Info.plist */,
 				A8C4B65B2C52B1E4005E047B /* MainViewController.h */,
 				A8C4B65C2C52B1E4005E047B /* MainViewController.m */,
@@ -152,6 +155,7 @@
 				EF5BBBF328F4816400DBC4FA /* LaunchScreen.xib in Resources */,
 				EF5BBBF428F4816400DBC4FA /* Main.storyboard in Resources */,
 				EF5BBBF528F4816400DBC4FA /* NativeAdView.xib in Resources */,
+				EF5BBBF928F4816400DBC4FA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +317,7 @@
 		CF9335DB1B26706400DEF1B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/FullScreenNativeExample/Info.plist";
@@ -329,6 +334,7 @@
 		CF9335DC1B26706400DEF1B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/FullScreenNativeExample/Info.plist";
