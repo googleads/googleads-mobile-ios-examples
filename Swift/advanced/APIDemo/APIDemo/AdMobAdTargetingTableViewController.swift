@@ -17,17 +17,43 @@
 import GoogleMobileAds
 import UIKit
 
-/// The constants for AdMobAdTargeting table cell identifiers.
-struct AdMobAdTargetingTableCellIdentifiers {
-  static let ageRestrictedCell = "ageRestrictedCell"
-  static let ageRestrictedPickerCell = "ageRestrictedPickerCell"
+/// Reuse identifiers for cells in `AdMobAdTargetingTableViewController`.
+enum AdMobAdTargetingTableCellIdentifier: String {
+  case ageRestrictedCell
+  case ageRestrictedPickerCell
+}
+
+/// Age-restricted treatment options displayed in the targeting picker.
+enum AgeRestrictedOption: String, CaseIterable, Equatable {
+  case child = "Child"
+  case teen = "Teen"
+  case unspecified = "Unspecified"
+
+  /// The Mobile Ads SDK treatment value corresponding to this option.
+  var treatment: AgeRestrictedTreatment {
+    switch self {
+    case .child:
+      return .child
+    case .teen:
+      return .teen
+    case .unspecified:
+      return .unspecified
+    }
+  }
+
+  /// Creates an option from a displayed label string, falling back to `.unspecified`.
+  init(displayTitle: String?) {
+    if let displayTitle, let option = Self(rawValue: displayTitle) {
+      self = option
+    } else {
+      self = .unspecified
+    }
+  }
 }
 
 /// AdMob - Ad Targeting
 /// Demonstrates AdMob ad targeting.
-class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDataSource,
-  UIPickerViewDelegate
-{
+final class AdMobAdTargetingTableViewController: UITableViewController {
 
   /// The age-restricted treatment label.
   @IBOutlet weak var ageRestrictedLabel: UILabel!
@@ -38,54 +64,35 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
   /// The banner view.
   @IBOutlet weak var bannerView: BannerView!
 
-  /// The age-restricted treatment options.
-  var ageRestrictedOptions: [String]!
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.tableFooterView = UIView(frame: CGRect.zero)
+    tableView.tableFooterView = UIView(frame: .zero)
 
-    // GADBannerView setup.
-    bannerView.adUnitID = Constants.adMobAdUnitID
-    bannerView.rootViewController = self
-    bannerView.delegate = self
-
-    // Age-restricted setup.
-    ageRestrictedOptions = ["Child", "Teen", "Unspecified"]
-    ageRestrictedPicker.delegate = self
-    ageRestrictedPicker.dataSource = self
-    ageRestrictedPicker.selectRow(
-      0, inComponent: 0,
-      animated: false)
-    ageRestrictedLabel.text = ageRestrictedOptions[0]
+    configureBannerView()
+    configureAgeRestrictedPicker()
   }
 
   // MARK: - UITableViewDelegate
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let cell = tableView.cellForRow(at: indexPath)
-    var currentPicker: UIView?
-    if let cellIdentifier = cell?.reuseIdentifier {
-      switch cellIdentifier {
-      case AdMobAdTargetingTableCellIdentifiers.ageRestrictedCell:
-        currentPicker = ageRestrictedPicker
-      default:
-        break
-      }
+    guard
+      let cellIdentifier = tableView.cellForRow(at: indexPath)?.reuseIdentifier,
+      let picker = picker(forCellIdentifier: cellIdentifier)
+    else {
+      return
     }
-    if let isPickerHidden = currentPicker?.isHidden {
-      hideAllPickers()
-      currentPicker?.isHidden = !isPickerHidden
-      tableView.reloadData()
-      tableView.deselectRow(at: indexPath, animated: true)
-    }
+    let isPickerHidden = picker.isHidden
+    hideAllPickers()
+    picker.isHidden = !isPickerHidden
+    tableView.reloadData()
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 
   override func tableView(
     _ tableView: UITableView, willDisplayHeaderView view: UIView,
     forSection section: Int
   ) {
-    view.tintColor = UIColor.clear
+    view.tintColor = .clear
   }
 
   // MARK: - UITableViewDataSource
@@ -94,78 +101,108 @@ class AdMobAdTargetingTableViewController: UITableViewController, UIPickerViewDa
     -> CGFloat
   {
     let cell = self.tableView(tableView, cellForRowAt: indexPath)
-    if let cellIdentifier = cell.reuseIdentifier {
-      if cellIdentifier == AdMobAdTargetingTableCellIdentifiers.ageRestrictedPickerCell
-        && ageRestrictedPicker.isHidden
-      {
-        return 0
-      }
-    }
-    return super.tableView(tableView, heightForRowAt: indexPath)
+    return heightForRow(
+      withCellIdentifier: cell.reuseIdentifier,
+      defaultHeight: super.tableView(tableView, heightForRowAt: indexPath)
+    )
   }
 
-  // MARK: - UIPickerViewDelegate
-
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
-    -> String?
-  {
-    var rowTitle = ""
-    switch pickerView {
-    case ageRestrictedPicker:
-      rowTitle = ageRestrictedOptions[row]
-    default:
-      rowTitle = ""
+  /// Returns `0` when the picker cell's picker is hidden, or `defaultHeight` otherwise.
+  func heightForRow(
+    withCellIdentifier identifier: String?,
+    defaultHeight: @autoclosure () -> CGFloat
+  ) -> CGFloat {
+    if identifier == AdMobAdTargetingTableCellIdentifier.ageRestrictedPickerCell.rawValue,
+      ageRestrictedPicker?.isHidden == true
+    {
+      return 0
     }
-    return rowTitle
-  }
-
-  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    switch pickerView {
-    case ageRestrictedPicker:
-      ageRestrictedLabel.text = ageRestrictedOptions[row]
-    default:
-      break
-    }
-  }
-
-  // MARK: - UIPickerViewDataSource
-
-  func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
-  }
-
-  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    var numOfRows = 0
-    switch pickerView {
-    case ageRestrictedPicker:
-      numOfRows = ageRestrictedOptions.count
-    default:
-      numOfRows = 0
-    }
-    return numOfRows
+    return defaultHeight()
   }
 
   // MARK: - Actions
 
   /// Loads an ad based on age-restricted treatment.
   @IBAction func loadTargetedAd(_ sender: AnyObject) {
-    let request = Request()
-    switch ageRestrictedLabel.text {
-    case "Child":
-      MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .child
-    case "Teen":
-      MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .teen
-    default:
-      MobileAds.shared.requestConfiguration.ageRestrictedTreatment = .unspecified
+    let option = AgeRestrictedOption(displayTitle: ageRestrictedLabel?.text)
+    MobileAds.shared.requestConfiguration.ageRestrictedTreatment = option.treatment
+    bannerView?.load(Request())
+  }
+
+  // MARK: - Private Helpers
+
+  private func configureBannerView() {
+    bannerView?.adUnitID = Constants.adMobAdUnitID
+    bannerView?.rootViewController = self
+    bannerView?.delegate = self
+  }
+
+  private func configureAgeRestrictedPicker() {
+    ageRestrictedPicker?.delegate = self
+    ageRestrictedPicker?.dataSource = self
+    ageRestrictedPicker?.selectRow(0, inComponent: 0, animated: false)
+    ageRestrictedLabel?.text = AgeRestrictedOption.allCases.first?.rawValue
+  }
+
+  private func picker(forCellIdentifier identifier: String) -> UIView? {
+    switch AdMobAdTargetingTableCellIdentifier(rawValue: identifier) {
+    case .ageRestrictedCell:
+      return ageRestrictedPicker
+    case .ageRestrictedPickerCell, nil:
+      return nil
     }
-    bannerView.load(request)
   }
 
-  fileprivate func hideAllPickers() {
-    ageRestrictedPicker.isHidden = true
+  private func ageRestrictedOption(at row: Int) -> AgeRestrictedOption? {
+    let options = AgeRestrictedOption.allCases
+    guard row >= 0, let option = options.dropFirst(row).first else {
+      return nil
+    }
+    return option
   }
 
+  private func hideAllPickers() {
+    ageRestrictedPicker?.isHidden = true
+  }
 }
+
+// MARK: - UIPickerViewDataSource
+
+extension AdMobAdTargetingTableViewController: UIPickerViewDataSource {
+
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    return 1
+  }
+
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    guard pickerView == ageRestrictedPicker else { return 0 }
+    return AgeRestrictedOption.allCases.count
+  }
+}
+
+// MARK: - UIPickerViewDelegate
+
+extension AdMobAdTargetingTableViewController: UIPickerViewDelegate {
+
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
+    -> String?
+  {
+    guard pickerView == ageRestrictedPicker else { return "" }
+    return ageRestrictedOption(at: row)?.rawValue ?? ""
+  }
+
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    guard
+      pickerView == ageRestrictedPicker,
+      let option = ageRestrictedOption(at: row)
+    else {
+      return
+    }
+    ageRestrictedLabel?.text = option.rawValue
+  }
+}
+
+// MARK: - BannerViewDelegate
 
 extension AdMobAdTargetingTableViewController: BannerViewDelegate {
 
