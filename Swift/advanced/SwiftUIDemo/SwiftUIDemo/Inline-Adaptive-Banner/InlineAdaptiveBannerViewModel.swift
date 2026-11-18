@@ -14,37 +14,62 @@
 //  limitations under the License.
 //
 
+import Foundation
 import GoogleMobileAds
+import ObjectiveC
 import UIKit
 
 /// An item displayed in the inline adaptive banner list.
 enum ListItem: Identifiable {
+  /// Stable identifier for a `ListItem`.
+  enum ID: Hashable {
+    case menuItem(UUID)
+    case ad(ObjectIdentifier)
+  }
+
   case menuItem(RestaurantMenuItem)
   case ad(AdManagerBannerView)
 
-  var id: AnyHashable {
+  var id: ID {
     switch self {
     case .menuItem(let item):
-      return item.id
+      return .menuItem(item.id)
     case .ad(let bannerView):
-      return ObjectIdentifier(bannerView)
+      return .ad(ObjectIdentifier(bannerView))
     }
   }
 }
 
 /// Manages the menu items and preloaded inline adaptive banner ads for a scrollable list.
 final class InlineAdaptiveBannerViewModel: NSObject, ObservableObject {
+  private static let adUnitID = "/21775744923/example/adaptive-banner"
+  private static let adInterval = 4
+  private static let widthChangeThreshold: CGFloat = 1
+
+  /// Items currently displayed in the list, interleaved with banner ads.
   @Published private(set) var listItems = [ListItem]()
+
+  /// Loaded ad sizes keyed by the banner view's `ObjectIdentifier`.
   @Published private(set) var adSizes = [ObjectIdentifier: CGSize]()
 
   private var adsToLoad = [AdManagerBannerView]()
   private var loadedWidth: CGFloat = 0
-  private let adUnitID = "/21775744923/example/adaptive-banner"
-  private let adInterval = 4
+  private let bundle: Bundle
+
+  /// Creates a view model that loads menu items from the given bundle.
+  ///
+  /// - Parameter bundle: Bundle containing `menuItemsJSON.json`. Defaults to `.main`.
+  init(bundle: Bundle = .main) {
+    self.bundle = bundle
+    super.init()
+  }
 
   /// Populates the list items and starts preloading banner ads sequentially for the given width.
+  ///
+  /// - Parameter width: Available container width in points. Non-positive widths or changes within
+  ///   `widthChangeThreshold` of the last loaded width are ignored.
   func loadItems(width: CGFloat) {
-    guard width > 0, abs(width - loadedWidth) > 1 else { return }
+    guard width > 0, abs(width - loadedWidth) > Self.widthChangeThreshold else { return }
     loadedWidth = width
 
     listItems.removeAll()
@@ -58,12 +83,12 @@ final class InlineAdaptiveBannerViewModel: NSObject, ObservableObject {
 
   /// Returns the loaded size for the given banner view, or `.zero` if it hasn't loaded yet.
   func size(for bannerView: AdManagerBannerView) -> CGSize {
-    return adSizes[ObjectIdentifier(bannerView)] ?? .zero
+    adSizes[ObjectIdentifier(bannerView)] ?? .zero
   }
 
   /// Adds restaurant menu items from `menuItemsJSON.json` to `listItems`.
   private func addMenuItems() {
-    guard let url = Bundle.main.url(forResource: "menuItemsJSON", withExtension: "json") else {
+    guard let url = bundle.url(forResource: "menuItemsJSON", withExtension: "json") else {
       print("Invalid filename for JSON menu item data.")
       return
     }
@@ -79,25 +104,26 @@ final class InlineAdaptiveBannerViewModel: NSObject, ObservableObject {
 
   /// Inserts `AdManagerBannerView` instances into `listItems` at each `adInterval`.
   private func addBannerAds(width: CGFloat) {
-    var index = adInterval
+    guard !listItems.isEmpty else { return }
+
+    var index = Self.adInterval
     let inlineAdSize = currentOrientationInlineAdaptiveBanner(width: width)
 
     while index < listItems.count {
       let adView = AdManagerBannerView(adSize: inlineAdSize)
-      adView.adUnitID = adUnitID
+      adView.adUnitID = Self.adUnitID
       adView.delegate = self
       adView.adSizeDelegate = self
-
       adView.validAdSizes = [nsValue(for: inlineAdSize)]
 
       listItems.insert(.ad(adView), at: index)
       adsToLoad.append(adView)
-      index += adInterval
+      index += Self.adInterval
     }
   }
 
   /// Preloads banner ads sequentially by dequeuing and loading the next ad from `adsToLoad`.
-  func preloadNextAd() {
+  private func preloadNextAd() {
     guard !adsToLoad.isEmpty else { return }
     let ad = adsToLoad.removeFirst()
     ad.load(AdManagerRequest())
