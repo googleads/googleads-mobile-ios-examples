@@ -53,6 +53,8 @@
 		202607060000000000000003 /* SwipeableInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202607060000000000000002 /* SwipeableInterstitialViewController.m */; };
 		202609180000000000000005 /* PictureInPictureAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 202609180000000000000002 /* PictureInPictureAdManager.m */; };
 		202609180000000000000006 /* PictureInPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202609180000000000000004 /* PictureInPictureViewController.m */; };
+		202610050000000000000005 /* SqueezebackAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 202610050000000000000002 /* SqueezebackAdManager.m */; };
+		202610050000000000000006 /* SqueezebackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202610050000000000000004 /* SqueezebackViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,10 @@
 		202609180000000000000002 /* PictureInPictureAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureInPictureAdManager.m; sourceTree = "<group>"; };
 		202609180000000000000003 /* PictureInPictureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureInPictureViewController.h; sourceTree = "<group>"; };
 		202609180000000000000004 /* PictureInPictureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureInPictureViewController.m; sourceTree = "<group>"; };
+		202610050000000000000001 /* SqueezebackAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqueezebackAdManager.h; sourceTree = "<group>"; };
+		202610050000000000000002 /* SqueezebackAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqueezebackAdManager.m; sourceTree = "<group>"; };
+		202610050000000000000003 /* SqueezebackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqueezebackViewController.h; sourceTree = "<group>"; };
+		202610050000000000000004 /* SqueezebackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqueezebackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,7 @@
 				4A96E71E1B856D5000031470 /* Supporting Files */,
 				A8B6503B2DD63FAB00AE1D3F /* Snippets */,
 				202609180000000000000007 /* PictureInPicture */,
+				202610050000000000000007 /* Squeezeback */,
 			);
 			path = APIDemo;
 			sourceTree = "<group>";
@@ -184,6 +191,17 @@
 				202609180000000000000004 /* PictureInPictureViewController.m */,
 			);
 			path = PictureInPicture;
+			sourceTree = "<group>";
+		};
+		202610050000000000000007 /* Squeezeback */ = {
+			isa = PBXGroup;
+			children = (
+				202610050000000000000001 /* SqueezebackAdManager.h */,
+				202610050000000000000002 /* SqueezebackAdManager.m */,
+				202610050000000000000003 /* SqueezebackViewController.h */,
+				202610050000000000000004 /* SqueezebackViewController.m */,
+			);
+			path = Squeezeback;
 			sourceTree = "<group>";
 		};
 		4A96E71E1B856D5000031470 /* Supporting Files */ = {
@@ -388,6 +406,8 @@
 				ADPRELOAD11 /* AdPreloaderSnippets.m in Sources */,
 				202609180000000000000005 /* PictureInPictureAdManager.m in Sources */,
 				202609180000000000000006 /* PictureInPictureViewController.m in Sources */,
+				202610050000000000000005 /* SqueezebackAdManager.m in Sources */,
+				202610050000000000000006 /* SqueezebackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
