@@ -21,31 +21,33 @@ import GoogleMobileAds_Private
 /// Singleton class that loads, manages lifecycle, and handles events for Picture-in-Picture (PiP)
 /// ads.
 @MainActor
-class PictureInPictureAdManager: NSObject, PictureInPictureAdDelegate {
+final class PictureInPictureAdManager: NSObject, PictureInPictureAdDelegate {
 
   static let shared = PictureInPictureAdManager()
 
   private(set) var pipAd: PictureInPictureAd?
-
   var onAdShownListener: (@MainActor () -> Void)?
   var onAdHiddenListener: (@MainActor () -> Void)?
+
+  /// A Boolean value indicating whether an ad is loaded and available to show.
+  var isAdAvailable: Bool {
+    pipAd != nil
+  }
 
   private override init() {
     super.init()
   }
 
   /// Loads a Picture-in-Picture ad.
-  @discardableResult
-  func loadAd() async throws -> PictureInPictureAd {
+  func loadAd() async throws {
     let ad = try await PictureInPictureAd.load(
       with: Constants.pictureInPictureAdUnitID,
       request: Request()
     )
     print("Picture-in-Picture ad loaded.")
     pipAd?.hide()
+    ad.delegate = self
     pipAd = ad
-    setAdEventCallback(ad)
-    return ad
   }
 
   /// Shows the Picture-in-Picture ad with the provided options.
@@ -66,18 +68,6 @@ class PictureInPictureAdManager: NSObject, PictureInPictureAdDelegate {
   func destroyAd() {
     pipAd?.hide()
     pipAd = nil
-  }
-
-  /// Checks if an ad exists and is available to show.
-  func isAdAvailable() -> Bool {
-    return pipAd != nil
-  }
-
-  private func setAdEventCallback(_ ad: PictureInPictureAd) {
-    ad.delegate = self
-    ad.paidEventHandler = { value in
-      print("Picture-in-Picture ad paid: \(value.value) \(value.currencyCode)")
-    }
   }
 
   // MARK: - PictureInPictureAdDelegate
@@ -104,6 +94,12 @@ class PictureInPictureAdManager: NSObject, PictureInPictureAdDelegate {
 
   func pictureInPictureAdDidRecordClick(_ pictureInPictureAd: PictureInPictureAd) {
     print("Picture-in-Picture ad recorded a click.")
+  }
+
+  func pictureInPictureAd(
+    _ pictureInPictureAd: PictureInPictureAd, didRecordPaidEventWith value: AdValue
+  ) {
+    print("Picture-in-Picture ad paid: \(value.value) \(value.currencyCode)")
   }
 
   func pictureInPictureAdWillPresentScreen(_ pictureInPictureAd: PictureInPictureAd) {

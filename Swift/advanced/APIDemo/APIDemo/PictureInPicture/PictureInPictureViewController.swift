@@ -44,34 +44,31 @@ class PictureInPictureViewController: UIViewController {
 
   private var selectedPosition: PictureInPictureAdPosition = .default
 
-  private var loadAdTask: Task<Void, Never>?
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Register callback listeners for ad shown / hidden events.
     PictureInPictureAdManager.shared.onAdShownListener = { [weak self] in
-      guard let self = self else { return }
+      guard let self else { return }
       self.showAdButton.isEnabled = false
       self.hideAdButton.isEnabled = true
       self.statusLabel.text = "Picture-in-Picture ad shown."
     }
 
     PictureInPictureAdManager.shared.onAdHiddenListener = { [weak self] in
-      guard let self = self else { return }
+      guard let self else { return }
       self.statusLabel.text = "Picture-in-Picture ad hidden."
-      self.showAdButton.isEnabled = PictureInPictureAdManager.shared.isAdAvailable()
+      self.showAdButton.isEnabled = PictureInPictureAdManager.shared.isAdAvailable
       self.hideAdButton.isEnabled = false
     }
 
-    showAdButton.isEnabled = PictureInPictureAdManager.shared.isAdAvailable()
+    showAdButton.isEnabled = PictureInPictureAdManager.shared.isAdAvailable
     hideAdButton.isEnabled = false
   }
 
   override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
     if isMovingFromParent {
-      loadAdTask?.cancel()
       PictureInPictureAdManager.shared.onAdShownListener = nil
       PictureInPictureAdManager.shared.onAdHiddenListener = nil
 
@@ -94,7 +91,7 @@ class PictureInPictureViewController: UIViewController {
     for item in positions {
       sheet.addAction(
         UIAlertAction(title: item.title, style: .default) { [weak self] _ in
-          guard let self = self else { return }
+          guard let self else { return }
           self.selectedPosition = item.position
           self.positionValueLabel.text = item.title
         }
@@ -117,28 +114,27 @@ class PictureInPictureViewController: UIViewController {
     hideAdButton.isEnabled = false
     statusLabel.text = "Loading Picture-in-Picture ad..."
 
-    loadAdTask?.cancel()
-    loadAdTask = Task {
+    Task { [weak self] in
       do {
-        _ = try await PictureInPictureAdManager.shared.loadAd()
-        guard !Task.isCancelled else { return }
-        statusLabel.text = "Picture-in-Picture ad loaded."
-        loadAdButton.isEnabled = true
-        showAdButton.isEnabled = true
-        hideAdButton.isEnabled = false
+        try await PictureInPictureAdManager.shared.loadAd()
+        guard let self else { return }
+        self.statusLabel.text = "Picture-in-Picture ad loaded."
+        self.loadAdButton.isEnabled = true
+        self.showAdButton.isEnabled = true
+        self.hideAdButton.isEnabled = false
       } catch {
-        guard !Task.isCancelled else { return }
-        statusLabel.text = "Picture-in-Picture ad failed to load: \(error.localizedDescription)"
-        loadAdButton.isEnabled = true
-        showAdButton.isEnabled = false
-        hideAdButton.isEnabled = false
+        guard let self else { return }
+        self.statusLabel.text =
+          "Picture-in-Picture ad failed to load: \(error.localizedDescription)"
+        self.loadAdButton.isEnabled = true
+        self.showAdButton.isEnabled = false
+        self.hideAdButton.isEnabled = false
       }
-      loadAdTask = nil
     }
   }
 
   @IBAction func showAdButtonTapped(_ sender: Any) {
-    guard PictureInPictureAdManager.shared.isAdAvailable() else {
+    guard PictureInPictureAdManager.shared.isAdAvailable else {
       statusLabel.text = "No ad loaded to show."
       return
     }
