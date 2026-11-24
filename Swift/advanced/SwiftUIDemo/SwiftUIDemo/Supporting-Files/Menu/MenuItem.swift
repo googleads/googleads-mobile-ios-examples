@@ -8,6 +8,7 @@ enum MenuItem: String, Identifiable {
   case inlineAdaptiveBanner = "Inline Adaptive Banner"
   case interstitial = "Interstitial"
   case native = "Native"
+  case pictureInPicture = "Picture-in-Picture"
   case rewarded = "Rewarded"
   case rewardedInterstitial = "Rewarded Interstitial"
 
@@ -28,6 +29,8 @@ extension MenuItem {
       InterstitialContentView(navigationTitle: self.rawValue)
     case .native:
       NativeContentView(navigationTitle: self.rawValue)
+    case .pictureInPicture:
+      PictureInPictureContentView(navigationTitle: self.rawValue)
     case .rewarded:
       RewardedContentView(navigationTitle: self.rawValue)
     case .rewardedInterstitial:
