@@ -29,6 +29,9 @@
 		A8F1A0042EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1A0032EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift */; };
 		A8F1A0062EC530A300123FC8 /* RestaurantMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F1A0052EC530A300123FC8 /* RestaurantMenuItem.swift */; };
 		A8F1A0082EC530A300123FC8 /* menuItemsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A8F1A0072EC530A300123FC8 /* menuItemsJSON.json */; };
+		A8F2B0022EC530A300123FC8 /* PictureInPictureAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F2B0012EC530A300123FC8 /* PictureInPictureAdManager.swift */; };
+		A8F2B0042EC530A300123FC8 /* PictureInPictureContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F2B0032EC530A300123FC8 /* PictureInPictureContentView.swift */; };
+		A8F2B0062EC530A300123FC8 /* PictureInPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F2B0052EC530A300123FC8 /* PictureInPictureViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		A8F1A0032EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineAdaptiveBannerViewModel.swift; sourceTree = "<group>"; };
 		A8F1A0052EC530A300123FC8 /* RestaurantMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenuItem.swift; sourceTree = "<group>"; };
 		A8F1A0072EC530A300123FC8 /* menuItemsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuItemsJSON.json; sourceTree = "<group>"; };
+		A8F2B0012EC530A300123FC8 /* PictureInPictureAdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureInPictureAdManager.swift; sourceTree = "<group>"; };
+		A8F2B0032EC530A300123FC8 /* PictureInPictureContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureInPictureContentView.swift; sourceTree = "<group>"; };
+		A8F2B0052EC530A300123FC8 /* PictureInPictureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureInPictureViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 				A8F1A0002EC530A300123FC8 /* Inline-Adaptive-Banner */,
 				A81C3A4728786EFF002BFF3B /* Interstitial */,
 				A841C7BA2885D0DF00C37F77 /* Native */,
+				A8F2B0002EC530A300123FC8 /* Picture-in-Picture */,
 				A88A283928AEEA27003946EE /* Rewarded */,
 				A88A283C28AEEA3A003946EE /* Rewarded-Interstitial */,
 				A8C744872864F7C200327C12 /* Supporting-Files */,
@@ -182,6 +189,17 @@
 			);
 			name = "Inline-Adaptive-Banner";
 			path = "SwiftUIDemo/Inline-Adaptive-Banner";
+			sourceTree = SOURCE_ROOT;
+		};
+		A8F2B0002EC530A300123FC8 /* Picture-in-Picture */ = {
+			isa = PBXGroup;
+			children = (
+				A8F2B0012EC530A300123FC8 /* PictureInPictureAdManager.swift */,
+				A8F2B0032EC530A300123FC8 /* PictureInPictureContentView.swift */,
+				A8F2B0052EC530A300123FC8 /* PictureInPictureViewModel.swift */,
+			);
+			name = "Picture-in-Picture";
+			path = "SwiftUIDemo/Picture-in-Picture";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -266,6 +284,9 @@
 				A8F1A0022EC530A300123FC8 /* InlineAdaptiveBannerContentView.swift in Sources */,
 				A8F1A0042EC530A300123FC8 /* InlineAdaptiveBannerViewModel.swift in Sources */,
 				A8F1A0062EC530A300123FC8 /* RestaurantMenuItem.swift in Sources */,
+				A8F2B0022EC530A300123FC8 /* PictureInPictureAdManager.swift in Sources */,
+				A8F2B0042EC530A300123FC8 /* PictureInPictureContentView.swift in Sources */,
+				A8F2B0062EC530A300123FC8 /* PictureInPictureViewModel.swift in Sources */,
 				A86D7F88289CD83A00496237 /* CountdownTimer.swift in Sources */,
 				A83664782BADFFA400F4183A /* RewardedInterstitialViewModel.swift in Sources */,
 				A88A283B28AEEA27003946EE /* RewardedContentView.swift in Sources */,

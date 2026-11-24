@@ -6,6 +6,7 @@ struct MenuView: View {
     .inlineAdaptiveBanner,
     .interstitial,
     .native,
+    .pictureInPicture,
     .rewarded,
     .rewardedInterstitial,
   ]
@@ -18,7 +19,13 @@ struct MenuView: View {
   var body: some View {
     NavigationView {
       List(items) { item in
-        NavigationLink(destination: item.contentView) {
+        NavigationLink(
+          destination: item.contentView.onAppear {
+            if item != .pictureInPicture {
+              PictureInPictureAdManager.shared.destroyAd()
+            }
+          }
+        ) {
           Text(item.rawValue)
         }
         .disabled(isMenuItemDisabled)
